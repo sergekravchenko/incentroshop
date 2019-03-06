@@ -43,13 +43,13 @@ IntershopCISetup {
          * the artifact repository.
          */
         //TODO: Provide a reverse domain name, e.g. 'com.corporate'
-        corporateName = 'test.corporatename'
+        corporateName = 'com.incentroshop'
 
         /**
          * Base URL for all repositories on the repository server.
          */
         //TODO: Provide URL (e.g. http://nexus:8081/nexus/content)
-        repoBaseURL = ''
+        repoBaseURL = 'http://nexusdemo.incentro.com:8081/nexus/content'
 
         /**
          *  A list of alternative host names. Can be used when having multiple
@@ -159,7 +159,7 @@ IntershopCISetup {
          * that contains all components (cartridges) and the assembly build.
          **/
         //TODO: Provide a name using only letters, numbers and underscores (no spaces or other special characters), e.g. 'corporateshop'
-        projectName = 'corporateshop'
+        projectName = 'incentroshop'
     }
 
     /**

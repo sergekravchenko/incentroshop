@@ -12,7 +12,7 @@ IntershopCISetup {
          * Base directory for all generated sources.
          **/
         //TODO: Provide an absolute path, e.g. '/home/developer/intershop-ci/source' on Linux resp.'C:/developer/intershop-ci' on Windows
-        setupDirectory = 'intershop-cisetup-sources'
+        setupDirectory = 'C:developer/intershop-ci'
 
         /**
          *  ... contains

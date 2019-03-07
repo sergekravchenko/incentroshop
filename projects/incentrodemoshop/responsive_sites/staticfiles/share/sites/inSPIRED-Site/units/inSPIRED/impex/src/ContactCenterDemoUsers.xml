@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<enfinity
+	xmlns="http://www.intershop.com/xml/ns/enfinity/6.3.1/core/impex"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:dt="http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt"
+	xsi:schemaLocation="http://www.intershop.com/xml/ns/enfinity/6.3.1/core/impex user.xsd
+						http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt dt.xsd"
+	major="6" minor="1" family="enfinity" branch="enterprise" build="">
+	<user business-partner-no="admin" import-mode="UPDATE">
+		<profile/>
+		<user-groups>
+			<user-group id="SLD_AR_20_CONTACTCENTER_REP" domain="inSPIRED"/>
+		</user-groups>
+	</user>
+	<user business-partner-no="CC_AR_Scott">
+		<business-partner-no>CC_AR_Scott</business-partner-no>
+		<profile>
+			<credentials>
+				<login>sanderson</login>
+				<password>!InterShop00!</password>
+				<enabled>1</enabled>
+			</credentials>
+			<desription>Contact Center Account Representative Scott.</desription>
+			<first-name>Scott</first-name>
+			<last-name>Anderson</last-name>
+			<email>sanderson@test.intershop.de</email>
+			<mail-confirmation>1</mail-confirmation>
+			<fax-confirmation>1</fax-confirmation>
+			<addresses>
+				<address name="Contact Address">
+					<company-name>inSPIRED ContactCenter Operating Inc.</company-name>
+					<address-name>Contact Address</address-name>
+					<first-name>Scott</first-name>
+					<last-name>Anderson</last-name>
+					<title>Mr.</title>
+					<city>Berlin</city>
+					<postal-code>10365</postal-code>
+					<street>Potsdamer Platz</street>
+					<street2>3rd Floor</street2>
+					<state/>
+					<country-code>DE</country-code>
+					<default-address>1</default-address>
+					<ship-to-address>1</ship-to-address>
+					<invoice-to-address>1</invoice-to-address>
+				</address>
+			</addresses>
+			<custom-attributes>
+				<custom-attribute name="PhoneHome" dt:dt="string"></custom-attribute>
+				<custom-attribute name="Fax" dt:dt="string"></custom-attribute>
+				<custom-attribute name="PhoneMobile" dt:dt="string"></custom-attribute>
+				<custom-attribute name="RoomNo" dt:dt="string"></custom-attribute>
+				<custom-attribute name="Location" dt:dt="string"></custom-attribute>
+				<custom-attribute name="PhoneBusiness" dt:dt="string"></custom-attribute>
+			</custom-attributes>
+		</profile>
+		<user-groups>
+			<user-group id="SLD_AR_20_CONTACTCENTER_REP" domain="inSPIRED"/>
+		</user-groups>
+	</user>
+	<user business-partner-no="CC_AR_Alvaro">
+		<business-partner-no>CC_AR_Alvaro</business-partner-no>
+		<profile>
+			<credentials>
+				<login>aacevedo</login>
+				<password>!InterShop00!</password>
+				<enabled>1</enabled>
+			</credentials>
+			<desription>Contact Center Account Representative Alvaro.</desription>
+			<first-name>Alvaro</first-name>
+			<second-name>C.</second-name>
+			<last-name>Acevedo</last-name>
+			<email>aacevedo@test.intershop.de</email>
+			<mail-confirmation>1</mail-confirmation>
+			<fax-confirmation>1</fax-confirmation>
+			<addresses>
+				<address name="Contact Address">
+					<company-name>inSPIRED ContactCenter Operating Inc.</company-name>
+					<address-name>Contact Address</address-name>
+					<first-name>Alvaro</first-name>
+					<second-name>C.</second-name>
+					<last-name>Acevedo</last-name>
+					<title>Mr.</title>
+					<city>Berlin</city>
+					<postal-code>10365</postal-code>
+					<street>Potsdamer Platz</street>
+					<street2>3rd Floor</street2>
+					<state/>
+					<country-code>DE</country-code>
+					<default-address>1</default-address>
+					<ship-to-address>1</ship-to-address>
+					<invoice-to-address>1</invoice-to-address>
+				</address>
+			</addresses>
+			<custom-attributes>
+				<custom-attribute name="PhoneHome" dt:dt="string"></custom-attribute>
+				<custom-attribute name="Location" dt:dt="string"></custom-attribute>
+				<custom-attribute name="RoomNo" dt:dt="string"></custom-attribute>
+				<custom-attribute name="PhoneBusiness" dt:dt="string"></custom-attribute>
+				<custom-attribute name="PhoneMobile" dt:dt="string"></custom-attribute>
+				<custom-attribute name="Fax" dt:dt="string"></custom-attribute>
+			</custom-attributes>
+		</profile>
+		<user-groups>
+			<user-group id="SLD_AR_20_CONTACTCENTER_REP" domain="inSPIRED"/>
+		</user-groups>
+	</user>
+</enfinity>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<enfinity xmlns:dt="http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt">
+<pagelet-entry-point id="page.helpdesk.buyersinfo.quickorder">
+<definition-name>app_sf_responsive:page.content.pagelet2-Page</definition-name>
+<page>true</page>
+<sorting>false</sorting>
+<parent domain="inSPIRED-inTRONICS_Business-smb-responsive" id="page.helpdesk.buyersinfo" position="3.0" resource-set="app_sf_responsive">
+</parent>
+<display-name xml:lang="de-DE">Schnellbestellung</display-name>
+<display-name xml:lang="en-US">Quick Order</display-name>
+<display-name xml:lang="fr-FR">Commande rapide</display-name>
+</pagelet-entry-point>
+<pagelet-pagelet-entry-point-assignment>
+<pagelet-entry-point domain="inSPIRED-inTRONICS_Business-smb-responsive" id="page.helpdesk.buyersinfo.quickorder" resource-set="app_sf_responsive"/>
+<pagelet domain="inSPIRED-inTRONICS_Business-smb-responsive" id="pg_helpdesk_quickOrder"/>
+<position>1</position>
+<online>true</online>
+</pagelet-pagelet-entry-point-assignment>
+</enfinity>

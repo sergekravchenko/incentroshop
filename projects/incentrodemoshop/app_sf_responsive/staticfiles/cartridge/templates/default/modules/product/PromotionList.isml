@@ -1,0 +1,57 @@
+<iscontent personalized="true" type="text/html" charset="UTF-8" compact="true">
+
+<ispipeline 
+	pipeline="ProcessPromotion-GetProductPromotions"
+	params="#ParamMap(ParamEntry('ProductBO', ProductBO), ParamEntry('MaxNumber', MaxNumber))#" 
+	alias="dict"/>
+
+<isinclude template="modules/marketing/Modules"/> 
+<ISPromotionISCache ProductUUID="#ProductBO:ID#">
+
+<isif condition="#hasElements(dict:ApplicablePromotions)#">
+	<ul class="promotion-list">
+		<isloop iterator="dict:ApplicablePromotions" alias="Promotion">
+
+			<iscachekey object="#Promotion#"/>
+			
+			<isif condition="#NOT(Promotion:DisableMessages)#">
+				<li class="promotion-list-item">
+					<iscomment>track the view event if the promotion is assigned to an A/B test, this must be a non cached url include</iscomment>
+					<isif condition="#Promotion:Extension("ABTest"):isUnderABTest#">
+						<isinclude url="#URL(Action('ViewABTesting-CallLogPromotionViewEvents'),Parameter('TestObjectID', Promotion:PersistentObject:UUID))#">
+					</isif>
+					
+					<isif condition="#DisplayType EQ 'simple'#">
+						<div class="promotion-short-title">
+							<isHtmlPrint value="#Promotion:Title(Locale)#">
+						</div>
+					<iselse>
+					    <div>
+							<div class="promotion-icon">
+								<isHtmlPrint value="#Promotion:Icon(Locale)#">
+							</div>
+							<div class="promotion-short-title">
+								<isHtmlPrint value="#Promotion:Title(Locale)#">
+							</div>
+							<br />
+							<div class="promotion-long-title"> 
+								<isHtmlPrint value="#Promotion:LongTitle(Locale)#">
+								<a 
+									<isif condition="#Promotion:UseExternalURL AND isDefined(Promotion:ExternalDetailsURL)#">
+										<!--- new page! --->
+										href="<isprint value="#Promotion:ExternalDetailsURL#">" class="details-link"
+									<iselse>
+										href="#URL(Action('ViewPromotion-Browse'),Parameter('PromotionIDs',Promotion:PromotionID), Parameter('DisplayType','dialog'))#"" class="details-link" data-dialog
+									</isif>
+									rel="nofollow" alt="<istext key="promotion.detailslink.label"/>">
+									<div class="promotion-details-link"><istext key="product.details.link" /></div>
+							    </a>
+							</div>
+						</div>
+					</isif>
+				</li>
+			</isif>
+		</isloop>
+	</ul>
+</isif>
+

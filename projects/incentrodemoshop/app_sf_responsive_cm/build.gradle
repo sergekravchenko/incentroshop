@@ -1,0 +1,35 @@
+apply plugin: 'static-cartridge'
+apply plugin: 'com.intershop.gradle.isml'
+
+intershop {
+    displayName = 'Application - Responsive Starter Store - Content Model'
+
+    //add output of the plugin the cartridge package
+    packages {
+        cartridge {
+            srcDir(isml2classMain)
+        }
+    }
+}
+
+dependencies {
+    compile project(':app_sf_responsive')
+    compile group: 'com.intershop.platform', name: 'bc_captcha'
+    compile group: 'com.intershop.business', name: 'bc_catalog'
+    compile group: 'com.intershop.business', name: 'bc_mvc'
+    compile group: 'com.intershop.business', name: 'bc_product'
+    compile group: 'com.intershop.business', name: 'sld_ch_sf_base'
+    compile group: 'com.intershop.business', name: 'sld_mcm'
+    compile group: 'com.intershop.business', name: 'sld_pdf'
+    compile group: 'com.intershop.business', name: 'sld_pmc'
+    compile group: 'com.intershop.business', name: 'xcs'
+    compile group: 'com.intershop.content', name: 'bc_pmc'
+    compile group: 'com.intershop.platform', name: 'bc_application'
+    compile group: 'com.intershop.platform', name: 'bc_foundation'
+    compile group: 'com.intershop.platform', name: 'bc_organization'
+    compile group: 'com.intershop.platform', name: 'businessobject'
+    compile group: 'com.intershop.platform', name: 'core'
+    compile group: 'com.intershop.platform', name: 'isml'
+    compile group: 'com.intershop.platform', name: 'pipeline'
+    compile group: 'com.intershop.platform', name: 'servletengine'
+}

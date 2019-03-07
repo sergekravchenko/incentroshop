@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<enfinity xmlns:dt="http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt">
+<pagelet-pagelet-entry-point-assignment>
+<pagelet-entry-point id="vc_productList/IncludeProduct" domain="inSPIRED-inTRONICS_Business-smb-responsive" resource-set="app_sf_responsive"/>
+<pagelet id="cmp_productList" domain="inSPIRED-inTRONICS_Business-smb-responsive"/>
+<position>1</position>
+<online>true</online>
+</pagelet-pagelet-entry-point-assignment>
+</enfinity>

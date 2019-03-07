@@ -1,0 +1,116 @@
+
+def pathPlaceholder(filter, placeholder, fileClosure) {
+	filter.placeholders[placeholder + '.SLASH'] = {fileClosure().absolutePath.replace('\\', '/')}
+	filter.placeholders[placeholder + '.BACKSLASH'] = {fileClosure().absolutePath.replace('/', '\\')}
+}
+
+apply plugin: com.intershop.deploy.assembly.TargetPlugin
+apply plugin: com.intershop.deploy.infrastructure.InfrastructureDeploymentPlugin
+
+deployment {
+	
+	if (project.parent.extensions.findByName('microservices') 
+		&& project.parent.extensions.findByName('eureka') 
+		&& project.parent.extensions.findByName('appserver')) {
+		
+		if (target.includeLocal) {
+		
+            files {
+                local {
+                    rename { String fileName ->
+                        fileName.replace('microservicesServicex', "microservicesService${target.instanceId}")
+                    }
+                }
+            }
+
+			filters {
+				def microServiceDir = target.localDirectory.absolutePath.replace('\\', '/') + '/microservices'
+				replacePlaceholders('eurekaConfig') {
+					dir = target.localDirectory
+					include 'microservices/config/*.properties'
+
+					placeholders['eurekaPort'] = microservices.port
+					placeholders['microserviceApplicationName'] = microservices.name
+                    placeholders['eurekaInstanceId'] = microservices.instanceId
+					placeholders['eurekaServerURL'] = eureka.serviceUrls['default']
+                    placeholders['intershopApplicationName'] = appserver.serviceAppName
+					                    
+				}
+                overrideProperties('microserviceConfig') {
+                    dir target.localDirectory
+                    include 'microservices/config/environment.properties'
+                                   
+                    microservices.configProperties.each { k,v ->
+                        properties["$k"] = v
+                    }
+                }
+                
+				replacePlaceholders('loggin') {
+					dir = target.localDirectory
+					include 'microservices/config/logback.xml'
+					placeholders['loggingDir'] = microServiceDir + '/log'
+				}
+				if (gradle.deployment.platform.isLinux) {
+					replacePlaceholders('startScriptLinux') {
+						dir = target.localDirectory
+						include "microservices/bin/microservicesService${target.instanceId}"
+
+						placeholders['osuser'] = assemblyDeployment.user
+						placeholders['javaHome'] = target.javaHome
+						placeholders['serviceName'] = "microservicesService${target.instanceId}"
+						placeholders['execPath'] = microServiceDir + '/bin'
+					}
+				}
+				if (gradle.deployment.platform.isWindows) {
+					replacePlaceholders('startScriptWindows') {
+						dir = target.localDirectory
+						include 'microservices/bin/microservicesService.xml'
+
+						placeholders['installPath'] = microServiceDir
+						def userDomain = user.tokenize('\\')
+						placeholders['osuser'] = userDomain[1]
+						placeholders['osuserpassword'] = ''
+						placeholders['windomain'] = userDomain[0]
+					}
+				}
+			}
+			services {
+				windows {
+					microservices {
+						serviceName = 'Intershop_Microservice' + target.instanceId
+
+						def dicoveryServerCall = new File(target.localDirectory, 'microservices/bin/microservices.bat').absolutePath
+
+						command = [
+							new File(target.localDirectory, 'microservices/bin/isservice.exe').absolutePath,
+							serviceName,
+							"\"$dicoveryServerCall\""
+						]
+
+						displayName = 'Intershop Microservices (MS '  + target.instanceId + ')'
+						startupType = com.intershop.deploy.resources.WindowsServiceDeployment.StartupType.ENABLED
+						user = assemblyDeployment.user
+					}
+				}
+				linux {
+					microservices {
+						serviceScript = new File(target.localDirectory, 'microservices/bin/microservicesService' + target.instanceId)
+						runLevels = [3, 5]
+					}
+				}
+			}
+		}
+		if (target.includeShare) {
+            filters {
+    			overrideProperties('appServerConfig') {
+    				dir target.shareDirectory
+    				include 'system/config/cluster/appserver.properties'
+    				
+    				properties['intershop.naming.service.RecurringOrder'] = microservices.configProperties['intershop.naming.service.RecurringOrder']
+    				properties['intershop.naming.service.Scheduling'] = microservices.configProperties['intershop.naming.service.Scheduling']
+    				properties['intershop.naming.service.Basket'] = appserver.serviceAppName
+                }
+            }
+		}
+	}
+}

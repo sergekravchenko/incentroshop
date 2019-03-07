@@ -1,0 +1,20 @@
+<!---[Comment]--->
+<iscontent type="text/html" charset="UTF-8" compact="true">
+
+<isset name="CostCenterExtension" value="#CurrentCartBO:Extension("BasketBOCostCenterExtension")#" scope="request" />
+<isset name="CostCenterBO" value="#CostCenterExtension:CostCenterBO#" scope="request"/>
+<isset name="CostCenterApprovers" value="#CostCenterBO:Approvers#" scope="request"/>
+
+<isif condition="#hasElements(CostCenterApprovers)#">
+	<p><istext key="approval.details.cost_center_approvers.people_allowed" parameter0="#CostCenterBO:DisplayName#"/></p>
+
+	<table class="table-condensed">
+		<isloop iterator="CostCenterApprovers" alias="Approver">
+			<tr>
+				<td><isprint value="#Approver:FirstName#"> <isprint value="#Approver:LastName#"></td>
+				<td><a href="mailto:<isprint value="#Approver:Login#">"><isprint value="#Approver:Login#"></a></td>
+				<td><isprint value="#Approver:PhoneBusiness#"></td>
+			</tr>
+		</isloop>
+	</table>
+</isif>

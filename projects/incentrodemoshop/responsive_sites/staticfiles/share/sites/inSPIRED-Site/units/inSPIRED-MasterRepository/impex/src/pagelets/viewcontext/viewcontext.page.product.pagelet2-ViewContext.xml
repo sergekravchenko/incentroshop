@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<enfinity xmlns:dt="http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt">
+<view-context id="viewcontext.page.product.pagelet2-ViewContext">
+<definition-name>app_sf_responsive:viewcontext.page.product.pagelet2-ViewContext</definition-name>
+<display-name xml:lang="de-DE">Produktseite</display-name>
+<display-name xml:lang="en-US">Product Page</display-name>
+<display-name xml:lang="fr-FR">Page produit</display-name>
+<description xml:lang="de-DE">Das ist der Seitenansichtskontext eines Produktes.</description>
+<description xml:lang="en-US">This is the page view context of a product</description>
+<description xml:lang="fr-FR">C&apos;est le contexte de vue de page d&apos;un produit.</description>
+</view-context>
+</enfinity>

@@ -1,0 +1,33 @@
+<iscontent personalized="true" type="application/json" charset="UTF-8" compact="true" templatemarker="false">
+
+{
+	"ProductsStatus":[
+		<isif condition="#(isDefined(Products)) AND (hasElements(Products))#">
+			<isloop iterator="Products" alias="Product">
+				{
+					"SKU" :   "<isprint value="#Product:SKU#"/>" ,
+					"Status": 	<isif condition="#Product:isAvailable EQ 'false'#"> 
+									"<istext key="quick.order.product.not.available"/>"
+								<iselse>
+									"true"
+								</isif>
+					,
+					"ErrorPlaceHolderID" : "<isprint value="#ProductsSkuMap:get(Product:SKU)#"/>"
+				}
+				<isif condition="#hasNext(Product)#">,</isif>
+			</isloop>
+		</isif>
+		<isif condition="#hasElements(Products) AND (isDefined(ProductNotExistSkus)) AND (hasElements(ProductNotExistSkus))#">,</isif>
+		<isif condition="#(isDefined(ProductNotExistSkus)) AND (hasElements(ProductNotExistSkus))#">
+			<isloop iterator="ProductNotExistSkus" alias="SKU">
+				{
+					"SKU" :   "<isprint value="#SKU#"/>",
+					"Status":  "<istext key="quick.order.product.doesnot.exist"/>"
+					,
+					"ErrorPlaceHolderID" : "<isprint value="#ProductsSkuMap:get(SKU)#"/>"
+				}
+				<isif condition="#hasNext(SKU)#">,</isif>
+			 </isloop>
+		</isif>
+	]
+}

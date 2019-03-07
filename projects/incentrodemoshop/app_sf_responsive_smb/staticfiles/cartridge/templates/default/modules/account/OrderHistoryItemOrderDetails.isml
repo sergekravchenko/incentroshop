@@ -1,0 +1,17 @@
+<iscontent type="text/html" charset="UTF-8" compact="true">
+
+<!--- Order Details --->
+<isif condition="#showOrderDetails EQ 'true'#">
+	<div class="clearfix visible-xs-block"></div>
+	<div class="col-sm-3 col-sm-pull-3 list-item">
+		<istext key="account.orderlist.orderDetails.orderNo.label"> <a href="#URLEX(SecureURL,'',Action('ViewOrders-Detail'), Parameter('OrderID', OrderBO:ID))#"><isprint value="#OrderBO:DocumentNo#"></a><br/>
+		<isif condition="#OrderBO:ExtensibleObject:AttributeValue("orderReferenceID"):StringValue NE ''#">
+			<istext key="account.orderlist.orderDetails.orderReferenceID.label"> <isprint value="#OrderBO:ExtensibleObject:AttributeValue("orderReferenceID"):StringValue#"><br/>
+		</isif>
+		<br /><istext key="account.orderlist.orderDetails.items.label"> <isprint value="#OrderBO:TotalProductQuantity#" style="QUANTITY_SHORT"><br/>
+		<isif condition="#showPurchaser EQ 'true'#">
+			<istext key="account.orderlist.orderDetails.purchaser.label"> 
+			<isprint value="#OrderBO:BuyerFirstName#"> <isprint value="#OrderBO:BuyerLastName#"><br/>
+		</isif>		
+	</div>
+</isif>

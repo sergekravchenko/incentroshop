@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pagelet:PageletModel xmlns:pagelet="http://www.intershop.de/pagelet/2010" name="component.common.carousel.pagelet2">
+  <pageletDefinitions name="Component">
+    <callParameterInterfaces referencedName="app_sf_responsive_cm:interface.common.content.pagelet2-Interface"/>
+    <configurationParameterDefinitions name="ShowIndicators" optional="true" localizable="false"
+        typeReference="bc_pmc:types.pagelet2-Boolean"/>
+    <configurationParameterDefinitions name="StartCycling" optional="true" localizable="false"
+        typeReference="bc_pmc:types.pagelet2-Boolean"/>
+    <configurationParameterDefinitions name="SlideInterval" optional="true" localizable="false"
+        typeReference="bc_pmc:types.pagelet2-Integer"/>
+    <configurationParameterDefinitions name="SlideItems" optional="true" localizable="false"
+        typeReference="bc_pmc:types.pagelet2-Integer"/>
+    <configurationParameterDefinitions name="CSSClass" optional="true" localizable="false"
+        typeReference="bc_pmc:types.pagelet2-Text"/>
+    <configurationParameterDefinitions name="CarouselCSSClass" optional="true" localizable="false"
+        typeReference="bc_pmc:types.pagelet2-Text"/>
+    <renderTemplate referencedName="component/common/Carousel"/>
+    <slotInclusionDefinitions>
+      <slotDefinition referencedName="app_sf_responsive_cm:slot.carousel.items.pagelet2-Slot"/>
+    </slotInclusionDefinitions>
+  </pageletDefinitions>
+</pagelet:PageletModel>

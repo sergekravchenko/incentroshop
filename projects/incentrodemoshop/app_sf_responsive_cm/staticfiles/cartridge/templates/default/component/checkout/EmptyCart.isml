@@ -1,0 +1,30 @@
+<iscontent type="text/html" charset="UTF-8" compact="true">
+
+<isinclude template="cart/ProductIsNotAvailable" dictionary="Dictionary">
+<!---isinclude global error message --->
+<isShoppingCartGlobalErrorMsg 
+	addToBasketResults="#Dictionary:AddToBasketResults#"
+	removeFromBasketResultsInventory="#Dictionary:RemoveFromBasketResultsByInventory#"
+	removeFromBasketResultsWithoutPrice="#Dictionary:RemovedItemsWithoutPrice#"
+	basketValidationResults="#Dictionary:BasketValidationResults#"
+	orderCreationResult="#Dictionary:OrderCreationResult#"
+>
+
+<div class="empty-cart" data-cart-page>
+	<img class="empty-cart-icon" src="#Webroot()#/img/checkout/empty-cart.png" alt="<istext key="shopping_cart.empty.alt.text" encoding="off">"/>
+	
+	<h2><istext key="shopping_cart.empty.text" encoding="off"></h2>
+	
+	<a href="#URLEX(InsecureURL,'',Action('ViewHomepage-Start'))#" class="btn btn-primary btn-lg">
+		<istext key="shopping_cart.detailed.continue_shopping.link">
+	</a>
+</div>
+
+<ISIncludeTrackingTool template="BasketChangeAdd">
+<ISIncludeTrackingTool template="BasketChangeRemove">
+<ISIncludeTrackingTool template="BasketChangeQuantities">
+<ISIncludeTrackingTool template="BasketChangeVariations">
+
+<div class="marketing-area">
+	<isslot slot="app_sf_responsive_cm:slot.marketing.content.pagelet2-Slot">
+</div>

@@ -1,0 +1,20 @@
+<iscontent type="text/html" charset="UTF-8" compact="true">
+<iscache type="forbidden">
+
+<!--- ociFieldIndex is of type double, this formats values of '1.0' to '1' to get proper index string --->
+<isset scope="request" name="index" value="#getValue(ociFieldIndex,INTEGER)#">
+   <isif condition="#NOT isDefined(useRelatedWarrantyFlag)#"><isset name="useRelatedWarrantyFlag" value="false" scope="request"></isif>
+<isset name="PliPunchout" value="#PLI:Extension("Punchout")#" scope="request">
+
+<!--- Either NEW_ITEM-DESCRIPTION[n] or NEW_ITEM-MATNR[n] must be filled. Only one of the two should be filled --->
+
+<isloop iterator="ConfigurationData:ConfigurationFieldsList" alias="ociFieldName">
+    <isset name="ociFieldValue" value="#PliPunchout:Value(ociFieldName, useRelatedWarrantyFlag)#" scope="request">
+    <isif condition="#isDefined(ociFieldValue)#">
+    	<isif condition="#ociFieldName EQ 'NEW_ITEM-LONGTEXT'#">
+			<input type="hidden" name="<isprint value="#ociFieldName#">_<isprint value="#index#">:132[]" value="#stringToHtml(ociFieldValue)#">
+      	<iselse>
+			<input type="hidden" name="<isprint value="#ociFieldName#">[<isprint value="#index#">]" value="#stringToHtml(ociFieldValue)#">
+      	</isif>
+   	</isif>
+</isloop>

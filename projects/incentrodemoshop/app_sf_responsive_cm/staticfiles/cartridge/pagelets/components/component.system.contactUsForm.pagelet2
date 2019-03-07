@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pagelet:PageletModel xmlns:pagelet="http://www.intershop.de/pagelet/2010" name="component.system.contactUsForm.pagelet2">
+  <pageletDefinitions name="Component">
+    <callParameterDefinitions optional="true" name="ContactUsForm" type="com.intershop.beehive.core.capi.webform.Form"/>
+    <callParameterDefinitions optional="true" name="ERROR" type="java.lang.String"/>
+    <callParameterDefinitions optional="true" name="PageletEntryPointID" type="java.lang.String"/>
+    <callParameterDefinitions name="CurrentOrganization" type="com.intershop.component.organization.capi.Organization"/>
+    <callParameterInterfaces referencedName="app_sf_responsive_cm:interface.staticPage.content.pagelet2-Interface"/>
+    <renderTemplate referencedName="component/system/ContactUsForm"/>
+    <renderPipeline referencedName="RenderPagelet-InitContactForm"/>
+  </pageletDefinitions>
+</pagelet:PageletModel>

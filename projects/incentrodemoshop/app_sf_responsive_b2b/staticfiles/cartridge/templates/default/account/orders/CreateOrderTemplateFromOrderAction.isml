@@ -1,0 +1,10 @@
+<div class="clearfix section section-seperator">
+	<p>
+		<a data-dialog
+			href="#URL(Action('ViewAjax-Start'), Parameter('TargetPipeline', 'ViewOrderTemplate-ShowCreateFromOrderDialog'), Parameter('OrderID', OrderBO:ID))#"
+			class="btn btn-default getquickmodal"
+			title="<istext key="account.order_template.list.button.add_template.label" />">
+			<istext key="approval.order_details.create_order_template.link" />
+		</a>
+	</p>
+</div>

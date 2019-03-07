@@ -1,0 +1,9 @@
+<iscontent type="text/html" charset="UTF-8" compact="true">
+
+<h1><istext key="gdpr.confirmation.link.expired.title" /></h1>
+
+<p><istext key="gdpr.confirmation.link.expired.message" /></p>
+
+<p><istext key="gdpr.confirmation.link.expired.message.contactus"
+		parameter0="#encodeValue(URL(Action('ViewContent-Start'), Parameter('PageletEntryPointID','systempage.helpdesk.contactUs.pagelet2-Page')))#" 
+		encoding="off" /></p>

@@ -1,0 +1,18 @@
+<!---[Comment]--->
+<iscontent type="text/html" charset="UTF-8" compact="true">
+
+<ispipeline pipeline="ProcessOrderApproval-GetApprovalUsers" params="#ParamMap(ParamEntry("CustomerBO", CurrentCustomerBO))#" alias="ApprovalUsersDictionary"/>
+
+<isif condition="#hasElements(ApprovalUsersDictionary:ApprovalUsers)#">
+	<p><istext key="approval.details.customer_approvers.people_allowed" /></p>
+
+	<table class="table-condensed">
+		<isloop iterator="ApprovalUsersDictionary:ApprovalUsers" alias="Approver">
+			<tr>
+				<td><isprint value="#Approver:FirstName#"> <isprint value="#Approver:LastName#"></td>
+				<td><a href="mailto:<isprint value="#Approver:Login#">"><isprint value="#Approver:Login#"></a></td>
+				<td><isprint value="#Approver:PhoneBusiness#"></td>
+			</tr>
+		</isloop>
+	</table>
+</isif>

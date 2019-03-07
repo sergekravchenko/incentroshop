@@ -1,0 +1,80 @@
+<iscontent type="text/html" charset="UTF-8" compact="true">
+<iscache type="forbidden">
+
+<isinclude template="modules/B2BModules">
+
+<ispipeline pipeline="ProcessUser-GetCurrentUserBO" alias="GetCurrentUserBODict">
+<ispipeline pipeline="ProcessUser-GetUserRole" alias="UserRoleDict">
+
+<iscomment>TODO all checks must use a permission (not a role) when ready</iscomment>
+<isset name="IsOCIUser" value="#GetCurrentUserBODict:CurrentUserBO:Extension("UserBORoleExtension"):hasRole("APP_B2B_OCI_USER")#" scope="request">
+
+<div class="breadcrumbs row">
+	<isAccountBreadcrumb trailtext="#localizeText('account.overview.link')#">
+</div>
+
+<!--- Marketing slot --->
+<div class="marketing-area">
+	<ISMarketingSlot id="baseMarketing">
+</div>
+
+<div class="account-wrapper" data-testing-id="account-page">
+	<div class="row account-main">
+		
+		<!--- Left Navigation Panel --->
+		<div class="col-md-3 account-nav-box">
+			<isAccountNavigation selecteditem="Overview">
+		</div>
+		<isif condition="#isDefined(UserRoleDict:UserRole)#">
+			<isUserPermissionMap User="#GetCurrentUserBODict:CurrentUserBO#" UserPermissionMap="UserPermissionMap">
+		</isif>
+		
+		<div class="col-md-9">
+			<!--- Marketing slot --->
+			<div class="marketing-area">
+				<ISMarketingSlot id="contentMarketing">
+			</div>
+				
+			<h1>
+				<isif condition="#isDefined(CurrentUser:Profile:DataSheet:FirstName) AND (CurrentUser:Profile:DataSheet:FirstName NE '')#">
+					<!--- B2B --->
+					<istext key="account.overview.personal_message.text"
+						encoding="off" 
+						parameter0="#encodeValue(CurrentUser:Profile:DataSheet:FirstName).' '.encodeValue(CurrentUser:Profile:DataSheet:LastName)#" 
+						parameter1="#encodeValue(CustomerBO:Extension("CompanyCustomer"):CompanyName)#"
+					/>
+				<iselse>
+					<istext key="account.overview.personal_message.text"
+						encoding="off" 
+						parameter0="#encodeValue(CurrentUser:Profile:Credentials:Login)#"
+						parameter1="#encodeValue(CustomerBO:Extension("CompanyCustomer"):CompanyName)#"
+					/>
+				</isif>
+			</h1>
+			<isif condition="#NOT IsOCIUser#">
+				<p><istext key="account.overview.message.text"/></p>
+			
+				<isif condition="#isDefined(UserPermissionMap:get("APP_B2B_PURCHASE"))#">
+					<isinclude template="account/dashboard/OrderWidget">
+				</isif>
+
+				<isif condition="#isDefined(UserPermissionMap:get("APP_B2B_ORDER_APPROVAL")) OR
+				  (isDefined(UserPermissionMap:get("APP_B2B_MANAGE_COSTCENTER")) AND hasElements(BusinessObjectDict:UserBO:Extension("CostCenter"):ManagedCostCenterBOs))#">
+					<isinclude template="account/dashboard/ApprovalWidget">
+				</isif>
+			</isif>
+			<isinclude template="account/dashboard/OrderTemplateWidget">
+			<isif condition="#NOT IsOCIUser#">
+				<isif condition="#isDefined(UserPermissionMap:get("APP_B2B_MANAGE_USERS"))#">
+					<isinclude template="account/dashboard/UserBudgetWidget">
+				</isif>			
+			</isif>
+			
+			<isinclude extensionpoint="DashboardWidgets">
+			
+			<!--- Note --->
+			<isinclude template="account/inc/PrivacyPolicyNote">
+		</div>
+	
+	</div>
+</div>

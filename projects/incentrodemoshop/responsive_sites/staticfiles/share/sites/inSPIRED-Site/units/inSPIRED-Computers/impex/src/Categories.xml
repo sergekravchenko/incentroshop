@@ -1,0 +1,1860 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<enfinity xmlns="http://www.intershop.com/xml/ns/enfinity/7.1/xcs/impex" xmlns:dt="http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" branch="enterprise" build="build" family="enfinity" major="6" minor="1" xsi:schemaLocation="http://www.intershop.com/xml/ns/enfinity/7.1/xcs/impex catalog.xsd http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt dt.xsd">
+<category name="897_HP">
+<name>897_HP</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<display-name xml:lang="de-DE">Motherboards</display-name>
+<description xml:lang="de-DE">Das Motherboard oder Mainboard ist die Komponente, die die verschiedenen Teile des Computers verbindet. Oft verfügt es über einige integrierte Komponenten, wie eine Soundkarte, damit Ihr Computer Klängen abspielen kann oder eine Netzwerk-Karte, um Ihren Computer mit einem Netzwerk zu verbinden. Der Standard-Formfaktor (Größe) für Motherboards ist ATX. Sie benötigen mindestens einen Midi-Tower um diesen unterzubringen. Micro-ATX Motherboards fit sind oft kompletter und haben mehr Onboard-Geräte, wie z.B. ein Video Board und passen in kleineres Gehäust, sind aber in den meisten Fällen weniger erweiterbar.</description>
+<display-name xml:lang="fr-FR">Cartes mères</display-name>
+<display-name xml:lang="en-US">Motherboards</display-name>
+<parent name="106"/>
+<images>
+<image-ref domain="inSPIRED-MasterRepository" image-base-name="M/3105978-8635.jpg" image-type="M" image-view="front"/>
+</images>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="fr-FR">True</custom-attribute>
+<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="en-US">True</custom-attribute>
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+</custom-attributes>
+</category>
+<category name="298">
+<name>298</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<display-name xml:lang="de-DE">Taschen für Speichermedien</display-name>
+<display-name xml:lang="fr-FR">Etuis pour supports de stockage</display-name>
+<display-name xml:lang="en-US">Storage Media Cases</display-name>
+<description xml:lang="de-DE">Diese Waren helfen Ihnen bei der Organisation Ihrer Speichermedien-Sammlung, und erhöhen ihre Lebensdauer.\nCD/DVD-Hüllen halten Ihre CDs / DVDs sauber und frei von Kratzern und machen sie leicht organisierbar.</description>
+<parent name="206"/>
+<images>
+<image-ref domain="inSPIRED-MasterRepository" image-base-name="M/3115300-4826.jpg" image-type="M" image-view="front"/>
+</images>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="fr-FR">True</custom-attribute>
+<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="en-US">True</custom-attribute>
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+</custom-attributes>
+</category>
+<category name="963">
+<name>963</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<display-name xml:lang="fr-FR">Blocs d’alimentation</display-name>
+<display-name xml:lang="en-US">Power Supply Units</display-name>
+<display-name xml:lang="de-DE">Spannungsversorgung</display-name>
+<parent name="816"/>
+<images>
+<image-ref domain="inSPIRED-MasterRepository" image-base-name="M/6249793-6230.jpg" image-type="M" image-view="front"/>
+</images>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="fr-FR">True</custom-attribute>
+<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="en-US">True</custom-attribute>
+</custom-attributes>
+</category>
+<category name="194">
+<name>194</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<position>1.0</position>
+<category-links>
+</category-links>
+<display-name xml:lang="fr-FR">Claviers</display-name>
+<display-name xml:lang="en-US">Keyboards</display-name>
+<description xml:lang="de-DE">Die Tastatur ist das wichtigste Input-Peripheriegerät und wird von allen Computern genutzt. Die Tastatur ermöglicht Benutzereingaben und Interaktion mit dem Computer. Ähnlich wie viele Schreibmaschinen verfügt die Tastatur über alle Buchstaben des Alphabets, die Ziffern 0 bis 9 und weitere spezielle operative Tasten, z.B. zur Einstellung der Lautstärke oder &amp;quot;Gehen Sie direkt zu Ihrem Posteingang&amp;quot;. Es gibt drei verschiedene Verbindungsarten:\n- USB ist die modernste. Man kann sie durch den rechteckigen Stecker zu erkennen.\n- PS/2 Anschlüsse sind rund. Diese Art der Verbindung ist recht geläufig für PCs.\n- Bluetooth ist eine weitere moderne (drahtlose) Verbindungsmethode. \n</description>
+<display-name xml:lang="de-DE">Tastaturen</display-name>
+<parent name="191"/>
+<images>
+<image-ref domain="inSPIRED-MasterRepository" image-base-name="M/M_201807197_front.jpg" image-type="M" image-view="front"/>
+</images>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="fr-FR">True</custom-attribute>
+<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="en-US">True</custom-attribute>
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+</custom-attributes>
+</category>
+<category name="3003">
+<name>3003</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<description xml:lang="de-DE">Backpacks, Notebook Bags &amp; Cases</description>
+<display-name xml:lang="fr-FR">Sacs à dos, sacs pour ordinateurs portables et sacoches</display-name>
+<display-name xml:lang="en-US">Backpacks, Notebook Bags &amp; Cases</display-name>
+<display-name xml:lang="de-DE">Backpacks, Notebook Bags &amp; Cases</display-name>
+<description xml:lang="fr-FR">Sacs à dos, sacs pour ordinateurs portables et sacoches</description>
+<description xml:lang="en-US">Backpacks, Notebook Bags &amp; Cases</description>
+<parent name="1835"/>
+<images>
+<image-ref domain="inSPIRED-MasterRepository" image-base-name="M/3669360-3800.jpg" image-type="M" image-view="front"/>
+</images>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="fr-FR">True</custom-attribute>
+<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="en-US">True</custom-attribute>
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+</custom-attributes>
+</category>
+<category name="814">
+<name>814</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<display-name xml:lang="fr-FR">Piles rechargeables</display-name>
+<display-name xml:lang="en-US">Rechargeable Batteries</display-name>
+<description xml:lang="de-DE">In dieser Kategorie finden Sie alle Akkus (wiederaufladebare Batterien), die Sie jemals brauchen werden, geeignet für den Einsatz in Taschenlampen, Digitalkameras, Notebooks, etc.</description>
+<display-name xml:lang="de-DE">Wiederaufladbare Batterien / Akkus</display-name>
+<parent name="816"/>
+<images>
+<image-ref domain="inSPIRED-MasterRepository" image-base-name="M/3455501-6073.jpg" image-type="M" image-view="front"/>
+</images>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="fr-FR">True</custom-attribute>
+<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="en-US">True</custom-attribute>
+</custom-attributes>
+</category>
+<category name="897_Hanvon">
+<name>897_Hanvon</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<description xml:lang="fr-FR">Hanvon</description>
+<description xml:lang="en-US">Hanvon</description>
+<description xml:lang="de-DE">Hanvon</description>
+<display-name xml:lang="de-DE">Hanvon</display-name>
+<display-name xml:lang="fr-FR">Hanvon</display-name>
+<display-name xml:lang="en-US">Hanvon</display-name>
+<parent name="897"/>
+<images>
+<image-ref domain="inSPIRED-MasterRepository" image-base-name="M/5845539-587.jpg" image-type="M" image-view="front"/>
+</images>
+<searchquery-definition-name>only_hanvon_tablets_filter</searchquery-definition-name>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="fr-FR">True</custom-attribute>
+<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="en-US">True</custom-attribute>
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+</custom-attributes>
+</category>
+<category name="1388">
+<name>1388</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<display-name xml:lang="de-DE">Überspannungsschutz</display-name>
+<display-name xml:lang="fr-FR">Protecteurs de surtension</display-name>
+<display-name xml:lang="en-US">Surge Protectors</display-name>
+<parent name="816"/>
+<images>
+<image-ref domain="inSPIRED-MasterRepository" image-base-name="M/1402009-1998.jpg" image-type="M" image-view="front"/>
+</images>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="fr-FR">True</custom-attribute>
+<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="en-US">True</custom-attribute>
+</custom-attributes>
+</category>
+<category name="1307">
+<name>1307</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<display-name xml:lang="fr-FR">Câbles audio/vidéo</display-name>
+<display-name xml:lang="en-US">Audio/Video Cables</display-name>
+<display-name xml:lang="de-DE">Audio-/Videokabel</display-name>
+<parent name="830"/>
+<images>
+<image-ref domain="inSPIRED-MasterRepository" image-base-name="M/363024-2000.jpg" image-type="M" image-view="front"/>
+</images>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="fr-FR">True</custom-attribute>
+<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="en-US">True</custom-attribute>
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+</custom-attributes>
+</category>
+<category name="692">
+<name>692</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<display-name xml:lang="de-DE">Druckerpapier</display-name>
+<display-name xml:lang="fr-FR">Papier pour imprimante</display-name>
+<display-name xml:lang="en-US">Printer Paper</display-name>
+<parent name="373"/>
+<images>
+<image-ref domain="inSPIRED-MasterRepository" image-base-name="M/4719756-7122.jpg" image-type="M" image-view="front"/>
+</images>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="fr-FR">True</custom-attribute>
+<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="en-US">True</custom-attribute>
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+</custom-attributes>
+</category>
+<category name="106">
+<name>106</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<position>8.0</position>
+<category-links>
+</category-links>
+<display-name xml:lang="fr-FR">Composants matériels</display-name>
+<display-name xml:lang="en-US">Hardware Components</display-name>
+<description xml:lang="de-DE">Eine Hardware-Komponente eines Computers.</description>
+<display-name xml:lang="de-DE">Hardware Komponenten</display-name>
+<description xml:lang="fr-FR">Composants matériels des ordinateurs.</description>
+<description xml:lang="en-US">Hardware components of computers.</description>
+<parent name="Computers"/>
+<images>
+<image-ref domain="inSPIRED-MasterRepository" image-base-name="M/1342484-1957.jpg" image-type="M" image-view="front"/>
+</images>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="fr-FR">True</custom-attribute>
+<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="en-US">True</custom-attribute>
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+</custom-attributes>
+</category>
+<category name="817">
+<name>817</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>0</online>
+<category-links>
+</category-links>
+<display-name xml:lang="fr-FR">Alimentations sans coupure (UPS)</display-name>
+<display-name xml:lang="en-US">Uninterruptible Power Supplies (UPS)</display-name>
+<display-name xml:lang="de-DE">Unterbrechungsfreie Stromversorgung UPS</display-name>
+<description xml:lang="de-DE">Sobald Sie eine USV (unterbrechungsfreie Stromversorgung) haben, brauchen Sie keine Angst mehr vor Datenverluste aufgrund von Stromausfällen zu haben. Wenn die Dauer des Ausfalls kurz ist, können Sie ungestört weiterarbeiten, und wenn es länger dauert, haben Sie mehr als genug Zeit, Ihre Arbeit zu speichern und Ihren Computer sicher auszuschalten.</description>
+<parent name="816"/>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="fr-FR">True</custom-attribute>
+<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="en-US">True</custom-attribute>
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+</custom-attributes>
+</category>
+<category name="922">
+<name>922</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<display-name xml:lang="fr-FR">Imprimantes photo</display-name>
+<display-name xml:lang="en-US">Photo Printers</display-name>
+<description xml:lang="de-DE">Fotodrucker können lassen Sie digitale Fotos ausdrucken, oft sogar direkt aus einer Digitalkamera, so dass Sie nicht einmal einen Computer benötigen, um Ihre Fotos zu drucken. Wenn Sie einen solchen Drucker zu Hause haben, können Sie das Fotostudio vergessen!</description>
+<display-name xml:lang="de-DE">Fotodrucker</display-name>
+<parent name="225"/>
+<images>
+<image-ref domain="inSPIRED-MasterRepository" image-base-name="M/675221-983.jpg" image-type="M" image-view="front"/>
+</images>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="fr-FR">True</custom-attribute>
+<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="en-US">True</custom-attribute>
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+</custom-attributes>
+</category>
+<category name="377">
+<name>377</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<description xml:lang="de-DE">Patronen für Tintenstrahldrucker.</description>
+<display-name xml:lang="fr-FR">Cartouches d’encre</display-name>
+<display-name xml:lang="en-US">Ink Cartridges</display-name>
+<display-name xml:lang="de-DE">Tintenpatronen</display-name>
+<parent name="373"/>
+<images>
+<image-ref domain="inSPIRED-MasterRepository" image-base-name="M/3797228-4402.jpg" image-type="M" image-view="front"/>
+</images>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="fr-FR">True</custom-attribute>
+<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="en-US">True</custom-attribute>
+</custom-attributes>
+</category>
+<category name="830">
+<name>830</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<display-name xml:lang="de-DE">Kabel</display-name>
+<display-name xml:lang="fr-FR">Câbles</display-name>
+<display-name xml:lang="en-US">Cables</display-name>
+<parent name="106"/>
+<images>
+<image-ref domain="inSPIRED-MasterRepository" image-base-name="M/120244-69.jpg" image-type="M" image-view="front"/>
+</images>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="fr-FR">True</custom-attribute>
+<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="en-US">True</custom-attribute>
+</custom-attributes>
+</category>
+<category import-mode="UPDATE" name="Computers">
+<name>Computers</name>
+<root>1</root>
+<product-assignment-query/>
+<template/>
+<online>1</online>
+<category-links>
+<category-link domain="inSPIRED-inTRONICS_Business-servers" name="servers">
+<category-link-type name="ES_CrossSelling_C"/>
+</category-link>
+</category-links>
+<description xml:lang="fr-FR">Le catalogue des services et produits informatiques.</description>
+<display-name xml:lang="de-DE">Computer</display-name>
+<description xml:lang="en-US">The Computers products and services catalog.</description>
+<description xml:lang="de-DE">Der Produkt- und Servicekatalog für Computer.</description>
+<display-name xml:lang="fr-FR">Ordinateurs</display-name>
+<display-name xml:lang="en-US">Computers</display-name>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="ShowInMenu">True</custom-attribute>
+<custom-attribute dt:dt="boolean" name="RobotsNoFollow">true</custom-attribute>
+<custom-attribute dt:dt="boolean" name="RobotsNoIndex">true</custom-attribute>
+</custom-attributes>
+</category>
+<category name="897_HP">
+<name>897_HP</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<description xml:lang="fr-FR">HP</description>
+<description xml:lang="en-US">HP</description>
+<display-name xml:lang="de-DE">HP</display-name>
+<display-name xml:lang="fr-FR">HP</display-name>
+<display-name xml:lang="en-US">HP</display-name>
+<description xml:lang="de-DE">HP</description>
+<parent name="897"/>
+<images>
+<image-ref domain="inSPIRED-MasterRepository" image-base-name="M/9403799-8267.jpg" image-type="M" image-view="front"/>
+</images>
+<searchquery-definition-name>only_hp_tablets_filter</searchquery-definition-name>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="fr-FR">True</custom-attribute>
+<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="en-US">True</custom-attribute>
+</custom-attributes>
+</category>
+<category name="1637">
+<name>1637</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<position>3.0</position>
+<category-links>
+</category-links>
+<display-name xml:lang="fr-FR">Casques</display-name>
+<display-name xml:lang="en-US">Headsets</display-name>
+<display-name xml:lang="de-DE">Headsets</display-name>
+<parent name="191"/>
+<images>
+<image-ref domain="inSPIRED-MasterRepository" image-base-name="M/4805042-118.jpg" image-type="M" image-view="front"/>
+</images>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="fr-FR">True</custom-attribute>
+<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="en-US">True</custom-attribute>
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+</custom-attributes>
+</category>
+<category name="858">
+<name>858</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<display-name xml:lang="fr-FR">Lecteurs de cartes</display-name>
+<display-name xml:lang="en-US">Card Readers</display-name>
+<display-name xml:lang="de-DE">Kartenleser</display-name>
+<description xml:lang="de-DE">Kartenleser und Laufwerke mit integriertem Card-Reader zum Lesen/Schreiben von/auf Flash-Speicherkarten, zum Beispiel von Ihrer Digitalkamera oder Ihrem Handy.</description>
+<parent name="206"/>
+<images>
+<image-ref domain="inSPIRED-MasterRepository" image-base-name="M/8628189-6014.jpg" image-type="M" image-view="front"/>
+</images>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+ 
+<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="fr-FR">True</custom-attribute>
+<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="en-US">True</custom-attribute>
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+</custom-attributes>
+</category>
+<category name="903">
+<name>903</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<display-name xml:lang="fr-FR">Panneaux plasma</display-name>
+<display-name xml:lang="en-US">Plasma Panels</display-name>
+<description xml:lang="de-DE">Plasma-Panels haben ziemlich große Pixel und sind daher meist in großen Größen erhältlich. Diese Bildschirme sind flach und dünn, und ihre große Vorteil gegenüber LCD-Bildschirmen ist, dass Sie die gleichen Farben sehen, unabhängig des Betrachtungswinkels aus welchem Sie den Bildschirm anschauen. Plasma-Panels eignen sich sehr gut zum Einsatz als Fernseher oder zur Anzeige von Informationen und Werbung im öffentlichen Raum.</description>
+<display-name xml:lang="de-DE">Plasma-Bildschirme</display-name>
+<parent name="3001"/>
+<images>
+<image-ref domain="inSPIRED-MasterRepository" image-base-name="M/10716008-2354.jpg" image-type="M" image-view="front"/>
+</images>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+ 
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="fr-FR">True</custom-attribute>
+<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="en-US">True</custom-attribute>
+</custom-attributes>
+</category>
+<category name="1284">
+<name>1284</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<display-name xml:lang="de-DE">Notebook Zubehör</display-name>
+<display-name xml:lang="fr-FR">Accessoires pour ordinateurs portables</display-name>
+<display-name xml:lang="en-US">Notebook Accessories</display-name>
+<parent name="1835"/>
+<images>
+<image-ref domain="inSPIRED-MasterRepository" image-base-name="M/1926154-6181.jpg" image-type="M" image-view="front"/>
+</images>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="fr-FR">True</custom-attribute>
+<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="en-US">True</custom-attribute>
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+ 
+</custom-attributes>
+</category>
+<category name="897_Lenovo">
+<name>897_Lenovo</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<display-name xml:lang="fr-FR">Lenovo</display-name>
+<display-name xml:lang="en-US">Lenovo</display-name>
+<description xml:lang="fr-FR">Lenovo</description>
+<description xml:lang="en-US">Lenovo</description>
+<description xml:lang="de-DE">Lenovo</description>
+<display-name xml:lang="de-DE">Lenovo</display-name>
+<parent name="897"/>
+<images>
+<image-ref domain="inSPIRED-MasterRepository" image-base-name="M/5085367-8260.jpg" image-type="M" image-view="front"/>
+</images>
+<searchquery-definition-name>only_lenovo_tablets_filter</searchquery-definition-name>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+ 
+<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="fr-FR">True</custom-attribute>
+<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="en-US">True</custom-attribute>
+</custom-attributes>
+</category>
+<category name="214">
+<name>214</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<description xml:lang="de-DE">Mit diesen Laufwerken können Sie DVDs und/oder CDs in den unterschiedlichsten Formaten lesen und beschreiben. Bitte beachten Sie den Unterschied zwischen DVD + R und DVD-R beim Kauf eines DVD-Brenners, Laufwerke können oft nur auf eine dieser beiden Medien-Typen schreiben, manchmal auch auf beide. Wenn Sie ein Laufwerk erwerben, das nur eine Art unterstützt, müssen Sie immer darauf achten, den richtigen beschreibbarne DVD-Typ im Geschäft zu wählen. Neuere DVD-Laufwerke unterstützen auch die Beschreibung von Dual Layer DVDs. Diese Art von CDs haben eine Speicherkapazität von 8,5 GB statt der üblichen 4,7 GB. DVD (Wieder-)Brenner können normalerweise CDs lesen und beschreiben, aber nur einige CD (Wieder-) Brenner können DVDs lesen.</description>
+<display-name xml:lang="fr-FR">Graveurs de (ré)graveurs de CD/DVD</display-name>
+<display-name xml:lang="en-US">CD/DVD (Re)Writers</display-name>
+<display-name xml:lang="de-DE">CD/DVD Brenner</display-name>
+<parent name="206"/>
+<images>
+<image-ref domain="inSPIRED-MasterRepository" image-base-name="M/3992202-2518.jpg" image-type="M" image-view="front"/>
+</images>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+ 
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="fr-FR">True</custom-attribute>
+<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="en-US">True</custom-attribute>
+</custom-attributes>
+</category>
+<category name="304">
+<name>304</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<display-name xml:lang="de-DE">Multifunktionsgeräte</display-name>
+<description xml:lang="de-DE">Ein &amp;quot;Multifunctional&apos; ist wirklich ein All-in-One-Gerät, es ist sowohl Scanner als auch Drucker und verfügt oft sogar über eine Faksimile-Funktion. Genauer gesagt ist es also ein Kopierer, aber einer, der seperat noch über eine Scan-und Druckfunktionen verfügt. Dies ist ein großer Vorteil, wenn Sie nur eine begrenzte Büroflächen haben. Darüber hinaus sind Sie in der Lage, schneller und effizienter arbeiten, indem Sie die bequemen Sonderfunktionen des Geräts nutzen.</description>
+<display-name xml:lang="fr-FR">Multifonctionnels</display-name>
+<display-name xml:lang="en-US">Multifunctionals</display-name>
+<parent name="225"/>
+<images>
+<image-ref domain="inSPIRED-MasterRepository" image-base-name="M/3476356-6613.jpg" image-type="M" image-view="front"/>
+</images>
+<custom-attributes>
+ 
+<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="fr-FR">True</custom-attribute>
+<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="en-US">True</custom-attribute>
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+</custom-attributes>
+</category>
+<category name="225">
+<name>225</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<position>9.0</position>
+<category-links>
+</category-links>
+<display-name xml:lang="fr-FR">Imprimantes</display-name>
+<display-name xml:lang="en-US">Printers</display-name>
+<display-name xml:lang="de-DE">Drucker</display-name>
+<parent name="Computers"/>
+<images>
+<image-ref domain="inSPIRED-MasterRepository" image-base-name="M/10723764-1469.jpg" image-type="M" image-view="front"/>
+</images>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="PRODUCT_SORTING_TYPE">default</custom-attribute>
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+ 
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+</custom-attributes>
+</category>
+<category name="9851">
+<name>9851</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<display-name xml:lang="de-DE">Ergonomische Handgelenkauflagen</display-name>
+<display-name xml:lang="fr-FR">Repose-poignets ergonomiques</display-name>
+<display-name xml:lang="en-US">Ergonomic Wrist Rests</display-name>
+<parent name="1835"/>
+<images>
+<image-ref domain="inSPIRED-MasterRepository" image-base-name="M/1422902-7811.jpg" image-type="M" image-view="front"/>
+</images>
+<custom-attributes>
+ 
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="fr-FR">True</custom-attribute>
+<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="en-US">True</custom-attribute>
+</custom-attributes>
+</category>
+<category name="829">
+<name>829</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<display-name xml:lang="de-DE">Ladegeräte</display-name>
+<display-name xml:lang="fr-FR">Chargeurs de batterie</display-name>
+<display-name xml:lang="en-US">Battery Chargers</display-name>
+<parent name="816"/>
+<images>
+<image-ref domain="inSPIRED-MasterRepository" image-base-name="M/1861323-1060.jpg" image-type="M" image-view="front"/>
+</images>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="fr-FR">True</custom-attribute>
+<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="en-US">True</custom-attribute>
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+ 
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+</custom-attributes>
+</category>
+<category name="897">
+<name>897</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<position>1.0</position>
+<category-links>
+</category-links>
+<display-name xml:lang="fr-FR">Tablettes tactiles</display-name>
+<display-name xml:lang="en-US">Tablets</display-name>
+<description xml:lang="de-DE">Ein Tablet PC ist ein tragbarer Computer mit Touchscreen, also eine extra vielseitige Version eines Notebooks. Sind Sie unterwegs und wollen Sie jederzeit und überall arbeiten können? Möchten Sie in der Lage sein, Zeichnungen zu machen oder mit einem Stift direkt auf Ihrem Computer zu schreiben? Dann ist der Tablet PC die ideale Lösung für Sie!</description>
+<display-name xml:lang="de-DE">Tablets</display-name>
+<parent name="Computers"/>
+<images>
+<image-ref domain="inSPIRED-MasterRepository" image-base-name="M/M_201807195_front.jpg" image-type="M" image-view="front"/>
+</images>
+<custom-attributes>
+ 
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="fr-FR">True</custom-attribute>
+<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="en-US">True</custom-attribute>
+<custom-attribute dt:dt="string" name="richContent" xml:lang="fr-FR">&lt;p&gt;&lt;strong&gt;Tablets - Utilisez-le partout &lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Tablets sont flexibles, compacts, faciles à utiliser, rapidement opérationnels et légers. C&apos;est la raison pour laquelle les ordinateurs tablettes deviennent de plus en plus populaires chaque année. Les utilisateurs peuvent lire des livres électroniques, écouter de la musique, regarder des vidéos, naviguer sur Internet, écrire des courriels ou communiquer via les médias sociaux. Vous pouvez donc utiliser toutes vos applications en déplacement. Les écrans multi-touch sont disponibles en différentes tailles, en fonction de vos souhaits et de vos besoins. La manipulation intuitive est supportée par les systèmes d&apos;exploitation Apple iOS et Google Android. Des fonctionnalités supplémentaires - productivité, médias, jeux et bien d&apos;autres - sont proposées via des &quot;apps&quot;, qui peuvent être téléchargées gratuitement ou payantes dans leurs magasins d&apos;applications correspondants.&lt;/p&gt;
+&lt;p&gt; &lt;/p&gt; 
+&lt;p&gt;&lt;strong&gt;Des appareils puissants&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Les tablettes actuelles offrent des processeurs rapides, des écrans lumineux et colorés, de bons haut-parleurs, d&apos;excellents appareils photo de haute qualité et, bien sûr, une connectivité réseau. Le design moderne avec une finition de haute qualité et la légèreté donnent un bonus supplémentaire. Il existe des tablettes avec différentes tailles de mémoire, par exemple 16 Go, 32 Go ou 64 Go. Si ce n&apos;est pas assez : Beaucoup de ces appareils intelligents ont une fente d&apos;extension pour les cartes mémoire, ou ils permettent de stocker des documents, de la musique et des vidéos dans le nuage. Chez inSPIRED, nous offrons une large gamme de tablettes - y compris des appareils de la meilleure valeur pour les débutants qui utilisent des applications standard et des modèles haut de gamme avec les spécifications &quot;best of breed&quot; pour les utilisateurs de puissance. &lt;/p&gt;</custom-attribute>
+<custom-attribute dt:dt="string" name="richContent" xml:lang="en-US">&lt;p&gt;&lt;strong&gt;Tablets – Use it everywhere&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Tablets are flexible, compact, easy to use, quickly operational and light. That’s the reasons why tablet computers become more popular every year. The users can read e-books, listen to music, watch videos, browse the internet, write e-mails or communicate via social media. So you can use all your applications on the go. The multi-touch capable displays are available in different sizes, according to your wishes and needs. The intuitive handling is supported by the Apple iOS and Google Android operating systems. Additional functionality – productivity, media, games and many more – is offered via “apps”, which can be downloaded for free or for a fee in their corresponding app stores.&lt;/p&gt;
+&lt;p&gt; &lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Powerful devices&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Current tablets offer fast processors, bright and colorful displays, good speakers, excellent cameras for high-quality photos and, of course, network connectivity. The modern design with a high-quality finish and the light weight give an extra bonus. There are tablets with different memory sizes, e.g., 16GB, 32GB or 64GB. If that’s not enough: Many of these smart devices have an extension slot for memory cards, or they allow to store documents, music and videos in the cloud. At inSPIRED, we offer a wide range of tablets – including best-value devices for beginners to use standard applications and top models with the “best of breed” specs for power users. &lt;/p&gt;</custom-attribute>
+</custom-attributes>
+</category>
+<category name="1622">
+<name>1622</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<display-name xml:lang="fr-FR">Graveurs (re)graveurs Blu-ray</display-name>
+<display-name xml:lang="en-US">Blu-ray (re)writers</display-name>
+<display-name xml:lang="de-DE">Blu-ray (Re)Writers</display-name>
+<parent name="206"/>
+<images>
+<image-ref domain="inSPIRED-MasterRepository" image-base-name="M/4313421-5682.jpg" image-type="M" image-view="front"/>
+</images>
+<custom-attributes> 
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="fr-FR">True</custom-attribute>
+<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="en-US">True</custom-attribute>
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+</custom-attributes>
+</category>
+<category name="222">
+<name>222</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<description xml:lang="de-DE">TFT / LCD-Displays sind vollkommem flach, sehr viel dünner und leichter als herkömmliche CRT-Displays und flackern nicht, all dies Dank der neuen Techologie, die sie zur Herstellung von Bildern verwenden. Brauchen Sie mehr Platz auf Ihrem Schreibtisch, oder wollen Sie in der Lage sein, Ihren Monitor zu heben ohne sich das Rückgrat zu brechen? Dann ist dies das perfekte Display für Sie!</description>
+<display-name xml:lang="fr-FR">Afficheurs à écran plat</display-name>
+<display-name xml:lang="en-US">Flat Panel Displays</display-name>
+<display-name xml:lang="de-DE">Flachbildschirme / TFTs</display-name>
+<parent name="3001"/>
+<images>
+<image-ref domain="inSPIRED-MasterRepository" image-base-name="M/3781765-3270.jpg" image-type="M" image-view="front"/>
+</images>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="fr-FR">True</custom-attribute>
+<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="en-US">True</custom-attribute>
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+</custom-attributes>
+</category>
+<category name="1007">
+<name>1007</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<display-name xml:lang="fr-FR">Kits de montage</display-name>
+<display-name xml:lang="en-US">Mounting Kits</display-name>
+<display-name xml:lang="de-DE">Montage-Kits</display-name>
+<parent name="236"/>
+<images>
+<image-ref domain="inSPIRED-MasterRepository" image-base-name="M/3640341-8583.jpg" image-type="M" image-view="front"/>
+</images>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="fr-FR">True</custom-attribute>
+<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="en-US">True</custom-attribute>
+ <custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+</custom-attributes>
+</category>
+<category name="897_Samsung">
+<name>897_Samsung</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<display-name xml:lang="fr-FR">Samsung</display-name>
+<display-name xml:lang="en-US">Samsung</display-name>
+<display-name xml:lang="de-DE">Samsung</display-name>
+<description xml:lang="de-DE">Samsung</description>
+<description xml:lang="fr-FR">Samsung</description>
+<description xml:lang="en-US">Samsung</description>
+<parent name="897"/>
+<images>
+<image-ref domain="inSPIRED-MasterRepository" image-base-name="M/9404860-6088.jpg" image-type="M" image-view="front"/>
+</images>
+<searchquery-definition-name>only_samsung_tablets_filter</searchquery-definition-name>
+<custom-attributes>
+ <custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="fr-FR">True</custom-attribute>
+<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="en-US">True</custom-attribute>
+</custom-attributes>
+</category>
+<category name="897_Asus">
+<name>897_Asus</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<description xml:lang="fr-FR">Asus</description>
+<description xml:lang="en-US">Asus</description>
+<display-name xml:lang="de-DE">Asus</display-name>
+<description xml:lang="de-DE">Asus</description>
+<display-name xml:lang="fr-FR">Asus</display-name>
+<display-name xml:lang="en-US">Asus</display-name>
+<parent name="897"/>
+<images>
+<image-ref domain="inSPIRED-MasterRepository" image-base-name="M/8894531-8758.jpg" image-type="M" image-view="front"/>
+</images>
+<searchquery-definition-name>only_asus_tablets_filter</searchquery-definition-name>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="fr-FR">True</custom-attribute>
+<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="en-US">True</custom-attribute>
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+</custom-attributes>
+</category>
+<category name="1306">
+<name>1306</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<display-name xml:lang="fr-FR">Câbles Firewire</display-name>
+<display-name xml:lang="en-US">Firewire Cables</display-name>
+<display-name xml:lang="de-DE">Firewire-Kabel</display-name>
+<parent name="830"/>
+<images>
+<image-ref domain="inSPIRED-MasterRepository" image-base-name="M/1790855-7298.jpg" image-type="M" image-view="front"/>
+</images>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="fr-FR">True</custom-attribute>
+<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="en-US">True</custom-attribute>
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+</custom-attributes>
+</category>
+<category name="235">
+<name>235</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<description xml:lang="de-DE">Laserdrucker sind Geräte, die eine hohe Qualität von Texten oder Abbildungen schnell drucken. Sie tun dies durch eine sehr genaue Aufbringung von Toner (eine Art von Tintenpulver) auf das Papier, welches sie dann erhitzen, so dass der Toner schmilzt und und sich mit dem Papier verbindet.</description>
+<display-name xml:lang="fr-FR">Imprimantes laser/LED</display-name>
+<display-name xml:lang="en-US">Laser/LED Printers</display-name>
+<display-name xml:lang="de-DE">Laserdrucker</display-name>
+<parent name="225"/>
+<images>
+<image-ref domain="inSPIRED-MasterRepository" image-base-name="M/277383-840.jpg" image-type="M" image-view="front"/>
+</images>
+<custom-attributes> 
+<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="fr-FR">True</custom-attribute>
+<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="en-US">True</custom-attribute>
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+</custom-attributes>
+</category>
+<category name="153">
+<name>153</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<position>3.0</position>
+<category-links>
+</category-links>
+<description xml:lang="de-DE">Personal Computers, oder kurz PCs, sind Computer für den persönlichen Gebrauch. Sie haben immer die folgenden Komponenten:\n- Einen Prozessor (CPU), dies ist das Herz des Computers, in welchem die Datenverarbeitung stattfindet.\n- Speicher (RAM), dies ist ein sehr schneller Speicher, in welchem temporäre Daten gespeichert werden, bevor sie vom Prozessor verarbeitet und gespeichert werden.\n- Motherboard, dies ist die Komponente, die die verschiedenen Teile des Computers verbindet. Oft verfügt es über einige integrierte Komponenten, wie eine Soundkarte, damit Ihr Computer Klängen abspielen kann oder eine Netzwerk-Karte, um Ihren Computer mit einem Netzwerk zu verbinden.\n- Video Board, dies ist der Teil Ihres Computers, der verantwortlich für die Grafikbearbeitung ist. Micro ATX Motherboards haben häufig ein integriertes Video-Board. Diese integrierten Video-Boards sind in der Regel nicht sehr gut für Spiele geeignet, sind aber gut genug für Filme.\n- Hard Disk, dies ist der langfristige Speicher Ihres Computers, auf welchem Ihre Daten gespeichert sind.\n- Einen optionalen DVD-/CD-Spieler/Brenner zum Lesen/Schreiben von DVDs / CDs</description>
+<display-name xml:lang="de-DE">PCs</display-name>
+<display-name xml:lang="fr-FR">Ordinateurs personnels</display-name>
+<display-name xml:lang="en-US">PCs</display-name>
+<parent name="1835"/>
+<images>
+<image-ref domain="inSPIRED-MasterRepository" image-base-name="M/10809311-9609.jpg" image-type="M" image-view="front"/>
+</images>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="fr-FR">True</custom-attribute>
+<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="en-US">True</custom-attribute>
+</custom-attributes>
+</category>
+<category name="897_Acer">
+<name>897_Acer</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<display-name xml:lang="de-DE">Acer</display-name>
+<display-name xml:lang="fr-FR">Acer</display-name>
+<display-name xml:lang="en-US">Acer</display-name>
+<description xml:lang="de-DE">Acer</description>
+<description xml:lang="fr-FR">Acer</description>
+<description xml:lang="en-US">Acer</description>
+<parent name="897"/>
+<images>
+<image-ref domain="inSPIRED-MasterRepository" image-base-name="M/8899566-9790.jpg" image-type="M" image-view="front"/>
+</images>
+<searchquery-definition-name>only_acer_tablets_filter</searchquery-definition-name>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="fr-FR">True</custom-attribute>
+<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="en-US">True</custom-attribute>
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="en-US">automatic</custom-attribute> 
+</custom-attributes>
+</category>
+<category name="151">
+<name>151</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<position>2.0</position>
+<category-links>
+</category-links>
+<description xml:lang="de-DE">Ein Notebook, auch Laptop genannt, ist ein tragbarer Computer. Wenn Sie nach dem richtigen Notebook für sich suchen, ist es wichtig zu wissen, wo Sie damit arbeiten werden. Wollen Sie es unterwegs nutzen? Dann wählen Sie ein Modell mit einem speziellen energiesparenden &amp;quot;Mobile&amp;quot;-Prozessor, einer gute Batterie und einem kleinerem Display. Dies ermöglicht Ihnen, länger  mit der gleichen Batterie zu arbeiten und erspart Ihnen außerdem die Mühe, ein großes Display herumzutragen, welches zudem noch eine Menge wertvollen Batteriestroms verbraucht. Oder werden Sie Ihr Notebook vor allem an Orten nutzen, an welchen Sie Zugriff auf eine Steckdose haben? Dann wählen Sie einen Desktop-Prozessor (mehr Rechenleistung für weniger Geld), und eine gewöhnliche Batterie. So sparen Sie eine Menge Geld, welches Sie später für auf einen größeren Bildschirm verwenden können. Sie arbeiten schneller, weil Sie mehr Informationen auf einmal sehen können und er eignet sich hervorragend für Multimedia!</description>
+<display-name xml:lang="de-DE">Notebooks</display-name>
+<display-name xml:lang="fr-FR">Ordinateurs portables</display-name>
+<display-name xml:lang="en-US">Notebooks</display-name>
+<parent name="1835"/>
+<images>
+<image-ref domain="inSPIRED-MasterRepository" image-base-name="M/M_201807201_back.jpg" image-type="M" image-view="front"/>
+</images>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="fr-FR">True</custom-attribute>
+<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="en-US">True</custom-attribute>
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+</custom-attributes>
+</category>
+<category name="1554">
+<name>1554</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<display-name xml:lang="de-DE">USB flash drives</display-name>
+<display-name xml:lang="fr-FR">Bâtons flash USB</display-name>
+<display-name xml:lang="en-US">USB Flash Drives</display-name>
+<parent name="206"/>
+<images>
+<image-ref domain="inSPIRED-MasterRepository" image-base-name="M/7415679-7203.jpg" image-type="M" image-view="front"/>
+</images>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="fr-FR">True</custom-attribute>
+<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="en-US">True</custom-attribute>
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="en-US">automatic</custom-attribute> 
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+</custom-attributes>
+</category>
+<category name="943">
+<name>943</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<display-name xml:lang="fr-FR">Filtres de surveillance de l&apos;éblouissement et de confidentialité</display-name>
+<display-name xml:lang="en-US">Monitor Glare &amp; Privacy Filters</display-name>
+<display-name xml:lang="de-DE">Bildschirmfilter</display-name>
+<description xml:lang="de-DE">Spiegelung ist eine häufige Ursache für Überanstrengung der Augen bei Computer-Nutzern. Spiegel-Bildschirme oder Monitor-Filter können verwendet werden, um die Spiegelung zu reduzieren oder und das Bild sichtbarer zu machen, aber sie beseitigen das Probleme der Spiegelung nicht ganz. Deshalb sollten Sie als Erstes den Monitor senkrecht zu Ihrem Fenster stellen und die Jalousien herunterlassen, um Spiegelung zu vermeiden.</description>
+<parent name="3001"/>
+<images>
+<image-ref domain="inSPIRED-MasterRepository" image-base-name="M/4818115-1174.jpg" image-type="M" image-view="front"/>
+</images>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="en-US">automatic</custom-attribute> 
+<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="fr-FR">True</custom-attribute>
+<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="en-US">True</custom-attribute>
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+</custom-attributes>
+</category>
+<category name="219">
+<name>219</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<display-name xml:lang="de-DE">Festplatten / HDD</display-name>
+<description xml:lang="de-DE">Festplatten sind die schnellsten langfristigen heutigen Speichermedien und haben eine große Kapazität. Aus diesen zwei Gründen sind sie die am häufigsten verwendeten Speichermedien in Computern und Servern. Beim Kauf einer neuen Festplatte, gibt es drei wichtige Dinge zu beachten:\n- Der Anschluss der Festplatte an den Computer oder ein anderes Gerät, welches Sie verwenden werden, hat einen großen Einfluss auf die Geschwindigkeit, mit welcher Daten aus/auf die Festplatte geschrieben/gelesen werden können. Achten Sie darauf, dass der Anschluss der Festplatte, die Sie kaufen, kompatibel mit Ihrem Computer ist!\n- Die Drehzahl ist ebenfalls wichtig für die Geschwindigkeit, mit welcher Daten aus/auf die Festplatte geschrieben/gelesen werden können und bestimmt die benötigte Zeit, um eine Datei auf der Festplatte zu finden.\n- Last but not least, die Speicherkapazität der Festplatte, d.h. die Menge der Daten, die auf der Festplatte gespeichert werden können.</description>
+<display-name xml:lang="fr-FR">Disques durs</display-name>
+<display-name xml:lang="en-US">Hard Disk Drives</display-name>
+<parent name="206"/>
+<images>
+<image-ref domain="inSPIRED-MasterRepository" image-base-name="M/3950792-293.jpg" image-type="M" image-view="front"/>
+</images>
+<custom-attributes> 
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="fr-FR">True</custom-attribute>
+<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="en-US">True</custom-attribute>
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+</custom-attributes>
+</category>
+<category name="1158">
+<name>1158</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<display-name xml:lang="de-DE">USB Kabel</display-name>
+<display-name xml:lang="fr-FR">Câbles Usb</display-name>
+<display-name xml:lang="en-US">Usb Cables</display-name>
+<parent name="830"/>
+<images>
+<image-ref domain="inSPIRED-MasterRepository" image-base-name="M/650500-9664.jpg" image-type="M" image-view="front"/>
+</images>
+<custom-attributes> 
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="fr-FR">True</custom-attribute>
+<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="en-US">True</custom-attribute>
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+</custom-attributes>
+</category>
+<category name="827">
+<name>827</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<display-name xml:lang="de-DE">Strom Adapter und Inverter</display-name>
+<display-name xml:lang="fr-FR">Adaptateurs d&apos;alimentation et onduleurs</display-name>
+<display-name xml:lang="en-US">Power Adapters &amp; Inverters</display-name>
+<parent name="816"/>
+<images>
+<image-ref domain="inSPIRED-MasterRepository" image-base-name="M/1354484-8296.jpg" image-type="M" image-view="front"/>
+</images>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="fr-FR">True</custom-attribute>
+<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="en-US">True</custom-attribute>
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+</custom-attributes>
+</category>
+<category name="191">
+<name>191</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<position>5.0</position>
+<category-links>
+</category-links>
+<display-name xml:lang="fr-FR">Périphériques d&apos;entrée</display-name>
+<display-name xml:lang="en-US">Input Devices</display-name>
+<display-name xml:lang="de-DE">Eingabegeräte</display-name>
+<parent name="Computers"/>
+<images>
+<image-ref domain="inSPIRED-MasterRepository" image-base-name="M/M_201807204_front.jpg" image-type="M" image-view="front"/>
+</images>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="fr-FR">True</custom-attribute>
+<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="en-US">True</custom-attribute>
+</custom-attributes>
+</category>
+<category name="3001">
+<name>3001</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<position>4.0</position>
+<category-links>
+</category-links>
+<description xml:lang="fr-FR">Moniteurs</description>
+<description xml:lang="en-US">Monitors</description>
+<description xml:lang="de-DE">Monitors</description>
+<display-name xml:lang="fr-FR">Moniteurs</display-name>
+<display-name xml:lang="en-US">Monitors</display-name>
+<display-name xml:lang="de-DE">Monitors</display-name>
+<parent name="Computers"/>
+<images>
+<image-ref domain="inSPIRED-MasterRepository" image-base-name="M/9925078-6341.jpg" image-type="M" image-view="front"/>
+</images>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="en-US">automatic</custom-attribute> 
+<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="fr-FR">True</custom-attribute>
+<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="en-US">True</custom-attribute>
+</custom-attributes>
+</category>
+<category name="236">
+<name>236</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<display-name xml:lang="de-DE">Gehäuse Komponenten</display-name>
+<display-name xml:lang="fr-FR">Composants du châssis</display-name>
+<display-name xml:lang="en-US">Chassis Components</display-name>
+<parent name="106"/>
+<images>
+<image-ref domain="inSPIRED-MasterRepository" image-base-name="M/5993181-Kingston.jpg" image-type="M" image-view="front"/>
+</images>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="fr-FR">True</custom-attribute>
+<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="en-US">True</custom-attribute>
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+</custom-attributes>
+</category>
+<category name="911">
+<name>911</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<display-name xml:lang="de-DE">PC-Speicher/RAM</display-name>
+<display-name xml:lang="fr-FR">Modules de mémoire</display-name>
+<display-name xml:lang="en-US">Memory Modules</display-name>
+<description xml:lang="de-DE">Das Random Access Memory (RAM) ist ein wichtiger Bestandteil von Computern, Servern und anderen elektronischen Geräten. Generell ist es viel schneller als der langfristige Speicher Ihres Geräts und alle darin enthaltenen Informationen gehen verloren, sobald Sie Ihr Gerät ausschalten. Extra RAM ist oft eine kostengünstige und effiziente Möglichkeit, Ihre leicht veralteten Geräte zu aktualisieren, damit Sie sie ein weiteres Jahr verwenden können. Damit ein gewöhnlicher PC richtig funktioniert, benötigen Sie heutzutage mindestens 512 MB RAM .</description>
+<parent name="106"/>
+<images>
+<image-ref domain="inSPIRED-MasterRepository" image-base-name="M/3405238-9833.jpg" image-type="M" image-view="front"/>
+</images>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="fr-FR">True</custom-attribute>
+<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="en-US">True</custom-attribute>
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="en-US">automatic</custom-attribute> 
+</custom-attributes>
+</category>
+<category name="173">
+<name>173</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<description xml:lang="de-DE">Eine Soundkarte oder Audio Board ermöglicht Computern, Klänge zu spielen und aufzuzeichnen. Wenn Sie ein 5.1-oder 7.1-Audio Board haben, können Sie Ihren Computer an Ihr Heimkinosystem für ein echtes Kino-Erlebnis anschließen, mit vollem Surround-Sound, während Sie Spiele spielen oder sich eine DVD ansehen.</description>
+<display-name xml:lang="de-DE">Audiokarten</display-name>
+<display-name xml:lang="fr-FR">Cartes audio</display-name>
+<display-name xml:lang="en-US">Audio Cards</display-name>
+<parent name="106"/>
+<images>
+<image-ref domain="inSPIRED-MasterRepository" image-base-name="M/3328138-4862.jpg" image-type="M" image-view="front"/>
+</images>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="en-US">automatic</custom-attribute> 
+<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="fr-FR">True</custom-attribute>
+<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="en-US">True</custom-attribute>
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+</custom-attributes>
+</category>
+<category name="152">
+<name>152</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<display-name xml:lang="fr-FR">Stations d&apos;accueil</display-name>
+<display-name xml:lang="en-US">Docking Stations</display-name>
+<description xml:lang="de-DE">Eine Plattform, an welche Sie einen tragbaren Computer anschließen können. Die Docking-Station verfügt normalerweise über Steckplätze für Erweiterungskarten, Slots für Speichergeräte und I / O-Anschlüsse für Peripheriegeräte wie Drucker und Monitore. Sobald Sie an eine Docking-Station angeschlossen sind, wird der tragbare Computer im Wesentlichen zu einem Desktop-Modell. Das Wichtigste dabei ist, dass die gleichen Daten in beiden Modi verfügbar sind, weil sie auf dem Laufwerk des tragbaren Computer gespeichert sind. Die Idee hinter Docking-Stationen ist es, Sie gleichzeitig die Erweiterungsmöglichkeiten der Desktop-Modell-Computer mit der Portabilität von Notebook-Computern genießen zu lassen. Darüber hinaus ermöglicht die Docking Station, Ihnen außerdem, eine Tastatur und einen Monitor in Normalgröße zu verwenden, wenn Sie nicht auf Reisen sind.</description>
+<display-name xml:lang="de-DE">Dockingstation</display-name>
+<parent name="1835"/>
+<images>
+<image-ref domain="inSPIRED-MasterRepository" image-base-name="M/3933455-4753.jpg" image-type="M" image-view="front"/>
+</images>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="en-US">automatic</custom-attribute> 
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="fr-FR">True</custom-attribute>
+<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="en-US">True</custom-attribute>
+</custom-attributes>
+</category>
+<category name="862">
+<name>862</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<display-name xml:lang="fr-FR">Enceintes de stockage</display-name>
+<display-name xml:lang="en-US">Storage Enclosures</display-name>
+<display-name xml:lang="de-DE">Speichergehäuse</display-name>
+<parent name="236"/>
+<images>
+<image-ref domain="inSPIRED-MasterRepository" image-base-name="M/4012023-8399.jpg" image-type="M" image-view="front"/>
+</images>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="fr-FR">True</custom-attribute>
+<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="en-US">True</custom-attribute>
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+</custom-attributes>
+</category>
+<category name="8547">
+<name>8547</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<position>6.0</position>
+<category-links>
+</category-links>
+<display-name xml:lang="de-DE">Präsentationsgeräte</display-name>
+<display-name xml:lang="fr-FR">Appareils de présentation</display-name>
+<display-name xml:lang="en-US">Presentation Devices</display-name>
+<parent name="191"/>
+<images>
+<image-ref domain="inSPIRED-MasterRepository" image-base-name="M/4011933-9096.jpg" image-type="M" image-view="front"/>
+</images>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="en-US">automatic</custom-attribute> 
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="fr-FR">True</custom-attribute>
+<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="en-US">True</custom-attribute>
+</custom-attributes>
+</category>
+<category name="223">
+<name>223</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<display-name xml:lang="de-DE">Touchscreen Monitore</display-name>
+<display-name xml:lang="fr-FR">Moniteurs à écran tactile</display-name>
+<display-name xml:lang="en-US">Touch Screen Monitors</display-name>
+<parent name="3001"/>
+<images>
+<image-ref domain="inSPIRED-MasterRepository" image-base-name="M/9925078-6341.jpg" image-type="M" image-view="front"/>
+</images>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="fr-FR">True</custom-attribute>
+<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="en-US">True</custom-attribute>
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+</custom-attributes>
+</category>
+<category name="921">
+<name>921</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<display-name xml:lang="fr-FR">Ventilateurs, refroidisseurs et radiateurs</display-name>
+<display-name xml:lang="en-US">Fans, coolers &amp; radiators</display-name>
+<display-name xml:lang="de-DE">PC Kühlventilatoren</display-name>
+<parent name="236"/>
+<images>
+<image-ref domain="inSPIRED-MasterRepository" image-base-name="M/5993181-Kingston.jpg" image-type="M" image-view="front"/>
+</images>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="fr-FR">True</custom-attribute>
+<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="en-US">True</custom-attribute> 
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+</custom-attributes>
+</category>
+<category name="170">
+<name>170</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<display-name xml:lang="de-DE">Grafikkarten</display-name>
+<display-name xml:lang="fr-FR">Cartes vidéo</display-name>
+<display-name xml:lang="en-US">Video Cards</display-name>
+<description xml:lang="de-DE">Die Grafikkarte - ist das komplette grafische Subsystem des PCs. Es ist verantwortlich für die Qualität und die Geschwindigkeit der Videoverarbeitung. Für Anwender, die Spiele spielen oder die Arbeit mit Multimedia-Anwendungen planen, ist es besonders wichtig, ein Video Board zu haben, das über einen Hochleistungs-Grafik-Prozessor und ausreichend Speicher verfügt.</description>
+<parent name="106"/>
+<images>
+<image-ref domain="inSPIRED-MasterRepository" image-base-name="M/9604321-6706.jpg" image-type="M" image-view="front"/>
+</images>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="fr-FR">True</custom-attribute>
+<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="en-US">True</custom-attribute> 
+</custom-attributes>
+</category>
+<category name="234">
+<name>234</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<description xml:lang="de-DE">Tintenstrahldrucker sind die am besten geeigneten Drucker für Privatanwender und kleine Büros. Sie sind im Allgemeinen nicht so schnell wie Laserdrucker, aber erstellen Drucke von sehr hoher Qualität und sind recht erschwinglich.</description>
+<display-name xml:lang="de-DE">Tintenstrahldrucker</display-name>
+<display-name xml:lang="fr-FR">Imprimantes à jet d&apos;encre</display-name>
+<display-name xml:lang="en-US">Inkjet Printers</display-name>
+<parent name="225"/>
+<images>
+<image-ref domain="inSPIRED-MasterRepository" image-base-name="M/10723764-1469.jpg" image-type="M" image-view="front"/>
+</images>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="fr-FR">True</custom-attribute>
+<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="en-US">True</custom-attribute>
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+</custom-attributes>
+</category>
+<category name="373">
+<name>373</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<display-name xml:lang="fr-FR">Fournitures d&apos;imprimerie</display-name>
+<display-name xml:lang="en-US">Printing Supplies</display-name>
+<display-name xml:lang="de-DE">Drucker Verbrauchsmaterialien</display-name>
+<parent name="225"/>
+<images>
+<image-ref domain="inSPIRED-MasterRepository" image-base-name="M/3797228-4402.jpg" image-type="M" image-view="front"/>
+</images>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="fr-FR">True</custom-attribute>
+<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="en-US">True</custom-attribute>
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="en-US">automatic</custom-attribute> 
+</custom-attributes>
+</category>
+<category name="1500">
+<name>1500</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<display-name xml:lang="de-DE">Rackkonsolen</display-name>
+<display-name xml:lang="fr-FR">Consoles de rack</display-name>
+<display-name xml:lang="en-US">Rack Consoles</display-name>
+<parent name="236"/>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="fr-FR">True</custom-attribute>
+<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="en-US">True</custom-attribute>
+</custom-attributes>
+</category>
+<category name="195">
+<name>195</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<position>2.0</position>
+<category-links>
+</category-links>
+<description xml:lang="de-DE">Die Maus ist die zweitwichtigste Art der Kommunikation mit einem Computer. Bitte achten Sie darauf, die richtige Verbindungsart beim Kauf einer Maus zu wählen. Es gibt drei verschiedene Typen:\n- USB ist die modernste. Man kann sie durch den rechteckigen Stecker zu erkennen.\n- PS/2 Anschlüsse sind rund. Diese Art der Verbindung ist recht geläufig für PCs.\n- Bluetooth ist eine weitere moderne (drahtlose) Verbindungsmethode. </description>
+<display-name xml:lang="de-DE">Mäuse</display-name>
+<display-name xml:lang="fr-FR">Souris</display-name>
+<display-name xml:lang="en-US">Mice</display-name>
+<parent name="191"/>
+<images>
+<image-ref domain="inSPIRED-MasterRepository" image-base-name="M/M_201807199_front.jpg" image-type="M" image-view="front"/>
+</images>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="fr-FR">True</custom-attribute>
+<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="en-US">True</custom-attribute>
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+</custom-attributes>
+</category>
+<category name="206">
+<name>206</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<position>6.0</position>
+<category-links>
+<category-link domain="inSPIRED-inTRONICS_Business-servers" name="servers-data-storage">
+<category-link-type name="ES_CrossSelling_C"/>
+</category-link>
+</category-links>
+<display-name xml:lang="de-DE">Datenspeicher</display-name>
+<display-name xml:lang="fr-FR">Stockage des données</display-name>
+<display-name xml:lang="en-US">Data Storage</display-name>
+<parent name="Computers"/>
+<images>
+<image-ref domain="inSPIRED-MasterRepository" image-base-name="M/4313421-5682.jpg" image-type="M" image-view="front"/>
+</images>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="fr-FR">True</custom-attribute>
+<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="en-US">True</custom-attribute> 
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+</custom-attributes>
+</category>
+<category name="1823">
+<name>1823</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<display-name xml:lang="de-DE">Externe Festplatten</display-name>
+<display-name xml:lang="fr-FR">Disques durs externes</display-name>
+<display-name xml:lang="en-US">External Hard Drives</display-name>
+<parent name="206"/>
+<images>
+<image-ref domain="inSPIRED-MasterRepository" image-base-name="M/9921516-492.jpg" image-type="M" image-view="front"/>
+</images>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="en-US">automatic</custom-attribute> 
+<custom-attribute dt:dt="string" name="PRODUCT_SORTING_TYPE">default</custom-attribute>
+</custom-attributes>
+</category>
+<category name="3652">
+<name>3652</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<position>4.0</position>
+<category-links>
+</category-links>
+<display-name xml:lang="de-DE">Digitale Stifte</display-name>
+<display-name xml:lang="fr-FR">Stylos numériques</display-name>
+<display-name xml:lang="en-US">Digital Pens</display-name>
+<parent name="191"/>
+<images>
+<image-ref domain="inSPIRED-MasterRepository" image-base-name="M/M_201807196_front.jpg" image-type="M" image-view="front"/>
+</images>
+<custom-attributes> 
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="fr-FR">True</custom-attribute>
+<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="en-US">True</custom-attribute>
+</custom-attributes>
+</category>
+<category name="989">
+<name>989</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<display-name xml:lang="de-DE">Prozessoren</display-name>
+<description xml:lang="de-DE">Die Central Processing Unit (CPU) oder (Mikro-) Prozessor ist der Teil eines Computers, auf dem die meisten Berechnungen stattfinden. In Bezug Rechenleistung des Prozessors ist dies das wichtigste Element eines EDV-Systems, die Leistung eines Rechners hängt also stark von der Leistung des Prozessors ab. Für lange Zeit wurde die Leistung eines Prozessors durch die Anzahl der MHz der Taktrate, aber heutzutage hat die Taktrate nicht mehr so viel mit der Geschwindigkeit des Prozessors. Eine der besten Möglichkeiten, verschiedene Arten von Prozessoren zu vergleichen, ist nach Maßstäben im Internet zu suchen. Bitte achten Sie darauf einen Prozessor zu kaufen, der mit Ihrem Motherboard kompatibel ist, z.B. in die richtige Steckdose passt.</description>
+<display-name xml:lang="fr-FR">Processeurs</display-name>
+<display-name xml:lang="en-US">Processors</display-name>
+<parent name="106"/>
+<images>
+<image-ref domain="inSPIRED-MasterRepository" image-base-name="M/1342484-1957.jpg" image-type="M" image-view="front"/>
+</images>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="fr-FR">True</custom-attribute>
+<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="en-US">True</custom-attribute>
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="en-US">automatic</custom-attribute> 
+</custom-attributes>
+</category>
+<category name="897_MSI">
+<name>897_MSI</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<description xml:lang="fr-FR">MSI</description>
+<description xml:lang="en-US">MSI</description>
+<description xml:lang="de-DE">MSI</description>
+<display-name xml:lang="fr-FR">MSI</display-name>
+<display-name xml:lang="en-US">MSI</display-name>
+<display-name xml:lang="de-DE">MSI</display-name>
+<parent name="897"/>
+<images>
+<image-ref domain="inSPIRED-MasterRepository" image-base-name="M/9590950-3175.jpg" image-type="M" image-view="front"/>
+</images>
+<searchquery-definition-name>only_msi_tablets_filter</searchquery-definition-name>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="fr-FR">True</custom-attribute>
+<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="en-US">True</custom-attribute>
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="en-US">automatic</custom-attribute> 
+</custom-attributes>
+</category>
+<category name="1563">
+<name>1563</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<display-name xml:lang="fr-FR">Disques durs à semi-conducteurs</display-name>
+<display-name xml:lang="en-US">Solid State Drives</display-name>
+<display-name xml:lang="de-DE">Festkörperdrives</display-name>
+<parent name="206"/>
+<images>
+<image-ref domain="inSPIRED-MasterRepository" image-base-name="M/9602367-464.jpg" image-type="M" image-view="front"/>
+</images>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="fr-FR">True</custom-attribute>
+<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="en-US">True</custom-attribute> 
+</custom-attributes>
+</category>
+<category name="3002">
+<name>3002</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<display-name xml:lang="fr-FR">Supports pour panneaux plats</display-name>
+<display-name xml:lang="en-US">Flat Panel Mounts</display-name>
+<description xml:lang="fr-FR">Supports pour panneaux plats</description>
+<description xml:lang="en-US">Flat Panel Mounts</description>
+<display-name xml:lang="de-DE">Flat Panel Mounts</display-name>
+<description xml:lang="de-DE">Flat Panel Mounts</description>
+<parent name="3001"/>
+<images>
+<image-ref domain="inSPIRED-MasterRepository" image-base-name="M/1955488-8220.jpg" image-type="M" image-view="front"/>
+</images>
+<custom-attributes> 
+<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="fr-FR">True</custom-attribute>
+<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="en-US">True</custom-attribute>
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+</custom-attributes>
+</category>
+<category name="816">
+<name>816</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<display-name xml:lang="de-DE">Stromversorgung</display-name>
+<display-name xml:lang="fr-FR">Alimentations</display-name>
+<display-name xml:lang="en-US">Power Supplies</display-name>
+<parent name="106"/>
+<images>
+<image-ref domain="inSPIRED-MasterRepository" image-base-name="M/1861323-1060.jpg" image-type="M" image-view="front"/>
+</images>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="fr-FR">True</custom-attribute>
+<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="en-US">True</custom-attribute> 
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+</custom-attributes>
+</category>
+<category name="897_Fujitsu">
+<name>897_Fujitsu</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<description xml:lang="de-DE">Fujitsu</description>
+<display-name xml:lang="de-DE">Fujitsu</display-name>
+<description xml:lang="fr-FR">Fujitsu</description>
+<description xml:lang="en-US">Fujitsu</description>
+<display-name xml:lang="fr-FR">Fujitsu</display-name>
+<display-name xml:lang="en-US">Fujitsu</display-name>
+<parent name="897"/>
+<images>
+<image-ref domain="inSPIRED-MasterRepository" image-base-name="M/8991127-8982.jpg" image-type="M" image-view="front"/>
+</images>
+<searchquery-definition-name>only_fujitsu_tablets_filter</searchquery-definition-name>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="fr-FR">True</custom-attribute>
+<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="en-US">True</custom-attribute>
+</custom-attributes>
+</category>
+<category name="1835">
+<name>1835</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<position>2.0</position>
+<category-links>
+</category-links>
+<description xml:lang="de-DE">Desktop PCs, Notebooks und Zubehör</description>
+<display-name xml:lang="de-DE">Notebooks und PCs</display-name>
+<description xml:lang="fr-FR">Ordinateurs de bureau, ordinateurs portables et accessoires</description>
+<description xml:lang="en-US">Desktop PCs, Notebooks and Accessories</description>
+<display-name xml:lang="fr-FR">Ordinateurs portables et PC</display-name>
+<display-name xml:lang="en-US">Notebooks and PCs</display-name>
+<parent name="Computers"/>
+<images>
+<image-ref domain="inSPIRED-MasterRepository" image-base-name="M/M_201807204-01_side.jpg" image-type="M" image-view="front"/>
+</images>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="fr-FR">True</custom-attribute>
+<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="en-US">True</custom-attribute>
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+</custom-attributes>
+</category>
+<category name="375">
+<name>375</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<display-name xml:lang="de-DE">Tonerkassetten</display-name>
+<description xml:lang="de-DE">Tonerkartuschen für Ihren Laserdrucker oder Kopierer.</description>
+<display-name xml:lang="fr-FR">Toners et cartouches laser</display-name>
+<display-name xml:lang="en-US">Toners &amp; Laser Cartridges</display-name>
+<parent name="373"/>
+<images>
+<image-ref domain="inSPIRED-MasterRepository" image-base-name="M/550204-695.jpg" image-type="M" image-view="front"/>
+</images>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="fr-FR">True</custom-attribute>
+<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="en-US">True</custom-attribute>
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+</custom-attributes>
+</category>
+<category name="1303">
+<name>1303</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<display-name xml:lang="fr-FR">Câbles SATA</display-name>
+<display-name xml:lang="en-US">SATA Cables</display-name>
+<display-name xml:lang="de-DE">SATA Kabel</display-name>
+<parent name="830"/>
+<images>
+<image-ref domain="inSPIRED-MasterRepository" image-base-name="M/342268-7697.jpg" image-type="M" image-view="front"/>
+</images>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="fr-FR">True</custom-attribute>
+<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="en-US">True</custom-attribute>
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+</custom-attributes>
+</category>
+<category name="897_Microsoft">
+<name>897_Microsoft</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<display-name xml:lang="de-DE">Microsoft</display-name>
+<description xml:lang="fr-FR">Microsoft</description>
+<description xml:lang="en-US">Microsoft</description>
+<display-name xml:lang="fr-FR">Microsoft</display-name>
+<display-name xml:lang="en-US">Microsoft</display-name>
+<description xml:lang="de-DE">Microsoft</description>
+<parent name="897"/>
+<images>
+<image-ref domain="inSPIRED-MasterRepository" image-base-name="M/M_201807198_front.jpg" image-type="M" image-view="front"/>
+</images>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="fr-FR">True</custom-attribute>
+<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="en-US">True</custom-attribute>
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+</custom-attributes>
+</category>
+<category name="902">
+<name>902</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<description xml:lang="de-DE">Flash-Speicher gibes es in verschiedenen Arten und er wird von allen Arten von Produkten verwendet, z.B. Kameras, MP3-Player, Telefone. Der große Vorteil von Flash-Speicher liegt darin, dass er keine beweglichen Teile hat und somit stoßfest ist, so dass es stoßfest ist und sich kaum abnutzt. Es ist außerdem sehr klein und sehr leicht, was ihn ideal zum Einsatz in tragbaren digitalen Geräten macht.</description>
+<display-name xml:lang="fr-FR">Mémoire flash</display-name>
+<display-name xml:lang="en-US">Flash Memory</display-name>
+<display-name xml:lang="de-DE">Flash Speicher</display-name>
+<parent name="206"/>
+<images>
+<image-ref domain="inSPIRED-MasterRepository" image-base-name="M/3395649-8672.jpg" image-type="M" image-view="front"/>
+</images>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="fr-FR">True</custom-attribute>
+<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="en-US">True</custom-attribute>
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+</custom-attributes>
+</category>
+<category name="1501">
+<name>1501</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<display-name xml:lang="de-DE">Kabeladapter</display-name>
+<display-name xml:lang="fr-FR">Adaptateurs d&apos;interface de câble/de genre</display-name>
+<display-name xml:lang="en-US">Cable Interface/Gender Adapters</display-name>
+<parent name="830"/>
+<images>
+<image-ref domain="inSPIRED-MasterRepository" image-base-name="M/4852418-5578.jpg" image-type="M" image-view="front"/>
+</images>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="fr-FR">True</custom-attribute>
+<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="en-US">True</custom-attribute>
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+</custom-attributes>
+</category>
+</enfinity>

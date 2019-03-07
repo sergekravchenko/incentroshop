@@ -1,0 +1,676 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<enfinity
+xsi:schemaLocation="http://www.intershop.com/xml/ns/enfinity/6.6/bc_marketing/impex bc_marketing.xsd
+http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt dt.xsd"
+xmlns="http://www.intershop.com/xml/ns/enfinity/6.6/bc_marketing/impex"
+xmlns:ns2="http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xmlns:xml="http://www.w3.org/XML/1998/namespace"
+xmlns:dt="http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt"
+major="6" minor="6" family="enfinity" branch="enterprise" build="7.6.0.0.20150923220008">
+<promotion id="2DollarsOffOnCables">
+<active>true</active>
+<applications>b2c-responsive</applications>
+<effect-discount-level>false</effect-discount-level>
+<rank>800</rank>
+<start-date>2015-10-12T11:42:00+02:00</start-date>
+<end-date>2020-10-13T11:42:00+02:00</end-date>
+<type-code>0</type-code>
+<creator-id>admin@inSPIRED</creator-id>
+<currency>USD</currency>
+<combinable>true</combinable>
+<default-rank>true</default-rank>
+<multiple-allowed>true</multiple-allowed>
+<available>true</available>
+<target-group>
+<usergroups id="Everyone" domain="inSPIRED-inTRONICS-Anonymous"/>
+</target-group>
+<budget>
+<budget-id></budget-id>
+<budget-notification-threshold>0.0</budget-notification-threshold>
+<budget-notification-email></budget-notification-email>
+<send-mail-if-budget-reached>false</send-mail-if-budget-reached>
+<send-mail-if-threshold-reached>false</send-mail-if-threshold-reached>
+<disable-by-budget>false</disable-by-budget>
+<unlimited>true</unlimited>
+</budget>
+<promotion-code-definition>
+<promotion-code-required>false</promotion-code-required>
+<single-code></single-code>
+<single-code-total>0</single-code-total>
+<unlimited>true</unlimited>
+<code-customer-unlimited>false</code-customer-unlimited>
+<use-promotion-code-groups>false</use-promotion-code-groups>
+</promotion-code-definition>
+<combination>3</combination>
+<rebates>
+<currency>USD</currency>
+<type-code>0</type-code>
+<classification-type-code>0</classification-type-code>
+<position>0</position>
+<condition-override-application-exclusion>false</condition-override-application-exclusion>
+<action-override-application-exclusion>false</action-override-application-exclusion>
+<condition>
+<condition-descriptor-id>ItemInclusionsExclusionsCondition</condition-descriptor-id>
+<position>0</position>
+<name></name>
+<type-code>0</type-code>
+<inclusions-exclusions>
+<scope>CONDITION</scope>
+<category-inclusion id="830" domain="inSPIRED-Computers"/>
+</inclusions-exclusions>
+</condition>
+<actions>
+<action-descriptor-id>ItemValueOffDiscount</action-descriptor-id>
+<position>0</position>
+<classification>0</classification>
+<custom-attributes>
+<custom-attribute name="AffectedItemsNumber" ns2:dt="int">1</custom-attribute>
+<custom-attribute name="ConditionalItemsMinPrice" ns2:dt="money">0 USD</custom-attribute>
+<custom-attribute name="ConditionalItemsSelection" ns2:dt="string">Conditional</custom-attribute>
+<custom-attribute name="HasMaxApplications" ns2:dt="boolean">true</custom-attribute>
+<custom-attribute name="HasMaxPrice" ns2:dt="boolean">false</custom-attribute>
+<custom-attribute name="ItemsAffected" ns2:dt="string">All</custom-attribute>
+<custom-attribute name="MaxApplications" ns2:dt="int">1</custom-attribute>
+<custom-attribute name="MaxPrice" ns2:dt="money">0 USD</custom-attribute>
+<custom-attribute name="PriceAffected" ns2:dt="string">LowestPrice</custom-attribute>
+<custom-attribute name="ValueOff" ns2:dt="money">2.00 USD</custom-attribute>
+</custom-attributes>
+</actions>
+</rebates>
+<content>
+<content-activation-type>0</content-activation-type>
+</content>
+<use-campaign-target-group>false</use-campaign-target-group>
+<use-campaign-time-frame>false</use-campaign-time-frame>
+<custom-attributes>
+<custom-attribute name="DisableMessages" ns2:dt="boolean">false</custom-attribute>
+<custom-attribute name="EditedDate" ns2:dt="date">2015-10-12T11:48:45+02:00</custom-attribute>
+<custom-attribute name="LegalContentMessage" ns2:dt="text" xml:lang="de-DE">Das Angebot gilt nur solange der Vorrat reicht und nicht für stornierte Aufträge aufgrund nicht verfügbarer Waren. Die Ermäßigung entfällt, wenn Waren zurückgesendet werden. Ein auf einen Gesamtbetrag gewährter Rabatt wird von dem Wert aller zurückgesendeten Waren abgezogen. Dieses Angebot kann nicht auf bereits getätigte Einkäufe angewendet werden. Dieses Angebot kann jederzeit ohne Begründung geändert oder beendet werden. Wir behalten uns das Recht vor, jegliche Bestellungen durch unbefugte, nicht sachgemäße oder unzulässige Nutzung einer Ermäßigung zu stornieren.</custom-attribute>
+<custom-attribute name="LegalContentMessage" ns2:dt="text" xml:lang="en-US">Offer valid only while supplies last and not applicable to canceled orders due to out-of-stock merchandise. Discount not applicable with returned merchandise; total discount will be deducted from the value of any returned item to which the discount applied. This offer is not valid on previous purchases. This promotional offer may be modified or terminated at any time without notice. We reserve the right to cancel any order due to unauthorized, altered, or ineligible use of a discount.</custom-attribute>
+<custom-attribute name="LongTitle" ns2:dt="text" xml:lang="de-DE">$2 Rabatt auf alle Kabel</custom-attribute>
+<custom-attribute name="LongTitle" ns2:dt="text" xml:lang="en-US">$2 off on all cables</custom-attribute>
+<custom-attribute name="RuleDescription" ns2:dt="text" xml:lang="de-DE">Bleiben Sie in Verbindung. Tauschen Sie ihre alten Kabel mit Wackelkontakt gegen neue. Wir bieten Ihnen $2 Rabatt!</custom-attribute>
+<custom-attribute name="RuleDescription" ns2:dt="text" xml:lang="en-US">It is important to stay connected. Replace all your broken cables, we offer $2 discount!</custom-attribute>
+<custom-attribute name="Title" ns2:dt="text" xml:lang="de-DE">&lt;span style="color: #ff0000;"&gt;&lt;strong&gt;Beste Verbindung: $2 Rabatt&lt;/strong&gt;&lt;/span&gt;</custom-attribute>
+<custom-attribute name="Title" ns2:dt="text" xml:lang="en-US">&lt;strong&gt;&lt;span style="color: #ff0000;"&gt;Stay Connected: $2 off&lt;/span&gt;&lt;/strong&gt;</custom-attribute>
+<custom-attribute name="UseExternalURL" ns2:dt="boolean" xml:lang="de-DE">false</custom-attribute>
+<custom-attribute name="UseExternalURL" ns2:dt="boolean" xml:lang="en-US">false</custom-attribute>
+<custom-attribute name="description" ns2:dt="string" xml:lang="de-DE">2 USD Rabatt auf alle Produkte aus der Kategorie "Kabel"</custom-attribute>
+<custom-attribute name="description" ns2:dt="string" xml:lang="en-US">2 USD rebate on all products from the category "Cables"</custom-attribute>
+<custom-attribute name="displayName" ns2:dt="string" xml:lang="de-DE">$ 2 Rabatt auf alle Kabel</custom-attribute>
+<custom-attribute name="displayName" ns2:dt="string" xml:lang="en-US">$ 2 off on all cables</custom-attribute>
+</custom-attributes>
+</promotion>
+<promotion id="FreeHardDriveSleeve">
+<active>true</active>
+<applications>b2c-responsive</applications>
+<effect-discount-level>false</effect-discount-level>
+<rank>200</rank>
+<start-date>2015-10-12T11:52:00+02:00</start-date>
+<end-date>2020-10-13T11:52:00+02:00</end-date>
+<type-code>0</type-code>
+<creator-id>admin@inSPIRED</creator-id>
+<combinable>true</combinable>
+<default-rank>true</default-rank>
+<multiple-allowed>true</multiple-allowed>
+<available>true</available>
+<target-group>
+<usergroups id="Everyone" domain="inSPIRED-inTRONICS-Anonymous"/>
+</target-group>
+<budget>
+<budget-id></budget-id>
+<budget-notification-threshold>0.0</budget-notification-threshold>
+<budget-notification-email></budget-notification-email>
+<send-mail-if-budget-reached>false</send-mail-if-budget-reached>
+<send-mail-if-threshold-reached>false</send-mail-if-threshold-reached>
+<disable-by-budget>false</disable-by-budget>
+<unlimited>true</unlimited>
+</budget>
+<promotion-code-definition>
+<promotion-code-required>false</promotion-code-required>
+<single-code></single-code>
+<single-code-total>0</single-code-total>
+<unlimited>true</unlimited>
+<code-customer-unlimited>false</code-customer-unlimited>
+<use-promotion-code-groups>false</use-promotion-code-groups>
+</promotion-code-definition>
+<combination>3</combination>
+<rebates>
+<type-code>0</type-code>
+<classification-type-code>0</classification-type-code>
+<position>0</position>
+<condition-override-application-exclusion>false</condition-override-application-exclusion>
+<action-override-application-exclusion>false</action-override-application-exclusion>
+<condition>
+<condition-descriptor-id>ItemInclusionsExclusionsCondition</condition-descriptor-id>
+<position>0</position>
+<name></name>
+<type-code>0</type-code>
+<inclusions-exclusions>
+<scope>CONDITION</scope>
+<category-inclusion id="1823" domain="inSPIRED-Computers"/>
+<category-inclusion id="219" domain="inSPIRED-Computers"/>
+</inclusions-exclusions>
+</condition>
+<actions>
+<action-descriptor-id>FreeGiftDiscount</action-descriptor-id>
+<position>0</position>
+<classification>0</classification>
+<custom-attributes>
+<custom-attribute name="HasMaxApplications" ns2:dt="boolean">true</custom-attribute>
+<custom-attribute name="HasMaxPrice" ns2:dt="boolean">false</custom-attribute>
+<custom-attribute name="LimitToMaxItemCount" ns2:dt="int">1</custom-attribute>
+<custom-attribute name="MaxApplications" ns2:dt="int">1</custom-attribute>
+</custom-attributes>
+<inclusions-exclusions>
+<scope>ACTION</scope>
+<product-inclusion id="3115300" domain="inSPIRED-inTRONICS"/>
+</inclusions-exclusions>
+</actions>
+</rebates>
+<content>
+<content-activation-type>0</content-activation-type>
+</content>
+<use-campaign-target-group>false</use-campaign-target-group>
+<use-campaign-time-frame>false</use-campaign-time-frame>
+<custom-attributes>
+<custom-attribute name="DisableMessages" ns2:dt="boolean">false</custom-attribute>
+<custom-attribute name="EditedDate" ns2:dt="date">2015-10-12T11:57:55+02:00</custom-attribute>
+<custom-attribute name="LegalContentMessage" ns2:dt="text" xml:lang="de-DE">Das Angebot gilt nur solange der Vorrat reicht und nicht für stornierte Aufträge aufgrund nicht verfügbarer Waren. Die Ermäßigung entfällt, wenn Waren zurückgesendet werden. Ein auf einen Gesamtbetrag gewährter Rabatt wird von dem Wert aller zurückgesendeten Waren abgezogen. Dieses Angebot kann nicht auf bereits getätigte Einkäufe angewendet werden. Dieses Angebot kann jederzeit ohne Begründung geändert oder beendet werden. Wir behalten uns das Recht vor, jegliche Bestellungen durch unbefugte, nicht sachgemäße oder unzulässige Nutzung einer Ermäßigung zu stornieren.</custom-attribute>
+<custom-attribute name="LegalContentMessage" ns2:dt="text" xml:lang="en-US">Offer valid only while supplies last and not applicable to canceled orders due to out-of-stock merchandise. Discount not applicable with returned merchandise; total discount will be deducted from the value of any returned item to which the discount applied. This offer is not valid on previous purchases. This promotional offer may be modified or terminated at any time without notice. We reserve the right to cancel any order due to unauthorized, altered, or ineligible use of a discount.</custom-attribute>
+<custom-attribute name="LongTitle" ns2:dt="text" xml:lang="de-DE">Geschenk: Hülle für den Kauf von mindestens einer externen Festplatte</custom-attribute>
+<custom-attribute name="LongTitle" ns2:dt="text" xml:lang="en-US">Free hard drive sleeve for the purchase of at least one external hard drive</custom-attribute>
+<custom-attribute name="RuleDescription" ns2:dt="text" xml:lang="de-DE">Aktion gilt für den Kauf von mindestens einer externen Festplatte aus unserem Sortiment. Nur ein Geschenk pro Bestellung.</custom-attribute>
+<custom-attribute name="RuleDescription" ns2:dt="text" xml:lang="en-US">Promotion valid for the purchase of at least one external hard drive disk. Only one free gift per order.</custom-attribute>
+<custom-attribute name="Title" ns2:dt="text" xml:lang="de-DE">&lt;span style="color: #ff0000;"&gt;&lt;strong&gt;Mit kostenloser Hülle&lt;/strong&gt;&lt;/span&gt;</custom-attribute>
+<custom-attribute name="Title" ns2:dt="text" xml:lang="en-US">&lt;strong&gt;&lt;span style="color: #ff0000;"&gt;Free hard drive sleeve&lt;/span&gt;&lt;/strong&gt;</custom-attribute>
+<custom-attribute name="UseExternalURL" ns2:dt="boolean" xml:lang="de-DE">false</custom-attribute>
+<custom-attribute name="UseExternalURL" ns2:dt="boolean" xml:lang="en-US">false</custom-attribute>
+<custom-attribute name="description" ns2:dt="string" xml:lang="de-DE">Kostenlose Schutzhülle für den Kauf von mindestens einer Festplatte</custom-attribute>
+<custom-attribute name="description" ns2:dt="string" xml:lang="en-US">Free hard drive sleeve for the purchase of at least one hard drive</custom-attribute>
+<custom-attribute name="displayName" ns2:dt="string" xml:lang="de-DE">Kostenlose Hülle für den Kauf einer Festplatte</custom-attribute>
+<custom-attribute name="displayName" ns2:dt="string" xml:lang="en-US">Free hard drive sleeve</custom-attribute>
+</custom-attributes>
+</promotion>
+<promotion id="2EurosOffOnCables">
+<active>true</active>
+<applications>b2c-responsive</applications>
+<effect-discount-level>false</effect-discount-level>
+<rank>800</rank>
+<start-date>2015-10-12T11:48:00+02:00</start-date>
+<end-date>2020-10-13T11:48:00+02:00</end-date>
+<type-code>0</type-code>
+<creator-id>admin@inSPIRED</creator-id>
+<currency>EUR</currency>
+<combinable>true</combinable>
+<default-rank>true</default-rank>
+<multiple-allowed>true</multiple-allowed>
+<available>true</available>
+<target-group>
+<usergroups id="Everyone" domain="inSPIRED-inTRONICS-Anonymous"/>
+</target-group>
+<budget>
+<budget-id></budget-id>
+<budget-notification-threshold>0.0</budget-notification-threshold>
+<budget-notification-email></budget-notification-email>
+<send-mail-if-budget-reached>false</send-mail-if-budget-reached>
+<send-mail-if-threshold-reached>false</send-mail-if-threshold-reached>
+<disable-by-budget>false</disable-by-budget>
+<unlimited>true</unlimited>
+</budget>
+<promotion-code-definition>
+<promotion-code-required>false</promotion-code-required>
+<single-code></single-code>
+<single-code-total>0</single-code-total>
+<unlimited>true</unlimited>
+<code-customer-unlimited>false</code-customer-unlimited>
+<use-promotion-code-groups>false</use-promotion-code-groups>
+</promotion-code-definition>
+<combination>3</combination>
+<rebates>
+<currency>EUR</currency>
+<type-code>0</type-code>
+<classification-type-code>0</classification-type-code>
+<position>0</position>
+<condition-override-application-exclusion>false</condition-override-application-exclusion>
+<action-override-application-exclusion>false</action-override-application-exclusion>
+<condition>
+<condition-descriptor-id>ItemInclusionsExclusionsCondition</condition-descriptor-id>
+<position>0</position>
+<name></name>
+<type-code>0</type-code>
+<inclusions-exclusions>
+<scope>CONDITION</scope>
+<category-inclusion id="830" domain="inSPIRED-Computers"/>
+</inclusions-exclusions>
+</condition>
+<actions>
+<action-descriptor-id>ItemValueOffDiscount</action-descriptor-id>
+<position>0</position>
+<classification>0</classification>
+<custom-attributes>
+<custom-attribute name="AffectedItemsNumber" ns2:dt="int">1</custom-attribute>
+<custom-attribute name="ConditionalItemsMinPrice" ns2:dt="money">0 EUR</custom-attribute>
+<custom-attribute name="ConditionalItemsSelection" ns2:dt="string">Conditional</custom-attribute>
+<custom-attribute name="HasMaxApplications" ns2:dt="boolean">true</custom-attribute>
+<custom-attribute name="HasMaxPrice" ns2:dt="boolean">false</custom-attribute>
+<custom-attribute name="ItemsAffected" ns2:dt="string">All</custom-attribute>
+<custom-attribute name="MaxApplications" ns2:dt="int">1</custom-attribute>
+<custom-attribute name="MaxPrice" ns2:dt="money">0 EUR</custom-attribute>
+<custom-attribute name="PriceAffected" ns2:dt="string">LowestPrice</custom-attribute>
+<custom-attribute name="ValueOff" ns2:dt="money">2.00 EUR</custom-attribute>
+</custom-attributes>
+</actions>
+</rebates>
+<content>
+<content-activation-type>0</content-activation-type>
+</content>
+<use-campaign-target-group>false</use-campaign-target-group>
+<use-campaign-time-frame>false</use-campaign-time-frame>
+<custom-attributes>
+<custom-attribute name="DisableMessages" ns2:dt="boolean">false</custom-attribute>
+<custom-attribute name="EditedDate" ns2:dt="date">2015-10-12T11:52:45+02:00</custom-attribute>
+<custom-attribute name="LegalContentMessage" ns2:dt="text" xml:lang="de-DE">Das Angebot gilt nur solange der Vorrat reicht und nicht für stornierte Aufträge aufgrund nicht verfügbarer Waren. Die Ermäßigung entfällt, wenn Waren zurückgesendet werden. Ein auf einen Gesamtbetrag gewährter Rabatt wird von dem Wert aller zurückgesendeten Waren abgezogen. Dieses Angebot kann nicht auf bereits getätigte Einkäufe angewendet werden. Dieses Angebot kann jederzeit ohne Begründung geändert oder beendet werden. Wir behalten uns das Recht vor, jegliche Bestellungen durch unbefugte, nicht sachgemäße oder unzulässige Nutzung einer Ermäßigung zu stornieren.</custom-attribute>
+<custom-attribute name="LegalContentMessage" ns2:dt="text" xml:lang="en-US">Offer valid only while supplies last and not applicable to canceled orders due to out-of-stock merchandise. Discount not applicable with returned merchandise; total discount will be deducted from the value of any returned item to which the discount applied. This offer is not valid on previous purchases. This promotional offer may be modified or terminated at any time without notice. We reserve the right to cancel any order due to unauthorized, altered, or ineligible use of a discount.</custom-attribute>
+<custom-attribute name="LongTitle" ns2:dt="text" xml:lang="de-DE">2€ Rabatt auf alle Kabel</custom-attribute>
+<custom-attribute name="LongTitle" ns2:dt="text" xml:lang="en-US">2€ off on all cables</custom-attribute>
+<custom-attribute name="RuleDescription" ns2:dt="text" xml:lang="de-DE">Bleiben Sie in Verbindung. Tauschen Sie ihre alten Kabel mit Wackelkontakt gegen neue. Wir bieten Ihnen 2€ Rabatt!</custom-attribute>
+<custom-attribute name="RuleDescription" ns2:dt="text" xml:lang="en-US">It is important to stay connected. Replace all your broken cables, we offer 2€ discount!</custom-attribute>
+<custom-attribute name="Title" ns2:dt="text" xml:lang="de-DE">&lt;strong&gt;&lt;span style="color: #ff0000;"&gt;Beste Verbindung: 2€ Rabatt&lt;/span&gt;&lt;/strong&gt;</custom-attribute>
+<custom-attribute name="Title" ns2:dt="text" xml:lang="en-US">&lt;span style="color: #ff0000;"&gt;&lt;strong&gt;Stay Connected: 2€ off&lt;/strong&gt;&lt;/span&gt;</custom-attribute>
+<custom-attribute name="UseExternalURL" ns2:dt="boolean" xml:lang="de-DE">false</custom-attribute>
+<custom-attribute name="UseExternalURL" ns2:dt="boolean" xml:lang="en-US">false</custom-attribute>
+<custom-attribute name="description" ns2:dt="string" xml:lang="de-DE">2 EUR Rabatt auf alle Produkte aus der Kategorie "Kabel"</custom-attribute>
+<custom-attribute name="description" ns2:dt="string" xml:lang="en-US">2 EUR rebate on all products from the category "Cables"</custom-attribute>
+<custom-attribute name="displayName" ns2:dt="string" xml:lang="de-DE">2€ Rabatt auf alle Kabel</custom-attribute>
+<custom-attribute name="displayName" ns2:dt="string" xml:lang="en-US">2 € off on all cables</custom-attribute>
+</custom-attributes>
+</promotion>
+<promotion id="5PercentOnActionCams">
+<active>true</active>
+<applications>b2c-responsive</applications>
+<effect-discount-level>false</effect-discount-level>
+<rank>900</rank>
+<start-date>2015-10-12T11:37:00+02:00</start-date>
+<end-date>2020-10-13T11:37:00+02:00</end-date>
+<type-code>0</type-code>
+<creator-id>admin@inSPIRED</creator-id>
+<combinable>true</combinable>
+<default-rank>true</default-rank>
+<multiple-allowed>true</multiple-allowed>
+<available>true</available>
+<target-group>
+<usergroups id="Everyone" domain="inSPIRED-inTRONICS-Anonymous"/>
+</target-group>
+<budget>
+<budget-id></budget-id>
+<budget-notification-threshold>0.0</budget-notification-threshold>
+<budget-notification-email></budget-notification-email>
+<send-mail-if-budget-reached>false</send-mail-if-budget-reached>
+<send-mail-if-threshold-reached>false</send-mail-if-threshold-reached>
+<disable-by-budget>false</disable-by-budget>
+<unlimited>true</unlimited>
+</budget>
+<promotion-code-definition>
+<promotion-code-required>false</promotion-code-required>
+<single-code></single-code>
+<single-code-total>0</single-code-total>
+<unlimited>true</unlimited>
+<code-customer-unlimited>false</code-customer-unlimited>
+<use-promotion-code-groups>false</use-promotion-code-groups>
+</promotion-code-definition>
+<combination>3</combination>
+<rebates>
+<type-code>0</type-code>
+<classification-type-code>0</classification-type-code>
+<position>0</position>
+<condition-override-application-exclusion>false</condition-override-application-exclusion>
+<action-override-application-exclusion>false</action-override-application-exclusion>
+<condition>
+<condition-descriptor-id>ItemInclusionsExclusionsCondition</condition-descriptor-id>
+<position>0</position>
+<name></name>
+<type-code>0</type-code>
+<inclusions-exclusions>
+<scope>CONDITION</scope>
+<category-inclusion id="832" domain="inSPIRED-inTRONICS-Cameras-Camcorders"/>
+</inclusions-exclusions>
+</condition>
+<actions>
+<action-descriptor-id>ItemPercentageOffDiscount</action-descriptor-id>
+<position>0</position>
+<classification>0</classification>
+<custom-attributes>
+<custom-attribute name="AffectedItemsNumber" ns2:dt="int">1</custom-attribute>
+<custom-attribute name="ConditionalItemsSelection" ns2:dt="string">Conditional</custom-attribute>
+<custom-attribute name="HasMaxApplications" ns2:dt="boolean">true</custom-attribute>
+<custom-attribute name="HasMaxPrice" ns2:dt="boolean">false</custom-attribute>
+<custom-attribute name="ItemsAffected" ns2:dt="string">All</custom-attribute>
+<custom-attribute name="MaxApplications" ns2:dt="int">1</custom-attribute>
+<custom-attribute name="PercentageValue" ns2:dt="double">5.0</custom-attribute>
+<custom-attribute name="PriceAffected" ns2:dt="string">LowestPrice</custom-attribute>
+</custom-attributes>
+</actions>
+</rebates>
+<content>
+<content-activation-type>0</content-activation-type>
+</content>
+<use-campaign-target-group>false</use-campaign-target-group>
+<use-campaign-time-frame>false</use-campaign-time-frame>
+<custom-attributes>
+<custom-attribute name="DisableMessages" ns2:dt="boolean">false</custom-attribute>
+<custom-attribute name="EditedDate" ns2:dt="date">2015-10-12T11:41:40+02:00</custom-attribute>
+<custom-attribute name="LegalContentMessage" ns2:dt="text" xml:lang="de-DE">Das Angebot gilt nur solange der Vorrat reicht und nicht für stornierte Aufträge aufgrund nicht verfügbarer Waren. Die Ermäßigung entfällt, wenn Waren zurückgesendet werden. Ein auf einen Gesamtbetrag gewährter Rabatt wird von dem Wert aller zurückgesendeten Waren abgezogen. Dieses Angebot kann nicht auf bereits getätigte Einkäufe angewendet werden. Dieses Angebot kann jederzeit ohne Begründung geändert oder beendet werden. Wir behalten uns das Recht vor, jegliche Bestellungen durch unbefugte, nicht sachgemäße oder unzulässige Nutzung einer Ermäßigung zu stornieren.</custom-attribute>
+<custom-attribute name="LegalContentMessage" ns2:dt="text" xml:lang="en-US">Offer valid only while supplies last and not applicable to canceled orders due to out-of-stock merchandise. Discount not applicable with returned merchandise; total discount will be deducted from the value of any returned item to which the discount applied. This offer is not valid on previous purchases. This promotional offer may be modified or terminated at any time without notice. We reserve the right to cancel any order due to unauthorized, altered, or ineligible use of a discount.</custom-attribute>
+<custom-attribute name="LongTitle" ns2:dt="text" xml:lang="de-DE">5 % Rabatt auf alle Action Cams und Zubehör!</custom-attribute>
+<custom-attribute name="LongTitle" ns2:dt="text" xml:lang="en-US">5 % discount on all action cameras and accessories!</custom-attribute>
+<custom-attribute name="RuleDescription" ns2:dt="text" xml:lang="de-DE">Die nächsten Ferien stehen vor der Tür. Gönnen Sie sich oder ihren Lieben ein großartiges Geschenk, eine Action Cam. Wir gewähren Ihnen 5 % Rabatt darauf.</custom-attribute>
+<custom-attribute name="RuleDescription" ns2:dt="text" xml:lang="en-US">The next vacations are just around the corner. Treat yourself or a loved one with the great gift of an action camera. Enjoy 5 % discount.</custom-attribute>
+<custom-attribute name="Title" ns2:dt="text" xml:lang="de-DE">&lt;strong&gt;&lt;span style="color: #ff0000;"&gt;Urlaubsaktion: 5 % Rabatt&lt;/span&gt;&lt;/strong&gt;</custom-attribute>
+<custom-attribute name="Title" ns2:dt="text" xml:lang="en-US">&lt;span style="color: #ff0000;"&gt;&lt;strong&gt;Holiday Special: 5 % off&lt;/strong&gt;&lt;/span&gt;</custom-attribute>
+<custom-attribute name="UseExternalURL" ns2:dt="boolean" xml:lang="de-DE">false</custom-attribute>
+<custom-attribute name="UseExternalURL" ns2:dt="boolean" xml:lang="en-US">false</custom-attribute>
+<custom-attribute name="description" ns2:dt="string" xml:lang="de-DE">Diese Promotion gewährt allen Kunden 5 % Rabatt auf alle Produkte der Action Cams Kategorie.</custom-attribute>
+<custom-attribute name="description" ns2:dt="string" xml:lang="en-US">This promotion grants 5 % rebate on all actions cams and accessories.</custom-attribute>
+<custom-attribute name="displayName" ns2:dt="string" xml:lang="de-DE">5 % Rabatt auf Action Cams und Zubehör</custom-attribute>
+<custom-attribute name="displayName" ns2:dt="string" xml:lang="en-US">5 % discount on action cameras and accessories</custom-attribute>
+</custom-attributes>
+</promotion>
+<promotion id="FreeShippingOnLEDTVs">
+<active>true</active>
+<applications>b2c-responsive</applications>
+<effect-discount-level>false</effect-discount-level>
+<rank>600</rank>
+<start-date>2010-01-01T00:00:00+01:00</start-date>
+<end-date>2020-12-31T00:00:00+01:00</end-date>
+<type-code>0</type-code>
+<currency>USD</currency>
+<combinable>true</combinable>
+<default-rank>true</default-rank>
+<multiple-allowed>true</multiple-allowed>
+<available>true</available>
+<target-group>
+<usergroups id="Everyone" domain="inSPIRED-inTRONICS-Anonymous"/>
+</target-group>
+<budget>
+<budget-id></budget-id>
+<budget-notification-threshold>0.0</budget-notification-threshold>
+<budget-notification-email></budget-notification-email>
+<send-mail-if-budget-reached>false</send-mail-if-budget-reached>
+<send-mail-if-threshold-reached>false</send-mail-if-threshold-reached>
+<disable-by-budget>false</disable-by-budget>
+<unlimited>true</unlimited>
+</budget>
+<promotion-code-definition>
+<promotion-code-required>false</promotion-code-required>
+<single-code></single-code>
+<single-code-total>0</single-code-total>
+<unlimited>true</unlimited>
+<code-customer-unlimited>false</code-customer-unlimited>
+<use-promotion-code-groups>false</use-promotion-code-groups>
+</promotion-code-definition>
+<combination>3</combination>
+<rebates>
+<currency>USD</currency>
+<type-code>0</type-code>
+<classification-type-code>0</classification-type-code>
+<position>0</position>
+<condition-override-application-exclusion>false</condition-override-application-exclusion>
+<action-override-application-exclusion>false</action-override-application-exclusion>
+<condition>
+<condition-descriptor-id>ItemInclusionsExclusionsCondition</condition-descriptor-id>
+<position>0</position>
+<name></name>
+<type-code>0</type-code>
+<inclusions-exclusions>
+<scope>CONDITION</scope>
+<category-inclusion id="1584" domain="inSPIRED-Home-Entertainment"/>
+</inclusions-exclusions>
+</condition>
+<actions>
+<action-descriptor-id>ShippingPercentageOffDiscount</action-descriptor-id>
+<position>0</position>
+<classification>0</classification>
+<custom-attributes>
+<custom-attribute name="AffectedItemsNumber" ns2:dt="int">1</custom-attribute>
+<custom-attribute name="ConditionalItemsMinPrice" ns2:dt="money">0 USD</custom-attribute>
+<custom-attribute name="ConditionalItemsSelection" ns2:dt="string">Conditional</custom-attribute>
+<custom-attribute name="HasMaxApplications" ns2:dt="boolean">true</custom-attribute>
+<custom-attribute name="HasMaxPrice" ns2:dt="boolean">false</custom-attribute>
+<custom-attribute name="ItemRestriction" ns2:dt="boolean">false</custom-attribute>
+<custom-attribute name="MaxApplications" ns2:dt="int">1</custom-attribute>
+<custom-attribute name="MaxPrice" ns2:dt="money">0 USD</custom-attribute>
+<custom-attribute name="MethodsAffected" ns2:dt="string">All</custom-attribute>
+<custom-attribute name="PercentageValue" ns2:dt="double">100.0</custom-attribute>
+<custom-attribute name="RegionsAffected" ns2:dt="string">All</custom-attribute>
+<custom-attribute name="TargetAffected" ns2:dt="string">Order</custom-attribute>
+</custom-attributes>
+</actions>
+<custom-attributes>
+<custom-attribute name="ConditionalProductDescription" ns2:dt="string" xml:lang="de-DE">Es fallen keine Lieferkosten für Bestellungen mit einem LED TV an.</custom-attribute>
+<custom-attribute name="ConditionalProductDescription" ns2:dt="string" xml:lang="en-US">Get free shipping for orders with an LED TV.</custom-attribute>
+<custom-attribute name="displayName" ns2:dt="string" xml:lang="de-DE">Keine Lieferkosten für Bestellungen, die einen LED TV enthalten</custom-attribute>
+<custom-attribute name="displayName" ns2:dt="string" xml:lang="en-US">Free shipping on orders with an LED TV.</custom-attribute>
+</custom-attributes>
+</rebates>
+<content>
+<content-activation-type>0</content-activation-type>
+</content>
+<use-campaign-target-group>false</use-campaign-target-group>
+<use-campaign-time-frame>false</use-campaign-time-frame>
+<custom-attributes>
+<custom-attribute name="Icon" ns2:dt="text" xml:lang="de-DE">&lt;img src="https://./?[ismediaobject]isfile://inSPIRED-inTRONICS-Site/-/inSPIRED-inTRONICS/en_US/images/PromotionSave.gif|/INTERSHOP/static/WFS/inSPIRED-inTRONICS-Site/-/inSPIRED-inTRONICS/en_US/images/PromotionSave.gif[/ismediaobject]" border="0" alt="Versandkostenfrei!" width="35" height="35" /&gt;</custom-attribute>
+<custom-attribute name="Icon" ns2:dt="text" xml:lang="en-US">&lt;img src="https://./?[ismediaobject]isfile://inSPIRED-inTRONICS-Site/-/inSPIRED-inTRONICS/en_US/images/PromotionSave.gif|/INTERSHOP/static/WFS/inSPIRED-inTRONICS-Site/-/inSPIRED-inTRONICS/en_US/images/PromotionSave.gif[/ismediaobject]" border="0" alt="free shipping!" width="35" height="35" /&gt;</custom-attribute>
+<custom-attribute name="LegalContentMessage" ns2:dt="text" xml:lang="de-DE">&lt;span style="color: #808080;"&gt;Das Angebot gilt nur solange der Vorrat reicht und nicht f&amp;uuml;r stornierte Auftr&amp;auml;ge aufgrund nicht verf&amp;uuml;gbarer Waren. Die Erm&amp;auml;&amp;szlig;igung entf&amp;auml;llt, wenn Waren zur&amp;uuml;ckgesendet werden. Ein auf einen Gesamtbetrag gew&amp;auml;hrter Rabatt wird von dem Wert aller zur&amp;uuml;ckgesendeten Waren abgezogen. Dieses Angebot kann nicht auf bereits get&amp;auml;tigte Eink&amp;auml;ufe angewendet werden. Dieses Angebot kann jederzeit ohne Begr&amp;uuml;ndung ge&amp;auml;ndert oder beendet werden. Wir behalten uns das Recht vor, jegliche Bestellungen durch unbefugte, nicht sachgem&amp;auml;&amp;szlig;e oder unzul&amp;auml;ssige Nutzung einer Erm&amp;auml;&amp;szlig;igung zu stornieren.&lt;/span&gt;</custom-attribute>
+<custom-attribute name="LegalContentMessage" ns2:dt="text" xml:lang="en-US">&lt;span style="color: #808080;"&gt;Offer valid only while supplies last and not applicable to canceled orders due to out-of-stock merchandise. Discount not applicable with returned merchandise; total discount will be deducted from the value of any returned item to which the discount applied. This offer is not valid on previous purchases. This promotional offer may be modified or terminated at any time without notice. We reserve the right to cancel any order due to unauthorized, altered, or ineligible use of a discount.&lt;/span&gt;</custom-attribute>
+<custom-attribute name="LongTitle" ns2:dt="text" xml:lang="de-DE">&lt;strong&gt;Kostenloser Versand bei Bestellungen, die einen LED TV enthalten.&lt;/strong&gt;</custom-attribute>
+<custom-attribute name="LongTitle" ns2:dt="text" xml:lang="en-US">&lt;strong&gt;Free shipping on orders with an LED TV.&lt;/strong&gt;</custom-attribute>
+<custom-attribute name="RuleDescription" ns2:dt="text" xml:lang="de-DE">Bestellen Sie einen LED TV und der Versand erfolgt kostenlos.</custom-attribute>
+<custom-attribute name="RuleDescription" ns2:dt="text" xml:lang="en-US">Buy any LED TV and the order ships free.</custom-attribute>
+<custom-attribute name="Title" ns2:dt="text" xml:lang="de-DE">&lt;strong&gt;&lt;span style="color: #ff0000;"&gt;Versandkostenfrei!&lt;/span&gt;&lt;/strong&gt;</custom-attribute>
+<custom-attribute name="Title" ns2:dt="text" xml:lang="en-US">&lt;strong&gt;&lt;span style="color: #ff0000;"&gt;free shipping!&lt;/span&gt;&lt;/strong&gt;</custom-attribute>
+<custom-attribute name="description" ns2:dt="string" xml:lang="en-US">For LED TVs the shipping is free.</custom-attribute>
+<custom-attribute name="displayName" ns2:dt="string" xml:lang="en-US">Free Shipping on LED TVs</custom-attribute>
+</custom-attributes>
+</promotion>
+<promotion id="10EUROrderDiscount">
+<active>true</active>
+<applications>b2c-responsive</applications>
+<effect-discount-level>false</effect-discount-level>
+<rank>300</rank>
+<start-date>2010-01-01T00:00:00+01:00</start-date>
+<end-date>2020-01-01T00:00:00+01:00</end-date>
+<type-code>0</type-code>
+<currency>EUR</currency>
+<combinable>true</combinable>
+<default-rank>true</default-rank>
+<multiple-allowed>true</multiple-allowed>
+<available>true</available>
+<target-group>
+<usergroups id="CAMPAIGN_0PkKDgBjE4IAAAFAe.0dFJqS" domain="inSPIRED-inTRONICS"/>
+</target-group>
+<budget>
+<budget-id></budget-id>
+<budget-notification-threshold>0.0</budget-notification-threshold>
+<budget-notification-email></budget-notification-email>
+<send-mail-if-budget-reached>false</send-mail-if-budget-reached>
+<send-mail-if-threshold-reached>false</send-mail-if-threshold-reached>
+<disable-by-budget>false</disable-by-budget>
+<unlimited>true</unlimited>
+</budget>
+<promotion-code-definition>
+<promotion-code-required>true</promotion-code-required>
+<single-code></single-code>
+<single-code-total>0</single-code-total>
+<unlimited>true</unlimited>
+<code-customer-unlimited>false</code-customer-unlimited>
+<use-promotion-code-groups>true</use-promotion-code-groups>
+<promotion-code-groups>
+<code-group-id>Promotion Code Group 1</code-group-id>
+</promotion-code-groups>
+</promotion-code-definition>
+<combination>3</combination>
+<rebates>
+<currency>EUR</currency>
+<type-code>0</type-code>
+<classification-type-code>0</classification-type-code>
+<position>0</position>
+<condition-override-application-exclusion>false</condition-override-application-exclusion>
+<action-override-application-exclusion>false</action-override-application-exclusion>
+<condition>
+<condition-descriptor-id>OrderMinValueCondition</condition-descriptor-id>
+<position>0</position>
+<name></name>
+<type-code>0</type-code>
+<custom-attributes>
+<custom-attribute name="Money" ns2:dt="money">200 EUR</custom-attribute>
+<custom-attribute name="DynamicMessageKey" ns2:dt="string">${cr8KAB2rv7QAAAFPpSw1rPwN}</custom-attribute>
+</custom-attributes>
+</condition>
+<actions>
+<action-descriptor-id>OrderValueOffDiscount</action-descriptor-id>
+<position>0</position>
+<classification>0</classification>
+<custom-attributes>
+<custom-attribute name="HasMaxApplications" ns2:dt="boolean">true</custom-attribute>
+<custom-attribute name="HasMaxPrice" ns2:dt="boolean">false</custom-attribute>
+<custom-attribute name="MaxApplications" ns2:dt="int">1</custom-attribute>
+<custom-attribute name="MaxPrice" ns2:dt="money">0 EUR</custom-attribute>
+<custom-attribute name="Money" ns2:dt="money">10 EUR</custom-attribute>
+</custom-attributes>
+</actions>
+<custom-attributes>
+<custom-attribute name="ConditionalProductDescription" ns2:dt="string" xml:lang="de-DE">Erhalten Sie 10 EUR Rabatt auf Ihre Bestellung.</custom-attribute>
+<custom-attribute name="ConditionalProductDescription" ns2:dt="string" xml:lang="en-US">Get 10 EUR off for your order.</custom-attribute>
+<custom-attribute name="displayName" ns2:dt="string" xml:lang="de-DE">Sparen Sie 10 EUR.</custom-attribute>
+<custom-attribute name="displayName" ns2:dt="string" xml:lang="en-US">Save 10 EUR.</custom-attribute>
+</custom-attributes>
+</rebates>
+<content>
+<content-activation-type>0</content-activation-type>
+</content>
+<use-campaign-target-group>true</use-campaign-target-group>
+<use-campaign-time-frame>false</use-campaign-time-frame>
+<campaign>
+<campaign-target-group>CAMPAIGN_0PkKDgBjE4IAAAFAe.0dFJqS</campaign-target-group>
+<start-date>2010-01-01T00:00:00+01:00</start-date>
+<end-date>2020-01-01T00:00:00+01:00</end-date>
+<enabled>true</enabled>
+</campaign>
+<custom-attributes>
+<custom-attribute name="Icon" ns2:dt="text" xml:lang="de-DE">&lt;img src="https://./?[ismediaobject]isfile://inSPIRED-inTRONICS-Site/-/inSPIRED-inTRONICS/en_US/images/PromotionSave.gif|/INTERSHOP/static/WFS/inSPIRED-inTRONICS-Site/-/inSPIRED-inTRONICS/en_US/images/PromotionSave.gif[/ismediaobject]" border="0" alt="Sparen Sie 10 EUR!" width="35" height="35" /&gt;</custom-attribute>
+<custom-attribute name="Icon" ns2:dt="text" xml:lang="en-US">&lt;img src="https://./?[ismediaobject]isfile://inSPIRED-inTRONICS-Site/-/inSPIRED-inTRONICS/en_US/images/PromotionSave.gif|/INTERSHOP/static/WFS/inSPIRED-inTRONICS-Site/-/inSPIRED-inTRONICS/en_US/images/PromotionSave.gif[/ismediaobject]" border="0" alt="Save 10 EUR!" width="35" height="35" /&gt;</custom-attribute>
+<custom-attribute name="LegalContentMessage" ns2:dt="text" xml:lang="de-DE">&lt;span style="color: #808080;"&gt;Das Angebot gilt nur solange der Vorrat reicht und nicht f&amp;uuml;r stornierte Auftr&amp;auml;ge aufgrund nicht verf&amp;uuml;gbarer Waren. Die Erm&amp;auml;&amp;szlig;igung entf&amp;auml;llt, wenn Waren zur&amp;uuml;ckgesendet werden. Ein auf einen Gesamtbetrag gew&amp;auml;hrter Rabatt wird von dem Wert aller zur&amp;uuml;ckgesendeten Waren abgezogen. Dieses Angebot kann nicht auf bereits get&amp;auml;tigte Eink&amp;auml;ufe angewendet werden. Dieses Angebot kann jederzeit ohne Begr&amp;uuml;ndung ge&amp;auml;ndert oder beendet werden. Wir behalten uns das Recht vor, jegliche Bestellungen durch unbefugte, nicht sachgem&amp;auml;&amp;szlig;e oder unzul&amp;auml;ssige Nutzung einer Erm&amp;auml;&amp;szlig;igung zu stornieren.&lt;/span&gt;</custom-attribute>
+<custom-attribute name="LegalContentMessage" ns2:dt="text" xml:lang="en-US">&lt;span style="color: #808080;"&gt;Offer valid only while supplies last and not applicable to canceled orders due to out-of-stock merchandise. Discount not applicable with returned merchandise; total discount will be deducted from the value of any returned item to which the discount applied. This offer is not valid on previous purchases. This promotional offer may be modified or terminated at any time without notice. We reserve the right to cancel any order due to unauthorized, altered, or ineligible use of a discount.&lt;/span&gt;</custom-attribute>
+<custom-attribute name="LongTitle" ns2:dt="text" xml:lang="de-DE">&lt;strong&gt;Erhalten Sie 10 EUR Rabatt auf Ihre Bestellung über 200 EUR. Verwenden Sie den Promo Code "INTERSHOP" beim Auschecken.&lt;/strong&gt;</custom-attribute>
+<custom-attribute name="LongTitle" ns2:dt="text" xml:lang="en-US">&lt;strong&gt;Get 10 EUR off on all orders above 200 EUR. Enter Promo Code "INTERSHOP" in Checkout.&lt;/strong&gt;</custom-attribute>
+<custom-attribute name="RuleDescription" ns2:dt="text" xml:lang="de-DE">Sie erhalten 10 EUR Rabatt auf Ihre Bestellung.</custom-attribute>
+<custom-attribute name="RuleDescription" ns2:dt="text" xml:lang="en-US">Save 10 EUR of your whole order.</custom-attribute>
+<custom-attribute name="Title" ns2:dt="text" xml:lang="de-DE">&lt;span style="color: #ff0000;"&gt;&lt;strong&gt;&lt;span style="font-size: small;"&gt;Sparen Sie 10 EUR!&lt;/span&gt;&lt;/strong&gt;&lt;/span&gt;</custom-attribute>
+<custom-attribute name="Title" ns2:dt="text" xml:lang="en-US">&lt;span style="color: #ff0000;"&gt;&lt;strong&gt;&lt;span style="font-size: small;"&gt;Save 10 EUR!&lt;/span&gt;&lt;/strong&gt;&lt;/span&gt;</custom-attribute>
+<custom-attribute name="description" ns2:dt="string" xml:lang="en-US">For orders over 200 EUR, a 10 EUR Order discount is guaranteed for the Promo Code "INTERSHOP".</custom-attribute>
+<custom-attribute name="displayName" ns2:dt="string" xml:lang="en-US">10 EUR Order discount</custom-attribute>
+</custom-attributes>
+</promotion>
+<promotion id="10USDOrderDiscount">
+<active>true</active>
+<applications>b2c-responsive</applications>
+<effect-discount-level>false</effect-discount-level>
+<rank>300</rank>
+<start-date>2010-01-01T00:00:00+01:00</start-date>
+<end-date>2020-01-01T00:00:00+01:00</end-date>
+<type-code>0</type-code>
+<currency>USD</currency>
+<combinable>true</combinable>
+<default-rank>true</default-rank>
+<multiple-allowed>true</multiple-allowed>
+<available>true</available>
+<target-group>
+<usergroups id="CAMPAIGN_0PkKDgBjE4IAAAFAe.0dFJqS" domain="inSPIRED-inTRONICS"/>
+</target-group>
+<budget>
+<budget-id></budget-id>
+<budget-notification-threshold>0.0</budget-notification-threshold>
+<budget-notification-email></budget-notification-email>
+<send-mail-if-budget-reached>false</send-mail-if-budget-reached>
+<send-mail-if-threshold-reached>false</send-mail-if-threshold-reached>
+<disable-by-budget>false</disable-by-budget>
+<unlimited>true</unlimited>
+</budget>
+<promotion-code-definition>
+<promotion-code-required>true</promotion-code-required>
+<single-code></single-code>
+<single-code-total>0</single-code-total>
+<unlimited>true</unlimited>
+<code-customer-unlimited>false</code-customer-unlimited>
+<use-promotion-code-groups>true</use-promotion-code-groups>
+<promotion-code-groups>
+<code-group-id>Promotion Code Group 1</code-group-id>
+</promotion-code-groups>
+</promotion-code-definition>
+<combination>3</combination>
+<rebates>
+<currency>USD</currency>
+<type-code>0</type-code>
+<classification-type-code>0</classification-type-code>
+<position>0</position>
+<condition-override-application-exclusion>false</condition-override-application-exclusion>
+<action-override-application-exclusion>false</action-override-application-exclusion>
+<condition>
+<condition-descriptor-id>OrderMinValueCondition</condition-descriptor-id>
+<position>0</position>
+<name></name>
+<type-code>0</type-code>
+<custom-attributes>
+<custom-attribute name="Money" ns2:dt="money">200 USD</custom-attribute>
+<custom-attribute name="DynamicMessageKey" ns2:dt="string">${UuMKAB2r4DoAAAFP2yw1rPwN}</custom-attribute>
+</custom-attributes>
+</condition>
+<actions>
+<action-descriptor-id>OrderValueOffDiscount</action-descriptor-id>
+<position>0</position>
+<classification>0</classification>
+<custom-attributes>
+<custom-attribute name="HasMaxApplications" ns2:dt="boolean">true</custom-attribute>
+<custom-attribute name="HasMaxPrice" ns2:dt="boolean">false</custom-attribute>
+<custom-attribute name="MaxApplications" ns2:dt="int">1</custom-attribute>
+<custom-attribute name="MaxPrice" ns2:dt="money">0 USD</custom-attribute>
+<custom-attribute name="Money" ns2:dt="money">10 USD</custom-attribute>
+</custom-attributes>
+</actions>
+<custom-attributes>
+<custom-attribute name="ConditionalProductDescription" ns2:dt="string" xml:lang="de-DE">Erhalten Sie 10 USD Rabatt auf Ihre Bestellung.</custom-attribute>
+<custom-attribute name="ConditionalProductDescription" ns2:dt="string" xml:lang="en-US">Get 10 USD off for your order.</custom-attribute>
+<custom-attribute name="displayName" ns2:dt="string" xml:lang="de-DE">Sparen Sie 10 USD.</custom-attribute>
+<custom-attribute name="displayName" ns2:dt="string" xml:lang="en-US">Save 10 USD.</custom-attribute>
+</custom-attributes>
+</rebates>
+<content>
+<content-activation-type>0</content-activation-type>
+</content>
+<use-campaign-target-group>true</use-campaign-target-group>
+<use-campaign-time-frame>false</use-campaign-time-frame>
+<campaign>
+<campaign-target-group>CAMPAIGN_0PkKDgBjE4IAAAFAe.0dFJqS</campaign-target-group>
+<start-date>2010-01-01T00:00:00+01:00</start-date>
+<end-date>2020-01-01T00:00:00+01:00</end-date>
+<enabled>true</enabled>
+</campaign>
+<custom-attributes>
+<custom-attribute name="EditedDate" ns2:dt="date">2014-05-13T15:38:36+02:00</custom-attribute>
+<custom-attribute name="Icon" ns2:dt="text" xml:lang="de-DE">&lt;img src="https://./?[ismediaobject]isfile://inSPIRED-inTRONICS-Site/-/inSPIRED-inTRONICS/en_US/images/PromotionSave.gif|/INTERSHOP/static/WFS/inSPIRED-inTRONICS-Site/-/inSPIRED-inTRONICS/en_US/images/PromotionSave.gif[/ismediaobject]" border="0" alt="Sparen Sie 10 USD!" width="35" height="35" /&gt;</custom-attribute>
+<custom-attribute name="Icon" ns2:dt="text" xml:lang="en-US">&lt;img src="https://./?[ismediaobject]isfile://inSPIRED-inTRONICS-Site/-/inSPIRED-inTRONICS/en_US/images/PromotionSave.gif|/INTERSHOP/static/WFS/inSPIRED-inTRONICS-Site/-/inSPIRED-inTRONICS/en_US/images/PromotionSave.gif[/ismediaobject]" border="0" alt="Save 10 USD!" width="35" height="35" /&gt;</custom-attribute>
+<custom-attribute name="LegalContentMessage" ns2:dt="text" xml:lang="de-DE">&lt;span style="color: #808080;"&gt;Das Angebot gilt nur solange der Vorrat reicht und nicht f&amp;uuml;r stornierte Auftr&amp;auml;ge aufgrund nicht verf&amp;uuml;gbarer Waren. Die Erm&amp;auml;&amp;szlig;igung entf&amp;auml;llt, wenn Waren zur&amp;uuml;ckgesendet werden. Ein auf einen Gesamtbetrag gew&amp;auml;hrter Rabatt wird von dem Wert aller zur&amp;uuml;ckgesendeten Waren abgezogen. Dieses Angebot kann nicht auf bereits get&amp;auml;tigte Eink&amp;auml;ufe angewendet werden. Dieses Angebot kann jederzeit ohne Begr&amp;uuml;ndung ge&amp;auml;ndert oder beendet werden. Wir behalten uns das Recht vor, jegliche Bestellungen durch unbefugte, nicht sachgem&amp;auml;&amp;szlig;e oder unzul&amp;auml;ssige Nutzung einer Erm&amp;auml;&amp;szlig;igung zu stornieren.&lt;/span&gt;</custom-attribute>
+<custom-attribute name="LegalContentMessage" ns2:dt="text" xml:lang="en-US">&lt;span style="color: #808080;"&gt;Offer valid only while supplies last and not applicable to canceled orders due to out-of-stock merchandise. Discount not applicable with returned merchandise; total discount will be deducted from the value of any returned item to which the discount applied. This offer is not valid on previous purchases. This promotional offer may be modified or terminated at any time without notice. We reserve the right to cancel any order due to unauthorized, altered, or ineligible use of a discount.&lt;/span&gt;</custom-attribute>
+<custom-attribute name="LongTitle" ns2:dt="text" xml:lang="de-DE">&lt;strong&gt;Erhalten Sie 10 USD Rabatt auf Ihre Bestellung über 200 USD. Verwenden Sie den Promo Code "INTERSHOP" beim Auschecken.&lt;/strong&gt;</custom-attribute>
+<custom-attribute name="LongTitle" ns2:dt="text" xml:lang="en-US">&lt;strong&gt;Get 10 USD off on all orders above 200 USD. Enter Promo Code "INTERSHOP" in Checkout.&lt;/strong&gt;</custom-attribute>
+<custom-attribute name="RuleDescription" ns2:dt="text" xml:lang="de-DE">Sie erhalten 10 USD Rabatt auf Ihre Bestellung.</custom-attribute>
+<custom-attribute name="RuleDescription" ns2:dt="text" xml:lang="en-US">Save 10 USD of your whole order.</custom-attribute>
+<custom-attribute name="Title" ns2:dt="text" xml:lang="de-DE">&lt;span style="color: #ff0000;"&gt;&lt;strong&gt;&lt;span style="font-size: small;"&gt;Sparen Sie 10 USD!&lt;/span&gt;&lt;/strong&gt;&lt;/span&gt;</custom-attribute>
+<custom-attribute name="Title" ns2:dt="text" xml:lang="en-US">&lt;span style="color: #ff0000;"&gt;&lt;strong&gt;&lt;span style="font-size: small;"&gt;Save 10 USD!&lt;/span&gt;&lt;/strong&gt;&lt;/span&gt;</custom-attribute>
+<custom-attribute name="description" ns2:dt="string" xml:lang="en-US">For orders over 200 USD, a 10 USD Order discount is guaranteed for the Promo Code "INTERSHOP".</custom-attribute>
+<custom-attribute name="displayName" ns2:dt="string" xml:lang="en-US">10 USD Order discount</custom-attribute>
+</custom-attributes>
+</promotion>
+</enfinity>

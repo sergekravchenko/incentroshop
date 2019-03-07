@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pipeline:Pipeline xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pipeline="http://www.intershop.de/pipeline/2010"
+    name="ViewCustomerBranding" overrideMode="Inherit" type="">
+<!--TODO message about overwriting and going back to page
+@Location 3,10-->
+  <nodes xsi:type="pipeline:Text" nodeID="Text0"/>
+<!--TODO Login check and handling
+@Location 1,5-->
+  <nodes xsi:type="pipeline:Text" nodeID="Text1"/>
+<!--@Location 6,0-->
+  <nodes xsi:type="pipeline:StartNode" nodeID="StartNode2" name="CopyFile" callMode="Private">
+    <nodeSuccessors name="next" next="CopyFile0"/>
+  </nodes>
+<!--@Location 6,1-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="CopyFile0">
+    <configurationValues name="DefaultSourceDirectoryPath" value="upload"/>
+    <configurationValues name="DefaultSourceUnitDirectory" value="IMPEX_DIR"/>
+    <configurationValues name="DefaultTargetDirectoryPath" value="CustomerLogos"/>
+    <configurationValues name="DefaultTargetUnitDirectory" value="STATIC_CONTENT_DIR"/>
+    <pipelet href="enfinity:/bc_foundation/pipelets/CopyFile.xml"/>
+    <nodeSuccessors name="next" next="ConcatenateStrings1"/>
+<!--@BendPoints 15,3 15,3-->
+    <nodeSuccessors name="pipelet_error" next="SetDictionaryValue0"/>
+    <parameterBindings name="SourceFileName" objectPath="FileName"/>
+    <parameterBindings name="SourceUnitDomain" objectPath="UploadDomain"/>
+    <parameterBindings name="TargetDirectoryPath" constant="CustomerLogos"/>
+    <parameterBindings name="TargetFileName" objectPath="NewFileName"/>
+    <parameterBindings name="TargetUnitDomain" objectPath="UploadDomain"/>
+  </nodes>
+<!--@Location 6,2-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="ConcatenateStrings1">
+    <pipelet href="enfinity:/bc_foundation/pipelets/ConcatenateStrings.xml"/>
+    <nodeSuccessors name="next" next="UpdateCustomerBranding0"/>
+    <parameterBindings name="String0" constant="CustomerLogos"/>
+    <parameterBindings name="String1" constant="/"/>
+    <parameterBindings name="String2" objectPath="NewFileName"/>
+    <returnValueBindings name="Concatenated" objectPath="BrandingImageName"/>
+  </nodes>
+<!--@Location 6,3-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="UpdateCustomerBranding0">
+    <pipelet href="enfinity:/app_sf_responsive_b2b/pipelets/UpdateCustomerBranding.xml"/>
+    <nodeSuccessors name="next" next="JoinNode1"/>
+    <parameterBindings name="BrandingImage" objectPath="BrandingImageName"/>
+  </nodes>
+<!--@Location 6,4-->
+  <nodes xsi:type="pipeline:JoinNode" nodeID="JoinNode1">
+<!--@BendPoints 13,10 13,10-->
+    <nodeSuccessors name="next" next="DeleteFile0"/>
+  </nodes>
+<!--@Location 6,5-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="DeleteFile0">
+    <configurationValues name="DefaultDirectoryPath" value="upload"/>
+    <configurationValues name="UnitDirectory" value="IMPEX_DIR"/>
+    <pipelet href="enfinity:/bc_foundation/pipelets/DeleteFile.xml"/>
+    <nodeSuccessors name="next" next="JumpNode3"/>
+    <parameterBindings name="FileName" objectPath="FileName"/>
+    <parameterBindings name="UnitDomain" objectPath="UploadDomain"/>
+  </nodes>
+<!--@Location 6,6-->
+  <nodes xsi:type="pipeline:JumpNode" nodeID="JumpNode3">
+    <startNode referencedName="ViewCustomerBranding-Start"/>
+  </nodes>
+<!--@Location 7,3-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="SetDictionaryValue0">
+    <configurationValues name="Name" value="ErrorCode"/>
+    <configurationValues name="Value" value="FileUploadError"/>
+    <pipelet href="enfinity:/bc_foundation/pipelets/SetDictionaryValue.xml"/>
+<!--@BendPoints 15,9 15,9-->
+    <nodeSuccessors name="next" next="JoinNode1"/>
+  </nodes>
+<!--@Location 8,0-->
+  <nodes xsi:type="pipeline:StartNode" nodeID="StartNode3" name="Delete">
+    <nodeSuccessors name="next" next="CallNode2"/>
+  </nodes>
+<!--@Location 8,1-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode2">
+    <nodeSuccessors name="next" next="KeyMapper3"/>
+    <startNode referencedName="This:Prefix"/>
+  </nodes>
+<!--@Location 8,2-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="KeyMapper3">
+    <pipelet href="enfinity:/bc_foundation/pipelets/KeyMapper.xml"/>
+    <nodeSuccessors name="next" next="DecisionNode1"/>
+    <parameterBindings name="InValue_1" objectPath="CustomerBO:Extension(&quot;CustomerBOBrandingExtension&quot;)"/>
+    <parameterBindings name="InValue_2" objectPath="Repository:Domain"/>
+    <returnValueBindings name="OutValue_1" objectPath="BrandingExtension"/>
+    <returnValueBindings name="OutValue_2" objectPath="UploadDomain"/>
+  </nodes>
+<!--@Location 8,3-->
+  <nodes xsi:type="pipeline:DecisionNode" nodeID="DecisionNode1" conditionKey="BrandingExtension:BrandingImage">
+    <nodeSuccessors name="decision_yes" next="GetStringIndexOf1"/>
+<!--@BendPoints 19,7 19,19-->
+    <nodeSuccessors name="decision_no" next="JoinNode2"/>
+  </nodes>
+<!--@Location 8,4-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="GetStringIndexOf1">
+    <pipelet href="enfinity:/bc_foundation/pipelets/GetStringIndexOf.xml"/>
+    <nodeSuccessors name="next" next="CalculateInteger0"/>
+    <parameterBindings name="MainString" objectPath="BrandingExtension:BrandingImage"/>
+    <parameterBindings name="SubString" constant="/"/>
+  </nodes>
+<!--@Location 8,5-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="CalculateInteger0">
+    <configurationValues name="Operand2" value="1"/>
+    <configurationValues name="Operation" value="+"/>
+    <pipelet href="enfinity:/bc_foundation/pipelets/CalculateInteger.xml"/>
+    <nodeSuccessors name="next" next="GetSubString1"/>
+    <parameterBindings name="Operand1" objectPath="IndexOf"/>
+    <returnValueBindings name="Result" objectPath="BeginIndex"/>
+  </nodes>
+<!--@Location 8,6-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="GetSubString1">
+    <pipelet href="enfinity:/bc_foundation/pipelets/GetSubString.xml"/>
+    <nodeSuccessors name="next" next="UpdateCustomerBranding1"/>
+    <parameterBindings name="String" objectPath="BrandingExtension:BrandingImage"/>
+    <returnValueBindings name="SubString" objectPath="FileName"/>
+  </nodes>
+<!--@Location 8,7-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="UpdateCustomerBranding1">
+    <pipelet href="enfinity:/app_sf_responsive_b2b/pipelets/UpdateCustomerBranding.xml"/>
+    <nodeSuccessors name="next" next="DeleteFile1"/>
+    <parameterBindings name="BrandingImage" nullBinding="true"/>
+  </nodes>
+<!--@Location 8,8-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="DeleteFile1">
+    <configurationValues name="DefaultDirectoryPath" value="CustomerLogos"/>
+    <configurationValues name="UnitDirectory" value="STATIC_CONTENT_DIR"/>
+    <pipelet href="enfinity:/bc_foundation/pipelets/DeleteFile.xml"/>
+    <nodeSuccessors name="next" next="JoinNode2"/>
+    <parameterBindings name="FileName" objectPath="FileName"/>
+    <parameterBindings name="UnitDomain" objectPath="UploadDomain"/>
+  </nodes>
+<!--@Location 8,9-->
+  <nodes xsi:type="pipeline:JoinNode" nodeID="JoinNode2">
+    <nodeSuccessors name="next" next="JumpNode4"/>
+  </nodes>
+<!--@Location 8,10-->
+  <nodes xsi:type="pipeline:JumpNode" nodeID="JumpNode4">
+    <startNode referencedName="ViewCustomerBranding-Start"/>
+  </nodes>
+<!--@Location 10,0-->
+  <nodes xsi:type="pipeline:StartNode" nodeID="StartNode5" strict="true" name="GetFileName"
+      callMode="Private">
+    <nodeSuccessors name="next" next="GetFileExtension0"/>
+    <parameters name="CustomerBO" type="com.intershop.component.customer.capi.CustomerBO"/>
+    <parameters name="File" type="java.io.File"/>
+  </nodes>
+<!--@Location 10,1-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="GetFileExtension0">
+    <pipelet href="enfinity:/bc_foundation/pipelets/GetFileExtension.xml"/>
+    <nodeSuccessors name="next" next="CreateUUID0"/>
+    <parameterBindings name="FileName" objectPath="File:Name"/>
+  </nodes>
+<!--@Location 10,2-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="CreateUUID0">
+    <pipelet href="enfinity:/bc_foundation/pipelets/CreateUUID.xml"/>
+    <nodeSuccessors name="next" next="ConcatenateStrings0"/>
+  </nodes>
+<!--@Location 10,3-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="ConcatenateStrings0">
+    <pipelet href="enfinity:/bc_foundation/pipelets/ConcatenateStrings.xml"/>
+    <nodeSuccessors name="next" next="EndNode1"/>
+    <parameterBindings name="String0" objectPath="UUID"/>
+    <parameterBindings name="String1" constant="_"/>
+    <parameterBindings name="String2" constant="."/>
+    <parameterBindings name="String3" objectPath="FileExtension"/>
+    <returnValueBindings name="Concatenated" objectPath="NewFileName"/>
+  </nodes>
+<!--@Location 10,4-->
+  <nodes xsi:type="pipeline:EndNode" nodeID="EndNode1" strict="true">
+    <returnValues name="NewFileName" type="java.lang.String"/>
+  </nodes>
+<!--@Location 1,4-->
+  <nodes xsi:type="pipeline:StartNode" nodeID="StartNode4" name="Prefix" callMode="Private">
+    <nodeSuccessors name="next" next="CallNode0"/>
+  </nodes>
+<!--@Location 1,6-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode0">
+    <nodeSuccessors name="next" next="CallNode4"/>
+    <startNode referencedName="DetermineRepositories-Channel"/>
+  </nodes>
+<!--@Location 1,7-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode4">
+    <nodeSuccessors name="next" next="CallNode_sMTiULWfEeehMrpmGe1JvA"/>
+    <parameterBindings name="User" objectPath="CurrentUser"/>
+    <startNode referencedName="BusinessObjectUtils-GetUserBO"/>
+  </nodes>
+<!--@Location 1,8-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode_sMTiULWfEeehMrpmGe1JvA">
+    <nodeSuccessors name="next" next="CallNode3"/>
+    <parameterBindings name="PermissionID" constant="APP_B2B_MANAGE_BRANDING"/>
+    <startNode referencedName="ProcessPermission-CheckUserHasPermission"/>
+  </nodes>
+<!--@Location 1,9-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode3">
+    <nodeSuccessors name="next" next="EndNode0"/>
+    <startNode referencedName="BusinessObjectUtils-GetCustomerBO"/>
+  </nodes>
+<!--@Location 1,10-->
+  <nodes xsi:type="pipeline:EndNode" nodeID="EndNode0"/>
+<!--@Location 1,0-->
+  <nodes xsi:type="pipeline:StartNode" nodeID="StartNode0" name="Start">
+    <nodeSuccessors name="next" next="CallNode6"/>
+  </nodes>
+<!--@Location 1,1-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode6">
+    <nodeSuccessors name="next" next="RenderSystemPageWithTemplate0_Input"/>
+    <startNode referencedName="This:Prefix"/>
+  </nodes>
+<!--@Location 1,2-->
+  <nodes xsi:type="pipeline:PipelineNodeNode" nodeID="RenderSystemPageWithTemplate0">
+    <configurationValues name="PageEntryPointDefinitionReference" value="app_sf_responsive_b2b:systempage.account.branding.pagelet2-Page"/>
+    <configurationValues name="WorkingTemplate" value="account/Branding.isml"/>
+    <pipelet href="enfinity:/sld_ch_sf_base/pipelets/com.intershop.sellside.storefront.base.capi.pipeline.RenderSystemPageWithTemplate.pipelinenode"/>
+    <inConnectors name="Input">
+      <parameterBindings name="Dictionary" objectPath="CurrentRequest:PipelineDictionary"/>
+    </inConnectors>
+  </nodes>
+<!--@Location 3,0-->
+  <nodes xsi:type="pipeline:StartNode" nodeID="StartNode1" name="Upload">
+    <nodeSuccessors name="next" next="CallNode1"/>
+  </nodes>
+<!--@Location 3,1-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode1">
+    <nodeSuccessors name="next" next="KeyMapper2"/>
+    <startNode referencedName="This:Prefix"/>
+  </nodes>
+<!--@Location 3,2-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="KeyMapper2">
+    <pipelet href="enfinity:/bc_foundation/pipelets/KeyMapper.xml"/>
+    <nodeSuccessors name="next" next="ProcessMultipartRequest0"/>
+    <parameterBindings name="InValue_1" objectPath="Repository:Domain"/>
+    <returnValueBindings name="OutValue_1" objectPath="UploadDomain"/>
+  </nodes>
+<!--@Location 3,3-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="ProcessMultipartRequest0">
+    <configurationValues name="DirectoryPath" value="upload"/>
+    <configurationValues name="MaxFileSize" value="2"/>
+    <configurationValues name="UnitDirectory" value="IMPEX_DIR"/>
+    <pipelet href="enfinity:/bc_foundation/pipelets/ProcessMultipartRequest.xml"/>
+    <nodeSuccessors name="next" next="GetFirstElementOfIterator0"/>
+<!--@BendPoints 9,7 9,7-->
+    <nodeSuccessors name="pipelet_error" next="JoinNode0"/>
+    <parameterBindings name="UnitDomain" objectPath="UploadDomain"/>
+    <returnValueBindings name="Files" objectPath="UploadedFiles"/>
+  </nodes>
+<!--@Location 3,4-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="GetFirstElementOfIterator0">
+    <pipelet href="enfinity:/bc_foundation/pipelets/GetFirstElementOfIterator.xml"/>
+<!--@BendPoints 7,10 7,10-->
+    <nodeSuccessors name="next" next="KeyMapper1"/>
+    <nodeSuccessors name="pipelet_error" next="JoinNode0"/>
+    <parameterBindings name="Iterator" objectPath="UploadedFiles"/>
+    <returnValueBindings name="FirstElement" objectPath="File"/>
+  </nodes>
+<!--@Location 3,5-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="KeyMapper1">
+    <pipelet href="enfinity:/bc_foundation/pipelets/KeyMapper.xml"/>
+    <nodeSuccessors name="next" next="CallNode5"/>
+    <parameterBindings name="InValue_1" objectPath="File:Name"/>
+    <returnValueBindings name="OutValue_1" objectPath="FileName"/>
+  </nodes>
+<!--@Location 3,6-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode5">
+    <nodeSuccessors name="next" next="CheckForExistingFiles0"/>
+    <startNode referencedName="This:GetFileName"/>
+  </nodes>
+<!--@Location 3,8-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="CheckForExistingFiles0">
+    <configurationValues name="ExtractZip" value="false"/>
+    <configurationValues name="Recursive" value="false"/>
+    <configurationValues name="SourceDirectoryPath" value="upload"/>
+    <configurationValues name="SourceUnitDirectory" value="IMPEX_DIR"/>
+    <configurationValues name="TargetDirectoryPath" value="CustomerLogos"/>
+    <configurationValues name="TargetUnitDirectory" value="IMPEX_SRC_DIR"/>
+    <pipelet href="enfinity:/bc_foundation/pipelets/CheckForExistingFiles.xml"/>
+<!--@BendPoints 7,18 7,18-->
+    <nodeSuccessors name="next" next="DecisionNode0"/>
+    <parameterBindings name="Locale" nullBinding="true"/>
+    <parameterBindings name="SourceDirectoryPath" nullBinding="true"/>
+    <parameterBindings name="SourceUnitDirectory" nullBinding="true"/>
+    <parameterBindings name="SourceUnitDomain" objectPath="UploadDomain"/>
+    <parameterBindings name="TargetDirectoryPath" nullBinding="true"/>
+    <parameterBindings name="TargetUnitDirectory" nullBinding="true"/>
+    <parameterBindings name="TargetUnitDomain" objectPath="UploadDomain"/>
+    <returnValueBindings name="Files" objectPath="ExistingFiles"/>
+  </nodes>
+<!--@Location 3,9-->
+  <nodes xsi:type="pipeline:DecisionNode" nodeID="DecisionNode0" conditionKey="ExistingFiles"
+      operator="has_elements">
+<!--@BendPoints 6,19 7,20-->
+    <nodeSuccessors name="decision_yes" next="JumpNode2"/>
+<!--@BendPoints 9,19 9,19-->
+    <nodeSuccessors name="decision_no" next="JumpNode2"/>
+  </nodes>
+<!--@Location 4,10-->
+  <nodes xsi:type="pipeline:JumpNode" nodeID="JumpNode2">
+    <startNode referencedName="ViewCustomerBranding-CopyFile"/>
+  </nodes>
+<!--@Location 4,4-->
+  <nodes xsi:type="pipeline:JoinNode" nodeID="JoinNode0">
+<!--@BendPoints 9,10 9,10-->
+    <nodeSuccessors name="next" next="JumpNode1"/>
+  </nodes>
+<!--@Location 4,5-->
+  <nodes xsi:type="pipeline:JumpNode" nodeID="JumpNode1">
+    <startNode referencedName="ViewCustomerBranding-Start"/>
+  </nodes>
+</pipeline:Pipeline>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<webform:WebForm xmlns:webform="http://www.intershop.de/webform/2010" name="FieldNotChangedValidatorWebform">
+  <validators type="com.intershop.sellside.storefront.base.internal.validator.FieldNotChangedValidator" name="FieldNotChangedValidator" message="error.editedByAnother">
+    <parameters xsi:type="webform:ValidatorParameter" optional="true" name="stopOnFailure" type="java.lang.String"/>
+  </validators>
+</webform:WebForm>

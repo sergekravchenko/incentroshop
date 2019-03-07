@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<enfinity xmlns:dt="http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt">
+<pagelet-component id="cmp_productLinks_differentOrderUnit">
+<definition-name>app_sf_responsive_cm:component.product.productLinks.pagelet2-Component</definition-name>
+<display-name xml:lang="de-DE">Produktverweise Alternative Bestelleinheit</display-name>
+<display-name xml:lang="en-US">Product Links Different Order Unit</display-name>
+<online>true</online>
+<author business-partner-no="admin" domain="inSPIRED"/>
+<configuration-parameters>
+<configuration-parameter name="ListStyle">
+<definition-name>app_sf_responsive_cm:component.product.productLinks.pagelet2-Component-ListStyle</definition-name>
+<value name="ListStyle">carousel</value>
+</configuration-parameter>
+<configuration-parameter name="ProductLinkType">
+<definition-name>app_sf_responsive_cm:component.product.productLinks.pagelet2-Component-ProductLinkType</definition-name>
+<value name="ProductLinkType">ES_DifferentOrderUnit</value>
+</configuration-parameter>
+<configuration-parameter name="ProductView">
+<definition-name>app_sf_responsive_cm:component.product.productLinks.pagelet2-Component-ProductView</definition-name>
+<value name="ProductView">app_sf_responsive:vc_productTile@inSPIRED-inTRONICS-b2c-responsive</value>
+</configuration-parameter>
+<configuration-parameter name="SlideItems">
+<definition-name>app_sf_responsive_cm:component.product.productLinks.pagelet2-Component-SlideItems</definition-name>
+<value name="SlideItems">4</value>
+</configuration-parameter>
+<configuration-parameter name="Title">
+<definition-name>app_sf_responsive_cm:component.product.productLinks.pagelet2-Component-Title</definition-name>
+<value name="Title" xml:lang="de-DE">Alternative Bestelleinheit</value>
+<value name="Title" xml:lang="en-US">Different Order Unit</value>
+</configuration-parameter>
+</configuration-parameters>
+</pagelet-component>
+</enfinity>

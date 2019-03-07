@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<components xmlns="http://www.intershop.de/component/2010">
+    <fulfill requirement="selectedCartridge" of="intershop.SMBResponsive.Cartridges" value="app_sf_responsive_b2b_test"/>
+</components>

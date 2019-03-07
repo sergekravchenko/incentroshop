@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<enfinity xmlns:dt="http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt">
+<pagelet-component id="cmp_brandImage_4">
+<definition-name>app_sf_responsive_cm:component.common.image.pagelet2-Component</definition-name>
+<display-name xml:lang="de-DE">Brand Image 4</display-name>
+<display-name xml:lang="en-US">Brand Image 4</display-name>
+<display-name xml:lang="fr-FR">Image de marque 4</display-name>
+<online>true</online>
+<author business-partner-no="admin" domain="inSPIRED"/>
+<configuration-parameters>
+<configuration-parameter name="Image">
+<definition-name>app_sf_responsive_cm:component.common.image.pagelet2-Component-Image</definition-name>
+<value name="Image" xml:lang="en-US">inSPIRED-inTRONICS_Business-smb-responsive:/brands/acer.jpg</value>
+</configuration-parameter>
+</configuration-parameters>
+</pagelet-component>
+</enfinity>

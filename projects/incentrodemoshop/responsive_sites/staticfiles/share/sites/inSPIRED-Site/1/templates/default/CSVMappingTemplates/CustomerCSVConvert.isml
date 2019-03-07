@@ -1,0 +1,115 @@
+<iscontent type="text/xml" charset="UTF-8" compact="false" session="false" templatemarker="false">
+
+<%@page import="com.intershop.component.customer.capi.customertype.StandardCustomerTypeIDEnum"%>
+
+<enfinity
+    xmlns     = "http://www.intershop.com/xml/ns/intershop/customer/impex/7.3"
+    xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:dt  = "http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt"
+    xsi:schemaLocation = "http://www.intershop.com/xml/ns/intershop/customer/impex/7.3 bc_customer.xsd
+    http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt dt.xsd"
+    major="6" minor="1" family="enfinity" branch="enterprise" build=""
+>
+	<isif condition="#isDefined(data)#">
+
+	<%
+		getPipelineDictionary().put("IndividualCustomerType", StandardCustomerTypeIDEnum.PRIVATE.getID());
+	%>
+
+	<isloop iterator="data" alias="User">
+		<customer id="<isprint value="#User:BusinessPartnerNo#">">
+			<customer-type><isprint value="#IndividualCustomerType#"></customer-type>
+			<users>
+				<user business-partner-no="<isprint value="#User:BusinessPartnerNo#">">
+						<business-partner-no><isprint value="#User:BusinessPartnerNo#"></business-partner-no>
+						<profile>
+							<credentials>
+								<login><isprint value="#User:Profile_Credentials_Login#"></login>
+								<password><isprint value="#User:Profile_Credentials_Password#"></password>
+								<enabled><isprint value="#User:Profile_Credentials_Enabled#"></enabled>
+								<password-reminder><isprint value="#User:Profile_Credentials_PasswordReminder#"></password-reminder>
+								<reminder-email><isprint value="#User:Profile_Credentials_ReminderEmail#"></reminder-email>      
+								<security-question><isprint value="#User:Profile_Credentials_SecurityQuestion#"></security-question>    	
+							  <isif condition="#isDefined(User:Profile_Credentials_PasswordCreationDate)#">
+								<password-creation-date><ISDateTime date="#User:Profile_Credentials_PasswordCreationDate#"></password-creation-date>
+							  </isif>
+							</credentials>
+							<isif condition="#isDefined(User:Profile_DataSheet_Description)#">
+								<description><isprint value="#User:Profile_DataSheet_Description#"></description>
+							</isif>
+							<isif condition="#isDefined(User:Profile_DataSheet_FirstName)#">
+								<first-name><isprint value="#User:Profile_DataSheet_FirstName#"></first-name>
+							</isif>
+							<isif condition="#isDefined(User:Profile_DataSheet_LastName)#">
+								<last-name><isprint value="#User:Profile_DataSheet_LastName#"></last-name>
+							</isif>
+							<isif condition="#isDefined(User:Profile_DataSheet_Title)#">
+								<title><isprint value="#User:Profile_DataSheet_Title#"></title>
+							</isif>
+							<addresses>
+								<isif condition="#isDefined(User:Profile_AddressBook_Address1_AddressName)#">
+									<address name="<isprint value="#User:Profile_AddressBook_Address1_AddressName#">">
+										<isif condition="#isDefined(User:Profile_AddressBook_Address1_CompanyName)#">
+											<company-name><isprint value="#User:Profile_AddressBook_Address1_CompanyName#"></company-name>
+										</isif>
+										<address-name><isprint value="#User:Profile_AddressBook_Address1_AddressName#"></address-name>
+										<isif condition="#isDefined(User:Profile_AddressBook_Address1_FirstName)#">
+											<first-name><isprint value="#User:Profile_AddressBook_Address1_FirstName#"></first-name>
+										</isif>
+										<isif condition="#isDefined(User:Profile_AddressBook_Address1_LastName)#">
+											<last-name><isprint value="#User:Profile_AddressBook_Address1_LastName#"></last-name>
+										</isif>
+										<isif condition="#isDefined(User:Profile_AddressBook_Address1_Title)#">
+											<title><isprint value="#User:Profile_AddressBook_Address1_Title#"></title>
+										</isif>
+										<isif condition="#isDefined(User:Profile_AddressBook_Address1_City)#">
+											<city><isprint value="#User:Profile_AddressBook_Address1_City#"></city>
+										</isif>
+										<isif condition="#isDefined(User:Profile_AddressBook_Address1_PostalCode)#">
+											<postal-code><isprint value="#User:Profile_AddressBook_Address1_PostalCode#"></postal-code>
+										</isif>
+										<isif condition="#isDefined(User:Profile_AddressBook_Address1_Street)#">
+											<street><isprint value="#User:Profile_AddressBook_Address1_Street#"></street>
+										</isif>
+										<isif condition="#isDefined(User:Profile_AddressBook_Address1_Street2)#">
+											<street2><isprint value="#User:Profile_AddressBook_Address1_Street2#"></street2>
+										</isif>
+										<isif condition="#isDefined(User:Profile_AddressBook_Address1_Street3)#">
+											<street3><isprint value="#User:Profile_AddressBook_Address1_Street3#"></street3>
+										</isif>
+										<isif condition="#isDefined(User:Profile_AddressBook_Address1_State)#">
+											<state><isprint value="#User:Profile_AddressBook_Address1_State#"></state>
+										</isif>
+										<isif condition="#isDefined(User:Profile_AddressBook_Address1_Email)#">
+											<email><isprint value="#User:Profile_AddressBook_Address1_Email#"></email>
+										</isif>
+										<custom-attributes>
+											<isif condition="#isDefined(User:Profile_AddressBook_Address1_CA1_Name)#">
+												<custom-attribute name="<isprint value="#User:Profile_AddressBook_Address1_CA1_Name#">"><isprint value="#User:Profile_AddressBook_Address1_CA1_Value#"></custom-attribute>
+											</isif>				
+											<isif condition="#isDefined(User:Profile_AddressBook_Address1_CA2_Name)#">
+												<custom-attribute name="<isprint value="#User:Profile_AddressBook_Address1_CA2_Name#">"><isprint value="#User:Profile_AddressBook_Address1_CA2_Value#"></custom-attribute>
+											</isif>				
+											<isif condition="#isDefined(User:Profile_AddressBook_Address1_CA3_Name)#">
+												<custom-attribute name="<isprint value="#User:Profile_AddressBook_Address1_CA3_Name#">"><isprint value="#User:Profile_AddressBook_Address1_CA3_Value#"></custom-attribute>
+											</isif>				
+										</custom-attributes>
+										<isif condition="#isDefined(User:Profile_AddressBook_Address1_DefaultAddress)#">
+											<default-address><isprint value="#User:Profile_AddressBook_Address1_DefaultAddress#"></default-address>
+										</isif>
+										<isif condition="#isDefined(User:Profile_AddressBook_Address1_ShipToAddress)#">
+											<ship-to-address><isprint value="#User:Profile_AddressBook_Address1_ShipToAddress#"></ship-to-address>
+										</isif>
+										<isif condition="#isDefined(User:Profile_AddressBook_Address1_InvoiceToAddress)#">
+											<invoice-to-address><isprint value="#User:Profile_AddressBook_Address1_InvoiceToAddress#"></invoice-to-address>
+										</isif>
+									</address>
+								</isif>
+							</addresses>
+						</profile>
+					</user>
+				</users>
+			</customer>
+		</isloop>
+	</isif>
+</enfinity>

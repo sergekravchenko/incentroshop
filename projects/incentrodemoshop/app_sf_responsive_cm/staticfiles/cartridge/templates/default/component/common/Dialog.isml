@@ -1,0 +1,25 @@
+<iscontent type="text/html" charset="UTF-8" compact="true">
+<isinclude template="modules/Modules">
+
+<div class="modal-dialog <isif condition="#PageletConfigurationParameters:Size EQ 'small'#">modal-sm<iselseif condition="#PageletConfigurationParameters:Size EQ 'large'#">modal-lg</isif>">
+	<div class="modal-content">
+		<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal" title="<istext key="dialog.close.text">" aria-label="<istext key="dialog.close.text"/>"><span aria-hidden="true">&times;</span></button>
+			<isif condition="#isDefined(PageletConfigurationParameters:Title) AND (PageletConfigurationParameters:Title NE '')#">
+				<h2 class="modal-title"><isprint value="#PageletConfigurationParameters:Title#"></h2>
+			</isif>
+		</div>
+		
+		<div class="modal-body">
+			<isHtmlPrint value="#PageletConfigurationParameters:Content#">
+			
+			<isslot slot="app_sf_responsive_cm:slot.dialog.content.pagelet2-Slot">
+		</div>
+		
+		<isif condition="#isDefined(PageletConfigurationParameters:Footer) AND (PageletConfigurationParameters:Footer NE '')#">
+			<div class="modal-footer">
+				<isHtmlPrint value="#PageletConfigurationParameters:Footer#">
+			</div>
+		</isif>
+	</div>
+</div>

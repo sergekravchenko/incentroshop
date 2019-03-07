@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<enfinity xmlns:dt="http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt">
+<pagelet-entry-point id="systempage.account.approvals.pagelet2-Page">
+<definition-name>app_sf_responsive_b2b:systempage.account.approvals.pagelet2-Page</definition-name>
+<page>true</page>
+<sorting>false</sorting>
+<parent id="page.account" domain="inSPIRED-inTRONICS_Business-smb-responsive" position="33.0" resource-set="app_sf_responsive">
+</parent>
+<display-name xml:lang="en-US">Approvals</display-name>
+</pagelet-entry-point>
+<pagelet-pagelet-entry-point-assignment>
+<pagelet-entry-point id="systempage.account.approvals.pagelet2-Page" domain="inSPIRED-inTRONICS_Business-smb-responsive" resource-set="app_sf_responsive_b2b"/>
+<pagelet id="pg_account_approvals" domain="inSPIRED-inTRONICS_Business-smb-responsive"/>
+<position>1</position>
+<online>true</online>
+</pagelet-pagelet-entry-point-assignment>
+</enfinity>

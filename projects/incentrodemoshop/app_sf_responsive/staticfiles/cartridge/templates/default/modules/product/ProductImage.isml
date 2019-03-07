@@ -1,0 +1,25 @@
+<iscontent type="text/html" charset="UTF-8" compact="true">
+<iscachekey object="#ProductBO#">
+<isinclude template="modules/common/Modules">
+
+<isif condition="#isDefined(ProductBO) AND (ProductBO NE '')#">
+	<isif condition="#isDefined(AltText)#">
+		<isset name="AltText" value="#AltText#" scope="request"/>
+	<iselse>
+		<!--- determine product alt text --->
+		<isset name="AltTextStatic" value="#localizeText("product.image.text.alttext")#" scope="request"/>
+		<isif condition="#isDefined(ProductBO:Name)#">
+			<isset name="AltText" value="#ProductBO:Name.' '.AltTextStatic#" scope="request"/>
+		<iselse>
+			<isset name="AltText" value="#ProductBO:SKU.' '.AltTextStatic#" scope="request"/>
+		</isif>
+	</isif>
+	<isImage 
+		imagecontainer="#ProductBO:Extension("Image"):ImageContainerBO#"
+		imagetypeid="#ImageType#"
+		imageview="#ImageView#"
+		class="#Class#"
+		alttext="#AltText#"
+		richsnippetsenabled="#RichSnippetsEnabled#"
+	>
+</isif>

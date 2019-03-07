@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pagelet:PageletModel xmlns:pagelet="http://www.intershop.de/pagelet/2010" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="component.product.productTile.pagelet2">
+  <pageletDefinitions name="Component" remoteInclude="true">
+    <callParameterInterfaces referencedName="app_sf_responsive:interface.include.product.standard.pagelet2-Interface"/>
+    <callParameterInterfaces referencedName="app_sf_responsive_cm:interface.container.content.pagelet2-Interface"/>
+    <configurationParameterDefinitions xsi:type="pagelet:ListParameterDefinition" name="Type" localizable="false" typeReference="bc_pmc:types.pagelet2-DropDownBox">
+      <parameterDefinitions name="Tile" typeReference="bc_pmc:types.pagelet2-Text"/>
+      <parameterDefinitions name="List" typeReference="bc_pmc:types.pagelet2-Text"/>
+    </configurationParameterDefinitions>
+    <configurationParameterDefinitions optional="true" name="ShowProductRating" localizable="false" typeReference="bc_pmc:types.pagelet2-Boolean"/>
+    <configurationParameterDefinitions optional="true" name="ShowAddToCart" localizable="false" typeReference="bc_pmc:types.pagelet2-Boolean"/>
+    <configurationParameterDefinitions optional="true" name="EnableExpressShop" localizable="false" typeReference="bc_pmc:types.pagelet2-Boolean"/>
+    <callParameterDefinitions optional="true" name="InventoryStatus" type="com.intershop.beehive.xcs.capi.inventory.InventoryStatus"/>
+    <renderTemplate referencedName="component/product/ProductTile"/>
+  </pageletDefinitions>
+</pagelet:PageletModel>

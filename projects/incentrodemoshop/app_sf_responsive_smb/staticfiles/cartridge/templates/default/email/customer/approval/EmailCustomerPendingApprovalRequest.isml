@@ -1,0 +1,95 @@
+<iscontent type="text/html" session="false" charset="UTF-8" compact="true">
+
+<isset name="CustomerDetails" value="#CustomerBO:Extension("CompanyCustomer")#" scope="request"/>
+<isset name="GroupCustomer" value="#CustomerBO:Extension("GroupCustomer")#" scope="request"/>
+<isset name="AllUserBOs" value="#GroupCustomer:AllUserBOs#" scope="request"/>
+
+<isinclude template="email/mailTemplate/MailConfig"/>
+
+<subject><istext key="email.registration.approval.heading" parameter0="#encodeValue(ChannelName)#" encoding="off"/></subject>
+
+<isinclude template="email/mailTemplate/MailHeader"/>
+
+<p>
+	<istext key="email.hello.label"/>
+	<br/><br/>	
+	<istext key="email.new.customer.registered.message" parameter0="#encodeValue(ChannelName)#" encoding="off"/>
+</p>
+
+<table cellpadding="0" cellspacing="0" class="pattern">
+	<tr class="mobileTable">
+		<td width="600">
+			<table cellpadding="0" cellspacing="0" width="100%" class="dataList">
+				<tr>
+					<td><istext key="email.registration.approval.customer.name.label"></td>
+					<td><isprint value="#CustomerDetails:CompanyName#"></td>		
+				</tr>
+				<isif condition="#isDefined(CustomerDetails:CompanyName2) AND NOT (CustomerDetails:CompanyName2 EQ '')#">
+					<tr>
+						<td>&nbsp;</td>
+						<td><isprint value="#CustomerDetails:CompanyName2#"></td>
+					</tr>
+				</isif>
+				<isif condition="#isDefined(CustomerDetails:Industry) AND NOT (CustomerDetails:Industry EQ '')#">
+					<tr>
+						<td><istext key="email.registration.approval.industry.label"></td>
+						<td><isprint value="#CustomerDetails:Industry#"></td>
+					</tr>
+				</isif>
+				<isif condition="#isDefined(CustomerDetails:TaxationID) AND NOT (CustomerDetails:TaxationID EQ '')#">
+					<tr>
+						<td><istext key="email.registration.approval.taxation.id.label"></td>
+						<td><isprint value="#CustomerDetails:TaxationID#"></td>
+					</tr>
+				</isif>
+				<isif condition="#hasLoopElements(AllUserBOs)#">
+					<tr>
+						<td><istext key="email.registration.approval.user.name.label"></td>
+						<td>
+							<isloop iterator="AllUserBOs" alias="UserBO">
+								<isprint value="#UserBO:FirstName#"/>&nbsp;<isprint value="#UserBO:LastName#"/>
+								<isbreak>
+							</isloop>
+						</td>
+					</tr>
+				</isif>
+			</table>
+		</td>
+	</tr>
+</table>
+
+<p>
+	<ispipeline pipeline="DetermineRepositories-Channel" alias="dict">
+	<istext key="email.registration.needs.approval.message" encoding="off"/>
+</p>
+
+<table cellpadding="0" cellspacing="0" class="mobileButtonPattern" bgcolor="#'#'#1db5b5">
+	<tr>
+		<td>
+			<table cellpadding="0" cellspacing="10" width="100%">
+				<tr>
+					<td class="button">
+						<istext key="email.approve_customer.button" 
+							parameter0="#URLEX('https','', Action('ViewCustomer_52-Show', 'WFS', dict:Repository:OwningDomain:Site:DomainName, '','', dict:ManagementApplication:UrlIdentifier), Parameter('CustomerID', CustomerBO:ID))#" parameter1="#URLEX('https','', Action('ViewCustomer_52-Show', 'WFS', dict:Repository:OwningDomain:Site:DomainName, '','', dict:ManagementApplication:UrlIdentifier), Parameter('CustomerID', CustomerBO:ID))#"
+							encoding="off" 
+						/>
+					</td>
+
+				</tr>
+			</table>
+		</td>
+	</tr>
+</table>
+
+<p class="copyLink">
+	<istext key="email.password.link.expiry" parameter0="#encodeValue(PasswordRelatedLinkLifeTime)#" 
+	parameter1="#URLEX('https','', Action('ViewCustomer_52-Show', 'WFS', dict:Repository:OwningDomain:Site:DomainName, '','', dict:ManagementApplication:UrlIdentifier), Parameter('CustomerID', CustomerBO:ID))#" parameter1="#URLEX('https','', Action('ViewCustomer_52-Show', 'WFS', dict:Repository:OwningDomain:Site:DomainName, '','', dict:ManagementApplication:UrlIdentifier), Parameter('CustomerID', CustomerBO:ID))#" 
+	encoding="off" />
+</p>
+
+<p>
+	<istext key="email.kind_regards.label"/><br />
+	<istext key="email.notification.service" parameter0="#encodeValue(ChannelName)#" encoding="off"/>
+</p>
+
+<isinclude template="email/mailTemplate/MailFooter"/>

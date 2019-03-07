@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<enfinity xmlns:dt="http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt">
+<pagelet-component id="cmp_shoppingCart">
+<definition-name>app_sf_responsive_cm:component.checkout.cart.pagelet2-Component</definition-name>
+<display-name xml:lang="de-DE">Warenkorb</display-name>
+<display-name xml:lang="en-US">Shopping Cart</display-name>
+<online>true</online>
+<author business-partner-no="admin" domain="inSPIRED"/>
+<slots>
+<slot>
+<definition-name>app_sf_responsive_cm:slot.marketing.content.pagelet2-Slot</definition-name>
+<optional>false</optional>
+<sorting>false</sorting>
+</slot>
+</slots>
+</pagelet-component>
+<pagelet-slot-assignment id="W5Cp_ju1FVEAAAFPgGdI5NtR">
+<slot definition-name="app_sf_responsive_cm:slot.marketing.content.pagelet2-Slot" parent-pagelet-id="cmp_shoppingCart" domain="inSPIRED-inTRONICS_Business-smb-responsive"/>
+<pagelet id="cmp_cart_productRecommendations" domain="inSPIRED-inTRONICS_Business-smb-responsive"/>
+<position>1</position>
+<online>true</online>
+</pagelet-slot-assignment>
+<pagelet-slot-assignment id="_Q0KAE8DXqkAAAE_BORIdM0y">
+<slot definition-name="app_sf_responsive_cm:slot.marketing.content.pagelet2-Slot" parent-pagelet-id="cmp_shoppingCart" domain="inSPIRED-inTRONICS_Business-smb-responsive"/>
+<pagelet id="cmp_recentlyViewedListCart" domain="inSPIRED-inTRONICS_Business-smb-responsive"/>
+<position>2</position>
+<online>true</online>
+</pagelet-slot-assignment>
+</enfinity>

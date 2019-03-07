@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<enfinity xmlns:dt="http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt">
+<pagelet-component id="cmp_helpdesk_buyersinfo">
+<definition-name>app_sf_responsive_cm:component.common.freeStyle.pagelet2-Component</definition-name>
+<display-name xml:lang="de-DE">Informationen für Kunden</display-name>
+<display-name xml:lang="en-US">Information for Buyers</display-name>
+<display-name xml:lang="fr-FR">Informations pour les acheteurs</display-name>
+<online>true</online>
+<author business-partner-no="admin" domain="inSPIRED"/>
+<configuration-parameters>
+<configuration-parameter name="HTML">
+<definition-name>app_sf_responsive_cm:component.common.freeStyle.pagelet2-Component-HTML</definition-name>
+<value name="HTML" xml:lang="de-DE">&lt;h1&gt;Informationen für Einkäufer &lt;/h1&gt;
+&lt;p&gt;Die aktuelle Seite und ihre Unterseiten bieten komfortable Informationen für die Nutzung einiger komplexerer Storefront-Features, wie z.B.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;page://page.helpdesk.buyersinfo.contracts&quot;&gt;Verträge&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;page://page.helpdesk.buyersinfo.quotes&quot;&gt;Preisangebote&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;page://page.helpdesk.buyersinfo.quickorder&quot;&gt;Schnellbestellung&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;page://page.helpdesk.buyersinfo.pendingorder&quot;&gt;Ausstehende Bestellung&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;page://page.helpdesk.buyersinfo.ordertemplates&quot;&gt;Bestellvorlagen &lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</value>
+<value name="HTML" xml:lang="en-US">&lt;h1&gt;Information for Buyers&lt;/h1&gt;
+&lt;p&gt;The current page and its sub-pages provide convinient information for the usage of a few more complex storefront features, like:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;page://page.helpdesk.buyersinfo.contracts&quot;&gt;Contracts&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;page://page.helpdesk.buyersinfo.quotes&quot;&gt;Quotes&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;page://page.helpdesk.buyersinfo.quickorder&quot;&gt;Quick Order&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;page://page.helpdesk.buyersinfo.pendingorder&quot;&gt;Pending Order&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;page://page.helpdesk.buyersinfo.ordertemplates&quot;&gt;Order Templates&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</value>
+<value name="HTML" xml:lang="fr-FR">&lt;h1&gt;Informations pour les acheteurs&lt;/h1&gt;
+&lt;p&gt; La page actuelle et ses sous-pages donnent des informations utiles sur l’’usage de quelques autres fonctionnalités complexes de la vitrine, comme :&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;page://page.helpdesk.buyersinfo.contracts&quot;&gt;Contrats&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;page://page.helpdesk.buyersinfo.quotes&quot;&gt;Devis&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;page://page.helpdesk.buyersinfo.quickorder&quot;&gt;Commande rapide&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;page://page.helpdesk.buyersinfo.pendingorder&quot;&gt;Commande en attente&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;page://page.helpdesk.buyersinfo.ordertemplates&quot;&gt;Modèles de commande&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</value>
+</configuration-parameter>
+</configuration-parameters>
+</pagelet-component>
+</enfinity>

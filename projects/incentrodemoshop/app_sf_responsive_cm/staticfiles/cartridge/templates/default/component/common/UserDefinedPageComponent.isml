@@ -1,0 +1,48 @@
+<iscontent type="text/html" charset="UTF-8" compact="true">
+<isinclude template="modules/Modules">
+
+<!---
+the used <ISPLACEMENT>-tags need the following <ISPLACEHOLDER>-tags in the surrounding isml-templates:
+	<ISPLACEHOLDER id="JS_head"/>
+	<ISPLACEHOLDER id="CSS"/>
+	<ISPLACEHOLDER id="STYLE"/>
+	<ISPLACEHOLDER id="JS_end"/>
+--->
+
+<script type="text/javascript">
+	var _cms = new Object();
+		_cms.webRoot = "#WebRoot()#";
+		<!--- provide contentURL path for JavaScript usage of uploaded content #CurrentDomain:DomainName# --->
+		_cms.contentURL = "#ContentURL(CurrentChannel:Domain)#";
+</script>
+
+<isif condition="#hasElements(PageletConfigurationParameters:JSReferencesHead)#">
+	<isloop iterator="PageletConfigurationParameters:JSReferencesHead" alias="Reference">
+		<ISPLACEMENT placeholderid="JS_head">
+			<script type="text/javascript" src="#ContentURL(Reference)#"></script>
+		</ISPLACEMENT>
+	</isloop>
+</isif>
+<isif condition="#hasElements(PageletConfigurationParameters:JSReferencesEnd)#">
+	<isloop iterator="PageletConfigurationParameters:JSReferencesEnd" alias="Reference">
+		<ISPLACEMENT placeholderid="JS_end"><script type="text/javascript" src="#ContentURL(Reference)#"></script></ISPLACEMENT>
+	</isloop>
+</isif>
+<isif condition="#hasElements(PageletConfigurationParameters:CSSReferences)#">
+	<isloop iterator="PageletConfigurationParameters:CSSReferences" alias="Reference">
+		<ISPLACEMENT placeholderid="CSS"><link rel="stylesheet" type="text/css" href="#ContentURL(Reference)#" /></ISPLACEMENT>
+	</isloop>
+</isif>
+<isif condition="#PageletConfigurationParameters:CSSInternal NE ""#">
+	<ISPLACEMENT placeholderid="STYLE"><style type="text/css"><isprint value="#PageletConfigurationParameters:CSSInternal#" encoding="off"></style></ISPLACEMENT>
+</isif>
+
+<div class="UDPC">
+	<ishtmlprint value="#PageletConfigurationParameters:HTML#">
+	
+	<isif condition="#PageletConfigurationParameters:JSInternal NE ""#">
+		<script type="text/javascript">
+			<isprint value="#PageletConfigurationParameters:JSInternal#" encoding="off">
+		</script>
+	</isif>
+</div>

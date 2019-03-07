@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pagelet:PageletModel xmlns:pagelet="http://www.intershop.de/pagelet/2010" name="component.system.languageSwitch.pagelet2">
+  <pageletDefinitions name="Component">
+    <callParameterInterfaces referencedName="app_sf_responsive_cm:interface.header.utility.pagelet2-Interface" />
+    <callParameterDefinitions optional="true" name="Locales" type="java.util.Iterator" />
+    <configurationParameterDefinitions name="Languages" localizable="false" visible="true" multiple="true" typeReference="bc_pmc:types.pagelet2-Locale" />
+    <renderTemplate referencedName="component/system/LanguageSwitch" />
+  </pageletDefinitions>
+</pagelet:PageletModel>

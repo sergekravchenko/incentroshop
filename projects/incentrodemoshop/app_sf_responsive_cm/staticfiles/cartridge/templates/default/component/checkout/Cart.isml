@@ -1,0 +1,62 @@
+<iscontent type="text/html" charset="UTF-8" compact="true">
+<isinclude template="modules/Modules">
+<isinclude template="modules/captcha/Modules">
+
+<div data-testing-id="cart-page" data-cart-page>
+	<div class="row">
+		<div class="cart-header col-xs-12">
+			<h1 class="pull-left"><span class="cart-header-title"><istext key="shopping_cart.heading" /></span>
+				<span class="cart-header-note">
+					<span><istext key="shopping_cart.transaction.text" /></span>
+					<a data-dialog class="details-link" href="#URL(Action('ViewContent-Start'), Parameter('PageletEntryPointID', 'systeminclude.dialog.safeAndSecure.pagelet2-Include'))#"><istext key="shopping_cart.read_more.link" /></a>
+				</span>
+			</h1>
+			<ul class="share-tools">
+				<isif condition="#isDefined(PDFServiceAvailable) AND (PDFServiceAvailable EQ 'true')#">
+					<isset name="SaveShoppingCartAsPDF" value="#CurrentDomain:Configuration:String("BasketSave")#" scope="request"/>
+					<isif condition="#isDefined(SaveShoppingCartAsPDF) AND (SaveShoppingCartAsPDF EQ 'true')#">
+						<li>
+							<a href="#URL(Action('ViewCartPDF-Cart.pdf'))#" title="">
+								<span class="glyphicon glyphicon-file"></span>
+								<span class="share-label"><istext key="shopping_cart.title.pdf.link" /></span>
+							</a>
+						</li>
+					</isif>
+				</isif>
+				
+				<isset name="PrintShoppingCartPreference" value="#CurrentDomain:Configuration:String("BasketPrint")#" scope="request"/>
+				<isif condition="#isDefined(PrintShoppingCartPreference) AND (PrintShoppingCartPreference EQ 'true')#">
+					<li>
+						<a href="#'#'#" title="<istext key="shopping_cart.title.print.link" />"><span class="glyphicon glyphicon-print"></span>
+							<span class="share-label"><istext key="shopping_cart.title.print.link" /></span>
+						</a>
+					</li>
+				</isif>
+				
+				<isset name="EmailShoppingCartPreference" value="#CurrentDomain:Configuration:String("BasketEmail")#" scope="request">
+				<isif condition="#isDefined(EmailShoppingCartPreference) AND (EmailShoppingCartPreference EQ 'true')#">
+					<li>
+						<ISCaptchaInclude enablepreference="intershop.CaptchaPreferences.EmailShoppingCart">
+						<a data-dialog href="#URL(Action('ViewCartEmail-Start'))#" class="email-shopping-cart" title="<istext key="shopping_cart.title.email.link" />">
+							<span class="glyphicon glyphicon-send"></span>
+							<span class="share-label"><istext key="shopping_cart.title.email.link" /></span>
+						</a>
+					</li>
+				</isif>
+			</ul>
+		</div>
+	</div>
+	
+	<div>
+		<isinclude template="cart/ShoppingCart" dictionary="Dictionary">
+	</div>
+</div>
+
+<ISIncludeTrackingTool template="BasketChangeAdd">
+<ISIncludeTrackingTool template="BasketChangeRemove">
+<ISIncludeTrackingTool template="BasketChangeQuantities">
+<ISIncludeTrackingTool template="BasketChangeVariations">
+
+<div class="marketing-area">
+	<isslot slot="app_sf_responsive_cm:slot.marketing.content.pagelet2-Slot">
+</div>

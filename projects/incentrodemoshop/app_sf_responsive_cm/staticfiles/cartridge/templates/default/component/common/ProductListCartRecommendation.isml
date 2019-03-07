@@ -1,0 +1,34 @@
+<iscontent type="text/html" charset="UTF-8" compact="true">
+<isinclude template="modules/Modules">
+
+<isif condition="#hasElements(ProductBOs)#">
+	
+	<isinclude template="component/common/inc/CollectionItemPrefix.isml">
+
+	<div class="product-list-container <isprint value="#PageletConfigurationParameters:CSSClass#">">
+		<isif condition="#NOT(RenderedInCollection EQ 'true') AND isDefined(PageletConfigurationParameters:Title) AND (PageletConfigurationParameters:Title NE '')#">
+			<h2><isprint value="#PageletConfigurationParameters:Title#"></h2>
+		</isif>
+		<isif condition="#hasElements(ProductBOs)#">
+			<ispipeline pipeline="FireTrackingEvents-ViewProductList" alias="dict" params="#ParamMap(
+				ParamEntry('ProductList', ProductBOs), 
+				ParamEntry('CurrentSession', CurrentSession), 
+				ParamEntry('CurrentUser', CurrentUser), 
+				ParamEntry('CurrentRequest', CurrentRequest), 
+				ParamEntry('PageName', 'CartRecommendations'), 
+				ParamEntry('PageType', 'CartRecommendations'))#" />
+		</isif>
+		<ISProductList
+			ProductBOs="#ProductBOs#"
+			viewContext="#PageletConfigurationParameters:ProductView#"
+			maxNumberOfProducts="#PageletConfigurationParameters:MaxNumberOfProducts#"
+			listBehavior="#PageletConfigurationParameters:ListStyle#"
+			numberOfProductsPerSlide="#PageletConfigurationParameters:SlideItems#"
+			listItemCssClass="#PageletConfigurationParameters:ListItemCSSClass#"
+			list_name="CartRecommendations"
+		>
+	</div>
+	
+	<isinclude template="component/common/inc/CollectionItemSuffix.isml">
+	
+</isif>

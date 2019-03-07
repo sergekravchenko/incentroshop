@@ -1,0 +1,75 @@
+<iscontent type="text/html" charset="UTF-8" compact="true">
+
+<div class="section section-seperator">
+	
+	<h2><istext key="account.user.widget.costcenters.heading" /></h2>
+	
+	<!--- COST CENTER LIST --->
+	<isif condition="#isDefined(CostCenters) AND hasElements(CostCenters)#">
+		
+		<div class="list-header hidden-xs">
+			<div class="col-xs-3 list-header-item">
+				<istext key="account.user.widget.costcenters.table.header.id" />
+			</div>
+			<div class="col-xs-5 list-header-item">
+				<istext key="account.user.widget.costcenters.table.header.name" />
+			</div>
+			<div class="col-xs-4 list-header-item text-right">
+				<istext key="account.user.widget.costcenters.table.header.budgetspent" />
+			</div>
+		</div>
+		
+		<div class="list-body">
+			<isloop iterator="CostCenters" alias="CostCenter">
+			    <div class="list-item-row">
+				    
+				    <!--- ID --->
+					<div class="col-xs-3 list-item">
+						<isif condition="#isDefined(CostCenter:ID)#">
+							<isif condition="#CostCenter:isActive#">
+								<a href="#url(Action('ViewCostCenter-Details'), Parameter('CostCenterID', CostCenter:ID))#">
+									<isprint value="#CostCenter:Name#"/>
+								</a>
+							<iselse>
+								<isprint value="#CostCenter:Name#"/>
+							</isif>
+						</isif>
+					</div>
+					
+					<!--- NAME --->
+					<div class="col-xs-5 list-item">
+						<isif condition="#isDefined(CostCenter:DisplayName)#">
+							<isif condition="#CostCenter:isActive#">
+								<a href="#url(Action('ViewCostCenter-Details'), Parameter('CostCenterID', CostCenter:ID))#">
+									<isprint value="#CostCenter:DisplayName#"/>
+								</a>
+							<iselse>
+								<isprint value="#CostCenter:DisplayName#"/>
+							</isif>
+						</isif>
+					</div>
+					
+					<!--- BUDGET SPENT --->
+					<div class="col-xs-4 list-item text-right">
+						<isif condition="#CostCenter:isActive#">
+							<isCostCenterBudgetProgressBar CostCenter="#CostCenter#">
+						</isif>
+					</div>
+				
+				</div>
+			</isloop>
+		</div>
+		
+		<isif condition="#isDefined(UserPermissionMap:get("APP_B2B_MANAGE_USERS"))#">
+			<a href="#URLEX(SecureURL, '', Action('ViewCostCenter-Start'))#">
+				<istext key="account.user.widget.costcenters.view_all.link" />
+			</a>
+		</isif>
+		
+	<iselse>
+	
+		<p><istext key="account.user.widget.costcenters.noitems"/></p>
+		
+	</isif>
+	
+</div>

@@ -1,0 +1,67 @@
+<iscontent type="text/html" charset="UTF-8" compact="true">
+
+<div class="cost-summary" data-section="CartCheckoutButtons">
+	
+	<iscomment>TODO this check must use a permission (not a role) when ready</iscomment>
+	<isif condition="#UserBO:Extension("UserBORoleExtension"):hasRole("APP_B2B_OCI_USER")#">
+		<input type="hidden" name="AUTOSUBMIT" value="true">
+		<button 
+			type="submit" 
+			class="btn btn-lg btn-block btn-primary" 
+			name="transferOCI" 
+			<isif condition="#isDefined(ERROR_Basket) AND (ERROR_Basket EQ 'BasketMaxTotalValue')#">disabled="disabled" title="<istext key="shopping_cart.max.total.value.error.text2" />"</isif>
+		>
+			<istext key="shopping_cart.oci.transfer_basket.button" />
+		</button>
+	<iselse>
+		<button 
+			type="submit" 
+			class="btn btn-lg btn-block btn-primary" 
+			name="checkout" 
+			<isif condition="#isDefined(ERROR_Basket) AND (ERROR_Basket EQ 'BasketMaxTotalValue')#">disabled="disabled" title="<istext key="shopping_cart.max.total.value.error.text2" />"</isif>
+		>
+			<istext key="shopping_cart.proceed_to_checkout.button.label" />
+		</button>
+	
+		<isset name="FirstPaymentCheckoutButton" value="true" scope="request">
+		<isif condition="#hasElements(PaymentServiceBOs)#">
+			<iscomment>Disable fast checkout buttons in case order approval could be required</iscomment>
+			<isset name="DisableFastCheckoutButtons" value="#CurrentSession:LoggedIn AND isDefined(CurrentCartBO:Extension("Approval"):Enabled) AND CurrentCartBO:Extension("Approval"):Enabled#" scope="request">
+			<isif condition="#DisableFastCheckoutButtons EQ 'false'#">
+				<isloop iterator="PaymentServiceBOs" alias="PaymentServiceBO">
+					<isif condition="#isDefined(PaymentServiceBO:Extension("FastCheckout"))#">
+						<isset name="Applicability" value="#PaymentServiceBO:Applicability(CurrentCartBO)#" scope="request"/>
+						<isif condition="#Applicability:State NE 'NotApplicable'#">
+							<div class="text-center"><br />
+								<isif condition="#FirstPaymentCheckoutButton EQ 'true'#">
+									<p><istext key="shopping_cart.payment.or.text" /></p>
+									<isset name="FirstPaymentCheckoutButton" value="false" scope="request">
+								</isif>
+								<button 
+									type="submit" 
+									class="btn btn-info" 
+									name="fastCheckout_<isprint value="#PaymentServiceBO:ID#">"
+									<isif condition="#(Applicability:State EQ 'Restricted') OR (isDefined(ERROR_Basket) AND (ERROR_Basket EQ 'BasketMaxTotalValue'))#">
+										disabled="disabled" title="
+										<isif condition="#(Applicability:State EQ 'Restricted')#">
+											<isloop iterator="Applicability:Output:Restrictions" alias="Restriction">
+												<isprint value="#Restriction#"/>&nbsp;
+											</isloop>
+										</isif>
+										<isif condition="#isDefined(ERROR_Basket) AND (ERROR_Basket EQ 'BasketMaxTotalValue')#">
+											<istext key="shopping_cart.max.total.value.error.text2" />
+										</isif>
+										"
+									</isif> 
+								>
+									<istext key="shopping_cart.payment.checkout.button" parameter0="#PaymentServiceBO:DisplayName#" />
+								</button>
+							</div>
+						</isif>
+					</isif>
+				</isloop>
+			</isif>
+		</isif>
+	</isif>
+
+</div>

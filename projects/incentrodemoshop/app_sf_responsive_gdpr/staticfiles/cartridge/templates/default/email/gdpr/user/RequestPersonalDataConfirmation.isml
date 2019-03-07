@@ -1,0 +1,45 @@
+<iscontent type="text/html" session="false" charset="UTF-8" compact="true">
+<isinclude template="email/mailTemplate/MailConfig" />
+<SUBJECT><istext key="email.gdpr.request.personal.data.confirmation.header" parameter0="#encodeValue(ChannelName)#" encoding="off" /></SUBJECT>
+
+<isinclude template="email/mailTemplate/Modules">
+
+<!-- Added the e-mail style-->
+<isinclude template="email/mailTemplate/MailStyle" />
+
+<isMailHeader ChannelName="#ChannelName#" >
+
+<p class="header">
+	<istext key="email.gdpr.request.personal.data.confirmation.header" parameter0="#ChannelName#" />
+</p>
+
+<div class="emailBody">
+	<p>
+		<istext key="email.gdpr.common.user.greeting" parameter0="#PersonalDataRequestBO:RequesterName#" />
+	</p>
+	<p>
+		<istext key="email.gdpr.request.personal.data.confirmation.approved" />
+	</p>
+	<p>
+		<istext key="email.gdpr.delete.personal.data.confirmation.request_id" parameter0="#PersonalDataRequestBO:RequestID#"/>
+	</p>
+	<p>
+		<istext key="email.gdpr.request.personal.data.confirmation.download"/>
+	</p>
+	<p>
+		<istext key="email.gdpr.request.personal.data.confirmation.contactus"/>
+	</p>
+	<p>
+	<istext key="email.gdpr.common.data.question" 
+		parameter0="#encodeValue(ChannelName)#" 
+		parameter1="#encodeValue(URL(Action('ViewContent-Start'), Parameter('PageletEntryPointID','systempage.helpdesk.index.pagelet2-Page')))#" 
+		encoding="off" 
+	/>
+	</p>
+	<p>
+		<istext key="email.gdpr.common.regards" parameter0="#encodeValue(URL(Action('ViewHomepage-Start')))#"
+												parameter1="#encodeValue(ChannelName)#" encoding="off" />
+	</p>
+</div>
+
+<isinclude template="email/mailTemplate/MailFooter" />

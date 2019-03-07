@@ -1,0 +1,129 @@
+<iscontent type="text/html" charset="UTF-8" compact="true">
+
+<isinclude template="account/inc/Modules"/>
+
+<isset name="SelectedUser" value="#CustomerBO:Extension("GroupCustomer"):UserBOByID(UserID)#" scope="request">
+<isset name="Roles" value="#CustomerBO:Extension("CustomerBOSecurityExtension"):Roles#" scope="request">
+<isset name="ApprovalExtension" value="#SelectedUser:Extension("UserBOOrderApprovalExtension")#" scope="request">
+
+<div class="breadcrumbs row">
+	<isAccountBreadcrumb trailtext="#localizeText('account.userrole.link').' '.SelectedUser:FirstName.' '.SelectedUser:LastName#" link="#URL(Action('ViewUsers-Start'))#" text="#localizeText('account.users.link')#">
+</div>
+
+<!--- Marketing slot --->
+<div class="marketing-area">
+	<ISMarketingSlot id="baseMarketing">
+</div>
+
+<div class="account-wrapper" data-testing-id="user-roles-page">
+	
+	<div class="row account-main">
+		
+		<!--- Left Navigation Panel --->
+		<div class="col-md-3 account-nav-box">
+			<isAccountNavigation selecteditem="USERS">
+		</div>
+		
+		<div class="col-md-9">
+			
+			<div class="marketing-area">
+				<ISMarketingSlot id="contentMarketing">
+			</div>
+			
+			<h1><istext key="account.user.update_role_and_budget_limits.heading" /> <isprint value="#SelectedUser:FirstName#"> <isprint value="#SelectedUser:LastName#"></h1>
+			
+			<isform action="#URLEX(SecureURL, '', Action('ViewUserRole-Update'))#" method="post" name="UpdateRoleForm" class="form-horizontal">
+				<input type="hidden" name="UserID" value="<isprint value="#SelectedUser:ID#">"/>
+				
+				
+				<isRoleSelection
+					ImplicitlyAssignedRoles="#CustomerBO:Extension("CustomerBOSecurityExtension"):ImplicitlyAssignedRoles#"
+					AssignableRoles="#CustomerBO:Extension("CustomerBOSecurityExtension"):AssignableRoles#"
+					CurrentUser="#CurrentUser#"
+					SelectedUser="#SelectedUser#"
+					Language="#CurrentSession:Locale:Language#"
+				>
+				
+				<fieldset>
+					<!--- ORDER SPEND LIMIT --->
+					<div class="form-group">
+						<label class="control-label col-sm-4" for="<isprint value="#UpdateRoleForm:OrderLimit:QualifiedName#">"><istext key="account.user.new.order_spend_limit.label" /></label>
+						<input type="hidden" name="<isprint value="#UpdateRoleForm:OrderLimit:Currency:QualifiedName#">" value="<isprint value="#CurrentRequest:CurrencyCode#">" />
+						<div class="col-sm-8">
+							<div class="input-group"> 
+								<span class="input-group-addon">
+									<isprint value="#CurrentRequest:CurrencyCode#">
+								</span>
+								<input
+									type="text"
+									id="<isprint value="#UpdateRoleForm:OrderLimit:MoneyValue:QualifiedName#">"
+									size="18"
+									maxlength="256"
+									<isif condition="#UpdateRoleForm:Submitted#">
+										value="<isprint value="#UpdateRoleForm:OrderLimit:MoneyValue:Value#" style="MONEY_SHORT">"
+									<iselseif condition="#isDefined(UpdateRoleForm:OrderLimit:Value) AND (UpdateRoleForm:OrderLimit:Value NE 'N/A')#">
+										value="<isprint value="#UpdateRoleForm:OrderLimit:Value#" style="MONEY_SHORT">"
+									<iselse>
+										value=""
+									</isif>
+									name="<isprint value="#UpdateRoleForm:OrderLimit:MoneyValue:QualifiedName#">"
+									class="form-control<isif condition="#hasElements(UpdateRoleForm:OrderLimit:MoneyValue:Errors)#"> error</isif>" />
+							</div> 
+					    </div>
+					</div>
+					<!--- SPEND LIMITS --->
+					<div class="form-group">
+						<label class="control-label col-sm-4" for="<isprint value="#UpdateRoleForm:Budget:QualifiedName#">"><istext key="account.user.new.budget.label" /></label>
+						<input type="hidden" name="<isprint value="#UpdateRoleForm:Budget:Currency:QualifiedName#">" value="<isprint value="#CurrentRequest:CurrencyCode#">" />
+						<div class="col-sm-8">
+							<div class="row">
+								<div class="col-sm-6">
+									<div class="input-group"> 
+										<span class="input-group-addon">
+											<isprint value="#CurrentRequest:CurrencyCode#">
+										</span>
+										<input
+											type="text"
+											id="<isprint value="#UpdateRoleForm:Budget:MoneyValue:QualifiedName#">"
+											size="18"
+											maxlength="256"
+											<isif condition="#UpdateRoleForm:Submitted#">
+												value="<isprint value="#UpdateRoleForm:Budget:MoneyValue:Value#" style="MONEY_SHORT">"
+											<iselseif condition="#isDefined(UpdateRoleForm:Budget:Value) AND (UpdateRoleForm:Budget:Value NE 'N/A')#">
+												value="<isprint value="#UpdateRoleForm:Budget:Value#" style="MONEY_SHORT">"
+											<iselse>
+												value=""
+											</isif>
+											name="<isprint value="#UpdateRoleForm:Budget:MoneyValue:QualifiedName#">"
+											class="form-control<isif condition="#hasElements(UpdateRoleForm:Budget:MoneyValue:Errors)#"> error</isif>" />
+									</div>
+								</div>
+								
+								<!--- PERIOD FOR ORDER SPEND LIMIT ---> 
+								<div class="col-sm-6">
+									<select
+										class="form-control" 
+										name="<isprint value="#UpdateRoleForm:Period:QualifiedName#">"
+									>
+										<option value="weekly" <isif condition="#ApprovalExtension:BudgetType EQ 'WEEKLY'#">selected="selected"</isif>><istext key="account.user.new.budget.period.value.weekly"></option>
+										<option value="monthly" <isif condition="#ApprovalExtension:BudgetType EQ 'MONTHLY'#">selected="selected"</isif>><istext key="account.user.new.budget.period.value.monthly"></option>
+										<option value="quarterly" <isif condition="#ApprovalExtension:BudgetType EQ 'QUARTERLY'#">selected="selected"</isif>><istext key="account.user.new.budget.period.value.quarterly"></option>
+									</select>
+								</div>
+								
+							</div>
+							
+					    </div>
+					</div>
+				</fieldset>
+					
+				<div class="form-group">
+					<div class="col-sm-8 col-sm-offset-4">
+						<button class="btn btn-primary" type="submit" value="<istext key="account.update.button.label"/>" name="Update"><istext key="account.update.button.label"/></button>
+						<a class="btn btn-default" href="<isprint value="#URLEX(SecureURL, '', Action('ViewUser-Start'), Parameter('UserID', SelectedUser:ID))#">" ><istext key="account.cancel.link"/></a>
+					</div>
+				</div>
+			</isform>
+		</div>
+	</div>
+</div>

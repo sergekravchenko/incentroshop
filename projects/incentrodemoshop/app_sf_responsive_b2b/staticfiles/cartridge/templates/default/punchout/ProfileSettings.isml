@@ -1,0 +1,42 @@
+<iscontent type="text/html" charset="UTF-8" compact="true">
+<iscache type="forbidden">
+
+<div class="breadcrumbs row">
+	<isAccountBreadcrumb
+		link="#URLEX(SecureURL,'',Action('ViewOCISettings-Start'))#"
+		text="#localizeText('account.punchout.link')#"
+		trailtext="#localizeText('account.punchout.profile.link')#"
+	>
+</div>
+
+<!--- determine the OCI user to change the profile for --->
+<isset name="SelectedUser" value="#CustomerBO:Extension("GroupCustomer"):UserBOByID(UserID)#" scope="request">
+
+<!--- Marketing slot --->
+<div class="marketing-area">
+	<ISMarketingSlot id="baseMarketing">
+</div>
+
+<div class="account-wrapper" data-testing-id="account-punchout-profile-settings-page">
+	<div class="row account-main">
+		<!--- Left Navigation Panel --->
+		<div class="col-md-3 account-nav-box">
+			<isAccountNavigation selecteditem="PUNCHOUT">
+		</div>
+		
+		<div class="col-md-9 user-profile">
+			<div class="marketing-area">
+				<ISMarketingSlot id="contentMarketing">
+			</div>
+			
+			<h1><istext key="account.punchout.profile.link"/></h1>
+			
+			<isinclude template="account/profile/SuccessMessage">
+			
+			<isinclude template="punchout/inc/OCIEmail">
+			
+			<isinclude template="punchout/inc/OCIPassword">
+			
+		</div>
+	</div>
+</div>

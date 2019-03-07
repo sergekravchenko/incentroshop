@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--@Group GDPR-->
+
+<pipeline:Pipeline xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pipeline="http://www.intershop.de/pipeline/2010"
+    name="ViewPersonalDataRequestHandling" overrideMode="Inherit" type="view">
+<!--@Location 1,0-->
+  <nodes xsi:type="pipeline:StartNode" nodeID="StartNode_BJBNwEGCEeizoctqBQDNRw" name="Confirm"
+      secure="true">
+    <nodeSuccessors name="next" next="GetApplicationBO_DLhJoEGFEeizoctqBQDNRw"/>
+    <parameters name="PersonalDataRequestID" type="java.lang.String"/>
+    <parameters name="Hash" type="java.lang.String"/>
+  </nodes>
+<!--@Location 1,1-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="GetApplicationBO_DLhJoEGFEeizoctqBQDNRw">
+    <pipelet href="enfinity:/bc_application/pipelets/GetApplicationBO.xml"/>
+    <nodeSuccessors name="next" next="KeyMapper_4RdvgEGHEeizoctqBQDNRw"/>
+  </nodes>
+<!--@Location 1,2-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="KeyMapper_4RdvgEGHEeizoctqBQDNRw">
+    <pipelet href="enfinity:/core/pipelets/KeyMapper.xml"/>
+    <nodeSuccessors name="next" next="GetPersonalDataRequestBOByID_AwbAMEGFEeizoctqBQDNRw_getPersonalDataRequestBO"/>
+    <parameterBindings name="InValue_1" objectPath="ApplicationBO:Repository(&quot;PersonalDataRequestBORepository&quot;)"/>
+    <parameterBindings name="InValue_3" objectPath="ApplicationBO:NamedObject(&quot;GDPRRequestTypeEnumProvider&quot;)"/>
+    <returnValueBindings name="OutValue_1" objectPath="PersonalDataRequestBORepository"/>
+    <returnValueBindings name="OutValue_2" objectPath="GDPRRequestStatusEnumProvider"/>
+    <returnValueBindings name="OutValue_3" objectPath="GDPRRequestTypeEnumProvider"/>
+  </nodes>
+<!--@Location 1,3-->
+  <nodes xsi:type="pipeline:PipelineNodeNode" nodeID="GetPersonalDataRequestBOByID_AwbAMEGFEeizoctqBQDNRw">
+    <pipelet href="enfinity:/bc_gdpr/pipelets/com.intershop.component.gdpr.pipelet.GetPersonalDataRequestBOByID.pipelinenode"/>
+    <inConnectors name="getPersonalDataRequestBO"/>
+    <outConnectors name="next">
+      <nodeSuccessors name="next" next="CallNode_Ny0BIExJEeiPcLymSFTzHA"/>
+    </outConnectors>
+    <outConnectors name="notFound">
+<!--@BendPoints 7,7-->
+      <nodeSuccessors next="JumpNode_BWAgYEoTEeiPcLymSFTzHA"/>
+    </outConnectors>
+  </nodes>
+<!--@Location 1,4-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode_Ny0BIExJEeiPcLymSFTzHA">
+<!--@BendPoints \-1,10-->
+    <nodeSuccessors name="next" next="DecisionNode_qWem0EJBEeizoctqBQDNRw"/>
+    <nodeSuccessors name="LINK_EXPIRED" next="RenderSystemPageWithTemplate_eIgy0EO6EeiYuIVyXsIT7Q_Input"/>
+    <nodeSuccessors name="ALREADY_VERIFIED" next="RenderSystemPageWithTemplate_3_0DkEbREeiZu57Ag9fy6Q_Input"/>
+<!--@BendPoints 7,11-->
+    <nodeSuccessors name="ERROR_INVALID_HASH" next="JumpNode_BWAgYEoTEeiPcLymSFTzHA"/>
+    <startNode referencedName="ProcessPersonalDataRequest-ConfirmPersonalDataRequest"/>
+  </nodes>
+<!--@Location \-1,6-->
+  <nodes xsi:type="pipeline:DecisionNode" nodeID="DecisionNode_qWem0EJBEeizoctqBQDNRw"
+      conditionKey="PersonalDataRequestBO:RequestType:Value" operator="eq" conditionItem="GDPRRequestTypeEnumProvider:ByName(&quot;REQUEST_DATA&quot;):Value">
+    <nodeSuccessors name="decision_yes" next="RenderSystemPageWithTemplate_Vo50EEILEeizoctqBQDNRw_Input"/>
+<!--@BendPoints 1,13-->
+    <nodeSuccessors name="decision_no" next="RenderSystemPageWithTemplate_DHaw4EJCEeizoctqBQDNRw_Input"/>
+  </nodes>
+<!--@Location \-1,7-->
+  <nodes xsi:type="pipeline:PipelineNodeNode" nodeID="RenderSystemPageWithTemplate_Vo50EEILEeizoctqBQDNRw">
+    <configurationValues name="PageEntryPointDefinitionReference" value="app_sf_responsive:systempage.account.overview.pagelet2-Page"/>
+    <configurationValues name="WorkingTemplate" value="gdpr/confirmation/RequestPersonalDataConfirmationPage.isml"/>
+    <pipelet href="enfinity:/sld_ch_sf_base/pipelets/com.intershop.sellside.storefront.base.capi.pipeline.RenderSystemPageWithTemplate.pipelinenode"/>
+    <inConnectors name="Input">
+      <parameterBindings name="Dictionary" objectPath="CurrentRequest:PipelineDictionary"/>
+    </inConnectors>
+  </nodes>
+<!--@Location 0,7-->
+  <nodes xsi:type="pipeline:PipelineNodeNode" nodeID="RenderSystemPageWithTemplate_DHaw4EJCEeizoctqBQDNRw">
+    <configurationValues name="PageEntryPointDefinitionReference" value="app_sf_responsive:systempage.account.overview.pagelet2-Page"/>
+    <configurationValues name="WorkingTemplate" value="gdpr/confirmation/CustomerAccountDeactivatedPage.isml"/>
+    <pipelet href="enfinity:/sld_ch_sf_base/pipelets/com.intershop.sellside.storefront.base.capi.pipeline.RenderSystemPageWithTemplate.pipelinenode"/>
+    <inConnectors name="Input">
+      <parameterBindings name="Dictionary" objectPath="CurrentRequest:PipelineDictionary"/>
+    </inConnectors>
+  </nodes>
+<!--@Location 2,7-->
+  <nodes xsi:type="pipeline:PipelineNodeNode" nodeID="RenderSystemPageWithTemplate_eIgy0EO6EeiYuIVyXsIT7Q">
+    <configurationValues name="PageEntryPointDefinitionReference" value="app_sf_responsive:systempage.account.overview.pagelet2-Page"/>
+    <configurationValues name="WorkingTemplate" value="gdpr/confirmation/ConfirmationLinkExpiredPage"/>
+    <pipelet href="enfinity:/sld_ch_sf_base/pipelets/com.intershop.sellside.storefront.base.capi.pipeline.RenderSystemPageWithTemplate.pipelinenode"/>
+    <inConnectors name="Input">
+      <parameterBindings name="Dictionary" objectPath="CurrentRequest:PipelineDictionary"/>
+    </inConnectors>
+  </nodes>
+<!--@Location 1,7-->
+  <nodes xsi:type="pipeline:PipelineNodeNode" nodeID="RenderSystemPageWithTemplate_3_0DkEbREeiZu57Ag9fy6Q">
+    <configurationValues name="PageEntryPointDefinitionReference" value="app_sf_responsive:systempage.account.overview.pagelet2-Page"/>
+    <configurationValues name="WorkingTemplate" value="gdpr/confirmation/ConfirmationLinkAlreadyVerifiedPage"/>
+    <pipelet href="enfinity:/sld_ch_sf_base/pipelets/com.intershop.sellside.storefront.base.capi.pipeline.RenderSystemPageWithTemplate.pipelinenode"/>
+    <inConnectors name="Input">
+      <parameterBindings name="Dictionary" objectPath="CurrentRequest:PipelineDictionary"/>
+    </inConnectors>
+  </nodes>
+<!--@Location 3,7-->
+  <nodes xsi:type="pipeline:JumpNode" nodeID="JumpNode_BWAgYEoTEeiPcLymSFTzHA">
+    <startNode referencedName="Error-NotFound"/>
+  </nodes>
+<!--@Location 10,0-->
+  <nodes xsi:type="pipeline:StartNode" nodeID="StartNode_GamWYEh4EeiGBYBDH_39HQ" strict="true"
+      name="Prefix" callMode="Private">
+    <nodeSuccessors name="next" next="GetApplicationBO_vFbxUEh4EeiGBYBDH_39HQ"/>
+  </nodes>
+<!--@Location 10,1-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="GetApplicationBO_vFbxUEh4EeiGBYBDH_39HQ">
+    <pipelet href="enfinity:/bc_application/pipelets/GetApplicationBO.xml"/>
+    <nodeSuccessors name="next" next="GetUserBO_vYDLUEh4EeiGBYBDH_39HQ"/>
+  </nodes>
+<!--@Location 10,2-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="GetUserBO_vYDLUEh4EeiGBYBDH_39HQ">
+    <pipelet href="enfinity:/bc_user/pipelets/GetUserBO.xml"/>
+    <nodeSuccessors name="next" next="EndNode_Bu_GYEh5EeiGBYBDH_39HQ"/>
+    <parameterBindings name="UserBORepository" objectPath="ApplicationBO:Repository(&quot;UserBORepository&quot;)"/>
+    <parameterBindings name="UserID" objectPath="CurrentUser:ID"/>
+  </nodes>
+<!--@Location 10,3-->
+  <nodes xsi:type="pipeline:EndNode" nodeID="EndNode_Bu_GYEh5EeiGBYBDH_39HQ" strict="true">
+    <returnValues name="ApplicationBO" type="com.intershop.component.application.capi.ApplicationBO"/>
+    <returnValues name="UserBO" type="com.intershop.component.user.capi.UserBO"/>
+  </nodes>
+<!--@Location 5,0-->
+  <nodes xsi:type="pipeline:StartNode" nodeID="StartNode_SDi_cEfIEeillYIOD8lrRg" name="RequestAccountDeletion">
+    <nodeSuccessors name="next" next="CallNode_tmkxMEh5EeiGBYBDH_39HQ"/>
+  </nodes>
+<!--@Location 5,1-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode_tmkxMEh5EeiGBYBDH_39HQ">
+    <nodeSuccessors name="next" next="CallNode_fwhnYEh5EeiGBYBDH_39HQ"/>
+    <startNode referencedName="This:Prefix"/>
+  </nodes>
+<!--@Location 5,2-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode_fwhnYEh5EeiGBYBDH_39HQ">
+    <nodeSuccessors name="next" next="CallNode_hoAHQExnEeiPcLymSFTzHA"/>
+    <nodeSuccessors name="Error" next="JumpNode_SLjFsEoJEeiPcLymSFTzHA"/>
+    <parameterBindings name="RequestType" objectPath="ApplicationBO:NamedObject(&quot;GDPRRequestTypeEnumProvider&quot;):ByName(&quot;DELETE_DATA&quot;)"/>
+    <startNode referencedName="ProcessPersonalDataRequest-CreatePersonalDataRequest"/>
+  </nodes>
+<!--@Location 5,4-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode_hoAHQExnEeiPcLymSFTzHA">
+    <nodeSuccessors name="next" next="RenderSystemPageWithTemplate_SDcRwEfIEeillYIOD8lrRg_Input"/>
+    <startNode referencedName="ProcessPersonalDataRequest-DeactivateUser"/>
+  </nodes>
+<!--@Location 5,5-->
+  <nodes xsi:type="pipeline:PipelineNodeNode" nodeID="RenderSystemPageWithTemplate_SDcRwEfIEeillYIOD8lrRg">
+    <configurationValues name="PageEntryPointDefinitionReference" value="app_sf_responsive:systempage.account.overview.pagelet2-Page"/>
+    <configurationValues name="WorkingTemplate" value="gdpr/confirmation/CustomerAccountDeactivatedPage"/>
+    <pipelet href="enfinity:/sld_ch_sf_base/pipelets/com.intershop.sellside.storefront.base.capi.pipeline.RenderSystemPageWithTemplate.pipelinenode"/>
+    <inConnectors name="Input">
+      <parameterBindings name="Dictionary" objectPath="CurrentRequest:PipelineDictionary"/>
+    </inConnectors>
+  </nodes>
+<!--@Location 6,2-->
+  <nodes xsi:type="pipeline:JumpNode" nodeID="JumpNode_SLjFsEoJEeiPcLymSFTzHA">
+    <startNode referencedName="Error-Page"/>
+  </nodes>
+<!--@Location 7,0-->
+  <nodes xsi:type="pipeline:StartNode" nodeID="StartNode_SDYAUEfIEeillYIOD8lrRg" name="RequestPersonalData">
+    <nodeSuccessors name="next" next="CallNode_y4i2kEh4EeiGBYBDH_39HQ"/>
+  </nodes>
+<!--@Location 7,1-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode_y4i2kEh4EeiGBYBDH_39HQ">
+    <nodeSuccessors name="next" next="CallNode_oRF6QEh5EeiGBYBDH_39HQ"/>
+    <startNode referencedName="This:Prefix"/>
+  </nodes>
+<!--@Location 7,3-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode_oRF6QEh5EeiGBYBDH_39HQ">
+    <nodeSuccessors name="next" next="KeyMapper_SDeG8EfIEeillYIOD8lrRg"/>
+    <nodeSuccessors name="Error" next="JumpNode_Lf2CsEoJEeiPcLymSFTzHA"/>
+    <parameterBindings name="RequestType" objectPath="ApplicationBO:NamedObject(&quot;GDPRRequestTypeEnumProvider&quot;):ByName(&quot;REQUEST_DATA&quot;)"/>
+    <startNode referencedName="ProcessPersonalDataRequest-CreatePersonalDataRequest"/>
+  </nodes>
+<!--@Location 7,4-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="KeyMapper_SDeG8EfIEeillYIOD8lrRg">
+    <pipelet href="enfinity:/core/pipelets/KeyMapper.xml"/>
+    <nodeSuccessors name="next" next="RenderSystemPageWithTemplate_SDf8IEfIEeillYIOD8lrRg_Input"/>
+    <parameterBindings name="InValue_2" constant="PersonalDataDownloadRequest"/>
+    <returnValueBindings name="OutValue_2" objectPath="ShowMessage"/>
+  </nodes>
+<!--@Location 7,5-->
+  <nodes xsi:type="pipeline:PipelineNodeNode" nodeID="RenderSystemPageWithTemplate_SDf8IEfIEeillYIOD8lrRg">
+    <configurationValues name="PageEntryPointDefinitionReference" value="app_sf_responsive:systempage.account.profileSettings.pagelet2-Page"/>
+    <configurationValues name="WorkingTemplate" value="account/ProfileSettings.isml"/>
+    <pipelet href="enfinity:/sld_ch_sf_base/pipelets/com.intershop.sellside.storefront.base.capi.pipeline.RenderSystemPageWithTemplate.pipelinenode"/>
+    <inConnectors name="Input">
+      <parameterBindings name="Dictionary" objectPath="CurrentRequest:PipelineDictionary"/>
+    </inConnectors>
+  </nodes>
+<!--@Location 8,3-->
+  <nodes xsi:type="pipeline:JumpNode" nodeID="JumpNode_Lf2CsEoJEeiPcLymSFTzHA">
+    <startNode referencedName="Error-Page"/>
+  </nodes>
+</pipeline:Pipeline>

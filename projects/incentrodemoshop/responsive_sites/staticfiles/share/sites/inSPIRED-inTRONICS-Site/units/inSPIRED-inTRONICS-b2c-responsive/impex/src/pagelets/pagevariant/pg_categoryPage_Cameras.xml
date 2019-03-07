@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<enfinity xmlns:dt="http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt">
+<pagelet-page id="pg_categoryPage_Cameras">
+<definition-name>app_sf_responsive_cm:pagevariant.standard.pagelet2-Pagevariant</definition-name>
+<parent id="pg_tmp_categoryPage" domain="inSPIRED-MasterRepository" />
+<display-name xml:lang="en-US">Category Page - Cameras</display-name>
+<display-name xml:lang="fr-FR">Page de catégorie - Caméras</display-name>
+<online>true</online>
+<author business-partner-no="admin" domain="inSPIRED"/>
+<configuration-parameters>
+<configuration-parameter name="RobotsNoFollow">
+<definition-name>app_sf_responsive_cm:pagevariant.standard.pagelet2-Pagevariant-RobotsNoFollow</definition-name>
+<value name="RobotsNoFollow">false</value>
+</configuration-parameter>
+<configuration-parameter name="RobotsNoIndex">
+<definition-name>app_sf_responsive_cm:pagevariant.standard.pagelet2-Pagevariant-RobotsNoIndex</definition-name>
+<value name="RobotsNoIndex">false</value>
+</configuration-parameter>
+</configuration-parameters>
+<placeholder-configurations>
+<placeholder-configuration hide-target-content="false" place-target-content-on-top="false">
+<parent-placeholder placeholder-id="ph_categoryPage_baseMarketing"/>
+</placeholder-configuration>
+<placeholder-configuration hide-target-content="false" place-target-content-on-top="false">
+<parent-placeholder placeholder-id="ph_categoryPage_contentMarketing"/>
+</placeholder-configuration>
+</placeholder-configurations>
+</pagelet-page>
+<pagelet-placeholder-assignment id="aYMKAE8MWoQAAAFTIgNHqDG1">
+<placeholder pagelet-domain="inSPIRED-inTRONICS-b2c-responsive" pagelet-id="pg_categoryPage_Cameras">
+<parent-placeholder placeholder-id="ph_categoryPage_contentMarketing"/>
+</placeholder>
+<pagelet id="cmp_category_teaser_Cameras" domain="inSPIRED-inTRONICS-b2c-responsive"/>
+<position>1</position>
+<online>true</online>
+</pagelet-placeholder-assignment>
+</enfinity>

@@ -1,0 +1,11 @@
+<style type="text/css">
+	a, a:link, a:visited {color: #'#'#00abea;} 
+	
+	<!---button --->
+	table[class=mobileButtonPattern] {background-color: #'#'#00abea;}
+	.button a {color: #'#'#ffffff;}
+	
+	@media only screen and (max-width: 550px), screen and (max-device-width: 550px) {
+		body[yahoo] .button a {background-color: #'#'#00abea;}
+	}
+</style>

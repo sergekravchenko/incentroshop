@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--This pipeline is used to display company profile's properties.-->
+
+<pipeline:Pipeline xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pipeline="http://www.intershop.de/pipeline/2010"
+    name="ViewCompanyProfileSettings" type="view">
+<!--@Location 1,12-->
+  <nodes xsi:type="pipeline:StartNode" nodeID="StartNode1" strict="true" name="GetCompanyProfileWebform"
+      callMode="Private">
+    <nodeSuccessors name="next" next="CreateForm0"/>
+  </nodes>
+<!--@Location 1,13-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="CreateForm0">
+    <configurationValues name="FormName" value="UpdateCompanyProfileForm"/>
+    <configurationValues name="FormResource" value="UpdateCompanyProfile"/>
+    <pipelet href="enfinity:/core/pipelets/CreateForm.xml"/>
+    <nodeSuccessors name="next" next="EndNode0"/>
+    <returnValueBindings name="Form" objectPath="CompanyProfileForm"/>
+  </nodes>
+<!--@Location 1,14-->
+  <nodes xsi:type="pipeline:EndNode" nodeID="EndNode0" name="next" strict="true">
+    <returnValues name="CompanyProfileForm" type="com.intershop.beehive.core.capi.webform.Form"/>
+  </nodes>
+<!--Initializes the company profile form with the values from the company customer.
+@Location 3,12-->
+  <nodes xsi:type="pipeline:StartNode" nodeID="StartNode5" strict="true" visibility="Private"
+      name="InitCompanyProfileWebformData" callMode="Private">
+    <nodeSuccessors name="next" next="SetFormFieldValue0"/>
+<!--The company form-->
+    <parameters name="CompanyProfileWebform" type="com.intershop.beehive.core.capi.webform.Form"/>
+<!--The extension representing the company customer.-->
+    <parameters name="CompanyCustomer" type="com.intershop.component.customer.capi.CustomerBOCompanyCustomerExtension"/>
+  </nodes>
+<!--@Location 3,13-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="SetFormFieldValue0">
+    <pipelet href="enfinity:/core/pipelets/SetFormFieldValue.xml"/>
+    <nodeSuccessors name="next" next="SetFormFieldValue1"/>
+    <parameterBindings name="FormField" objectPath="CompanyProfileWebform:CompanyName:FormValue_CompanyName"/>
+    <parameterBindings name="Value" objectPath="CompanyCustomer:CompanyName"/>
+  </nodes>
+<!--@Location 3,14-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="SetFormFieldValue1">
+    <pipelet href="enfinity:/core/pipelets/SetFormFieldValue.xml"/>
+    <nodeSuccessors name="next" next="SetFormFieldValue2"/>
+    <parameterBindings name="FormField" objectPath="CompanyProfileWebform:CompanyName2:FormValue_CompanyName2"/>
+    <parameterBindings name="Value" objectPath="CompanyCustomer:CompanyName2"/>
+  </nodes>
+<!--@Location 3,15-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="SetFormFieldValue2">
+    <pipelet href="enfinity:/core/pipelets/SetFormFieldValue.xml"/>
+    <nodeSuccessors name="next" next="SetFormFieldValue3"/>
+    <parameterBindings name="FormField" objectPath="CompanyProfileWebform:Industry:FormValue_Industry"/>
+    <parameterBindings name="Value" objectPath="CompanyCustomer:Industry"/>
+  </nodes>
+<!--@Location 3,16-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="SetFormFieldValue3">
+    <pipelet href="enfinity:/core/pipelets/SetFormFieldValue.xml"/>
+    <nodeSuccessors name="next" next="EndNode3"/>
+    <parameterBindings name="FormField" objectPath="CompanyProfileWebform:TaxationID:FormValue_TaxationID"/>
+    <parameterBindings name="Value" objectPath="CompanyCustomer:TaxationID"/>
+  </nodes>
+<!--@Location 3,17-->
+  <nodes xsi:type="pipeline:EndNode" nodeID="EndNode3" strict="true"/>
+<!--@Location 1,0-->
+  <nodes xsi:type="pipeline:StartNode" nodeID="StartNode2" name="Prefix" callMode="Private">
+    <nodeSuccessors name="next" next="CallNode2"/>
+  </nodes>
+<!--@Location 1,1-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode2">
+    <nodeSuccessors name="next" next="KeyMapper1"/>
+    <startNode referencedName="ViewProfileSettings-Prefix"/>
+  </nodes>
+<!--@Location 1,2-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="KeyMapper1">
+    <pipelet href="enfinity:/bc_foundation/pipelets/KeyMapper.xml"/>
+    <nodeSuccessors name="next" next="EndNode1"/>
+    <parameterBindings name="InValue_1" objectPath="ApplicationBO:Repository(&quot;CustomerBORepository&quot;):CustomerBO(UserBO):Extension(&quot;CompanyCustomer&quot;)"/>
+    <returnValueBindings name="OutValue_1" objectPath="CompanyCustomer"/>
+  </nodes>
+<!--@Location 1,3-->
+  <nodes xsi:type="pipeline:EndNode" nodeID="EndNode1" name="next"/>
+<!--Initializes the actual values of the fields.
+@Location 2,12-->
+  <nodes xsi:type="pipeline:StartNode" nodeID="StartNode4" name="RetrieveLatestCompanyProfileValues"
+      callMode="Private">
+    <nodeSuccessors name="next" next="SetIndirectDictValue0"/>
+  </nodes>
+<!--@Location 2,13-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="SetIndirectDictValue0">
+    <pipelet href="enfinity:/bc_foundation/pipelets/SetIndirectDictValue.xml"/>
+    <nodeSuccessors name="next" next="SetIndirectDictValue1"/>
+    <parameterBindings name="KeyNameHolder" objectPath="CurrentForm:CompanyName:Actual_CompanyName:QualifiedName"/>
+    <parameterBindings name="MappedEntry" objectPath="CompanyCustomer:CompanyName"/>
+  </nodes>
+<!--@Location 2,14-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="SetIndirectDictValue1">
+    <pipelet href="enfinity:/bc_foundation/pipelets/SetIndirectDictValue.xml"/>
+    <nodeSuccessors name="next" next="SetIndirectDictValue2"/>
+    <parameterBindings name="KeyNameHolder" objectPath="CurrentForm:CompanyName2:Actual_CompanyName2:QualifiedName"/>
+    <parameterBindings name="MappedEntry" objectPath="CompanyCustomer:CompanyName2"/>
+  </nodes>
+<!--@Location 2,15-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="SetIndirectDictValue2">
+    <pipelet href="enfinity:/bc_foundation/pipelets/SetIndirectDictValue.xml"/>
+    <nodeSuccessors name="next" next="SetIndirectDictValue3"/>
+    <parameterBindings name="KeyNameHolder" objectPath="CurrentForm:Industry:Actual_Industry:QualifiedName"/>
+    <parameterBindings name="MappedEntry" objectPath="CompanyCustomer:Industry"/>
+  </nodes>
+<!--@Location 2,16-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="SetIndirectDictValue3">
+    <pipelet href="enfinity:/bc_foundation/pipelets/SetIndirectDictValue.xml"/>
+    <nodeSuccessors name="next" next="EndNode2"/>
+    <parameterBindings name="KeyNameHolder" objectPath="CurrentForm:TaxationID:Actual_TaxationID:QualifiedName"/>
+    <parameterBindings name="MappedEntry" objectPath="CompanyCustomer:TaxationID"/>
+  </nodes>
+<!--@Location 2,17-->
+  <nodes xsi:type="pipeline:EndNode" nodeID="EndNode2" name="next"/>
+<!--@Location 2,\-1-->
+  <nodes xsi:type="pipeline:StartNode" nodeID="StartNode3" name="UpdateProfile">
+    <nodeSuccessors name="next" next="CallNode5"/>
+  </nodes>
+<!--@Location 2,0-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode5">
+    <nodeSuccessors name="next" next="ExtensionPointNode_CqY1gLisEeeCMaJuoZsArQ"/>
+    <startNode referencedName="ViewCompanyProfileSettings-Prefix"/>
+  </nodes>
+<!--To verify user permissions
+@Location 2,1-->
+  <nodes xsi:type="pipeline:ExtensionPointNode" nodeID="ExtensionPointNode_CqY1gLisEeeCMaJuoZsArQ"
+      name="VerifyUserPermissions" strict="true">
+    <nodeSuccessors name="next" next="CallNode9"/>
+    <parameters name="UserBO" type="com.intershop.component.user.capi.UserBO"/>
+  </nodes>
+<!--@Location 2,2-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode9">
+    <nodeSuccessors name="next" next="CallNode3"/>
+    <nodeSuccessors name="ERROR_InstanceAlreadyLocked" next="JoinNode1"/>
+    <parameterBindings name="Customer" objectPath="ApplicationBO:Repository(&quot;CustomerBORepository&quot;):CustomerBO(UserBO)"/>
+    <startNode referencedName="ProcessCompanyProfileLocking-Lock"/>
+  </nodes>
+<!--@Location 2,3-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode3">
+    <nodeSuccessors name="next" next="CallNode4"/>
+    <startNode referencedName="ViewCompanyProfileSettings-GetCompanyProfileWebform"/>
+    <returnValueBindings name="CompanyProfileForm" objectPath="CurrentForm"/>
+  </nodes>
+<!--@Location 2,4-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode4">
+    <nodeSuccessors name="next" next="ValidateForm0"/>
+    <startNode referencedName="ViewCompanyProfileSettings-RetrieveLatestCompanyProfileValues"/>
+  </nodes>
+<!--@Location 2,5-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="ValidateForm0">
+    <pipelet href="enfinity:/core/pipelets/ValidateForm.xml"/>
+    <nodeSuccessors name="next" next="UpdateCompanyCustomerBO0"/>
+    <nodeSuccessors name="pipelet_error" next="CallNode10"/>
+    <parameterBindings name="Form" objectPath="CurrentForm"/>
+  </nodes>
+<!--@Location 2,6-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="UpdateCompanyCustomerBO0">
+    <pipelet href="enfinity:/bc_customer/pipelets/UpdateCompanyCustomerBO.xml"/>
+    <nodeSuccessors name="next" next="CallNode8"/>
+    <parameterBindings name="CompanyName" objectPath="CurrentForm:CompanyName:FormValue_CompanyName:Value"/>
+    <parameterBindings name="CompanyName2" objectPath="CurrentForm:CompanyName2:FormValue_CompanyName2:Value"/>
+    <parameterBindings name="CustomerBOCompanyCustomerExtension" objectPath="CompanyCustomer"/>
+    <parameterBindings name="Industry" objectPath="CurrentForm:Industry:FormValue_Industry:Value"/>
+    <parameterBindings name="TaxationID" objectPath="CurrentForm:TaxationID:FormValue_TaxationID:Value"/>
+  </nodes>
+<!--@Location 2,7-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode8">
+    <nodeSuccessors name="next" next="KeyMapper2"/>
+    <nodeSuccessors name="ERROR_InstanceAlreadyReleased" next="KeyMapper2"/>
+    <parameterBindings name="Customer" objectPath="ApplicationBO:Repository(&quot;CustomerBORepository&quot;):CustomerBO(UserBO)"/>
+    <startNode referencedName="ProcessCompanyProfileLocking-Unlock"/>
+  </nodes>
+<!--@displayNearNode@ViewProfileSettings\-ViewProfile
+@Location 2,8-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="KeyMapper2">
+    <configurationValues name="ValueType" value="Dictionary Value"/>
+    <pipelet href="enfinity:/bc_foundation/pipelets/KeyMapper.xml"/>
+    <nodeSuccessors name="next" next="CallNode6"/>
+    <parameterBindings name="InValue_1" constant="ViewProfileSettings-ViewProfile"/>
+    <parameterBindings name="InValue_2" constant="UpdateCompanyProfile"/>
+    <returnValueBindings name="OutValue_1" objectPath="JumpTarget"/>
+    <returnValueBindings name="OutValue_2" objectPath="ShowSuccessMessage"/>
+  </nodes>
+<!--@Location 2,9-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode6">
+    <nodeSuccessors name="next" next="JumpNode1"/>
+    <startNode referencedName="ViewData-SecureForBrowserBack"/>
+  </nodes>
+<!--@Location 2,10-->
+  <nodes xsi:type="pipeline:JumpNode" nodeID="JumpNode1">
+    <startNode referencedName="ViewProfileSettings-ViewProfile"/>
+  </nodes>
+<!--@Location 3,5-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode10">
+    <nodeSuccessors name="next" next="JoinNode0"/>
+    <nodeSuccessors name="ERROR_InstanceAlreadyReleased" next="JoinNode0"/>
+    <parameterBindings name="Customer" objectPath="ApplicationBO:Repository(&quot;CustomerBORepository&quot;):CustomerBO(UserBO)"/>
+    <startNode referencedName="ProcessCompanyProfileLocking-Unlock"/>
+  </nodes>
+<!--@Location 4,5-->
+  <nodes xsi:type="pipeline:JoinNode" nodeID="JoinNode0">
+    <nodeSuccessors name="next" next="RenderSystemPageWithTemplate0_Input"/>
+  </nodes>
+<!--@Location 4,6-->
+  <nodes xsi:type="pipeline:PipelineNodeNode" nodeID="RenderSystemPageWithTemplate0">
+    <configurationValues name="PageEntryPointDefinitionReference" value="app_sf_responsive:systempage.account.profileSettingsCompany.pagelet2-Page"/>
+    <configurationValues name="WorkingTemplate" value="account/profile/CompanyProfileEdit.isml"/>
+    <pipelet href="enfinity:/sld_ch_sf_base/pipelets/com.intershop.sellside.storefront.base.capi.pipeline.RenderSystemPageWithTemplate.pipelinenode"/>
+    <inConnectors name="Input">
+      <parameterBindings name="Dictionary" objectPath="CurrentRequest:PipelineDictionary"/>
+    </inConnectors>
+  </nodes>
+<!--@Location 4,2-->
+  <nodes xsi:type="pipeline:JoinNode" nodeID="JoinNode1">
+    <nodeSuccessors name="next" next="CallNode0"/>
+  </nodes>
+<!--@Location 4,3-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode0">
+    <nodeSuccessors name="next" next="CallNode7"/>
+    <startNode referencedName="ViewCompanyProfileSettings-GetCompanyProfileWebform"/>
+    <returnValueBindings name="CompanyProfileForm" objectPath="CurrentForm"/>
+  </nodes>
+<!--@Location 4,4-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode7">
+    <nodeSuccessors name="next" next="JoinNode0"/>
+    <parameterBindings name="CompanyProfileWebform" objectPath="CurrentForm"/>
+    <startNode referencedName="This:InitCompanyProfileWebformData"/>
+  </nodes>
+<!--@Location 4,0-->
+  <nodes xsi:type="pipeline:StartNode" nodeID="StartNode0" name="ViewProfilePreferences">
+    <nodeSuccessors name="next" next="CallNode1"/>
+  </nodes>
+<!--@Location 4,1-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode1">
+    <nodeSuccessors name="next" next="JoinNode1"/>
+    <startNode referencedName="ViewCompanyProfileSettings-Prefix"/>
+  </nodes>
+</pipeline:Pipeline>

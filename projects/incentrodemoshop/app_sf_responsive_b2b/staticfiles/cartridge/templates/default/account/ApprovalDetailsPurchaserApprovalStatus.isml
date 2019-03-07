@@ -1,0 +1,45 @@
+<iscontent type="text/html" charset="UTF-8" compact="true">
+<dl class="dl-horizontal">
+	<dt>
+		<istext key="approval.detailspage.purchaser.label" />
+	</dt>
+	<dd>
+		<isprint value="#BasketBO:User:Profile:DataSheet:FirstName#"/> <isprint value="#BasketBO:User:Profile:DataSheet:LastName#"/>
+	</dd>
+</dl>
+
+<isif condition="#isDefined(BasketBO:Extension("BasketBOOrderApprovalExtension"):ApproverID)#">
+	<dl class="dl-horizontal">
+		<dt>
+			<istext key="approval.detailspage.approver.label" />
+		</dt>
+		<dd>
+			<isprint value="#BasketBO:Extension("BasketBOOrderApprovalExtension"):ApproverFirstName#"/> <isprint value="#BasketBO:Extension("BasketBOOrderApprovalExtension"):ApproverLastName#"/>
+		</dd>
+	</dl>
+</isif>						
+<isif condition="#isDefined(BasketBO:Extension("BasketBOOrderApprovalExtension"):ApprovalComment)#">
+	<blockquote class="small row">
+		<p>
+			<isprint value="#BasketBO:Extension("BasketBOOrderApprovalExtension"):ApprovalComment#">
+		</p>
+		<footer>
+			<isprint value="#BasketBO:Extension("BasketBOOrderApprovalExtension"):ApproverFirstName#"> <isprint value="#BasketBO:Extension("BasketBOOrderApprovalExtension"):ApproverLastName#">
+		</footer>
+	</blockquote>
+</isif>
+<div class="section">
+	<isif condition="#(BasketBO:PersistentObject:Status == 11)#">
+		<p class="label label-info">
+			<istext key="approval.detailspage.approval_status.pending.text" />
+		</p>
+	<iselseif condition="#BasketBO:PersistentObject:Status == 12#"/>
+		<p class="label label-success">
+			<istext key="approval.detailspage.approval_status.approved.text" />
+		</p>
+	<iselseif condition="#BasketBO:PersistentObject:Status == 14#"/>
+		<p class="label label-danger">
+			<istext key="approval.detailspage.approval_status.rejected.text" />
+		</p>
+	</isif>
+</div>

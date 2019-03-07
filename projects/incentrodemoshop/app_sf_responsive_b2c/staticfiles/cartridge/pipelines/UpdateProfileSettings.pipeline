@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--This extension pipeline handles updating of user profile.
+@Group Customer-->
+
+<pipeline:Pipeline xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pipeline="http://www.intershop.de/pipeline/2010"
+    name="UpdateProfileSettings" overrideMode="Inherit" type="extension">
+<!--@Location 1,1-->
+  <nodes xsi:type="pipeline:StartNode" nodeID="StartNode0" strict="true" visibility="Private"
+      name="UpdateProfile" callMode="Private">
+    <nodeSuccessors name="next" next="UpdateUserBO0"/>
+    <parameters name="UserBO" type="com.intershop.component.user.capi.UserBO"/>
+<!--The form.-->
+    <parameters name="CurrentForm" type="com.intershop.beehive.core.capi.webform.Form"/>
+  </nodes>
+<!--@Location 1,2-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="UpdateUserBO0">
+    <configurationValues name="UpdateMissingProperties" value="false"/>
+    <pipelet href="enfinity:/bc_user/pipelets/UpdateUserBO.xml"/>
+    <nodeSuccessors name="next" next="EndNode0"/>
+    <parameterBindings name="PhoneHome" objectPath="CurrentForm:Phone:Value"/>
+    <parameterBindings name="UserBO" objectPath="UserBO"/>
+  </nodes>
+<!--@Location 1,3-->
+  <nodes xsi:type="pipeline:EndNode" nodeID="EndNode0" name="next" strict="true"/>
+</pipeline:Pipeline>

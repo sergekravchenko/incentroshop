@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Pipeline that manages the wishlists of a user.
+@Group wishlist-->
+
+<pipeline:Pipeline xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pipeline="http://www.intershop.de/pipeline/2010"
+    name="ProcessWishlist" overrideMode="Inherit" type="">
+<!--@Location 1,1-->
+  <nodes xsi:type="pipeline:StartNode" nodeID="StartNode8" name="MoveProductFromCartToWishlist"
+      callMode="Private">
+    <nodeSuccessors name="next" next="ToString0"/>
+<!--Domain of the product.-->
+    <parameters name="Domain" type="com.intershop.beehive.core.capi.domain.Domain"/>
+<!--The wishlist where the product should be added.-->
+    <parameters name="WishlistBO" type="com.intershop.component.wishlist.capi.WishlistBO"/>
+<!--The basket line item that should be moved.-->
+    <parameters name="BasketProductLineItemBO" type="com.intershop.component.basket.capi.BasketProductLineItemBO"/>
+  </nodes>
+<!--@Location 1,2-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="ToString0">
+    <pipelet href="enfinity:/core/pipelets/ToString.xml"/>
+    <nodeSuccessors name="next" next="CallNode4"/>
+    <parameterBindings name="Object1" objectPath="BasketProductLineItemBO:Quantity:Value"/>
+    <parameterBindings name="Object10" nullBinding="true"/>
+    <parameterBindings name="Object2" nullBinding="true"/>
+    <parameterBindings name="Object3" nullBinding="true"/>
+    <parameterBindings name="Object4" nullBinding="true"/>
+    <parameterBindings name="Object5" nullBinding="true"/>
+    <parameterBindings name="Object6" nullBinding="true"/>
+    <parameterBindings name="Object7" nullBinding="true"/>
+    <parameterBindings name="Object8" nullBinding="true"/>
+    <parameterBindings name="Object9" nullBinding="true"/>
+    <returnValueBindings name="String1" objectPath="QuantityValue"/>
+  </nodes>
+<!--@Location 1,3-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode4">
+    <nodeSuccessors name="next" next="EndNode14"/>
+    <nodeSuccessors name="ERROR" next="EndNode0"/>
+    <parameterBindings name="Domain" objectPath="CurrentOrganization:OwningDomain"/>
+    <parameterBindings name="ProductBO" objectPath="BasketProductLineItemBO:ProductBO"/>
+    <parameterBindings name="WishlistBO" objectPath="TargetWishlistBO"/>
+    <startNode referencedName="ProcessWishlist-AddProduct"/>
+  </nodes>
+<!--@Location 1,4-->
+  <nodes xsi:type="pipeline:EndNode" nodeID="EndNode14" name=""/>
+<!--@Location 2,3-->
+  <nodes xsi:type="pipeline:EndNode" nodeID="EndNode0" name="Error"/>
+</pipeline:Pipeline>

@@ -1,0 +1,9 @@
+<iscontent type="text/html" charset="UTF-8" compact="true">
+<li class="account-nav-header" data-toggle="collapse" data-target="#'#'#collapseOrg">
+	<p class="account-nav-heading"><span class="glyphicon glyphicon-briefcase"></span> <istext key="account.navigation.organization.subtitle"/></p>
+</li>
+<li id="collapseOrg" class="collapse">
+	<ul class="account-navigation list-unstyled">
+		<isinclude extensionpoint="AccountNavigationExtension"/>
+	</ul>
+</li>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pipeline:Pipeline xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pipeline="http://www.intershop.de/pipeline/2010"
+    name="CreateRepositoryHook" overrideMode="Inherit" type="Process">
+<!--@Location 2,0-->
+  <nodes xsi:type="pipeline:StartNode" nodeID="StartNode0" name="Start" callMode="Private">
+    <nodeSuccessors name="next" next="DecisionNode0"/>
+    <parameters name="Repository" type="com.intershop.component.mvc.capi.catalog.Repository"/>
+  </nodes>
+<!--@Location 2,1-->
+  <nodes xsi:type="pipeline:DecisionNode" nodeID="DecisionNode0" conditionKey="Repository:TypeCode"
+      operator="eq" conditionValue="52">
+    <nodeSuccessors name="decision_yes" next="CreateAttributeGroup0"/>
+<!--@BendPoints 7,3-->
+    <nodeSuccessors name="decision_no" next="JoinNode0"/>
+  </nodes>
+<!--@Location 2,2-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="CreateAttributeGroup0">
+    <pipelet href="enfinity:/bc_foundation/pipelets/CreateAttributeGroup.xml"/>
+    <nodeSuccessors name="next" next="UpdateAttributeGroup0"/>
+    <nodeSuccessors name="pipelet_error" next="JoinNode0"/>
+    <parameterBindings name="Domain" objectPath="Repository:Domain"/>
+    <parameterBindings name="ID" constant="QUOTE_ITEM_ATTRIBUTES"/>
+  </nodes>
+<!--@Location 2,3-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="UpdateAttributeGroup0">
+    <pipelet href="enfinity:/bc_foundation/pipelets/UpdateAttributeGroup.xml"/>
+    <nodeSuccessors name="next" next="JoinNode1"/>
+    <nodeSuccessors name="pipelet_error" next="JoinNode2"/>
+    <parameterBindings name="DisplayName" constant="Quote Item Attributes"/>
+  </nodes>
+<!--@Location 2,4-->
+  <nodes xsi:type="pipeline:JoinNode" nodeID="JoinNode1">
+    <nodeSuccessors name="next" next="EndNode0"/>
+  </nodes>
+<!--@Location 2,5-->
+  <nodes xsi:type="pipeline:EndNode" nodeID="EndNode0"/>
+<!--@Location 3,3-->
+  <nodes xsi:type="pipeline:JoinNode" nodeID="JoinNode2">
+<!--@BendPoints 7,9-->
+    <nodeSuccessors name="next" next="JoinNode1"/>
+  </nodes>
+<!--@Location 3,2-->
+  <nodes xsi:type="pipeline:JoinNode" nodeID="JoinNode0">
+    <nodeSuccessors name="next" next="JoinNode2"/>
+  </nodes>
+</pipeline:Pipeline>

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<enfinity xmlns:dt="http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt">
+<component-template id="cmp_tmp_familyDetail">
+<definition-name>app_sf_responsive_cm:component.shopping.familyPage.pagelet2-Component</definition-name>
+<display-name xml:lang="de-DE">Familien-Detail</display-name>
+<display-name xml:lang="en-US">Family Detail</display-name>
+<active>true</active>
+<author business-partner-no="admin" domain="inSPIRED"/>
+<configuration-parameters>
+<configuration-parameter name="ProductView1">
+<definition-name>app_sf_responsive_cm:component.shopping.familyPage.pagelet2-Component-ProductView1</definition-name>
+<value name="ProductView1">app_sf_responsive:vc_productTile@inSPIRED-inTRONICS-b2c-responsive</value>
+</configuration-parameter>
+<configuration-parameter name="ProductView2">
+<definition-name>app_sf_responsive_cm:component.shopping.familyPage.pagelet2-Component-ProductView2</definition-name>
+<value name="ProductView2">app_sf_responsive:vc_productList@inSPIRED-inTRONICS-b2c-responsive</value>
+</configuration-parameter>
+<configuration-parameter name="Sortings">
+<definition-name>app_sf_responsive_cm:component.shopping.familyPage.pagelet2-Component-Sortings</definition-name>
+<value name="Sortings">
+<value>name-asc</value>
+<value>name-desc</value>
+<value>ProductSalePrice-asc</value>
+<value>ProductSalePrice-desc</value>
+<value>SalesRankUnitsIndex-desc</value>
+<value>ArrivalDate-desc</value>
+</value>
+</configuration-parameter>
+</configuration-parameters>
+<slots>
+<slot>
+<definition-name>app_sf_responsive_cm:slot.marketing.base.pagelet2-Slot</definition-name>
+<optional>false</optional>
+<sorting>false</sorting>
+</slot>
+<slot>
+<definition-name>app_sf_responsive_cm:slot.marketing.category.pagelet2-Slot</definition-name>
+<optional>false</optional>
+<sorting>false</sorting>
+</slot>
+<slot>
+<definition-name>app_sf_responsive_cm:slot.marketing.content.pagelet2-Slot</definition-name>
+<optional>false</optional>
+<sorting>false</sorting>
+</slot>
+<slot>
+<definition-name>app_sf_responsive_cm:slot.marketing.sidePanel.pagelet2-Slot</definition-name>
+<optional>false</optional>
+<sorting>false</sorting>
+</slot>
+</slots>
+<placeholder-definitions>
+<placeholder-definition id="ph_familyDetail_baseMarketing">
+<definition-name>app_sf_responsive_cm:slot.marketing.base.pagelet2-Slot</definition-name>
+<display-name xml:lang="de-DE">Standard-Marketing</display-name>
+<display-name xml:lang="en-US">Base Marketing</display-name>
+<position>1</position>
+<slot definition-name="app_sf_responsive_cm:slot.marketing.base.pagelet2-Slot"/>
+</placeholder-definition>
+<placeholder-definition id="ph_familyDetail_contentMarketing">
+<definition-name>app_sf_responsive_cm:slot.marketing.content.pagelet2-Slot</definition-name>
+<display-name xml:lang="de-DE">Content-Marketing</display-name>
+<display-name xml:lang="en-US">Content Marketing</display-name>
+<position>2</position>
+<slot definition-name="app_sf_responsive_cm:slot.marketing.content.pagelet2-Slot"/>
+</placeholder-definition>
+</placeholder-definitions>
+</component-template>
+<pagelet-slot-assignment id="95AKAE8HF9MAAAE9JAlO8CYy">
+<slot definition-name="app_sf_responsive_cm:slot.marketing.sidePanel.pagelet2-Slot" parent-pagelet-id="cmp_tmp_familyDetail" domain="inSPIRED-inTRONICS-b2c-responsive"/>
+<pagelet id="cmp_categoryLinks_accessories" domain="inSPIRED-inTRONICS-b2c-responsive"/>
+<position>3</position>
+<online>true</online>
+</pagelet-slot-assignment>
+<pagelet-slot-assignment id="A1YKAE8HJbIAAAE9xghO8CYy">
+<slot definition-name="app_sf_responsive_cm:slot.marketing.sidePanel.pagelet2-Slot" parent-pagelet-id="cmp_tmp_familyDetail" domain="inSPIRED-inTRONICS-b2c-responsive"/>
+<pagelet id="cmp_categoryLinks_crossSelling" domain="inSPIRED-inTRONICS-b2c-responsive"/>
+<position>1</position>
+<online>true</online>
+</pagelet-slot-assignment>
+<pagelet-slot-assignment id="_qIKAE8HkVYAAAE9XwlO8CYy">
+<slot definition-name="app_sf_responsive_cm:slot.marketing.sidePanel.pagelet2-Slot" parent-pagelet-id="cmp_tmp_familyDetail" domain="inSPIRED-inTRONICS-b2c-responsive"/>
+<pagelet id="cmp_categoryLinks_followUp" domain="inSPIRED-inTRONICS-b2c-responsive"/>
+<position>4</position>
+<online>true</online>
+</pagelet-slot-assignment>
+<pagelet-slot-assignment id="VMAKAE8Hvy4AAAE9xQlO8CYy">
+<slot definition-name="app_sf_responsive_cm:slot.marketing.sidePanel.pagelet2-Slot" parent-pagelet-id="cmp_tmp_familyDetail" domain="inSPIRED-inTRONICS-b2c-responsive"/>
+<pagelet id="cmp_categoryLinks_other" domain="inSPIRED-inTRONICS-b2c-responsive"/>
+<position>6</position>
+<online>true</online>
+</pagelet-slot-assignment>
+<pagelet-slot-assignment id="rqEKAE8HPMIAAAE9kAlO8CYy">
+<slot definition-name="app_sf_responsive_cm:slot.marketing.sidePanel.pagelet2-Slot" parent-pagelet-id="cmp_tmp_familyDetail" domain="inSPIRED-inTRONICS-b2c-responsive"/>
+<pagelet id="cmp_categoryLinks_spareParts" domain="inSPIRED-inTRONICS-b2c-responsive"/>
+<position>5</position>
+<online>true</online>
+</pagelet-slot-assignment>
+<pagelet-slot-assignment id="OvQKAE8HOvEAAAE98AhO8CYy">
+<slot definition-name="app_sf_responsive_cm:slot.marketing.sidePanel.pagelet2-Slot" parent-pagelet-id="cmp_tmp_familyDetail" domain="inSPIRED-inTRONICS-b2c-responsive"/>
+<pagelet id="cmp_categoryLinks_upSelling" domain="inSPIRED-inTRONICS-b2c-responsive"/>
+<position>2</position>
+<online>true</online>
+</pagelet-slot-assignment>
+</enfinity>

@@ -1,0 +1,9 @@
+<iscontent type="text/html" charset="UTF-8" compact="true">
+
+<p class="alert alert-warning"><istext key="account.costcenter.dialog.no.authentification"></p>
+
+<div class="clearfix">
+	<a href="<isprint value="#URL(Action('ViewUserAccount-Start'))#">" class="btn btn-primary pull-right">
+		<istext key="account.signin.button.label">
+	</a>
+</div>

@@ -1,0 +1,188 @@
+<iscontent type="text/html" charset="UTF-8" compact="true">
+<iscache type="forbidden">
+
+<isinclude template="modules/B2BModulesCostCenter">
+
+<ISUserPermissionMap User="#UserBO#" UserPermissionMap="UserPermissionMap">
+
+<div class="breadcrumbs row">
+	<isAccountBreadcrumb trailtext="#localizeText('account.costcenter.list.title')#">
+</div>
+
+<!--- Marketing slot --->
+<div class="marketing-area">
+	<ISMarketingSlot id="baseMarketing">
+</div>
+
+<div class="account-wrapper" data-testing-id="cost-center-page">
+    <div class="row account-main">
+		
+		<!--- NAVIGATION --->
+		<div class="col-md-3 account-nav-box">
+			<isAccountNavigation selecteditem="COSTCENTER">
+		</div>
+		
+		<!--- COST CENTER - PAGE CONTENT --->
+		<div class="col-md-9">
+			<!--- Marketing slot --->
+			<div class="marketing-area">
+				<ISMarketingSlot id="contentMarketing">
+			</div>
+			
+			<div class="row section section-seperator"> 
+				<div class="col-xs-12 col-md-6">	
+					<h1>
+						<istext key="account.costcenter.list.title" />
+					</h1>
+				</div>
+				<isif condition="#isDefined(UserPermissionMap:get("APP_B2B_MANAGE_COSTCENTER"))#">
+					<div class="col-xs-12 col-md-6 text-right">
+						<button
+								id="open-create-costcenter-modal"
+								data-url="#url(Action('ViewCostCenter-ShowForm'), Parameter('CustomerID', CustomerBO:ID), Parameter('FormType', 'create'))#" 
+								class="btn btn-default"
+								data-toggle="modal"
+								data-quick-title="<istext key="account.costcenter.create.label"/>"
+							><istext key="account.costcenter.create.label"/>
+						</button>
+					</div>
+				</isif>
+			</div>	
+		
+	<isif condition="#isDefined(CostCenterBOs) AND hasElements(CostCenterBOs)#">
+			<div class="row ">
+				<div class="col-xs-12" >	
+						<div class="list-header">
+							<div class="list-header-item col-sm-1"><istext key="account.costcenter.list.header.no" /></div>
+							<div class="list-header-item col-sm-3"><istext key="account.costcenter.list.header.name" /></div>
+							<div class="list-header-item col-sm-1"><istext key="account.costcenter.list.header.orders" /></div>
+							<div class="list-header-item col-sm-7"><istext key="account.costcenter.list.header.budgetspent" /></div>
+						</div>
+						<div class="list-body" data-testing-id="cost-center-list">
+							
+							<isloop iterator="CostCenterBOs" alias="CostCenter">
+								<div class="list-item-row-big  list-item-row  section section-seperator"<isif condition="#not CostCenter:Active#"> class="disabled"</isif>>
+									
+									<!--- ID --->
+									<div class="list-item col-xs-12 col-sm-1">
+										<isif condition="#isDefined(CostCenter:ID)#">
+											<label class="hidden-lg hidden-md hidden-sm control-label"><istext key="account.costcenter.list.header.no"/>:</label>
+											<a href="#url(Action('ViewCostCenter-Details'), Parameter('CostCenterID', CostCenter:ID))#"
+												<isif condition="#not CostCenter:Active#">class="text-info"</isif>
+											>
+												<isprint value="#CostCenter:Name#"/>
+											</a>
+										</isif>
+									</div>
+									
+									<!--- Name --->
+									<div class="list-item col-xs-12 col-sm-3">
+										<isif condition="#isDefined(CostCenter:DisplayName)#">
+											<label class="hidden-lg hidden-md hidden-sm control-label"><istext key="account.costcenter.list.header.name"/>:</label>
+											<a href="#url(Action('ViewCostCenter-Details'), Parameter('CostCenterID', CostCenter:ID))#"
+												<isif condition="#not CostCenter:Active#">class="text-info"</isif>
+											>
+												<isprint value="#CostCenter:DisplayName#"/>
+											</a>
+										</isif>
+									</div>
+									
+									<!--- Order Count --->
+									<div class="list-item  col-xs-12 col-sm-1">
+										<label class="hidden-lg hidden-md hidden-sm control-label"><istext key="account.costcenter.list.header.orders"/>:</label>
+										<isCostCenterOrderCount CostCenter="#CostCenter#">
+									</div >
+									
+									<!--- Budget Progressbar --->
+									<div class="list-item  col-xs-12 col-sm-6 text-left" >
+											<label class="hidden-lg hidden-md hidden-sm control-label"><istext key="account.costcenter.list.header.budgetspent"/>:</label>
+											<isif condition="#CostCenter:isActive#">
+												<isCostCenterBudgetProgressBar CostCenter="#CostCenter#">
+											</isif>
+									</div>
+									
+									<!--- Actions --->
+									<isif condition="#isDefined(UserPermissionMap:get("APP_B2B_MANAGE_COSTCENTER"))#">
+										<div class="list-item  col-xs-3 text-left-xs col-sm-1 text-right-sm text-right-lg" >
+												<isif condition="#CostCenter:isActive#">
+													<a href=""
+														data-url="#url(Action('ViewCostCenter-ConfirmDeactivate'), Parameter('CostCenterID', CostCenter:ID))#"
+														class="btn-tool open-costcenter-modal"
+														data-toggle="modal"
+														data-quick-title="<istext key="account.costcenter.dialog.confirm.deactivate.title"/>"
+													>
+														<span class="glyphicon glyphicon-ban-circle" title="<istext key="account.costcenter.list.action.deactivate.label"/>"></span>
+													</a>
+												<iselse>
+													<a href="<isprint value="#url(Action('ViewCostCenter-Activate'), Parameter('CostCenterID', CostCenter:ID))#">" class="btn-tool">
+														<span class="glyphicon glyphicon-ok-circle" title="<istext key="account.costcenter.list.action.activate.label"/>"></span>
+													</a>
+												</isif>
+											<a href=""
+												data-url="#url(Action('ViewCostCenter-ConfirmRemove'), Parameter('CostCenterID', CostCenter:ID))#"
+												class="btn-tool open-costcenter-modal"
+												data-toggle="modal"
+												data-quick-title="<istext key="account.costcenter.dialog.confirm.remove.title"/>"
+											>
+												<span class="glyphicon glyphicon-trash" title="<istext key="account.costcenter.list.action.remove.label"/>"></span>
+											</a>
+										</div>
+									</isif>
+								</div>
+							</isloop>
+						</div>
+			</div>
+		</div>
+			<iselse>
+				
+				<p><istext key="account.costcenter.list.noitems"/></p>
+				
+			</isif>
+			
+			<ISContinueShoppingLink isDisplayed="#ContinueShopping#">
+		</div>
+	</div>
+</div>
+
+<!--- BEGIN create costcenter modal dialog --->
+<div class="modal" id="general-costcenter-modal" role="dialog" aria-labelledby="CostCenterLabel" aria-hidden="true">
+	<div class="modal-dialog modal-lg">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">
+					<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+				</button>
+				<h2 class="modal-title" id="modal-title-replacement"><!--- filled dynamically via ajax/js (see account_b2b.js) ---></h2>
+			</div>
+			<div class="modal-body">
+				<!--- filled dynamically via ajax/js (see account_b2b.js) --->
+			</div>
+		</div>
+	</div>
+</div>
+<!--- END create costcenter modal dialog --->
+
+<script type="text/javascript">
+$(document).on('click', '#'#'#open-create-costcenter-modal', function(event) {
+    event.preventDefault();
+    var button = $(this);
+    if ($(this).attr('href')) var url = $(this).attr('href');
+    if ($(this).attr('data-url')) var url = $(this).attr('data-url');
+    var modal = $('#'#'#general-costcenter-modal');
+    $(modal).modal('hide');
+    
+    $.ajax({
+        url : url,
+        success : function(data) {
+            $(modal).find('.modal-body').html(data);
+            $(modal).find('.modal-title').html(button.attr('data-quick-title'));
+            $(modal).modal('show');
+            
+            var form = $(modal).find('form');
+            form.bootstrapValidator().on('status.field.bv', function(e, data) {
+                data.bv.disableSubmitButtons(false);
+            });
+        }
+    });
+ });
+</script>

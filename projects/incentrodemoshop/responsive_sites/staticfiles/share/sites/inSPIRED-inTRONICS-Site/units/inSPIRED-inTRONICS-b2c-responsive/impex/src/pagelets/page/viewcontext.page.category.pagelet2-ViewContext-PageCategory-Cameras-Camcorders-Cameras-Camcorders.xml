@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<enfinity xmlns:dt="http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt">
+<pagelet-entry-point id="viewcontext.page.category.pagelet2-ViewContext-PageCategory-Cameras-Camcorders-Cameras-Camcorders">
+<definition-name>app_sf_responsive:page.category.pagelet2-Page</definition-name>
+<page>true</page>
+<sorting>false</sorting>
+<display-name xml:lang="en-US">Category Page - Category Page - Cameras</display-name>
+<configuration-parameters>
+<configuration-parameter name="HasParametricNavigation">
+<definition-name>app_sf_responsive:page.category.pagelet2-Page-HasParametricNavigation</definition-name>
+<value name="HasParametricNavigation">true</value>
+</configuration-parameter>
+<configuration-parameter name="SearchQueryDefinitionID">
+<definition-name>app_sf_responsive:page.category.pagelet2-Page-SearchQueryDefinitionID</definition-name>
+<value name="SearchQueryDefinitionID">fallback_searchquerydefinition</value>
+</configuration-parameter>
+</configuration-parameters>
+</pagelet-entry-point>
+<pagelet-pagelet-entry-point-assignment>
+<pagelet-entry-point id="viewcontext.page.category.pagelet2-ViewContext-PageCategory-Cameras-Camcorders-Cameras-Camcorders" domain="inSPIRED-inTRONICS-b2c-responsive" resource-set="app_sf_responsive"/>
+<pagelet id="pg_categoryPage_Cameras" domain="inSPIRED-inTRONICS-b2c-responsive"/>
+<position>1</position>
+<online>true</online>
+</pagelet-pagelet-entry-point-assignment>
+<pagelet-entry-point-businessobject-assignment>
+<definition-name>app_sf_responsive:viewcontext.page.category.pagelet2-ViewContext-PageCategory</definition-name>
+<pagelet-entry-point id="viewcontext.page.category.pagelet2-ViewContext-PageCategory-Cameras-Camcorders-Cameras-Camcorders" domain="inSPIRED-inTRONICS-b2c-responsive" resource-set="app_sf_responsive"/>
+<view-context id="viewcontext.page.category.pagelet2-ViewContext" domain="inSPIRED-inTRONICS-b2c-responsive" resource-set="app_sf_responsive"/>
+<catalog-category id="Cameras-Camcorders" domain="inSPIRED-inTRONICS-Cameras-Camcorders" xmlns="http://www.intershop.com/xml/ns/enfinity/6.5/bc_mvc/impex"/>
+</pagelet-entry-point-businessobject-assignment>
+</enfinity>

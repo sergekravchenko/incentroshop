@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<enfinity xmlns:dt="http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt">
+<pagelet-component id="cmp_productLinks_crossSelling">
+<definition-name>app_sf_responsive_cm:component.product.productLinks.pagelet2-Component</definition-name>
+<display-name xml:lang="de-DE">Produktverweise Zusatzartikel</display-name>
+<display-name xml:lang="en-US">Product Links Cross-Selling</display-name>
+<display-name xml:lang="fr-FR">Liens produits Vente croisée</display-name>
+<online>true</online>
+<author business-partner-no="admin" domain="inSPIRED"/>
+<configuration-parameters>
+<configuration-parameter name="ListStyle">
+<definition-name>app_sf_responsive_cm:component.product.productLinks.pagelet2-Component-ListStyle</definition-name>
+<value name="ListStyle">carousel</value>
+</configuration-parameter>
+<configuration-parameter name="ProductLinkType">
+<definition-name>app_sf_responsive_cm:component.product.productLinks.pagelet2-Component-ProductLinkType</definition-name>
+<value name="ProductLinkType">ES_CrossSelling</value>
+</configuration-parameter>
+<configuration-parameter name="ProductView">
+<definition-name>app_sf_responsive_cm:component.product.productLinks.pagelet2-Component-ProductView</definition-name>
+<value name="ProductView">app_sf_responsive:vc_productTile@inSPIRED-MasterRepository</value>
+</configuration-parameter>
+<configuration-parameter name="SlideItems">
+<definition-name>app_sf_responsive_cm:component.product.productLinks.pagelet2-Component-SlideItems</definition-name>
+<value name="SlideItems">4</value>
+</configuration-parameter>
+<configuration-parameter name="Title">
+<definition-name>app_sf_responsive_cm:component.product.productLinks.pagelet2-Component-Title</definition-name>
+<value name="Title" xml:lang="de-DE">Das könnte Sie auch interessieren</value>
+<value name="Title" xml:lang="en-US">You may also like</value>
+<value name="Title" xml:lang="fr-FR">Vous pouvez également aimer</value>
+</configuration-parameter>
+</configuration-parameters>
+</pagelet-component>
+</enfinity>

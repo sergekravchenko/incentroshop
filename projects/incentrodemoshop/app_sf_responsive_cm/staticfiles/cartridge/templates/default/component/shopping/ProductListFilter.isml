@@ -1,0 +1,45 @@
+<iscontent personalized="true" type="text/html" charset="UTF-8" compact="true">
+<iscache type="relative" hour="24">
+<isinclude template="modules/Modules">
+
+<div class="row breadcrumbs">
+	<isif condition="#isDefined(Title) AND (Title NE '')#">
+		<ISBreadcrumb showhomelink="true" trailtext0="#Title#">
+	<iselse>
+		<ISBreadcrumb showhomelink="true" trailtext0="#localizeText("application.productListFilter.breadcrumb.label")#">
+	</isif>
+</div>
+
+<div class="marketing-area">
+	<isslot slot="app_sf_responsive_cm:slot.marketing.base.pagelet2-Slot">
+</div>
+
+<div class="filtered-products">
+	<isif condition="#isDefined(Title) AND (Title NE '')#">
+		<h1><isprint value="#Title#"></h1>
+	</isif>
+	
+	<ISProductListFilters
+		ListNavigationVO="#ListNavigationVO#"
+		ViewType="#ViewType#"
+		sortings="#PageletConfigurationParameters:Sortings#"
+		showViewType="false"
+	>
+	
+	<isset name="ListItemCSSClass" value="col-xs-6 col-md-3 grid-view" scope="request">
+	<isif condition="#isDefined(PageletConfigurationParameters:ListItemCSSClass) AND (PageletConfigurationParameters:ListItemCSSClass NE '')#">
+		<isset name="ListItemCSSClass" value="#PageletConfigurationParameters:ListItemCSSClass#" scope="request">
+	</isif>
+	<ISProductList
+		ProductBOs="#ProductBOs#"
+		viewContext="#PageletConfigurationParameters:ProductView#"
+		listItemCssClass="#ListItemCSSClass#"
+	>
+	
+	<ISProductListFilters
+		ListNavigationVO="#ListNavigationVO#"
+		ViewType="#ViewType#"
+		sortings="#PageletConfigurationParameters:Sortings#"
+		showViewType="false"
+	>
+</div>

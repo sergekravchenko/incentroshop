@@ -1,0 +1,107 @@
+<iscontent type="text/html" charset="UTF-8" compact="true">
+
+<div class="section">
+	<p><istext key="account.punchout.subtitle"/></p>
+</div>
+
+<isset name="PunchoutExtension" value="#CustomerBO:Extension("Punchout")#" scope="request">
+
+<isform class="form-horizontal bv-form" action="#URLEX(SecureURL,'',Action('ViewOCISettings-Dispatch'))#" method="post">
+	<iscomment>change initial punchout user name here</iscomment>
+	<input type="hidden" name="FirstName" value="OCI">
+	<input type="hidden" name="LastName" value="User">	
+	
+	<isif condition="#NOT hasElements(PunchoutExtension:PunchoutUserBOs(PunchoutType))#">
+		<div class="section">
+			<p><istext key="account.punchout.no.user.text" /></p>
+		</div>
+	
+		<isif condition="#isDefined(ERROR_User) AND (ERROR_User	EQ 'LoginAlreadyInUse')#">
+			<div role="alert" class="alert alert-danger">
+				<istext key="account.user.new.login.already_exist.error" />
+			</div>
+		<iselseif condition="#isDefined(ERROR_User) AND (ERROR_User	EQ 'PasswordNotValid')#">		
+			<div role="alert" class="alert alert-danger">
+				<istext key="account.update_password.new_password.error.regexp"/>
+			</div>
+		</isif>
+		<div>
+			<fieldset>
+				<div class="form-group">
+					<label class="control-label col-sm-4" for="">
+						<istext key="account.punchout.username.label" />
+					</label>
+					<div class="col-sm-8">
+						<input type="text" autocomplete="off" maxlength="35" aria-required="true" 
+							data-validate="required"
+							class="form-control"
+							name="Login"
+							id="Login"
+							value="<isprint value="#Login#">"
+							required 
+							data-bv-notempty-message="<istext key="account.punchout.username.error.required"/>"
+							data-bv-regexp="true"  
+							data-bv-regexp-regexp="^[a-zA-Z0-9_.@]*$"
+							data-bv-regexp-message="<istext key="account.punchout.username.invalid"/>"
+						>
+					</div>
+				</div>
+
+				<isPasswordInput FieldName="Password"
+								Class="col-sm-8"
+								ShowHint="false"
+								LabelClass="col-sm-4"
+								Domain="#CurrentOrganization:Domain#"
+								ConfirmationFieldName="PasswordConfirmation">
+			</fieldset>
+			<div class="form-group">
+				<div class="col-sm-offset-4 col-sm-8">
+					<button class="btn btn-primary" name="enable" type="submit"><istext key="account.punchout.button.create"/></button>
+				</div>
+			</div>
+		</div>
+	
+	</isif>
+	
+	
+	<isif condition="#hasElements(PunchoutExtension:PunchoutUserBOs(PunchoutType))#">
+		<div class="section" data-testing-id="account-oci-user-list">
+			<h3><istext key="account.punchout.oci.user.list.heading"/></h3>
+		</div>
+		
+		<div class="list-header hidden-xs">
+			<div class="col-sm-9 list-header-item">
+				<istext key="account.punchout.oci.user.list.table.user" encoding="off" />
+			</div>			
+		</div>
+	
+		<div class="list-body">
+			<isloop counter="Counter" iterator="PunchoutExtension:PunchoutUserBOs(PunchoutType)" alias="UserBO">
+				<div class="list-item-row">												
+					<div class="col-sm-8 list-item" data-testing-id="account-oci-user-#Counter#">
+						<a href="#URLEX(SecureURL,'',Action('ViewOCIProfileSettings-ViewProfile'), Parameter('UserID', UserBO:ID))#">
+							<isprint value="#UserBO:Login#">
+						</a>
+						<isif condition="#UserBO:Disabled#">
+							<p class="help-block">(<istext key="account.user.list.status.inactive" encoding="off" />)</p>
+						</isif>						
+					</div>
+					<div class="col-sm-4 list-item text-right" >
+						<a class="btn-tool" title="<istext key="account.profile.update.link"/>" 
+							href="#URLEX(SecureURL,'',Action('ViewOCIProfileSettings-ViewProfile'), Parameter('UserID', UserBO:ID))#"
+							data-testing-class="link-oci-punchout-profile-settings-#Counter#">
+							<span class="glyphicon glyphicon-pencil"></span>
+						</a>
+					</div>
+				</div>
+			</isloop>
+		</div>
+		<p>
+			<istext key="account.punchout.info.url.helptext" encoding="on" />
+		</p>	
+		<p>
+			<isprint value="#replace(replace(URLEX(SecureURL,'',Action('ViewOCICatalog-Start'), Parameter("USERNAME", "<USERNAME>"),Parameter("PASSWORD", "<PASSWORD>"), Parameter("HOOK_URL", "<HOOK_URL>")),'%3C','<strong>&lt;'),'%3E','&gt;</strong>')#"  encoding="off">
+		<p>
+		
+	</isif>
+</isform>

@@ -1,0 +1,4 @@
+<iscontent type="text/html" charset="UTF-8" compact="true">
+<li class="<isif condition="#selecteditem EQ 'CONTRACTS'#">active</isif>">
+	<a href="#URL(Action('ViewContracts-Start'))#" data-testing-linkid="account_contracts"><istext key="account.navigation.contracts.link"/></a>
+</li>

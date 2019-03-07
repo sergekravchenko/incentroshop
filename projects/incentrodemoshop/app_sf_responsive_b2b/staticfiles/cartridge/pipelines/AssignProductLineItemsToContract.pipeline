@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Adds the contract information to the line items after they have been added to the basket.
+@Group Contract-->
+
+<pipeline:Pipeline xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pipeline="http://www.intershop.de/pipeline/2010"
+    name="AssignProductLineItemsToContract" overrideMode="Inherit"
+    type="extension">
+<!--Actually there are two different extension points called after cart calculation
+@Location 4,0-->
+  <nodes xsi:type="pipeline:Text" nodeID="Text_r3CpAMeGEeaOYuOFjBth_w"/>
+<!--@Location 1,1-->
+  <nodes xsi:type="pipeline:StartNode" nodeID="StartNode2" strict="true" visibility="Private"
+      name="AssignProductLineItemToContract" callMode="Private">
+    <nodeSuccessors name="next" next="GetApplicationBO0"/>
+    <parameters name="Cart" type="com.intershop.beehive.bts.capi.orderprocess.basket.Basket"/>
+    <parameters name="ProductLineItem" type="com.intershop.beehive.bts.capi.orderprocess.ProductLineItem"/>
+    <parameters name="User" type="com.intershop.beehive.core.capi.user.User"/>
+  </nodes>
+<!--@Location 1,2-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="GetApplicationBO0">
+    <pipelet href="enfinity:/bc_application/pipelets/GetApplicationBO.xml"/>
+    <nodeSuccessors name="next" next="KeyMapper0"/>
+  </nodes>
+<!--@Location 1,3-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="KeyMapper0">
+    <pipelet href="enfinity:/core/pipelets/KeyMapper.xml"/>
+    <nodeSuccessors name="next" next="GetBasketBO1"/>
+    <parameterBindings name="InValue_1" objectPath="ApplicationBO:Extension(&quot;Basket&quot;):getBasketBORepository(Cart)"/>
+    <parameterBindings name="InValue_2" objectPath="ApplicationBO:Repository(&quot;ContractBaseBORepository&quot;)"/>
+    <parameterBindings name="InValue_3" objectPath="ApplicationBO:Repository(&quot;CustomerBORepository&quot;)"/>
+    <parameterBindings name="InValue_4" objectPath="ApplicationBO:Repository(&quot;UserBORepository&quot;)"/>
+    <returnValueBindings name="OutValue_1" objectPath="BasketBORepository"/>
+    <returnValueBindings name="OutValue_2" objectPath="ContractBaseBORepository"/>
+    <returnValueBindings name="OutValue_3" objectPath="CustomerBORepository"/>
+    <returnValueBindings name="OutValue_4" objectPath="UserBORepository"/>
+  </nodes>
+<!--@Location 1,4-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="GetBasketBO1">
+    <pipelet href="enfinity:/bc_basket/pipelets/GetBasketBO.xml"/>
+    <nodeSuccessors name="next" next="GetUserBO0"/>
+    <parameterBindings name="Basket" objectPath="Cart"/>
+  </nodes>
+<!--@Location 1,5-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="GetUserBO0">
+    <pipelet href="enfinity:/bc_user/pipelets/GetUserBO.xml"/>
+    <nodeSuccessors name="next" next="GetCustomerBO0"/>
+    <parameterBindings name="UserID" objectPath="User:ID"/>
+  </nodes>
+<!--@Location 1,6-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="GetCustomerBO0">
+    <pipelet href="enfinity:/bc_customer/pipelets/GetCustomerBO.xml"/>
+    <nodeSuccessors name="next" next="GetBasketProductLineItemBO1"/>
+  </nodes>
+<!--@Location 1,7-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="GetBasketProductLineItemBO1">
+    <pipelet href="enfinity:/sld_ch_b2c_base/pipelets/GetBasketProductLineItemBO.xml"/>
+    <nodeSuccessors name="next" next="KeyMapper1"/>
+<!--@BendPoints 5,15 5,21-->
+    <nodeSuccessors name="pipelet_error" next="JoinNode0"/>
+    <parameterBindings name="PLIID" objectPath="ProductLineItem:UUID"/>
+  </nodes>
+<!--@Location 1,8-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="KeyMapper1">
+    <configurationValues name="ValueType" value="Dictionary Value"/>
+    <pipelet href="enfinity:/core/pipelets/KeyMapper.xml"/>
+    <nodeSuccessors name="next" next="AssignContractToProductLineItem0" action="begin"/>
+    <parameterBindings name="InValue_1" objectPath="ContractBaseBORepository:ContractBOByLineItemBOByUserBOAndByCustomerBO(BasketProductLineItemBO, UserBO, CustomerBO)"/>
+    <returnValueBindings name="OutValue_1" objectPath="ContractBO"/>
+  </nodes>
+<!--@Location 1,9-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="AssignContractToProductLineItem0">
+    <pipelet href="enfinity:/bc_contract/pipelets/AssignContractToProductLineItem.xml"/>
+    <nodeSuccessors name="next" next="JoinNode0" action="commit"/>
+  </nodes>
+<!--@Location 1,10-->
+  <nodes xsi:type="pipeline:JoinNode" nodeID="JoinNode0">
+    <nodeSuccessors name="next" next="EndNode0"/>
+  </nodes>
+<!--@Location 1,11-->
+  <nodes xsi:type="pipeline:EndNode" nodeID="EndNode0" name="" strict="true"/>
+<!--@Location 6,1-->
+  <nodes xsi:type="pipeline:StartNode" nodeID="StartNode_PYIN0MeFEeaOYuOFjBth_w" strict="true"
+      name="ByBasket" callMode="Private">
+    <nodeSuccessors name="next" next="DecisionNode_IH7foCuUEei0jpY49G7Npg"/>
+    <parameters name="Basket" type="com.intershop.component.basket.capi.BasketBO"/>
+  </nodes>
+<!--@Location 6,2-->
+  <nodes xsi:type="pipeline:DecisionNode" nodeID="DecisionNode_IH7foCuUEei0jpY49G7Npg"
+      conditionKey="Basket:UserBO:isRegistered" operator="str_eq" conditionValue="true">
+    <nodeSuccessors name="decision_yes" next="GetApplicationBO_9JpZQMeGEeaOYuOFjBth_w"/>
+    <nodeSuccessors name="decision_no" next="EndNode_O8HwQCuUEei0jpY49G7Npg"/>
+  </nodes>
+<!--@Location 6,3-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="GetApplicationBO_9JpZQMeGEeaOYuOFjBth_w">
+    <pipelet href="enfinity:/bc_application/pipelets/GetApplicationBO.xml"/>
+    <nodeSuccessors name="next" next="KeyMapper_8RH10MeGEeaOYuOFjBth_w"/>
+  </nodes>
+<!--@Location 6,4-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="KeyMapper_8RH10MeGEeaOYuOFjBth_w">
+    <pipelet href="enfinity:/core/pipelets/KeyMapper.xml"/>
+    <nodeSuccessors name="next" next="GetCustomerBO_Eq3vAMeHEeaOYuOFjBth_w"/>
+    <parameterBindings name="InValue_1" objectPath="ApplicationBO:Extension(&quot;Basket&quot;):getBasketBORepository(Cart)"/>
+    <parameterBindings name="InValue_2" objectPath="ApplicationBO:Repository(&quot;ContractBaseBORepository&quot;)"/>
+    <parameterBindings name="InValue_3" objectPath="ApplicationBO:Repository(&quot;CustomerBORepository&quot;)"/>
+    <parameterBindings name="InValue_4" objectPath="ApplicationBO:Repository(&quot;UserBORepository&quot;)"/>
+    <returnValueBindings name="OutValue_1" objectPath="BasketBORepository"/>
+    <returnValueBindings name="OutValue_2" objectPath="ContractBaseBORepository"/>
+    <returnValueBindings name="OutValue_3" objectPath="CustomerBORepository"/>
+    <returnValueBindings name="OutValue_4" objectPath="UserBORepository"/>
+  </nodes>
+<!--@Location 6,5-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="GetCustomerBO_Eq3vAMeHEeaOYuOFjBth_w">
+    <pipelet href="enfinity:/bc_customer/pipelets/GetCustomerBO.xml"/>
+    <nodeSuccessors name="next" next="GetContractBOsByCustomer_yKT8UCuUEei0jpY49G7Npg"/>
+    <parameterBindings name="UserBO" objectPath="Basket:UserBO"/>
+  </nodes>
+<!--@Location 6,6-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="GetContractBOsByCustomer_yKT8UCuUEei0jpY49G7Npg">
+    <pipelet href="enfinity:/bc_contract/pipelets/GetContractBOsByCustomer.xml"/>
+    <nodeSuccessors name="next" next="DecisionNode_1DDrECuUEei0jpY49G7Npg"/>
+  </nodes>
+<!--@Location 6,7-->
+  <nodes xsi:type="pipeline:DecisionNode" nodeID="DecisionNode_1DDrECuUEei0jpY49G7Npg"
+      conditionKey="CustomerContracts" operator="has_elements">
+    <nodeSuccessors name="decision_yes" next="LoopNode_Gz9X4MeGEeaOYuOFjBth_w"/>
+    <nodeSuccessors name="decision_no" next="EndNode_38t_0CuUEei0jpY49G7Npg"/>
+  </nodes>
+<!--@Location 6,8-->
+  <nodes xsi:type="pipeline:LoopNode" nodeID="LoopNode_Gz9X4MeGEeaOYuOFjBth_w" loop="Basket:ProductLineItemBOs">
+<!--@BendPoints 14,17-->
+    <nodeSuccessors name="next" next="EndNode_Gz8w0MeGEeaOYuOFjBth_w"/>
+    <entry key="BasketProductLineItemBO">
+      <nodeSuccessors name="loop_entry_next" next="KeyMapper_HqDc8MeHEeaOYuOFjBth_w"/>
+    </entry>
+  </nodes>
+<!--@Location 6,9-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="KeyMapper_HqDc8MeHEeaOYuOFjBth_w">
+    <configurationValues name="ValueType" value="Dictionary Value"/>
+    <pipelet href="enfinity:/core/pipelets/KeyMapper.xml"/>
+    <nodeSuccessors name="next" next="AssignContractToProductLineItem_ICRvsMeHEeaOYuOFjBth_w"
+        action="begin"/>
+    <parameterBindings name="InValue_1" objectPath="ContractBaseBORepository:ContractBOByLineItemBOByUserBOAndByCustomerBO(BasketProductLineItemBO, Basket:UserBO, CustomerBO)"/>
+    <returnValueBindings name="OutValue_1" objectPath="ContractBO"/>
+  </nodes>
+<!--@Location 6,10-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="AssignContractToProductLineItem_ICRvsMeHEeaOYuOFjBth_w">
+    <pipelet href="enfinity:/bc_contract/pipelets/AssignContractToProductLineItem.xml"/>
+    <nodeSuccessors name="next" next="JoinNode_NCbP0MeHEeaOYuOFjBth_w" action="commit"/>
+  </nodes>
+<!--@Location 6,11-->
+  <nodes xsi:type="pipeline:JoinNode" nodeID="JoinNode_NCbP0MeHEeaOYuOFjBth_w">
+<!--@BendPoints 11,23 11,17-->
+    <nodeSuccessors name="next" next="LoopNode_Gz9X4MeGEeaOYuOFjBth_w_Entry"/>
+  </nodes>
+<!--@Location 7,8-->
+  <nodes xsi:type="pipeline:EndNode" nodeID="EndNode_Gz8w0MeGEeaOYuOFjBth_w" strict="true"/>
+<!--@Location 7,7-->
+  <nodes xsi:type="pipeline:EndNode" nodeID="EndNode_38t_0CuUEei0jpY49G7Npg" strict="true"/>
+<!--@Location 7,2-->
+  <nodes xsi:type="pipeline:EndNode" nodeID="EndNode_O8HwQCuUEei0jpY49G7Npg" strict="true"/>
+<!--@Location 3,1-->
+  <nodes xsi:type="pipeline:StartNode" nodeID="StartNode3" strict="true" name="Start"
+      callMode="Private">
+    <nodeSuccessors name="next" next="LoopNode2"/>
+    <parameters name="Cart" type="com.intershop.beehive.bts.capi.orderprocess.basket.Basket"/>
+    <parameters name="User" type="com.intershop.beehive.core.capi.user.User"/>
+  </nodes>
+<!--@Location 3,4-->
+  <nodes xsi:type="pipeline:LoopNode" nodeID="LoopNode2" loop="Cart:ProductLineItems">
+<!--@BendPoints 8,9-->
+    <nodeSuccessors name="next" next="EndNode3"/>
+    <entry key="ProductLineItem">
+      <nodeSuccessors name="loop_entry_next" next="CallNode2"/>
+    </entry>
+  </nodes>
+<!--@Location 3,5-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode2">
+<!--@BendPoints 6,11 6,9-->
+    <nodeSuccessors name="next" next="LoopNode2_Entry"/>
+    <startNode referencedName="AssignProductLineItemsToContract-AssignProductLineItemToContract"/>
+  </nodes>
+<!--@Location 4,4-->
+  <nodes xsi:type="pipeline:EndNode" nodeID="EndNode3" strict="true"/>
+</pipeline:Pipeline>

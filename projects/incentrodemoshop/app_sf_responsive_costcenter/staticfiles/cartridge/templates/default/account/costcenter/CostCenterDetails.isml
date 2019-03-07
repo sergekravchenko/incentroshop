@@ -1,0 +1,160 @@
+<iscontent type="text/html" charset="UTF-8" compact="true">
+
+<isinclude template="modules/B2BModulesCostCenter">
+
+<ISUserPermissionMap User="#UserBO#" UserPermissionMap="UserPermissionMap">
+
+<div class="breadcrumbs row">
+	<isAccountBreadcrumb trailtext="#CostCenterBO:DisplayName#" link="#URL(Action('ViewCostCenter-Start'))#" text="#localizeText('account.costcenter.list.title')#">
+</div>
+
+<!--- Marketing slot --->
+<div class="marketing-area">
+	<ISMarketingSlot id="baseMarketing">
+</div>
+
+<div class="account-wrapper" data-testing-id="cost-center-details-page">
+	
+	<div class="row account-main">
+		
+		<!--- Left Navigation Panel --->
+		<div class="col-md-3 account-nav-box">
+			<isAccountNavigation selecteditem="COSTCENTER">
+		</div>
+		
+		<div class="col-md-9">
+			<!--- Marketing slot --->
+			<div class="marketing-area">
+				<ISMarketingSlot id="contentMarketing">
+			</div>
+			
+			<isif condition="#isDefined(CostCenterBO)#">
+				<div class="row">
+					<div class="col-xs-12">
+						<h1><isprint value="#CostCenterBO:DisplayName#"></h1>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-6">
+						<h3><istext key="account.costcenter.details.details.heading" /></h3>
+					</div>
+					<isif condition="#isDefined(UserPermissionMap:get("APP_B2B_MANAGE_COSTCENTER"))#">
+						<div class="col-xs-6 text-right ">
+							<a
+								href="" 
+								data-url="#url(Action('ViewCostCenter-ShowForm'), Parameter('CostCenterID', CostCenterBO:ID), Parameter('CustomerID', CustomerBO:ID), Parameter('FormType', 'edit'))#" 
+								class="btn-tool open-costcenter-modal"
+								data-toggle="modal"
+								data-quick-title="<istext key="account.costcenter.details.action.edit.quicktitle"/>"
+							><span class=" glyphicon glyphicon-pencil" title="<istext key="account.costcenter.details.action.edit.quicktitle"/>"></span></a>
+						</div>
+					</isif>
+				</div>
+				
+				<!--- Cost Center Details --->
+				<div class="row">
+					<div class="col-sm-12">
+						<dl class="dl-horizontal dl-horizontal-inline dl-separator" data-testing-id="cost-center-details">
+							
+							<isif condition="#isDefined(CostCenterBO:Name)#">
+								<dt><istext key="account.costcenter.form.field.no.label"/></dt>
+								<dd>
+									<isprint value="#CostCenterBO:Name#">
+								</dd>
+							</isif>
+							<isif condition="#isDefined(CostCenterBO:DisplayName)#">
+								<dt><istext key="account.costcenter.form.field.name.label"/></dt>
+								<dd>
+									<isprint value="#CostCenterBO:DisplayName#">
+								</dd>
+							</isif>
+							<isif condition="#isDefined(CostCenterBO:Owner)#">
+								<dt><istext key="account.costcenter.form.field.manager.label"/></dt>
+								<dd>
+									<isset name="Owner" value="#CostCenterBO:Owner#" scope="request"/>
+									<isif condition="#(Owner:FirstName EQ '') AND (Owner:LastName EQ '')#">
+										<isprint value="#Owner:Login#">
+									<iselse>
+										<isprint value="#Owner:FirstName#"> <isprint value="#Owner:LastName#">
+									</isif>
+								</dd>
+							</isif>
+							
+							<isif condition="#(isDefined(CostCenterBO:Budget)) AND (CostCenterBO:Budget NE 'N/A')#">
+								<dt><istext key="account.costcenter.form.field.budget.label"/></dt>
+								<dd>
+									<isprint value="#CostCenterBO:Budget.' / '.localizeText('account.costcenter.label.budget.period.'.CostCenterBO:BudgetPeriod)#">
+								</dd>
+								<dd class="hidden-xs"><isCostCenterBudgetProgressBar CostCenter="#CostCenterBO#"></dd>
+							</isif>
+						</dl>
+						<div class="visible-xs"><isCostCenterBudgetProgressBar CostCenter="#CostCenterBO#"></div>
+					</div>
+				</div>
+				
+				<!--- Cost Center Details - Orders List --->
+				<isif condition="#isDefined(CostCenterBO:Owner) AND (CostCenterBO:Owner:ID EQ CurrentUser:ID)#">
+				<div class="row">
+					<div class="col-xs-12">
+						<isinclude template="account/costcenter/inc/CostCenterDetails-Orders"/>
+					</div>
+				</div>
+				</isif>
+				
+				<!--- Cost Center Details - Assigned Buyers List --->
+				<div class="row">
+					<div class="col-xs-12">
+						<isinclude template="account/costcenter/inc/CostCenterDetails-Buyers"/>
+					</div>
+				</div>
+				
+				<!--- Cost Center Details - Questions Section --->
+				<div class="row">
+					<div class="col-xs-12">
+						<!--- Note --->
+						<div class="ish-formInfo">
+							<h4 class="help-block"><istext key="account.order.questions.title"></h4>
+							<p class="help-block">
+								<istext key="account.order.questions.note" 
+									parameter0="#url(action('ViewContent-Start'), Parameter('PageletEntryPointID','systempage.helpdesk.index.pagelet2-Page'))#" 
+									parameter1="#url(action('ViewContact-Start'))#"
+									encoding="off">
+							</p>
+						</div>
+					</div>
+				</div>
+			<iselse>
+			<!--- Cost Center Details - No Cost Centers Message --->
+				<div class="row">
+					<div class="col-xs-12">
+						<p><istext key="account.costcenter.details.notfound" parameter0="#CostCenterID#" /></p>
+					</div>
+				</div>
+			</isif>
+			<!--- Cost Center Details - Back To Cost Center List Overview --->
+				<div class="row">
+					<div class="col-xs-12">
+						<a href="#URL(Action('ViewCostCenter-Start'))#" data-testing-id="back-link"><istext key="account.costcenter.details.back"/></a>
+					</div>
+				</div>
+		</div>
+	</div>
+</div>
+
+<!--- BEGIN create costcenter modal dialog --->
+<div class="modal" id="general-costcenter-modal" role="dialog" aria-labelledby="CostCenterLabel" aria-hidden="true">
+	<div class="modal-dialog modal-lg">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">
+					<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+				</button>
+				<h2 class="modal-title" id="modal-title-replacement"><!--- filled dynamically via ajax/js (see account_b2b.js) ---></h2>
+			</div>
+			<div class="modal-body">
+				<!--- filled dynamically via ajax/js (see account_b2b.js) --->
+			</div>
+		</div>
+	</div>
+</div>
+<!--- END create costcenter modal dialog --->

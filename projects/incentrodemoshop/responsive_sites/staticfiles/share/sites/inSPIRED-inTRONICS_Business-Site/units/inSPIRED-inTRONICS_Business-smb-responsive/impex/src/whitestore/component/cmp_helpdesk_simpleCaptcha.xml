@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<enfinity xmlns:dt="http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt">
+<pagelet-component id="cmp_helpdesk_simpleCaptcha">
+<definition-name>app_sf_responsive_cm:component.common.freeStyle.pagelet2-Component</definition-name>
+<display-name xml:lang="de-DE">Hilfe - Hilfe zu Simple Captcha</display-name>
+<display-name xml:lang="en-US">Helpdesk - Simple Captcha Help Details</display-name>
+<online>true</online>
+<author business-partner-no="admin" domain="inSPIRED"/>
+<configuration-parameters>
+<configuration-parameter name="HTML">
+<definition-name>app_sf_responsive_cm:component.common.freeStyle.pagelet2-Component-HTML</definition-name>
+<value name="HTML" xml:lang="de-DE">&lt;h1&gt;Hilfe zu Simple Captcha&lt;/h1&gt;
+&lt;div class=&quot;&quot;&gt;Geben Sie die Ziffern in der Reihefolge ein, in der sie in der Box erscheinen. Auf diese Weise wird verhindert, dass automatische Programme diesen Dienst missbrauchen. &lt;br /&gt;Wenn Sie die Zahlen nicht sicher entziffern können, geben Sie entweder eine Vermutung ein oder klicken Sie auf Erneut versuchen neben der Box. &lt;br /&gt;Sehbehinderte Menschen können auf Audiocode erzeugen klicken, wodurch eine Zahlenfolge angesagt wird, die dann eingegeben werden kann.&lt;/div&gt;</value>
+<value name="HTML" xml:lang="en-US">&lt;h1&gt;Simple Captcha Help Details&lt;/h1&gt;
+&lt;div class=&quot;&quot;&gt;Please enter the digits in order you see in the box. Doing so helps prevent automated programs from abusing this service. &lt;br /&gt;If you are not sure what the digits are, either enter your best guess or click the Try Another button next to the box. &lt;br /&gt;Visually impaired users can click the button Get Audio Code to hear a set of digits that can be entered instead of the visual challenge.&lt;/div&gt;</value>
+</configuration-parameter>
+</configuration-parameters>
+</pagelet-component>
+</enfinity>

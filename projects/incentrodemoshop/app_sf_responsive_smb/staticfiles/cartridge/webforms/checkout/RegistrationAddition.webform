@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<webform:WebForm xmlns:webform="http://www.intershop.de/webform/2010" name="RegistrationAddition" xmlns:core="http://www.intershop.de/core/2010">
+  <forms name="RegistrationAdditionForm">
+  </forms>
+</webform:WebForm>

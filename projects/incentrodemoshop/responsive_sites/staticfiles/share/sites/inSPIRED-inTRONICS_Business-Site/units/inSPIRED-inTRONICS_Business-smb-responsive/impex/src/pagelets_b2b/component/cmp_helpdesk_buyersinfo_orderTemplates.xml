@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<enfinity xmlns:dt="http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt">
+<pagelet-component id="cmp_helpdesk_buyersinfo_orderTemplates">
+<definition-name>app_sf_responsive_cm:component.common.freeStyle.pagelet2-Component</definition-name>
+<display-name xml:lang="de-DE">Bestellvorlagen</display-name>
+<display-name xml:lang="en-US">Order Templates</display-name>
+<display-name xml:lang="fr-FR">Modèles de commande</display-name>
+<online>true</online>
+<author business-partner-no="admin" domain="inSPIRED"/>
+<configuration-parameters>
+<configuration-parameter name="HTML">
+<definition-name>app_sf_responsive_cm:component.common.freeStyle.pagelet2-Component-HTML</definition-name>
+<value name="HTML" xml:lang="de-DE">&lt;h1&gt;Bestellvorlagen &lt;/h1&gt;
+&lt;p&gt;Die Funktion Bestellvorlagen soll es dem Benutzer ermöglichen, Produkte in einer speziellen Produktliste zu sammeln, um sie häufig zu bestellen.&lt;/p&gt;
+&lt;p&gt;Bestellvorlagen können im Abschnitt &lt;em&gt;Mein Konto&lt;/em&gt; verwaltet (erstellt, aktualisiert, gelöscht) werden.Bestellvorlagen können komplett in den Warenkorb gelegt werden. Der Warenkorb kann in einer Bestellvorlage gespeichert werden.&lt;/p&gt;
+&lt;h2&gt;Eine leere Bestellvorlage anlegen&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Loggen Sie sich in der Storefront ein.&lt;/li&gt;
+&lt;li&gt;Öffnen Sie &lt;em&gt;Mein Konto&lt;/em&gt; | &lt;em&gt;Bestellvorlagen&lt;/em&gt;.&lt;/li&gt;
+&lt;li&gt;Klicken Sie auf &lt;em&gt;Bestellvorlage hinzufügen&lt;/em&gt;.&lt;/li&gt;
+&lt;li&gt;Geben Sie einen eindeutigen Namen ein und klicken Sie auf &lt;em&gt;Anlegen&lt;/em&gt;.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;Produkte zu einer Bestellvorlage hinzufügen&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Loggen Sie sich in der Storefront ein.&lt;/li&gt;
+&lt;li&gt;Suchen Sie nach einem Produkt&lt;/li&gt;
+&lt;li&gt;Klicken Sie auf der Detailseite des Produkts auf &lt;em&gt;In Bestellvorlage aufnehmen&lt;/em&gt;.&lt;/li&gt;
+&lt;li&gt;Wählen Sie eine Bestellvorlage aus oder erstellen Sie eine neue und klicken Sie auf &lt;em&gt;Hinzufügen&lt;/em&gt;.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;Anpassen der Produktmenge&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Loggen Sie sich in der Storefront ein.&lt;/li&gt;
+&lt;li&gt;Öffnen Sie &lt;em&gt;Mein Konto&lt;/em&gt; | &lt;em&gt;Bestellvorlagen&lt;/em&gt;.&lt;/li&gt;
+&lt;li&gt;Klicken Sie auf &lt;em&gt;Vorlage bearbeiten&lt;/em&gt; (Edit Icon).&lt;/li&gt;
+&lt;li&gt;Passen Sie die Mengen der Produkte nach Ihren Wünschen an.&lt;/li&gt;
+&lt;li&gt;Click &lt;em&gt;Vorlage aktualisieren&lt;/em&gt;.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;Eine Bestellvorlage aus dem Warenkorb erstellen&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Loggen Sie sich in der Storefront ein.&lt;/li&gt;
+&lt;li&gt;Suchen Sie nach einem Produkt und fügen Sie es Ihrem Warenkorb hinzu.&lt;/li&gt;
+&lt;li&gt;Öffnen Sie den Warenkorb.&lt;/li&gt;
+&lt;li&gt;Passen Sie die Menge an und klicken Sie auf &lt;em&gt;Warenkorb aktualisieren&lt;/em&gt;.&lt;/li&gt;
+&lt;li&gt;Klicken Sie auf &lt;em&gt;Bestellvorlage anlegen&lt;/em&gt;.&lt;/li&gt;
+&lt;li&gt;Geben Sie einen eindeutigen Namen ein und Klicken Sie auf &lt;em&gt;Anlegen&lt;/em&gt;.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;Bestellvorlage in den Warenkorb legen&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Loggen Sie sich in der Storefront ein.&lt;/li&gt;
+&lt;li&gt;Öffnen Sie &lt;em&gt;Mein Account&lt;/em&gt; | &lt;em&gt;Bestellvorlagen&lt;/em&gt;.&lt;/li&gt;
+&lt;li&gt;Klicken Sie auf das &lt;em&gt;In den Warenkorb&lt;/em&gt; Icon in der Zeile der benötigten &lt;em&gt;Bestellvorlage&lt;/em&gt;.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;Eine Bestellvorlage löschen&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Loggen Sie sich in der Storefront ein.&lt;/li&gt;
+&lt;li&gt;Öffnen Sie &lt;em&gt;Mein Account&lt;/em&gt; | &lt;em&gt;Bestellvorlagen&lt;/em&gt;.&lt;/li&gt;
+&lt;li&gt;Klicken Sie auf das &lt;em&gt;Löschen&lt;/em&gt; Icon in der Zeile der Bestellvorlage, die gelöscht werden soll.&lt;br /&gt;Ein Löschbestätigungsdialog wird gestartet.&lt;/li&gt;
+&lt;li&gt;Klicken Sie auf &lt;em&gt;Löschen&lt;/em&gt; um die Löschung der Bestellvorlage zu bestätigen.&lt;/li&gt;
+&lt;/ol&gt;</value>
+<value name="HTML" xml:lang="en-US">&lt;h1&gt;Order Templates&lt;/h1&gt;
+&lt;p&gt;The order templates feature is intended to allow the user to collect products in a special product list to order them frequently.&lt;/p&gt;
+&lt;p&gt;Order templates can be managed (create, update, delete) in the &lt;em&gt;My Account&lt;/em&gt; section. Order templates can be added to the cart completely. And the cart can be saved into an order template.&lt;/p&gt;
+&lt;h2&gt;Create an Empty Order Template&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Log in to the storefront.&lt;/li&gt;
+&lt;li&gt;Go tot &lt;em&gt;My Account&lt;/em&gt; | &lt;em&gt;Order Templates&lt;/em&gt;.&lt;/li&gt;
+&lt;li&gt;Click &lt;em&gt;Add Order Template&lt;/em&gt;.&lt;/li&gt;
+&lt;li&gt;Enter a unique name and click &lt;em&gt;Create&lt;/em&gt;.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;Add Products to an Order Template&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Log in to the storefront.&lt;/li&gt;
+&lt;li&gt;Search for a product.&lt;/li&gt;
+&lt;li&gt;On the product&apos;s detail page click &lt;em&gt;Add to Order Template&lt;/em&gt;.&lt;/li&gt;
+&lt;li&gt;Select a Order Template or create a new one and click &lt;em&gt;Add&lt;/em&gt;.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;Adjust the Quantity of Products&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Log in to the storefront.&lt;/li&gt;
+&lt;li&gt;Go tot &lt;em&gt;My Account&lt;/em&gt; | &lt;em&gt;Order Templates&lt;/em&gt;.&lt;/li&gt;
+&lt;li&gt;Click the Edit Template desired &lt;em&gt;Order Template&lt;/em&gt;.&lt;/li&gt;
+&lt;li&gt;Adjust the quantities of the products as you wish.&lt;/li&gt;
+&lt;li&gt;Click &lt;em&gt;Update Order Template&lt;/em&gt;.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;Create Order Template from Cart&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Log in to the storefront.&lt;/li&gt;
+&lt;li&gt;Search for a products and add them to your cart.&lt;/li&gt;
+&lt;li&gt;Go to the Shopping Cart page.&lt;/li&gt;
+&lt;li&gt;Adjust the quantities and click &lt;em&gt;Update Cart&lt;/em&gt;.&lt;/li&gt;
+&lt;li&gt;Click &lt;em&gt;Create Order Template&lt;/em&gt;.&lt;/li&gt;
+&lt;li&gt;Enter a unique name and click &lt;em&gt;Create&lt;/em&gt;.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;Add an Order Template to the Cart&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Log in to the storefront.&lt;/li&gt;
+&lt;li&gt;Go tot &lt;em&gt;My Account&lt;/em&gt; | &lt;em&gt;Order Templates&lt;/em&gt;.&lt;/li&gt;
+&lt;li&gt;Click the Add to Cart icon in the row of the required &lt;em&gt;Order Template&lt;/em&gt;.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;Delete an Order Template&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Log in to the storefront.&lt;/li&gt;
+&lt;li&gt;Go tot &lt;em&gt;My Account&lt;/em&gt; | &lt;em&gt;Order Templates&lt;/em&gt;.&lt;/li&gt;
+&lt;li&gt;Click the &lt;em&gt;Delete&lt;/em&gt; icon in the row of the &lt;em&gt;Order Template&lt;/em&gt; to be deleted.&lt;br /&gt;A deletion confirmation dialog is started.&lt;/li&gt;
+&lt;li&gt;Click &lt;em&gt;Delete&lt;/em&gt; to confirm the deletion of the &lt;em&gt;Order Template&lt;/em&gt;.&lt;/li&gt;
+&lt;/ol&gt;</value>
+<value name="HTML" xml:lang="fr-FR">&quot;&lt;h1&gt;Modèles de commande&lt;/h1&gt;
+&lt;p&gt;La fonctionnalité du modèle de commande vise à soutenir la collection de produits par l’’utilisateur dans une liste de produits afin de les commander régulièrement.&lt;/p&gt;
+&lt;p&gt;Les modèles de commande peuvent être gérés( créer,mise à jour, supprimer) dans la section &lt;em&gt;Mon compte&lt;/em&gt;. Les modèles de commande peuvent être ajoutés entièrement au panier. Et le panier peut être enregistré dans un modèle de commande.&lt;/p&gt;
+&lt;h2&gt;Créer un modèle de commande vide&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Connectez-vous à la vitrine.&lt;/li&gt;
+&lt;li&gt;Allez à &lt;em&gt;Mon compte&lt;/em&gt; | &lt;em&gt;Modèles de commandes&lt;/em&gt;.&lt;/li&gt;
+&lt;li&gt;Cliquez &lt;em&gt;Ajoutez un modèle de commande&lt;/em&gt;.&lt;/li&gt;
+&lt;li&gt;Entrez un nom unique et cliquez&lt;em&gt;Créer&lt;/em&gt;.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;Ajouter les produits à un modèle de commande&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Connectez-vous à la vitrine.&lt;/li&gt;
+&lt;li&gt;Recherchez un produit.&lt;/li&gt;
+&lt;li&gt;Sur la page des détails de produits cliquez &lt;em&gt;Ajouter au modèle de commande&lt;/em&gt;.&lt;/li&gt;
+&lt;li&gt;Sélectionnez un modèle de commande ou créez un nouveau et cliquez &lt;em&gt;Ajouter&lt;/em&gt;.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;Adapter la quantité des produits&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Connectez-vous à la vitrine.&lt;/li&gt;
+&lt;li&gt;Allez à &lt;em&gt;Mon compte&lt;/em&gt; | &lt;em&gt;Modèles de commandes&lt;/em&gt;.&lt;/li&gt;
+&lt;li&gt;Cliquez sur le modèle de modification désiré&lt;em&gt;Modèle de commande&lt;/em&gt;.&lt;/li&gt;
+&lt;li&gt;Adaptez la quantité du produit comme vous voudrez.&lt;/li&gt;
+&lt;li&gt;Cliquez &lt;em&gt;Mettre le modèle de commande à jour&lt;/em&gt;.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;Créer un modèle de commande à partir du panier&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Connectez-vous à la vitrine.&lt;/li&gt;
+&lt;li&gt;Recherchez un produit et ajoutez-le à votre panier.&lt;/li&gt;
+&lt;li&gt;Allez à la page de panier d’’achat.&lt;/li&gt;
+&lt;li&gt;Adaptez la quantité et cliquez &lt;em&gt;Mettre le panier à jour&lt;/em&gt;.&lt;/li&gt;
+&lt;li&gt;Cliquez &lt;em&gt;Créer un modèle de commande&lt;/em&gt;.&lt;/li&gt;
+&lt;li&gt;Entrez un nom unique et cliquez &lt;em&gt;Créer&lt;/em&gt;.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;Ajouter un modèle de commande au panier&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Connectez-vous à la vitrine.&lt;/li&gt;
+&lt;li&gt;Allez à &lt;em&gt;Mon compte&lt;/em&gt; | &lt;em&gt;Modèles de commandes&lt;/em&gt;.&lt;/li&gt;
+&lt;li&gt;Cliquez l’’icône Ajouter au panier dans la rangée du &lt;em&gt;Modèle de commande&lt;/em&gt; requis.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;Supprimer un modèle de commande&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Connectez-vous à la vitrine.&lt;/li&gt;
+&lt;li&gt;Allez à &lt;em&gt;Mon compte&lt;/em&gt; | &lt;em&gt;Modèles de commandes&lt;/em&gt;.&lt;/li&gt;
+&lt;li&gt;Cliquez sur l’’icône &lt;em&gt;Supprimer&lt;/em&gt; dans la rangée &lt;em&gt;Modèle de commande&lt;/em&gt; qui vous souhaitez supprimer.&lt;br /&gt;Il vous sera afficher une boîte de dialogue de confirmation de suppression.&lt;/li&gt;
+&lt;li&gt;Cliquez &lt;em&gt;Supprimer&lt;/em&gt; pour confirmer la suppression de ce &lt;em&gt;Modèle de commande&lt;/em&gt;.&lt;/li&gt;
+&lt;/ol&gt;&quot; </value>
+</configuration-parameter>
+</configuration-parameters>
+</pagelet-component>
+</enfinity>

@@ -1,0 +1,47 @@
+apply plugin: 'static-cartridge'
+apply plugin: 'com.intershop.gradle.isml'
+
+task lessCompile {
+    ext.srcFile = file('staticfiles/cartridge/static/default/less/theme.less')
+    ext.destFile = file('staticfiles/cartridge/static/default/css/theme.css')
+    doLast {
+        destFile.parentFile.mkdirs()
+
+        def lessCompiler = new org.lesscss.LessCompiler()
+        lessCompiler.compress = true
+        lessCompiler.compile(srcFile, destFile)
+    }
+}
+
+intershop {
+    displayName = 'Application - Responsive Starter Store - SMB Artifacts'
+
+    //add output of the plugin the cartridge package
+    packages {
+        cartridge {
+            srcDir(isml2classMain)
+        }
+    }
+}
+
+zipCartridge.dependsOn lessCompile
+
+clean.doFirst {
+    delete file('staticfiles/cartridge/static/default/css/theme.css')
+}
+
+dependencies {
+    compile project(':app_sf_responsive')
+    compile group: 'com.intershop.business', name: 'bc_basket'
+    compile group: 'com.intershop.business', name: 'bc_customer'
+    compile group: 'com.intershop.business', name: 'bc_order'
+    compile group: 'com.intershop.business', name: 'sld_ch_sf_base'
+    compile group: 'com.intershop.platform', name: 'bc_address'
+    compile group: 'com.intershop.platform', name: 'bc_foundation'
+    compile group: 'com.intershop.platform', name: 'bc_mail'
+    compile group: 'com.intershop.platform', name: 'bc_user'
+    compile group: 'com.intershop.platform', name: 'core'
+    compile group: 'com.intershop.platform', name: 'isml'
+    compile group: 'com.intershop.platform', name: 'servletengine'
+}
+

@@ -1,0 +1,17 @@
+<iscontent type="text/html" charset="UTF-8" compact="true">
+<isif condition="#isDefined(ShowSuccessMessage)#">
+	<div class="alert alert-success success-fade">
+		<isif condition="#ShowSuccessMessage EQ 'UpdateEmail'#">
+			<p><istext key="account.profile.update_email.message" /></p>
+		</isif>
+		<isif condition="#(ShowSuccessMessage EQ 'UpdateProfile') OR (ShowSuccessMessage EQ 'UpdateCompanyProfile')#">
+			<p><istext key="account.profile.update_profile.message" /></p>
+		</isif>
+		<isif condition="#ShowSuccessMessage EQ 'UpdatePassword'#">
+			<p><istext key="account.profile.update_password.message" /></p>
+		</isif>
+		<script type="text/javascript">
+			$(function() {setTimeout(function() {$('div.success-fade').hide();}, 1000 * 10);});
+		</script>
+	</div>
+</isif>

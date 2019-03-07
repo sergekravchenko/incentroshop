@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<enfinity xmlns:dt="http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt">
+<pagelet-entry-point id="page.helpdesk.paymentMethods">
+<definition-name>app_sf_responsive:page.content.pagelet2-Page</definition-name>
+<page>true</page>
+<sorting>false</sorting>
+<parent id="page.helpdesk.orderingShippingPayment" domain="inSPIRED-inTRONICS_Business-smb-responsive" position="4.0" resource-set="app_sf_responsive">
+</parent>
+<display-name xml:lang="de-DE">Zahlungsmethoden</display-name>
+<display-name xml:lang="en-US">Payment Methods</display-name>
+</pagelet-entry-point>
+<pagelet-pagelet-entry-point-assignment>
+<pagelet-entry-point id="page.helpdesk.paymentMethods" domain="inSPIRED-inTRONICS_Business-smb-responsive" resource-set="app_sf_responsive"/>
+<pagelet id="pg_helpdesk_paymentMethods" domain="inSPIRED-inTRONICS_Business-smb-responsive"/>
+<position>1</position>
+<online>true</online>
+</pagelet-pagelet-entry-point-assignment>
+</enfinity>

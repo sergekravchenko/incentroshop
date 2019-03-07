@@ -1,0 +1,34 @@
+<iscontent personalized="true" type="text/html" charset="UTF-8" compact="true">
+
+<isset name="CompanyCustomerExtension" value="#CustomerBO:Extension("CompanyCustomer")#" scope="request"/>
+<div class="clearfix">
+	<div class="<isif condition="#(CurrentCartBO:ExtensibleObject:AttributeValue("orderReferenceID"):StringValue NE '') AND (isDefined(CustomerBO))#">col-sm-12<iselse>col-sm-6 clearfix</isif>">
+		<div class="infobox">
+			<h3><istext key="account.orderlist.table.purchaser"/></h3>
+			<div class="row">
+				<div class="<isif condition="#OrderBO:ExtensibleObject:AttributeValue("orderReferenceID"):StringValue NE ''#">col-sm-6<iselse>col-sm-12</isif>">
+					<isprint value="#CompanyCustomerExtension:CompanyName#"><br/>
+					<isif condition="#CompanyCustomerExtension:CompanyName2 NE ''#"><isprint value="#CompanyCustomerExtension:CompanyName2#"><br/></isif>
+					<isprint value="#OrderBO:BuyerFirstName#"> <isprint value="#OrderBO:BuyerLastName#"><br/>
+					<isif condition="#isDefined(OrderBO:UserBO:Email)#">
+						<isprint value="#OrderBO:UserBO:Email#"><br/>
+					<iselseif condition="#isDefined(OrderBO:NotificationEmailAddress)#">
+						<isprint value="#OrderBO:NotificationEmailAddress#"><br/>
+					<iselse>
+						<isprint value="#OrderBO:InvoiceToAddressBO:EMail#"><br/>
+					</isif>
+					<isif condition="#isDefined(OrderBO:User:Profile:DataSheet:Department) AND (OrderBO:User:Profile:DataSheet:Department NE '')#"><isprint value="#OrderBO:User:Profile:DataSheet:Department#"><br/></isif>
+					<isif condition="#CompanyCustomerExtension:TaxationID NE ''#"><istext key="account.orderlist.orderDetails.taxationID.label"> <isprint value="#CompanyCustomerExtension:TaxationID#"></isif>
+					<!--- b2b: additional info like Cost Center, etc. --->
+					<isinclude extensionpoint="PurchaserAdditionalInfo"/>
+				</div>
+				<isif condition="#OrderBO:ExtensibleObject:AttributeValue("orderReferenceID"):StringValue NE ''#">
+					<div class="col-sm-6">
+						<strong><istext key="checkout.widget.purchaser.orderReferenceID" /></strong>
+						<div><isprint value="#OrderBO:ExtensibleObject:AttributeValue("orderReferenceID"):StringValue#"></div>
+					</div>
+				</isif>
+			</div>
+		</div>
+	</div>
+</div>

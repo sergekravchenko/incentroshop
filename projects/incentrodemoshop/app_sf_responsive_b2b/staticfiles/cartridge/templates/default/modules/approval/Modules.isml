@@ -1,0 +1,33 @@
+<!---[Comment]--->
+<iscontent type="text/html" charset="UTF-8" compact="true">
+<ismodule template="modules/approval/ApprovalListTable" name="ApprovalListTable"
+	attribute="Approvals"
+	attribute="DisplayPurchaser"
+	attribute="IsRecurring"
+	attribute="DisplayApprover"
+	attribute="DisplayApprovalDate"
+	attribute="ListCase"
+	attribute="DataTestingID"
+	attribute="BasketBORepository"
+	attribute="ListNavigationVO"
+	strict="true"/>
+	
+<ismodule template="modules/approval/ApprovalListTableRow" name="ApprovalListTableRow"
+	attribute="DisplayPurchaser"
+	attribute="IsRecurring"
+	attribute="DisplayApprover"
+	attribute="DisplayApprovalDate"
+	attribute="DetailsHref"
+	attribute="ApprovalItemLabelKey"
+	attribute="ApprovalItemNumber"
+	attribute="CreationDate"
+	attribute="PurchaserFirstName"
+	attribute="PurchaserLastName"
+	attribute="ApproverFirstName"
+	attribute="ApproverLastName"
+	attribute="ApprovalDateLabelKey" 
+	attribute="ApprovalDate"
+	attribute="RecurrencePeriod"
+	attribute="ItemCount"
+	attribute="GrandTotal"
+	strict="true"/>

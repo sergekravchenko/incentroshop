@@ -1,0 +1,77 @@
+<iscontent type="text/html" charset="UTF-8" compact="true">
+<div class="section col-sm-6" data-testing-id="order-summary-info">
+	<dl class="dl-horizontal dl-horizontal-inline dl-separator">
+		<dt><istext key="#'approval.detailspage.'.BasketType.'.request_id'#" /></dt>
+		<dd data-testing-id="order-number">
+			<isif condition="#RecurringBasket:Recurring#">
+				<isprint value="#BasketBO:RecurringOrderDocumentNo#" />
+			<iselse>
+				<isprint value="#BasketBO:RequisitionDocumentNo#" />
+			</isif>
+		</dd>
+		
+		<isif condition="#BasketBO:ExtensibleObject:AttributeValue("orderReferenceID"):StringValue NE ''#">
+			<dt><istext key="approval.detailspage.order_reference_id.label" /></dt>
+			<dd><isprint value="#BasketBO:ExtensibleObject:AttributeValue("orderReferenceID"):StringValue#" /></dd>
+		</isif>	
+		
+		<dt><istext key="approval.detailspage.purchaser.label" /></dt>
+		<dd><isprint value="#BasketBO:User:Profile:DataSheet:FirstName#"/> <isprint value="#BasketBO:User:Profile:DataSheet:LastName#"/></dd>
+		
+		<dt><istext key="approval.detailspage.order_date.label" /></dt>
+		<dd data-testing-id="order-date"><isprint value="#getValue(BasketBO:CreationDate, DATE_SHORT)#"/></dd>
+		
+		<dt><istext key="approval.detailspage.order_total.label" /></dt>
+		<dd><isprint value="#getValue(BasketBO:GrandTotalGross, MONEY_LONG)#"/></dd>
+		
+		<isif condition="#BasketBO:Extension("BasketBOAdditionalInformationExtension"):Project NE ''#">
+			<dt><istext key="approval.detailspage.project.label" /></dt>
+			<dd><isprint value="#BasketBO:ExtensibleObject:AttributeValue("orderReferenceID"):StringValue#" /></dd>
+		</isif>	
+	</dl>
+	<isset name="ApprovalExtension" value="#BasketBO:Extension("BasketBOOrderApprovalExtension")#" scope="request" >
+	<isif condition="#isDefined(ApprovalExtension:ApproverID)#">
+		<div class="section">
+			<dl class="dl-horizontal dl-horizontal-inline dl-separator">
+				<dt><istext key="approval.detailspage.approver.label" /></dt>
+				<dd>
+					<isprint value="#ApprovalExtension:ApproverFirstName#"/> <isprint value="#ApprovalExtension:ApproverLastName#"/>
+				</dd>
+			</dl>
+			
+			<isif condition="#isDefined(ApprovalExtension:ApprovalComment)#">
+				<dl class="dl-horizontal dl-horizontal-inline dl-separator">
+					<dt><istext key="approval.detailspage.comment.label" /></dt>
+					<dd>
+						<isprint value="#ApprovalExtension:ApprovalComment#">
+					</dd>
+				</dl>
+			</isif>
+			<isif condition="#isDefined(ApprovalExtension:ApprovalDate)#">
+			<dl class="dl-horizontal dl-horizontal-inline dl-separator">
+				<dt>
+				<isif condition="#BasketBO:PersistentObject:Status == 14#">
+				  <istext key="approval.detailspage.rejection_date.label" />
+				<iselse>
+					<istext key="approval.detailspage.approval_date.label" />
+				</isif>
+				</dt>
+				<dd>
+					<isprint value="#getValue(ApprovalExtension:ApprovalDate, DATE_SHORT)#"/>
+				</dd>
+			</dl>
+			</isif>
+		</div>
+	</isif>
+
+	<dl class="dl-horizontal dl-horizontal-inline dl-separator">
+		<dt><istext key="approval.detailspage.approval_status.label" /></dt><dd data-testing-id="order-status"><isinclude template="account/ApprovalDetailsApprovalStatus"/></dd>
+	</dl>
+</div>
+<!--- Subscription Info --->
+<isif condition="#RecurringBasket:Recurring#">
+	<div class="col-sm-6">
+		<!--- displays the subscription detail information --->
+		<isSubscriptionDisplay recurrenceinformation="#RecurringBasket:RecurrenceInformation#">
+	</div>
+</isif>

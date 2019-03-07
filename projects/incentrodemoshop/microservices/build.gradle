@@ -1,0 +1,79 @@
+apply plugin: 'application'
+apply plugin: 'ivy-publish'
+
+
+mainClassName = 'com.intershop.common.webapp.capi.server.ApplicationServer'
+
+distributions {
+    main {
+        contents {
+            from('src/initscript') {
+				exclude 'isservice.exe'
+                def serviceNameSuffix = 'Servicex'
+                rename 'linuxStart.sh', "${project.name}${serviceNameSuffix}"
+                rename 'windowsStart.exe', "${project.name}${serviceNameSuffix}.exe"
+                rename 'windowsStart.xml', "${project.name}${serviceNameSuffix}.xml"
+
+                filter{String line ->
+                    line.replaceAll('@id@', "${project.name}Service")
+                        .replaceAll('@description@', 'Run the microservice package')
+                        .replaceAll('@execName@', project.name)
+                        .replaceAll('@mainclassname@', mainClassName)
+                }
+
+                into 'bin'
+            }
+			from('src/initscript') {
+				include 'isservice.exe'
+
+                into 'bin'
+            }
+        }
+    }
+}
+
+distZip {
+    archiveName = "${project.name}.zip"
+}
+
+startScripts {
+    doLast {
+        def windowsScriptFile = file windowsScript
+        def unixScriptFile = file unixScript
+        windowsScriptFile.text = windowsScriptFile.text.replaceAll('set CLASSPATH=.*', 'set CLASSPATH=%APP_HOME%/customLibs/*;%APP_HOME%/lib/*;%APP_HOME%/config')
+        unixScriptFile.text = unixScriptFile.text.replaceAll('CLASSPATH=.*', 'CLASSPATH=\\$APP_HOME/customLibs/*:\\$APP_HOME/lib/*:\\$APP_HOME/config')
+    }
+}
+
+dependencies {
+    runtime "com.intershop.microservice.lib:platform-scheduling:1.7.0"
+    runtime "com.intershop.microservice.lib:checkout-recurringorders:1.7.0"
+    /** driver for derby */
+    runtime 'org.apache.derby:derby:10.12.1.1'
+
+    /** driver for postgres */
+    //runtime 'org.postgresql:postgresql:9.4.1209'
+    /** driver for oracle */
+    /** this configuration uses the prepared oracle drivers **/
+    /** see 'Cookbook - Setup CI Infrastructure', 7.2.5 Process for Building the Oracle JDBC Drivers Component **/
+    //runtime 'com.intershop:ojdbc7:12.1.0.2.0.0'
+}
+
+
+File deploymentFile = file('deployment/deploy.gradle')
+
+publishing {
+    publications {
+        ivy(IvyPublication) {
+            artifact(distZip) {
+                type = 'local'
+            }
+            artifact(deploymentFile) {
+                name = deploymentFile.name.replaceFirst(~/\.[^\.]+$/, '')
+                type = 'deploy-gradle'
+            }
+        }
+    }
+}
+
+

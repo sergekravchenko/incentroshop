@@ -1,0 +1,19 @@
+<iscontent charset="UTF-8" compact="true" templatemarker="true">
+<isinclude template="modules/Modules">
+
+<isif condition="#isDefined(BasketBO)#">
+	<isif condition="#BasketType eq 'subscription'#">
+		<isset name="BreadcrumbTrailText" value="#localizeTextEx('approval.details.breadcrumb.subscription.label', ParameterList(BasketBO:RecurringOrderDocumentNo))#" scope="request">
+	<iselse>
+		<isset name="BreadcrumbTrailText" value="#localizeTextEx('approval.details.breadcrumb.order.label', ParameterList(BasketBO:DocumentNo))#" scope="request">
+	</isif>
+
+	<div class="breadcrumbs row">
+		<isif condition="#isDefined(breadcrumbKey)#">
+			<isAccountBreadcrumb trailtext="#BreadcrumbTrailText#"
+								link="#URL(Action(backLinkAction))#"
+								text="#localizeText(breadcrumbKey)#"
+			>
+		</isif>
+	</div>
+</isif>

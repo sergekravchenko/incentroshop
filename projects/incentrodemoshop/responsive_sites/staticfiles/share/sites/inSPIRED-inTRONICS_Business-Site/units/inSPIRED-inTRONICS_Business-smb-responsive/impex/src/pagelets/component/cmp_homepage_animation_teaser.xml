@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<enfinity xmlns:dt="http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt">
+<pagelet-component id="cmp_homepage_animation_teaser">
+<definition-name>app_sf_responsive_cm:component.common.image.pagelet2-Component</definition-name>
+<display-name xml:lang="en-US">Homepage Animation Teaser</display-name>
+<display-name xml:lang="fr-FR">Accroche Animation de la page d&apos;accueil</display-name>
+<online>true</online>
+<author business-partner-no="admin" domain="inSPIRED"/>
+<configuration-parameters>
+<configuration-parameter name="AlternateText">
+<definition-name>app_sf_responsive_cm:component.common.image.pagelet2-Component-AlternateText</definition-name>
+<value name="AlternateText" xml:lang="en-US">Presentation Teaser</value>
+<value name="AlternateText" xml:lang="fr-FR">Accroche Présentation</value>
+</configuration-parameter>
+<configuration-parameter name="Image">
+<definition-name>app_sf_responsive_cm:component.common.image.pagelet2-Component-Image</definition-name>
+<value name="Image" xml:lang="en-US">inSPIRED-inTRONICS_Business-smb-responsive:/teaser/teaser_beamer_animiert.gif</value>
+</configuration-parameter>
+<configuration-parameter name="Link">
+<definition-name>app_sf_responsive_cm:component.common.image.pagelet2-Component-Link</definition-name>
+<value name="Link" xml:lang="en-US">category://data-projectors@inSPIRED-inTRONICS_Business-presentation-conferencing</value>
+</configuration-parameter>
+</configuration-parameters>
+</pagelet-component>
+</enfinity>

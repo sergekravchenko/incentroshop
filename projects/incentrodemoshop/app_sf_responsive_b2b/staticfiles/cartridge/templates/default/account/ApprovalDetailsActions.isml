@@ -1,0 +1,11 @@
+<iscontent type="text/html" charset="UTF-8" compact="true" templatemarker="true">
+<isif condition="#(BasketBO:Extension("ApprovalStep"):EligibleApprover(CurrentUserBO))#">
+	<isform name="approveOrderForm" action="#URL(Action('ViewApprovals-Approve'), Parameter('BasketID', BasketBO:ID))#" method="post">
+		<button type="button" class="btn btn-default" name="reject" data-toggle="modal" data-target="#'#'#approvalRejectCommentModal">
+			<istext key="approval.detailspage.reject.button.label" />
+		</button>
+		<button type="submit" class="btn btn-primary" name="approve">
+			<istext key="approval.detailspage.approve.button.label" />
+		</button>
+	</isform>
+</isif>

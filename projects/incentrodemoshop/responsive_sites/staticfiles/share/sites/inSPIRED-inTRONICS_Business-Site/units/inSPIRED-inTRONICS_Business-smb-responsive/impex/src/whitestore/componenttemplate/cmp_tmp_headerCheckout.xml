@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<enfinity xmlns:dt="http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt">
+<component-template id="cmp_tmp_headerCheckout">
+<definition-name>app_sf_responsive_cm:component.system.headerCheckout.pagelet2-Component</definition-name>
+<display-name xml:lang="de-DE">Header Bezahlvorgang</display-name>
+<display-name xml:lang="en-US">Header Checkout</display-name>
+<active>true</active>
+<author business-partner-no="admin" domain="inSPIRED"/>
+<slots>
+<slot>
+<definition-name>app_sf_responsive_cm:slot.header.promotion.pagelet2-Slot</definition-name>
+<optional>false</optional>
+<sorting>false</sorting>
+</slot>
+<slot>
+<definition-name>app_sf_responsive_cm:slot.header.utility.pagelet2-Slot</definition-name>
+<optional>false</optional>
+<sorting>false</sorting>
+</slot>
+</slots>
+</component-template>
+</enfinity>

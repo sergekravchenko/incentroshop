@@ -1,0 +1,19 @@
+<iscontent type="text/html" charset="UTF-8" compact="true">
+<div class="ish-field<isif condition="#webform:Department:isInvalid#" > kor-field-error</isif>">
+	<isFieldErrorMessagePlaceholder class="ish-formShift" ext_string_prefix="account.address.Department" fieldname="#webform:Department#">
+	<label for="<isprint value = "#webform:Department:QualifiedName.idSuffix#">">
+		<istext key="account.address.department.label" />
+	</label>
+	<input maxlength="60" type="text" 
+		<isif condition="#isDefined(webform:Department:Value)#" >
+			value="<isprint value="#webform:Department:Value#">"
+		<iselseif condition="#isDefined(address)#">
+			value="<isprint value="#address:Department#">"
+		</isif>
+		class="<isif condition="#webform:Department:isInvalid#">error</isif>"
+		name="<isprint value = "#webform:Department:QualifiedName#">"
+		id="<isprint value = "#webform:Department:QualifiedName.idSuffix#">"
+		data-validate-error-message="<istext key="account.address.department.error.default">"
+		data-flash-error-keys="fieldFailureMessageGlobal" 
+	/>
+</div>

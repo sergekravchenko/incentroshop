@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<enfinity xmlns:dt="http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt">
+<pagelet-entry-point id="systempage.search.didYouMean.pagelet2-Page">
+<definition-name>app_sf_responsive:systempage.search.didYouMean.pagelet2-Page</definition-name>
+<page>true</page>
+<sorting>false</sorting>
+<display-name xml:lang="de-DE">Leeres Suchergebnis. Meinten Sie</display-name>
+<display-name xml:lang="en-US">Empty Search Result Did You Mean</display-name>
+</pagelet-entry-point>
+<pagelet-pagelet-entry-point-assignment>
+<pagelet-entry-point id="systempage.search.didYouMean.pagelet2-Page" domain="inSPIRED-inTRONICS-b2c-responsive" resource-set="app_sf_responsive"/>
+<pagelet id="pg_emptySearchResults" domain="inSPIRED-inTRONICS-b2c-responsive"/>
+<position>1</position>
+<online>true</online>
+</pagelet-pagelet-entry-point-assignment>
+</enfinity>

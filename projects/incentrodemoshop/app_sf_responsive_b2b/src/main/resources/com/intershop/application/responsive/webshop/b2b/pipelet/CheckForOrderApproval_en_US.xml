@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<DDescriptionContainer dbo.type="com.intershop.beehive.core.rapi.common.DDescriptionContainer">
+<localeId>en_US</localeId>
+<descriptions>
+<DDescription dbo.type="com.intershop.beehive.core.rapi.pipeline.DPipeletDesc" id="Pipelet1"  localeId="en_US" >
+<group>Approval</group>
+<description>Based on configured rules, the basket content and the user, checks if approval is required before the order is submitted. 
+@deprecated use the {@link IsApprovalNeeded}</description>
+</DDescription>
+</descriptions>
+</DDescriptionContainer>

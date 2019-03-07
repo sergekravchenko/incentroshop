@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pagelet:PageletModel xmlns:pagelet="http://www.intershop.de/pagelet/2010" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://www.intershop.de/core/2010" name="component.common.userDefinedPageComponent.pagelet2">
+  <pageletDefinitions name="Component">
+    <callParameterInterfaces referencedName="app_sf_responsive_cm:interface.common.content.advanced.pagelet2-Interface"/>
+    <configurationParameterDefinitions name="HTML" optional="true" typeReference="bc_pmc:types.pagelet2-Html"/>
+    <configurationParameterDefinitions name="JSInternal" optional="true" typeReference="bc_pmc:types.pagelet2-Text">
+      <parameterBindings xsi:type="core:ParameterValueBinding" name="Rows" value="10"/>
+    </configurationParameterDefinitions>
+    <configurationParameterDefinitions name="JSReferencesHead" optional="true" multiple="true" typeReference="bc_pmc:types.pagelet2-FileRef">
+      <parameterBindings xsi:type="core:ParameterValueBinding" name="FileExtension" value=".js"/>
+    </configurationParameterDefinitions>
+    <configurationParameterDefinitions name="JSReferencesEnd" optional="true" multiple="true" typeReference="bc_pmc:types.pagelet2-FileRef">
+      <parameterBindings xsi:type="core:ParameterValueBinding" name="FileExtension" value=".js"/>
+    </configurationParameterDefinitions>
+    <configurationParameterDefinitions name="CSSReferences" optional="true" multiple="true" typeReference="bc_pmc:types.pagelet2-FileRef">
+      <parameterBindings xsi:type="core:ParameterValueBinding" name="FileExtension" value=".css"/>
+    </configurationParameterDefinitions>
+    <configurationParameterDefinitions name="CSSInternal" optional="true" typeReference="bc_pmc:types.pagelet2-Text">
+      <parameterBindings xsi:type="core:ParameterValueBinding" name="Rows" value="5"/>
+    </configurationParameterDefinitions>
+    <renderTemplate referencedName="component/common/UserDefinedPageComponent"/>
+  </pageletDefinitions>
+</pagelet:PageletModel>

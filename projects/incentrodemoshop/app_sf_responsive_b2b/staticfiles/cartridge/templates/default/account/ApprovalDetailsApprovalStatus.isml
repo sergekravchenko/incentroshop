@@ -1,0 +1,16 @@
+<iscontent type="text/html" charset="UTF-8" compact="true">
+<isset name="BasketStatus" value="#BasketBO:PersistentObject:Status#" scope="request"/>
+
+<isif condition="#BasketStatus == 11#">
+	<p class="label label-info">
+		<istext key="approval.detailspage.approval_status.pending.text" />
+	</p>
+<iselseif condition="#(BasketStatus == 13) OR (BasketStatus == 2) OR (BasketStatus == 21)#"/>
+	<p class="label label-success">
+		<istext key="approval.detailspage.approval_status.approved.text" />
+	</p>
+<iselseif condition="#BasketStatus == 14#"/>
+	<p class="label label-danger">
+		<istext key="approval.detailspage.approval_status.rejected.text" />
+	</p>
+</isif>

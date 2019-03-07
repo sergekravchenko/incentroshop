@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--@Group User-->
+
+<pipeline:Pipeline xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pipeline="http://www.intershop.de/pipeline/2010"
+    name="ViewUsers" overrideMode="Inherit" type="view">
+<!--@Location 8,0-->
+  <nodes xsi:type="pipeline:StartNode" nodeID="StartNode4" name="DeleteUser">
+    <nodeSuccessors name="next" next="CallNode2"/>
+<!--The login of the user to be deleted.-->
+    <parameters name="Login" type="java.lang.String"/>
+  </nodes>
+<!--@Location 8,1-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode2">
+    <nodeSuccessors name="next" next="DecisionNode3"/>
+    <startNode referencedName="ViewProfileSettings-Prefix"/>
+  </nodes>
+<!--@Location 8,2-->
+  <nodes xsi:type="pipeline:DecisionNode" nodeID="DecisionNode3" conditionKey="UserBO:Extension(&quot;UserBORoleExtension&quot;):hasPermission(&quot;APP_B2B_MANAGE_USERS&quot;)"
+      operator="str_eq" conditionValue="true">
+    <nodeSuccessors name="decision_yes" next="KeyMapper2"/>
+    <nodeSuccessors name="decision_no" next="JumpNode2"/>
+  </nodes>
+<!--@Location 8,3-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="KeyMapper2">
+    <pipelet href="enfinity:/core/pipelets/KeyMapper.xml"/>
+    <nodeSuccessors name="next" next="DecisionNode0"/>
+    <parameterBindings name="InValue_1" objectPath="CustomerBO:Extension(&quot;GroupCustomer&quot;):UserBOByID(UserID)"/>
+    <returnValueBindings name="OutValue_1" objectPath="SelectedUser"/>
+  </nodes>
+<!--@Location 8,4-->
+  <nodes xsi:type="pipeline:DecisionNode" nodeID="DecisionNode0" conditionKey="UserBO:ID"
+      operator="str_neq" conditionItem="UserID">
+    <nodeSuccessors name="decision_yes" next="KeyMapper3"/>
+    <nodeSuccessors name="decision_no" next="JoinNode1"/>
+  </nodes>
+<!--@Location 8,5-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="KeyMapper3">
+    <pipelet href="enfinity:/core/pipelets/KeyMapper.xml"/>
+    <nodeSuccessors name="next" next="DeleteUserBO0"/>
+    <parameterBindings name="InValue_1" objectPath="SelectedUser:FirstName"/>
+    <parameterBindings name="InValue_10" objectPath="SelectedUser:LastName"/>
+    <returnValueBindings name="OutValue_1" objectPath="DeletedUserFirstName"/>
+    <returnValueBindings name="OutValue_10" objectPath="DeletedUserLastName"/>
+  </nodes>
+<!--@Location 8,6-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="DeleteUserBO0">
+    <pipelet href="enfinity:/bc_user/pipelets/DeleteUserBO.xml"/>
+    <nodeSuccessors name="next" next="InteractionNode1"/>
+    <parameterBindings name="UserBO" objectPath="SelectedUser"/>
+    <parameterBindings name="UserBORepository" objectPath="CustomerBO:Extension(&quot;GroupCustomer&quot;)"/>
+  </nodes>
+<!--@Location 8,7-->
+  <nodes xsi:type="pipeline:InteractionNode" nodeID="InteractionNode1">
+    <template referencedName="account/user/DeleteUserConfirmation"/>
+  </nodes>
+<!--@Location 6,3-->
+  <nodes xsi:type="pipeline:JoinNode" nodeID="JoinNode1">
+    <nodeSuccessors name="next" next="InteractionNode0"/>
+  </nodes>
+<!--@Location 6,4-->
+  <nodes xsi:type="pipeline:InteractionNode" nodeID="InteractionNode0">
+    <template referencedName="account/user/DeleteUserDialog"/>
+  </nodes>
+<!--@Location 9,3-->
+  <nodes xsi:type="pipeline:JumpNode" nodeID="JumpNode2">
+    <startNode referencedName="Error-NotFound"/>
+  </nodes>
+<!--@Location 4,0-->
+  <nodes xsi:type="pipeline:StartNode" nodeID="StartNode2" strict="true" name="GetPendingOrdersCount"
+      callMode="Private">
+    <nodeSuccessors name="next" next="AddMultipleEntriesToMap0"/>
+    <parameters name="BasketDomain" type="com.intershop.beehive.core.capi.domain.Domain"/>
+    <parameters name="CustomerBO" type="com.intershop.component.customer.capi.CustomerBO"/>
+    <parameters name="UserBO" type="com.intershop.component.user.capi.UserBO"/>
+  </nodes>
+<!--@Location 4,1-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="AddMultipleEntriesToMap0">
+    <configurationValues name="Mode" value="OverwriteValue"/>
+    <pipelet href="enfinity:/bc_foundation/pipelets/AddMultipleEntriesToMap.xml"/>
+    <nodeSuccessors name="next" next="ExecuteCountQuery0"/>
+    <parameterBindings name="InMap" nullBinding="true"/>
+    <parameterBindings name="Key1" constant="Customer"/>
+    <parameterBindings name="Key2" constant="BasketDomain"/>
+    <parameterBindings name="Key3" constant="BasketStatus"/>
+    <parameterBindings name="Key4" constant="User"/>
+    <parameterBindings name="Value1" objectPath="CustomerBO"/>
+    <parameterBindings name="Value2" objectPath="BasketDomain"/>
+    <parameterBindings name="Value3" constant="(Integer)11"/>
+    <parameterBindings name="Value4" objectPath="UserBO"/>
+    <returnValueBindings name="OutMap" objectPath="QueryParameters"/>
+  </nodes>
+<!--@Location 4,2-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="ExecuteCountQuery0">
+    <configurationValues name="QueryName" value="approval/ApprovalSearch"/>
+    <pipelet href="enfinity:/core/pipelets/ExecuteCountQuery.xml"/>
+    <nodeSuccessors name="next" next="EndNode1"/>
+    <parameterBindings name="Connection" nullBinding="true"/>
+    <parameterBindings name="ParameterValue_01" nullBinding="true"/>
+    <parameterBindings name="ParameterValue_02" nullBinding="true"/>
+    <parameterBindings name="ParameterValue_03" nullBinding="true"/>
+    <parameterBindings name="ParameterValue_04" nullBinding="true"/>
+    <parameterBindings name="ParameterValue_05" nullBinding="true"/>
+    <parameterBindings name="Parameters" objectPath="QueryParameters"/>
+    <parameterBindings name="Query" nullBinding="true"/>
+    <returnValueBindings name="Count" objectPath="PendingOrdersCount"/>
+  </nodes>
+<!--@Location 4,3-->
+  <nodes xsi:type="pipeline:EndNode" nodeID="EndNode1" strict="true">
+    <returnValues name="PendingOrdersCount" type="java.lang.Integer"/>
+  </nodes>
+<!--@Location 6,0-->
+  <nodes xsi:type="pipeline:StartNode" nodeID="StartNode3" name="ShowDeleteUserDialog">
+    <nodeSuccessors name="next" next="CallNode1"/>
+<!--The login of the user to be deleted.-->
+    <parameters name="Login" type="java.lang.String"/>
+  </nodes>
+<!--@Location 6,1-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode1">
+    <nodeSuccessors name="next" next="KeyMapper0"/>
+    <startNode referencedName="ViewProfileSettings-Prefix"/>
+  </nodes>
+<!--@Location 6,2-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="KeyMapper0">
+    <pipelet href="enfinity:/core/pipelets/KeyMapper.xml"/>
+    <nodeSuccessors name="next" next="JoinNode1"/>
+    <parameterBindings name="InValue_1" objectPath="CustomerBO:Extension(&quot;GroupCustomer&quot;):UserBOByID(UserID)"/>
+    <returnValueBindings name="OutValue_1" objectPath="SelectedUser"/>
+  </nodes>
+<!--@Location 0,0-->
+  <nodes xsi:type="pipeline:StartNode" nodeID="StartNode0" name="Start">
+    <nodeSuccessors name="next" next="CallNode0"/>
+  </nodes>
+<!--@Location 0,1-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode0">
+    <nodeSuccessors name="next" next="DecisionNode1"/>
+    <startNode referencedName="ViewProfileSettings-Prefix"/>
+  </nodes>
+<!--@Location 0,2-->
+  <nodes xsi:type="pipeline:DecisionNode" nodeID="DecisionNode1" conditionKey="UserBO:Extension(&quot;UserBORoleExtension&quot;):hasPermission(&quot;APP_B2B_MANAGE_USERS&quot;)"
+      operator="str_eq" conditionValue="true">
+    <nodeSuccessors name="decision_yes" next="RenderSystemPageWithTemplate0_Input"/>
+    <nodeSuccessors name="decision_no" next="JumpNode0"/>
+  </nodes>
+<!--@Location 0,4-->
+  <nodes xsi:type="pipeline:PipelineNodeNode" nodeID="RenderSystemPageWithTemplate0">
+    <configurationValues name="PageEntryPointDefinitionReference" value="app_sf_responsive_b2b:systempage.account.profile.users.pagelet2-Page"/>
+    <configurationValues name="WorkingTemplate" value="account/Users.isml"/>
+    <pipelet href="enfinity:/sld_ch_sf_base/pipelets/com.intershop.sellside.storefront.base.capi.pipeline.RenderSystemPageWithTemplate.pipelinenode"/>
+    <inConnectors name="Input">
+      <parameterBindings name="Dictionary" objectPath="CurrentRequest:PipelineDictionary"/>
+    </inConnectors>
+  </nodes>
+<!--@Location 1,2-->
+  <nodes xsi:type="pipeline:JumpNode" nodeID="JumpNode0">
+    <startNode referencedName="Error-NotFound"/>
+  </nodes>
+<!--@Location 2,0-->
+  <nodes xsi:type="pipeline:StartNode" nodeID="StartNode1" visibility="Private" name="TemplateCallback"
+      callMode="Include">
+    <nodeSuccessors name="next" next="KeyMapper1"/>
+  </nodes>
+<!--@Location 2,1-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="KeyMapper1">
+    <pipelet href="enfinity:/bc_foundation/pipelets/KeyMapper.xml"/>
+    <nodeSuccessors name="next" next="EndNode0"/>
+    <parameterBindings name="InValue_1" objectPath="CustomerBO:Extension(&quot;GroupCustomer&quot;):AllUserBOs"/>
+    <parameterBindings name="InValue_10" objectPath="CustomerBO:Extension(&quot;GroupCustomer&quot;)"/>
+    <returnValueBindings name="OutValue_1" objectPath="Users"/>
+    <returnValueBindings name="OutValue_10" objectPath="Extension"/>
+  </nodes>
+<!--@Location 2,2-->
+  <nodes xsi:type="pipeline:EndNode" nodeID="EndNode0"/>
+</pipeline:Pipeline>

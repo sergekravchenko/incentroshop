@@ -1,0 +1,1305 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pipeline:Pipeline xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pipeline="http://www.intershop.de/pipeline/2010"
+    name="ViewCostCenter" overrideMode="Inherit" type="view">
+<!--@Location 20,0-->
+  <nodes xsi:type="pipeline:StartNode" nodeID="StartNode22" name="Activate" secure="true">
+    <nodeSuccessors name="next" next="CallNode46"/>
+  </nodes>
+<!--@Location 20,1-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode46">
+    <nodeSuccessors name="next" next="CallNode_hTjQELWfEeehMrpmGe1JvA"/>
+    <startNode referencedName="ViewCostCenter-Prefix"/>
+  </nodes>
+<!--@Location 20,2-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode_hTjQELWfEeehMrpmGe1JvA">
+    <nodeSuccessors name="next" next="GetCostCenterByID8"/>
+    <parameterBindings name="PermissionID" constant="APP_B2B_MANAGE_COSTCENTER"/>
+    <startNode referencedName="ProcessPermission-CheckUserHasPermission"/>
+  </nodes>
+<!--@Location 20,3-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="GetCostCenterByID8">
+    <pipelet href="enfinity:/bc_costcenter/pipelets/GetCostCenterByID.xml"/>
+    <nodeSuccessors name="next" next="StartSafeChangesBlock4"/>
+<!--@BendPoints 43,7 43,11 43,15-->
+    <nodeSuccessors name="pipelet_error" next="JoinNode16"/>
+    <parameterBindings name="CostCenterID" objectPath="CostCenterID"/>
+  </nodes>
+<!--@Location 20,4-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="StartSafeChangesBlock4">
+    <pipelet href="enfinity:/core/pipelets/StartSafeChangesBlock.xml"/>
+    <nodeSuccessors name="next" next="com.intershop.component.costcenter.pipelet.SetCostCenterStatus0_execute"/>
+  </nodes>
+<!--@Location 20,5-->
+  <nodes xsi:type="pipeline:PipelineNodeNode" nodeID="com.intershop.component.costcenter.pipelet.SetCostCenterStatus0">
+    <configurationValues name="Active" value="true"/>
+    <pipelet href="enfinity:/bc_costcenter/pipelets/com.intershop.component.costcenter.pipelet.SetCostCenterStatus.pipelinenode"/>
+    <inConnectors name="execute"/>
+    <outConnectors name="next">
+      <nodeSuccessors next="EndSafeChangesBlock4"/>
+    </outConnectors>
+  </nodes>
+<!--@Location 20,6-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="EndSafeChangesBlock4">
+    <pipelet href="enfinity:/core/pipelets/EndSafeChangesBlock.xml"/>
+    <nodeSuccessors name="next" next="JoinNode16"/>
+  </nodes>
+<!--@Location 20,7-->
+  <nodes xsi:type="pipeline:JoinNode" nodeID="JoinNode16">
+    <nodeSuccessors name="next" next="JumpNode10"/>
+  </nodes>
+<!--@Location 20,8-->
+  <nodes xsi:type="pipeline:JumpNode" nodeID="JumpNode10">
+    <startNode referencedName="ViewCostCenter-Start"/>
+  </nodes>
+<!--@Location 24,0-->
+  <nodes xsi:type="pipeline:StartNode" nodeID="StartNode13" name="AddCostCenterBuyer"
+      secure="true">
+    <nodeSuccessors name="next" next="CallNode20"/>
+  </nodes>
+<!--@Location 24,1-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode20">
+    <nodeSuccessors name="next" next="CallNode_jtp7ALWfEeehMrpmGe1JvA"/>
+    <startNode referencedName="ViewCostCenter-Prefix"/>
+  </nodes>
+<!--@Location 24,2-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode_jtp7ALWfEeehMrpmGe1JvA">
+    <nodeSuccessors name="next" next="GetUsersOfCustomerByRoles1"/>
+    <parameterBindings name="PermissionID" constant="APP_B2B_MANAGE_COSTCENTER"/>
+    <startNode referencedName="ProcessPermission-CheckUserHasPermission"/>
+  </nodes>
+<!--@Location 24,3-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="GetUsersOfCustomerByRoles1">
+    <pipelet href="enfinity:/bc_costcenter/pipelets/GetUsersOfCustomerByRoles.xml"/>
+    <nodeSuccessors name="next" next="DecisionNode2"/>
+<!--@BendPoints 51,7-->
+    <nodeSuccessors name="pipelet_error" next="JoinNode6"/>
+    <parameterBindings name="Roles" constant="APP_B2B_BUYER"/>
+    <returnValueBindings name="UserBOs" objectPath="CostCenterUserList"/>
+  </nodes>
+<!--@Location 24,4-->
+  <nodes xsi:type="pipeline:DecisionNode" nodeID="DecisionNode2" conditionKey="CostCenterUserList">
+    <nodeSuccessors name="decision_yes" next="LoopNode2"/>
+    <nodeSuccessors name="decision_no" next="JoinNode6"/>
+  </nodes>
+<!--@Location 24,6-->
+  <nodes xsi:type="pipeline:LoopNode" nodeID="LoopNode2" loop="CostCenterUserList">
+    <nodeSuccessors name="next" next="JoinNode2"/>
+    <entry key="CostCenterUser">
+      <nodeSuccessors name="loop_entry_next" next="ConcatenateStrings0"/>
+    </entry>
+  </nodes>
+<!--@Location 24,7-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="ConcatenateStrings0">
+    <pipelet href="enfinity:/core/pipelets/ConcatenateStrings.xml"/>
+    <nodeSuccessors name="next" next="DecisionNode5"/>
+    <parameterBindings name="String0" constant="UserSpendLimit_"/>
+    <parameterBindings name="String1" objectPath="CostCenterUser:ID"/>
+    <returnValueBindings name="Concatenated" objectPath="UserSpendLimitPerOrderVariable"/>
+  </nodes>
+<!--@Location 24,8-->
+  <nodes xsi:type="pipeline:DecisionNode" nodeID="DecisionNode5" conditionKey="CurrentRequest:PipelineDictionary:get(UserSpendLimitPerOrderVariable)"
+      operator="str_empty">
+    <nodeSuccessors name="decision_yes" next="JoinNode5"/>
+    <nodeSuccessors name="decision_no" next="AddEntryToMap0"/>
+  </nodes>
+<!--@Location 23,8-->
+  <nodes xsi:type="pipeline:JoinNode" nodeID="JoinNode5">
+<!--@BendPoints 47,13-->
+    <nodeSuccessors name="next" next="LoopNode2_Entry"/>
+  </nodes>
+<!--@Location 24,9-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="AddEntryToMap0">
+    <pipelet href="enfinity:/core/pipelets/AddEntryToMap.xml"/>
+<!--@BendPoints 47,19-->
+    <nodeSuccessors name="next" next="JoinNode5"/>
+    <parameterBindings name="InMap" objectPath="CostCenterUserSpendLimits"/>
+    <parameterBindings name="Key" objectPath="CostCenterUser:ID"/>
+    <parameterBindings name="Value" objectPath="CurrentRequest:PipelineDictionary:get(UserSpendLimitPerOrderVariable)"/>
+    <returnValueBindings name="OutMap" objectPath="CostCenterUserSpendLimits"/>
+  </nodes>
+<!--@Location 25,6-->
+  <nodes xsi:type="pipeline:JoinNode" nodeID="JoinNode2">
+<!--@BendPoints 51,21 49,21-->
+    <nodeSuccessors name="next" next="GetFormSelection0"/>
+  </nodes>
+<!--@Location 24,11-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="GetFormSelection0">
+    <configurationValues name="DefaultParameterName" value="SelectedObjectUUID"/>
+    <pipelet href="enfinity:/bc_foundation/pipelets/GetFormSelection.xml"/>
+    <nodeSuccessors name="next" next="CallNode24"/>
+    <returnValueBindings name="Selection" objectPath="SelectedObjectUUIDs"/>
+  </nodes>
+<!--@Location 24,12-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode24">
+    <nodeSuccessors name="next" next="CallNode38"/>
+    <startNode referencedName="ViewCostCenter-GetCostCenterUsersForm"/>
+  </nodes>
+<!--@Location 24,13-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode38">
+    <nodeSuccessors name="next" next="LoopNode0"/>
+    <startNode referencedName="ProcessCostCenter-GetCostCenterByID"/>
+  </nodes>
+<!--@Location 24,14-->
+  <nodes xsi:type="pipeline:LoopNode" nodeID="LoopNode0" loop="SelectedObjectUUIDs">
+<!--@BendPoints 50,29-->
+    <nodeSuccessors name="next" next="JumpNode1"/>
+    <entry key="BuyerID">
+      <nodeSuccessors name="loop_entry_next" next="GetUserBO2"/>
+    </entry>
+  </nodes>
+<!--@Location 24,15-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="GetUserBO2">
+    <pipelet href="enfinity:/bc_user/pipelets/GetUserBO.xml"/>
+    <nodeSuccessors name="next" next="ConcatenateStrings1"/>
+    <parameterBindings name="UserID" objectPath="BuyerID"/>
+  </nodes>
+<!--@Location 24,16-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="ConcatenateStrings1">
+    <configurationValues name="DefaultString0" value="Budget_"/>
+    <pipelet href="enfinity:/core/pipelets/ConcatenateStrings.xml"/>
+    <nodeSuccessors name="next" next="ConcatenateStrings2"/>
+    <parameterBindings name="String1" objectPath="BuyerID"/>
+    <returnValueBindings name="Concatenated" objectPath="Budget"/>
+  </nodes>
+<!--@Location 24,17-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="ConcatenateStrings2">
+    <configurationValues name="DefaultString0" value="BudgetPeriod_"/>
+    <pipelet href="enfinity:/core/pipelets/ConcatenateStrings.xml"/>
+    <nodeSuccessors name="next" next="VerifyMoney2"/>
+    <parameterBindings name="String1" objectPath="BuyerID"/>
+    <returnValueBindings name="Concatenated" objectPath="BudgetPeriod"/>
+  </nodes>
+<!--@Location 24,18-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="VerifyMoney2">
+    <configurationValues name="MinValue" value="0"/>
+    <pipelet href="enfinity:/bc_foundation/pipelets/VerifyMoney.xml"/>
+    <nodeSuccessors name="next" next="CallNode25"/>
+<!--@BendPoints 51,37-->
+    <nodeSuccessors name="pipelet_error" next="VerifyMoney4"/>
+    <parameterBindings name="CurrencyMnemonic" objectPath="CurrentRequest:CurrencyCode"/>
+    <parameterBindings name="LocalizedString" objectPath="CurrentRequest:PipelineDictionary:get(Budget)"/>
+    <returnValueBindings name="MoneyValue" objectPath="BudgetValue"/>
+  </nodes>
+<!--@Location 24,20-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode25">
+    <nodeSuccessors name="next" next="JoinNode17"/>
+    <parameterBindings name="Budget" objectPath="BudgetValue"/>
+    <parameterBindings name="BudgetPeriod" objectPath="CurrentRequest:PipelineDictionary:get(BudgetPeriod)"/>
+    <startNode referencedName="ProcessCostCenter-AddBuyer"/>
+  </nodes>
+<!--@Location 23,20-->
+  <nodes xsi:type="pipeline:JoinNode" nodeID="JoinNode17">
+<!--@BendPoints 47,29-->
+    <nodeSuccessors name="next" next="LoopNode0_Entry"/>
+  </nodes>
+<!--@Location 25,19-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="VerifyMoney4">
+    <pipelet href="enfinity:/bc_foundation/pipelets/VerifyMoney.xml"/>
+<!--@BendPoints 51,41-->
+    <nodeSuccessors name="next" next="CallNode25"/>
+<!--@BendPoints 52,39 52,42 47,42-->
+    <nodeSuccessors name="pipelet_error" next="JoinNode17"/>
+    <parameterBindings name="CurrencyMnemonic" objectPath="CurrentRequest:CurrencyCode"/>
+    <parameterBindings name="LocalizedString" constant="0"/>
+    <returnValueBindings name="MoneyValue" objectPath="BudgetValue"/>
+  </nodes>
+<!--@Location 25,14-->
+  <nodes xsi:type="pipeline:JumpNode" nodeID="JumpNode1">
+    <startNode referencedName="ViewCostCenter-Details"/>
+  </nodes>
+<!--@Location 25,4-->
+  <nodes xsi:type="pipeline:JoinNode" nodeID="JoinNode6">
+    <nodeSuccessors name="next" next="JoinNode2"/>
+  </nodes>
+<!--@Location 4,8-->
+  <nodes xsi:type="pipeline:StartNode" nodeID="StartNode_eTzY4LWIEee2c8q4eW0NJQ" strict="true"
+      name="CheckUserHasPermission" callMode="Private" secure="true">
+    <nodeSuccessors name="next" next="DecisionNode_tc10kLWIEee2c8q4eW0NJQ"/>
+    <parameters name="UserBO" type="com.intershop.component.user.capi.UserBO"/>
+    <parameters name="PermissionID" type="java.lang.String"/>
+  </nodes>
+<!--@Location 4,9-->
+  <nodes xsi:type="pipeline:DecisionNode" nodeID="DecisionNode_tc10kLWIEee2c8q4eW0NJQ"
+      conditionKey="UserBO:Extension(&quot;UserBORoleExtension&quot;):hasPermission(PermissionID)"
+      operator="str_eq" conditionValue="true">
+    <nodeSuccessors name="decision_yes" next="EndNode_xt6oMLWIEee2c8q4eW0NJQ"/>
+    <nodeSuccessors name="decision_no" next="JumpNode_TiZlsLThEee2c8q4eW0NJQ"/>
+  </nodes>
+<!--@Location 4,10-->
+  <nodes xsi:type="pipeline:EndNode" nodeID="EndNode_xt6oMLWIEee2c8q4eW0NJQ" name="OK"
+      strict="true"/>
+<!--@Location 5,9-->
+  <nodes xsi:type="pipeline:JumpNode" nodeID="JumpNode_TiZlsLThEee2c8q4eW0NJQ">
+    <startNode referencedName="Error-NotFound"/>
+  </nodes>
+<!--@Location 16,0-->
+  <nodes xsi:type="pipeline:StartNode" nodeID="StartNode21" name="ConfirmDeactivate"
+      secure="true">
+    <nodeSuccessors name="next" next="SetDictionaryValue4"/>
+  </nodes>
+<!--@Location 16,1-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="SetDictionaryValue4">
+    <configurationValues name="Name" value="Dialog"/>
+    <configurationValues name="Value" value="true"/>
+    <pipelet href="enfinity:/core/pipelets/SetDictionaryValue.xml"/>
+    <nodeSuccessors name="next" next="CallNode45"/>
+  </nodes>
+<!--@Location 16,2-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode45">
+    <nodeSuccessors name="next" next="CallNode_ez9BILWfEeehMrpmGe1JvA"/>
+    <startNode referencedName="ViewCostCenter-Prefix"/>
+  </nodes>
+<!--@Location 16,3-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode_ez9BILWfEeehMrpmGe1JvA">
+    <nodeSuccessors name="next" next="GetCostCenterByID7"/>
+    <parameterBindings name="PermissionID" constant="APP_B2B_MANAGE_COSTCENTER"/>
+    <startNode referencedName="ProcessPermission-CheckUserHasPermission"/>
+  </nodes>
+<!--@Location 16,4-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="GetCostCenterByID7">
+    <pipelet href="enfinity:/bc_costcenter/pipelets/GetCostCenterByID.xml"/>
+    <nodeSuccessors name="next" next="InteractionNode5"/>
+    <parameterBindings name="CostCenterID" objectPath="CostCenterID"/>
+  </nodes>
+<!--Renders only the form for the dialog.
+@Location 16,5-->
+  <nodes xsi:type="pipeline:InteractionNode" nodeID="InteractionNode5">
+    <template referencedName="account/costcenter/CostCenterConfirmDeactivateDialog"/>
+  </nodes>
+<!--@Location 12,0-->
+  <nodes xsi:type="pipeline:StartNode" nodeID="StartNode17" name="ConfirmRemove" secure="true">
+    <nodeSuccessors name="next" next="SetDictionaryValue0"/>
+  </nodes>
+<!--@Location 12,1-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="SetDictionaryValue0">
+    <configurationValues name="Name" value="Dialog"/>
+    <configurationValues name="Value" value="true"/>
+    <pipelet href="enfinity:/core/pipelets/SetDictionaryValue.xml"/>
+    <nodeSuccessors name="next" next="CallNode41"/>
+  </nodes>
+<!--@Location 12,2-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode41">
+    <nodeSuccessors name="next" next="CallNode_bcbrsLWfEeehMrpmGe1JvA"/>
+    <startNode referencedName="ViewCostCenter-Prefix"/>
+  </nodes>
+<!--@Location 12,3-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode_bcbrsLWfEeehMrpmGe1JvA">
+    <nodeSuccessors name="next" next="GetCostCenterByID3"/>
+    <parameterBindings name="PermissionID" constant="APP_B2B_MANAGE_COSTCENTER"/>
+    <startNode referencedName="ProcessPermission-CheckUserHasPermission"/>
+  </nodes>
+<!--@Location 12,4-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="GetCostCenterByID3">
+    <pipelet href="enfinity:/bc_costcenter/pipelets/GetCostCenterByID.xml"/>
+    <nodeSuccessors name="next" next="InteractionNode6"/>
+    <parameterBindings name="CostCenterID" objectPath="CostCenterID"/>
+  </nodes>
+<!--Renders only the form for the dialog.
+@Location 12,5-->
+  <nodes xsi:type="pipeline:InteractionNode" nodeID="InteractionNode6">
+    <template referencedName="account/costcenter/CostCenterConfirmRemoveDialog"/>
+  </nodes>
+<!--@Location 8,0-->
+  <nodes xsi:type="pipeline:StartNode" nodeID="StartNode3" name="Create" secure="true">
+    <nodeSuccessors name="next" next="CallNode2"/>
+  </nodes>
+<!--@Location 8,1-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode2">
+    <nodeSuccessors name="next" next="CallNode_YbWgULWfEeehMrpmGe1JvA"/>
+    <startNode referencedName="ViewCostCenter-Prefix"/>
+  </nodes>
+<!--@Location 8,2-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode_YbWgULWfEeehMrpmGe1JvA">
+    <nodeSuccessors name="next" next="CallNode7"/>
+    <parameterBindings name="PermissionID" constant="APP_B2B_MANAGE_COSTCENTER"/>
+    <startNode referencedName="ProcessPermission-CheckUserHasPermission"/>
+  </nodes>
+<!--@Location 8,3-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode7">
+    <nodeSuccessors name="next" next="CallNode16"/>
+    <startNode referencedName="ViewCostCenter-GetCostCenterForm"/>
+  </nodes>
+<!--@Location 8,4-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode16">
+<!--@BendPoints 19,9-->
+    <nodeSuccessors name="next" next="JoinNode13"/>
+    <nodeSuccessors name="Error" next="VerifyMoney0"/>
+    <parameterBindings name="CostCenterName" objectPath="CostCenterForm:Number:Value"/>
+    <startNode referencedName="ProcessCostCenter-GetCostCenterByName"/>
+  </nodes>
+<!--@Location 9,5-->
+  <nodes xsi:type="pipeline:JoinNode" nodeID="JoinNode13">
+<!--@BendPoints 19,19-->
+    <nodeSuccessors name="next" next="JoinNode3"/>
+  </nodes>
+<!--@Location 8,9-->
+  <nodes xsi:type="pipeline:JoinNode" nodeID="JoinNode3">
+    <nodeSuccessors name="next" next="CallNode12"/>
+  </nodes>
+<!--@Location 8,10-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode12">
+    <nodeSuccessors name="next" next="com.intershop.application.webshop.capi.pipeline.RenderSystemPageWithTemplate3_Input"/>
+    <startNode referencedName="ProcessCostCenter-GetCostCenters"/>
+  </nodes>
+<!--@Location 8,11-->
+  <nodes xsi:type="pipeline:PipelineNodeNode" nodeID="com.intershop.application.webshop.capi.pipeline.RenderSystemPageWithTemplate3">
+    <configurationValues name="PageEntryPointDefinitionReference" value="app_sf_responsive_costcenter:systempage.account.profile.costcenter.pagelet2-Page"/>
+    <configurationValues name="WorkingTemplate" value="account/costcenter/CostCenter"/>
+    <pipelet href="enfinity:/sld_ch_sf_base/pipelets/com.intershop.sellside.storefront.base.capi.pipeline.RenderSystemPageWithTemplate.pipelinenode"/>
+    <inConnectors name="Input">
+      <parameterBindings name="Dictionary" objectPath="CurrentRequest:PipelineDictionary"/>
+    </inConnectors>
+  </nodes>
+<!--@Location 8,5-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="VerifyMoney0">
+    <configurationValues name="MinValue" value="0"/>
+    <pipelet href="enfinity:/bc_foundation/pipelets/VerifyMoney.xml"/>
+    <nodeSuccessors name="next" next="CallNode13"/>
+    <nodeSuccessors name="pipelet_error" next="JoinNode13"/>
+    <parameterBindings name="CurrencyMnemonic" objectPath="CurrentRequest:CurrencyCode"/>
+    <parameterBindings name="LocalizedString" objectPath="CostCenterForm:Budget:Value"/>
+    <returnValueBindings name="MoneyValue" objectPath="CostCenterBudgetValue"/>
+  </nodes>
+<!--@Location 8,6-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode13">
+    <nodeSuccessors name="next" next="GetUserBO5"/>
+    <parameterBindings name="CostCenterDisplayName" objectPath="CostCenterForm:Name:Value"/>
+    <parameterBindings name="CostCenterName" objectPath="CostCenterForm:Number:Value"/>
+    <startNode referencedName="ProcessCostCenter-CreateCostCenter"/>
+  </nodes>
+<!--@Location 8,7-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="GetUserBO5">
+    <pipelet href="enfinity:/bc_user/pipelets/GetUserBO.xml"/>
+    <nodeSuccessors name="next" next="CallNode21"/>
+    <parameterBindings name="UserID" objectPath="CostCenterForm:Manager:Value"/>
+    <returnValueBindings name="UserBO" objectPath="CostCenterOwner"/>
+  </nodes>
+<!--@Location 8,8-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode21">
+    <nodeSuccessors name="next" next="JoinNode3"/>
+    <parameterBindings name="CostCenterBudgetPeriod" objectPath="CostCenterForm:BudgetPeriod:Value"/>
+    <parameterBindings name="CostCenterBudgetType" objectPath="CostCenterForm:BudgetPeriod:Value"/>
+    <parameterBindings name="CostCenterFixedBudgetValue" objectPath="CostCenterBudgetValue"/>
+    <parameterBindings name="CostCenterName" objectPath="CostCenterForm:Name:Value"/>
+    <parameterBindings name="CostCenterNumber" objectPath="CostCenterForm:Number:Value"/>
+    <parameterBindings name="CostCenterRecurringBudgetValue" objectPath="CostCenterBudgetValue"/>
+    <startNode referencedName="ProcessCostCenter-UpdateCostCenter"/>
+  </nodes>
+<!--@Location 18,0-->
+  <nodes xsi:type="pipeline:StartNode" nodeID="StartNode18" name="Deactivate" secure="true">
+    <nodeSuccessors name="next" next="CallNode18"/>
+  </nodes>
+<!--@Location 18,1-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode18">
+    <nodeSuccessors name="next" next="CallNode_gF-CoLWfEeehMrpmGe1JvA"/>
+    <startNode referencedName="ViewCostCenter-Prefix"/>
+  </nodes>
+<!--@Location 18,2-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode_gF-CoLWfEeehMrpmGe1JvA">
+    <nodeSuccessors name="next" next="GetCostCenterByID4"/>
+    <parameterBindings name="PermissionID" constant="APP_B2B_MANAGE_COSTCENTER"/>
+    <startNode referencedName="ProcessPermission-CheckUserHasPermission"/>
+  </nodes>
+<!--@Location 18,3-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="GetCostCenterByID4">
+    <pipelet href="enfinity:/bc_costcenter/pipelets/GetCostCenterByID.xml"/>
+    <nodeSuccessors name="next" next="StartSafeChangesBlock3"/>
+<!--@BendPoints 39,7 39,11 39,15-->
+    <nodeSuccessors name="pipelet_error" next="JoinNode10"/>
+    <parameterBindings name="CostCenterID" objectPath="CostCenterID"/>
+  </nodes>
+<!--@Location 18,4-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="StartSafeChangesBlock3">
+    <pipelet href="enfinity:/core/pipelets/StartSafeChangesBlock.xml"/>
+    <nodeSuccessors name="next" next="com.intershop.component.costcenter.pipelet.SetCostCenterStatus1_execute"/>
+  </nodes>
+<!--@Location 18,5-->
+  <nodes xsi:type="pipeline:PipelineNodeNode" nodeID="com.intershop.component.costcenter.pipelet.SetCostCenterStatus1">
+    <configurationValues name="Active" value="false"/>
+    <pipelet href="enfinity:/bc_costcenter/pipelets/com.intershop.component.costcenter.pipelet.SetCostCenterStatus.pipelinenode"/>
+    <inConnectors name="execute"/>
+    <outConnectors name="next">
+      <nodeSuccessors next="EndSafeChangesBlock3"/>
+    </outConnectors>
+  </nodes>
+<!--@Location 18,6-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="EndSafeChangesBlock3">
+    <pipelet href="enfinity:/core/pipelets/EndSafeChangesBlock.xml"/>
+    <nodeSuccessors name="next" next="JoinNode10"/>
+  </nodes>
+<!--@Location 18,7-->
+  <nodes xsi:type="pipeline:JoinNode" nodeID="JoinNode10">
+    <nodeSuccessors name="next" next="JumpNode8"/>
+  </nodes>
+<!--@Location 18,8-->
+  <nodes xsi:type="pipeline:JumpNode" nodeID="JumpNode8">
+    <startNode referencedName="ViewCostCenter-Start"/>
+  </nodes>
+<!--@Location 3,0-->
+  <nodes xsi:type="pipeline:StartNode" nodeID="StartNode2" name="Details" secure="true">
+    <nodeSuccessors name="next" next="CallNode1"/>
+  </nodes>
+<!--@Location 3,1-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode1">
+    <nodeSuccessors name="next" next="DecisionNode0"/>
+    <startNode referencedName="ViewCostCenter-Prefix"/>
+  </nodes>
+<!--@Location 3,2-->
+  <nodes xsi:type="pipeline:DecisionNode" nodeID="DecisionNode0" conditionKey="CostCenterID">
+    <nodeSuccessors name="decision_yes" next="CallNode36"/>
+    <nodeSuccessors name="decision_no" next="DecisionNode3"/>
+  </nodes>
+<!--@Location 3,3-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode36">
+    <nodeSuccessors name="next" next="JoinNode8"/>
+    <nodeSuccessors name="Error" next="JoinNode9"/>
+    <startNode referencedName="ProcessCostCenter-GetCostCenterByID"/>
+  </nodes>
+<!--@Location 3,4-->
+  <nodes xsi:type="pipeline:JoinNode" nodeID="JoinNode8">
+    <nodeSuccessors name="next" next="CallNode5"/>
+  </nodes>
+<!--@Location 3,5-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode5">
+    <nodeSuccessors name="next" next="com.intershop.application.webshop.capi.pipeline.RenderSystemPageWithTemplate1_Input"/>
+    <parameterBindings name="UserBORepository" objectPath="ApplicationBO:Repository(&quot;UserBORepository&quot;)"/>
+    <startNode referencedName="ProcessCostCenter-GetCostCenterDetails"/>
+  </nodes>
+<!--@Location 3,6-->
+  <nodes xsi:type="pipeline:PipelineNodeNode" nodeID="com.intershop.application.webshop.capi.pipeline.RenderSystemPageWithTemplate1">
+    <configurationValues name="PageEntryPointDefinitionReference" value="app_sf_responsive_costcenter:systempage.account.profile.costcenter.pagelet2-Page"/>
+    <configurationValues name="WorkingTemplate" value="account/costcenter/CostCenterDetails"/>
+    <pipelet href="enfinity:/sld_ch_sf_base/pipelets/com.intershop.sellside.storefront.base.capi.pipeline.RenderSystemPageWithTemplate.pipelinenode"/>
+    <inConnectors name="Input">
+      <parameterBindings name="Dictionary" objectPath="CurrentRequest:PipelineDictionary"/>
+    </inConnectors>
+  </nodes>
+<!--@Location 5,3-->
+  <nodes xsi:type="pipeline:JoinNode" nodeID="JoinNode9">
+    <nodeSuccessors name="next" next="JumpNode0"/>
+  </nodes>
+<!--@Location 5,4-->
+  <nodes xsi:type="pipeline:JumpNode" nodeID="JumpNode0">
+    <startNode referencedName="ViewCostCenter-Start"/>
+  </nodes>
+<!--@Location 4,2-->
+  <nodes xsi:type="pipeline:DecisionNode" nodeID="DecisionNode3" conditionKey="CostCenterBO">
+<!--@BendPoints 9,9-->
+    <nodeSuccessors name="decision_yes" next="JoinNode8"/>
+<!--@BendPoints 11,5-->
+    <nodeSuccessors name="decision_no" next="JoinNode9"/>
+  </nodes>
+<!--@Location 28,0-->
+  <nodes xsi:type="pipeline:StartNode" nodeID="StartNode12" name="EditBuyerBudget"
+      secure="true">
+    <nodeSuccessors name="next" next="SetDictionaryValue3"/>
+  </nodes>
+<!--@Location 28,1-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="SetDictionaryValue3">
+    <configurationValues name="Name" value="Dialog"/>
+    <configurationValues name="Value" value="true"/>
+    <pipelet href="enfinity:/core/pipelets/SetDictionaryValue.xml"/>
+    <nodeSuccessors name="next" next="CallNode19"/>
+  </nodes>
+<!--@Location 28,2-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode19">
+    <nodeSuccessors name="next" next="CallNode_mc-A8LWfEeehMrpmGe1JvA"/>
+    <startNode referencedName="ViewCostCenter-Prefix"/>
+  </nodes>
+<!--@Location 28,3-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode_mc-A8LWfEeehMrpmGe1JvA">
+    <nodeSuccessors name="next" next="GetUserBO7"/>
+    <parameterBindings name="PermissionID" constant="APP_B2B_MANAGE_COSTCENTER"/>
+    <startNode referencedName="ProcessPermission-CheckUserHasPermission"/>
+  </nodes>
+<!--@Location 28,4-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="GetUserBO7">
+    <pipelet href="enfinity:/bc_user/pipelets/GetUserBO.xml"/>
+    <nodeSuccessors name="next" next="CallNode42"/>
+    <parameterBindings name="UserID" objectPath="BuyerID"/>
+  </nodes>
+<!--@Location 28,5-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode42">
+    <nodeSuccessors name="next" next="InteractionNode4"/>
+    <startNode referencedName="ViewCostCenter-GetCostCenterEditUserBudgetForm"/>
+  </nodes>
+<!--Renders only the form for the dialog.
+@Location 28,6-->
+  <nodes xsi:type="pipeline:InteractionNode" nodeID="InteractionNode4">
+    <template referencedName="account/costcenter/CostCenterEditBuyerBudgetForm"/>
+  </nodes>
+<!--@Location 5,15-->
+  <nodes xsi:type="pipeline:StartNode" nodeID="StartNode11" name="GetCostCenterApprovalsForm"
+      callMode="Private">
+    <nodeSuccessors name="next" next="CreateForm2"/>
+  </nodes>
+<!--@Location 5,16-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="CreateForm2">
+    <configurationValues name="FormName" value="CostCenterApprovalsForm"/>
+    <configurationValues name="FormResource" value="CostCenterApprovals"/>
+    <pipelet href="enfinity:/core/pipelets/CreateForm.xml"/>
+    <nodeSuccessors name="next" next="ValidateForm2"/>
+    <returnValueBindings name="Form" objectPath="CostCenterApprovalsForm"/>
+  </nodes>
+<!--@Location 5,17-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="ValidateForm2">
+    <pipelet href="enfinity:/core/pipelets/ValidateForm.xml"/>
+    <nodeSuccessors name="next" next="JoinNode11"/>
+<!--@BendPoints 12,35 12,37-->
+    <nodeSuccessors name="pipelet_error" next="JoinNode11"/>
+    <parameterBindings name="Form" objectPath="CostCenterApprovalsForm"/>
+  </nodes>
+<!--@Location 5,18-->
+  <nodes xsi:type="pipeline:JoinNode" nodeID="JoinNode11">
+    <nodeSuccessors name="next" next="KeyMapper3"/>
+  </nodes>
+<!--@Location 5,19-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="KeyMapper3">
+    <configurationValues name="ValueType" value="Dictionary Value"/>
+    <pipelet href="enfinity:/core/pipelets/KeyMapper.xml"/>
+    <nodeSuccessors name="next" next="EndNode3"/>
+    <parameterBindings name="InValue_1" objectPath="CostCenterApprovalsForm:CostCenterID:Value"/>
+    <returnValueBindings name="OutValue_1" objectPath="CostCenterID"/>
+  </nodes>
+<!--@Location 5,20-->
+  <nodes xsi:type="pipeline:EndNode" nodeID="EndNode3"/>
+<!--@Location 7,15-->
+  <nodes xsi:type="pipeline:StartNode" nodeID="StartNode20" name="GetCostCenterEditUserBudgetForm"
+      callMode="Private">
+    <nodeSuccessors name="next" next="CreateForm3"/>
+  </nodes>
+<!--@Location 7,16-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="CreateForm3">
+    <configurationValues name="FormName" value="CostCenterEditUserBudgetForm"/>
+    <configurationValues name="FormResource" value="CostCenterEditUserBudget"/>
+    <pipelet href="enfinity:/core/pipelets/CreateForm.xml"/>
+    <nodeSuccessors name="next" next="ValidateForm3"/>
+    <returnValueBindings name="Form" objectPath="CostCenterEditUserBudgetForm"/>
+  </nodes>
+<!--@Location 7,17-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="ValidateForm3">
+    <pipelet href="enfinity:/core/pipelets/ValidateForm.xml"/>
+    <nodeSuccessors name="next" next="JoinNode12"/>
+<!--@BendPoints 16,35 16,37-->
+    <nodeSuccessors name="pipelet_error" next="JoinNode12"/>
+    <parameterBindings name="Form" objectPath="CostCenterEditUserBudgetForm"/>
+  </nodes>
+<!--@Location 7,18-->
+  <nodes xsi:type="pipeline:JoinNode" nodeID="JoinNode12">
+    <nodeSuccessors name="next" next="DecisionNode6"/>
+  </nodes>
+<!--@Location 7,19-->
+  <nodes xsi:type="pipeline:DecisionNode" nodeID="DecisionNode6" conditionKey="CostCenterID">
+    <nodeSuccessors name="decision_yes" next="GetCostCenterByID5"/>
+<!--@BendPoints 13,39 13,47-->
+    <nodeSuccessors name="decision_no" next="JoinNode15"/>
+  </nodes>
+<!--@Location 7,20-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="GetCostCenterByID5">
+    <pipelet href="enfinity:/bc_costcenter/pipelets/GetCostCenterByID.xml"/>
+    <nodeSuccessors name="next" next="AddMultipleEntriesToMap1"/>
+<!--@BendPoints 17,41 17,45 17,47-->
+    <nodeSuccessors name="pipelet_error" next="JoinNode15"/>
+  </nodes>
+<!--@Location 7,21-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="AddMultipleEntriesToMap1">
+    <configurationValues name="Mode" value="OverwriteValue"/>
+    <configurationValues name="ValueSeparatorChar" value=","/>
+    <pipelet href="enfinity:/core/pipelets/AddMultipleEntriesToMap.xml"/>
+    <nodeSuccessors name="next" next="SetFormParameterValues1"/>
+    <parameterBindings name="InMap" objectPath="FormParameters"/>
+    <parameterBindings name="Key1" objectPath="CostCenterEditUserBudgetForm:CustomerID"/>
+    <parameterBindings name="Key2" objectPath="CostCenterEditUserBudgetForm:CostCenterID"/>
+    <parameterBindings name="Key3" objectPath="CostCenterEditUserBudgetForm:BuyerID"/>
+    <parameterBindings name="Key4" objectPath="CostCenterEditUserBudgetForm:Budget"/>
+    <parameterBindings name="Key5" objectPath="CostCenterEditUserBudgetForm:BudgetPeriod"/>
+    <parameterBindings name="Value1" objectPath="CustomerBO:ID"/>
+    <parameterBindings name="Value2" objectPath="CostCenterBO:ID"/>
+    <parameterBindings name="Value3" objectPath="UserBO:ID"/>
+    <parameterBindings name="Value4" objectPath="UserBO:Extension(&quot;UserBOCostCenterBudgetExtension&quot;):Budget(CostCenterBO:ID)"/>
+    <parameterBindings name="Value5" objectPath="UserBO:Extension(&quot;UserBOCostCenterBudgetExtension&quot;):BudgetPeriod(CostCenterBO:ID)"/>
+    <returnValueBindings name="OutMap" objectPath="FormParameters"/>
+  </nodes>
+<!--@Location 7,22-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="SetFormParameterValues1">
+    <pipelet href="enfinity:/core/pipelets/SetFormParameterValues.xml"/>
+    <nodeSuccessors name="next" next="JoinNode15"/>
+    <parameterBindings name="FormParameterValuesMap" objectPath="FormParameters"/>
+  </nodes>
+<!--@Location 7,23-->
+  <nodes xsi:type="pipeline:JoinNode" nodeID="JoinNode15">
+    <nodeSuccessors name="next" next="EndNode4"/>
+  </nodes>
+<!--@Location 7,24-->
+  <nodes xsi:type="pipeline:EndNode" nodeID="EndNode4"/>
+<!--@Location 1,15-->
+  <nodes xsi:type="pipeline:StartNode" nodeID="StartNode6" name="GetCostCenterForm"
+      callMode="Private">
+    <nodeSuccessors name="next" next="CreateForm0"/>
+  </nodes>
+<!--@Location 1,16-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="CreateForm0">
+    <configurationValues name="FormName" value="CostCenterForm"/>
+    <configurationValues name="FormResource" value="CostCenter"/>
+    <pipelet href="enfinity:/core/pipelets/CreateForm.xml"/>
+    <nodeSuccessors name="next" next="ValidateForm0"/>
+    <returnValueBindings name="Form" objectPath="CostCenterForm"/>
+  </nodes>
+<!--@Location 1,17-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="ValidateForm0">
+    <pipelet href="enfinity:/core/pipelets/ValidateForm.xml"/>
+    <nodeSuccessors name="next" next="JoinNode0"/>
+<!--@BendPoints 4,35 4,37-->
+    <nodeSuccessors name="pipelet_error" next="JoinNode0"/>
+    <parameterBindings name="Form" objectPath="CostCenterForm"/>
+  </nodes>
+<!--@Location 1,18-->
+  <nodes xsi:type="pipeline:JoinNode" nodeID="JoinNode0">
+    <nodeSuccessors name="next" next="DecisionNode1"/>
+  </nodes>
+<!--@Location 1,19-->
+  <nodes xsi:type="pipeline:DecisionNode" nodeID="DecisionNode1" conditionKey="CostCenterID">
+    <nodeSuccessors name="decision_yes" next="GetCostCenterByID1"/>
+<!--@BendPoints 1,39 1,49-->
+    <nodeSuccessors name="decision_no" next="JoinNode4"/>
+  </nodes>
+<!--@Location 1,20-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="GetCostCenterByID1">
+    <pipelet href="enfinity:/bc_costcenter/pipelets/GetCostCenterByID.xml"/>
+    <nodeSuccessors name="next" next="AddMultipleEntriesToMap0"/>
+<!--@BendPoints 5,41 5,49-->
+    <nodeSuccessors name="pipelet_error" next="JoinNode4"/>
+  </nodes>
+<!--@Location 1,21-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="AddMultipleEntriesToMap0">
+    <configurationValues name="Mode" value="OverwriteValue"/>
+    <configurationValues name="ValueSeparatorChar" value=","/>
+    <pipelet href="enfinity:/core/pipelets/AddMultipleEntriesToMap.xml"/>
+    <nodeSuccessors name="next" next="AddMultipleEntriesToMap3"/>
+    <parameterBindings name="InMap" objectPath="FormParameters"/>
+    <parameterBindings name="Key1" objectPath="CostCenterForm:CostCenterID"/>
+    <parameterBindings name="Key2" objectPath="CostCenterForm:CustomerID"/>
+    <parameterBindings name="Key3" objectPath="CostCenterForm:Number"/>
+    <parameterBindings name="Key4" objectPath="CostCenterForm:Name"/>
+    <parameterBindings name="Value1" objectPath="CostCenterBO:ID"/>
+    <parameterBindings name="Value2" objectPath="CustomerBO:ID"/>
+    <parameterBindings name="Value3" objectPath="CostCenterBO:Name"/>
+    <parameterBindings name="Value4" objectPath="CostCenterBO:DisplayName"/>
+    <returnValueBindings name="OutMap" objectPath="FormParameters"/>
+  </nodes>
+<!--@Location 1,22-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="AddMultipleEntriesToMap3">
+    <configurationValues name="Mode" value="AppendToValue"/>
+    <configurationValues name="ValueSeparatorChar" value=","/>
+    <pipelet href="enfinity:/core/pipelets/AddMultipleEntriesToMap.xml"/>
+    <nodeSuccessors name="next" next="SetFormParameterValues0"/>
+    <parameterBindings name="InMap" objectPath="FormParameters"/>
+    <parameterBindings name="Key1" objectPath="CostCenterForm:Budget"/>
+    <parameterBindings name="Key2" objectPath="CostCenterForm:CustomerID"/>
+    <parameterBindings name="Key3" objectPath="CostCenterForm:BudgetPeriod"/>
+    <parameterBindings name="Key4" objectPath="CostCenterForm:Manager"/>
+    <parameterBindings name="Value1" objectPath="CostCenterBO:Budget"/>
+    <parameterBindings name="Value2" objectPath="CostCenterBO:CustomerBO:ID"/>
+    <parameterBindings name="Value3" objectPath="CostCenterBO:BudgetPeriod"/>
+    <parameterBindings name="Value4" objectPath="CostCenterBO:Owner:ID"/>
+    <returnValueBindings name="OutMap" objectPath="FormParameters"/>
+  </nodes>
+<!--@Location 1,23-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="SetFormParameterValues0">
+    <pipelet href="enfinity:/core/pipelets/SetFormParameterValues.xml"/>
+    <nodeSuccessors name="next" next="JoinNode4"/>
+    <parameterBindings name="FormParameterValuesMap" objectPath="FormParameters"/>
+  </nodes>
+<!--@Location 1,24-->
+  <nodes xsi:type="pipeline:JoinNode" nodeID="JoinNode4">
+    <nodeSuccessors name="next" next="EndNode1"/>
+  </nodes>
+<!--@Location 1,25-->
+  <nodes xsi:type="pipeline:EndNode" nodeID="EndNode1"/>
+<!--@Location 3,15-->
+  <nodes xsi:type="pipeline:StartNode" nodeID="StartNode14" name="GetCostCenterUsersForm"
+      callMode="Private">
+    <nodeSuccessors name="next" next="CreateForm1"/>
+  </nodes>
+<!--@Location 3,16-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="CreateForm1">
+    <configurationValues name="FormName" value="CostCenterUsersForm"/>
+    <configurationValues name="FormResource" value="CostCenterUsers"/>
+    <pipelet href="enfinity:/core/pipelets/CreateForm.xml"/>
+    <nodeSuccessors name="next" next="ValidateForm1"/>
+    <returnValueBindings name="Form" objectPath="CostCenterUsersForm"/>
+  </nodes>
+<!--@Location 3,17-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="ValidateForm1">
+    <pipelet href="enfinity:/core/pipelets/ValidateForm.xml"/>
+    <nodeSuccessors name="next" next="JoinNode1"/>
+<!--@BendPoints 8,35 8,37-->
+    <nodeSuccessors name="pipelet_error" next="JoinNode1"/>
+    <parameterBindings name="Form" objectPath="CostCenterUsersForm"/>
+  </nodes>
+<!--@Location 3,18-->
+  <nodes xsi:type="pipeline:JoinNode" nodeID="JoinNode1">
+    <nodeSuccessors name="next" next="KeyMapper2"/>
+  </nodes>
+<!--@Location 3,19-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="KeyMapper2">
+    <configurationValues name="ValueType" value="Dictionary Value"/>
+    <pipelet href="enfinity:/core/pipelets/KeyMapper.xml"/>
+    <nodeSuccessors name="next" next="EndNode2"/>
+    <parameterBindings name="InValue_1" objectPath="CostCenterUsersForm:CostCenterID:Value"/>
+    <returnValueBindings name="OutValue_1" objectPath="CostCenterID"/>
+  </nodes>
+<!--@Location 3,20-->
+  <nodes xsi:type="pipeline:EndNode" nodeID="EndNode2"/>
+<!--@Location 32,0-->
+  <nodes xsi:type="pipeline:StartNode" nodeID="StartNode10" name="OrderDetails" secure="true">
+    <nodeSuccessors name="next" next="CallNode28"/>
+  </nodes>
+<!--@Location 32,1-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode28">
+    <nodeSuccessors name="next" next="KeyMapper4"/>
+    <startNode referencedName="ViewCostCenter-Prefix"/>
+  </nodes>
+<!--@Location 32,2-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="KeyMapper4">
+    <pipelet href="enfinity:/core/pipelets/KeyMapper.xml"/>
+    <nodeSuccessors name="next" next="CallNode29"/>
+    <parameterBindings name="InValue_1" constant="ViewCostCenter-OrderDetails"/>
+    <parameterBindings name="InValue_2" constant="OrderID"/>
+    <parameterBindings name="InValue_3" objectPath="OrderID"/>
+    <returnValueBindings name="OutValue_1" objectPath="JumpTarget"/>
+    <returnValueBindings name="OutValue_2" objectPath="AdditionalParameterName1"/>
+    <returnValueBindings name="OutValue_3" objectPath="AdditionalParameterValue1"/>
+  </nodes>
+<!--@Location 32,3-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode29">
+    <nodeSuccessors name="next" next="GetOrderBO0"/>
+    <startNode referencedName="ViewData-SecureForBrowserBack"/>
+  </nodes>
+<!--@Location 32,4-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="GetOrderBO0">
+    <pipelet href="enfinity:/bc_order/pipelets/GetOrderBO.xml"/>
+    <nodeSuccessors name="next" next="KeyMapper5"/>
+    <parameterBindings name="OrderBORepository" objectPath="ApplicationBO:Repository(&quot;OrderBORepository&quot;)"/>
+  </nodes>
+<!--@Location 32,5-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="KeyMapper5">
+    <pipelet href="enfinity:/core/pipelets/KeyMapper.xml"/>
+    <nodeSuccessors name="next" next="CallNode34"/>
+    <parameterBindings name="InValue_1" objectPath="OrderBO:Extension(&quot;OrderBOCostCenterExtension&quot;):CostCenterBO"/>
+    <parameterBindings name="InValue_2" constant=""/>
+    <returnValueBindings name="OutValue_1" objectPath="CostCenterBO"/>
+  </nodes>
+<!--@Location 32,6-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode34">
+    <nodeSuccessors name="Yes" next="GetMultipleShippingConfigProvider0"/>
+    <nodeSuccessors name="No" next="JumpNode2"/>
+    <startNode referencedName="ProcessCostCenter-IsCostCenterOwner"/>
+  </nodes>
+<!--@Location 32,8-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="GetMultipleShippingConfigProvider0">
+    <pipelet href="enfinity:/bts/pipelets/GetMultipleShippingConfigProvider.xml"/>
+    <nodeSuccessors name="next" next="RenderSystemPageWithTemplate1_Input"/>
+  </nodes>
+<!--@Location 32,9-->
+  <nodes xsi:type="pipeline:PipelineNodeNode" nodeID="RenderSystemPageWithTemplate1">
+    <configurationValues name="PageEntryPointDefinitionReference" value="app_sf_responsive_costcenter:systempage.account.profile.costcenter.pagelet2-Page"/>
+    <configurationValues name="WorkingTemplate" value="account/costcenter/OrderDetails"/>
+    <pipelet href="enfinity:/sld_ch_sf_base/pipelets/com.intershop.sellside.storefront.base.capi.pipeline.RenderSystemPageWithTemplate.pipelinenode"/>
+    <inConnectors name="Input">
+      <parameterBindings name="Dictionary" objectPath="CurrentRequest:PipelineDictionary"/>
+    </inConnectors>
+  </nodes>
+<!--@Location 34,7-->
+  <nodes xsi:type="pipeline:JumpNode" nodeID="JumpNode2">
+    <startNode referencedName="Error-Page"/>
+  </nodes>
+<!--@Location 1,7-->
+  <nodes xsi:type="pipeline:StartNode" nodeID="StartNode1" name="Prefix" callMode="Private">
+    <nodeSuccessors name="next" next="CheckUserLoggedIn0"/>
+  </nodes>
+<!--@Location 1,8-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="CheckUserLoggedIn0">
+    <pipelet href="enfinity:/core/pipelets/CheckUserLoggedIn.xml"/>
+    <nodeSuccessors name="next" next="GetApplicationBO0"/>
+    <nodeSuccessors name="pipelet_error" next="RemoveDictionaryValue0"/>
+  </nodes>
+<!--@Location 1,9-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="GetApplicationBO0">
+    <pipelet href="enfinity:/bc_application/pipelets/GetApplicationBO.xml"/>
+    <nodeSuccessors name="next" next="KeyMapper1"/>
+  </nodes>
+<!--@Location 1,10-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="KeyMapper1">
+    <pipelet href="enfinity:/core/pipelets/KeyMapper.xml"/>
+    <nodeSuccessors name="next" next="GetUserBO0"/>
+    <parameterBindings name="InValue_1" objectPath="ApplicationBO:Repository(&quot;UserBORepository&quot;)"/>
+    <returnValueBindings name="OutValue_1" objectPath="UserBORepository"/>
+  </nodes>
+<!--@Location 1,11-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="GetUserBO0">
+    <pipelet href="enfinity:/bc_user/pipelets/GetUserBO.xml"/>
+    <nodeSuccessors name="next" next="CallNode_KyFOQLWfEeehMrpmGe1JvA"/>
+    <parameterBindings name="UserID" objectPath="CurrentUser:ID"/>
+  </nodes>
+<!--@Location 1,12-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode_KyFOQLWfEeehMrpmGe1JvA">
+    <nodeSuccessors name="next" next="GetCustomerBO0"/>
+    <parameterBindings name="PermissionID" constant="APP_B2B_VIEW_COSTCENTER"/>
+    <startNode referencedName="ProcessPermission-CheckUserHasPermission"/>
+  </nodes>
+<!--@Location 1,13-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="GetCustomerBO0">
+    <pipelet href="enfinity:/bc_customer/pipelets/GetCustomerBO.xml"/>
+    <nodeSuccessors name="next" next="EndNode0"/>
+    <parameterBindings name="CustomerBORepository" objectPath="ApplicationBO:Repository(&quot;CustomerBORepository&quot;)"/>
+  </nodes>
+<!--@Location 1,14-->
+  <nodes xsi:type="pipeline:EndNode" nodeID="EndNode0"/>
+<!--@Location 2,8-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="RemoveDictionaryValue0">
+    <configurationValues name="Key" value="TargetURL"/>
+    <configurationValues name="RemoveFormValues" value="true"/>
+    <pipelet href="enfinity:/core/pipelets/RemoveDictionaryValue.xml"/>
+    <nodeSuccessors name="next" next="KeyMapper0"/>
+  </nodes>
+<!--@Location 2,9-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="KeyMapper0">
+    <pipelet href="enfinity:/core/pipelets/KeyMapper.xml"/>
+    <nodeSuccessors name="next" next="DecisionNode4"/>
+    <parameterBindings name="InValue_1" constant="ViewUserAccount-ShowLogin"/>
+    <parameterBindings name="InValue_2" constant="https"/>
+    <parameterBindings name="InValue_4" constant="TargetPipeline"/>
+    <parameterBindings name="InValue_5" constant="ViewCostCenter-Start"/>
+    <parameterBindings name="InValue_6" constant="LoginToUse"/>
+    <parameterBindings name="InValue_7" constant="costcenter"/>
+    <returnValueBindings name="OutValue_1" objectPath="TargetPipeline"/>
+    <returnValueBindings name="OutValue_2" objectPath="Protocol"/>
+    <returnValueBindings name="OutValue_3" objectPath="TargetSite"/>
+    <returnValueBindings name="OutValue_4" objectPath="Parameter1_Name"/>
+    <returnValueBindings name="OutValue_5" objectPath="Parameter1_Value"/>
+    <returnValueBindings name="OutValue_6" objectPath="Parameter2_Name"/>
+    <returnValueBindings name="OutValue_7" objectPath="Parameter2_Value"/>
+  </nodes>
+<!--@Location 2,10-->
+  <nodes xsi:type="pipeline:DecisionNode" nodeID="DecisionNode4" conditionKey="Dialog">
+<!--@BendPoints 7,21-->
+    <nodeSuccessors name="decision_yes" next="InteractionNode7"/>
+    <nodeSuccessors name="decision_no" next="InteractionNode0"/>
+  </nodes>
+<!--Renders only the content for the cost center dialog.
+@Location 3,11-->
+  <nodes xsi:type="pipeline:InteractionNode" nodeID="InteractionNode7">
+    <template referencedName="account/costcenter/CostCenterNoAuthentication"/>
+  </nodes>
+<!--@Location 2,11-->
+  <nodes xsi:type="pipeline:InteractionNode" nodeID="InteractionNode0">
+    <template referencedName="application/Redirect"/>
+  </nodes>
+<!--@Location 14,0-->
+  <nodes xsi:type="pipeline:StartNode" nodeID="StartNode7" name="Remove" secure="true">
+    <nodeSuccessors name="next" next="CallNode10"/>
+  </nodes>
+<!--@Location 14,1-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode10">
+    <nodeSuccessors name="next" next="CallNode_dY5YYLWfEeehMrpmGe1JvA"/>
+    <startNode referencedName="ViewCostCenter-Prefix"/>
+  </nodes>
+<!--@Location 14,2-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode_dY5YYLWfEeehMrpmGe1JvA">
+    <nodeSuccessors name="next" next="GetCostCenterByID0"/>
+    <parameterBindings name="PermissionID" constant="APP_B2B_MANAGE_COSTCENTER"/>
+    <startNode referencedName="ProcessPermission-CheckUserHasPermission"/>
+  </nodes>
+<!--@Location 14,3-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="GetCostCenterByID0">
+    <pipelet href="enfinity:/bc_costcenter/pipelets/GetCostCenterByID.xml"/>
+    <nodeSuccessors name="next" next="StartSafeChangesBlock2"/>
+<!--@BendPoints 30,7 30,15-->
+    <nodeSuccessors name="pipelet_error" next="CallNode15"/>
+    <parameterBindings name="CostCenterID" objectPath="CostCenterID"/>
+  </nodes>
+<!--@Location 14,4-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="StartSafeChangesBlock2">
+    <pipelet href="enfinity:/core/pipelets/StartSafeChangesBlock.xml"/>
+    <nodeSuccessors name="next" next="CallNode14"/>
+  </nodes>
+<!--@Location 14,5-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode14">
+    <nodeSuccessors name="next" next="EndSafeChangesBlock2"/>
+    <startNode referencedName="ProcessCostCenter-DeleteCostCenter"/>
+  </nodes>
+<!--@Location 14,6-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="EndSafeChangesBlock2">
+    <pipelet href="enfinity:/core/pipelets/EndSafeChangesBlock.xml"/>
+    <nodeSuccessors name="next" next="CallNode15"/>
+  </nodes>
+<!--@Location 14,7-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode15">
+    <nodeSuccessors name="next" next="com.intershop.application.webshop.capi.pipeline.RenderSystemPageWithTemplate2_Input"/>
+    <startNode referencedName="ProcessCostCenter-GetCostCenters"/>
+  </nodes>
+<!--@Location 14,8-->
+  <nodes xsi:type="pipeline:PipelineNodeNode" nodeID="com.intershop.application.webshop.capi.pipeline.RenderSystemPageWithTemplate2">
+    <configurationValues name="PageEntryPointDefinitionReference" value="app_sf_responsive_costcenter:systempage.account.profile.costcenter.pagelet2-Page"/>
+    <configurationValues name="WorkingTemplate" value="account/costcenter/CostCenter"/>
+    <pipelet href="enfinity:/sld_ch_sf_base/pipelets/com.intershop.sellside.storefront.base.capi.pipeline.RenderSystemPageWithTemplate.pipelinenode"/>
+    <inConnectors name="Input">
+      <parameterBindings name="Dictionary" objectPath="CurrentRequest:PipelineDictionary"/>
+    </inConnectors>
+  </nodes>
+<!--@Location 26,0-->
+  <nodes xsi:type="pipeline:StartNode" nodeID="StartNode15" name="RemoveCostCenterBuyer"
+      secure="true">
+    <nodeSuccessors name="next" next="CallNode32"/>
+  </nodes>
+<!--@Location 26,1-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode32">
+    <nodeSuccessors name="next" next="CallNode_k4bFALWfEeehMrpmGe1JvA"/>
+    <startNode referencedName="ViewCostCenter-Prefix"/>
+  </nodes>
+<!--@Location 26,2-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode_k4bFALWfEeehMrpmGe1JvA">
+    <nodeSuccessors name="next" next="CallNode37"/>
+    <parameterBindings name="PermissionID" constant="APP_B2B_MANAGE_COSTCENTER"/>
+    <startNode referencedName="ProcessPermission-CheckUserHasPermission"/>
+  </nodes>
+<!--@Location 26,3-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode37">
+    <nodeSuccessors name="next" next="GetUserBO1"/>
+    <startNode referencedName="ProcessCostCenter-GetCostCenterByID"/>
+  </nodes>
+<!--@Location 26,4-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="GetUserBO1">
+    <pipelet href="enfinity:/bc_user/pipelets/GetUserBO.xml"/>
+    <nodeSuccessors name="next" next="StartSafeChangesBlock1"/>
+    <parameterBindings name="UserID" objectPath="BuyerID"/>
+  </nodes>
+<!--@Location 26,5-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="StartSafeChangesBlock1">
+    <pipelet href="enfinity:/core/pipelets/StartSafeChangesBlock.xml"/>
+    <nodeSuccessors name="next" next="CallNode33"/>
+  </nodes>
+<!--@Location 26,6-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode33">
+    <nodeSuccessors name="next" next="EndSafeChangesBlock1"/>
+    <parameterBindings name="UserID" objectPath="BuyerID"/>
+    <startNode referencedName="ProcessCostCenter-RemoveBuyer"/>
+  </nodes>
+<!--@Location 26,7-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="EndSafeChangesBlock1">
+    <pipelet href="enfinity:/core/pipelets/EndSafeChangesBlock.xml"/>
+    <nodeSuccessors name="next" next="JumpNode4"/>
+  </nodes>
+<!--@Location 26,8-->
+  <nodes xsi:type="pipeline:JumpNode" nodeID="JumpNode4">
+    <startNode referencedName="ViewCostCenter-Details"/>
+  </nodes>
+<!--@Location 30,0-->
+  <nodes xsi:type="pipeline:StartNode" nodeID="StartNode19" name="SaveBuyerBudget"
+      secure="true">
+    <nodeSuccessors name="next" next="CallNode43"/>
+  </nodes>
+<!--@Location 30,1-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode43">
+    <nodeSuccessors name="next" next="CallNode_nuD1YLWfEeehMrpmGe1JvA"/>
+    <startNode referencedName="ViewCostCenter-Prefix"/>
+  </nodes>
+<!--@Location 30,2-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode_nuD1YLWfEeehMrpmGe1JvA">
+    <nodeSuccessors name="next" next="CallNode44"/>
+    <parameterBindings name="PermissionID" constant="APP_B2B_MANAGE_COSTCENTER"/>
+    <startNode referencedName="ProcessPermission-CheckUserHasPermission"/>
+  </nodes>
+<!--@Location 30,3-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode44">
+    <nodeSuccessors name="next" next="GetCostCenterByID6"/>
+    <startNode referencedName="ViewCostCenter-GetCostCenterEditUserBudgetForm"/>
+  </nodes>
+<!--@Location 30,4-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="GetCostCenterByID6">
+    <pipelet href="enfinity:/bc_costcenter/pipelets/GetCostCenterByID.xml"/>
+    <nodeSuccessors name="next" next="GetUserBO8"/>
+<!--@BendPoints 63,9-->
+    <nodeSuccessors name="pipelet_error" next="JumpNode9"/>
+    <parameterBindings name="CostCenterID" objectPath="CostCenterEditUserBudgetForm:CostCenterID:Value"/>
+  </nodes>
+<!--@Location 30,5-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="GetUserBO8">
+    <pipelet href="enfinity:/bc_user/pipelets/GetUserBO.xml"/>
+    <nodeSuccessors name="next" next="VerifyMoney5"/>
+    <parameterBindings name="UserID" objectPath="CostCenterEditUserBudgetForm:BuyerID:Value"/>
+  </nodes>
+<!--@Location 30,6-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="VerifyMoney5">
+    <configurationValues name="MinValue" value="0"/>
+    <pipelet href="enfinity:/bc_foundation/pipelets/VerifyMoney.xml"/>
+    <nodeSuccessors name="next" next="UpdateCostCenterUserBudget0"/>
+<!--@BendPoints 60,13 59,13 59,17-->
+    <nodeSuccessors name="pipelet_error" next="JoinNode14"/>
+    <parameterBindings name="CurrencyMnemonic" objectPath="CurrentRequest:CurrencyCode"/>
+    <parameterBindings name="LocalizedString" objectPath="CostCenterEditUserBudgetForm:Budget:Value"/>
+    <returnValueBindings name="MoneyValue" objectPath="Budget"/>
+  </nodes>
+<!--@Location 30,7-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="UpdateCostCenterUserBudget0">
+    <pipelet href="enfinity:/bc_costcenter/pipelets/UpdateCostCenterUserBudget.xml"/>
+    <nodeSuccessors name="next" next="JoinNode14"/>
+    <parameterBindings name="BudgetPeriod" objectPath="CostCenterEditUserBudgetForm:BudgetPeriod:Value"/>
+  </nodes>
+<!--@Location 30,8-->
+  <nodes xsi:type="pipeline:JoinNode" nodeID="JoinNode14">
+    <nodeSuccessors name="next" next="JumpNode7"/>
+  </nodes>
+<!--@Location 30,9-->
+  <nodes xsi:type="pipeline:JumpNode" nodeID="JumpNode7">
+    <startNode referencedName="ViewCostCenter-Details"/>
+  </nodes>
+<!--@Location 31,9-->
+  <nodes xsi:type="pipeline:JumpNode" nodeID="JumpNode9">
+    <startNode referencedName="ViewCostCenter-Start"/>
+  </nodes>
+<!--@Location 22,0-->
+  <nodes xsi:type="pipeline:StartNode" nodeID="StartNode8" name="ShowAddBuyerForm"
+      secure="true">
+    <nodeSuccessors name="next" next="SetDictionaryValue1"/>
+  </nodes>
+<!--@Location 22,1-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="SetDictionaryValue1">
+    <configurationValues name="Name" value="Dialog"/>
+    <configurationValues name="Value" value="true"/>
+    <pipelet href="enfinity:/core/pipelets/SetDictionaryValue.xml"/>
+    <nodeSuccessors name="next" next="CallNode9"/>
+  </nodes>
+<!--@Location 22,2-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode9">
+    <nodeSuccessors name="next" next="CallNode_inAcALWfEeehMrpmGe1JvA"/>
+    <startNode referencedName="ViewCostCenter-Prefix"/>
+  </nodes>
+<!--@Location 22,3-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode_inAcALWfEeehMrpmGe1JvA">
+    <nodeSuccessors name="next" next="CallNode23"/>
+    <parameterBindings name="PermissionID" constant="APP_B2B_MANAGE_COSTCENTER"/>
+    <startNode referencedName="ProcessPermission-CheckUserHasPermission"/>
+  </nodes>
+<!--@Location 22,4-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode23">
+    <nodeSuccessors name="next" next="CallNode22"/>
+    <startNode referencedName="ViewCostCenter-GetCostCenterUsersForm"/>
+  </nodes>
+<!--@Location 22,5-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode22">
+    <nodeSuccessors name="next" next="InteractionNode1"/>
+    <startNode referencedName="ProcessCostCenter-GetPotentialBuyers"/>
+  </nodes>
+<!--Renders only the form for the dialog.
+@Location 22,6-->
+  <nodes xsi:type="pipeline:InteractionNode" nodeID="InteractionNode1">
+    <template referencedName="account/costcenter/CostCenterAddBuyersForm"/>
+  </nodes>
+<!--@Location 6,0-->
+  <nodes xsi:type="pipeline:StartNode" nodeID="StartNode5" name="ShowForm" secure="true">
+    <nodeSuccessors name="next" next="CallNode4"/>
+  </nodes>
+<!--@Location 6,1-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode4">
+    <nodeSuccessors name="next" next="CallNode_UAjwALWfEeehMrpmGe1JvA"/>
+    <startNode referencedName="ViewCostCenter-Prefix"/>
+  </nodes>
+<!--@Location 6,2-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode_UAjwALWfEeehMrpmGe1JvA">
+    <nodeSuccessors name="next" next="CallNode6"/>
+    <parameterBindings name="PermissionID" constant="APP_B2B_MANAGE_COSTCENTER"/>
+    <startNode referencedName="ProcessPermission-CheckUserHasPermission"/>
+  </nodes>
+<!--@Location 6,3-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode6">
+    <nodeSuccessors name="next" next="GetUsersOfCustomerByPermissions0"/>
+    <startNode referencedName="ViewCostCenter-GetCostCenterForm"/>
+  </nodes>
+<!--@Location 6,4-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="GetUsersOfCustomerByPermissions0">
+    <pipelet href="enfinity:/bc_costcenter/pipelets/GetUsersOfCustomerByPermissions.xml"/>
+    <nodeSuccessors name="next" next="InteractionNode3"/>
+    <nodeSuccessors name="pipelet_error" next="InteractionNode3"/>
+    <parameterBindings name="Permissions" constant="APP_B2B_MANAGE_COSTCENTER"/>
+  </nodes>
+<!--Renders only the form for the dialog.
+@Location 6,5-->
+  <nodes xsi:type="pipeline:InteractionNode" nodeID="InteractionNode3">
+    <template referencedName="account/costcenter/CostCenterForm"/>
+  </nodes>
+<!--@Location 1,0-->
+  <nodes xsi:type="pipeline:StartNode" nodeID="StartNode0" name="Start" secure="true">
+    <nodeSuccessors name="next" next="CallNode0"/>
+  </nodes>
+<!--@Location 1,1-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode0">
+    <nodeSuccessors name="next" next="CallNode11"/>
+    <startNode referencedName="ViewCostCenter-Prefix"/>
+  </nodes>
+<!--@Location 1,2-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode11">
+    <nodeSuccessors name="next" next="com.intershop.sellside.storefront.base.capi.pipeline.RenderSystemPageWithTemplate0_Input"/>
+    <startNode referencedName="ProcessCostCenter-GetCostCenters"/>
+  </nodes>
+<!--@Location 1,3-->
+  <nodes xsi:type="pipeline:PipelineNodeNode" nodeID="com.intershop.sellside.storefront.base.capi.pipeline.RenderSystemPageWithTemplate0">
+    <configurationValues name="PageEntryPointDefinitionReference" value="app_sf_responsive_costcenter:systempage.account.profile.costcenter.pagelet2-Page"/>
+    <configurationValues name="WorkingTemplate" value="account/costcenter/CostCenter"/>
+    <pipelet href="enfinity:/sld_ch_sf_base/pipelets/com.intershop.sellside.storefront.base.capi.pipeline.RenderSystemPageWithTemplate.pipelinenode"/>
+    <inConnectors name="Input">
+      <parameterBindings name="Dictionary" objectPath="CurrentRequest:PipelineDictionary"/>
+    </inConnectors>
+  </nodes>
+<!--@Location 10,0-->
+  <nodes xsi:type="pipeline:StartNode" nodeID="StartNode4" name="Update" secure="true">
+    <nodeSuccessors name="next" next="CallNode3"/>
+  </nodes>
+<!--@Location 10,1-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode3">
+    <nodeSuccessors name="next" next="CallNode_aSb9wLWfEeehMrpmGe1JvA"/>
+    <startNode referencedName="ViewCostCenter-Prefix"/>
+  </nodes>
+<!--@Location 10,2-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode_aSb9wLWfEeehMrpmGe1JvA">
+    <nodeSuccessors name="next" next="CallNode8"/>
+    <parameterBindings name="PermissionID" constant="APP_B2B_MANAGE_COSTCENTER"/>
+    <startNode referencedName="ProcessPermission-CheckUserHasPermission"/>
+  </nodes>
+<!--@Location 10,3-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode8">
+    <nodeSuccessors name="next" next="GetCostCenterByID2"/>
+    <startNode referencedName="ViewCostCenter-GetCostCenterForm"/>
+  </nodes>
+<!--@Location 10,4-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="GetCostCenterByID2">
+    <pipelet href="enfinity:/bc_costcenter/pipelets/GetCostCenterByID.xml"/>
+    <nodeSuccessors name="next" next="VerifyMoney3"/>
+    <nodeSuccessors name="pipelet_error" next="JumpNode6"/>
+    <parameterBindings name="CostCenterID" objectPath="CostCenterForm:CostCenterID:Value"/>
+  </nodes>
+<!--@Location 10,5-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="VerifyMoney3">
+    <configurationValues name="MinValue" value="0"/>
+    <pipelet href="enfinity:/bc_foundation/pipelets/VerifyMoney.xml"/>
+    <nodeSuccessors name="next" next="JoinNode7"/>
+<!--@BendPoints 22,11 22,13-->
+    <nodeSuccessors name="pipelet_error" next="JoinNode7"/>
+    <parameterBindings name="CurrencyMnemonic" objectPath="CurrentRequest:CurrencyCode"/>
+    <parameterBindings name="LocalizedString" objectPath="CostCenterForm:Budget:Value"/>
+    <returnValueBindings name="MoneyValue" objectPath="CostCenterBudgetValue"/>
+  </nodes>
+<!--@Location 10,6-->
+  <nodes xsi:type="pipeline:JoinNode" nodeID="JoinNode7">
+    <nodeSuccessors name="next" next="GetUserBO6"/>
+  </nodes>
+<!--@Location 10,7-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="GetUserBO6">
+    <pipelet href="enfinity:/bc_user/pipelets/GetUserBO.xml"/>
+    <nodeSuccessors name="next" next="CallNode30"/>
+    <parameterBindings name="UserID" objectPath="CostCenterForm:Manager:Value"/>
+    <returnValueBindings name="UserBO" objectPath="CostCenterOwner"/>
+  </nodes>
+<!--@Location 10,8-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode30">
+    <nodeSuccessors name="next" next="CallNode31"/>
+    <parameterBindings name="CostCenterBudgetPeriod" objectPath="CostCenterForm:BudgetPeriod:Value"/>
+    <parameterBindings name="CostCenterBudgetType" objectPath="CostCenterForm:Budget:Value"/>
+    <parameterBindings name="CostCenterFixedBudgetValue" objectPath="CostCenterBudgetValue"/>
+    <parameterBindings name="CostCenterName" objectPath="CostCenterForm:Name:Value"/>
+    <parameterBindings name="CostCenterNumber" objectPath="CostCenterForm:Number:Value"/>
+    <parameterBindings name="CostCenterRecurringBudgetValue" objectPath="CostCenterBudgetValue"/>
+    <startNode referencedName="ProcessCostCenter-UpdateCostCenter"/>
+  </nodes>
+<!--@Location 10,9-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode31">
+    <nodeSuccessors name="next" next="JumpNode3"/>
+    <startNode referencedName="ProcessCostCenter-GetCostCenters"/>
+  </nodes>
+<!--@Location 10,10-->
+  <nodes xsi:type="pipeline:JumpNode" nodeID="JumpNode3">
+    <startNode referencedName="ViewCostCenter-Details"/>
+  </nodes>
+<!--@Location 11,4-->
+  <nodes xsi:type="pipeline:JumpNode" nodeID="JumpNode6">
+    <startNode referencedName="ViewCostCenter-Start"/>
+  </nodes>
+<!--@Location 11,11-->
+  <nodes xsi:type="pipeline:StartNode" nodeID="StartNode9" name="ValidateCreate" secure="true">
+    <nodeSuccessors name="next" next="CallNode26"/>
+  </nodes>
+<!--@Location 11,12-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode26">
+    <nodeSuccessors name="next" next="CallNode17"/>
+    <startNode referencedName="ViewCostCenter-Prefix"/>
+  </nodes>
+<!--@Location 11,13-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode17">
+<!--@BendPoints 23,28-->
+    <nodeSuccessors name="next" next="DecisionNode8"/>
+    <startNode referencedName="ViewCostCenter-GetCostCenterForm"/>
+  </nodes>
+<!--@Location 11,14-->
+  <nodes xsi:type="pipeline:DecisionNode" nodeID="DecisionNode8" conditionKey="CostCenterForm:Number:Value"
+      operator="str_empty">
+<!--@BendPoints 22,29 22,35-->
+    <nodeSuccessors name="decision_yes" next="JoinNode20"/>
+    <nodeSuccessors name="decision_no" next="CallNode27"/>
+  </nodes>
+<!--@Location 11,17-->
+  <nodes xsi:type="pipeline:JoinNode" nodeID="JoinNode20">
+    <nodeSuccessors name="next" next="DecisionNode7"/>
+  </nodes>
+<!--@Location 11,18-->
+  <nodes xsi:type="pipeline:DecisionNode" nodeID="DecisionNode7" conditionKey="CostCenterForm:Budget:Value"
+      operator="str_empty">
+    <nodeSuccessors name="decision_yes" next="JoinNode19"/>
+<!--@BendPoints 25,37-->
+    <nodeSuccessors name="decision_no" next="VerifyMoney1"/>
+  </nodes>
+<!--@Location 11,21-->
+  <nodes xsi:type="pipeline:JoinNode" nodeID="JoinNode19">
+    <nodeSuccessors name="next" next="InteractionNode8"/>
+  </nodes>
+<!--@Location 11,22-->
+  <nodes xsi:type="pipeline:InteractionNode" nodeID="InteractionNode8">
+    <template referencedName="account/costcenter/AjaxSuccess"/>
+  </nodes>
+<!--@Location 12,19-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="VerifyMoney1">
+    <configurationValues name="MinValue" value="0"/>
+    <pipelet href="enfinity:/bc_foundation/pipelets/VerifyMoney.xml"/>
+<!--@BendPoints 26,39 26,43 25,43-->
+    <nodeSuccessors name="next" next="JoinNode19"/>
+<!--@BendPoints 25,40-->
+    <nodeSuccessors name="pipelet_error" next="SetDictionaryValue5"/>
+    <parameterBindings name="CurrencyMnemonic" objectPath="CurrentRequest:CurrencyCode"/>
+    <parameterBindings name="LocalizedString" objectPath="CostCenterForm:Budget:Value"/>
+    <returnValueBindings name="MoneyValue" objectPath="CostCenterBudgetValue"/>
+  </nodes>
+<!--@Location 12,20-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="SetDictionaryValue5">
+    <configurationValues name="Name" value="InvalidBudgetValue"/>
+    <configurationValues name="Value" value="true"/>
+    <pipelet href="enfinity:/core/pipelets/SetDictionaryValue.xml"/>
+<!--@BendPoints 25,43-->
+    <nodeSuccessors name="next" next="JoinNode19"/>
+  </nodes>
+<!--@Location 11,15-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode27">
+<!--@BendPoints 25,31-->
+    <nodeSuccessors name="next" next="SetDictionaryValue2"/>
+    <nodeSuccessors name="Error" next="JoinNode20"/>
+    <parameterBindings name="CostCenterName" objectPath="CostCenterForm:Number:Value"/>
+    <startNode referencedName="ProcessCostCenter-GetCostCenterByName"/>
+  </nodes>
+<!--@Location 12,16-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="SetDictionaryValue2">
+    <configurationValues name="Name" value="CostCenterIDExists"/>
+    <configurationValues name="Value" value="true"/>
+    <pipelet href="enfinity:/core/pipelets/SetDictionaryValue.xml"/>
+<!--@BendPoints 25,35-->
+    <nodeSuccessors name="next" next="JoinNode20"/>
+  </nodes>
+</pipeline:Pipeline>

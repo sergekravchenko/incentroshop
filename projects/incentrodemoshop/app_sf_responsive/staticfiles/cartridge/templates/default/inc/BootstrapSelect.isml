@@ -1,0 +1,20 @@
+<iscontent type="text/html" charset="UTF-8" compact="true">
+
+<!--- Set localization text for bootstrap-select-1.10.1.js --->
+
+<script type="text/javascript">
+/*
+ * Translated default messages for bootstrap-select.
+ */
+(function ($) {
+  $.fn.selectpicker.defaults = {
+    noneSelectedText: "#localizeText('selectpicker.noneSelected.text')#",
+    noneResultsText: "#localizeText('selectpicker.noneResults.text')#",
+    countSelectedText: function (numSelected, numTotal) {
+      return (numSelected == 1) ? "#localizeText('selectpicker.countSelected.single.text')#" : "#localizeText('selectpicker.countSelected.multiple.text')#";
+    },   
+    selectAllText: "#localizeText('selectpicker.selectAll.text')#",
+    deselectAllText:"#localizeText('selectpicker.deselectAll.text')#"
+  };
+})(jQuery);
+</script>

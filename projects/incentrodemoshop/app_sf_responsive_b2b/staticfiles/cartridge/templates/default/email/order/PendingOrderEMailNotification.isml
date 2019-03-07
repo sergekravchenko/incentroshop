@@ -1,0 +1,30 @@
+<iscontent type="text/html" charset="UTF-8" compact="true">
+<isinclude template="modules/Modules">
+
+<isinclude template="email/mailTemplate/MailConfig"/>
+<isinclude template="email/order/RequisitionTypeInc"/>
+<subject><istext key="#'email.pending_'.BasketType.'_confirmation.heading'#" parameter0="#encodeValue(ChannelName)#" encoding="off"/></subject>
+
+<isinclude template="email/mailTemplate/MailHeader"/>
+<p>
+	<istext key="email.dear.label.firstname_lastname" parameter0="#UserBO:FirstName#" parameter1="#UserBO:LastName#" />
+</p>
+<p>
+	<istext key="#'email.pending_'.BasketType.'_confirmation.submitted.text'#" parameter0="#URL(Action('ViewUserAccount-Start'))#" encoding="off">
+</p>
+<p>
+	<istext key="email.order_confirmation.thank_you.text" parameter1="#encodeValue(ChannelName)#" encoding="off" /><br />
+</p>
+<p>
+	<istext key="#'email.pending_'.BasketType.'_confirmation.we_received.text'#" parameter0="#BasketBO:CreationDate#" />
+</p>
+
+<isinclude template="email/order/OrderInfo"/>
+
+<p><istext key="#'email.pending_'.BasketType.'_confirmation.questions.text'#" parameter0="#encodeValue(URL(Action('ViewContent-Start'), Parameter('PageletEntryPointID','systempage.helpdesk.index.pagelet2-Page')))#" encoding="off" />
+<p>
+	<istext key="email.best_regards.label"/><br />
+	<istext key="email.user_services.label" parameter0="#encodeValue(URL(Action('ViewHomepage-Start')))#" parameter1="#encodeValue(ChannelName)#" encoding="off" />
+</p>
+
+<isinclude template="email/mailTemplate/MailFooter"/>

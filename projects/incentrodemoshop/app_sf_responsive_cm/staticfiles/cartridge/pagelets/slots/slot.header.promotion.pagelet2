@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pagelet:PageletModel xmlns:pagelet="http://www.intershop.de/pagelet/2010" name="slot.header.promotion.pagelet2">
+  <slotDefinitions name="Slot">
+    <callParameterInterfaces referencedName="app_sf_responsive_cm:interface.header.promotion.pagelet2-Interface"/>
+    <callParameterInterfaces referencedName="app_sf_responsive_cm:interface.common.content.pagelet2-Interface"/>
+  </slotDefinitions>
+</pagelet:PageletModel>

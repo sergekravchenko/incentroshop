@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Recommendation processing \- fake recommending without a recommendation engine.
+@Group Recommendation-->
+
+<pipeline:Pipeline xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pipeline="http://www.intershop.de/pipeline/2010"
+    name="ProcessRecommendation" overrideMode="Inherit" type="process">
+<!--B2B :: This pipeline uses a different category than the one in app_sf_responsive.
+@Location 1,0-->
+  <nodes xsi:type="pipeline:Text" nodeID="Text0"/>
+<!--@Location 1,1-->
+  <nodes xsi:type="pipeline:StartNode" nodeID="StartNode1" strict="true" name="GetAlternativeProducts"
+      callMode="Private">
+    <nodeSuccessors name="next" next="KeyMapper6"/>
+    <parameters name="ApplicationBO" type="com.intershop.component.application.capi.ApplicationBO"/>
+    <parameters name="CurrentOrganization" type="com.intershop.component.organization.capi.Organization"/>
+  </nodes>
+<!--@displayNearNode@Get CatalogBORepository
+@Location 1,2-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="KeyMapper6">
+    <pipelet href="enfinity:/bc_foundation/pipelets/KeyMapper.xml"/>
+    <nodeSuccessors name="next" next="CallNode0"/>
+    <parameterBindings name="InValue_1" objectPath="ApplicationBO:Extension(&quot;Catalog&quot;):CatalogBORepository"/>
+    <returnValueBindings name="OutValue_1" objectPath="CatalogBORepository"/>
+  </nodes>
+<!--@Location 1,3-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode0">
+    <nodeSuccessors name="next" next="DecisionNode1"/>
+    <parameterBindings name="CatalogName" constant="specials"/>
+    <startNode referencedName="ProcessCatalog-GetCatalogBOByName"/>
+  </nodes>
+<!--@Location 1,4-->
+  <nodes xsi:type="pipeline:DecisionNode" nodeID="DecisionNode1" conditionKey="CatalogBO">
+    <nodeSuccessors name="decision_yes" next="KeyMapper0"/>
+<!--@BendPoints 8,9 8,29-->
+    <nodeSuccessors name="decision_no" next="JoinNode0"/>
+  </nodes>
+<!--@Location 1,5-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="KeyMapper0">
+    <pipelet href="enfinity:/bc_foundation/pipelets/KeyMapper.xml"/>
+    <nodeSuccessors name="next" next="DecisionNode2"/>
+    <parameterBindings name="InValue_1" objectPath="CatalogBO:CatalogCategoryBOByName(&quot;HotDeals&quot;)"/>
+    <returnValueBindings name="OutValue_1" objectPath="CategoryBO"/>
+  </nodes>
+<!--@Location 1,6-->
+  <nodes xsi:type="pipeline:DecisionNode" nodeID="DecisionNode2" conditionKey="CategoryBO">
+    <nodeSuccessors name="decision_yes" next="KeyMapper4"/>
+<!--@BendPoints 6,13 6,29-->
+    <nodeSuccessors name="decision_no" next="JoinNode0"/>
+  </nodes>
+<!--Set PageNumber and PageSize
+@Location 1,7-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="KeyMapper4">
+    <pipelet href="enfinity:/bc_foundation/pipelets/KeyMapper.xml"/>
+    <nodeSuccessors name="next" next="GetRepositoryByRepositoryDomain1"/>
+    <parameterBindings name="InValue_1" constant="(Integer)10"/>
+    <parameterBindings name="InValue_2" constant="1"/>
+    <returnValueBindings name="OutValue_1" objectPath="PageNumber"/>
+    <returnValueBindings name="OutValue_2" objectPath="PageSize"/>
+  </nodes>
+<!--@Location 1,8-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="GetRepositoryByRepositoryDomain1">
+    <pipelet href="enfinity:/bc_mvc/pipelets/GetRepositoryByRepositoryDomain.xml"/>
+<!--@BendPoints 3,18-->
+    <nodeSuccessors name="next" next="DecisionNode3"/>
+<!--@BendPoints 5,17 5,25 5,29-->
+    <nodeSuccessors name="pipelet_error" next="JoinNode0"/>
+    <parameterBindings name="RepositoryDomain" objectPath="CurrentOrganization:OwningDomain"/>
+  </nodes>
+<!--@Location 1,9-->
+  <nodes xsi:type="pipeline:DecisionNode" nodeID="DecisionNode3" conditionKey="CategoryBO">
+    <nodeSuccessors name="decision_yes" next="CallNode5"/>
+<!--@BendPoints 4,19 4,25 4,29-->
+    <nodeSuccessors name="decision_no" next="JoinNode0"/>
+  </nodes>
+<!--@Location 1,10-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode5">
+    <nodeSuccessors name="next" next="KeyMapper5"/>
+    <parameterBindings name="CatalogFilterDomain" objectPath="CurrentOrganization:OwningDomain"/>
+    <parameterBindings name="EveryoneDomain" objectPath="CurrentOrganization:OrganizationDomain"/>
+    <parameterBindings name="UseFallbackToEveryoneDomain" constant="true"/>
+    <startNode referencedName="GetCatalogFilters-GetFiltersByUser"/>
+    <returnValueBindings name="Filters" objectPath="CatalogFilters"/>
+  </nodes>
+<!--@Location 1,11-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="KeyMapper5">
+    <pipelet href="enfinity:/bc_foundation/pipelets/KeyMapper.xml"/>
+    <nodeSuccessors name="next" next="CallNode3"/>
+    <parameterBindings name="InValue_1" objectPath="ApplicationBO:Repository(&quot;ProductBORepository&quot;)"/>
+    <returnValueBindings name="OutValue_1" objectPath="ProductBORepository"/>
+  </nodes>
+<!--@Location 1,12-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode3">
+    <nodeSuccessors name="next" next="KeyMapper3"/>
+    <parameterBindings name="CatalogCategoryBO" objectPath="CategoryBO"/>
+    <parameterBindings name="CurrencyCode" objectPath="CurrentSession:CurrencyCode"/>
+    <parameterBindings name="LocaleInformation" objectPath="CurrentSession:Locale"/>
+    <parameterBindings name="OnlineFlag" constant="(Integer)1"/>
+    <startNode referencedName="ProcessCategoryProducts-GetAssignedProducts"/>
+  </nodes>
+<!--@Location 1,13-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="KeyMapper3">
+    <pipelet href="enfinity:/bc_foundation/pipelets/KeyMapper.xml"/>
+    <nodeSuccessors name="next" next="JoinNode0"/>
+    <parameterBindings name="InValue_1" objectPath="ProductBOs"/>
+    <returnValueBindings name="OutValue_1" objectPath="AlternativeProductBOCollection"/>
+  </nodes>
+<!--@Location 1,14-->
+  <nodes xsi:type="pipeline:JoinNode" nodeID="JoinNode0">
+    <nodeSuccessors name="next" next="EndNode1"/>
+  </nodes>
+<!--@Location 1,15-->
+  <nodes xsi:type="pipeline:EndNode" nodeID="EndNode1" strict="true">
+    <returnValues name="AlternativeProductBOCollection" type="java.util.Collection"
+        optional="true"/>
+  </nodes>
+</pipeline:Pipeline>

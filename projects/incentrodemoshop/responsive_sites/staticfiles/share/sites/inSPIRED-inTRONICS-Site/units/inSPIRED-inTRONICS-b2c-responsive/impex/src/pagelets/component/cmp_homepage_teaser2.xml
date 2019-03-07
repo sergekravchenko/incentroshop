@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<enfinity xmlns:dt="http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt">
+<pagelet-component id="cmp_homepage_teaser2">
+<definition-name>app_sf_responsive_cm:component.common.image.pagelet2-Component</definition-name>
+<display-name xml:lang="de-DE">Homepage Teaser 2</display-name>
+<display-name xml:lang="en-US">Homepage Teaser 2</display-name>
+<display-name xml:lang="fr-FR">Accroche 2 sur la page d&apos;accueil</display-name>
+<online>true</online>
+<author business-partner-no="admin" domain="inSPIRED"/>
+<configuration-parameters>
+<configuration-parameter name="Image">
+<definition-name>app_sf_responsive_cm:component.common.image.pagelet2-Component-Image</definition-name>
+<value name="Image" xml:lang="de-DE">inSPIRED-inTRONICS-b2c-responsive:/teaser/home_cat_teaser_2_de.jpg</value>
+<value name="Image" xml:lang="en-US">inSPIRED-inTRONICS-b2c-responsive:/teaser/home_cat_teaser_2.jpg</value>
+<value name="Image" xml:lang="fr-FR">inSPIRED-inTRONICS-b2c-responsive:/teaser/home_cat_teaser_2_fr.jpg</value>
+</configuration-parameter>
+<configuration-parameter name="Link">
+<definition-name>app_sf_responsive_cm:component.common.image.pagelet2-Component-Link</definition-name>
+<value name="Link" xml:lang="de-DE">category://Specials@inSPIRED-inTRONICS-Specials</value>
+<value name="Link" xml:lang="en-US">category://Specials@inSPIRED-inTRONICS-Specials</value>
+<value name="Link" xml:lang="fr-FR">category://Specials@inSPIRED-inTRONICS-Specials</value>
+</configuration-parameter>
+</configuration-parameters>
+</pagelet-component>
+</enfinity>

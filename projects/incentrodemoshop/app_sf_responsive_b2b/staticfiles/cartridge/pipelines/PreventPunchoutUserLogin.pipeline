@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Extends user login process for Punchout users.-->
+
+<pipeline:Pipeline xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pipeline="http://www.intershop.de/pipeline/2010"
+    name="PreventPunchoutUserLogin" type="extension">
+<!--@Location 1,0-->
+  <nodes xsi:type="pipeline:StartNode" nodeID="StartNode0" strict="true" name="CheckUser"
+      callMode="Private">
+    <nodeSuccessors name="next" next="CallNode0"/>
+    <parameters name="Login" type="java.lang.String"/>
+    <parameters name="UserBORepository" type="com.intershop.component.user.capi.UserBORepository"/>
+  </nodes>
+<!--@Location 1,1-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode0">
+    <nodeSuccessors name="yes" next="SetDictionaryValue0"/>
+    <nodeSuccessors name="no" next="EndNode0"/>
+    <startNode referencedName="ProcessOCICatalog-IsOCIUser"/>
+  </nodes>
+<!--@Location 2,2-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="SetDictionaryValue0">
+    <configurationValues name="Name" value="ERROR_User"/>
+    <configurationValues name="Value" value="UnableToFindMembershipData"/>
+    <pipelet href="enfinity:/core/pipelets/SetDictionaryValue.xml"/>
+    <nodeSuccessors name="next" next="EndNode1"/>
+  </nodes>
+<!--@Location 2,4-->
+  <nodes xsi:type="pipeline:EndNode" nodeID="EndNode1" name="error" strict="true">
+    <returnValues name="ERROR_User" type="java.lang.String"/>
+  </nodes>
+<!--@Location 1,4-->
+  <nodes xsi:type="pipeline:EndNode" nodeID="EndNode0" name="next" strict="true"/>
+</pipeline:Pipeline>

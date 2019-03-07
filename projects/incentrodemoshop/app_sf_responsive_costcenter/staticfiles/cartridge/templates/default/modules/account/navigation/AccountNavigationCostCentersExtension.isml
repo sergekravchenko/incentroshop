@@ -1,0 +1,6 @@
+<iscontent type="text/html" charset="UTF-8" compact="true">
+<isif condition="#isDefined(UserPermissionMap:get("APP_B2B_VIEW_COSTCENTER"))#">
+	<li class="<isif condition="#selecteditem EQ 'COSTCENTER'#">active</isif>">
+		<a href="#URL(Action('ViewCostCenter-Start'))#"><istext key="account.navigation.costcenter.link"/></a>
+	</li>
+</isif>

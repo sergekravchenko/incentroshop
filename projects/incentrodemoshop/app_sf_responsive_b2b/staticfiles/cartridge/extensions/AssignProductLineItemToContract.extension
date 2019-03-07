@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<extensionpoint:ExtensionPointModel xmlns:extensionpoint="http://www.intershop.de/extensionpoint/2011" name="AssignProductLineItemToContract">
+	<extensionBindings type="pipeline" extensionPoint="ProcessCartCalculation-CalculatedCart" extension="AssignProductLineItemsToContract-Start" />
+	<extensionBindings type="pipeline" extensionPoint="ProcessBasketCalculation-CalculatedBasket" extension="AssignProductLineItemsToContract-ByBasket" />
+</extensionpoint:ExtensionPointModel>

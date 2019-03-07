@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pagelet:PageletModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://www.intershop.de/core/2010"
+    xmlns:pagelet="http://www.intershop.de/pagelet/2010" name="component.common.text.pagelet2">
+  <pageletDefinitions name="Component">
+    <callParameterInterfaces referencedName="app_sf_responsive_cm:interface.common.content.pagelet2-Interface"/>
+    <callParameterInterfaces referencedName="app_sf_responsive:interface.include.dialog.pagelet2-Interface"/>
+    <configurationParameterDefinitions name="HTMLText" typeReference="bc_pmc:types.pagelet2-Html">
+      <parameterBindings xsi:type="core:ParameterValueBinding" name="Configuration" value="basic"/>
+    </configurationParameterDefinitions>
+    <renderTemplate referencedName="component/common/Text"/>
+  </pageletDefinitions>
+</pagelet:PageletModel>

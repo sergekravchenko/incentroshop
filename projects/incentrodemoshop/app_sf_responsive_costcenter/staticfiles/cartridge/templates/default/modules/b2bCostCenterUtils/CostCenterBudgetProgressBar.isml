@@ -1,0 +1,96 @@
+<%@page import="com.google.common.base.Strings"%>
+<%@page import="com.intershop.beehive.core.capi.pipeline.PipelineDictionary"%>
+<iscontent type="text/html" charset="UTF-8" compact="true">
+
+<isif condition="#isDefined(CostCenter)#">
+
+	<isset name="CostCenterOrderBOOrderExtension" value="#CostCenter:Extension("CostCenterBOOrderExtension")#" scope="request"/>
+
+	<isif condition="#isDefined(CostCenterOrderBOOrderExtension)#">
+
+		<!--- 
+			Variables
+		--->
+		<isset name="CostCenterBO" value="#CostCenter#" scope="request" />
+
+		<isif condition="#isDefined(Label)#">
+			<isset name="Label" value="#Label#" scope="request"/>
+		<iselse>
+			<isset name="Label" value="#LocalizeText('account.costcenter.form.field.budget.label')#" scope="request"/>
+		</isif>
+		<isif condition="#isDefined(CostCenterOrderBOOrderExtension:BudgetLevel)#">	
+			<isif condition="#(CostCenterOrderBOOrderExtension:BudgetLevel*100) > 100#">
+				<isset name="PERCENT" value="100" scope="request"/>
+			<iselse>
+				<isset name="PERCENT" value="#(CostCenterOrderBOOrderExtension:BudgetLevel*100)#" scope="request"/>
+			</isif>
+		</isif>
+		<!--- 
+			Progress bar will be displayed without a wrapper around the element.
+		--->
+		<isif condition="#not(isDefined(DisplayAs))#">
+			<isif condition="#isDefined(CostCenterOrderBOOrderExtension:BudgetLevel)#">
+				<%
+					PipelineDictionary dict = getPipelineDictionary();
+					String budgetPeriod = dict.get("CostCenterBO:BudgetPeriod");
+					String capitalizedBudgetPeriod;
+					if (Strings.isNullOrEmpty(budgetPeriod))
+					{
+						capitalizedBudgetPeriod = "";
+					}
+					else
+					{
+						capitalizedBudgetPeriod = Character.toUpperCase(budgetPeriod.charAt(0)) + budgetPeriod.substring(1);
+					}
+
+					dict.put("CapitalizedBudgetPeriod", capitalizedBudgetPeriod);
+				%>
+				<div data-toggle="popover" data-html="true" data-placement="top" class="progress" data-content="<p><isprint value="#CapitalizedBudgetPeriod#">&nbsp;<isprint value="#Label#"></p>
+					<div class='row'>
+						<div class='col-md-3'><label><istext key="account.user.list.spent.label" /></label></div>
+						<div class='col-md-5 text-nowrap'><span data-testing-id='cost-center-orders-total' class='pull-right'><isprint value="#CostCenterOrderBOOrderExtension:OrdersTotal#"></span></div>
+						<div class='col-md-3 text-nowrap'><span class='pull-right'><isprint value="#CostCenterOrderBOOrderExtension:BudgetLevelPercentage#">%</span></div>
+					</div>
+					<div class='row'>
+						<div class='col-md-3'><label><istext key="account.user.list.left.label" /></label></div>
+						<div class='col-md-5 text-nowrap'><span data-testing-id='cost-center-remaining-budget' class='pull-right'><isprint value="#CostCenterOrderBOOrderExtension:getRemainingBudget#"></span></div>
+						<div class='col-md-3 text-nowrap'><span class='pull-right'><isprint value="#CostCenterOrderBOOrderExtension:RemainingBudgetLevelPercentage#">%</span></div>
+					</div>">
+					<div class="progress-bar<isif condition="#(CostCenterOrderBOOrderExtension:BudgetLevel >= 1.0)#"> progress-bar-danger</isif>" role="progressbar" aria-valuenow="<isprint value="#(CostCenterOrderBOOrderExtension:BudgetLevel*100)#">"
+						aria-valuemin="0" aria-valuemax="100" style="width: <isprint value="#PERCENT#" symbols="DecimalSeparator=.">%;">
+						<span class="progress-display"><isprint value="#(CostCenterOrderBOOrderExtension:BudgetLevel*100)#">%</span>
+					</div>
+				</div>
+			</isif>
+		</isif>
+
+		<!---
+			DisplayAs="dl-ListItem"
+			Progress bar will be displayed as a list item for a <dl>...</dl> List.
+		--->
+		<isif condition="#isDefined(DisplayAs) AND (DisplayAs EQ 'dl-ListItem')#">	
+			<isif condition="#isDefined(CostCenterOrderBOOrderExtension:BudgetLevel)#">
+				<dt><isprint value="#Label#"></dt>
+				<dd>
+					<div data-toggle="popover" data-html="true" data-placement="top" class="progress" data-content="<p><isprint value="#Label#"></p>
+						<div class='row'>
+							<div class='col-md-3'><label><istext key="account.user.list.spent.label" /></label></div>
+							<div class='col-md-5 text-nowrap'><span data-testing-id='cost-center-orders-total' class='pull-right'><isprint value="#CostCenterOrderBOOrderExtension:OrdersTotal#"></span></div>
+							<div class='col-md-3 text-nowrap'><span class='pull-right'><isprint value="#CostCenterOrderBOOrderExtension:BudgetLevelPercentage#">%</span></div>
+						</div>
+						<div class='row'>
+							<div class='col-md-3'><label><istext key="account.user.list.left.label" /></label></div>
+							<div class='col-md-5 text-nowrap'><span data-testing-id='cost-center-remaining-budget' class='pull-right'><isprint value="#CostCenterOrderBOOrderExtension:getRemainingBudget#"></span></div>
+							<div class='col-md-3 text-nowrap'><span class='pull-right'><isprint value="#CostCenterOrderBOOrderExtension:RemainingBudgetLevelPercentage#">%</span></div>
+						</div>">
+						<div class="progress-bar<isif condition="#(CostCenterOrderBOOrderExtension:BudgetLevel >= 1.0)#"> progress-bar-danger</isif>" role="progressbar" aria-valuenow="<isprint value="#(CostCenterOrderBOOrderExtension:BudgetLevel*100)#">"
+							aria-valuemin="0" aria-valuemax="100" style="width: <isprint value="#PERCENT#" symbols="DecimalSeparator=.">%;">
+							<span class="progress-display"><isprint value="#(CostCenterOrderBOOrderExtension:BudgetLevel*100)#">%</span>
+						</div>
+					</div>
+				</dd>
+			</isif>
+			
+		</isif>
+	</isif>
+</isif>

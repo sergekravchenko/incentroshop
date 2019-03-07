@@ -1,0 +1,17 @@
+apply plugin: 'static-cartridge'
+
+intershop {
+    displayName = 'Application Suite - Responsive Starter Store Applications'
+    description = 'Contains the application types: "intershop.B2CResponsive" and "intershop.SMBResponsive".'
+}
+
+dependencies {
+    compile project(':app_sf_responsive')
+    compile project(':app_sf_responsive_b2c')
+    compile project(':app_sf_responsive_smb')
+    compile group: 'com.intershop.business', name: 'sld_pmc'
+    compile group: 'com.intershop.business', name: 'app_sf_rest'
+	compile group: 'com.intershop.business', name: 'app_sf_rest_country'
+    compile group: 'com.intershop.business', name: 'sld_pdf'
+    compile group: 'com.intershop.platform', name: 'ac_pdf_flyingsaucer'
+}

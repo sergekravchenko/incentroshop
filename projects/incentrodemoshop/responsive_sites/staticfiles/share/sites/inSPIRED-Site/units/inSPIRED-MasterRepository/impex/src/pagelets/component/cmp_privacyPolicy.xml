@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<enfinity xmlns:dt="http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt">
+<pagelet-component id="cmp_privacyPolicy">
+<definition-name>app_sf_responsive_cm:component.common.freeStyle.pagelet2-Component</definition-name>
+<display-name xml:lang="de-DE">Datenschutzhinweise</display-name>
+<display-name xml:lang="en-US">Privacy Policy</display-name>
+<display-name xml:lang="fr-FR">Protection de données</display-name>
+<online>true</online>
+<author business-partner-no="admin" domain="inSPIRED"/>
+<configuration-parameters>
+<configuration-parameter name="HTML">
+<definition-name>app_sf_responsive_cm:component.common.freeStyle.pagelet2-Component-HTML</definition-name>
+<value name="HTML" xml:lang="de-DE">&lt;h1&gt;Datenschutzhinweise&lt;/h1&gt;
+&lt;div class=&quot;&quot;&gt;
+&lt;p&gt;&lt;small&gt;Zuletzt aktualisiert im August 2018&lt;/small&gt;&lt;/p&gt;
+&lt;h3&gt;Your Privacy is Important to Us&lt;/h3&gt;
+&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer fringilla nisi et nisl congue eget sagittis est consequat. Ut massa arcu, suscipit sed molestie eget, vehicula feugiat sapien. Morbi eu sapien sed justo ullamcorper hendrerit sit amet sit amet quam. Fusce tellus dui, mattis non molestie eget, accumsan quis metus.&lt;/p&gt;
+&lt;h3&gt;Personally Identifiable Information that We Collect&lt;/h3&gt;
+&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer fringilla nisi et nisl congue eget sagittis est consequat. Ut massa arcu, suscipit sed molestie eget, vehicula feugiat sapien. Morbi eu sapien sed justo ullamcorper hendrerit sit amet sit amet quam. Fusce tellus dui, mattis non molestie eget, accumsan quis metus.&lt;/p&gt;
+&lt;h3&gt;Our Use of Your Personally Identifiable Information&lt;/h3&gt;
+&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer fringilla nisi et nisl congue eget sagittis est consequat. Ut massa arcu, suscipit sed molestie eget, vehicula feugiat sapien. Morbi eu sapien sed justo ullamcorper hendrerit sit amet sit amet quam. Fusce tellus dui, mattis non molestie eget, accumsan quis metus.&lt;/p&gt;
+&lt;h3&gt;Access to Your Personally Identifiable Information&lt;/h3&gt;
+&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer fringilla nisi et nisl congue eget sagittis est consequat. Ut massa arcu, suscipit sed molestie eget, vehicula feugiat sapien. Morbi eu sapien sed justo ullamcorper hendrerit sit amet sit amet quam. Fusce tellus dui, mattis non molestie eget, accumsan quis metus.&lt;/p&gt;
+&lt;h3&gt;Information Security and Quality&lt;/h3&gt;
+&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer fringilla nisi et nisl congue eget sagittis est consequat. Ut massa arcu, suscipit sed molestie eget, vehicula feugiat sapien. Morbi eu sapien sed justo ullamcorper hendrerit sit amet sit amet quam. Fusce tellus dui, mattis non molestie eget, accumsan quis metus.&lt;/p&gt;
+&lt;h3&gt;Technologies on this Web Site&lt;/h3&gt;
+&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer fringilla nisi et nisl congue eget sagittis est consequat. Ut massa arcu, suscipit sed molestie eget, vehicula feugiat sapien. Morbi eu sapien sed justo ullamcorper hendrerit sit amet sit amet quam. Fusce tellus dui, mattis non molestie eget, accumsan quis metus.&lt;/p&gt;
+&lt;h3&gt;Questions Concerning this Privacy Statement&lt;/h3&gt;
+&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer fringilla nisi et nisl congue eget sagittis est consequat. Ut massa arcu, suscipit sed molestie eget, vehicula feugiat sapien. Morbi eu sapien sed justo ullamcorper hendrerit sit amet sit amet quam. Fusce tellus dui, mattis non molestie eget, accumsan quis metus.&lt;/p&gt;
+&lt;h3&gt;Changes to this Privacy Statement&lt;/h3&gt;
+&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer fringilla nisi et nisl congue eget sagittis est consequat. Ut massa arcu, suscipit sed molestie eget, vehicula feugiat sapien. Morbi eu sapien sed justo ullamcorper hendrerit sit amet sit amet quam. Fusce tellus dui, mattis non molestie eget, accumsan quis metus.&lt;/p&gt;
+&lt;/div&gt;</value>
+<value name="HTML" xml:lang="en-US">&lt;h1&gt;Web Site Privacy Statement&lt;/h1&gt;
+&lt;div class=&quot;&quot;&gt;
+&lt;p&gt;&lt;small&gt;Last Updated August 2018&lt;/small&gt;&lt;/p&gt;
+&lt;h3&gt;Your Privacy is Important to Us&lt;/h3&gt;
+&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer fringilla nisi et nisl congue eget sagittis est consequat. Ut massa arcu, suscipit sed molestie eget, vehicula feugiat sapien. Morbi eu sapien sed justo ullamcorper hendrerit sit amet sit amet quam. Fusce tellus dui, mattis non molestie eget, accumsan quis metus.&lt;/p&gt;
+&lt;h3&gt;Personally Identifiable Information that We Collect&lt;/h3&gt;
+&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer fringilla nisi et nisl congue eget sagittis est consequat. Ut massa arcu, suscipit sed molestie eget, vehicula feugiat sapien. Morbi eu sapien sed justo ullamcorper hendrerit sit amet sit amet quam. Fusce tellus dui, mattis non molestie eget, accumsan quis metus.&lt;/p&gt;
+&lt;h3&gt;Our Use of Your Personally Identifiable Information&lt;/h3&gt;
+&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer fringilla nisi et nisl congue eget sagittis est consequat. Ut massa arcu, suscipit sed molestie eget, vehicula feugiat sapien. Morbi eu sapien sed justo ullamcorper hendrerit sit amet sit amet quam. Fusce tellus dui, mattis non molestie eget, accumsan quis metus.&lt;/p&gt;
+&lt;h3&gt;Access to Your Personally Identifiable Information&lt;/h3&gt;
+&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer fringilla nisi et nisl congue eget sagittis est consequat. Ut massa arcu, suscipit sed molestie eget, vehicula feugiat sapien. Morbi eu sapien sed justo ullamcorper hendrerit sit amet sit amet quam. Fusce tellus dui, mattis non molestie eget, accumsan quis metus.&lt;/p&gt;
+&lt;h3&gt;Information Security and Quality&lt;/h3&gt;
+&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer fringilla nisi et nisl congue eget sagittis est consequat. Ut massa arcu, suscipit sed molestie eget, vehicula feugiat sapien. Morbi eu sapien sed justo ullamcorper hendrerit sit amet sit amet quam. Fusce tellus dui, mattis non molestie eget, accumsan quis metus.&lt;/p&gt;
+&lt;h3&gt;Technologies on this Web Site&lt;/h3&gt;
+&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer fringilla nisi et nisl congue eget sagittis est consequat. Ut massa arcu, suscipit sed molestie eget, vehicula feugiat sapien. Morbi eu sapien sed justo ullamcorper hendrerit sit amet sit amet quam. Fusce tellus dui, mattis non molestie eget, accumsan quis metus.&lt;/p&gt;
+&lt;h3&gt;Questions Concerning this Privacy Statement&lt;/h3&gt;
+&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer fringilla nisi et nisl congue eget sagittis est consequat. Ut massa arcu, suscipit sed molestie eget, vehicula feugiat sapien. Morbi eu sapien sed justo ullamcorper hendrerit sit amet sit amet quam. Fusce tellus dui, mattis non molestie eget, accumsan quis metus.&lt;/p&gt;
+&lt;h3&gt;Changes to this Privacy Statement&lt;/h3&gt;
+&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer fringilla nisi et nisl congue eget sagittis est consequat. Ut massa arcu, suscipit sed molestie eget, vehicula feugiat sapien. Morbi eu sapien sed justo ullamcorper hendrerit sit amet sit amet quam. Fusce tellus dui, mattis non molestie eget, accumsan quis metus.&lt;/p&gt;
+&lt;/div&gt;</value>
+<value name="HTML" xml:lang="fr-FR">&lt;h1&gt;Déclaration de confidentialité du site web&lt;/h1&gt;
+&lt;div class=&quot;&quot;&gt;
+&lt;p&gt;&lt;small&gt;Dernière mise à jour le août 2018&lt;/small&gt;&lt;/p&gt;
+&lt;h3&gt;La protection de vos données est fondamentale pour nous.&lt;/h3&gt;
+&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer fringilla nisi et nisl congue eget sagittis est consequat. Ut massa arcu, suscipit sed molestie eget, vehicula feugiat sapien. Morbi eu sapien sed justo ullamcorper hendrerit sit amet sit amet quam. Fusce tellus dui, mattis non molestie eget, accumsan quis metus.&lt;/p&gt;
+&lt;h3&gt; Renseignements personnels identifiables recueillis par nous&lt;/h3&gt;
+&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer fringilla nisi et nisl congue eget sagittis est consequat. Ut massa arcu, suscipit sed molestie eget, vehicula feugiat sapien. Morbi eu sapien sed justo ullamcorper hendrerit sit amet sit amet quam. Fusce tellus dui, mattis non molestie eget, accumsan quis metus.&lt;/p&gt;
+&lt;h3&gt;L&apos;utilisation de vos renseignements personnels identifiables&lt;/h3&gt;
+&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer fringilla nisi et nisl congue eget sagittis est consequat. Ut massa arcu, suscipit sed molestie eget, vehicula feugiat sapien. Morbi eu sapien sed justo ullamcorper hendrerit sit amet sit amet quam. Fusce tellus dui, mattis non molestie eget, accumsan quis metus.&lt;/p&gt;
+&lt;h3&gt;Accès aux vos renseignements personnels identifiables&lt;/h3&gt;
+&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer fringilla nisi et nisl congue eget sagittis est consequat. Ut massa arcu, suscipit sed molestie eget, vehicula feugiat sapien. Morbi eu sapien sed justo ullamcorper hendrerit sit amet sit amet quam. Fusce tellus dui, mattis non molestie eget, accumsan quis metus.&lt;/p&gt;
+&lt;h3&gt;Sécurité et qualité des données&lt;/h3&gt;
+&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer fringilla nisi et nisl congue eget sagittis est consequat. Ut massa arcu, suscipit sed molestie eget, vehicula feugiat sapien. Morbi eu sapien sed justo ullamcorper hendrerit sit amet sit amet quam. Fusce tellus dui, mattis non molestie eget, accumsan quis metus.&lt;/p&gt;
+&lt;h3&gt;Les technologies sur cet site web&lt;/h3&gt;
+&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer fringilla nisi et nisl congue eget sagittis est consequat. Ut massa arcu, suscipit sed molestie eget, vehicula feugiat sapien. Morbi eu sapien sed justo ullamcorper hendrerit sit amet sit amet quam. Fusce tellus dui, mattis non molestie eget, accumsan quis metus.&lt;/p&gt;
+&lt;h3&gt;Questions concernant cette déclaration de confidentialité&lt;/h3&gt;
+&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer fringilla nisi et nisl congue eget sagittis est consequat. Ut massa arcu, suscipit sed molestie eget, vehicula feugiat sapien. Morbi eu sapien sed justo ullamcorper hendrerit sit amet sit amet quam. Fusce tellus dui, mattis non molestie eget, accumsan quis metus.&lt;/p&gt;
+&lt;h3&gt;Modifications dans cette déclaration de confidentialité&lt;/h3&gt;
+&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer fringilla nisi et nisl congue eget sagittis est consequat. Ut massa arcu, suscipit sed molestie eget, vehicula feugiat sapien. Morbi eu sapien sed justo ullamcorper hendrerit sit amet sit amet quam. Fusce tellus dui, mattis non molestie eget, accumsan quis metus.&lt;/p&gt;
+&lt;/div&gt;</value>
+</configuration-parameter>
+</configuration-parameters>
+</pagelet-component>
+</enfinity>

@@ -1,0 +1,179 @@
+<iscontent type="text/html" charset="UTF-8" compact="true">
+<iscache type="forbidden">
+<isinclude template="modules/B2BModules">
+
+<div class="breadcrumbs row">
+	<isAccountBreadcrumb trailtext="#localizeText('account.users.link')#">
+</div>
+
+<!--- Marketing slot --->
+<div class="marketing-area">
+	<ISMarketingSlot id="baseMarketing">
+</div>
+
+<div class="account-wrapper" data-testing-id="users-page">
+	
+	<div class="row account-main">
+		
+		<!--- Left Navigation Panel --->
+		<div class="col-md-3 account-nav-box">
+			<isAccountNavigation selecteditem="USERS">
+		</div>
+		
+		<div class="col-md-9">
+		
+			<div class="marketing-area">
+				<ISMarketingSlot id="contentMarketing">
+			</div>
+			
+			<ISCreateMap mapname="PipelineParameters" key0="CustomerBO" value0="#CustomerBO#">
+			<ispipeline pipeline="ViewUsers-TemplateCallback" params="#PipelineParameters#" alias="Result">
+			<ISPopulateDictionary map="#Result#">
+			
+			<h1>
+				<istext key="account.user.list.heading" />
+				<a href="#URL(Action('ViewUser-New'))#" class="btn btn-default"><istext key="account.user.list.link.add_user" /></a>
+			</h1>
+			
+			<div class="section">
+				
+				<isif condition="#hasElements(Users)#">
+					
+					<div class="list-header hidden-xs">
+						<div class="col-sm-3 list-header-item">
+							<istext key="account.user.list.table.user"/>
+						</div>
+						<div class="col-sm-4 list-header-item">
+							<istext key="account.user.list.table.budget"/>
+						</div>
+						<div class="col-sm-2 list-header-item">
+							<istext key="account.user.list.table.pending_orders" />
+						</div>						
+						<div class="col-sm-2 list-header-item">
+							<istext key="account.user.list.table.role"/>
+						</div>
+					</div>
+					
+					<div class="list-body" data-testing-id="users-list">
+						<isloop counter="Counter" iterator="Users" alias="User">
+							<div class="list-item-row">
+								
+								<div class="col-sm-3 list-item">
+									<a <isif condition="#User:Disabled EQ 'true'#">class="disabled"</isif> href="#URL(Action('ViewUser-Start'), Parameter('UserID', User:ID))#">
+										<isprint value="#User:FirstName.' '.User:LastName#">
+									</a>
+									<isif condition="#User:Disabled#">
+										<p class="help-block">(<istext key="account.user.list.status.inactive" encoding="off" />)</p>
+									</isif>
+								</div>
+								<isset name="OrderApprovalExtension" value="#User:Extension("UserBOOrderApprovalExtension")#" scope="request">
+								<div class="col-sm-4 list-item">
+									<dl>
+										<dt>
+											<istext key="account.user.widget.order_spend_limit.label" />
+										</dt>
+										<dd>
+											<isif condition="#OrderApprovalExtension:SingleOrderThresholdAmount:Available#">
+												<isprint value="#OrderApprovalExtension:SingleOrderThresholdAmount#">
+											<iselse/>
+												<istext key="approval.details.threshold.unlimited"/>
+											</isif>
+										</dd>
+									</dl>
+									<isif condition="#OrderApprovalExtension:Budget(OrderApprovalExtension:BudgetType):Available#">
+										<dl>
+											<dt>
+												<istext key="account.budget.common.per_type" parameter0="#lcase(OrderApprovalExtension:BudgetType)#" />
+											</dt>
+											<dd>
+												<isprint value="#OrderApprovalExtension:Budget(OrderApprovalExtension:BudgetType)#">
+											</dd>
+											
+											<dd>
+												<ISUserBudgetCalculator User="#User#" UserBudgetCalculator="UserBudgetCalculator">
+												<isif condition="#OrderApprovalExtension:Budget(OrderApprovalExtension:BudgetType):Available#">
+												
+													<div data-toggle="popover" data-container="body" data-html="true" data-placement="top" class="progress"  data-content="
+														<div class='row col-md-12'>
+															<div class='col-md-6'><label><istext key="#'orders.widget.'.lcase(OrderApprovalExtension:BudgetType).'_spend_limit.label'#" /></label></div>
+															<div class='col-md-6 text-right'><isprint value="#UserBudgetCalculator:Budget:Value#"></div>
+														</div>
+														<div class='row col-md-12'>
+															<div class='col-md-6'><label><istext key="account.user.list.spent.label" /></label></div>
+															<div class='col-md-6 text-right'><isprint value="#UserBudgetCalculator:SpentBudget:Value#"> (<isprint value="#UserBudgetCalculator:SpentBudgetPercentage#">%)</div>
+														</div>
+														<div class='row col-md-12'>
+															<div class='col-md-6'><label><istext key="account.user.list.left.label" /></label></div>
+															<div class='col-md-6 text-right'><isprint value="#UserBudgetCalculator:RemainingBudget:Value#"> (<isprint value="#UserBudgetCalculator:RemainingBudgetPercentage#">%)</div>
+														</div>
+													">
+														<div class="progress-bar <isif condition="#(UserBudgetCalculator:SpentBudgetPercentage >= 90.0)#"> progress-bar-danger<iselseif condition="#(UserBudgetCalculator:SpentBudgetPercentage >= 70.0)#"> progress-bar-warning</isif>" role="progressbar" aria-valuenow="<isprint value="#UserBudgetCalculator:SpentBudgetPercentage#">" aria-valuemin="0" aria-valuemax="100" style="width: <isprint value="#UserBudgetCalculator:SpentBudgetPercentage#" symbols="DecimalSeparator=.">%;">
+																	<span class="progress-display"><isprint value="#UserBudgetCalculator:SpentBudgetPercentage#">%</span>
+														</div>
+													</div>
+												</isif>
+											</dd>
+										</dl>
+									<iselse>
+										<p>
+											<istext key="account.budget.common.undefined"/>
+										</p>
+									</isif>
+								</div>
+								
+								
+								<ISCreateMap mapname="Parameters"
+									key0="CustomerBO" value0="#CustomerBO#"
+									key1="UserBO" value1="#User#"
+									key2="BasketDomain" value2="#CurrentOrganization:Domain#"
+								>
+								<ispipeline pipeline="ViewUsers-GetPendingOrdersCount" params="#Parameters#" alias="Result">
+								<div class="col-sm-2 list-item">
+									<strong class="visible-xs">
+										<istext key="account.user.list.table.pending_orders" encoding="off" />
+									</strong>
+									<istext key="account.user.list.table.pending_orders.count" parameter0="#Result:PendingOrdersCount#" />
+								</div>
+								
+								<div class="col-sm-2 list-item">
+									<dl>
+										<dt class="visible-xs">
+											<istext key="account.user.list.table.role" encoding="off" />
+										</dt>
+										<isset name="SelectedUser" value="#CustomerBO:Extension("GroupCustomer"):UserBOByID(User:ID)#" scope="request">
+										<isset name="SelectedUserRoleIDs" value="#SelectedUser:Extension("UserBORoleExtension"):RoleIDs#" scope="request">
+										<isloop iterator="SelectedUserRoleIDs" alias="RoleID">
+											<isset name="UserRole" value="#CustomerBO:Extension("CustomerBOSecurityExtension"):RoleByID(RoleID)#" scope="request">
+											<dd><isprint value="#UserRole:Name#"></dd>
+										</isloop>
+									</dl>
+									
+								</div>
+								
+								<div class="col-sm-1 list-item text-right">
+									<a class="btn-tool" href="#URL(Action('ViewUser-Start'), Parameter('UserID', User:ID))#">
+										<span class="glyphicon glyphicon-pencil" title="<istext key="account.user.list.link.edit" />"></span>
+									</a>
+									<isif condition="#User:ID ne UserBO:ID#">
+										<a data-testing-id="user-delete-#User:ID#" class="btn-tool" data-dialog href="#URL(Action('ViewAjax-Start'), Parameter('TargetPipeline','ViewUsers-ShowDeleteUserDialog'), Parameter('UserID', User:ID))#">
+									<iselse/>
+										<a class="btn-tool" class="disabled" href="#'#'#">
+									</isif>
+										<span class="glyphicon glyphicon-trash" title="<istext key="account.user.list.link.remove" />"></span>
+									</a>
+								</div>
+								
+							</div>
+						</isloop>
+					</div>
+					
+				<iselse>
+					<p><istext key="account.user.list.no_users.text" /></p>
+				</isif>
+				
+			</div>
+			
+			<ISContinueShoppingLink isDisplayed="#ContinueShopping#">
+		</div>
+	</div>
+</div>

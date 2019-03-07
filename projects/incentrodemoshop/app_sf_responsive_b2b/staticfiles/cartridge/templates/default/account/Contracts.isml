@@ -1,0 +1,96 @@
+<%@page import="com.intershop.component.customer.capi.CustomerBO"%>
+<%@page import="com.intershop.beehive.core.capi.app.AppContextUtil"%>
+<%@page import="com.intershop.component.contract.capi.ContractBaseBO"%>
+<%@page import="com.intershop.component.application.capi.ApplicationBO"%>
+
+<iscontent type="text/html" charset="UTF-8" compact="true">
+<isinclude template="modules/B2BModules">
+
+<div class="breadcrumbs row">
+	<isAccountBreadcrumb trailtext="#localizeText('account.contract.contracts.breadcrumb.title')#">
+</div>
+
+<!--- Marketing slot --->
+<div class="marketing-area">
+	<ISMarketingSlot id="baseMarketing">
+</div>
+
+<div class="account-wrapper" data-testing-id="b2b-account-contracts">
+	
+	<div class="row account-main">
+		<!--- Left Navigation Panel --->
+		<div class="col-md-3 account-nav-box">
+			<isAccountNavigation selecteditem="CONTRACTS">
+		</div>
+		<div class="col-md-9">
+
+			<ISCreateMap mapname="PipelineParameters" key0="CustomerBO" value0="#CustomerBO#">
+			<ispipeline pipeline="ViewUsers-TemplateCallback" params="#PipelineParameters#" alias="Result">
+			<ISPopulateDictionary map="#Result#">
+			
+			<!--- Marketing slot --->
+			<div class="marketing-area">
+				<ISMarketingSlot id="contentMarketing">
+			</div>
+			
+			<h1><istext key="account.contract.contracts.title"></h1>
+			
+			<div class="table-responsive">
+				<isif condition="#hasElements(ContractBaseBOsPageable)#">
+					<table class="table" data-testing-id="contractList">
+						<thead>
+							<th><istext key="account.contract.contracts.name"></th>
+							<th><istext key="account.contract.contracts.contractID"></th>
+							<th><istext key="account.contract.contracts.type"></th>
+							<th><istext key="account.contract.contracts.period"></th>
+							<th><istext key="account.contract.contracts.progress"></th>
+						</thead>
+						<tbody>
+							<isloop counter="Counter" iterator="ContractBaseBOsPageable" alias="Contract">
+								<tr>
+									<td>
+										<a href="#url(Action('ViewContracts-Show'), Parameter('ContractID', Contract:ID))#">
+											<isprint value="#Contract:Name#"/>
+										</a>
+									</td>
+									<td>
+										<isprint value="#Contract:ContractID#">
+									</td>									
+									<td>
+										<istext key="#'account.contract.type.'.Contract:TypeCode#">
+									</td>	
+									<td>
+										<isprint value="#Contract:StartDate#" style="DATE_SHORT"> - <isprint value="#Contract:EndDate#" style="DATE_SHORT">
+									</td>
+									<td>
+										<isset name="ContractProgress" value="0" scope="request"/>
+										<isif condition="#isDefined(Contract:SalesTarget) AND isDefined(Contract:SalesTarget:Actual)#">
+											<isif condition="#(Contract:SalesTarget:Actual:Value/Contract:SalesTarget:TargetAmount*100) < 100#">
+												<isset name="ContractProgress" value="#getValue((Contract:SalesTarget:Actual:Value/Contract:SalesTarget:TargetAmount*100), '0')#" scope="request"/>
+											<iselse>
+												<isset name="ContractProgress" value="100" scope="request"/>
+											</isif>
+										</isif>
+										
+										<ISProgressBar value="#ContractProgress#">
+									</td>
+								</tr>
+							</isloop>
+
+						</tbody>
+					</table>
+				 <ismappagination 
+				     pipeline="#ListNavigationVO:HandlerPipeline.'-Paging'#" 
+				     itemcount="#ListNavigationVO:ElementCount#"
+				     currentpage="#ListNavigationVO:CurrentPage#"
+				     pagecount="#ListNavigationVO:PageCount#"
+				     params="#ListNavigationVO:GenericHandlerPipelineParams#"
+				 >
+				<iselse>
+					<p><istext key="account.contract.contracts.noItems.text" /></p>
+				</isif>
+			</div>
+			
+		</div>
+	</div>
+</div>

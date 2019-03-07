@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pagelet:PageletModel xmlns:pagelet="http://www.intershop.de/pagelet/2010" name="component.system.mainnavigation.category.pagelet2">
+  <pageletDefinitions name="Component" remoteInclude="true">
+    <callParameterInterfaces referencedName="app_sf_responsive_cm:interface.header.navigation.pagelet2-Interface"/>
+    <configurationParameterDefinitions name="NavigationCategory" localizable="false"
+        typeReference="bc_catalog:types.pagelet2-CategoryBO"/>
+    <configurationParameterDefinitions name="AlternateNavigationTitle" optional="true"
+        typeReference="bc_pmc:types.pagelet2-Text"/>
+    <renderTemplate referencedName="component/system/MainNavigationCategory"/>
+  </pageletDefinitions>
+</pagelet:PageletModel>

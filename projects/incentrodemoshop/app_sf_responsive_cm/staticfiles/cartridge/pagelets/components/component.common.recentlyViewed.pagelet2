@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pagelet:PageletModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://www.intershop.de/core/2010"
+    xmlns:pagelet="http://www.intershop.de/pagelet/2010" name="component.common.recentlyViewed.pagelet2">
+  <pageletDefinitions name="Component" remoteInclude="true">
+    <callParameterInterfaces referencedName="app_sf_responsive_cm:interface.collection.items.pagelet2-Interface"/>
+    <callParameterInterfaces referencedName="app_sf_responsive_cm:interface.common.productList.pagelet2-Interface"/>
+    <configurationParameterDefinitions name="Title" optional="true" typeReference="bc_pmc:types.pagelet2-Text"/>
+    <configurationParameterDefinitions name="MaxNumberOfProducts" type="java.lang.Integer"
+        optional="true" localizable="false" typeReference="bc_pmc:types.pagelet2-Integer"/>
+    <configurationParameterDefinitions name="ProductView" localizable="false" typeReference="bc_pmc:types.pagelet2-ViewContext">
+      <parameterBindings xsi:type="core:ParameterValueBinding" name="ObjectType" value="Product"/>
+    </configurationParameterDefinitions>
+    <configurationParameterDefinitions xsi:type="pagelet:ListParameterDefinition"
+        name="ListStyle" optional="true" localizable="false" typeReference="bc_pmc:types.pagelet2-DropDownBox">
+      <parameterDefinitions name="none" optional="true" typeReference="bc_pmc:types.pagelet2-Text"/>
+      <parameterDefinitions name="carousel" optional="true" typeReference="bc_pmc:types.pagelet2-Text"/>
+    </configurationParameterDefinitions>
+    <configurationParameterDefinitions xsi:type="pagelet:ListParameterDefinition"
+        name="SlideItems" optional="true" localizable="false" typeReference="bc_pmc:types.pagelet2-DropDownBox">
+      <parameterDefinitions name="1" optional="true" typeReference="bc_pmc:types.pagelet2-Text"/>
+      <parameterDefinitions name="2" optional="true" typeReference="bc_pmc:types.pagelet2-Text"/>
+      <parameterDefinitions name="3" optional="true" typeReference="bc_pmc:types.pagelet2-Text"/>
+      <parameterDefinitions name="4" optional="true" typeReference="bc_pmc:types.pagelet2-Text"/>
+    </configurationParameterDefinitions>
+    <configurationParameterDefinitions name="ListItemCSSClass" optional="true" localizable="false"
+        typeReference="bc_pmc:types.pagelet2-Text"/>
+    <configurationParameterDefinitions name="CSSClass" optional="true" localizable="false"
+        typeReference="bc_pmc:types.pagelet2-Text"/>
+    <configurationParameterDefinitions name="DisplayCategories" optional="true" localizable="false"
+        typeReference="bc_pmc:types.pagelet2-Boolean"/>
+    <configurationParameterDefinitions name="DisplaySearchTerms" optional="true" localizable="false"
+        typeReference="bc_pmc:types.pagelet2-Boolean"/>
+    <configurationParameterDefinitions name="DisplayViewAllButton" optional="true"
+        localizable="false" typeReference="bc_pmc:types.pagelet2-Boolean"/>
+    <renderTemplate referencedName="component/common/RecentlyViewed"/>
+    <renderPipeline referencedName="RenderPagelet-GetAllRecentlyViewedItems"/>
+  </pageletDefinitions>
+</pagelet:PageletModel>

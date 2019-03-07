@@ -1,0 +1,41 @@
+<iscontent type="text/html" charset="UTF-8" compact="true">
+<isif condition="#BasketBO:ExtensibleObject:AttributeValue("orderReferenceID"):StringValue NE ''#">
+	<tr>
+		<td>
+			<istext key="email.pending_order_confirmation.order_ref_id.label" />
+		</td>
+		<td>
+			<isprint value="#BasketBO:ExtensibleObject:AttributeValue("orderReferenceID"):StringValue#">
+		</td>
+	</tr>
+</isif>
+<isif condition="#BasketBO:ExtensibleObject:AttributeValue("desiredDeliveryDate"):DateValue NE ''#">
+	<tr>
+		<td>
+			<istext key="email.order_approval.desired_delivery_date.label" />
+		</td>
+		<td>
+			<isprint value="#BasketBO:ExtensibleObject:AttributeValue("desiredDeliveryDate"):DateValue#">
+		</td>
+	</tr>
+</isif>
+<isif condition="#BasketBO:Extension("BasketBOAdditionalInformationExtension"):MessageToMerchant NE ''#">
+	<tr>
+		<td>
+			<istext key="email.order_approval.message_to_merchant.label" />
+		</td>
+		<td>
+			<isprint value="#BasketBO:Extension("BasketBOAdditionalInformationExtension"):MessageToMerchant#">
+		</td>
+	</tr>
+</isif>
+<isif condition="#BasketBO:Extension("BasketBOAdditionalInformationExtension"):Project NE ''#">
+	<tr>
+		<td>
+			<istext key="email.order_approval.project.label" />
+		</td>
+		<td>
+			<isprint value="#BasketBO:Extension("BasketBOAdditionalInformationExtension"):Project#">
+		</td>
+	</tr>
+</isif>

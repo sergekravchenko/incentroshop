@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pagelet:PageletModel xmlns:pagelet="http://www.intershop.de/pagelet/2010" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://www.intershop.de/core/2010" name="component.shopping.productListFilter.pagelet2">
+  <pageletDefinitions name="Component">
+    <callParameterDefinitions name="Title" type="java.lang.String" optional="true"/>
+    <callParameterDefinitions name="ProductBOs" type="java.util.Iterator" optional="true"/>
+    <callParameterDefinitions name="ListNavigationVO" type="com.intershop.sellside.storefront.base.capi.common.ListNavigationVO" optional="true"/>
+    <callParameterDefinitions name="CatalogCategoryID" type="java.lang.String" optional="true"/>
+    <callParameterDefinitions name="SortingAttribute" type="java.lang.String" optional="true"/>
+    <callParameterDefinitions name="PageSize" type="java.lang.Object" optional="true"/>
+    <callParameterDefinitions name="PageNumber" type="java.lang.Object" optional="true"/>
+    <callParameterInterfaces referencedName="app_sf_responsive_cm:interface.pagevariant.content.pagelet2-Interface"/>
+    <configurationParameterDefinitions name="ProductView" localizable="false" typeReference="bc_pmc:types.pagelet2-ViewContext">
+      <parameterBindings xsi:type="core:ParameterValueBinding" name="ObjectType" value="Product"/>
+    </configurationParameterDefinitions>
+    <configurationParameterDefinitions name="ListItemCSSClass" optional="true" localizable="false" typeReference="bc_pmc:types.pagelet2-Text"/>
+    <configurationParameterDefinitions name="Sortings" optional="true" multiple="true" localizable="false" typeReference="sld_mcm:parametertype.sortby.pagelet2-SortBy"/>
+    <renderTemplate referencedName="component/shopping/ProductListFilter"/>
+    <slotInclusionDefinitions>
+      <slotDefinition referencedName="app_sf_responsive_cm:slot.marketing.base.pagelet2-Slot"/>
+    </slotInclusionDefinitions>
+  </pageletDefinitions>
+</pagelet:PageletModel>

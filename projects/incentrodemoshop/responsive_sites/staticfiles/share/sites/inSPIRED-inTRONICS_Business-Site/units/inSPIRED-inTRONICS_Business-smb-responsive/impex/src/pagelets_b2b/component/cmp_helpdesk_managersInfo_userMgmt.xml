@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<enfinity xmlns:dt="http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt">
+<pagelet-component id="cmp_helpdesk_managersInfo_userMgmt">
+<definition-name>app_sf_responsive_cm:component.common.freeStyle.pagelet2-Component</definition-name>
+<display-name xml:lang="de-DE">Benutzerverwaltung</display-name>
+<display-name xml:lang="en-US">User Management</display-name>
+<display-name xml:lang="fr-FR">Gestion des utilisateurs</display-name>
+<online>true</online>
+<author business-partner-no="admin" domain="inSPIRED"/>
+<configuration-parameters>
+<configuration-parameter name="HTML">
+<definition-name>app_sf_responsive_cm:component.common.freeStyle.pagelet2-Component-HTML</definition-name>
+<value name="HTML" xml:lang="de-DE">&lt;h1&gt;Benutzerverwaltung&lt;/h1&gt;
+&lt;p&gt;Das B2B-Schaufenster enthält einen Management-Bereich für Benutzer einer Kundenorganisation. Hier können Administratoren der Organisation Benutzer anlegen und verwalten.&lt;/p&gt;
+&lt;h2&gt;Benutzer anlegen&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Melden Sie sich als Administrator der Kundenorganisation an.&lt;/li&gt;
+&lt;li&gt;Öffnen Sie die &lt;em&gt;Benutzer&lt;/em&gt;-Liste.&lt;/li&gt;
+&lt;li&gt;Klicken Sie &lt;em&gt;Benutzer hinzufügen&lt;/em&gt;.&lt;br /&gt;Das &lt;em&gt;Neuen Benutzer Anlegen&lt;/em&gt; Formular wird geöffnet.&lt;/li&gt;
+&lt;li&gt;Geben Sie die erforderlichen Daten ein und klicken Sie auf &lt;em&gt;Benutzer anlegen&lt;/em&gt;.&lt;/li&gt;
+&lt;li&gt;Neu angelegte Benutzer erhalten eine E-Mail, um ein Passwort und ein Login anzugeben.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;Benutzerdaten, Rollen und Budgets verwalten&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Melden Sie sich als Administrator der Kundenorganisation an.&lt;/li&gt;
+&lt;li&gt;Öffnen Sie die &lt;em&gt;Benutzer&lt;/em&gt;-Liste.&lt;/li&gt;
+&lt;li&gt;Klicken Sie auf den Namen des Benutzers oder die Schaltfläche Bearbeiten in der Zeile des Benutzers, den Sie bearbeiten möchten.&lt;br /&gt;Die Benutzerdetails-Seite wird geöffnet.&lt;/li&gt;
+&lt;li&gt;Klicken Sie im Abschnitt &lt;em&gt;Profil&lt;/em&gt; auf Bearbeiten, um persönliche Daten zu ändern, z.B. Name, Telefonnummer, Abteilungszugehörigkeit etc.&lt;br /&gt;Hier können Sie auch den Benutzer aktivieren und deaktivieren.&lt;br /&gt; Bitte beachten Sie, dass deaktivierte Benutzer sich nicht einloggen können.&lt;/li&gt;
+&lt;li&gt;Klicken Sie im Abschnitt Rollen- &amp; Budgetlimits auf Bearbeiten, um Rollen hinzuzufügen oder zu entfernen, das Ausgabelimit pro Bestellung und das Budget anzupassen.&lt;br /&gt;Benutzerbudgets und Ausgabelimits pro Bestellung können für jeden Benutzer separat definiert werden. Wenn definiert, werden diese Werte verwendet, um zu entscheiden, ob eine Bestellung genehmigungspflichtig ist oder nicht. Eine Genehmigung ist erforderlich, wenn ein oder beide Werte überschritten werden. Sind keine Werte definiert, können Bestellungen ohne Genehmigung erteilt werden. Für weitere Informationen lesen Sie bitte den Abschnitt &lt;a href=&quot;page://page.helpdesk.managersinfo.approval&quot; class=&quot;confluence-link&quot; data-anchor=&quot;OrderApproval&quot; data-linked-resource-default-alias=&quot;OrderApproval&quot; data-base-url=&quot;https://confluence.intershop.de&quot;&gt;Bestellgenehmigungen&lt;/a&gt;.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;Benutzer löschen&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Melden Sie sich als Administrator der Kundenorganisation an.&lt;/li&gt;
+&lt;li&gt;Öffnen Sie die &lt;em&gt;Benutzer&lt;/em&gt;-Liste.&lt;/li&gt;
+&lt;li&gt;Klicken Sie auf das &lt;em&gt;Löschen&lt;/em&gt;-Icon (Mülleimer) in der Zeile des Benutzers.&lt;/li&gt;
+&lt;/ol&gt;</value>
+<value name="HTML" xml:lang="en-US">&lt;h1&gt;User Management&lt;/h1&gt;
+&lt;p&gt;The B2B storefront contains a management section for users of a customer organization. Here administrators of the organization can create and manage users.&lt;/p&gt;
+&lt;h2&gt;Creating Users&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Log in as an administrator of the customer organization.&lt;/li&gt;
+&lt;li&gt;Go to the &lt;em&gt;Users&lt;/em&gt; list.&lt;/li&gt;
+&lt;li&gt;Click &lt;em&gt;Add User&lt;/em&gt;.&lt;br /&gt;The &lt;em&gt;Create New User&lt;/em&gt; form is opened.&lt;/li&gt;
+&lt;li&gt;Enter the required data and click &lt;em&gt;Create User&lt;/em&gt;.&lt;/li&gt;
+&lt;li&gt;Newly created users will receive an email in order to provide a password and login.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;Managing User Data, Roles and Budgets&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Log in as an administrator of the customer organization.&lt;/li&gt;
+&lt;li&gt;Go to the &lt;em&gt;Users&lt;/em&gt; list.&lt;/li&gt;
+&lt;li&gt;Click the user&apos;s name or the edit button in the row of the user you want to edit.&lt;br /&gt;The &lt;em&gt;User Details&lt;/em&gt; page is opened.&lt;/li&gt;
+&lt;li&gt;Click Edit in the &lt;em&gt;Profile&lt;/em&gt; section to alter personal data, e.g., name, phone number, department belonging etc.&lt;br /&gt;Here you can also activate and deactivate the user.&lt;br /&gt; Please note, deactivated users are not able to log in.&lt;/li&gt;
+&lt;li&gt;Click Edit in the &lt;em&gt;Role &amp; Budget Limits&lt;/em&gt; section to add or remove roles, adjust order spend limit and budget.&lt;br /&gt;User budgets and order spend limits can be defined for each user separately. If defined, these values are used to decide if an order requires approval or not. An approval is necessary if one or both values are exceeded. If no values are defined, orders can be placed without approval. For more information please read the section &lt;a href=&quot;page://page.helpdesk.managersinfo.approval&quot; class=&quot;confluence-link&quot; data-anchor=&quot;OrderApproval&quot; data-linked-resource-default-alias=&quot;OrderApproval&quot; data-base-url=&quot;https://confluence.intershop.de&quot;&gt;Order Approval&lt;/a&gt;.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;Deleting Users&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Log in as an administrator of the customer organization.&lt;/li&gt;
+&lt;li&gt;Go to the &lt;em&gt;Users&lt;/em&gt; list.&lt;/li&gt;
+&lt;li&gt;Click the &lt;em&gt;Delete&lt;/em&gt; icon (trash can) in the user&apos;s row.&lt;/li&gt;
+&lt;/ol&gt;</value>
+<value name="HTML" xml:lang="fr-FR">&lt;h1&gt;User Management&lt;/h1&gt;
+&lt;p&gt;The B2B storefront contains a management section for users of a customer organization. Here administrators of the organization can create and manage users.&lt;/p&gt;
+&lt;h2&gt;Creating Users&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Log in as an administrator of the customer organization.&lt;/li&gt;
+&lt;li&gt;Go to the &lt;em&gt;Users&lt;/em&gt; list.&lt;/li&gt;
+&lt;li&gt;Click &lt;em&gt;Add User&lt;/em&gt;.&lt;br /&gt;The &lt;em&gt;Create New User&lt;/em&gt; form is opened.&lt;/li&gt;
+&lt;li&gt;Enter the required data and click &lt;em&gt;Create User&lt;/em&gt;.&lt;/li&gt;
+&lt;li&gt;Newly created users will receive an email in order to provide a password and login.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;Managing User Data, Roles and Budgets&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Log in as an administrator of the customer organization.&lt;/li&gt;
+&lt;li&gt;Go to the &lt;em&gt;Users&lt;/em&gt; list.&lt;/li&gt;
+&lt;li&gt;Click the user&apos;s name or the edit button in the row of the user you want to edit.&lt;br /&gt;The &lt;em&gt;User Details&lt;/em&gt; page is opened.&lt;/li&gt;
+&lt;li&gt;Click Edit in the &lt;em&gt;Profile&lt;/em&gt; section to alter personal data, e.g., name, phone number, department belonging etc.&lt;br /&gt;Here you can also activate and deactivate the user.&lt;br /&gt; Please note, deactivated users are not able to log in.&lt;/li&gt;
+&lt;li&gt;Click Edit in the &lt;em&gt;Role &amp; Budget Limits&lt;/em&gt; section to add or remove roles, adjust order spend limit and budget.&lt;br /&gt;User budgets and order spend limits can be defined for each user separately. If defined, these values are used to decide if an order requires approval or not. An approval is necessary if one or both values are exceeded. If no values are defined, orders can be placed without approval. For more information please read the section &lt;a href=&quot;page://page.helpdesk.managersinfo.approval&quot; class=&quot;confluence-link&quot; data-anchor=&quot;OrderApproval&quot; data-linked-resource-default-alias=&quot;OrderApproval&quot; data-base-url=&quot;https://confluence.intershop.de&quot;&gt;Order Approval&lt;/a&gt;.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;Deleting Users&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Log in as an administrator of the customer organization.&lt;/li&gt;
+&lt;li&gt;Go to the &lt;em&gt;Users&lt;/em&gt; list.&lt;/li&gt;
+&lt;li&gt;Click the &lt;em&gt;Delete&lt;/em&gt; icon (trash can) in the user&apos;s row.&lt;/li&gt;
+&lt;/ol&gt;</value>
+</configuration-parameter>
+</configuration-parameters>
+</pagelet-component>
+</enfinity>

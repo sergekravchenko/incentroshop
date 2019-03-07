@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--@Group User-->
+
+<pipeline:Pipeline xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pipeline="http://www.intershop.de/pipeline/2010"
+    name="ViewUserProfile" overrideMode="Inherit" type="view">
+<!--@Location 2,0-->
+  <nodes xsi:type="pipeline:StartNode" nodeID="StartNode1" name="Update">
+    <nodeSuccessors name="next" next="CallNode3"/>
+  </nodes>
+<!--@Location 2,1-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode3">
+    <nodeSuccessors name="next" next="DecisionNode2"/>
+    <startNode referencedName="ViewProfileSettings-Prefix"/>
+  </nodes>
+<!--@Location 2,2-->
+  <nodes xsi:type="pipeline:DecisionNode" nodeID="DecisionNode2" conditionKey="UserBO:Extension(&quot;UserBORoleExtension&quot;):hasPermission(&quot;APP_B2B_MANAGE_USERS&quot;)"
+      operator="str_eq" conditionValue="true">
+    <nodeSuccessors name="decision_yes" next="KeyMapper2"/>
+    <nodeSuccessors name="decision_no" next="JumpNode2"/>
+  </nodes>
+<!--@Location 2,3-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="KeyMapper2">
+    <pipelet href="enfinity:/bc_foundation/pipelets/KeyMapper.xml"/>
+    <nodeSuccessors name="next" next="CallNode4"/>
+    <parameterBindings name="InValue_1" objectPath="CustomerBO:Extension(&quot;GroupCustomer&quot;):UserBOByID(UserID)"/>
+    <returnValueBindings name="OutValue_1" objectPath="SelectedUser"/>
+  </nodes>
+<!--@Location 2,4-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode4">
+    <nodeSuccessors name="next" next="ValidateForm0"/>
+    <startNode referencedName="ViewProfileSettings-GetUpdateProfileForm"/>
+    <returnValueBindings name="UpdateProfileForm" objectPath="CurrentForm"/>
+  </nodes>
+<!--@Location 2,5-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="ValidateForm0">
+    <pipelet href="enfinity:/core/pipelets/ValidateForm.xml"/>
+    <nodeSuccessors name="next" next="DecisionNode0"/>
+    <nodeSuccessors name="pipelet_error" next="JoinNode1"/>
+    <parameterBindings name="Form" objectPath="CurrentForm"/>
+  </nodes>
+<!--@Location 2,6-->
+  <nodes xsi:type="pipeline:DecisionNode" nodeID="DecisionNode0" conditionKey="CurrentForm:Title:Value"
+      operator="str_empty">
+    <nodeSuccessors name="decision_yes" next="JoinNode5"/>
+<!--@BendPoints 7,13-->
+    <nodeSuccessors name="decision_no" next="GetLocalizedTextByKey0"/>
+  </nodes>
+<!--@Location 2,8-->
+  <nodes xsi:type="pipeline:JoinNode" nodeID="JoinNode5">
+    <nodeSuccessors name="next" next="DecisionNode3"/>
+  </nodes>
+<!--@Location 2,9-->
+  <nodes xsi:type="pipeline:DecisionNode" nodeID="DecisionNode3" conditionKey="CurrentUser:ID"
+      operator="str_neq" conditionItem="SelectedUser:ID">
+    <nodeSuccessors name="decision_yes" next="VerifyBoolean0"/>
+<!--@BendPoints 6,19 6,21 6,23-->
+    <nodeSuccessors name="decision_no" next="JoinNode4"/>
+  </nodes>
+<!--@Location 2,10-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="VerifyBoolean0">
+    <pipelet href="enfinity:/bc_foundation/pipelets/VerifyBoolean.xml"/>
+    <nodeSuccessors name="next" next="JoinNode4"/>
+    <parameterBindings name="NoneLocalizedString" constant="true"/>
+    <returnValueBindings name="BooleanValue" objectPath="SkipSessionLocaleUpdate"/>
+  </nodes>
+<!--@Location 2,11-->
+  <nodes xsi:type="pipeline:JoinNode" nodeID="JoinNode4">
+    <nodeSuccessors name="next" next="CallNode5"/>
+  </nodes>
+<!--@Location 2,12-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode5">
+    <nodeSuccessors name="next" next="KeyMapper1"/>
+    <nodeSuccessors name="ERROR" next="JoinNode3"/>
+    <parameterBindings name="Active" objectPath="CurrentForm:Active:Value"/>
+    <parameterBindings name="BirthdayDate" objectPath="CurrentForm:Birthday:Value"/>
+    <parameterBindings name="Department" objectPath="CurrentForm:Department:Value"/>
+    <parameterBindings name="Fax" objectPath="CurrentForm:Fax:Value"/>
+    <parameterBindings name="FirstName" objectPath="CurrentForm:FirstName:Value"/>
+    <parameterBindings name="Gender" objectPath="CurrentForm:Gender:Value"/>
+    <parameterBindings name="LastName" objectPath="CurrentForm:LastName:Value"/>
+    <parameterBindings name="LocaleID" objectPath="CurrentForm:LocaleID:Value"/>
+    <parameterBindings name="PhoneBusiness" objectPath="CurrentForm:Phone:Value"/>
+    <parameterBindings name="Title" objectPath="Title"/>
+    <parameterBindings name="UserBO" objectPath="SelectedUser"/>
+    <startNode referencedName="ProcessUserProfileSettings-UpdateProfile"/>
+  </nodes>
+<!--@displayNearNode@ViewProfileSettings\-ViewProfile
+@Location 2,13-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="KeyMapper1">
+    <configurationValues name="ValueType" value="Dictionary Value"/>
+    <pipelet href="enfinity:/bc_foundation/pipelets/KeyMapper.xml"/>
+    <nodeSuccessors name="next" next="CallNode6"/>
+    <parameterBindings name="InValue_1" constant="ViewUserProfile-View"/>
+    <parameterBindings name="InValue_2" constant="UpdateProfile"/>
+    <returnValueBindings name="OutValue_1" objectPath="JumpTarget"/>
+    <returnValueBindings name="OutValue_2" objectPath="ShowSuccessMessage"/>
+  </nodes>
+<!--@Location 2,14-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode6">
+    <nodeSuccessors name="next" next="JumpNode1"/>
+    <startNode referencedName="ViewData-SecureForBrowserBack"/>
+  </nodes>
+<!--@Location 2,15-->
+  <nodes xsi:type="pipeline:JumpNode" nodeID="JumpNode1">
+    <startNode referencedName="ViewUser-Start"/>
+  </nodes>
+<!--@Location 0,12-->
+  <nodes xsi:type="pipeline:JoinNode" nodeID="JoinNode3">
+    <nodeSuccessors name="next" next="KeyMapper0"/>
+  </nodes>
+<!--@Location 0,13-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="KeyMapper0">
+    <configurationValues name="ValueType" value="Dictionary Value"/>
+    <pipelet href="enfinity:/bc_foundation/pipelets/KeyMapper.xml"/>
+    <nodeSuccessors name="next" next="CallNode2"/>
+    <parameterBindings name="InValue_1" constant=""/>
+    <parameterBindings name="InValue_2" constant=""/>
+    <parameterBindings name="InValue_4" objectPath="CustomerBO:Extension(&quot;GroupCustomer&quot;):UserBOByID(UserID)"/>
+    <returnValueBindings name="OutValue_4" objectPath="SelectedUser"/>
+  </nodes>
+<!--@Location 0,14-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode2">
+    <nodeSuccessors name="next" next="RenderSystemPageWithTemplate0_Input"/>
+    <parameterBindings name="CountryCode" objectPath="CurrentForm:CountryCode:Value"/>
+    <startNode referencedName="ProcessWebforms-GetSalutationProvider"/>
+  </nodes>
+<!--@Location 0,15-->
+  <nodes xsi:type="pipeline:PipelineNodeNode" nodeID="RenderSystemPageWithTemplate0">
+    <configurationValues name="PageEntryPointDefinitionReference" value="app_sf_responsive_b2b:systempage.account.profile.user.pagelet2-Page"/>
+    <configurationValues name="WorkingTemplate" value="account/UserProfile.isml"/>
+    <pipelet href="enfinity:/sld_ch_sf_base/pipelets/com.intershop.sellside.storefront.base.capi.pipeline.RenderSystemPageWithTemplate.pipelinenode"/>
+    <inConnectors name="Input">
+      <parameterBindings name="Dictionary" objectPath="CurrentRequest:PipelineDictionary"/>
+    </inConnectors>
+  </nodes>
+<!--@Location 3,7-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="GetLocalizedTextByKey0">
+    <pipelet href="enfinity:/core/pipelets/GetLocalizedTextByKey.xml"/>
+<!--@BendPoints 7,17-->
+    <nodeSuccessors name="next" next="JoinNode5"/>
+    <nodeSuccessors name="pipelet_error" next="JoinNode2"/>
+    <parameterBindings name="Key" objectPath="CurrentForm:Title:Value"/>
+    <returnValueBindings name="LocalizedText" objectPath="Title"/>
+  </nodes>
+<!--@Location 0,7-->
+  <nodes xsi:type="pipeline:JoinNode" nodeID="JoinNode2">
+    <nodeSuccessors name="next" next="JoinNode3"/>
+  </nodes>
+<!--@Location 0,5-->
+  <nodes xsi:type="pipeline:JoinNode" nodeID="JoinNode1">
+    <nodeSuccessors name="next" next="JoinNode2"/>
+  </nodes>
+<!--@Location 3,2-->
+  <nodes xsi:type="pipeline:JumpNode" nodeID="JumpNode2">
+    <startNode referencedName="Error-NotFound"/>
+  </nodes>
+<!--@Location 0,0-->
+  <nodes xsi:type="pipeline:StartNode" nodeID="StartNode0" name="View">
+    <nodeSuccessors name="next" next="CallNode0"/>
+  </nodes>
+<!--@Location 0,1-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode0">
+    <nodeSuccessors name="next" next="DecisionNode1"/>
+    <startNode referencedName="ViewProfileSettings-Prefix"/>
+  </nodes>
+<!--@Location 0,2-->
+  <nodes xsi:type="pipeline:DecisionNode" nodeID="DecisionNode1" conditionKey="UserBO:Extension(&quot;UserBORoleExtension&quot;):hasPermission(&quot;APP_B2B_MANAGE_USERS&quot;)"
+      operator="str_eq" conditionValue="true">
+    <nodeSuccessors name="decision_yes" next="CallNode1"/>
+    <nodeSuccessors name="decision_no" next="JumpNode0"/>
+  </nodes>
+<!--@Location 0,3-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode1">
+    <nodeSuccessors name="next" next="JoinNode1"/>
+    <startNode referencedName="ViewProfileSettings-GetUpdateProfileForm"/>
+    <returnValueBindings name="UpdateProfileForm" objectPath="CurrentForm"/>
+  </nodes>
+<!--@Location 1,2-->
+  <nodes xsi:type="pipeline:JumpNode" nodeID="JumpNode0">
+    <startNode referencedName="Error-NotFound"/>
+  </nodes>
+</pipeline:Pipeline>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<extensionpoint:ExtensionPointModel xmlns:extensionpoint="http://www.intershop.de/extensionpoint/2011"
+    name="PurchaserBoxReceipt">
+  <extensionBindings type="isml" extensionPoint="checkout/receipt/CheckoutReceipt-CheckoutReceiptAdditionalInfoBox"
+      extension="account/orders/Purchaser"/>
+  <extensionBindings type="isml" extensionPoint="checkout/receipt/CheckoutReceiptSubscription-CheckoutReceiptAdditionalInfoBox"
+      extension="checkout/review/Purchaser"/>
+  <extensionBindings type="isml" extensionPoint="account/subscriptions/hbs/view/subscriptionDetails-SubscriptionPurchaserInfoBox"
+      extension="checkout/review/Purchaser"/>
+</extensionpoint:ExtensionPointModel>

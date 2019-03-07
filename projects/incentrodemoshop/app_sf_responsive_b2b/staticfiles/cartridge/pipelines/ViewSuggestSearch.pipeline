@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--@Group Search-->
+
+<pipeline:Pipeline xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pipeline="http://www.intershop.de/pipeline/2010"
+    name="ViewSuggestSearch" overrideMode="Inherit" type="view">
+<!--creates the response xml for the suggest search box
+@Location 5,1-->
+  <nodes xsi:type="pipeline:StartNode" nodeID="StartNode0" name="SuggestSKU">
+    <nodeSuccessors name="next" next="CallNode0"/>
+  </nodes>
+<!--@Location 5,3-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode0">
+    <nodeSuccessors name="next" next="CallNode1"/>
+    <parameterBindings name="DefaultQueryTerm" constant="*"/>
+    <parameterBindings name="Domain" objectPath="CurrentOrganization:OwningDomain"/>
+    <parameterBindings name="FeatureID" constant="SFProductSearch"/>
+    <parameterBindings name="Locale" objectPath="CurrentRequest:Locale"/>
+    <parameterBindings name="QueryTerm" objectPath="SearchTerm"/>
+    <startNode referencedName="ProcessSearchBySearchIndex-GetSearchIndexQuery"/>
+    <returnValueBindings name="SearchIndex" objectPath="SearchIndex"/>
+    <returnValueBindings name="SearchIndexQuery" objectPath="SearchIndexQuery"/>
+  </nodes>
+<!--@Location 5,4-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode1">
+    <nodeSuccessors name="next" next="SetDictionaryValue0"/>
+    <startNode referencedName="ProcessSearchBySearchIndex-ProcessSuggestSKU"/>
+  </nodes>
+<!--@Location 5,5-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="SetDictionaryValue0">
+    <configurationValues name="Name" value="ShowSuggest"/>
+    <configurationValues name="Value" value="true"/>
+    <pipelet href="enfinity:/bc_foundation/pipelets/SetDictionaryValue.xml"/>
+<!--@BendPoints 11,12-->
+    <nodeSuccessors name="next" next="InteractionNode0"/>
+  </nodes>
+<!--@Location 5,6-->
+  <nodes xsi:type="pipeline:InteractionNode" nodeID="InteractionNode0">
+    <template referencedName="inc/search/SuggestSKU.isml"/>
+  </nodes>
+</pipeline:Pipeline>

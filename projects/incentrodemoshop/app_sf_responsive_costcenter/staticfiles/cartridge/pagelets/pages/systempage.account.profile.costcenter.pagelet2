@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pagelet:PageletModel xmlns:pagelet="http://www.intershop.de/pagelet/2010" name="systempage.account.profile.costcenter.pagelet2">
+  <pageEntryPointDefinitions name="Page" systemManaged="true">
+    <callParameterDefinitions name="UserBO" type="com.intershop.component.user.capi.UserBO" />
+    <callParameterDefinitions name="CustomerBO" type="com.intershop.component.customer.capi.CustomerBO" />
+    <callParameterDefinitions name="Dictionary" type="com.intershop.beehive.core.capi.pipeline.PipelineDictionary" />
+    <callParameterInterfaces referencedName="app_sf_responsive:interface.page.standard.pagelet2-Interface" />
+  </pageEntryPointDefinitions>
+</pagelet:PageletModel>

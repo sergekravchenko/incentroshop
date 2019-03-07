@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<enfinity xmlns:dt="http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt">
+<pagelet-component id="cmp_helpdesk_faq_questions">
+<definition-name>app_sf_responsive_cm:component.common.collection.pagelet2-Component</definition-name>
+<display-name xml:lang="de-DE">Hilfe - FAQ - Fragen</display-name>
+<display-name xml:lang="en-US">Helpdesk - FAQ - Questions</display-name>
+<display-name xml:lang="fr-FR">Assistance technique - FAQ - Questions</display-name>
+<online>true</online>
+<author business-partner-no="admin" domain="inSPIRED"/>
+<configuration-parameters>
+<configuration-parameter name="CollectionType">
+<definition-name>app_sf_responsive_cm:component.common.collection.pagelet2-Component-CollectionType</definition-name>
+<value name="CollectionType">toclist</value>
+</configuration-parameter>
+</configuration-parameters>
+<slots>
+<slot>
+<definition-name>app_sf_responsive_cm:slot.collection.items.pagelet2-Slot</definition-name>
+<optional>false</optional>
+<sorting>false</sorting>
+</slot>
+</slots>
+</pagelet-component>
+<pagelet-slot-assignment id="U3oKAM4.gZUAAAE_aWgYNOx_">
+<slot definition-name="app_sf_responsive_cm:slot.collection.items.pagelet2-Slot" parent-pagelet-id="cmp_helpdesk_faq_questions" domain="inSPIRED-MasterRepository"/>
+<pagelet id="cmp_helpdesk_faq_question_address_changed" domain="inSPIRED-MasterRepository"/>
+<position>9</position>
+<online>true</online>
+</pagelet-slot-assignment>
+<pagelet-slot-assignment id="OLkKAM4.Dt0AAAE_J78YNOx9">
+<slot definition-name="app_sf_responsive_cm:slot.collection.items.pagelet2-Slot" parent-pagelet-id="cmp_helpdesk_faq_questions" domain="inSPIRED-MasterRepository"/>
+<pagelet id="cmp_helpdesk_faq_question_cant_login" domain="inSPIRED-MasterRepository"/>
+<position>8</position>
+<online>true</online>
+</pagelet-slot-assignment>
+<pagelet-slot-assignment id="vGoKAM4..k0AAAE_qJUYNOyA">
+<slot definition-name="app_sf_responsive_cm:slot.collection.items.pagelet2-Slot" parent-pagelet-id="cmp_helpdesk_faq_questions" domain="inSPIRED-MasterRepository"/>
+<pagelet id="cmp_helpdesk_faq_question_newsletter" domain="inSPIRED-MasterRepository"/>
+<position>10</position>
+<online>true</online>
+</pagelet-slot-assignment>
+<pagelet-slot-assignment id="QcsKAM4.a4kAAAE_0AkYNOx2">
+<slot definition-name="app_sf_responsive_cm:slot.collection.items.pagelet2-Slot" parent-pagelet-id="cmp_helpdesk_faq_questions" domain="inSPIRED-MasterRepository"/>
+<pagelet id="cmp_helpdesk_faq_question_order_by_phone_or_fax" domain="inSPIRED-MasterRepository"/>
+<position>3</position>
+<online>true</online>
+</pagelet-slot-assignment>
+<pagelet-slot-assignment id="J6oKAM4.LsMAAAE_pyQYNOx7">
+<slot definition-name="app_sf_responsive_cm:slot.collection.items.pagelet2-Slot" parent-pagelet-id="cmp_helpdesk_faq_questions" domain="inSPIRED-MasterRepository"/>
+<pagelet id="cmp_helpdesk_faq_question_order_has_not_arrived_yet" domain="inSPIRED-MasterRepository"/>
+<position>6</position>
+<online>true</online>
+</pagelet-slot-assignment>
+<pagelet-slot-assignment id="bOoKAM4.g9EAAAE_8cAYNOxw">
+<slot definition-name="app_sf_responsive_cm:slot.collection.items.pagelet2-Slot" parent-pagelet-id="cmp_helpdesk_faq_questions" domain="inSPIRED-MasterRepository"/>
+<pagelet id="cmp_helpdesk_faq_question_out_of_stock" domain="inSPIRED-MasterRepository"/>
+<position>1</position>
+<online>true</online>
+</pagelet-slot-assignment>
+<pagelet-slot-assignment id="O48KAM4.2wcAAAE_tJwYNOx5">
+<slot definition-name="app_sf_responsive_cm:slot.collection.items.pagelet2-Slot" parent-pagelet-id="cmp_helpdesk_faq_questions" domain="inSPIRED-MasterRepository"/>
+<pagelet id="cmp_helpdesk_faq_question_promo_codes" domain="inSPIRED-MasterRepository"/>
+<position>5</position>
+<online>true</online>
+</pagelet-slot-assignment>
+<pagelet-slot-assignment id="WMAKAM4.PjUAAAE_NM0YNOx3">
+<slot definition-name="app_sf_responsive_cm:slot.collection.items.pagelet2-Slot" parent-pagelet-id="cmp_helpdesk_faq_questions" domain="inSPIRED-MasterRepository"/>
+<pagelet id="cmp_helpdesk_faq_question_redeem_gift_card_or_certificate" domain="inSPIRED-MasterRepository"/>
+<position>4</position>
+<online>true</online>
+</pagelet-slot-assignment>
+<pagelet-slot-assignment id="1LMKAM4.nkEAAAE_1HAYNOx8">
+<slot definition-name="app_sf_responsive_cm:slot.collection.items.pagelet2-Slot" parent-pagelet-id="cmp_helpdesk_faq_questions" domain="inSPIRED-MasterRepository"/>
+<pagelet id="cmp_helpdesk_faq_question_return_product_from_last_order" domain="inSPIRED-MasterRepository"/>
+<position>7</position>
+<online>true</online>
+</pagelet-slot-assignment>
+<pagelet-slot-assignment id="wtEKAM4.jmMAAAE_a9YYNOx0">
+<slot definition-name="app_sf_responsive_cm:slot.collection.items.pagelet2-Slot" parent-pagelet-id="cmp_helpdesk_faq_questions" domain="inSPIRED-MasterRepository"/>
+<pagelet id="cmp_helpdesk_faq_question_shipping_costs" domain="inSPIRED-MasterRepository"/>
+<position>2</position>
+<online>true</online>
+</pagelet-slot-assignment>
+</enfinity>

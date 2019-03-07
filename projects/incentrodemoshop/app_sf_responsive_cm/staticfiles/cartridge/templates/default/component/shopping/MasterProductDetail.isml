@@ -1,0 +1,219 @@
+<%@page import="com.intershop.component.product.capi.ProductBO"%>
+<iscontent personalized="true" type="text/html" charset="UTF-8" compact="true">
+<iscache type="relative" hour="24">
+<iscachekey object="#ProductBO#">
+<isinclude template="modules/Modules">
+<!--- 
+	Script include calling a Pipeline that returns product JSON as variable. The include can be cached by the browser. 
+	The timestamp parameter is updated every time the isml template is interpreted (this is, when it is not cached, e.g. when 
+	the cache has just be invalidated). This results in the timestamp parameter being updated only when the isml template is
+	NOT cached. As a result, invalidating of the isml template cache will also invalidate the browser cache for the script 
+	include due to the changing timestamp parameter.
+	The definition of the variable and include of the JSON template can be found in the following files:
+		single product: \source\app_sf_responsive\staticfiles\cartridge\templates\default\inc\product\json\ProductJSONAsVariable.isml
+		product list:   \source\app_sf_responsive\staticfiles\cartridge\templates\default\inc\product\json\ProductsJSONAsVariable.isml
+	  
+	TODO: 
+		- add isml caching to this file
+		- suround script tag with IS tag to move it to the document head (if that is possible in combination with caching)
+	
+	Note: to retrieve a product list JSON use same script include as below just with the Pipeline 'GetProductData-FormatProducts' 
+		  and provide ProductIDs of all products data is required for. 
+--->
+
+<!--- currently only used to get ProductJSON for variation products in ProductVariationSelect.isml
+<script src="#URL(Action('GetProductData-FormatProduct'), Parameter('Format', 'JSON'), Parameter('ReturnVariable', 'true'), Parameter('ProductID', ProductBO:ID), Parameter('timestamp', getValue(ProductBO:LastModified:Time, '#')))#"></script>
+--->
+
+<!--- The following code can be used to output the product JSON inline --->
+<!---
+<script type="text/javascript">
+  //<![CDATA[
+	KOR.namespace('KOR.product.productJSON')['#ProductBO:ID#'] = <isinclude template="product/json/ProductJSON">;
+  //]]>
+</script>
+--->
+
+<iscomment>TODO this check must use a permission (not a role) when ready</iscomment>
+<isif condition="#UserBO:Extension("UserBORoleExtension"):hasRole("APP_B2B_OCI_USER")#">
+	<isset name="USER_HAS_ROLE_APP_B2B_OCI_USER" value="true" scope="request"/>
+<iselse>
+	<isset name="USER_HAS_ROLE_APP_B2B_OCI_USER" value="false" scope="request"/>
+</isif>
+
+<isif condition="#ProductBO:isMastered#">
+	<isset name="CanonicalLinkForMasteredProduct" value="true" scope="request"/>   <!--- trick for product rewrite rule --->
+	<issetcanonicallink
+		scope="request"
+		name="CanonicalLink"
+		action="ViewProduct-Start"
+		parameters="#ParameterList(Parameter('SKU', ProductBO:ProductBOMaster:SKU))#">
+<iselse>
+	<isset name="CanonicalLinkForProduct" value="true" scope="request"/>   <!--- trick for product rewrite rule --->
+	<issetcanonicallink
+		scope="request"
+		name="CanonicalLink"
+		action="ViewProduct-Start"
+		parameters="#ParameterList(Parameter('SKU', ProductBO:SKU))#">
+</isif>
+<!--- Please note that XSS vulnerabilities are handled since we will override any user supplied input --->
+<ISPLACEMENT placeholderid="CANONICAL"><link rel="canonical" href="<isprint encoding="off" value="#CanonicalLink#">" /></ISPLACEMENT>
+
+<isset name="RichSnippetsEnabled" value="#OwningDomain:Configuration:String("RichSnippetsEnabled")#" scope="request"/>
+
+<div class="clearfix"
+	data-testing-id="product-detail-page"
+	data-dynamic-block
+	data-dynamic-block-call-parameters="CID=<isprint value="#Pagelet:UUID#">"
+	data-dynamic-block-product-id="<isprint value="#ProductBO:ID#">"
+	<isif condition="#RichSnippetsEnabled EQ 'true'#">itemscope itemtype="http://schema.org/Product"</isif>
+>
+	<!--- breadcrumb --->
+	<div class="breadcrumbs row">
+		<ISBreadcrumb showhomelink="true" product="#ProductBO#" categorybo="#CategoryBO#">
+	</div>
+
+	<!--- marketing spot --->
+	<div class="marketing-area">
+		<isslot slot="app_sf_responsive_cm:slot.marketing.base.pagelet2-Slot">
+	</div>
+	
+	<!--- product tools/actions --->
+	<isinclude template="inc/product/ProductTools">
+	<isif condition="#(ProductBO:ProductMaster OR ProductBO:isMastered) AND isDefined(ProductBO:Attribute("MarketPlace")) AND ProductBO:Attribute("MarketPlace")#">
+		<isif condition="#ProductBO:ProductMaster#">
+			<isset name="ProductBO" value="#ProductBO:DefaultVariationProductBO#" scope="request"/>
+		</isif>
+	
+	
+		<isset name="FirstVariation" value="#ProductBO#" scope="request"/>
+		<div class="row product-details">
+			<!--- product images --->
+			<isinclude template="inc/product/ProductImages">
+			
+			<!--- product details --->
+			<div class="col-md-4 col-sm-6 col-xs-12">
+				<!--- product tabs --->
+				<div id="accordion" class="panel-group">
+					<isinclude template="inc/product/DescriptionTab">
+					<isinclude template="inc/product/DetailsTab">
+					<isinclude template="inc/product/AttachmentsTab">
+					<iscomment>TODO this check must use a permission (not a role) when ready</iscomment>
+					<isif condition="#NOT(isDefined(USER_HAS_ROLE_APP_B2B_OCI_USER)) OR (USER_HAS_ROLE_APP_B2B_OCI_USER EQ 'false')#">
+						<isinclude template="inc/product/PolicyTab">
+						<isinclude template="inc/product/ShippingTab">
+					</isif>
+				</div>
+			</div>
+		</div>
+	<iselse>
+		<div class="row product-details">
+
+			<!--- product images --->
+			<isinclude template="inc/product/ProductImages">
+	
+			<!--- product details --->
+			<div class="col-md-4 col-sm-6 col-xs-12">
+				<isinclude template="inc/product/MasterProductInfos">
+	
+				<!--- product tabs --->
+	                        <div id="accordion" class="panel-group">
+				<isinclude template="inc/product/DescriptionTab">
+				<isinclude template="inc/product/DetailsTab">
+				<!--- If we do have a master --->
+				<isif condition="#ProductBO:ProductMaster#">
+					<!--- We show the products attachments --->
+					<isinclude template="inc/product/AttachmentsTab">
+				</isif>
+				<isif condition="#NOT(isDefined(USER_HAS_ROLE_APP_B2B_OCI_USER)) OR (USER_HAS_ROLE_APP_B2B_OCI_USER EQ 'false')#">
+					<isinclude template="inc/product/PolicyTab">
+					<isinclude template="inc/product/ShippingTab">
+				</isif>
+	                        </div>
+	                </div>
+	
+			<!--- The above page break only applies for Variance --->
+	
+			<!--- product listing for Bundle Products --->
+			<isif condition="#(ProductBO:isProductBundle AND hasElements(ProductBO:BundleInformationBO:BundledProductBOs))#">
+				<isinclude template="inc/product/ProductBundle">
+			<!--- product listing for Retail Sets --->
+			<iselseif condition="#(ProductBO:isRetailSet AND hasElements(ProductBO:BundleInformationBO:BundledProductBOs))#">
+				<isinclude template="inc/product/RetailSet">
+	
+			<!--- variation listing for Master Product --->
+			<iselseif condition="#(ProductBO:ProductMaster) OR (isDefined(ListNavigationVO) AND (ListNavigationVO:ElementCount > 0))#">
+			
+				<div id="master-product-variations" class="product-search-result">
+					<div class="row">
+						<div class="col-sm-12 col-xs-12">
+							<ISMasterProductFilterList
+								ListNavigationVO="#ListNavigationVO#" 
+								showCount="true" 
+								showSelected="true"
+								CategoryBO="#CategoryBO#"
+							>
+						</div>
+					</div>
+					<div class="filter-group margin-bottom-zero"></div>
+					<isif condition="#isDefined(ProductBOs) AND hasElements(ProductBOs)#">
+						<div class="row">
+							<div class="col-sm-12">
+								<isif condition="#isDefined(ListNavigationVO)#">
+									<ISProductListFilters
+										ListNavigationVO="#ListNavigationVO#"
+										ViewType="#ViewType#"
+										sortings="#PageletConfigurationParameters:Sortings#"
+									>
+								</isif>
+		
+								<isset name="ProductListRequestingPage" value="ProductDetail" scope="session"/>
+		
+								<isif condition="#isDefined(ViewType) AND (ViewType EQ '2')#">
+									<ISProductList 
+										ProductBOs="#ProductBOs#"
+										CategoryBO="#CategoryBO#"
+										viewContext="#PageletConfigurationParameters:ProductView2#"
+										listItemCssClass="col-md-12 list-view"
+										maxNumberOfProducts="#PageletConfigurationParameters:MaxNumberOfProducts#"
+									>
+								<iselse>
+									<ISProductList 
+										ProductBOs="#ProductBOs#"
+										CategoryBO="#CategoryBO#"
+										viewContext="#PageletConfigurationParameters:ProductView1#"
+										listItemCssClass="col-md-4 col-sm-6 col-xs-12 grid-view"
+										maxNumberOfProducts="#PageletConfigurationParameters:MaxNumberOfProducts#"
+									>
+								</isif>
+		
+								<isif condition="#isDefined(ListNavigationVO)#">
+		                            <ISProductListFilters
+		                                ListNavigationVO="#ListNavigationVO#"
+		                                ViewType="#ViewType#"
+		                                sortings="#PageletConfigurationParameters:Sortings#"
+		                            >
+		                        </isif>
+							</div>		
+						</div>
+					</isif>
+				</div>		
+			</isif>
+		</div>
+	</isif>
+
+	<isif condition="#NOT (ProductBO:ProductMaster)#">
+		<!--- product reviews --->
+		<div class="section">
+	        <isinclude template="inc/product/Reviews">
+		</div>
+	</isif>
+	
+	<!--- marketing spot --->
+	<div class="marketing-area">
+		<isslot slot="app_sf_responsive_cm:slot.marketing.product.pagelet2-Slot">
+	</div>
+</div>
+
+<!--- add current product to recently viewed products --->
+<isinclude url="#URL(Action('IncludeRecentlyViewedItems-AddRecentlyViewedProduct'), Parameter('ProductID', ProductBO:ID), Parameter('ProductDomainUUID', ProductBO:Repository:RepositoryID))#">

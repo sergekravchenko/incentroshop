@@ -1,0 +1,49 @@
+<iscontent type="text/html" session="false" charset="UTF-8" compact="true">
+<isinclude template="email/mailTemplate/Modules">
+
+<isinclude template="email/mailTemplate/MailConfig"/>
+
+<isMailHeader ChannelName="#ChannelName#" ShowMyAccountLink="true" ShowCustomerInformation="true">
+
+<p class="header">
+	<istext key="email.registration.heading" parameter0="#ChannelName#" /><br />
+	<isif condition="#isDefined(User:Profile:Title) AND (User:Profile:Title NE '')#">
+		<span class="name"><istext key="email.label.title_firstname_lastname" parameter0="#User:Profile:Title#" parameter1="#User:Profile:DataSheet:FirstName#" parameter2="#User:Profile:DataSheet:LastName#" /></span>
+	<iselse> 
+		<span class="name"><istext key="email.label.firstname_lastname" parameter0="#User:Profile:DataSheet:FirstName#" parameter1="#User:Profile:DataSheet:LastName#" /></span>
+	</isif>
+</p>
+
+<p>
+	<isif condition="#ApplicationBO:Extension("CustomerApproval"):Enabled(CustomerBO:CustomerType)#">
+		<istext key="email.thankyou.message.customer.approval.enabled" 
+			parameter0="#encodeValue(URL(Action('ViewHomepage-Start')))#" 
+			parameter1="#encodeValue(ChannelName)#"
+			encoding="off"
+		/>
+	<iselse>
+		<istext key="email.thankyou.message" 
+			parameter0="#encodeValue(URL(Action('ViewHomepage-Start')))#" 
+			parameter1="#encodeValue(ChannelName)#"
+			parameter2="#URLEX('https','',Action('ViewUserAccount-Start'))#" 
+			parameter3="#encodeValue(User:Profile:Credentials:Login)#"
+			encoding="off"
+		/>
+	</isif>
+</p>
+
+<p>
+	<istext key="email.questions"
+		parameter0="#encodeValue(URL(Action('ViewHomepage-Start')))#" 
+		parameter1="#encodeValue(ChannelName)#" 
+		parameter2="#encodeValue(URL(Action('ViewContent-Start'), Parameter('PageletEntryPointID','systempage.helpdesk.index.pagelet2-Page')))#"
+		encoding="off" 
+	/>
+</p>
+
+<p>
+	<istext key="email.best_regards.label"/><br />
+	<istext key="email.user_services.label" parameter0="#encodeValue(URL(Action('ViewHomepage-Start')))#" parameter1="#encodeValue(ChannelName)#" encoding="off"/>
+</p>
+
+<isinclude template="email/mailTemplate/MailFooter"/>

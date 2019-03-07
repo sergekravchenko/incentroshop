@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--@Group Punchout-->
+
+<pipeline:Pipeline xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pipeline="http://www.intershop.de/pipeline/2010"
+    name="ProcessOCICatalog" overrideMode="Inherit" type="process">
+<!--@Location 11,0-->
+  <nodes xsi:type="pipeline:StartNode" nodeID="StartNode3" strict="true" name="AddProductToBasket"
+      callMode="Private" secure="true">
+    <nodeSuccessors name="next" next="CallNode4"/>
+    <parameters name="ProductSKU" type="java.lang.String"/>
+    <parameters name="Quantity" type="java.lang.String"/>
+    <parameters name="BasketBO" type="com.intershop.component.basket.capi.BasketBO"/>
+    <parameters name="ProductBORepository" type="com.intershop.component.product.capi.ProductBORepository"/>
+  </nodes>
+<!--@Location 11,1-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode4">
+    <nodeSuccessors name="next" next="DecisionNode1"/>
+    <startNode referencedName="ProcessProduct-GetProductBOBySKU"/>
+  </nodes>
+<!--@Location 11,2-->
+  <nodes xsi:type="pipeline:DecisionNode" nodeID="DecisionNode1" conditionKey="ProductBO">
+    <nodeSuccessors name="decision_yes" next="VerifyQuantity0"/>
+    <nodeSuccessors name="decision_no" next="JoinNode5"/>
+  </nodes>
+<!--@Location 11,3-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="VerifyQuantity0">
+    <configurationValues name="MaxValue" value="999999999999999999999999999999"/>
+    <configurationValues name="MinValue" value="0"/>
+    <pipelet href="enfinity:/bc_foundation/pipelets/VerifyQuantity.xml"/>
+    <nodeSuccessors name="next" next="DecisionNode_wq8IkAKeEemRTM9cdVxw7g"/>
+    <nodeSuccessors name="pipelet_error" next="JoinNode5"/>
+    <parameterBindings name="LocalizedString" objectPath="Quantity"/>
+    <parameterBindings name="Unit" objectPath="ProductBO:Unit"/>
+  </nodes>
+<!--@Location 11,4-->
+  <nodes xsi:type="pipeline:DecisionNode" nodeID="DecisionNode_wq8IkAKeEemRTM9cdVxw7g"
+      conditionKey="QuantityValue:Zero" operator="str_eq" conditionValue="true">
+    <nodeSuccessors name="decision_yes" next="JoinNode_xZ-_4AKeEemRTM9cdVxw7g"/>
+    <nodeSuccessors name="decision_no" next="CreateAddToBasketRecord1"/>
+  </nodes>
+<!--@Location 12,4-->
+  <nodes xsi:type="pipeline:JoinNode" nodeID="JoinNode_xZ-_4AKeEemRTM9cdVxw7g">
+    <nodeSuccessors name="next" next="JoinNode4"/>
+  </nodes>
+<!--@Location 12,6-->
+  <nodes xsi:type="pipeline:JoinNode" nodeID="JoinNode4">
+    <nodeSuccessors name="next" next="EndNode7"/>
+  </nodes>
+<!--@Location 12,7-->
+  <nodes xsi:type="pipeline:EndNode" nodeID="EndNode7" name="error" strict="true"/>
+<!--@Location 11,5-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="CreateAddToBasketRecord1">
+    <pipelet href="enfinity:/bc_basket/pipelets/CreateAddToBasketRecord.xml"/>
+    <nodeSuccessors name="next" next="CallNode3"/>
+    <parameterBindings name="ProductBO" objectPath="ProductBO"/>
+    <parameterBindings name="Quantity" objectPath="QuantityValue"/>
+  </nodes>
+<!--@Location 11,6-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode3">
+    <nodeSuccessors name="next" next="EndNode6"/>
+    <nodeSuccessors name="Error" next="JoinNode4"/>
+    <parameterBindings name="Basket" objectPath="BasketBO"/>
+    <parameterBindings name="Calculate" constant="(Boolean)true"/>
+    <startNode referencedName="ProcessBasket-AddProducts"/>
+  </nodes>
+<!--@Location 11,7-->
+  <nodes xsi:type="pipeline:EndNode" nodeID="EndNode6" strict="true">
+    <returnValues name="BasketBO" type="com.intershop.component.basket.capi.BasketBO"/>
+  </nodes>
+<!--@Location 12,3-->
+  <nodes xsi:type="pipeline:JoinNode" nodeID="JoinNode5">
+    <nodeSuccessors name="next" next="JoinNode_xZ-_4AKeEemRTM9cdVxw7g"/>
+  </nodes>
+<!--@Location 9,0-->
+  <nodes xsi:type="pipeline:StartNode" nodeID="StartNode2" strict="true" name="IsOCIUser"
+      callMode="Private">
+    <nodeSuccessors name="next" next="GetUserBOByLogin0"/>
+    <parameters name="Login" type="java.lang.String"/>
+    <parameters name="UserBORepository" type="com.intershop.component.user.capi.UserBORepository"/>
+  </nodes>
+<!--@Location 9,1-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="GetUserBOByLogin0">
+    <pipelet href="enfinity:/bc_user/pipelets/GetUserBOByLogin.xml"/>
+    <nodeSuccessors name="next" next="DecisionNode0"/>
+<!--@BendPoints 21,3-->
+    <nodeSuccessors name="pipelet_error" next="JoinNode6"/>
+  </nodes>
+<!--@Location 9,2-->
+  <nodes xsi:type="pipeline:DecisionNode" nodeID="DecisionNode0" conditionKey="UserBO:Extension(&quot;UserBORoleExtension&quot;):hasRole(&quot;APP_B2B_OCI_USER&quot;)"
+      operator="str_eq" conditionValue="true">
+    <nodeSuccessors name="decision_yes" next="EndNode5"/>
+    <nodeSuccessors name="decision_no" next="JoinNode6"/>
+  </nodes>
+<!--@Location 9,3-->
+  <nodes xsi:type="pipeline:EndNode" nodeID="EndNode5" name="yes" strict="true"/>
+<!--@Location 10,2-->
+  <nodes xsi:type="pipeline:JoinNode" nodeID="JoinNode6">
+    <nodeSuccessors name="next" next="EndNode4"/>
+  </nodes>
+<!--@Location 10,3-->
+  <nodes xsi:type="pipeline:EndNode" nodeID="EndNode4" name="no" strict="true">
+    <returnValues name="ERROR_User" type="java.lang.String" optional="true"/>
+  </nodes>
+<!--@Location 1,0-->
+  <nodes xsi:type="pipeline:StartNode" nodeID="StartNode0" strict="true" name="Login"
+      callMode="Private">
+    <nodeSuccessors name="next" next="ExtensionPointNode1"/>
+    <parameters name="CurrentSession" type="com.intershop.beehive.core.capi.request.Session"/>
+    <parameters name="CurrentOrganization" type="com.intershop.component.organization.capi.Organization"/>
+    <parameters name="CurrentRequest" type="com.intershop.beehive.core.capi.request.Request"/>
+    <parameters name="ApplicationBO" type="com.intershop.component.application.capi.ApplicationBO"/>
+    <parameters name="PunchoutRequest" type="com.intershop.component.punchout.capi.PunchoutRequestInfo"/>
+  </nodes>
+<!--called before the OCIUser gets logedin
+@Location 1,1-->
+  <nodes xsi:type="pipeline:ExtensionPointNode" nodeID="ExtensionPointNode1" name="OCICatalogLogin"
+      strict="true">
+    <nodeSuccessors name="next" next="CallNode2"/>
+<!--@BendPoints 5,3-->
+    <nodeSuccessors name="pipelet_error" next="JoinNode7"/>
+    <parameters name="CurrentSession" type="com.intershop.beehive.core.capi.request.Session"/>
+    <parameters name="CurrentOrganization" type="com.intershop.component.organization.capi.Organization"/>
+    <parameters name="CurrentRequest" type="com.intershop.beehive.core.capi.request.Request"/>
+    <parameters name="ApplicationBO" type="com.intershop.component.application.capi.ApplicationBO"/>
+<!--contains LOGIN, PASSWORD, HOOK_URL(ReturnUrl), FUNCTION, SEARCHSTRING, PRODCUTID, QUANTITY-->
+    <parameters name="PunchoutRequest" type="com.intershop.component.punchout.capi.PunchoutRequestInfo"/>
+  </nodes>
+<!--@Location 1,2-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode2">
+    <nodeSuccessors name="next" next="CallNode1"/>
+    <nodeSuccessors name="ERROR" next="JoinNode7"/>
+    <parameterBindings name="Login" objectPath="PunchoutRequest:Login"/>
+    <parameterBindings name="Password" objectPath="PunchoutRequest:Password"/>
+    <startNode referencedName="ProcessOCICatalog-LoginUser"/>
+  </nodes>
+<!--@Location 1,3-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode1">
+    <nodeSuccessors name="next" next="CallNode0"/>
+    <startNode referencedName="ProcessUser-GetCurrentUserBOAndCustomerBO"/>
+  </nodes>
+<!--@Location 1,4-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode0">
+    <nodeSuccessors name="next" next="ConcatenateStrings0"/>
+    <nodeSuccessors name="Error" next="JoinNode0"/>
+    <parameterBindings name="BasketBORepository" objectPath="UserBO:Extension(&quot;UserBOBasketExtension&quot;)"/>
+    <parameterBindings name="User" objectPath="UserBO"/>
+    <startNode referencedName="ProcessBasket-CreateBasket"/>
+    <returnValueBindings name="Basket" objectPath="BasketBO"/>
+  </nodes>
+<!--@Location 1,5-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="ConcatenateStrings0">
+    <configurationValues name="DefaultString1" value="_"/>
+    <configurationValues name="DefaultString3" value="_"/>
+    <configurationValues name="DefaultString4" value="10"/>
+    <pipelet href="enfinity:/core/pipelets/ConcatenateStrings.xml"/>
+    <nodeSuccessors name="next" next="AddEntryToMap0"/>
+    <parameterBindings name="String0" objectPath="UserBO:ID"/>
+    <parameterBindings name="String2" objectPath="CurrentOrganization:DomainID"/>
+    <returnValueBindings name="Concatenated" objectPath="SessionBasketKey"/>
+  </nodes>
+<!--@Location 1,6-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="AddEntryToMap0">
+    <pipelet href="enfinity:/core/pipelets/AddEntryToMap.xml"/>
+    <nodeSuccessors name="next" next="ExchangeSessionObject0"/>
+    <parameterBindings name="InMap" nullBinding="true"/>
+    <parameterBindings name="Key" objectPath="SessionBasketKey"/>
+    <parameterBindings name="Value" objectPath="BasketBO:ID"/>
+    <returnValueBindings name="OutMap" objectPath="BasketUUIDs"/>
+  </nodes>
+<!--@Location 1,7-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="ExchangeSessionObject0">
+    <configurationValues name="ProcessMethod" value="Put Object to Session"/>
+    <configurationValues name="SessionObjectName" value="BasketUUIDs"/>
+    <pipelet href="enfinity:/core/pipelets/ExchangeSessionObject.xml"/>
+    <nodeSuccessors name="next" next="ExtensionPointNode2"/>
+    <nodeSuccessors name="pipelet_error" next="JoinNode3"/>
+    <parameterBindings name="SaveObject" objectPath="BasketUUIDs"/>
+    <parameterBindings name="TargetSession" objectPath="CurrentSession"/>
+  </nodes>
+<!--called after the OCIUser login is done
+@Location 1,8-->
+  <nodes xsi:type="pipeline:ExtensionPointNode" nodeID="ExtensionPointNode2" name="OCICatalogLoginDone"
+      strict="true">
+    <nodeSuccessors name="next" next="EndNode0"/>
+    <nodeSuccessors name="pipelet_error" next="JoinNode2"/>
+    <parameters name="CurrentSession" type="com.intershop.beehive.core.capi.request.Session"/>
+    <parameters name="CurrentOrganization" type="com.intershop.component.organization.capi.Organization"/>
+    <parameters name="CurrentRequest" type="com.intershop.beehive.core.capi.request.Request"/>
+    <parameters name="ApplicationBO" type="com.intershop.component.application.capi.ApplicationBO"/>
+    <parameters name="BasketBO" type="com.intershop.component.basket.capi.BasketBO"/>
+    <parameters name="UserBO" type="com.intershop.component.user.capi.UserBO"/>
+    <parameters name="CustomerBO" type="com.intershop.component.customer.capi.CustomerBO"
+        optional="true"/>
+<!--contains LOGIN, PASSWORD, HOOK_URL(ReturnUrl), FUNCTION, SEARCHSTRING, PRODCUTID, QUANTITY-->
+    <parameters name="PunchoutRequest" type="com.intershop.component.punchout.capi.PunchoutRequestInfo"/>
+    <parameters name="BasketUUIDs" type="java.util.Map&lt;K,V>"/>
+  </nodes>
+<!--@Location 1,9-->
+  <nodes xsi:type="pipeline:EndNode" nodeID="EndNode0" strict="true">
+    <returnValues name="PunchoutRequest" type="com.intershop.component.punchout.capi.PunchoutRequestInfo"/>
+    <returnValues name="BasketBO" type="com.intershop.component.basket.capi.BasketBO"/>
+  </nodes>
+<!--@Location 2,8-->
+  <nodes xsi:type="pipeline:JoinNode" nodeID="JoinNode2">
+    <nodeSuccessors name="next" next="EndNode1"/>
+  </nodes>
+<!--@Location 2,9-->
+  <nodes xsi:type="pipeline:EndNode" nodeID="EndNode1" name="Error" strict="true"/>
+<!--@Location 2,7-->
+  <nodes xsi:type="pipeline:JoinNode" nodeID="JoinNode3">
+    <nodeSuccessors name="next" next="JoinNode2"/>
+  </nodes>
+<!--@Location 2,4-->
+  <nodes xsi:type="pipeline:JoinNode" nodeID="JoinNode0">
+    <nodeSuccessors name="next" next="JoinNode3"/>
+  </nodes>
+<!--@Location 2,2-->
+  <nodes xsi:type="pipeline:JoinNode" nodeID="JoinNode7">
+    <nodeSuccessors name="next" next="JoinNode0"/>
+  </nodes>
+<!--@Location 5,0-->
+  <nodes xsi:type="pipeline:StartNode" nodeID="StartNode1" strict="true" name="LoginUser"
+      callMode="Private">
+    <nodeSuccessors name="next" next="KeyMapper0"/>
+<!--The login name of the user (is get from webform)-->
+    <parameters name="Login" type="java.lang.String"/>
+<!--The password of the user (is get from webform)-->
+    <parameters name="Password" type="java.lang.String"/>
+    <parameters name="CurrentOrganization" type="com.intershop.component.organization.capi.Organization"/>
+    <parameters name="CurrentRequest" type="com.intershop.beehive.core.capi.request.Request"/>
+    <parameters name="CurrentAppContext" type="com.intershop.beehive.app.capi.AppContext"
+        optional="true"/>
+    <parameters name="ApplicationBO" type="com.intershop.component.application.capi.ApplicationBO"/>
+  </nodes>
+<!--@Location 5,1-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="KeyMapper0">
+    <pipelet href="enfinity:/core/pipelets/KeyMapper.xml"/>
+    <nodeSuccessors name="next" next="CallNode5"/>
+    <parameterBindings name="InValue_1" objectPath="ApplicationBO:Repository(&quot;UserBORepository&quot;)"/>
+    <parameterBindings name="InValue_2" objectPath="ApplicationBO:Configuration"/>
+    <parameterBindings name="InValue_3" objectPath="ApplicationBO:Repository(&quot;CustomerBORepository&quot;)"/>
+    <returnValueBindings name="OutValue_1" objectPath="UserBORepository"/>
+    <returnValueBindings name="OutValue_2" objectPath="Configuration"/>
+    <returnValueBindings name="OutValue_3" objectPath="CustomerBORepository"/>
+  </nodes>
+<!--@Location 5,2-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode5">
+    <nodeSuccessors name="next" next="CallNode9"/>
+<!--@BendPoints 15,5-->
+    <nodeSuccessors name="ERROR" next="EndNode2"/>
+    <startNode referencedName="ProcessLogin-ProcessLoginUser"/>
+  </nodes>
+<!--@Location 5,3-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode9">
+    <nodeSuccessors name="next" next="CallNode11"/>
+    <parameterBindings name="CustomerBO" objectPath="ApplicationBO:Extension(&quot;Customer&quot;):CurrentCustomerBO"/>
+    <parameterBindings name="CustomerSegmentBORepository" objectPath="ApplicationBO:Repository(&quot;CustomerSegmentBORepository&quot;)"/>
+    <parameterBindings name="Organization" objectPath="CurrentOrganization"/>
+    <parameterBindings name="User" objectPath="CurrentUser"/>
+    <startNode referencedName="ProcessLogin-UpdateImplicitUserGroupsOnRegisteredUser"/>
+  </nodes>
+<!--@Location 5,4-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode11">
+    <nodeSuccessors name="next" next="CallNode6"/>
+    <parameterBindings name="Domain" objectPath="CurrentDomain"/>
+    <parameterBindings name="Organization" objectPath="CurrentOrganization"/>
+    <parameterBindings name="Request" objectPath="CurrentRequest"/>
+    <parameterBindings name="Session" objectPath="CurrentSession"/>
+    <parameterBindings name="User" objectPath="CurrentUser"/>
+    <startNode referencedName="ProcessPersonalizationGroup-UpdateUserGroupsAndPGID"/>
+  </nodes>
+<!--@Location 5,5-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode6">
+    <nodeSuccessors name="next" next="SwitchLocale0"/>
+    <parameterBindings name="SessionID" objectPath="CurrentRequest:Session:SessionID"/>
+    <startNode referencedName="ProcessUserGroups-GetCurrentUserUserGroups"/>
+  </nodes>
+<!--@Location 5,6-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="SwitchLocale0">
+    <pipelet href="enfinity:/core/pipelets/SwitchLocale.xml"/>
+    <nodeSuccessors name="next" next="EndNode3"/>
+    <parameterBindings name="LocaleID" objectPath="Profile:PreferredLocale"/>
+  </nodes>
+<!--@Location 5,7-->
+  <nodes xsi:type="pipeline:EndNode" nodeID="EndNode3" name="" strict="true">
+<!--The last user which was logged in before-->
+    <returnValues name="LastUser" type="com.intershop.beehive.core.capi.user.User"/>
+    <returnValues name="CurrentUser" type="com.intershop.beehive.core.capi.user.User"/>
+    <returnValues name="CurrentCart" type="com.intershop.beehive.bts.capi.orderprocess.basket.Basket"
+        optional="true"/>
+  </nodes>
+<!--@Location 7,7-->
+  <nodes xsi:type="pipeline:EndNode" nodeID="EndNode2" name="ERROR" strict="true">
+<!--"UnableToFindMembershipData", "IncorrectPassword"-->
+    <returnValues name="ERROR_User" type="java.lang.String"/>
+    <returnValues name="LockedUser" type="com.intershop.beehive.core.capi.user.User"
+        optional="true"/>
+    <returnValues name="NonApprovedUserBO" type="com.intershop.component.user.capi.UserBO"
+        optional="true"/>
+  </nodes>
+</pipeline:Pipeline>

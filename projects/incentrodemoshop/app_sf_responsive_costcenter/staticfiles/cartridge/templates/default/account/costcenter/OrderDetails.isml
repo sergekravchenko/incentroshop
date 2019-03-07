@@ -1,0 +1,35 @@
+<iscontent type="text/html" charset="UTF-8" compact="true">
+<iscache type="forbidden">
+
+<div class="breadcrumbs row">
+	<isAccountBreadcrumb link="#URL(Action('ViewCostCenter-Start'))#" text="#localizeText('account.costcenter.list.title')#"
+						 link1="#URL(Action('ViewCostCenter-Details'), Parameter('CostCenterID', CostCenterBO:ID))#" text1="#CostCenterBO:DisplayName#"
+						 trailtext="#localizeTextEx('account.orderdetails.breadcrumb', ParameterList(OrderBO:DocumentNo))#">
+</div>
+
+<!--- Marketing slot --->
+<div class="marketing-area">
+	<ISMarketingSlot id="baseMarketing">
+</div>
+
+<div class="account-wrapper" data-testing-id="order-details-page">
+	<div class="row account-main">
+		<!--- Left Navigation Panel --->
+		<div class="col-md-3 account-nav-box">
+			<isAccountNavigation selecteditem="COSTCENTER">
+		</div>
+		<div class="col-md-9">
+			<!--- Marketing slot --->
+			<div class="marketing-area">
+				<ISMarketingSlot id="contentMarketing">
+			</div>
+			<!--- Orders list --->
+			<isinclude template="account/orders/OrderDetails">
+			<div class="section">
+				<a href="<islink link="#URL(Action('ViewCostCenter-Details'), Parameter('CostCenterID', CostCenterBO:ID))#">">
+					<istext key="account.costcenter.details.orders.orderdetails.back"/>
+				</a>
+			</div>
+		</div>
+	</div>
+</div>

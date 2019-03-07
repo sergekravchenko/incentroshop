@@ -1,0 +1,21 @@
+<iscontent personalized="true" type="text/html" charset="UTF-8" compact="true">
+<isinclude template="modules/B2BModules">
+
+<!--- Message to merchant --->
+<div class="section clearfix">
+	<div class="col-xs-12">
+		<div class="form-group">
+			<label or="messageToMerchant"><istext key="checkout.additional_data.message" /></label>
+			<textarea 
+				id="messageToMerchant"
+				name="messageToMerchant" 
+				maxlength="1000" 
+				data-charactercounter="cCounterMessageToMerchant" 
+				class="form-control"
+			>
+				<isprint value = "#messageToMerchant#">
+			</textarea>
+			<small class="input-help"><istext key="checkout.shipping_method.instructions_max_limit.pre.text" /> <span id="cCounterMessageToMerchant">1000</span> <istext key="checkout.shipping_method.instructions_max_limit.post.text" /></small>
+		</div>
+	</div>
+</div>

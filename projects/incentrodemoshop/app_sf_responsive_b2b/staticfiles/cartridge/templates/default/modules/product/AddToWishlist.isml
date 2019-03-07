@@ -1,0 +1,55 @@
+<iscontent charset="UTF-8" type="text/html" compact="true">
+
+<isif condition="#isDefined(class) AND (class NE '')#">
+	<isset name="CssClass" value="#class#" scope="request"/>
+<iselse>
+	<isset name="CssClass" value="btn-link" scope="request"/>
+</isif>
+
+<isif condition="#(NOT (isDefined(ProductBO:ServiceTypeBO) AND ProductBO:ServiceTypeBO:DigitalGiftCard)) AND (NOT (ProductBO:isEndOfLife))#">
+	<isset name="ProductPrice" value="#ProductBO:Extension("Pricing")#" scope="request"/>
+	<isCurrentCustomerBO currentcustomerbo="CustomerBO">
+	<isGetProductPriceContext CustomerBO="#CustomerBO#" ProductPriceContext="ProductPriceContext">
+	<isset name="salePrice" value="#ProductPrice:Price("SalePrice", Currency, ProductPriceContext)#" scope="request"/>
+	
+	<isif condition="#isDefined(salePrice) AND NOT(ProductBO:OrderableAsDependentOnly)#">
+		<button type="submit" class="btn add-to-wishlist <isprint value="#CssClass#"/> add-to-ordertemplate_<isprint value="#ProductBO:SKU#"/>"
+			rel="nofollow"
+			name="addToWishlistProduct"
+			data-testing-class="button-addToOrderTemplate"
+			title="<istext key="account.order_template.add_to_template.button.add_to_template.label" />"
+			<isprint value="#DataAttributes#">
+			data-dialog
+			data-dialog-action="#URL(Action('ViewCart-Dispatch'),
+									Parameter('ProductSKU', ProductBO:SKU),
+									Parameter('AjaxRequestMarker', 'true'),
+									Parameter('TargetPipelineAfterLogin', 'ViewProduct-Start'),
+									Parameter('Parameter1_Name', 'TargetPipeline'),
+									Parameter('Parameter1_Value', 'ViewProduct-Start'),
+									Parameter('Parameter2_Name', 'TargetURLFragment'),
+									Parameter('Parameter2_Value', 'add-to-ordertemplate_'.ProductBO:SKU),
+									Parameter('Parameter3_Name', 'LoginToUse'),
+									Parameter('Parameter3_Value', 'ordertemplates'),
+									Parameter('Parameter4_Name', 'Parameter4_Name'),
+									Parameter('Parameter4_Value', 'SKU'),
+									Parameter('Parameter5_Name', 'Parameter4_Value'),
+									Parameter('Parameter5_Value', ProductBO:SKU),
+									Parameter('Parameter6_Name', 'Parameter5_Name'),
+									Parameter('Parameter6_Value', 'Quantity'),
+									Parameter('Parameter7_Name', 'Parameter5_Value'),
+									Parameter('Parameter7_Value', '1')
+								)#"
+		>
+			<isif condition="#DisplayType EQ 'glyphicon'#">
+				<span class="glyphicon glyphicon-list"></span>
+			<iselseif condition="#DisplayType EQ 'share-tool'#">
+				<span class="glyphicon glyphicon-list"></span>
+				<span class="share-label">
+					<istext key="account.order_template.add_to_template.button.add_to_template.label" />
+				</span>
+			<iselse>
+				<istext key="account.order_template.add_to_template.button.add_to_template.label" />
+			</isif>
+		</button>
+	</isif>
+</isif>

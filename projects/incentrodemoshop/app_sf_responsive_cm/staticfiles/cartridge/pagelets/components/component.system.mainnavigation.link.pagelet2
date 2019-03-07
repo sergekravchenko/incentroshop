@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pagelet:PageletModel xmlns:pagelet="http://www.intershop.de/pagelet/2010" name="component.system.mainnavigation.link.pagelet2">
+  <pageletDefinitions name="Component">
+    <callParameterInterfaces referencedName="app_sf_responsive_cm:interface.header.navigation.pagelet2-Interface"/>
+    <configurationParameterDefinitions name="NavigationLink" localizable="false" typeReference="sld_mcm:parametertype.link.pagelet2-Link"/>
+    <configurationParameterDefinitions name="NavigationTitle" typeReference="bc_pmc:types.pagelet2-Text"/>
+    <renderTemplate referencedName="component/system/MainNavigationLink"/>
+  </pageletDefinitions>
+</pagelet:PageletModel>

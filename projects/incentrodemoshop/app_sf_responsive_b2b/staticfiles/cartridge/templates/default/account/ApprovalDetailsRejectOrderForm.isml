@@ -1,0 +1,51 @@
+<!---[Comment]--->
+<iscontent type="text/html" charset="UTF-8" compact="true">
+
+<div id="approvalRejectCommentModal" class="modal" role="dialog">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<isform name="rejectOrderForm"
+				action="#URL(Action('ViewApprovals-Reject'), Parameter('BasketID', BasketBO:ID))#" method="post"
+				class="form-horizontal bv-form">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" title="<istext key="dialog.close.text">" aria-label="<istext key="dialog.close.text"/>"><span aria-hidden="true">&times;</span></button>
+					<h2 class="modal-title"><istext key="#'approval.rejectform.reject_'.BasketType.'.heading'#"/></h2>
+				</div>
+				
+				<div class="modal-body">
+					<div class="form-group clearfix">
+						
+						<label class="control-label col-sm-12" for="ApprovalComment">
+							<istext key="approval.rejectform.add_a_comment.label" />
+						</label>
+						
+						<div class="col-sm-12">
+							<textarea id="ApprovalComment"
+								class="form-control" 
+								name="ApprovalComment" 
+								data-maxcharacter="1000" 
+								data-charactercounter="character-counter" 
+								maxlength="1000" cols="50"
+								required
+								data-bv-notempty-message ="<istext key="approval.rejectform.invalid_comment.error" />"
+								></textarea>
+						</div>
+						
+						<div class="help-block col-sm-12">
+							<istext key="checkout.shipping_method.instructions_max_limit.pre.text" /> <span id="character-counter">1000</span> <istext key="checkout.shipping_method.instructions_max_limit.post.text" />
+						</div>
+					</div>
+				</div>
+				
+				<div class="modal-footer">
+					<button class="btn btn-default" data-dismiss="modal" value="<istext key="approval.rejectform.button.cancel.label" />" name="cancel">
+						<istext key="approval.rejectform.button.cancel.label" />
+					</button>
+					<button type="submit" class="btn btn-primary" value="<istext key="approval.rejectform.button.reject.label" />" name="reject">
+						<istext key="approval.rejectform.button.reject.label" />
+					</button>
+				</div>
+			</isform>
+		</div>
+	</div>
+</div>

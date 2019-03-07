@@ -1,0 +1,86 @@
+<iscontent type="text/html" charset="UTF-8" compact="true">
+<isinclude template="modules/Modules">
+
+<isslotiterator Slot="#Pagelet:SubSlot("app_sf_responsive_cm:slot.collection.items.pagelet2-Slot")#" AssignmentsAlias="CollectionPageletAssignments">
+
+<isif condition="#hasLoopElements(CollectionPageletAssignments)#">
+
+	<!--- render collection as accordion --->
+	<isif condition="#(PageletConfigurationParameters:CollectionType EQ 'accordion')#">
+		<ISUUID name="CollectionID">
+		<isset name="RenderedInCollection" value="#1==1#" scope="request">
+		<isset name="ActiveElementID" value="#PageletConfigurationParameters:ActiveElementID#" scope="request">
+		
+		<div class="collection accordion panel-group <isif condition="#isDefined(PageletConfigurationParameters:CSSClass)#"><isprint value="#PageletConfigurationParameters:CSSClass#"></isif>" id="<isprint value="#CollectionID#">" role="tablist" aria-multiselectable="true">
+			<isslot slot="app_sf_responsive_cm:slot.collection.items.pagelet2-Slot">
+		</div>
+	
+	<!--- render collection as tabset --->
+	<iselseif condition="#(PageletConfigurationParameters:CollectionType EQ 'tabset')#">
+		
+			<ISUUID name="RenderEntityID">
+			<ISRenderEntityRenderingStart RenderEntityRenderObject="#Pagelet:SubSlot("app_sf_responsive_cm:slot.collection.items.pagelet2-Slot")#" RenderEntityID="#RenderEntityID#">
+			<div class="collection tabset <isif condition="#isDefined(PageletConfigurationParameters:CSSClass)#"><isprint value="#PageletConfigurationParameters:CSSClass#"></isif>">
+				<!--- Nav tabs --->
+				<ul class="nav nav-tabs" role="tablist">
+					<isloop iterator="CollectionPageletAssignments" alias="CollectionPageletAssignment">
+						<li role="presentation" <isif condition="#CollectionPageletAssignment:From:Id EQ PageletConfigurationParameters:ActiveElementID#">class="active"</isif>> 
+							<a href="<isprint value="#'#'.CollectionPageletAssignment:From:Id#">" aria-controls="<isprint value="#CollectionPageletAssignment:From:Id#">" role="tab" data-toggle="tab"><isprint value="#CollectionPageletAssignment:From:ConfigurationParametersAsMap:Title:Value#"></a>
+						</li>
+					</isloop>
+				</ul>
+				<!--- Tab panes --->
+				<div class="tab-content">
+					<ISCreatePlaceholderRenderEvents RenderContextID="#RenderEntityID#" Slot="#Pagelet:SubSlot("app_sf_responsive_cm:slot.collection.items.pagelet2-Slot")#" ComponentHierarchyKey="#ComponentHierarchyKey#">
+					<isloop iterator="CollectionPageletAssignments" alias="CollectionPageletAssignment">
+						<ISCreatePlaceholderRenderEvents RenderContextID="#RenderEntityID#" PageletAssignment="#CollectionPageletAssignment#">
+						<div id="<isprint value="#CollectionPageletAssignment:From:Id#">" role="tabpanel" class="tab-pane <isif condition="#CollectionPageletAssignment:From:Id EQ PageletConfigurationParameters:ActiveElementID#">active</isif>">
+							<ispageletassignment PageletAssignment="#CollectionPageletAssignment#">
+						</div>
+					</isloop>
+					<ISCreatePlaceholderRenderEvents RenderContextID="#RenderEntityID#">
+				</div>
+			</div>
+			<ISRenderEntityRenderingEnd RenderEntityRenderObject="#Pagelet:SubSlot("app_sf_responsive_cm:slot.collection.items.pagelet2-Slot")#" RenderEntityID="#RenderEntityID#">
+		
+	<!--- render collection as list with table of contents --->
+	<iselseif condition="#PageletConfigurationParameters:CollectionType EQ 'toclist'#">
+		<ISUUID name="RenderEntityID">
+		<ISRenderEntityRenderingStart RenderEntityRenderObject="#Pagelet:SubSlot("app_sf_responsive_cm:slot.collection.items.pagelet2-Slot")#" RenderEntityID="#RenderEntityID#">
+		<div class="toclist <isif condition="#isDefined(PageletConfigurationParameters:CSSClass)#"> <isprint value="#PageletConfigurationParameters:CSSClass#"></isif>">
+			<a class="link-anker" name="top"></a>
+			
+			<ul class="collection">
+				<isloop iterator="CollectionPageletAssignments" alias="CollectionPageletAssignment">
+					<li>
+						<a href="<isprint value="#'#'.CollectionPageletAssignment:From:Id#">"><isprint value="#CollectionPageletAssignment:From:ConfigurationParametersAsMap:Title:Value#"></a>
+					</li>
+				</isloop>
+			</ul>
+			
+			<ISCreatePlaceholderRenderEvents RenderContextID="#RenderEntityID#" Slot="#Pagelet:SubSlot("app_sf_responsive_cm:slot.collection.items.pagelet2-Slot")#" ComponentHierarchyKey="#ComponentHierarchyKey#">
+			<isloop iterator="CollectionPageletAssignments" alias="CollectionPageletAssignment">
+				<ISCreatePlaceholderRenderEvents RenderContextID="#RenderEntityID#" PageletAssignment="#CollectionPageletAssignment#">
+				<div class="toclist-entry" data-entry-id="<isprint value="#CollectionPageletAssignment:From:Id#">">
+					<a class="link-anker" name="<isprint value="#CollectionPageletAssignment:From:Id#">"></a>
+					<div class="toclist-content">
+						<ispageletassignment PageletAssignment="#CollectionPageletAssignment#">
+					</div>
+					<p><a href="#'#'#top"><istext key="helpdesk.faq.back2top" /></a></p>
+				</div>
+			</isloop>
+			<ISCreatePlaceholderRenderEvents RenderContextID="#RenderEntityID#">
+		</div>
+		<ISRenderEntityRenderingEnd RenderEntityRenderObject="#Pagelet:SubSlot("app_sf_responsive_cm:slot.collection.items.pagelet2-Slot")#" RenderEntityID="#RenderEntityID#">
+	
+	<!--- render collection as list --->
+	<iselse>
+		<div class="<isif condition="#isDefined(PageletConfigurationParameters:CSSClass)#"> <isprint value="#PageletConfigurationParameters:CSSClass#"></isif>">
+			<isslot slot="app_sf_responsive_cm:slot.collection.items.pagelet2-Slot">
+		</div>
+	</isif>
+	
+<iselse>
+	<!--- if the slot is empty it is rendered with <isslot> to get the needed handles for an empty slot in Desgn View --->
+	<isslot slot="app_sf_responsive_cm:slot.collection.items.pagelet2-Slot">
+</isif>

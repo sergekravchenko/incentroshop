@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pagelet:PageletModel xmlns:pagelet="http://www.intershop.de/pagelet/2010" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://www.intershop.de/core/2010" name="component.common.productListManual.pagelet2">
+  <pageletDefinitions name="Component">
+    <callParameterInterfaces referencedName="app_sf_responsive_cm:interface.collection.items.pagelet2-Interface"/>
+    <callParameterInterfaces referencedName="app_sf_responsive_cm:interface.common.productList.pagelet2-Interface"/>
+    <configurationParameterDefinitions optional="true" name="Title" typeReference="bc_pmc:types.pagelet2-Text"/>
+    <configurationParameterDefinitions name="Products" localizable="false" multiple="true" typeReference="bc_product:types.pagelet2-ProductBO"/>
+    <configurationParameterDefinitions name="ProductView" localizable="false" typeReference="bc_pmc:types.pagelet2-ViewContext">
+      <parameterBindings xsi:type="core:ParameterValueBinding" name="ObjectType" value="Product"/>
+    </configurationParameterDefinitions>
+    <configurationParameterDefinitions xsi:type="pagelet:ListParameterDefinition" optional="true" name="ListStyle" localizable="false" typeReference="bc_pmc:types.pagelet2-DropDownBox">
+      <parameterDefinitions optional="true" name="none" typeReference="bc_pmc:types.pagelet2-Text"/>
+      <parameterDefinitions optional="true" name="carousel" typeReference="bc_pmc:types.pagelet2-Text"/>
+    </configurationParameterDefinitions>
+    <configurationParameterDefinitions xsi:type="pagelet:ListParameterDefinition"
+        name="SlideItems" optional="true" localizable="false" typeReference="bc_pmc:types.pagelet2-DropDownBox">
+      <parameterDefinitions name="1" optional="true" typeReference="bc_pmc:types.pagelet2-Text"/>
+      <parameterDefinitions name="2" optional="true" typeReference="bc_pmc:types.pagelet2-Text"/>
+      <parameterDefinitions name="3" optional="true" typeReference="bc_pmc:types.pagelet2-Text"/>
+      <parameterDefinitions name="4" optional="true" typeReference="bc_pmc:types.pagelet2-Text"/>
+    </configurationParameterDefinitions>
+    <configurationParameterDefinitions name="ListItemCSSClass" optional="true" localizable="false"
+        typeReference="bc_pmc:types.pagelet2-Text"/>
+    <configurationParameterDefinitions optional="true" name="CSSClass" localizable="false" typeReference="bc_pmc:types.pagelet2-Text"/>
+    <renderTemplate referencedName="component/common/ProductListManual"/>
+  </pageletDefinitions>
+</pagelet:PageletModel>

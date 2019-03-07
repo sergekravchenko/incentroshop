@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pagelet:PageletModel xmlns:pagelet="http://www.intershop.de/pagelet/2010" name="component.system.mainnavigation.full.pagelet2">
+  <pageletDefinitions name="Component" remoteInclude="true">
+    <callParameterInterfaces referencedName="app_sf_responsive_cm:interface.header.navigation.pagelet2-Interface"/>
+    <renderTemplate referencedName="component/system/MainNavigationFull"/>
+    <renderPipeline referencedName="RenderPagelet-GetRootCategories"/>
+  </pageletDefinitions>
+</pagelet:PageletModel>

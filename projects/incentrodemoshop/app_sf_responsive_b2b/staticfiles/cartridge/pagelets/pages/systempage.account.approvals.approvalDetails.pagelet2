@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pagelet:PageletModel xmlns:pagelet="http://www.intershop.de/pagelet/2010" name="systempage.account.approvals.approvalDetails.pagelet2">
+  <pageEntryPointDefinitions name="Page" systemManaged="true">
+    <callParameterDefinitions name="Dictionary" type="com.intershop.beehive.core.capi.pipeline.PipelineDictionary" />
+    <callParameterDefinitions name="ListCase" type="java.lang.String" />
+    <callParameterDefinitions name="BasketBO" type="com.intershop.component.basket.capi.BasketBO" />
+    <callParameterDefinitions name="CurrentOrganization" type="com.intershop.component.organization.capi.Organization" />
+    <callParameterDefinitions name="CancellationStatus" type="java.lang.String" optional="true" />
+	<callParameterInterfaces referencedName="app_sf_responsive:interface.page.standard.pagelet2-Interface" />
+  </pageEntryPointDefinitions>
+</pagelet:PageletModel>

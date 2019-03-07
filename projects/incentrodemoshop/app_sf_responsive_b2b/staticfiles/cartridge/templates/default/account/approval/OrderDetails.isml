@@ -1,0 +1,35 @@
+<iscontent type="text/html" charset="UTF-8" compact="true">
+<iscache type="forbidden">
+
+<div class="breadcrumbs row">
+	<isAccountBreadcrumb link="#URL(Action('ViewApprovals-AllApproved'))#" text="#localizeText('account.allapprovedorders.link')#"
+						 trailtext="#localizeTextEx('account.orderdetails.breadcrumb', ParameterList(OrderBO:DocumentNo))#">
+</div>
+
+<!--- Marketing slot --->
+<div class="marketing-area">
+	<ISMarketingSlot id="baseMarketing">
+</div>
+
+<div class="account-wrapper" data-testing-id="order-details-page">
+	<div class="row account-main">
+		<!--- Left Navigation Panel --->
+		<div class="col-md-3 account-nav-box">
+			<isAccountNavigation selecteditem="ALLAPPROVEDORDERS">
+		</div>
+		<div class="col-md-9">
+			<!--- Marketing slot --->
+			<div class="marketing-area">
+				<ISMarketingSlot id="contentMarketing">
+			</div>
+			
+			<!--- Orders list --->
+			<isinclude template="account/orders/OrderDetails">
+			<div class="section">
+				<a href="<islink link="#url(action('ViewApprovals-AllApproved'))#">">
+					<istext key="approval.detailspage.back_to_allapproved.link"/>
+				</a>
+			</div>
+		</div>
+	</div>
+</div>

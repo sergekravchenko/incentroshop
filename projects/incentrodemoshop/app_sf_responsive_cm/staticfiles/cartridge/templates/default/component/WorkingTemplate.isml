@@ -1,0 +1,22 @@
+<iscontent type="text/html" charset="UTF-8" compact="true">
+<%@page import="com.intershop.beehive.core.capi.pipeline.PipelineDictionary"%>
+<%@page import="com.intershop.component.pmc.capi.pagelet.Pagelet"%>
+<%@page import="com.intershop.sellside.pmc.internal.rendering.RemoteIncludeUrlProvider"%>
+
+<isif condition="#isDefined(Dictionary:WorkingTemplate)#">
+	<!--- 
+		Map the required parameters for the Pagelet rendering from the current PipelineDictionary (the Pagelet context) 
+		into the Dictionary that will be the context for rendering the WorkingTemplate.
+		That way Slots of the current Pagelet can be rendered within the WorkingTemplate.
+	--->
+	<%
+		PipelineDictionary dictionary = (PipelineDictionary)getObject("Dictionary");
+		dictionary.put("Pagelet", (Pagelet)getObject("Pagelet"));
+		dictionary.put(RemoteIncludeUrlProvider.COMPONENT_HIERARCHY_KEY, (String)getObject(RemoteIncludeUrlProvider.COMPONENT_HIERARCHY_KEY));
+	%>
+	<isinclude template="#Dictionary:WorkingTemplate#" dictionary="Dictionary">
+<iselseif condition="#isDefined(WorkingTemplate)#">
+	<isinclude template="#WorkingTemplate#">
+<iselse>
+	<istext key="common.no_working_template.message" />
+</isif>

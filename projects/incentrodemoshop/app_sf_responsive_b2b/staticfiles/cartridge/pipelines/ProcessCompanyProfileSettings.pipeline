@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pipeline:Pipeline xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pipeline="http://www.intershop.de/pipeline/2010"
+    name="ProcessCompanyProfileSettings" type="extension">
+<!--@Location 2,1-->
+  <nodes xsi:type="pipeline:StartNode" nodeID="StartNode_gHlOgKpiEeeXxckl41p7_A" strict="true"
+      name="CheckUserPermissions" callMode="Private">
+    <nodeSuccessors name="next" next="CallNode_3BshkLlPEeeCMaJuoZsArQ"/>
+    <parameters name="UserBO" type="com.intershop.component.user.capi.UserBO"/>
+  </nodes>
+<!--@Location 2,2-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode_3BshkLlPEeeCMaJuoZsArQ">
+    <nodeSuccessors name="next" next="EndNode_iqsEcKpiEeeXxckl41p7_A"/>
+    <parameterBindings name="PermissionID" constant="APP_B2B_MANAGE_USERS"/>
+    <startNode referencedName="ProcessPermission-CheckUserHasPermission"/>
+  </nodes>
+<!--@Location 2,3-->
+  <nodes xsi:type="pipeline:EndNode" nodeID="EndNode_iqsEcKpiEeeXxckl41p7_A" name="next"
+      strict="true"/>
+</pipeline:Pipeline>

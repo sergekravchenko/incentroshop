@@ -1,0 +1,66 @@
+<iscontent personalized="true" type="text/html" charset="UTF-8" compact="true">
+<isif condition="#(isDefined(ListNavigationVO)) AND (NOT ListNavigationVO:PageCacheAllowed)#">
+	<iscache type="forbidden">
+<iselse>
+	<iscache type="relative" hour="24">
+</isif>
+<isinclude template="modules/Modules">
+
+<div class="breadcrumbs row">
+	<ISBreadcrumb showhomelink="true" searchresult="#SearchResult#" searchterm="#SearchTerm#">
+</div>
+
+<div class="marketing-area">
+	<isslot slot="app_sf_responsive_cm:slot.marketing.base.pagelet2-Slot">
+</div>
+
+<div class="no-search-result" data-testing-id="no-search-result-page">
+
+	<!--- Did You Mean --->
+	<isif condition="#ListNavigationVO:SearchResult:SpellCorrected AND hasElements(ProductBOs)#">
+		<h1 class="h2"><istext key="search.didYouMean.heading" /></h1>
+		<p class="no-search-result-title">
+			<istext key="search.didYouMean.message" parameter0="#encodeValue(SearchTerm)#" parameter1="#encodeValue(AlternativeSearchTerm)#" parameter2="#encodeValue(URLEX(InsecureURL,'',Action('ViewParametricSearch-SimpleOfferSearch'), Parameter('SearchTerm', AlternativeSearchTerm)))#" encoding="off"/>
+		
+			<span class="result-count-message">
+				<istext key="search.didYouMean.hint" parameter0="#ListNavigationVO:SearchResult:SpellCorrectedSearchResult:Results:Size#">
+			</span>
+			
+		</p>
+		<p>
+			<a href="#URLEX(InsecureURL,'',Action('ViewParametricSearch-SimpleOfferSearch'), Parameter('SearchTerm', AlternativeSearchTerm))#"><istext key="search.didYouMean.link"></a>
+		</p>
+		<div class="search-product-list">
+			<ISProductList
+				ProductBOs="#ProductBOs#"
+				viewContext="#PageletConfigurationParameters:ProductView#"
+				listItemCssClass="col-xs-6 col-md-4 grid-view"
+			>
+		</div>
+	
+	<!--- No Results --->
+	<iselse>
+		<h1 class="h2"><istext key="search.noResult.heading" /></h1>
+	</isif>
+	
+	<p class="no-search-result-title">
+		<istext key="search.noResult.message" parameter0="#encodeValue(SearchTerm)#" encoding="off"/>
+	</p>
+</div>
+
+<div class="search-container main-search-container">
+	<ISSearchBox 
+		id="NoSearchResult"
+		useAutoSuggest="true"
+		maxAutoSuggestResults="10"
+		searchFieldLabel="#localizeText("search.searchbox.label.alternative")#"
+	>
+</div>
+
+<div class="search-guidelines">
+	<isif condition="#isDefined(PageletConfigurationParameters:HTML) AND (PageletConfigurationParameters:HTML NE '')#">
+		<isHtmlPrint value="#PageletConfigurationParameters:HTML#" mode="storefront">
+	</isif>
+</div>
+
+<isinclude url="#URL(Action('IncludeRecentlyViewedItems-AddRecentlyViewedSearchTerm'), Parameter('SearchTerm', SearchTerm))#">

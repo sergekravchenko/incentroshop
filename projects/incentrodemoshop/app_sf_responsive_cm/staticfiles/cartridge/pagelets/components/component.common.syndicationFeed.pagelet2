@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pagelet:PageletModel xmlns:pagelet="http://www.intershop.de/pagelet/2010" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://www.intershop.de/core/2010" name="component.common.syndicationFeed.pagelet2">
+  <pageletDefinitions name="Component">
+    <callParameterInterfaces referencedName="app_sf_responsive_cm:interface.common.content.advanced.pagelet2-Interface"/>
+    <configurationParameterDefinitions name="SyndicationFeedURL" typeReference="bc_pmc:types.pagelet2-Text"/>
+    <configurationParameterDefinitions optional="true" name="HeaderText" typeReference="bc_pmc:types.pagelet2-Text"/>
+    <configurationParameterDefinitions optional="true" name="MaxItems" typeReference="bc_pmc:types.pagelet2-Text">
+      <parameterBindings xsi:type="core:ParameterValueBinding" name="Columns" value="3"/>
+    </configurationParameterDefinitions>
+    <configurationParameterDefinitions optional="true" name="AppendRequestURL" typeReference="bc_pmc:types.pagelet2-Boolean"/>
+    <configurationParameterDefinitions xsi:type="pagelet:ListParameterDefinition" optional="true" name="DisplayOptions" multiple="true" typeReference="bc_pmc:types.pagelet2-DropDownBox">
+      <parameterDefinitions name="ShowFeedHeader" typeReference="bc_pmc:types.pagelet2-Boolean"/>
+      <parameterDefinitions name="ShowImage" typeReference="bc_pmc:types.pagelet2-Boolean"/>
+      <parameterDefinitions name="ShowDescriptions" typeReference="bc_pmc:types.pagelet2-Boolean"/>
+      <parameterDefinitions name="EnableHTML" typeReference="bc_pmc:types.pagelet2-Boolean"/>
+      <parameterDefinitions name="NewTargetWindow" typeReference="bc_pmc:types.pagelet2-Boolean"/>
+    </configurationParameterDefinitions>
+    <renderPipeline referencedName="RenderPagelet-ReadSyndicationFeed"/>
+    <renderTemplate referencedName="component/common/SyndicationFeed.isml"/>
+  </pageletDefinitions>
+</pagelet:PageletModel>

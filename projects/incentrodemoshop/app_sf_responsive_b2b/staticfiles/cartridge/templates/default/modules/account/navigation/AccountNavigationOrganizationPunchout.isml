@@ -1,0 +1,6 @@
+<iscontent type="text/html" charset="UTF-8" compact="true">
+<isif condition="#isDefined(UserPermissionMap:get("APP_B2B_VIEW_PUNCHOUT")) OR isDefined(UserPermissionMap:get("APP_B2B_MANAGE_PUNCHOUT"))#">
+	<li class="<isif condition="#selecteditem EQ 'PUNCHOUT'#">active</isif>">
+		<a href="#URL(Action('ViewOCISettings-Start'))#" data-testing-linkid="account_punchout"><istext key="account.navigation.punchout.link"/></a>
+	</li>	
+</isif>

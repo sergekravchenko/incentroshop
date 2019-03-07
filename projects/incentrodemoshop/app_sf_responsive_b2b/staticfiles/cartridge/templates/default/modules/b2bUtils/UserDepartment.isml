@@ -1,0 +1,9 @@
+<iscontent type="text/html" charset="UTF-8" compact="true">
+
+<isif condition="#(isDefined(User)) AND (isDefined(Customer))#">
+	
+	<!--- Extension needs the CustomerBO and the User-Email-Address --->
+	<isset name="SelectedUser" value="#Customer:Extension("GroupCustomer"):UserBOByLogin(User:Login)#" scope="request">
+	<isprint value="#SelectedUser:Department#">
+	
+</isif>

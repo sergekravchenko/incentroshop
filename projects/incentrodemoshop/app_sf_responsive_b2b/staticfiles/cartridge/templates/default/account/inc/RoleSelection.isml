@@ -1,0 +1,141 @@
+<!---[Comment]--->
+<iscontent type="text/html" charset="UTF-8" compact="true">
+
+<isset name="SelectedUserRoleExtension" value="#SelectedUser:Extension("UserBORoleExtension")#" scope="request"/>
+<isset name="EditingOCIUser" value="#SelectedUserRoleExtension:hasRole("APP_B2B_OCI_USER") EQ 'true'#" scope="request"/>
+<isset name="EditingCurrentUser" value="#CurrentUser:Profile:UUID EQ SelectedUser:ID#" scope="request"/>
+
+<fieldset>
+	<div class="form-group">
+		<span class="control-label col-sm-4">
+			<istext key="account.user.new.role.label" />
+		</span>
+		<div class="col-sm-8" id="user-roles-container">
+			<div class="row">
+				<isloop iterator="ImplicitlyAssignedRoles" alias="Role">
+					<div class="col-md-6">
+						<div class="checkbox">
+							<label for="<isprint value="#Role:ID#">">
+								<input type="checkbox" 
+									disabled="disabled" 
+									<iscomment>an OCI user should not own the buyer role implicitly, but display it</iscomment>
+									<isif condition="#NOT EditingOCIUser#">
+										checked="checked" 
+									</isif>
+									/>
+								<isprint value="#Role:Name#">
+							</label>
+						</div>
+					</div>
+				</isloop>
+				
+				<isloop iterator="AssignableRoles" alias="Role">
+					<div class="col-md-6">
+						<div class="checkbox">
+							<label for="<isprint value="#Role:ID#">">
+								<input type="checkbox"
+									id="<isprint value="#Role:ID#">"
+									name="SelectedUserRolesUUID"
+									value="<isprint value="#Role:ID#">"
+									<iscomment>it should not be possible to change the roles of the OCI user
+											and to assign the OCI role to any other user
+									</iscomment>
+									<isif condition="#SelectedUserRoleExtension:hasRole(Role:ID)#"> checked="checked"
+										<isif condition="#((Role:ID EQ "APP_B2B_ACCOUNT_OWNER") AND (CurrentUser:Profile:UUID EQ SelectedUser:ID))
+															OR EditingOCIUser#"> disabled="disabled"
+										</isif>
+									<iselseif condition="#EditingOCIUser OR (Role:ID EQ 'APP_B2B_OCI_USER')#"> disabled="disabled" 
+									</isif>
+								/>
+								<isprint value="#Role:Name#">
+							</label>
+							<isif condition="#(Role:ID EQ "APP_B2B_ACCOUNT_OWNER") AND SelectedUserRoleExtension:hasRole(Role:ID) 
+												AND (CurrentUser:Profile:UUID EQ SelectedUser:ID)#">
+								<input type="hidden" name="SelectedUserRolesUUID" value="<isprint value="#Role:ID#">" />
+							</isif>
+						</div>
+					</div>
+				</isloop>
+				<!--- we need a hidden input field, otherwise the role will be lost, because disabled checkbox value is not submitted --->
+				<isif condition="#EditingOCIUser#">
+					<input type="hidden" name="SelectedUserRolesUUID" value="APP_B2B_OCI_USER">
+				</isif>
+			</div>
+		</div>
+	</div>
+	<!--- PERMISSIONS --->
+	<div class="form-group">
+		<span class="control-label col-sm-4"><istext key="account.user.new.permissions.label" /></span>
+		<div class="col-sm-8" id="selected-permissions"></div>
+		<div class="col-sm-8 hidden">
+			<isif condition="#hasElements(ImplicitlyAssignedRoles)#">
+				<ul>
+					<isloop iterator="ImplicitlyAssignedRoles" alias="Role">
+						<li id="<isprint value="#Role:ID.'_permissions'#">" class="<isprint value="#Role:QualifiedName#"> text-left">
+							<isif condition="#hasElements(Role:RolePermissionAssignments)#">
+								<ul>
+									<isloop iterator="Role:RolePermissionAssignments" alias="Assignment">
+										<isif condition="#isDefined(Assignment:Permission:Name) AND (Assignment:Permission:Name NE '')#">
+											<li><isprint value="#Assignment:Permission:Name#"></li>
+										</isif>
+									</isloop>
+								</ul>
+							</isif>
+						 </li>
+			   		</isloop>
+			   	</ul>
+			</isif>
+			<isif condition="#hasElements(AssignableRoles)#">
+				<ul>
+					<isloop iterator="AssignableRoles" alias="Role">
+						<li
+							<isif condition="#not(SelectedUserRoleExtension:hasRole(Role:ID))#"> style="display:none"</isif> 
+							id="<isprint value="#Role:ID.'_permissions'#">" class="<isprint value="#Role:QualifiedName#"> text-left" 
+						>
+							<isif condition="#hasElements(Role:RolePermissionAssignments)#">
+								<ul>
+									<isloop iterator="Role:RolePermissionAssignments" alias="Assignment">
+										<isif condition="#isDefined(Assignment:Permission:Name) AND (Assignment:Permission:Name NE '')#">
+											<li><isprint value="#Assignment:Permission:Name#"></li>
+										</isif>
+									</isloop>
+								</ul>
+							</isif>
+						 </li>
+			   		</isloop>
+			   	</ul>
+			</isif>
+		</div>
+	</div>
+	<script>
+	$(document).ready(function () {
+		$.fn.showUniquePermissions = function() {
+			var permissionsList = [];
+			var name;
+			var roleID;
+			// Collect permissions
+			$("#'#'#user-roles-container").find("input[type='checkbox']").each(function () {
+				$label = $(this).closest("label");
+				roleID = $label.attr("for");
+				if (roleID && $(this).is(":checked")) {
+					$("#'#'#" + roleID + "_permissions").find("li").each(function () {
+						name = $(this).text();
+						if ($.inArray(name, permissionsList) == -1) {
+							permissionsList.push(name);
+						}
+					});
+				}
+			});
+			// Sort permissions alphabetically
+			permissionsList.sort(function(a, b) {
+				return a.localeCompare(b, '<isprint value="#Language#"/>', {'sensitivity': 'base'});
+			});
+			// Display permissions as list items
+			$ul = $("<dl>").append($.map(permissionsList, function(permission){ return $("<dd>").text(permission); }));
+			$("#'#'#selected-permissions" ).html($ul);
+		};
+		$(this).showUniquePermissions();
+		$("#'#'#user-roles-container").find('input[name="SelectedUserRolesUUID"]').on("change", function () {$(this).showUniquePermissions();});
+	});
+	</script>
+</fieldset>

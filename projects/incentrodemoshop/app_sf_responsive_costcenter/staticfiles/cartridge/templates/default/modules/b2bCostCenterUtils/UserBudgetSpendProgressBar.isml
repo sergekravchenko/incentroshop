@@ -1,0 +1,23 @@
+<iscontent type="text/html" charset="UTF-8" compact="true">
+
+<isif condition="#isDefined(User)#">
+	
+	<ISUserBudgetCalculator User="#User#" UserBudgetCalculator="UserBudgetCalculator">
+	
+	<isif condition="#isDefined(UserBudgetCalculator)#">
+		<div class="progress" data-toggle="popover" data-html="true" data-placement="top" data-content="<p><strong><istext key="account.user.list.table.budget_spend_by_user" /></strong></p>
+			<div class='row'>
+				<div class='col-md-3'><istext key="account.user.list.spent.label" /></div>
+				<div class='col-md-9 text-nowrap'><isprint value="#UserBudgetCalculator:SpentBudget#">&nbsp;(<isprint value="#UserBudgetCalculator:SpentBudgetPercentage#">%)</div>
+			</div>
+			<div class='row'>
+				<div class='col-md-3'><istext key="account.user.list.left.label" /></div>
+				<div class='col-md-9 text-nowrap'><isprint value="#UserBudgetCalculator:RemainingBudget#">&nbsp;(<isprint value="#UserBudgetCalculator:RemainingBudgetPercentage#">%)</div>
+			</div>">
+			<div class="progress-bar<isif condition="#(UserBudgetCalculator:SpentBudgetPercentage >= 1.0)#"> progress-bar-danger</isif>" role="progressbar" aria-valuenow="<isprint value="#UserBudgetCalculator:SpentBudgetPercentage#">" aria-valuemin="0" aria-valuemax="100" style="width: <isprint value="#UserBudgetCalculator:SpentBudgetPercentage#" symbols="DecimalSeparator=.">%;">
+				<span class="progress-display"><isprint value="#UserBudgetCalculator:SpentBudgetPercentage#">%</span>
+			</div>
+		</div>
+	</isif>
+	
+</isif>

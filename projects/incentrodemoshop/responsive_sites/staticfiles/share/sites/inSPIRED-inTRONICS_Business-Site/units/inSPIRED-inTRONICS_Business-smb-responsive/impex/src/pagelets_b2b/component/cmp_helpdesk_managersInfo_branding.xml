@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<enfinity xmlns:dt="http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt">
+<pagelet-component id="cmp_helpdesk_managersInfo_branding">
+<definition-name>app_sf_responsive_cm:component.common.freeStyle.pagelet2-Component</definition-name>
+<display-name xml:lang="de-DE">Design</display-name>
+<display-name xml:lang="en-US">Branding</display-name>
+<display-name xml:lang="fr-FR">Habillage</display-name>
+<online>true</online>
+<author business-partner-no="admin" domain="inSPIRED"/>
+<configuration-parameters>
+<configuration-parameter name="HTML">
+<definition-name>app_sf_responsive_cm:component.common.freeStyle.pagelet2-Component-HTML</definition-name>
+<value name="HTML" xml:lang="de-DE">&lt;h1&gt;Design&lt;/h1&gt;
+&lt;p&gt;B2B Kundenorganisationen können ein Firmenlogo hinzufügen, um die Storefrontseiten für ihre Benutzer zu personalisieren. Einmal hinzugefügt, ist das Logo auf allen Seiten für alle angemeldeten Benutzer sichtbar.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;HINWEIS: &lt;/strong&gt;Aktuell wird diese Funktion mit aktiviertem Seiten-Caching nicht unterstützt.&lt;/p&gt;
+&lt;h2&gt;Arbeitsablauf&lt;/h2&gt;
+&lt;p&gt;Um ein Firmenlogo hinzuzufügen:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Loggen Sie sich als Administrator einer Kundenorganisation ein.&lt;/li&gt;
+&lt;li&gt;Öffnen Sie Mein Konto | Design.&lt;/li&gt;
+&lt;li&gt;Suchen Sie nach einer Logo-Datei und Klicken Sie Upload.&lt;/li&gt;
+&lt;/ol&gt;</value>
+<value name="HTML" xml:lang="en-US">&lt;h1&gt;Branding&lt;/h1&gt;
+&lt;p&gt;B2B customer organizations can add a corporate logo to personalize the storefront pages for their users. Once added, the logo is visible on all pages for all signed in users.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;NOTE: &lt;/strong&gt;Currently, this feature is not supported with enabled page caching.&lt;/p&gt;
+&lt;h2&gt;Workflow&lt;/h2&gt;
+&lt;p&gt;To add a corporate logo:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Log in as administrator of a customer organization.&lt;/li&gt;
+&lt;li&gt;Open My Account | Branding.&lt;/li&gt;
+&lt;li&gt;Browse for a logo file and click Upload.&lt;/li&gt;
+&lt;/ol&gt;</value>
+<value name="HTML" xml:lang="fr-FR">&lt;h1&gt;Habillage&lt;/h1&gt;
+&lt;p&gt;L’’organisation cliente B2B a la possibilité d&apos;ajouter un logo corporatif pour personnaliser les pages de vitrine pour leurs utilisateurs. Une fois ajouté, le logo est publique sur toutes les pages et pour tous les utilisateurs connectés.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;REMARQUE :&lt;/strong&gt;Cette fonctionnalité n’’est actuellement pas prise en charge avec l’’activation de la mise en cache de page.&lt;/p&gt;
+&lt;h2&gt;Workflow&lt;/h2&gt;
+&lt;p&gt;Pour ajouter un logo corporatif :&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Connectez-vous comme administrateur de l’’organisation cliente.&lt;/li&gt;
+&lt;li&gt;Ouvrir Mon compte | Habillage.&lt;/li&gt;
+&lt;li&gt;Recherchez un fichier logo et cliquez Télécharger.&lt;/li&gt;
+&lt;/ol&gt;</value>
+</configuration-parameter>
+</configuration-parameters>
+</pagelet-component>
+</enfinity>

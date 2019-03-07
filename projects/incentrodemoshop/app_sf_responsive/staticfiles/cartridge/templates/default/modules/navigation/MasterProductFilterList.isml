@@ -1,0 +1,129 @@
+<iscontent personalized="true" type="text/html" charset="UTF-8" compact="true">
+
+<isif condition="#isDefined(ListNavigationVO)#">
+    <isset name="SearchResult" value="#ListNavigationVO:SearchResult#" scope="request">
+    <isset name="FilterEntries" value="#ListNavigationVO:FilterEntries#" scope="request">
+</isif>
+<isif condition="#isDefined(showCount) AND (showCount EQ 'true')#">
+    <isset name="cfg_showcount" value="true" scope="request"/>
+<iselse>
+    <isset name="cfg_showcount" value="false" scope="request"/>
+</isif>
+<isif condition="#isDefined(showSelected) AND (showSelected EQ 'true')#">
+    <isset name="cfg_showselected" value="true" scope="request"/>
+<iselse>
+    <isset name="cfg_showselected" value="false" scope="request"/>
+</isif>
+<isif condition="#isDefined(ListNavigationVO:SortingAttribute)#">
+    <isset name="cfg_sortvalue" value="#ListNavigationVO:SortingAttribute#" scope="request"/>
+</isif>
+
+<isinclude template="modules/search/index/Modules">
+
+<!--- all entries (grouped and single filters)--->
+<isif condition="#isDefined(FilterEntries) AND hasElements(FilterEntries)#">
+    <div class="" id="filter-accordion">
+        <div class="">
+           <div class="col-md-12">
+               <h3><istext key="product.product_filters.heading" /></h3>
+           </div>
+        </div>
+        <div class="collapse in">
+            <isset name="filterCount" value="#1#" scope="request">
+            <isset name="rowCount" value="#1#" scope="request">
+            <%@page
+                import = "com.intershop.component.search.capi.FilterAttribute,
+                com.intershop.component.search.capi.FilterAttributeEntry,
+                java.util.Iterator,
+                java.util.HashMap,
+                java.util.ArrayList"
+            %>
+            <%
+                // We initialize first the selected filters list.
+                getPipelineDictionary().put("SelectedFilters", new HashMap<String, ArrayList<FilterAttributeEntry>>());
+
+            %>
+            <isloop iterator="FilterEntries" alias="FilterEntry" counter="cpt">
+                <%
+                    HashMap<String, ArrayList<FilterAttributeEntry>> selected
+                                                = (HashMap<String, ArrayList<FilterAttributeEntry>>) getObject("SelectedFilters");
+          
+                    // We need to make this as a String...
+                    String hasUnSelectedValues = "false";
+                    FilterAttribute filter;
+                    if(getObject("FilterEntry") instanceof FilterAttribute)
+                	{
+                	    filter  = (FilterAttribute) getObject("FilterEntry");
+	                    Iterator it                 = filter.createFilterAttributeEntryIterator();
+	                    while(it.hasNext()) {
+	                        FilterAttributeEntry entry = (FilterAttributeEntry) it.next();
+	                        if (entry.isSelected()) {
+	                            String key = filter.getConfigurationAttribute().getDisplayName();
+									
+	                            if (! selected.containsKey(key)) {
+	                                selected.put(key, new  ArrayList<FilterAttributeEntry>());
+	                            }
+	                            selected.get(key).add(entry);
+	                        } else {
+	                            hasUnSelectedValues = "true";
+	                        }
+	                    }
+                	}
+
+                    getPipelineDictionary().put("HasUnSelectedValues", hasUnSelectedValues);
+                %>
+                <isset name="filterAttribute" value="#FilterEntry#" scope="request">
+                <isif condition="#hasElements(filterAttribute:FilterAttributeEntry)#">
+                    <div class="filter-group col-md-3 col-sm-6 col-xs-12 margin-bottom-zero border-bottom-none">
+                        <isMasterProductFilter
+                               pipeline="#ListNavigationVO:HandlerPipeline.'-Browse'#"
+                               filter="#filterAttribute#"
+                               query="#SearchResult:Query#"
+                               showselected="#cfg_showselected#"
+                               showcount="#cfg_showcount#"
+                               params="ListNavigationVO:GenericHandlerPipelineParams"
+                               sortvalue="#cfg_sortvalue#"
+                               HasUnSelectedValues="#HasUnSelectedValues#"
+                           >
+                    </div>
+                    <isif condition="#((filterCount / 4) == rowCount) AND hasNext(FilterEntries)#">
+                        </div>
+                        <div class="row">
+                        <isset name="rowCount" value="#rowCount + 1#" scope="request">
+                    </isif>
+                    <isset name="filterCount" value="#filterCount + 1#" scope="request">
+                </isif>
+            </isloop>
+        </div>
+        <!--- We show the applied filters if any --->
+        <isif condition="#hasElements(SelectedFilters:EntrySet)#">
+            <div class="row">
+                <div class="col-md-10 col-xs-12">
+                    <isMasterProductFilterRemove
+                      pipeline="#ListNavigationVO:HandlerPipeline.'-Browse'#"
+                      filter="#SelectedFilters#"
+                      query="#SearchResult:Query#"
+                      showselected="#cfg_showselected#"
+                      showcount="#cfg_showcount#"
+                      params="ListNavigationVO:GenericHandlerPipelineParams"
+                      sortvalue="#cfg_sortvalue#"
+                    >
+                </div>
+                <div class="col-md-2 col-xs-12">
+                     <div class="pull-right">
+                         <a href="<isfilterlink
+                             pipelinename="#ListNavigationVO:HandlerPipeline.'-Browse'#"
+                             params="ListNavigationVO:GenericHandlerPipelineParams"
+                             searchparameter="#ListNavigationVO:SearchResult:Query:RemoveAllConditions#"
+                             pagesize="#ListNavigationVO:PageSize#"
+                             >"
+                           >
+                               <span><istext key="product.remove_all_product_filters.text" /></span>
+                           </a>
+                    </div>
+                </div>
+               </div>
+        </isif>
+    </div>
+</isif>
+<!--- entries --->

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--This pipeline is used to process locking of company profile information when one user begins editing
+@Group Locking-->
+
+<pipeline:Pipeline xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pipeline="http://www.intershop.de/pipeline/2010"
+    name="ProcessCompanyProfileLocking" type="process">
+<!--Acquires all necessary resources for this process to run.
+@Location 1,0-->
+  <nodes xsi:type="pipeline:StartNode" nodeID="StartNode0" strict="true" visibility="Private"
+      name="Lock" callMode="Private">
+    <nodeSuccessors name="next" next="AcquireInstanceResource0"/>
+    <parameters name="Customer" type="com.intershop.component.customer.capi.CustomerBO"/>
+  </nodes>
+<!--@Location 1,1-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="AcquireInstanceResource0">
+    <configurationValues name="ProcessDescription" value="Process used to lock company profile information"/>
+    <configurationValues name="ProcessName" value="CompanyProfileLocking"/>
+    <pipelet href="enfinity:/core/pipelets/AcquireInstanceResource.xml"/>
+    <nodeSuccessors name="next" next="EndNode2"/>
+<!--@BendPoints 5,3-->
+    <nodeSuccessors name="pipelet_error" next="LogMessage0"/>
+    <parameterBindings name="Lifetime" constant="(Integer)60"/>
+    <parameterBindings name="PersistentObject" objectPath="Customer:ExtensibleObject:CustomerCompanyProfile"/>
+    <parameterBindings name="User" objectPath="CurrentUser"/>
+  </nodes>
+<!--@Location 1,2-->
+  <nodes xsi:type="pipeline:EndNode" nodeID="EndNode2" name="next" strict="true"/>
+<!--@Location 2,2-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="LogMessage0">
+    <configurationValues name="Category" value="companyprofile"/>
+    <configurationValues name="Level" value="Error"/>
+    <pipelet href="enfinity:/core/pipelets/LogMessage.xml"/>
+    <nodeSuccessors name="next" next="EndNode0"/>
+    <parameterBindings name="MessageText" objectPath="Unable to lock company profile instance."/>
+  </nodes>
+<!--@Location 2,3-->
+  <nodes xsi:type="pipeline:EndNode" nodeID="EndNode0" name="ERROR_InstanceAlreadyLocked"
+      strict="true"/>
+<!--Releases the resources owned by this process.
+@Location 4,0-->
+  <nodes xsi:type="pipeline:StartNode" nodeID="StartNode1" strict="true" visibility="Private"
+      name="Unlock" callMode="Private">
+    <nodeSuccessors name="next" next="ReleaseInstanceResource0"/>
+    <parameters name="Customer" type="com.intershop.component.customer.capi.CustomerBO"/>
+  </nodes>
+<!--@Location 4,1-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="ReleaseInstanceResource0">
+    <pipelet href="enfinity:/core/pipelets/ReleaseInstanceResource.xml"/>
+    <nodeSuccessors name="next" next="EndNode1"/>
+<!--@BendPoints 11,3-->
+    <nodeSuccessors name="pipelet_error" next="LogMessage1"/>
+    <parameterBindings name="PersistentObject" objectPath="Customer:ExtensibleObject:CustomerCompanyProfile"/>
+    <parameterBindings name="User" objectPath="CurrentUser"/>
+  </nodes>
+<!--@Location 4,2-->
+  <nodes xsi:type="pipeline:EndNode" nodeID="EndNode1" name="next" strict="true"/>
+<!--@Location 5,2-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="LogMessage1">
+    <configurationValues name="Category" value="companyprofile"/>
+    <configurationValues name="Level" value="Error"/>
+    <pipelet href="enfinity:/core/pipelets/LogMessage.xml"/>
+    <nodeSuccessors name="next" next="EndNode3"/>
+    <parameterBindings name="MessageText" objectPath="Unable to unlock company profile instance."/>
+  </nodes>
+<!--@Location 5,3-->
+  <nodes xsi:type="pipeline:EndNode" nodeID="EndNode3" name="ERROR_InstanceAlreadyReleased"
+      strict="true"/>
+</pipeline:Pipeline>

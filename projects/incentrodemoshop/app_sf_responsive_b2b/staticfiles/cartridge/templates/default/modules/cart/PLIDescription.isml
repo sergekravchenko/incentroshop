@@ -1,0 +1,225 @@
+<iscontent type="text/html" charset="UTF-8" compact="true">
+
+<isset name="PLIWarranty" value="#pli:Extension("Warranty")#" scope="request"/>
+<isset name="PLIGifting" value="#pli:Extension("Gifting")#" scope="request"/>
+<isif condition="#isDefined(pli:StringAttribute("GC_ORDER_REQUIRED_GiftCardService")) AND (isDefined(owningdomain))#">
+	<isset name="giftCardItem" value="true" scope="request"/>
+<iselse>
+	<isset name="giftCardItem" value="false" scope="request"/>
+</isif>
+
+
+<% Object pli = getObject("pli");
+if(pli instanceof com.intershop.component.order.capi.OrderProductLineItemBO)
+{%>
+	<isset name="PriceTypeDisplay" value="#pli:OrderBO:PriceDisplayTypeName#" scope="request">
+<%} else {%>
+	<isset name="PriceTypeDisplay" value="#pli:BasketBO:PriceDisplayTypeName#" scope="request">
+<%}%>
+
+<div class="pli-description">
+	<!---Product Title --->
+	<div><a class="product-title" href="#URLEX(InsecureURL,'',Action('ViewProduct-Start'), Parameter('SKU', pli:ProductSKU))#"><isprint value="#pli:ProductName#"></a></div>
+
+	<!---Product ID --->
+	<p class="product-id"><istext key="checkout.pli.item.text.id" /> <isprint value="#pli:ProductSKU#"></p>
+	
+	<!--- Product Bundle Items --->
+	<isif condition="#pli:BundleProductLineItemBOs:Size > 0#">
+		<ul>
+			<isloop iterator="pli:BundleProductLineItemBOs" alias="BundleProductLineItem">
+				<li><isprint value="#BundleProductLineItem:ProductName#"></li>
+			</isloop>
+		</ul>
+	</isif>
+	
+	<!--- Product Variation Attributes --->
+	<isif condition="#isDefined (pli:VariationInformationBO)#">
+		<isif condition="#email EQ 'true'#">
+			<isif condition="#variationattributes EQ 'horizontal'#">
+				<isif condition="#hasLoopElements(pli:VariationInformationBO:VariationAttributes)#">
+					<isloop iterator="pli:VariationInformationBO:VariationAttributes" alias="VariationAttribute">
+						<isprint value="#VariationAttribute:DisplayName#">:<isprint value="#pli:ProductBO:Attribute(VariationAttribute:Name)#">
+					</isloop>
+				</isif>
+			<iselsif condition="#variationattributes EQ 'vertical'#">
+				<isif condition="#hasLoopElements(pli:VariationInformationBO:VariationAttributes)#">
+					<isloop iterator="pli:VariationInformationBO:VariationAttributes" alias="VariationAttribute">
+						<isprint value="#VariationAttribute:DisplayName#">:&nbsp;<isprint value="#pli:ProductBO:Attribute(VariationAttribute:Name)#">
+					</isloop>
+					</isif>
+			</isif>	
+		<iselse>
+			<isif condition="#variationattributes EQ 'horizontal'#">
+				<dl id="editProductVariation<isprint value="#index#" style="INTEGER" />" class="dl-horizontal">
+					<isif condition="#hasLoopElements(pli:VariationInformationBO:VariationAttributes)#">
+						<isloop iterator="pli:VariationInformationBO:VariationAttributes" alias="VariationAttribute">
+							<dt><isprint value="#VariationAttribute:DisplayName#">:</dt>
+							<dd class="<isif condition="#not(hasNext(VariationAttribute)) AND (editable EQ 'true')#">variationAttribute-last</isif>"><isprint value="#pli:ProductBO:Attribute(VariationAttribute:Name)#"></dd>
+							<isif condition="#NOT(pli:Extension("Quote"):isQuoteLineItemBO)#">
+								<isif condition="#not(hasNext(VariationAttribute)) AND (editable EQ 'true')#">
+									<a href="#URL(Action('ViewCart-EditProduct'), Parameter('LineItemUUID', pli:ID))#" data-dialog title="<istext key="checkout.variation.edit.button.label"/>"><istext key="checkout.variation.edit.button.label"/></a>
+								</isif>
+							</isif>
+						</isloop>
+					</isif>
+				</dl>
+			<iselsif condition="#variationattributes EQ 'vertical'#">
+				<dl id="editProductVariation<isprint value="#index#" style="INTEGER" />">
+					<isif condition="#hasLoopElements(pli:VariationInformationBO:VariationAttributes)#">
+						<isloop iterator="pli:VariationInformationBO:VariationAttributes" alias="VariationAttribute">
+							<dt><isprint value="#VariationAttribute:DisplayName#">:&nbsp;</dt>
+							<dd><isprint value="#pli:ProductBO:Attribute(VariationAttribute:Name)#"></dd>
+						</isloop>
+					</isif>
+				</dl>
+			</isif>
+		</isif>
+		<isif condition="#(editable EQ 'true') AND (variationattributes EQ 'vertical')#">
+			<isif condition="#NOT(pli:Extension("Quote"):isQuoteLineItemBO)#">
+				<a href="#URL(Action('ViewCart-EditProduct'), Parameter('LineItemUUID', pli:ID))#" data-dialog class="btn-tool" title="<istext key="checkout.variation.edit.button.label"/>"><istext key="checkout.variation.edit.button.label"/></span></a>
+			</isif>
+		</isif>
+	</isif>
+	
+	<!---Stock info --->
+	<isif condition="#(showstockinfo EQ 'true') AND (giftCardItem EQ 'false')#">	
+		<isif condition="#ProductInventory:ServiceEnabled#">
+			<isset name="ProductInventory" value="#pli:ProductBO:Extension("Inventory")#" scope="request" />
+			<isif condition="#ProductInventory:GetInventoryStatus:InStock#">
+				<istext key="product.instock.textinventory" />
+			<iselse>
+				<istext key="product.out_of_stock.textinventory" />
+			</isif>
+		<iselse>
+		<p class="availability">
+			<isif condition="#NOT (pli:ProductBO:Accessible)#"><!--- see preference BasketAcceptedItemStatus --->
+				<span class="product-out-of-stock"><istext key="checkout.pli.not_accessible.text" /></span>
+			<iselseif condition="#pli:ProductBO:InventoryStatus:InStock#">
+				<span class="product-in-stock"><istext key="checkout.pli.instock.text" /></span>
+			<iselse>
+				<span class="product-out-of-stock"><istext key="checkout.pli.out_of_stock.text" /></span>
+			</isif>
+		</p>
+		</isif>
+	</isif>
+
+	<!--- Ship Window Message --->
+	<isif condition="#isDefined(showshipwindowmessage) AND (showshipwindowmessage EQ 'true') AND (giftCardItem EQ 'false')#">	
+		<div class="hidden-xs">
+			<isif condition="#email EQ 'true'#">
+				<isinclude template="cart/email/inc/ShipWindowMessage">
+			<iselse>
+				<isinclude template="checkout/inc/ShipWindowMessage">
+			</isif>	
+		</div>
+				
+	</isif>
+	
+	<!---Item surcharges --->
+	<isif condition="#hasLoopElements(pli:AllItemSurchargeBOs)#">
+		<isloop iterator="pli:AllItemSurchargeBOs" alias="Surcharge">
+			<div>
+				<span class=""><isif condition="#isDefined(Surcharge:DisplayName)#"><isprint value="#Surcharge:DisplayName#"/><iselse><istext key="checkout.pli.surcharge.text"/></isif></span>
+				<span class="text-nowrap">
+					<isif condition="#PriceTypeDisplay EQ 'net'#">
+						(<isprint value="#Surcharge:AmountNet#">)
+					<iselse/>
+						(<isprint value="#Surcharge:AmountGross#">)
+					</isif>
+				</span>
+				<isif condition="#email NE 'true'#">
+					<isTooltip linkclass="details-tooltip" linktextkey="shopping_cart.detail.text" headline="#Surcharge:DisplayName#" content="#Surcharge:Description#">
+				</isif>
+			</div>
+		</isloop>
+	</isif>
+	
+	<!---Gift wrap and gift message --->
+	<isif condition="#isDefined(showgiftinginformation) AND (showgiftinginformation EQ 'true') AND (giftCardItem EQ 'false')#">
+		<div class="hidden-xs">
+			<ISGiftOptionIndicator 
+				giftwrappingenabled="#PLIGifting:GiftWrappable#"
+				giftwraps="#pli:ProductBO:Extension("Gifting"):ApplicableGiftWraps:Size#"
+				giftmessagingenabled="#PLIGifting:GiftMessagable#"
+				giftmessages="#pli:ProductBO:Extension("Gifting"):ApplicableGiftMessages:Size#"
+			>
+		</div>
+	</isif>
+	
+	<!--- show warranty if flag is true or for compatibility if it is not set --->
+	<isif condition="#NOT(isDefined(showwarranty)) OR (isDefined(showwarranty) AND (showwarranty EQ 'true'))#">
+		<isif condition="#isDefined(removable) AND PLIWarranty:WarrantyEligible#">
+			<isinclude template="cart/warranty/WarrantySelectionCheckout">
+		<iselse>
+			<isif condition="#isDefined(PLIWarranty:Warranty:Warranty)#">
+				<div class="warranty">
+					<isprint value="#PLIWarranty:Warranty:Warranty:DisplayName#">
+					<isif condition="#email NE 'true'#">&nbsp;<a href="#URL(Action('ViewWarrantyDetails-Start'), Parameter('SKU', PLIWarranty:Warranty:ProductSKU))#" data-dialog class="details-link"><istext key="checkout.pli.warranty.details.text"/></a></isif>
+				</div>
+			</isif>
+		</isif>
+	</isif>
+	
+	<!---Gift Card Details ---><!--- show this data directly above the other buttons --->
+	<isif condition="#isDefined(pli:StringAttribute("GC_ORDER_REQUIRED_GiftCardService")) AND (isDefined(owningdomain))#">
+		<ispipeline pipeline="ProcessPrepareBasketViewOfGiftCards-PrepareBasketView" params="#ParamMap(ParamEntry('Domain', owningdomain),ParamEntry('PLIUUID', pli:ID))#" alias="GiftCardsDetail" />
+		
+			<isif condition="#isDefined(GiftCardsDetail:GiftCardService:Capabilities:BasketPliTemplate) AND existsTemplate(GiftCardsDetail:GiftCardService:Capabilities:BasketPliTemplate)#">
+				<isinclude template="#GiftCardsDetail:GiftCardService:Capabilities:BasketPliTemplate#">
+			</isif>
+	</isif>
+	
+	<!---
+		for B2b extension: replace wish list with order template
+	 --->
+	<!--- Add To Order Template and Remove icons --->
+	<isif condition="#(pli:FreeGift) AND (movable EQ 'true')#">
+		<!--- Condition will be used if a "Free Gift Discount" promotion exists and is only displayed in these automatically added products in cart --->
+		<div>
+			<isif condition="#isDefined(loggedin) AND (loggedin EQ 'true')#">
+				<a class="btn-tool add-to-wishlist_<isprint value="#pli:ProductSKU#"/>"
+					data-dialog
+					href="#URL(Action('ViewWishlist-AddItems'), Parameter('SKU', pli:ProductBO:SKU))#"
+					title="<istext key="account.order_template.add_to_template.button.add_to_template.label" />">
+					<span class="glyphicon glyphicon-list"></span>
+				</a>
+			<iselse>
+				<a class="btn-tool add-to-wishlist_<isprint value="#pli:ProductSKU#"/>"
+					href="#URLEX(SecureURL, '', Action('ViewUserAccount-ShowLogin'), Parameter('TargetPipeline','ViewCart-View'), Parameter("PLIID", pli:ID), Parameter('TargetURLFragment', 'add-to-wishlist_'.pli:ProductSKU), Parameter('LoginToUse', 'wishlists'))#"
+					title="<istext key="account.order_template.add_to_template.button.add_to_template.label" />">
+					<span class="glyphicon glyphicon-list"></span>
+				</a>
+			</isif>
+		</div>
+	<iselse>
+		<isif condition="#removable EQ 'true'#">
+			<!--- Add item to order template --->
+			<isif condition="#movable EQ 'true'#">
+				
+				<isif condition="#(NOT (isDefined(pli:ProductBO:ServiceTypeBO) AND pli:ProductBO:ServiceTypeBO:DigitalGiftCard))#">
+					<isif condition="#isDefined(loggedin) AND (loggedin EQ 'true')#">
+						<a class="btn-tool add-to-wishlist_<isprint value="#pli:ProductSKU#"/>"
+							data-dialog
+							href="#URL(Action('ViewOrderTemplate-MoveFromCartToOrderTemplate'), Parameter('AjaxRequestMarker', 'true'), Parameter('PLIID', pli:ID))#"
+							title="<istext key="account.order_template.add_to_template.button.add_to_template.label" />">
+							<span class="glyphicon glyphicon-list"></span>
+						</a>
+					<iselse>
+						<a class="btn-tool add-to-wishlist_<isprint value="#pli:ProductSKU#"/>"
+							href="#URLEX(SecureURL, '', Action('ViewUserAccount-ShowLogin'), Parameter('TargetPipeline','ViewCart-View'), Parameter("PLIID", pli:ID), Parameter('TargetURLFragment', 'add-to-wishlist_'.pli:ProductSKU), Parameter('LoginToUse', 'wishlists'))#"
+							title="<istext key="account.order_template.add_to_template.button.add_to_template.label" />">
+							<span class="glyphicon glyphicon-list"></span>
+						</a>
+					</isif>
+				</isif>
+			</isif>
+			
+			<!--- Delete Item  --->
+			<isinclude template="inc/CSRFGuardJSToken"/>
+			<a class="btn-tool" data-csrf-guarded href="#URL(Action('ViewCart-RemoveProduct'), Parameter('removeProduct', pli:ID))#" title="<istext key="shopping_cart.remove.item.button.label" />">
+				<span class="glyphicon glyphicon-trash"></span>
+			</a>
+		</isif>
+	</isif>
+</div>

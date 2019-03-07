@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<searchIndexConfiguration>
+    <custom-values>
+        <custom-value name="PageIDs" type="string">
+            <value>page.content</value>
+            <value>systempage.helpdesk.index.pagelet2-Page</value>
+        </custom-value>
+        <custom-value name="IndexedQNames" type="string">
+            <value>app_sf_responsive_cm:component.common.freeStyle.pagelet2-Component-HTML</value>
+            <value>app_sf_responsive_cm:component.common.freeStyleWithTitle.pagelet2-Component-HTML</value>
+            <value>app_sf_responsive_cm:component.common.freeStyleWithTitle.pagelet2-Component-Title</value>
+        </custom-value>
+    </custom-values>
+    <name>content-search-idx-de_DE</name>
+    <featureID>SFContentSearch.solr</featureID>
+    <locale>de_DE</locale>
+    <online>true</online>
+    <lastIndexStartTime>2014-10-30T14:16:21.072+01:00</lastIndexStartTime>
+    <description></description>
+    <attributes>
+        <attribute>
+            <dataProviderName>PageletPO</dataProviderName>
+            <weight>100</weight>
+            <sortable>false</sortable>
+            <filterAttribute>false</filterAttribute>
+            <filter-options sort="1" displayName="Seitenkategorie" limitCount="-1" minCount="1" position="1" displayType="text" selectionType="single">
+                <categories/>
+            </filter-options>
+            <description>Page Entry Point Hierarchy Display Name</description>
+            <name>PEPDisplayNameLevel0</name>
+            <displayName>DisplayName Level 0</displayName>
+            <ID>0</ID>
+            <dataType>0</dataType>
+            <searchable>false</searchable>
+            <standard>true</standard>
+        </attribute>
+        <attribute>
+            <dataProviderName>PageletPO</dataProviderName>
+            <weight>100</weight>
+            <sortable>false</sortable>
+            <filterAttribute>false</filterAttribute>
+            <description></description>
+            <name>PEPDisplayNameLevel1</name>
+            <displayName>DisplayName Level 1</displayName>
+            <ID>1</ID>
+            <dataType>0</dataType>
+            <searchable>false</searchable>
+            <standard>true</standard>
+        </attribute>
+        <attribute>
+            <dataProviderName>PageletPO</dataProviderName>
+            <weight>100</weight>
+            <sortable>false</sortable>
+            <filterAttribute>false</filterAttribute>
+            <description>Page Entry Point Hierarchy Display Name</description>
+            <name>PEPDisplayNameLevel2</name>
+            <displayName>DisplayName Level 2</displayName>
+            <ID>2</ID>
+            <dataType>0</dataType>
+            <searchable>false</searchable>
+            <standard>true</standard>
+        </attribute>
+        <attribute>
+            <dataProviderName>PageletPO</dataProviderName>
+            <weight>100</weight>
+            <sortable>false</sortable>
+            <filterAttribute>false</filterAttribute>
+            <description>Page Entry Point Hierarchy Display Name</description>
+            <name>PEPDisplayNameLevel3</name>
+            <displayName>DisplayName Level 3</displayName>
+            <ID>3</ID>
+            <dataType>0</dataType>
+            <searchable>false</searchable>
+            <standard>true</standard>
+        </attribute>
+        <attribute>
+            <dataProviderName>PageletPO</dataProviderName>
+            <weight>100</weight>
+            <sortable>false</sortable>
+            <filterAttribute>false</filterAttribute>
+            <description>The Page Pagelet UUID for indexed component pagelets</description>
+            <name>PageUUID</name>
+            <displayName>PagePageletUUID</displayName>
+            <ID>4</ID>
+            <dataType>0</dataType>
+            <searchable>false</searchable>
+            <standard>true</standard>
+        </attribute>
+        <attribute>
+            <dataProviderName>PageletPO</dataProviderName>
+            <weight>100</weight>
+            <sortable>false</sortable>
+            <filterAttribute>false</filterAttribute>
+            <description>the Page Entry Point ID</description>
+            <name>PageletEntryPointID</name>
+            <displayName>PageletEntryPointID</displayName>
+            <ID>5</ID>
+            <dataType>3</dataType>
+            <searchable>false</searchable>
+            <standard>true</standard>
+        </attribute>
+        <attribute>
+            <dataProviderName>PageletPO</dataProviderName>
+            <weight>100</weight>
+            <sortable>false</sortable>
+            <filterAttribute>false</filterAttribute>
+            <description>The Slot UUID for indexed component pagelets</description>
+            <name>SlotUUID</name>
+            <displayName>SlotUUID</displayName>
+            <ID>6</ID>
+            <dataType>0</dataType>
+            <searchable>false</searchable>
+            <standard>true</standard>
+        </attribute>
+        <attribute>
+            <dataProviderName>PageletPO</dataProviderName>
+            <weight>100</weight>
+            <sortable>false</sortable>
+            <filterAttribute>false</filterAttribute>
+            <description>The Pagelet UUID</description>
+            <name>UUID</name>
+            <displayName>PageletUUID</displayName>
+            <ID>7</ID>
+            <dataType>0</dataType>
+            <searchable>false</searchable>
+            <standard>true</standard>
+        </attribute>
+        <attribute>
+            <dataProviderName>MappedParameter</dataProviderName>
+            <weight>100</weight>
+            <sortable>false</sortable>
+            <filterAttribute>false</filterAttribute>
+            <description>target field to store abstract-like content into the index</description>
+            <name>abstract</name>
+            <displayName>Abstract</displayName>
+            <ID>8</ID>
+            <dataType>0</dataType>
+            <searchable>true</searchable>
+            <standard>true</standard>
+        </attribute>
+        <attribute>
+            <dataProviderName>PageletPO</dataProviderName>
+            <weight>100</weight>
+            <sortable>false</sortable>
+            <filterAttribute>false</filterAttribute>
+            <filter-options sort="1" displayName="Author" limitCount="-1" minCount="1" position="2" displayType="text" selectionType="single">
+                <categories/>
+            </filter-options>
+            <description></description>
+            <name>author</name>
+            <displayName>Author</displayName>
+            <ID>9</ID>
+            <dataType>0</dataType>
+            <searchable>false</searchable>
+            <standard>true</standard>
+        </attribute>
+        <attribute>
+            <custom-values>
+                <custom-value name="IndexedQNames" type="string">
+                    <value>app_sf_responsive_cm:component.common.freeStyle.pagelet2-Component-HTML</value>
+                    <value>app_sf_responsive_cm:component.common.freeStyleWithTitle.pagelet2-Component-HTML</value>
+                </custom-value>
+            </custom-values>
+            <dataProviderName>MappedParameter</dataProviderName>
+            <weight>100</weight>
+            <sortable>false</sortable>
+            <filterAttribute>false</filterAttribute>
+            <description>target field to store content into the index</description>
+            <name>content</name>
+            <displayName>Content</displayName>
+            <ID>10</ID>
+            <dataType>0</dataType>
+            <searchable>true</searchable>
+            <standard>true</standard>
+        </attribute>
+        <attribute>
+            <dataProviderName>PageletPO</dataProviderName>
+            <weight>100</weight>
+            <sortable>false</sortable>
+            <filterAttribute>false</filterAttribute>
+            <description>field to store the last modified date</description>
+            <name>lastmodified</name>
+            <displayName>LastModified</displayName>
+            <ID>11</ID>
+            <dataType>10</dataType>
+            <searchable>false</searchable>
+            <standard>true</standard>
+        </attribute>
+        <attribute>
+            <custom-values>
+                <custom-value name="SpellCheck" type="string">
+                    <value>false</value>
+                </custom-value>
+                <custom-value name="AutoSuggest" type="string">
+                    <value>false</value>
+                </custom-value>
+                <custom-value name="IndexedQNames" type="string">
+                    <value>app_sf_responsive_cm:component.common.freeStyleWithTitle.pagelet2-Component-Title</value>
+                </custom-value>
+            </custom-values>
+            <dataProviderName>MappedParameter</dataProviderName>
+            <weight>100</weight>
+            <sortable>true</sortable>
+            <labelAsc>Titel ascending</labelAsc>
+            <labelDesc>Titel descending</labelDesc>
+            <filterAttribute>false</filterAttribute>
+            <description>target field to store title information into the index.</description>
+            <name>title</name>
+            <displayName>Title</displayName>
+            <ID>12</ID>
+            <dataType>0</dataType>
+            <unit></unit>
+            <searchable>true</searchable>
+            <standard>true</standard>
+        </attribute>
+    </attributes>
+    <filtergroups/>
+    <synonyms/>
+    <stopWords></stopWords>
+</searchIndexConfiguration>

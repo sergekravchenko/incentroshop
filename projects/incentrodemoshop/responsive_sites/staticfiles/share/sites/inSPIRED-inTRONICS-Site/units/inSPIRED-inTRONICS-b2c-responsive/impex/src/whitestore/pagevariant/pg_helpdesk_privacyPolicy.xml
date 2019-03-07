@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<enfinity xmlns:dt="http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt">
+<pagelet-page id="pg_helpdesk_privacyPolicy">
+<definition-name>app_sf_responsive_cm:pagevariant.standard.pagelet2-Pagevariant</definition-name>
+<parent id="pg_tmp_helpDeskPage" domain="inSPIRED-inTRONICS-b2c-responsive" />
+<display-name xml:lang="de-DE">Hilfe - Datenschutzhinweise</display-name>
+<display-name xml:lang="en-US">Helpdesk - Privacy Policy</display-name>
+<online>true</online>
+<author business-partner-no="admin" domain="inSPIRED"/>
+<configuration-parameters>
+<configuration-parameter name="MetaInfo">
+<definition-name>app_sf_responsive_cm:pagevariant.standard.pagelet2-Pagevariant-MetaInfo</definition-name>
+<value name="MetaInfo" xml:lang="de-DE">metaTitle=Datenschutzhinweise;metaDescription=;metaKeywords=</value>
+<value name="MetaInfo" xml:lang="en-US">metaTitle=Privacy Policy;metaDescription=;metaKeywords=</value>
+</configuration-parameter>
+</configuration-parameters>
+<placeholder-configurations>
+<placeholder-configuration hide-target-content="false" place-target-content-on-top="false">
+<parent-placeholder placeholder-id="ph_helpDeskPage_BaseMarketing"/>
+</placeholder-configuration>
+<placeholder-configuration hide-target-content="false" place-target-content-on-top="false">
+<parent-placeholder placeholder-id="ph_helpDeskPage_Content"/>
+</placeholder-configuration>
+<placeholder-configuration hide-target-content="false" place-target-content-on-top="false">
+<parent-placeholder placeholder-id="ph_helpDeskPage_sidePanelMarketing"/>
+</placeholder-configuration>
+</placeholder-configurations>
+</pagelet-page>
+<pagelet-placeholder-assignment id="1z8KDgAbGSAAAAE_Z8OSFMia">
+<placeholder pagelet-domain="inSPIRED-inTRONICS-b2c-responsive" pagelet-id="pg_helpdesk_privacyPolicy">
+<parent-placeholder placeholder-id="ph_helpDeskPage_Content"/>
+</placeholder>
+<pagelet id="cmp_privacyPolicy" domain="inSPIRED-inTRONICS-b2c-responsive"/>
+<position>2</position>
+<online>true</online>
+</pagelet-placeholder-assignment>
+</enfinity>

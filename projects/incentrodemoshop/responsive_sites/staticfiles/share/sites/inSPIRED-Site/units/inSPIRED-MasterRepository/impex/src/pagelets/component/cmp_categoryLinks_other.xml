@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<enfinity xmlns:dt="http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt">
+<pagelet-component id="cmp_categoryLinks_other">
+<definition-name>app_sf_responsive_cm:component.category.categoryLinks.pagelet2-Component</definition-name>
+<display-name xml:lang="de-DE">Kategorieverweise Andere</display-name>
+<display-name xml:lang="en-US">Category Links Other</display-name>
+<display-name xml:lang="fr-FR">Liens catégories Autres</display-name>
+<online>true</online>
+<author business-partner-no="admin" domain="inSPIRED"/>
+<configuration-parameters>
+<configuration-parameter name="CategoryLinkType">
+<definition-name>app_sf_responsive_cm:component.category.categoryLinks.pagelet2-Component-CategoryLinkType</definition-name>
+<value name="CategoryLinkType">ES_Other_C</value>
+</configuration-parameter>
+<configuration-parameter name="ListStyle">
+<definition-name>app_sf_responsive_cm:component.category.categoryLinks.pagelet2-Component-ListStyle</definition-name>
+<value name="ListStyle">none</value>
+</configuration-parameter>
+<configuration-parameter name="ProductView">
+<definition-name>app_sf_responsive_cm:component.category.categoryLinks.pagelet2-Component-ProductView</definition-name>
+<value name="ProductView">app_sf_responsive:vc_productTile@inSPIRED-MasterRepository</value>
+</configuration-parameter>
+<configuration-parameter name="SlideItems">
+<definition-name>app_sf_responsive_cm:component.category.categoryLinks.pagelet2-Component-SlideItems</definition-name>
+<value name="SlideItems">4</value>
+</configuration-parameter>
+<configuration-parameter name="Title">
+<definition-name>app_sf_responsive_cm:component.category.categoryLinks.pagelet2-Component-Title</definition-name>
+<value name="Title" xml:lang="de-DE">Hervorgehobene Produkte</value>
+<value name="Title" xml:lang="en-US">Featured Products</value>
+<value name="Title" xml:lang="fr-FR">Produits mis en vedette</value>
+</configuration-parameter>
+</configuration-parameters>
+</pagelet-component>
+</enfinity>

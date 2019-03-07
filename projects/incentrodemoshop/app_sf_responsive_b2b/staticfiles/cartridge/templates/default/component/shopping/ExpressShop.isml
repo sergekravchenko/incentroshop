@@ -1,0 +1,88 @@
+<iscontent personalized="true" type="text/html" charset="UTF-8" compact="true">
+<iscache type="relative" hour="24">
+<iscachekey object="#ProductBO#">
+<isinclude template="modules/Modules">
+<isinclude template="modules/captcha/Modules">
+
+<script type="text/javascript">RetailShop.onCollapseChangeArrow();</script>
+
+<isCurrentUserBO currentuserbo="UserBO">
+<iscomment>TODO this check must use a permission (not a role) when ready</iscomment>
+<isif condition="#UserBO:Extension("UserBORoleExtension"):hasRole("APP_B2B_OCI_USER")#">
+	<isset name="USER_HAS_ROLE_APP_B2B_OCI_USER" value="true" scope="request"/>
+<iselse>
+	<isset name="USER_HAS_ROLE_APP_B2B_OCI_USER" value="false" scope="request"/>
+</isif>
+<script type="text/javascript">RetailShop.onCollapseChangeArrow();</script>
+
+<div class="modal-dialog modal-lg"
+	data-testing-id="section-expressshop-dialog"
+	data-dynamic-block
+	data-dynamic-block-call-parameters="CID=<isprint value="#Pagelet:UUID#">"
+	data-dynamic-block-product-id="<isprint value="#ProductBO:ID#">"
+>
+	<div class="modal-content">
+		<div class="modal-header">
+			<button type="button" class="close" data-testing-id="button-expressshop-close" data-dismiss="modal" title="<istext key="dialog.close.text">" aria-label="<istext key="dialog.close.text"/>"><span aria-hidden="true">&times;</span></button>
+		</div>
+		<div class="modal-body">
+			<div class="express-shop">
+			
+				<div class="pull-right">
+					<ISProductRating
+						ProductBO="#ProductBO#"
+						User="#CurrentUser#"
+						SimpleRatingView="false"
+						RichSnippetsEnabled="#RichSnippetsEnabled#"
+					>
+				</div>
+				
+				<div class="row product-details">
+					<!--- product images --->
+					<div class="col-sm-6 col-md-7">
+						<div class="col-xs-12 product-detail-img clearfix">
+							<div class="product-image-container">
+								<ISProductImagesCarousel
+									ProductBO="#ProductBO#"
+									ImageType="L"
+									RichSnippetsEnabled="#RichSnippetsEnabled#"
+									ExpressShop="true">
+								<ISProductLabel ProductBO="#ProductBO#">
+							</div>
+						</div>
+						<div class="col-md-12 hidden-xs hidden-sm">
+							<ISProductAlternateImages
+								ProductBO="#ProductBO#"
+								ImageType="S"
+								RichSnippetsEnabled="#RichSnippetsEnabled#">
+						</div>
+					</div>
+					
+					<!--- product details --->
+					<div class="col-sm-6 col-md-5 col-xs-12">
+						<isinclude template="expressshop/ProductInfos">
+						
+						<!--- product tabs --->
+						<div id="accordion" class="panel-group">
+							<isinclude template="inc/product/DescriptionTab">
+							<isinclude template="inc/product/DetailsTab">
+							<isinclude template="inc/product/AttachmentsTab">
+							<iscomment>TODO this check must use a permission (not a role) when ready</iscomment>
+							<isif condition="#NOT(isDefined(USER_HAS_ROLE_APP_B2B_OCI_USER)) OR (USER_HAS_ROLE_APP_B2B_OCI_USER EQ 'false')#">
+								<isinclude template="inc/product/PolicyTab">
+								<isinclude template="inc/product/ShippingTab">
+							</isif>
+						</div>
+					</div>
+				</div>
+				<div class="marketing-area">
+					<isslot slot="app_sf_responsive_cm:slot.marketing.product.pagelet2-Slot">
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<script type="text/javascript">
+		ProductDetail.productImageCarousel();
+	</script>
+</div>

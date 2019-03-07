@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<enfinity xmlns:dt="http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt">
+<view-context id="vc_categoryTile">
+<definition-name>app_sf_responsive:viewcontext.include.category.pagelet2-ViewContext</definition-name>
+<display-name xml:lang="de-DE">Kategorie-Kachel</display-name>
+<display-name xml:lang="en-US">Category Tile</display-name>
+<display-name xml:lang="fr-FR">Tuile de catégorie</display-name>
+<description xml:lang="de-DE">Kategorie-Kachel zeigt ein Bild an, den Titel und eine Unterkategorie-Liste.</description>
+<description xml:lang="en-US">Category Tile that displays an image, the title and a subcategory listing.</description>
+<description xml:lang="fr-FR">Tuile de catégorie qui affiche une image, un titre et une liste de sous-catégorie.</description>
+<configuration-parameters>
+</configuration-parameters>
+</view-context>
+</enfinity>

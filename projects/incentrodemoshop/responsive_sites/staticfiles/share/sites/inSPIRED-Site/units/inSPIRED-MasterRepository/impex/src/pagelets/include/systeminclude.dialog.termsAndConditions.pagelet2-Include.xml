@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<enfinity xmlns:dt="http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt">
+<pagelet-entry-point id="systeminclude.dialog.termsAndConditions.pagelet2-Include">
+<definition-name>app_sf_responsive:systeminclude.dialog.termsAndConditions.pagelet2-Include</definition-name>
+<page>false</page>
+<sorting>false</sorting>
+<display-name xml:lang="de-DE">Dialog - Allgemeine Geschäftsbedingungen</display-name>
+<display-name xml:lang="en-US">Dialog - Terms And Conditions</display-name>
+<display-name xml:lang="fr-FR">Dialogue - Conditions de vente</display-name>
+<description xml:lang="de-DE">Dieses Include ermöglicht die Definition der allgemeinen Geschäftsbedingungen, die auf der Übersichtsseite des Bezahlvorgangs angezeigt werden.</description>
+<description xml:lang="en-US">This include allows to define the terms and conditions that can be seen on the review page of the checkout.</description>
+<description xml:lang="fr-FR">Cette inclusion permet de définir les conditions de vente qui sont affichées sur la page récapitulative de la caisse.</description>
+</pagelet-entry-point>
+<pagelet-pagelet-entry-point-assignment>
+<pagelet-entry-point id="systeminclude.dialog.termsAndConditions.pagelet2-Include" domain="inSPIRED-MasterRepository" resource-set="app_sf_responsive"/>
+<pagelet id="cmp_dialog_termsAndConditions" domain="inSPIRED-MasterRepository"/>
+<position>1</position>
+<online>true</online>
+</pagelet-pagelet-entry-point-assignment>
+</enfinity>

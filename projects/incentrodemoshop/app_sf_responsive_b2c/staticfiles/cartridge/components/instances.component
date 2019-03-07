@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<components xmlns="http://www.intershop.de/component/2010">
+	<fulfill requirement="condition" of="LocalizationKeyFilter.DeniedCartridges.Exceptions">
+	    <instance with="LocalizationKeyNameCondition">
+	        <fulfill requirement="startsWith" value="MetaTexts"/>
+	    </instance>
+	</fulfill>
+</components>

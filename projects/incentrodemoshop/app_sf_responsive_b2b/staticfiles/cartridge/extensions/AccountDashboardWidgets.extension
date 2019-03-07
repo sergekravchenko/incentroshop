@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<extensionpoint:ExtensionPointModel xmlns:extensionpoint="http://www.intershop.de/extensionpoint/2011" name="AccountDashboardWidgetsExtension">
+  <extensionBindings type="isml" extensionPoint="account/Account-DashboardWidgets" extension="account/dashboard/QuoteWidget" />
+  <extensionBindings type="isml" extensionPoint="account/Account-DashboardWidgets" extension="account/dashboard/ContractWidget" />
+</extensionpoint:ExtensionPointModel>

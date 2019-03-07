@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pagelet:PageletModel xmlns:pagelet="http://www.intershop.de/pagelet/2010" name="pwa.include.homepage.pagelet2">
+  <componentEntryPointDefinitions name="Include" multiplicity="ZERO_MANY" systemManaged="true">
+    <callParameterInterfaces referencedName="app_sf_responsive_cm:interface.common.content.pagelet2-Interface"/>
+    <callParameterInterfaces referencedName="app_sf_responsive_cm:interface.common.content.advanced.pagelet2-Interface"/>
+  </componentEntryPointDefinitions>
+</pagelet:PageletModel>

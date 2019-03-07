@@ -1,0 +1,102 @@
+<iscontent personalized="true" type="text/html" charset="UTF-8" compact="true">
+<iscache type="relative" hour="24">
+<isinclude template="modules/Modules">
+
+<ispipeline pipeline="BusinessObjectUtils-GetUserBO" alias="dict" params="#ParamMap(ParamEntry('User', CurrentUser))#" />
+<isset scope="request" name="UserBO" value="#dict:UserBO#">
+
+<div class="top-header">
+	<nav class="container">
+		<div class="row">
+			<div class="visible-xs">
+				<isinclude template="component/system/HeaderMobileLogo">
+			</div>
+			<!--- Mobile Navigation Icon --->
+			<div class="visible-xs pull-right">
+				<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#'#'#globalnav">
+					<span class="sr-only"><istext key="common.button.navbartoggle.text"/></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+			</div>
+			<div class="col-md-12">
+				<ul class="user-links">
+					<li>
+						<isinclude url="#URL(Action('ViewLoginStatus-Start'))#">
+					</li>
+					<li>
+						<isinclude template="inc/header/ProductCompareStatus"/>
+					</li>
+					<isif condition="#CurrentSession:isLoggedIn#">
+						<iscomment>TODO this check must use a permission (not a role) when ready</iscomment>
+						<isif condition="#NOT BusinessObjectDict:UserBO:Extension("UserBORoleExtension"):hasRole("APP_B2B_OCI_USER")#">
+							<li>
+								<a href="#URL(Action('ViewApprovals-MyOpen'))#" class=""><span class="glyphicon-inbox glyphicon glyphicon-header-icon"></span><span class="hidden-xs"><istext key="order.pending.heading"/></span></a>						
+							</li>
+						</isif>
+					</isif>
+					<li class="visible-xs">
+						<a href="#URLEX(SecureURL,'',Action('ViewCart-View'))#"><span class="glyphicon glyphicon-shopping-cart glyphicon-header-icon"></span></a>
+						<!--- Shift Cart Counter DOM position to here for mobile devices via JS to prevent duplicate calls --->
+						<div class="mobile-cart-counter"></div>
+					</li>
+				</ul>
+				<div class="header-utility">
+					<isslot slot="app_sf_responsive_cm:slot.header.utility.pagelet2-Slot">
+				</div>
+			</div>
+		</div>
+	</nav>
+</div>
+<div class="mid-header">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-3 logo-wrapper hidden-xs">
+				<isinclude template="component/system/HeaderPageLogo">
+			</div>
+			<div class="col-sm-5 quick-order-links hidden-xs">
+				<a data-testing-id="link-quickorder" href="#URLEX(InsecureURL,'',Action('ViewQuickorder-Start'))#" title="Quick Order"><span class="glyphicon glyphicon-fast-forward"></span><istext key="quick.order.label"/></a>				
+			</div>
+			<div class="col-sm-4 search-container header-search-container">
+				<ISSearchBox 
+					id="Header"
+					useAutoSuggest="true"
+					maxAutoSuggestResults="10"
+					instructionalText="#localizeText("search.searchbox.instructional_text")#"
+				>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="bottom-header">
+	<div class="global-nav collapse navbar-collapse" id="globalnav">
+		<div class="container">
+			<div class="row">
+				<div class="main-navigation col-sm-8 col-md-9" role="navigation">
+					<ul class="navbar-nav main-navigation-list">
+						<li class="home hidden-xs">
+							<a class="" href="#URL(Action('ViewHomepage-Start'))#" title="home"><span class="glyphicon glyphicon-home"></span></a>
+						</li>
+						<isslot slot="app_sf_responsive_cm:slot.header.navigation.pagelet2-Slot">
+					</ul>
+				</div>
+				<div class="col-sm-4 col-md-3 pull-right main-navigation-right" data-ajax-content="#URL(Action('ViewMiniCart-Status'))#">
+					<div class="quick-cart-link hidden-xs">
+						<a href="#URLEX(SecureURL,'',Action('ViewCart-View'))#">
+							<span class="glyphicon glyphicon-shopping-cart"></span>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!--- Duplicate Order Links for Mobile Display --->
+<div class="container visible-xs">
+	<div class="row">
+		<div class="col-xs-9 quick-order-links">
+			<a href="#URLEX(InsecureURL,'',Action('ViewQuickorder-Start'))#" title="Quick Order"><span class="glyphicon glyphicon-fast-forward"></span><istext key="quick.order.label"/></a>
+		</div>		
+	</div>
+</div>

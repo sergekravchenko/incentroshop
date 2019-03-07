@@ -1,0 +1,12 @@
+<iscontent type="text/html" charset="UTF-8" compact="true">
+
+<select class="form-control"
+	id="<isprint value="#formparameter#">"
+	name="<isprint value="#formparameter#">">
+	<isif condition="#(salutation EQ '')#">
+		<option value="" <isif condition="#(formparameter EQ '')#"> selected="selected"</isif>><istext key="account.salutation.select.text" /></option>
+	</isif>
+	<isloop iterator="salutation_enumeration_provider:AllKeys" alias="CurrentKey">
+		<isAddSalutation value="#CurrentKey#" text="#localizeText(CurrentKey)#" selectedtext="#salutation#">
+	</isloop>
+</select>

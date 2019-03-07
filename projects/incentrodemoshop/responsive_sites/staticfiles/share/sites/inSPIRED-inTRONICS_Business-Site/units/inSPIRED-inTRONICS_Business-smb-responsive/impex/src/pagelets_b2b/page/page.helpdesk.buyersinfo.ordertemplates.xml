@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<enfinity xmlns:dt="http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt">
+<pagelet-entry-point id="page.helpdesk.buyersinfo.ordertemplates">
+<definition-name>app_sf_responsive:page.content.pagelet2-Page</definition-name>
+<page>true</page>
+<sorting>false</sorting>
+<parent domain="inSPIRED-inTRONICS_Business-smb-responsive" id="page.helpdesk.buyersinfo" position="5.0" resource-set="app_sf_responsive">
+</parent>
+<display-name xml:lang="de-DE">Bestellvorlagen</display-name>
+<display-name xml:lang="en-US">Order Templates</display-name>
+<display-name xml:lang="fr-FR">Modèles de commande</display-name>
+</pagelet-entry-point>
+<pagelet-pagelet-entry-point-assignment>
+<pagelet-entry-point domain="inSPIRED-inTRONICS_Business-smb-responsive" id="page.helpdesk.buyersinfo.ordertemplates" resource-set="app_sf_responsive"/>
+<pagelet domain="inSPIRED-inTRONICS_Business-smb-responsive" id="pg_helpdesk_orderTemplates"/>
+<position>1</position>
+<online>true</online>
+</pagelet-pagelet-entry-point-assignment>
+</enfinity>

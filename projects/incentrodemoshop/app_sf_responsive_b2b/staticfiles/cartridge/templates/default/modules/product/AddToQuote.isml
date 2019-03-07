@@ -1,0 +1,15 @@
+<iscontent type="text/html" charset="UTF-8" compact="true">
+
+<isif condition="#isDefined(class) AND (class NE '')#">
+	<isset name="CssClass" value="#class#" scope="request"/>
+<iselse>
+	<isset name="CssClass" value="btn-link" scope="request"/>
+</isif>
+
+<isif condition="#NOT(isDefined(USER_HAS_ROLE_APP_B2B_OCI_USER)) OR (USER_HAS_ROLE_APP_B2B_OCI_USER EQ 'false')#">
+	<button data-testing-class="link-addToQuote" 
+			data-dialog data-dialog-action="#URL(Action('ViewQuote-AddProductToQuote'), Parameter('AjaxRequestMarker', 'true'), Parameter('SKU', ProductBO:SKU))#" 
+			class="btn add-to-quote <isprint value="#CssClass#"/>"><istext 
+			key="quote.add_product_to_quote.button.add_to_quote.label" />
+	</button>
+</isif>

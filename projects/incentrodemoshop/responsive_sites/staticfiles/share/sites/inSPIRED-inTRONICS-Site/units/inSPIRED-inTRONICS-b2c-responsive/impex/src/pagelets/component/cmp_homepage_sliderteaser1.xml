@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<enfinity xmlns:dt="http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt">
+<pagelet-component id="cmp_homepage_sliderteaser1">
+<definition-name>app_sf_responsive_cm:component.common.imageEnhanced.pagelet2-Component</definition-name>
+<display-name xml:lang="de-DE">Homepage Slider Teaser 1</display-name>
+<display-name xml:lang="en-US">Homepage Slider Teaser 1</display-name>
+<display-name xml:lang="fr-FR">Accroche 1 de diaporama sur la page d&apos;accueil</display-name>
+<online>true</online>
+<author business-partner-no="admin" domain="inSPIRED"/>
+<configuration-parameters>
+<configuration-parameter name="Image">
+<definition-name>app_sf_responsive_cm:component.common.imageEnhanced.pagelet2-Component-Image</definition-name>
+<value name="Image" xml:lang="de-DE">inSPIRED-inTRONICS-b2c-responsive:/teaser/home_teaser_1_de.jpg</value>
+<value name="Image" xml:lang="en-US">inSPIRED-inTRONICS-b2c-responsive:/teaser/home_teaser_1.jpg</value>
+<value name="Image" xml:lang="fr-FR">inSPIRED-inTRONICS-b2c-responsive:/teaser/home_teaser_1_fr.jpg</value>
+</configuration-parameter>
+<configuration-parameter name="ImageXS">
+<definition-name>app_sf_responsive_cm:component.common.imageEnhanced.pagelet2-Component-ImageXS</definition-name>
+<value name="ImageXS" xml:lang="de-DE">inSPIRED-inTRONICS-b2c-responsive:/teaser/home_teaser_1_767_de.jpg</value>
+<value name="ImageXS" xml:lang="en-US">inSPIRED-inTRONICS-b2c-responsive:/teaser/home_teaser_1_767.jpg</value>
+</configuration-parameter>
+<configuration-parameter name="Link">
+<definition-name>app_sf_responsive_cm:component.common.imageEnhanced.pagelet2-Component-Link</definition-name>
+<value name="Link" xml:lang="de-DE">product://8182790134363@inSPIRED-inTRONICS</value>
+<value name="Link" xml:lang="en-US">product://8182790134363@inSPIRED-inTRONICS</value>
+<value name="Link" xml:lang="fr-FR">product://8182790134363@inSPIRED-inTRONICS</value>
+</configuration-parameter>
+</configuration-parameters>
+</pagelet-component>
+</enfinity>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<enfinity xmlns:dt="http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt">
+<component-template id="cmp_tmp_container_fullWidthSingleSlot">
+<definition-name>app_sf_responsive_cm:component.common.container.pagelet2-Component</definition-name>
+<display-name xml:lang="de-DE">Full Width Single Slot Container</display-name>
+<display-name xml:lang="en-US">Full Width Single Slot Container</display-name>
+<active>true</active>
+<author business-partner-no="admin" domain="inSPIRED"/>
+<configuration-parameters>
+<configuration-parameter name="Grid">
+<definition-name>app_sf_responsive_cm:component.common.container.pagelet2-Component-Grid</definition-name>
+<value name="Grid">ExtraSmall:12,Small:0,Medium:0,Large:0</value>
+</configuration-parameter>
+<configuration-parameter name="UpperBound">
+<definition-name>app_sf_responsive_cm:component.common.container.pagelet2-Component-UpperBound</definition-name>
+<value name="UpperBound">1</value>
+</configuration-parameter>
+</configuration-parameters>
+<slots>
+<slot>
+<definition-name>app_sf_responsive_cm:slot.container.content.pagelet2-Slot</definition-name>
+<optional>false</optional>
+<sorting>false</sorting>
+</slot>
+</slots>
+<placeholder-definitions>
+<placeholder-definition id="ph_containerFullWidthSingleSlot_containerContent">
+<definition-name>app_sf_responsive_cm:slot.container.content.pagelet2-Slot</definition-name>
+<display-name xml:lang="de-DE">Container-Inhalt</display-name>
+<display-name xml:lang="en-US">Container Content</display-name>
+<position>1</position>
+<slot definition-name="app_sf_responsive_cm:slot.container.content.pagelet2-Slot"/>
+</placeholder-definition>
+</placeholder-definitions>
+</component-template>
+</enfinity>

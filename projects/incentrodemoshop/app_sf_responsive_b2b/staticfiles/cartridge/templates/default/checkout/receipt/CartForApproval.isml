@@ -1,0 +1,91 @@
+<iscontent personalized="true" type="text/html" charset="UTF-8" compact="true">
+<iscache type="forbidden">
+
+<isset name="CurrentCartBO" value="#BasketBO#" scope="request">
+<isset scope="request" name="RecurringBasket" value="#CurrentCartBO:Extension("RecurringBasket")#">
+
+<isset name="AdditionalInformationExtension" value="#BasketBO:Extension("BasketBOAdditionalInformationExtension")#" scope="request"/>
+<isif condition="#AdditionalInformationExtension:CostCenter NE ''#">
+	<isset name="CostCenterExtension" value="#BasketBO:Extension("BasketBOCostCenterExtension")#" scope="request"/>
+</isif>
+
+
+<!--- heading --->
+<isset scope="request" name="CurrentStep" value="#5#">
+<isinclude template="checkout/common/HeaderProgressBar">
+<isinclude template="modules/common/Modules">
+
+
+<h1>
+	<a class="btn-tool pull-right"	href="javascript:window.print()" title="<istext key="checkout.receipt.print.button.label"/>">
+		<span class="glyphicon glyphicon-print"></span>
+	</a>
+	<isif condition="#RecurringBasket:Recurring#">
+		<istext key="checkout.receipt.thankyou.subscription.message" />
+	<iselse>
+		<istext key="checkout.cart_for_approval.title" />
+	</isif>
+</h1>
+
+<div class="row" data-testing-id="checkout-receipt-page">
+	<div class="col-sm-12 col-md-8">
+		<div class="section">
+			<isif condition="#RecurringBasket:Recurring#">
+				<p>
+					<istext key="checkout.id_of_subscription.label" />  <strong data-testing-id="order-document-number"><isprint value="#CurrentCartBO:RecurringOrderDocumentNo#"></strong>
+				</p>
+				<p>
+					<istext key="approval.cart.subscription_has_been_submitted" parameter0="#encodeValue(URL(Action('ViewApprovalDetails-Start')))#" encoding="off" /><br />
+					<istext key="approval.cart.once_subscription_approved" parameter0="#encodeValue(URLEX(SecureURL, '', Action('ViewApprovals-MyOpen')))#" parameter1="#encodeValue(URLEX(SecureURL, '', Action('ViewUserAccount-Start')))#" encoding="off" />
+				</p>
+				<p>
+					<istext key="approval.cart.notification.subscription.text" parameter0="#encodeValue(CurrentUser:Profile:Credentials:Login)#" encoding="off"/>
+				</p>
+			<iselse>
+				<p>
+					<istext key="checkout.id_of_order.label" />  <strong data-testing-id="order-document-number"><isprint value="#CurrentCartBO:RequisitionDocumentNo#"></strong>
+				</p>
+				<p>
+					<istext key="approval.cart.order_has_been_submitted" parameter0="#encodeValue(URL(Action('ViewApprovalDetails-Start')))#" encoding="off" /><br />
+					<istext key="approval.cart.once_order_approved" parameter0="#encodeValue(URLEX(SecureURL, '', Action('ViewApprovals-MyOpen')))#" parameter1="#encodeValue(URLEX(SecureURL, '', Action('ViewUserAccount-Start')))#" encoding="off" />
+				</p>
+				<p>
+					<isif condition="#(CurrentSession:isLoggedIn)#">
+						<istext key="approval.cart.notification.mail.text" parameter0="#encodeValue(CurrentUser:Profile:Credentials:Login)#" encoding="off"/>
+					<iselse>
+						<istext key="approval.cart.notification.mail.text" parameter0="#encodeValue(OrderBO:NotificationEmailAddress)#" encoding="off" />
+					</isif>	
+				</p>
+			</isif>
+		</div>
+		
+		<isinclude template="cart/ProductIsNotAvailable">
+			
+		<!--- Message To Merchant --->	
+		<div class="row">	
+			<isinclude template="checkout/receipt/MessageToMerchant">
+		</div>
+		<div class="row<isif condition="#RecurringBasket:Recurring#"> equal</isif>">
+			<!--- b2b: purchaser info --->
+			<isinclude template="checkout/review/Purchaser"/>
+			
+			<!--- Subscription Info --->
+			<isinclude template="checkout/common/widgets/SubscriptionInfo">
+		</div>
+		
+		
+		<!--- show bucket information based on a basket --->
+		<isinclude template="checkout/receipt/CheckoutReceiptBasketBuckets">
+		
+	</div>
+	<div class="col-xs-12 col-md-4 order-summary">
+			
+		<h2><istext key="checkout.order_details.heading" /></h2>
+	
+		<!---Cart Summary --->
+		<div class="cost-summary">
+			<isinclude template="checkout/common/widgets/CostSummary">
+		</div>
+		<a href="#URLEX(InsecureURL,'',Action('ViewHomepage-Start'))#"><istext key="checkout.receipt.continue.shopping" /></a>
+	</div>
+</div>

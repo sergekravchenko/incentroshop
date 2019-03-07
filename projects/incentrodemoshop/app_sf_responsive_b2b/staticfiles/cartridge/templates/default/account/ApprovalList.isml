@@ -1,0 +1,145 @@
+<iscontent charset="UTF-8" compact="true" templatemarker="true">
+<isinclude template="modules/account/Modules">
+<isinclude template="modules/approval/Modules"/>
+
+<ISGetPreference preferencekey="EnableRecurringOrders" domainname="#CurrentDomain:DefaultApplication:Domain:DomainName#" type="String" return="EnableRecurringOrders">
+
+<isset name="DisplayPurchaser" value="#pad(ListCase,2) NE 'My'#" scope="request"/>
+
+<isif condition="#ListCase EQ 'MyOpen'#">
+	<isset name="pageId" scope="request" value="my-pending-orders-page">
+<iselseif condition="#ListCase EQ 'MyRejected'#">
+	<isset name="pageId" scope="request" value="my-rejected-orders-page">
+<iselseif condition="#ListCase EQ 'MyApproved'#">
+	<isset name="pageId" scope="request" value="my-approved-orders-page">
+<iselseif condition="#ListCase EQ 'AllOpen'#">
+	<isset name="pageId" scope="request" value="orders-to-approve-page">
+<iselseif condition="#ListCase EQ 'AllRejected'#">
+	<isset name="pageId" scope="request" value="rejected-orders-page">
+<iselseif condition="#ListCase EQ 'AllApproved'#">
+	<isset name="pageId" scope="request" value="approved-orders-page">
+<iselse>
+	<isset name="pageId" scope="request" value="list-orders-page">
+</isif>
+
+<div class="breadcrumbs row">
+	<isif condition="#ListCase EQ 'MyOpen'#">
+		<isAccountBreadcrumb trailtext="#localizeText('account.pendingorders.link')#">
+	<iselseif condition="#ListCase EQ 'MyRejected'#">
+		<isAccountBreadcrumb trailtext="#localizeText('account.rejectedorders.link')#">
+	<iselseif condition="#ListCase EQ 'AllOpen'#">
+		<isAccountBreadcrumb trailtext="#localizeText('account.openorders.link')#">	
+	<iselseif condition="#ListCase EQ 'AllRejected'#">
+		<isAccountBreadcrumb trailtext="#localizeText('account.allrejectedorders.link')#">
+	<iselseif condition="#ListCase EQ 'AllApproved'#">
+		<isAccountBreadcrumb trailtext="#localizeText('account.allapprovedorders.link')#">	
+	<iselseif condition="#ListCase EQ 'MyApproved'#">
+		<isAccountBreadcrumb trailtext="#localizeText('account.order_history.link')#">	
+	</isif>
+	
+</div>
+
+<!--- Marketing slot --->
+<div class="marketing-area">
+	<ISMarketingSlot id="baseMarketing">
+</div>
+
+<div class="account-wrapper" data-testing-id="<isprint value="#pageId#">">
+
+	<!--- Left Navigation Panel --->
+	<div class="row account-main">
+		<div class="col-md-3 account-nav-box">
+			<isif condition="#ListCase EQ 'MyOpen'#">
+				<isAccountNavigation selecteditem="PENDINGORDERS">
+			<iselseif condition="#ListCase EQ 'MyRejected'#">
+				<isAccountNavigation selecteditem="REJECTEDORDERS">
+			<iselseif condition="#ListCase EQ 'AllOpen'#">
+				<isAccountNavigation selecteditem="OPENORDERS">
+			<iselseif condition="#ListCase EQ 'AllRejected'#">
+				<isAccountNavigation selecteditem="ALLREJECTEDORDERS">
+			<iselseif condition="#ListCase EQ 'AllApproved'#">
+				<isAccountNavigation selecteditem="ALLAPPROVEDORDERS">
+			<iselseif condition="#ListCase EQ 'MyApproved'#">
+				<isAccountNavigation selecteditem="MYAPPROVEDORDERS">
+			<iselse>
+				<isAccountNavigation>
+			</isif>
+		</div>
+	
+		<isif condition="#(ListCase EQ 'MyRejected') OR (ListCase EQ 'MyApproved')#">
+			<isset name="displayApprover" value="true" scope="request">
+		</isif>
+		<isif condition="#(ListCase EQ 'MyApproved')
+						OR (ListCase EQ 'MyRejected') 
+						OR (ListCase EQ 'AllApproved')
+						OR (ListCase EQ 'AllRejected')#">
+			<isset name="displayApprovalDate" value="true" scope="request">
+		</isif>
+	
+		<div class="col-md-9">
+			<div class="marketing-area">
+				<ISMarketingSlot id="contentMarketing">
+			</div>
+			
+			<div class="section">
+				<isif condition="#ListCase EQ 'MyOpen'#">
+					<h1><istext key="account.pendingorders.heading"/></h1>
+				<iselseif condition="#ListCase EQ 'MyApproved'#">
+					<h1><istext key="account.approvedorders.heading"/></h1>
+				<iselseif condition="#ListCase EQ 'MyRejected'#">
+					<h1><istext key="account.rejectedorders.heading"/></h1>
+				<iselseif condition="#ListCase EQ 'AllOpen'#">
+					<h1><istext key="account.openorders.heading"/></h1>
+				<iselseif condition="#ListCase EQ 'AllRejected'#">
+					<h1><istext key="account.allrejectedorders.heading"/></h1>
+				<iselseif condition="#ListCase EQ 'AllApproved'#">
+					<h1><istext key="account.allapprovedorders.heading"/></h1>
+				</isif>
+			
+				<div>
+					<h2><istext key="approval.list.requisitions.header"/></h2>
+					<isif condition="#hasElements(SortedApprovals)#">
+						<ISApprovalListTable
+							Approvals="#SortedApprovals#"
+							DisplayPurchaser="#DisplayPurchaser#"
+							IsRecurring="false"
+							DisplayApprover="#displayApprover#"
+							DisplayApprovalDate="#displayApprovalDate#"
+							ListCase="#ListCase#"
+							BasketBORepository="#BasketBORepository#"
+							DataTestingID="orders-list"
+							ListNavigationVO="#ApprovalsListNavigationVO#"
+						>
+					<iselse>
+						<p>
+							<istext key="approval.list.requisitions.no_items_message"/>
+						</p>
+					</isif>
+				</div>
+				<isif condition="#isDefined(EnableRecurringOrders) AND (EnableRecurringOrders EQ "true")#">
+					<div>
+						<h2><istext key="approval.list.subscriptions.header"/></h2>
+						<isif condition="#hasElements(SortedSubscriptionApprovals)#">
+							<ISApprovalListTable
+								Approvals="#SortedSubscriptionApprovals#"
+								DisplayPurchaser="#DisplayPurchaser#"
+								IsRecurring="true"
+								DisplayApprover="#displayApprover#"
+								DisplayApprovalDate="#displayApprovalDate#"
+								ListCase="#ListCase#"
+								BasketBORepository="#BasketBORepository#"
+								DataTestingID="subscriptions-list"
+								ListNavigationVO="#SubscriptionsListNavigationVO#"
+							>
+						<iselse>
+							<p>
+								<istext key="approval.list.subscriptions.no_items_message"/>
+							</p>
+						</isif>
+					</div>
+				</isif>
+			</div>
+		</div>
+	</div>
+</div>
+

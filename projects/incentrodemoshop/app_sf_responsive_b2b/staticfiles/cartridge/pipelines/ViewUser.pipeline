@@ -1,0 +1,409 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--@Group User-->
+
+<pipeline:Pipeline xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pipeline="http://www.intershop.de/pipeline/2010"
+    name="ViewUser" overrideMode="Inherit" type="view">
+<!--@Location 6,4-->
+  <nodes xsi:type="pipeline:StartNode" nodeID="StartNode4" strict="true" name="CallSendEmailPipeline"
+      callMode="Private">
+    <nodeSuccessors name="next" next="KeyMapper4"/>
+    <parameters name="UserBO" type="com.intershop.component.user.capi.UserBO"/>
+    <parameters name="LinkLifeTimeConfigKey" type="java.lang.String" optional="true"/>
+    <parameters name="EmailFromConfigKey" type="java.lang.String"/>
+    <parameters name="EmailSubjectConfigKey" type="java.lang.String"/>
+    <parameters name="EmailTemplateConfigKey" type="java.lang.String"/>
+  </nodes>
+<!--@Location 6,5-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="KeyMapper4">
+    <pipelet href="enfinity:/bc_foundation/pipelets/KeyMapper.xml"/>
+    <nodeSuccessors name="next" next="GetApplicationBO0"/>
+    <parameterBindings name="InValue_1" constant="(Boolean)true"/>
+    <returnValueBindings name="OutValue_1" objectPath="WaitForResult"/>
+  </nodes>
+<!--@Location 6,6-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="GetApplicationBO0">
+    <pipelet href="enfinity:/bc_application/pipelets/GetApplicationBO.xml"/>
+    <nodeSuccessors name="next" next="DecisionNode2"/>
+  </nodes>
+<!--@Location 6,7-->
+  <nodes xsi:type="pipeline:DecisionNode" nodeID="DecisionNode2" conditionKey="LinkLifeTimeConfigKey">
+    <nodeSuccessors name="decision_yes" next="KeyMapper3"/>
+<!--@BendPoints 14,15 14,19-->
+    <nodeSuccessors name="decision_no" next="JoinNode6"/>
+  </nodes>
+<!--@Location 6,8-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="KeyMapper3">
+    <pipelet href="enfinity:/bc_foundation/pipelets/KeyMapper.xml"/>
+    <nodeSuccessors name="next" next="JoinNode6"/>
+    <parameterBindings name="InValue_1" objectPath="ApplicationBO:Configuration:Integer(LinkLifeTimeConfigKey)"/>
+    <parameterBindings name="InValue_10" nullBinding="true"/>
+    <parameterBindings name="InValue_2" nullBinding="true"/>
+    <parameterBindings name="InValue_3" nullBinding="true"/>
+    <parameterBindings name="InValue_4" nullBinding="true"/>
+    <parameterBindings name="InValue_5" nullBinding="true"/>
+    <parameterBindings name="InValue_6" nullBinding="true"/>
+    <parameterBindings name="InValue_7" nullBinding="true"/>
+    <parameterBindings name="InValue_8" nullBinding="true"/>
+    <parameterBindings name="InValue_9" nullBinding="true"/>
+    <returnValueBindings name="OutValue_1" objectPath="PasswordRelatedLinkLifeTime"/>
+    <returnValueBindings name="OutValue_10" nullBinding="true"/>
+    <returnValueBindings name="OutValue_2" nullBinding="true"/>
+    <returnValueBindings name="OutValue_3" nullBinding="true"/>
+    <returnValueBindings name="OutValue_4" nullBinding="true"/>
+    <returnValueBindings name="OutValue_5" nullBinding="true"/>
+    <returnValueBindings name="OutValue_6" nullBinding="true"/>
+    <returnValueBindings name="OutValue_7" nullBinding="true"/>
+    <returnValueBindings name="OutValue_8" nullBinding="true"/>
+    <returnValueBindings name="OutValue_9" nullBinding="true"/>
+  </nodes>
+<!--@Location 6,9-->
+  <nodes xsi:type="pipeline:JoinNode" nodeID="JoinNode6">
+    <nodeSuccessors name="next" next="KeyMapper5"/>
+  </nodes>
+<!--@Location 6,10-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="KeyMapper5">
+    <pipelet href="enfinity:/bc_foundation/pipelets/KeyMapper.xml"/>
+    <nodeSuccessors name="next" next="ExecutePipeline0"/>
+    <parameterBindings name="InValue_1" objectPath="ApplicationBO:Configuration:String(EmailFromConfigKey)"/>
+    <parameterBindings name="InValue_10" nullBinding="true"/>
+    <parameterBindings name="InValue_2" objectPath="ApplicationBO:Configuration:String(EmailSubjectConfigKey)"/>
+    <parameterBindings name="InValue_3" objectPath="ApplicationBO:Configuration:String(EmailTemplateConfigKey)"/>
+    <parameterBindings name="InValue_4" nullBinding="true"/>
+    <parameterBindings name="InValue_5" nullBinding="true"/>
+    <parameterBindings name="InValue_6" nullBinding="true"/>
+    <parameterBindings name="InValue_7" nullBinding="true"/>
+    <parameterBindings name="InValue_8" nullBinding="true"/>
+    <parameterBindings name="InValue_9" nullBinding="true"/>
+    <returnValueBindings name="OutValue_1" objectPath="PasswordRelatedEmailFrom"/>
+    <returnValueBindings name="OutValue_10" nullBinding="true"/>
+    <returnValueBindings name="OutValue_2" objectPath="PasswordRelatedEmailSubject"/>
+    <returnValueBindings name="OutValue_3" objectPath="PasswordRelatedEmailTemplate"/>
+    <returnValueBindings name="OutValue_4" nullBinding="true"/>
+    <returnValueBindings name="OutValue_5" nullBinding="true"/>
+    <returnValueBindings name="OutValue_6" nullBinding="true"/>
+    <returnValueBindings name="OutValue_7" nullBinding="true"/>
+    <returnValueBindings name="OutValue_8" nullBinding="true"/>
+    <returnValueBindings name="OutValue_9" nullBinding="true"/>
+  </nodes>
+<!--@Location 6,11-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="ExecutePipeline0">
+    <configurationValues name="Asynchronous" value="false"/>
+    <configurationValues name="PipelineName" value="ProcessUserForgotLoginData"/>
+    <configurationValues name="PipelineStartNode" value="SendPasswordRemainderMail"/>
+    <pipelet href="enfinity:/core/pipelets/ExecutePipeline.xml"/>
+    <nodeSuccessors name="next" next="DecisionNode3"/>
+    <nodeSuccessors name="pipelet_error" next="JoinNode8"/>
+    <parameterBindings name="App" nullBinding="true"/>
+    <parameterBindings name="Application" objectPath="ApplicationBO:Extension(&quot;PersistentObjectBOExtension&quot;):PersistentObject"/>
+    <parameterBindings name="CurrentDomain" objectPath="ApplicationBO:Site:Domain"/>
+    <parameterBindings name="CurrentUser" nullBinding="true"/>
+    <parameterBindings name="PipelineDomain" nullBinding="true"/>
+    <parameterBindings name="PipelineDomainID" nullBinding="true"/>
+    <parameterBindings name="PipelineDomainName" nullBinding="true"/>
+    <parameterBindings name="PipelineName" nullBinding="true"/>
+    <parameterBindings name="PipelineStartNode" nullBinding="true"/>
+  </nodes>
+<!--@Location 6,12-->
+  <nodes xsi:type="pipeline:DecisionNode" nodeID="DecisionNode3" conditionKey="PipelineResult:hasFinishedWithEnd"
+      operator="str_eq" conditionValue="true">
+    <nodeSuccessors name="decision_yes" next="DecisionNode1"/>
+    <nodeSuccessors name="decision_no" next="JoinNode5"/>
+  </nodes>
+<!--@Location 6,13-->
+  <nodes xsi:type="pipeline:DecisionNode" nodeID="DecisionNode1" conditionKey="PipelineResult:EndName"
+      operator="str_eq" conditionValue="ERROR">
+    <nodeSuccessors name="decision_yes" next="JoinNode7"/>
+    <nodeSuccessors name="decision_no" next="SetDictionaryValue0"/>
+  </nodes>
+<!--@Location 7,13-->
+  <nodes xsi:type="pipeline:JoinNode" nodeID="JoinNode7">
+    <nodeSuccessors name="next" next="SetDictionaryValue1"/>
+  </nodes>
+<!--@Location 7,14-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="SetDictionaryValue1">
+    <configurationValues name="Name" value="MailResult"/>
+    <configurationValues name="Value" value="error"/>
+    <configurationValues name="ValueType" value="Dictionary Value"/>
+    <pipelet href="enfinity:/bc_foundation/pipelets/SetDictionaryValue.xml"/>
+    <nodeSuccessors name="next" next="EndNode2"/>
+  </nodes>
+<!--@Location 7,15-->
+  <nodes xsi:type="pipeline:EndNode" nodeID="EndNode2" name="ERROR" strict="true">
+    <returnValues name="MailResult" type="java.lang.String"/>
+  </nodes>
+<!--@Location 6,14-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="SetDictionaryValue0">
+    <configurationValues name="Name" value="MailResult"/>
+    <configurationValues name="Value" value="ok"/>
+    <configurationValues name="ValueType" value="Dictionary Value"/>
+    <pipelet href="enfinity:/bc_foundation/pipelets/SetDictionaryValue.xml"/>
+    <nodeSuccessors name="next" next="EndNode1"/>
+  </nodes>
+<!--@Location 6,15-->
+  <nodes xsi:type="pipeline:EndNode" nodeID="EndNode1" name="OK" strict="true">
+    <returnValues name="MailResult" type="java.lang.String"/>
+  </nodes>
+<!--@Location 7,12-->
+  <nodes xsi:type="pipeline:JoinNode" nodeID="JoinNode5">
+    <nodeSuccessors name="next" next="JoinNode7"/>
+  </nodes>
+<!--@Location 7,11-->
+  <nodes xsi:type="pipeline:JoinNode" nodeID="JoinNode8">
+    <nodeSuccessors name="next" next="JoinNode5"/>
+  </nodes>
+<!--@Location 4,0-->
+  <nodes xsi:type="pipeline:StartNode" nodeID="StartNode2" name="Create">
+    <nodeSuccessors name="next" next="CallNode6"/>
+  </nodes>
+<!--@Location 4,1-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode6">
+    <nodeSuccessors name="next" next="DecisionNode4"/>
+    <startNode referencedName="ViewProfileSettings-Prefix"/>
+  </nodes>
+<!--@Location 4,2-->
+  <nodes xsi:type="pipeline:DecisionNode" nodeID="DecisionNode4" conditionKey="UserBO:Extension(&quot;UserBORoleExtension&quot;):hasPermission(&quot;APP_B2B_MANAGE_USERS&quot;)"
+      operator="str_eq" conditionValue="true">
+    <nodeSuccessors name="decision_yes" next="CallNode5"/>
+    <nodeSuccessors name="decision_no" next="JumpNode0"/>
+  </nodes>
+<!--@Location 4,3-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode5">
+    <nodeSuccessors name="next" next="ValidateForm0"/>
+    <startNode referencedName="This:GetForm"/>
+  </nodes>
+<!--@Location 4,4-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="ValidateForm0">
+    <pipelet href="enfinity:/core/pipelets/ValidateForm.xml"/>
+    <nodeSuccessors name="next" next="DecisionNode0"/>
+    <nodeSuccessors name="pipelet_error" next="JoinNode0"/>
+    <parameterBindings name="Form" objectPath="CreateUserForm"/>
+  </nodes>
+<!--@Location 4,5-->
+  <nodes xsi:type="pipeline:DecisionNode" nodeID="DecisionNode0" conditionKey="CreateUserForm:Title:Value"
+      operator="str_empty">
+<!--@BendPoints 9,13-->
+    <nodeSuccessors name="decision_yes" next="JoinNode1"/>
+<!--@BendPoints 7,11 7,12 7,13-->
+    <nodeSuccessors name="decision_no" next="GetLocalizedTextByKey0"/>
+  </nodes>
+<!--@Location 4,7-->
+  <nodes xsi:type="pipeline:JoinNode" nodeID="JoinNode1">
+    <nodeSuccessors name="next" next="GeneratePassword0"/>
+  </nodes>
+<!--@Location 4,8-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="GeneratePassword0">
+    <pipelet href="enfinity:/core/pipelets/GeneratePassword.xml"/>
+    <nodeSuccessors name="next" next="CreateUserBO0" action="begin"/>
+  </nodes>
+<!--@Location 4,9-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="CreateUserBO0">
+    <pipelet href="enfinity:/bc_user/pipelets/CreateUserBO.xml"/>
+    <nodeSuccessors name="next" next="UpdateUserBOCredentials0" action="store"/>
+    <nodeSuccessors name="pipelet_error" next="JoinNode3" action="rollback"/>
+    <parameterBindings name="Login" objectPath="CreateUserForm:Login:Value"/>
+    <parameterBindings name="UserBORepository" objectPath="CustomerBO:Extension(&quot;GroupCustomer&quot;)"/>
+    <returnValueBindings name="UserBO" objectPath="CreatedUser"/>
+  </nodes>
+<!--@Location 4,10-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="UpdateUserBOCredentials0">
+    <pipelet href="enfinity:/bc_user/pipelets/UpdateUserBOCredentials.xml"/>
+    <nodeSuccessors name="next" next="CallNode7"/>
+    <parameterBindings name="Answer" nullBinding="true"/>
+    <parameterBindings name="IPRange" nullBinding="true"/>
+    <parameterBindings name="IsActive" objectPath="CreateUserForm:Active:Value"/>
+    <parameterBindings name="LastLoggedInDate" nullBinding="true"/>
+    <parameterBindings name="Login" objectPath="CreateUserForm:Login:Value"/>
+    <parameterBindings name="NewPasswordExpiry" nullBinding="true"/>
+    <parameterBindings name="SecureCode" objectPath="SecureCode"/>
+    <parameterBindings name="SecurityQuestion" nullBinding="true"/>
+    <parameterBindings name="UserBO" objectPath="CreatedUser"/>
+  </nodes>
+<!--@Location 4,11-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode7">
+    <nodeSuccessors name="next" next="GetFormSelection0"/>
+    <nodeSuccessors name="ERROR" next="JoinNode4" action="rollback"/>
+    <parameterBindings name="Active" objectPath="CreateUserForm:Active:Value"/>
+    <parameterBindings name="BirthdayDate" objectPath="CreateUserForm:Birthday:Value"/>
+    <parameterBindings name="Department" objectPath="CreateUserForm:Department:Value"/>
+    <parameterBindings name="Email" objectPath="CreateUserForm:Email:Value"/>
+    <parameterBindings name="Fax" objectPath="CreateUserForm:Fax:Value"/>
+    <parameterBindings name="FirstName" objectPath="CreateUserForm:FirstName:Value"/>
+    <parameterBindings name="LastName" objectPath="CreateUserForm:LastName:Value"/>
+    <parameterBindings name="LocaleID" objectPath="CreateUserForm:LocaleID:Value"/>
+    <parameterBindings name="PhoneBusiness" objectPath="CreateUserForm:Phone:Value"/>
+    <parameterBindings name="SkipSessionLocaleUpdate" constant="(Boolean)true"/>
+    <parameterBindings name="Title" objectPath="Title"/>
+    <parameterBindings name="UserBO" objectPath="CreatedUser"/>
+    <startNode referencedName="ProcessUserProfileSettings-UpdateProfile"/>
+  </nodes>
+<!--@Location 4,12-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="GetFormSelection0">
+    <configurationValues name="DefaultParameterName" value="SelectedUserRolesUUID"/>
+    <pipelet href="enfinity:/bc_foundation/pipelets/GetFormSelection.xml"/>
+    <nodeSuccessors name="next" next="UpdateUserRoles1"/>
+    <returnValueBindings name="Selection" objectPath="SelectedUserRoleIDs"/>
+  </nodes>
+<!--@Location 4,13-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="UpdateUserRoles1">
+    <configurationValues name="AssignImplicitRoles" value="true"/>
+    <pipelet href="enfinity:/bc_b2b_role/pipelets/UpdateUserRoles.xml"/>
+    <nodeSuccessors name="next" next="UpdateUserApprovalThresholds0"/>
+    <parameterBindings name="RoleIDs" objectPath="SelectedUserRoleIDs"/>
+    <parameterBindings name="UserBO" objectPath="CreatedUser"/>
+  </nodes>
+<!--TODO Rework: Save Bugdets
+@Location 4,14-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="UpdateUserApprovalThresholds0">
+    <pipelet href="enfinity:/bc_order_approval/pipelets/UpdateUserApprovalThresholds.xml"/>
+    <nodeSuccessors name="next" next="UpdateBudget0"/>
+    <parameterBindings name="SingleOrderThresholdAmount" objectPath="CreateUserForm:OrderLimit:Value"/>
+    <parameterBindings name="UserBO" objectPath="CreatedUser"/>
+  </nodes>
+<!--@Location 4,15-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="UpdateBudget0">
+    <pipelet href="enfinity:/bc_order_approval/pipelets/UpdateBudget.xml"/>
+    <nodeSuccessors name="next" next="KeyMapper2" action="commit"/>
+    <parameterBindings name="BudgetAmount" objectPath="CreateUserForm:Budget:Value"/>
+    <parameterBindings name="BudgetType" objectPath="CreateUserForm:Period:Value"/>
+    <parameterBindings name="UserBO" objectPath="CreatedUser"/>
+  </nodes>
+<!--@displayNearNode@ViewProfileSettings\-ViewProfile
+@Location 4,17-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="KeyMapper2">
+    <configurationValues name="ValueType" value="Dictionary Value"/>
+    <pipelet href="enfinity:/bc_foundation/pipelets/KeyMapper.xml"/>
+    <nodeSuccessors name="next" next="CallNode10"/>
+    <parameterBindings name="InValue_1" constant="ViewUser-Start"/>
+    <parameterBindings name="InValue_2" objectPath="CreatedUser:Login"/>
+    <returnValueBindings name="OutValue_1" objectPath="JumpTarget"/>
+    <returnValueBindings name="OutValue_2" objectPath="Login"/>
+  </nodes>
+<!--@Location 4,19-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode10">
+    <nodeSuccessors name="next" next="JoinNode9"/>
+<!--@BendPoints 10,39 10,41-->
+    <nodeSuccessors name="ERROR" next="JoinNode9"/>
+    <parameterBindings name="EmailFromConfigKey" constant="NewUserEmailFrom"/>
+    <parameterBindings name="EmailSubjectConfigKey" constant="NewUserEmailSubject"/>
+    <parameterBindings name="EmailTemplateConfigKey" constant="NewUserEmailTemplate"/>
+    <parameterBindings name="LinkLifeTimeConfigKey" constant="PasswordReminderLinkLifeTime"/>
+    <parameterBindings name="UserBO" objectPath="CreatedUser"/>
+    <startNode referencedName="ViewUser-CallSendEmailPipeline"/>
+  </nodes>
+<!--@Location 4,20-->
+  <nodes xsi:type="pipeline:JoinNode" nodeID="JoinNode9">
+    <nodeSuccessors name="next" next="CallNode3"/>
+  </nodes>
+<!--@Location 4,21-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode3">
+    <nodeSuccessors name="next" next="JumpNode2"/>
+    <startNode referencedName="ViewData-SecureForBrowserBack"/>
+  </nodes>
+<!--@Location 4,22-->
+  <nodes xsi:type="pipeline:JumpNode" nodeID="JumpNode2">
+    <startNode referencedName="ViewUsers-Start"/>
+  </nodes>
+<!--@Location 2,11-->
+  <nodes xsi:type="pipeline:JoinNode" nodeID="JoinNode4">
+    <nodeSuccessors name="next" next="CallNode2"/>
+  </nodes>
+<!--@Location 2,12-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode2">
+    <nodeSuccessors name="next" next="RenderSystemPageWithTemplate1_Input"/>
+    <parameterBindings name="CountryCode" objectPath="CurrentForm:CountryCode:Value"/>
+    <startNode referencedName="ProcessWebforms-GetSalutationProvider"/>
+  </nodes>
+<!--@Location 2,13-->
+  <nodes xsi:type="pipeline:PipelineNodeNode" nodeID="RenderSystemPageWithTemplate1">
+    <configurationValues name="PageEntryPointDefinitionReference" value="app_sf_responsive_b2b:systempage.account.profile.user.pagelet2-Page"/>
+    <configurationValues name="WorkingTemplate" value="account/NewUser.isml"/>
+    <pipelet href="enfinity:/sld_ch_sf_base/pipelets/com.intershop.sellside.storefront.base.capi.pipeline.RenderSystemPageWithTemplate.pipelinenode"/>
+    <inConnectors name="Input">
+      <parameterBindings name="Dictionary" objectPath="CurrentRequest:PipelineDictionary"/>
+    </inConnectors>
+  </nodes>
+<!--@Location 2,9-->
+  <nodes xsi:type="pipeline:JoinNode" nodeID="JoinNode3">
+    <nodeSuccessors name="next" next="JoinNode4"/>
+  </nodes>
+<!--@Location 3,7-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="GetLocalizedTextByKey0">
+    <pipelet href="enfinity:/core/pipelets/GetLocalizedTextByKey.xml"/>
+    <nodeSuccessors name="next" next="JoinNode1"/>
+    <nodeSuccessors name="pipelet_error" next="JoinNode2"/>
+    <parameterBindings name="Key" objectPath="CreateUserForm:Title:Value"/>
+    <returnValueBindings name="LocalizedText" objectPath="Title"/>
+  </nodes>
+<!--@Location 2,7-->
+  <nodes xsi:type="pipeline:JoinNode" nodeID="JoinNode2">
+    <nodeSuccessors name="next" next="JoinNode3"/>
+  </nodes>
+<!--@Location 2,4-->
+  <nodes xsi:type="pipeline:JoinNode" nodeID="JoinNode0">
+    <nodeSuccessors name="next" next="JoinNode2"/>
+  </nodes>
+<!--@Location 5,2-->
+  <nodes xsi:type="pipeline:JumpNode" nodeID="JumpNode0">
+    <startNode referencedName="Error-NotFound"/>
+  </nodes>
+<!--@Location 6,0-->
+  <nodes xsi:type="pipeline:StartNode" nodeID="StartNode3" strict="true" name="GetForm"
+      callMode="Private">
+    <nodeSuccessors name="next" next="CreateForm1"/>
+  </nodes>
+<!--@Location 6,1-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="CreateForm1">
+    <configurationValues name="FormName" value="CreateUserForm"/>
+    <configurationValues name="FormResource" value="CreateUser"/>
+    <pipelet href="enfinity:/core/pipelets/CreateForm.xml"/>
+    <nodeSuccessors name="next" next="EndNode0"/>
+    <returnValueBindings name="Form" objectPath="CreateUserForm"/>
+  </nodes>
+<!--@Location 6,2-->
+  <nodes xsi:type="pipeline:EndNode" nodeID="EndNode0" strict="true">
+    <returnValues name="CreateUserForm" type="com.intershop.beehive.core.capi.webform.Form"
+        optional="true"/>
+  </nodes>
+<!--@Location 2,0-->
+  <nodes xsi:type="pipeline:StartNode" nodeID="StartNode1" name="New">
+    <nodeSuccessors name="next" next="CallNode1"/>
+  </nodes>
+<!--@Location 2,1-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode1">
+    <nodeSuccessors name="next" next="DecisionNode5"/>
+    <startNode referencedName="ViewProfileSettings-Prefix"/>
+  </nodes>
+<!--@Location 2,2-->
+  <nodes xsi:type="pipeline:DecisionNode" nodeID="DecisionNode5" conditionKey="UserBO:Extension(&quot;UserBORoleExtension&quot;):hasPermission(&quot;APP_B2B_MANAGE_USERS&quot;)"
+      operator="str_eq" conditionValue="true">
+    <nodeSuccessors name="decision_yes" next="CallNode4"/>
+    <nodeSuccessors name="decision_no" next="JumpNode1"/>
+  </nodes>
+<!--@Location 2,3-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode4">
+    <nodeSuccessors name="next" next="JoinNode0"/>
+    <startNode referencedName="This:GetForm"/>
+  </nodes>
+<!--@Location 3,3-->
+  <nodes xsi:type="pipeline:JumpNode" nodeID="JumpNode1">
+    <startNode referencedName="Error-NotFound"/>
+  </nodes>
+<!--@Location 0,0-->
+  <nodes xsi:type="pipeline:StartNode" nodeID="StartNode0" name="Start">
+    <nodeSuccessors name="next" next="CallNode0"/>
+  </nodes>
+<!--@Location 0,1-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode0">
+    <nodeSuccessors name="next" next="RenderSystemPageWithTemplate0_Input"/>
+    <startNode referencedName="ViewProfileSettings-Prefix"/>
+  </nodes>
+<!--@Location 0,2-->
+  <nodes xsi:type="pipeline:PipelineNodeNode" nodeID="RenderSystemPageWithTemplate0">
+    <configurationValues name="PageEntryPointDefinitionReference" value="app_sf_responsive_b2b:systempage.account.profile.user.pagelet2-Page"/>
+    <configurationValues name="WorkingTemplate" value="account/User.isml"/>
+    <pipelet href="enfinity:/sld_ch_sf_base/pipelets/com.intershop.sellside.storefront.base.capi.pipeline.RenderSystemPageWithTemplate.pipelinenode"/>
+    <inConnectors name="Input">
+      <parameterBindings name="Dictionary" objectPath="CurrentRequest:PipelineDictionary"/>
+    </inConnectors>
+  </nodes>
+</pipeline:Pipeline>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pagelet:PageletModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pagelet="http://www.intershop.de/pagelet/2010" name="interface.common.productList.pagelet2">
+  <callParameterInterfaces name="Interface">
+    <callParameterDefinitions optional="true" name="ProductBO" type="com.intershop.component.product.capi.ProductBO"/>
+    <callParameterDefinitions optional="true" name="CategoryBO" type="com.intershop.component.catalog.capi.CatalogCategoryBO"/>
+    <callParameterDefinitions optional="true" name="FilteredVariationsCount" type="java.lang.Long"/>
+    <callParameterDefinitions optional="true" name="SearchTerm" type="java.lang.String"/>
+  </callParameterInterfaces>
+</pagelet:PageletModel>

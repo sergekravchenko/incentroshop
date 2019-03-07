@@ -1,0 +1,569 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--@Group Address-->
+
+<pipeline:Pipeline xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pipeline="http://www.intershop.de/pipeline/2010"
+    name="ProcessWebformsSmb" overrideMode="Inherit" type="extension">
+<!--	This is just used as exten\-
+	sionpoint when creating
+	a new B2B user after placing
+	an order. KeyMappers were
+	configured to get the 
+	CompanyCustomer Extension
+	instead of
+	PersistentObjectBOExtension
+	(TaxationID and Department
+	are stored THERE for unregis\-
+	tered users)
+@Location 16,2-->
+  <nodes xsi:type="pipeline:Text" nodeID="Text0"/>
+<!--@Location 0,0-->
+  <nodes xsi:type="pipeline:StartNode" nodeID="StartNode0" strict="true" name="CreateAddressForm"
+      callMode="Private">
+    <nodeSuccessors name="next" next="ConcatenateStrings0"/>
+    <parameters name="Form" type="com.intershop.beehive.core.capi.webform.Form"/>
+    <parameters name="WebFormFileName" type="java.lang.String"/>
+    <parameters name="CountryCode" type="java.lang.String" optional="true"/>
+  </nodes>
+<!--@Location 0,1-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="ConcatenateStrings0">
+    <pipelet href="enfinity:/bc_foundation/pipelets/ConcatenateStrings.xml"/>
+    <nodeSuccessors name="next" next="CreateForm0"/>
+    <parameterBindings name="String0" objectPath="WebFormFileName"/>
+    <parameterBindings name="String1" constant="SmbExt"/>
+    <returnValueBindings name="Concatenated" objectPath="WebFormFileName"/>
+  </nodes>
+<!--@Location 0,2-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="CreateForm0">
+    <pipelet href="enfinity:/core/pipelets/CreateForm.xml"/>
+    <nodeSuccessors name="next" next="MergeForms0"/>
+    <parameterBindings name="FormName" constant="addressSmbExt"/>
+    <parameterBindings name="FormResource" objectPath="WebFormFileName"/>
+    <returnValueBindings name="Form" objectPath="ExtensionForm"/>
+  </nodes>
+<!--@Location 0,3-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="MergeForms0">
+    <pipelet href="enfinity:/core/pipelets/MergeForms.xml"/>
+    <nodeSuccessors name="next" next="EndNode0"/>
+    <parameterBindings name="MasterForm" objectPath="Form"/>
+    <returnValueBindings name="MergedForm" objectPath="Form"/>
+  </nodes>
+<!--@Location 0,4-->
+  <nodes xsi:type="pipeline:EndNode" nodeID="EndNode0" name="next" strict="true">
+    <returnValues name="Form" type="com.intershop.beehive.core.capi.webform.Form"/>
+  </nodes>
+<!--@Location 4,0-->
+  <nodes xsi:type="pipeline:StartNode" nodeID="StartNode3" strict="true" name="CreateAddressMapValue"
+      callMode="Private">
+    <nodeSuccessors name="next" next="KeyMapper1"/>
+    <parameters name="NewAddressForm" type="com.intershop.beehive.core.capi.webform.Form"/>
+  </nodes>
+<!--@Location 4,1-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="KeyMapper1">
+    <pipelet href="enfinity:/bc_foundation/pipelets/KeyMapper.xml"/>
+    <nodeSuccessors name="next" next="EndNode3"/>
+    <parameterBindings name="InValue_1" objectPath="NewAddressForm:CompanyName:Value"/>
+    <parameterBindings name="InValue_2" objectPath="NewAddressForm:CompanyName2:Value"/>
+    <returnValueBindings name="OutValue_1" objectPath="Company"/>
+    <returnValueBindings name="OutValue_2" objectPath="CompanyName2"/>
+  </nodes>
+<!--@Location 4,2-->
+  <nodes xsi:type="pipeline:EndNode" nodeID="EndNode3" name="next" strict="true">
+    <returnValues name="Company" type="java.lang.String" optional="true"/>
+    <returnValues name="CompanyName2" type="java.lang.String" optional="true"/>
+  </nodes>
+<!--@Location 8,0-->
+  <nodes xsi:type="pipeline:StartNode" nodeID="StartNode8" strict="true" name="CreateCheckoutAddressCompanyInformationForm"
+      callMode="Private">
+    <nodeSuccessors name="next" next="CreateForm1"/>
+  </nodes>
+<!--@Location 8,1-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="CreateForm1">
+    <configurationValues name="FormName" value="CheckoutAddressCompanyInformationForm"/>
+    <configurationValues name="FormResource" value="CheckoutAddressCompanyInformation"/>
+    <pipelet href="enfinity:/core/pipelets/CreateForm.xml"/>
+    <nodeSuccessors name="next" next="EndNode9"/>
+    <returnValueBindings name="Form" objectPath="CheckoutAddressCompanyInformationForm"/>
+  </nodes>
+<!--@Location 8,2-->
+  <nodes xsi:type="pipeline:EndNode" nodeID="EndNode9" name="next" strict="true">
+    <returnValues name="CheckoutAddressCompanyInformationForm" type="com.intershop.beehive.core.capi.webform.Form"/>
+  </nodes>
+<!--@Location 2,0-->
+  <nodes xsi:type="pipeline:StartNode" nodeID="StartNode5" strict="true" name="CreateCompanyInformationForm"
+      callMode="Private">
+    <nodeSuccessors name="next" next="CreateForm3"/>
+  </nodes>
+<!--@Location 2,1-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="CreateForm3">
+    <configurationValues name="FormName" value="CompanyInformationForm"/>
+    <configurationValues name="FormResource" value="CompanyInformation"/>
+    <pipelet href="enfinity:/core/pipelets/CreateForm.xml"/>
+    <nodeSuccessors name="next" next="EndNode5"/>
+    <returnValueBindings name="Form" objectPath="CompanyInformationForm"/>
+  </nodes>
+<!--@Location 2,2-->
+  <nodes xsi:type="pipeline:EndNode" nodeID="EndNode5" name="next" strict="true">
+    <returnValues name="CompanyInformationForm" type="com.intershop.beehive.core.capi.webform.Form"/>
+  </nodes>
+<!--@Location 7,13-->
+  <nodes xsi:type="pipeline:StartNode" nodeID="StartNode1" strict="true" name="GenerateAddressHash"
+      callMode="Private">
+    <nodeSuccessors name="next" next="ConcatenateStrings1"/>
+    <parameters name="CountryCode" type="java.lang.String" optional="true"/>
+    <parameters name="CompanyName" type="java.lang.String" optional="true"/>
+    <parameters name="CompanyName2" type="java.lang.String" optional="true"/>
+    <parameters name="Salutation" type="java.lang.String" optional="true"/>
+    <parameters name="FirstName" type="java.lang.String" optional="true"/>
+    <parameters name="LastName" type="java.lang.String" optional="true"/>
+    <parameters name="AddressLine1" type="java.lang.String" optional="true"/>
+    <parameters name="AddressLine2" type="java.lang.String" optional="true"/>
+    <parameters name="City" type="java.lang.String" optional="true"/>
+    <parameters name="State" type="java.lang.String" optional="true"/>
+    <parameters name="PostalCode" type="java.lang.String" optional="true"/>
+    <parameters name="Phone" type="java.lang.String" optional="true"/>
+    <parameters name="AddressLine3" type="java.lang.String" optional="true"/>
+  </nodes>
+<!--@Location 7,14-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="ConcatenateStrings1">
+    <pipelet href="enfinity:/bc_foundation/pipelets/ConcatenateStrings.xml"/>
+    <nodeSuccessors name="next" next="ConcatenateStrings2"/>
+    <parameterBindings name="String0" objectPath="CountryCode"/>
+    <parameterBindings name="String1" objectPath="CompanyName"/>
+    <parameterBindings name="String2" objectPath="CompanyName2"/>
+    <parameterBindings name="String3" objectPath="Salutation"/>
+    <parameterBindings name="String4" objectPath="FirstName"/>
+    <parameterBindings name="String5" objectPath="LastName"/>
+    <parameterBindings name="String6" objectPath="AddressLine1"/>
+    <parameterBindings name="String7" objectPath="AddressLine2"/>
+    <parameterBindings name="String8" objectPath="AddressLine3"/>
+    <parameterBindings name="String9" objectPath="State"/>
+    <returnValueBindings name="Concatenated" objectPath="Hash"/>
+  </nodes>
+<!--@Location 7,15-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="ConcatenateStrings2">
+    <pipelet href="enfinity:/bc_foundation/pipelets/ConcatenateStrings.xml"/>
+    <nodeSuccessors name="next" next="GetHashForString0"/>
+    <parameterBindings name="String0" objectPath="Hash"/>
+    <parameterBindings name="String1" objectPath="PostalCode"/>
+    <parameterBindings name="String2" objectPath="City"/>
+    <parameterBindings name="String3" objectPath="Phone"/>
+    <returnValueBindings name="Concatenated" objectPath="Hash"/>
+  </nodes>
+<!--@Location 7,16-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="GetHashForString0">
+    <configurationValues name="Algorithm" value="MD5"/>
+    <pipelet href="enfinity:/bc_foundation/pipelets/GetHashForString.xml"/>
+    <nodeSuccessors name="next" next="EndNode8"/>
+    <parameterBindings name="String" objectPath="Hash"/>
+    <returnValueBindings name="StringHash" objectPath="Hash"/>
+  </nodes>
+<!--@Location 7,17-->
+  <nodes xsi:type="pipeline:EndNode" nodeID="EndNode8" strict="true">
+    <returnValues name="Hash" type="java.lang.String"/>
+  </nodes>
+<!--@Location 9,13-->
+  <nodes xsi:type="pipeline:StartNode" nodeID="StartNode16" strict="true" name="GenerateHashFromAddress"
+      callMode="Private">
+    <nodeSuccessors name="next" next="DecisionNode5"/>
+    <parameters name="CustomerBO" type="com.intershop.component.customer.capi.CustomerBO"/>
+    <parameters name="AddressID" type="java.lang.String"/>
+    <parameters name="AddressBO" type="com.intershop.component.address.capi.AddressBO"
+        optional="true"/>
+  </nodes>
+<!--@Location 9,14-->
+  <nodes xsi:type="pipeline:DecisionNode" nodeID="DecisionNode5" conditionKey="AddressBO">
+    <nodeSuccessors name="decision_yes" next="JoinNode9"/>
+    <nodeSuccessors name="decision_no" next="ResolveAddressBO1"/>
+  </nodes>
+<!--@Location 9,15-->
+  <nodes xsi:type="pipeline:JoinNode" nodeID="JoinNode9">
+    <nodeSuccessors name="next" next="CallNode6"/>
+  </nodes>
+<!--@Location 9,16-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode6">
+    <nodeSuccessors name="next" next="EndNode21"/>
+    <parameterBindings name="AddressLine1" objectPath="AddressBO:AddressLine1"/>
+    <parameterBindings name="AddressLine2" objectPath="AddressBO:AddressLine2"/>
+    <parameterBindings name="AddressLine3" objectPath="AddressBO:AddressLine3"/>
+    <parameterBindings name="City" objectPath="AddressBO:City"/>
+    <parameterBindings name="CompanyName" objectPath="AddressBO:CompanyName1"/>
+    <parameterBindings name="CompanyName2" objectPath="AddressBO:CompanyName2"/>
+    <parameterBindings name="CountryCode" objectPath="AddressBO:CountryCode"/>
+    <parameterBindings name="FirstName" objectPath="AddressBO:FirstName"/>
+    <parameterBindings name="LastName" objectPath="AddressBO:LastName"/>
+    <parameterBindings name="Phone" objectPath="AddressBO:PhoneHome"/>
+    <parameterBindings name="PostalCode" objectPath="AddressBO:PostalCode"/>
+    <parameterBindings name="Salutation" objectPath="AddressBO:Title"/>
+    <parameterBindings name="State" objectPath="AddressBO:MainDivision"/>
+    <startNode referencedName="This:GenerateAddressHash"/>
+  </nodes>
+<!--@Location 9,17-->
+  <nodes xsi:type="pipeline:EndNode" nodeID="EndNode21" strict="true">
+    <returnValues name="Hash" type="java.lang.String"/>
+  </nodes>
+<!--@Location 10,14-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="ResolveAddressBO1">
+    <pipelet href="enfinity:/bc_address/pipelets/ResolveAddressBO.xml"/>
+<!--@BendPoints 21,31-->
+    <nodeSuccessors name="next" next="JoinNode9"/>
+<!--@BendPoints 23,29-->
+    <nodeSuccessors name="pipelet_error" next="EndNode13"/>
+    <parameterBindings name="AddressURN" objectPath="AddressID"/>
+  </nodes>
+<!--@Location 11,17-->
+  <nodes xsi:type="pipeline:EndNode" nodeID="EndNode13" name="Error" strict="true"/>
+<!--@Location 4,3-->
+  <nodes xsi:type="pipeline:StartNode" nodeID="StartNode15" name="GetCompanyInformationFormFromSession"
+      callMode="Private">
+    <nodeSuccessors name="next" next="ExchangeSessionObject0"/>
+  </nodes>
+<!--@Location 4,4-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="ExchangeSessionObject0">
+    <configurationValues name="ProcessMethod" value="Get Object from Session"/>
+    <configurationValues name="SessionObjectName" value="T_CompanyInformationForm"/>
+    <pipelet href="enfinity:/bc_foundation/pipelets/ExchangeSessionObject.xml"/>
+    <nodeSuccessors name="next" next="EndNode20"/>
+    <returnValueBindings name="LoadObject" objectPath="CompanyInformationForm"/>
+  </nodes>
+<!--@Location 4,5-->
+  <nodes xsi:type="pipeline:EndNode" nodeID="EndNode20" name="next" strict="true"/>
+<!--@Location 15,0-->
+  <nodes xsi:type="pipeline:StartNode" nodeID="StartNode11" strict="true" name="GetOrderCompanyCustomerInformation"
+      callMode="Private">
+    <nodeSuccessors name="next" next="DecisionNode3"/>
+    <parameters name="OrderBO" type="com.intershop.component.order.capi.OrderBO" optional="true"/>
+  </nodes>
+<!--@Location 15,1-->
+  <nodes xsi:type="pipeline:DecisionNode" nodeID="DecisionNode3" conditionKey="OrderBO">
+    <nodeSuccessors name="decision_yes" next="KeyMapper3"/>
+<!--@BendPoints 33,3 33,7-->
+    <nodeSuccessors name="decision_no" next="JoinNode5"/>
+  </nodes>
+<!--@Location 15,2-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="KeyMapper3">
+    <pipelet href="enfinity:/core/pipelets/KeyMapper.xml"/>
+    <nodeSuccessors name="next" next="JoinNode5"/>
+    <parameterBindings name="InValue_1" objectPath="OrderBO:Extension(&quot;PersistentObjectBOExtension&quot;):PersistentObject:getString(&quot;TaxationID&quot;)"/>
+    <parameterBindings name="InValue_2" objectPath="OrderBO:Extension(&quot;PersistentObjectBOExtension&quot;):PersistentObject:getString(&quot;Department&quot;)"/>
+    <returnValueBindings name="OutValue_1" objectPath="TaxationID"/>
+    <returnValueBindings name="OutValue_2" objectPath="Department"/>
+  </nodes>
+<!--@Location 15,3-->
+  <nodes xsi:type="pipeline:JoinNode" nodeID="JoinNode5">
+    <nodeSuccessors name="next" next="EndNode12"/>
+  </nodes>
+<!--@Location 15,4-->
+  <nodes xsi:type="pipeline:EndNode" nodeID="EndNode12" name="next" strict="true">
+    <returnValues name="Department" type="java.lang.String" optional="true"/>
+    <returnValues name="TaxationID" type="java.lang.String" optional="true"/>
+  </nodes>
+<!--@Location 0,13-->
+  <nodes xsi:type="pipeline:StartNode" nodeID="StartNode6" strict="true" name="InitAddressForm"
+      callMode="Private">
+    <nodeSuccessors name="next" next="CheckUserLoggedIn0"/>
+    <parameters name="AddressForm" type="com.intershop.beehive.core.capi.webform.Form"/>
+  </nodes>
+<!--@Location 0,14-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="CheckUserLoggedIn0">
+    <pipelet href="enfinity:/core/pipelets/CheckUserLoggedIn.xml"/>
+    <nodeSuccessors name="next" next="CallNode1"/>
+<!--@BendPoints 3,29 3,35-->
+    <nodeSuccessors name="pipelet_error" next="JoinNode3"/>
+  </nodes>
+<!--@Location 0,15-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode1">
+    <nodeSuccessors name="next" next="SetFormParameterValue0"/>
+    <parameterBindings name="AddressLine1" objectPath="AddressForm:Address1:Value"/>
+    <parameterBindings name="AddressLine2" objectPath="AddressForm:Address2:Value"/>
+    <parameterBindings name="AddressLine3" objectPath="AddressForm:Address3:Value"/>
+    <parameterBindings name="City" objectPath="AddressForm:City:Value"/>
+    <parameterBindings name="CompanyName" objectPath="AddressForm:CompanyName:Value"/>
+    <parameterBindings name="CompanyName2" objectPath="AddressForm:CompanyName2:Value"/>
+    <parameterBindings name="CountryCode" objectPath="AddressForm:CountryCode:Value"/>
+    <parameterBindings name="FirstName" objectPath="AddressForm:FirstName:Value"/>
+    <parameterBindings name="LastName" objectPath="AddressForm:LastName:Value"/>
+    <parameterBindings name="Phone" objectPath="AddressForm:PhoneHome:Value"/>
+    <parameterBindings name="PostalCode" objectPath="AddressForm:PostalCode:Value"/>
+    <parameterBindings name="Salutation" objectPath="AddressForm:Title:Value"/>
+    <parameterBindings name="State" objectPath="AddressForm:State:Value"/>
+    <startNode referencedName="This:GenerateAddressHash"/>
+  </nodes>
+<!--@Location 0,16-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="SetFormParameterValue0">
+    <pipelet href="enfinity:/core/pipelets/SetFormParameterValue.xml"/>
+    <nodeSuccessors name="next" next="JoinNode3"/>
+    <parameterBindings name="FormParameter" objectPath="AddressForm:OldAddressHash"/>
+    <parameterBindings name="Value" objectPath="Hash"/>
+  </nodes>
+<!--@Location 0,17-->
+  <nodes xsi:type="pipeline:JoinNode" nodeID="JoinNode3">
+    <nodeSuccessors name="next" next="EndNode1"/>
+  </nodes>
+<!--@Location 0,18-->
+  <nodes xsi:type="pipeline:EndNode" nodeID="EndNode1" name="next" strict="true">
+    <returnValues name="AddressForm" type="com.intershop.beehive.core.capi.webform.Form"/>
+  </nodes>
+<!--@Location 2,13-->
+  <nodes xsi:type="pipeline:StartNode" nodeID="StartNode7" name="PreValidateAddressForm"
+      callMode="Private">
+    <nodeSuccessors name="next" next="CheckUserLoggedIn1"/>
+    <parameters name="AddressForm" type="com.intershop.beehive.core.capi.webform.Form"/>
+    <parameters name="CustomerBO" type="com.intershop.component.customer.capi.CustomerBO"/>
+    <parameters name="AddressID" type="java.lang.String"/>
+    <parameters name="CurrentCartBO" type="com.intershop.component.basket.capi.BasketBO"
+        optional="true"/>
+  </nodes>
+<!--@Location 2,14-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="CheckUserLoggedIn1">
+    <pipelet href="enfinity:/core/pipelets/CheckUserLoggedIn.xml"/>
+    <nodeSuccessors name="next" next="ResolveAddressBO0"/>
+<!--@BendPoints 7,29-->
+    <nodeSuccessors name="pipelet_error" next="DecisionNode2"/>
+  </nodes>
+<!--@Location 2,16-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="ResolveAddressBO0">
+    <pipelet href="enfinity:/bc_address/pipelets/ResolveAddressBO.xml"/>
+    <nodeSuccessors name="next" next="CallNode0"/>
+    <nodeSuccessors name="pipelet_error" next="JoinNode11"/>
+    <parameterBindings name="AddressURN" objectPath="AddressID"/>
+  </nodes>
+<!--@Location 2,17-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode0">
+    <nodeSuccessors name="next" next="SetIndirectDictValue0"/>
+    <parameterBindings name="AddressLine1" objectPath="AddressBO:AddressLine1"/>
+    <parameterBindings name="AddressLine2" objectPath="AddressBO:AddressLine2"/>
+    <parameterBindings name="AddressLine3" objectPath="AddressBO:AddressLine3"/>
+    <parameterBindings name="City" objectPath="AddressBO:City"/>
+    <parameterBindings name="CompanyName" objectPath="AddressBO:CompanyName1"/>
+    <parameterBindings name="CompanyName2" objectPath="AddressBO:CompanyName2"/>
+    <parameterBindings name="CountryCode" objectPath="AddressBO:CountryCode"/>
+    <parameterBindings name="FirstName" objectPath="AddressBO:FirstName"/>
+    <parameterBindings name="LastName" objectPath="AddressBO:LastName"/>
+    <parameterBindings name="Phone" objectPath="AddressBO:PhoneHome"/>
+    <parameterBindings name="PostalCode" objectPath="AddressBO:PostalCode"/>
+    <parameterBindings name="Salutation" objectPath="AddressBO:Title"/>
+    <parameterBindings name="State" objectPath="AddressBO:MainDivision"/>
+    <startNode referencedName="This:GenerateAddressHash"/>
+  </nodes>
+<!--@Location 2,18-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="SetIndirectDictValue0">
+    <pipelet href="enfinity:/bc_foundation/pipelets/SetIndirectDictValue.xml"/>
+    <nodeSuccessors name="next" next="JoinNode4"/>
+    <parameterBindings name="KeyNameHolder" objectPath="AddressForm:ActualAddressHash:QualifiedName"/>
+    <parameterBindings name="MappedEntry" objectPath="Hash"/>
+  </nodes>
+<!--@Location 2,19-->
+  <nodes xsi:type="pipeline:JoinNode" nodeID="JoinNode4">
+    <nodeSuccessors name="next" next="EndNode7"/>
+  </nodes>
+<!--@Location 2,20-->
+  <nodes xsi:type="pipeline:EndNode" nodeID="EndNode7" name="next">
+    <returnValues name="AddressForm" type="com.intershop.beehive.core.capi.webform.Form"/>
+  </nodes>
+<!--@Location 3,16-->
+  <nodes xsi:type="pipeline:JoinNode" nodeID="JoinNode11">
+    <nodeSuccessors name="next" next="JoinNode7"/>
+  </nodes>
+<!--@Location 3,19-->
+  <nodes xsi:type="pipeline:JoinNode" nodeID="JoinNode7">
+    <nodeSuccessors name="next" next="JoinNode4"/>
+  </nodes>
+<!--@Location 3,15-->
+  <nodes xsi:type="pipeline:DecisionNode" nodeID="DecisionNode2" conditionKey="EditBillingAddress">
+    <nodeSuccessors name="decision_yes" next="CallNode4"/>
+    <nodeSuccessors name="decision_no" next="JoinNode11"/>
+  </nodes>
+<!--@Location 4,15-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode4">
+<!--@BendPoints 9,39-->
+    <nodeSuccessors name="next" next="JoinNode7"/>
+    <nodeSuccessors name="error" next="MergeForms2"/>
+    <startNode referencedName="This:ValidateCheckoutAddressCompanyInformationForm"/>
+  </nodes>
+<!--@Location 5,15-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="MergeForms2">
+    <pipelet href="enfinity:/core/pipelets/MergeForms.xml"/>
+    <nodeSuccessors name="next" next="JoinNode6"/>
+    <parameterBindings name="ExtensionForm" objectPath="CheckoutAddressCompanyInformationForm"/>
+    <parameterBindings name="MasterForm" objectPath="AddressForm"/>
+    <returnValueBindings name="MergedForm" objectPath="AddressForm"/>
+  </nodes>
+<!--@Location 6,15-->
+  <nodes xsi:type="pipeline:JoinNode" nodeID="JoinNode6">
+<!--@BendPoints 13,39-->
+    <nodeSuccessors name="next" next="EndNode17"/>
+  </nodes>
+<!--@Location 6,20-->
+  <nodes xsi:type="pipeline:EndNode" nodeID="EndNode17" name="error"/>
+<!--@Location 6,0-->
+  <nodes xsi:type="pipeline:StartNode" nodeID="StartNode2" strict="true" name="UpdateAddressMapValue"
+      callMode="Private">
+    <nodeSuccessors name="next" next="KeyMapper0"/>
+    <parameters name="UpdateAddressWebForm" type="com.intershop.beehive.core.capi.webform.Form"/>
+  </nodes>
+<!--@Location 6,1-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="KeyMapper0">
+    <pipelet href="enfinity:/bc_foundation/pipelets/KeyMapper.xml"/>
+    <nodeSuccessors name="next" next="EndNode2"/>
+    <parameterBindings name="InValue_1" objectPath="UpdateAddressWebForm:CompanyName:Value"/>
+    <parameterBindings name="InValue_2" objectPath="UpdateAddressWebForm:CompanyName2:Value"/>
+    <returnValueBindings name="OutValue_1" objectPath="Company"/>
+    <returnValueBindings name="OutValue_2" objectPath="CompanyName2"/>
+  </nodes>
+<!--@Location 6,2-->
+  <nodes xsi:type="pipeline:EndNode" nodeID="EndNode2" name="next" strict="true">
+    <returnValues name="Company" type="java.lang.String" optional="true"/>
+    <returnValues name="CompanyName2" type="java.lang.String" optional="true"/>
+  </nodes>
+<!--@Location 13,0-->
+  <nodes xsi:type="pipeline:StartNode" nodeID="StartNode10" strict="true" name="UpdateCompanyInformation"
+      callMode="Private">
+    <nodeSuccessors name="next" next="KeyMapper2"/>
+    <parameters name="CheckoutAddressCompanyInformationForm" type="com.intershop.beehive.core.capi.webform.Form"/>
+    <parameters name="CurrentCartBO" type="com.intershop.component.basket.capi.BasketBO"/>
+  </nodes>
+<!--@Location 13,1-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="KeyMapper2">
+    <pipelet href="enfinity:/bc_foundation/pipelets/KeyMapper.xml"/>
+    <nodeSuccessors name="next" next="UpdateBasketCompanyCustomerInformation0"/>
+    <parameterBindings name="InValue_1" objectPath="CurrentCartBO:Extension(&quot;CompanyCustomer&quot;)"/>
+    <returnValueBindings name="OutValue_1" objectPath="BasketBOCompanyCustomerExtension"/>
+  </nodes>
+<!--@Location 13,2-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="UpdateBasketCompanyCustomerInformation0">
+    <pipelet href="enfinity:/bc_basket/pipelets/UpdateBasketCompanyCustomerInformation.xml"/>
+    <nodeSuccessors name="next" next="EndNode11"/>
+    <parameterBindings name="Department" objectPath="CheckoutAddressCompanyInformationForm:Department:Value"/>
+    <parameterBindings name="TaxationID" objectPath="CheckoutAddressCompanyInformationForm:TaxationID:Value"/>
+  </nodes>
+<!--@Location 13,3-->
+  <nodes xsi:type="pipeline:EndNode" nodeID="EndNode11" name="next" strict="true"/>
+<!--@Location 18,0-->
+  <nodes xsi:type="pipeline:StartNode" nodeID="StartNode14" strict="true" name="UpdateInvoiceAddress"
+      callMode="Private">
+    <nodeSuccessors name="next" next="DecisionNode4"/>
+    <parameters name="CurrentCartBO" type="com.intershop.component.basket.capi.BasketBO"/>
+    <parameters name="CheckoutAddressCompanyInformationForm" type="com.intershop.beehive.core.capi.webform.Form"
+        optional="true"/>
+    <parameters name="EditBillingAddress" type="java.lang.String" optional="true"/>
+  </nodes>
+<!--@Location 18,1-->
+  <nodes xsi:type="pipeline:DecisionNode" nodeID="DecisionNode4" conditionKey="EditBillingAddress">
+    <nodeSuccessors name="decision_yes" next="CheckUserLoggedIn2"/>
+<!--@BendPoints 35,3-->
+    <nodeSuccessors name="decision_no" next="JoinNode10"/>
+  </nodes>
+<!--@Location 18,2-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="CheckUserLoggedIn2">
+    <pipelet href="enfinity:/core/pipelets/CheckUserLoggedIn.xml"/>
+    <nodeSuccessors name="next" next="JoinNode10"/>
+    <nodeSuccessors name="pipelet_error" next="CallNode8"/>
+    <parameterBindings name="Request" objectPath="CurrentRequest"/>
+    <parameterBindings name="Session" objectPath="CurrentSession"/>
+  </nodes>
+<!--@Location 17,2-->
+  <nodes xsi:type="pipeline:JoinNode" nodeID="JoinNode10">
+<!--@BendPoints 35,9-->
+    <nodeSuccessors name="next" next="JoinNode8"/>
+  </nodes>
+<!--@Location 18,4-->
+  <nodes xsi:type="pipeline:JoinNode" nodeID="JoinNode8">
+    <nodeSuccessors name="next" next="EndNode18"/>
+  </nodes>
+<!--@Location 18,5-->
+  <nodes xsi:type="pipeline:EndNode" nodeID="EndNode18" name="next" strict="true"/>
+<!--@Location 18,3-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode8">
+    <nodeSuccessors name="next" next="JoinNode8"/>
+    <startNode referencedName="This:UpdateCompanyInformation"/>
+  </nodes>
+<!--@Location 10,0-->
+  <nodes xsi:type="pipeline:StartNode" nodeID="StartNode9" name="ValidateCheckoutAddressCompanyInformationForm"
+      callMode="Private">
+    <nodeSuccessors name="next" next="CallNode2"/>
+  </nodes>
+<!--@Location 10,1-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode2">
+    <nodeSuccessors name="next" next="ValidateForm1"/>
+    <startNode referencedName="This:CreateCheckoutAddressCompanyInformationForm"/>
+  </nodes>
+<!--@Location 10,2-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="ValidateForm1">
+    <pipelet href="enfinity:/core/pipelets/ValidateForm.xml"/>
+    <nodeSuccessors name="next" next="EndNode10"/>
+<!--@BendPoints 23,5-->
+    <nodeSuccessors name="pipelet_error" next="EndNode15"/>
+    <parameterBindings name="Form" objectPath="CheckoutAddressCompanyInformationForm"/>
+  </nodes>
+<!--@Location 10,3-->
+  <nodes xsi:type="pipeline:EndNode" nodeID="EndNode10" name="next"/>
+<!--@Location 11,3-->
+  <nodes xsi:type="pipeline:EndNode" nodeID="EndNode15" name="error"/>
+<!--@Location 2,3-->
+  <nodes xsi:type="pipeline:StartNode" nodeID="StartNode4" name="ValidateCompanyInformationForm"
+      callMode="Private">
+    <nodeSuccessors name="next" next="CreateForm2"/>
+  </nodes>
+<!--@Location 2,4-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="CreateForm2">
+    <configurationValues name="FormName" value="CompanyInformationForm"/>
+    <configurationValues name="FormResource" value="CompanyInformation"/>
+    <pipelet href="enfinity:/core/pipelets/CreateForm.xml"/>
+    <nodeSuccessors name="next" next="ValidateForm0"/>
+    <returnValueBindings name="Form" objectPath="CompanyInformationForm"/>
+  </nodes>
+<!--@Location 2,5-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="ValidateForm0">
+    <pipelet href="enfinity:/core/pipelets/ValidateForm.xml"/>
+    <nodeSuccessors name="next" next="JoinNode0"/>
+<!--@BendPoints 6,11 6,13-->
+    <nodeSuccessors name="pipelet_error" next="JoinNode0"/>
+    <parameterBindings name="Form" objectPath="CompanyInformationForm"/>
+  </nodes>
+<!--@Location 2,6-->
+  <nodes xsi:type="pipeline:JoinNode" nodeID="JoinNode0">
+<!--@BendPoints 5,14-->
+    <nodeSuccessors name="next" next="DecisionNode0"/>
+  </nodes>
+<!--@Location 2,7-->
+  <nodes xsi:type="pipeline:DecisionNode" nodeID="DecisionNode0" conditionKey="CompanyInformationForm:Invalid"
+      operator="str_neq" conditionValue="true">
+    <nodeSuccessors name="decision_yes" next="DecisionNode1"/>
+<!--@BendPoints 9,15-->
+    <nodeSuccessors name="decision_no" next="EndNode6"/>
+  </nodes>
+<!--@Location 2,8-->
+  <nodes xsi:type="pipeline:DecisionNode" nodeID="DecisionNode1" conditionKey="CompanyInformationForm:Title:Value"
+      operator="str_empty">
+<!--@BendPoints 7,17-->
+    <nodeSuccessors name="decision_yes" next="JoinNode2"/>
+    <nodeSuccessors name="decision_no" next="GetLocalizedTextByKey0"/>
+  </nodes>
+<!--@Location 3,9-->
+  <nodes xsi:type="pipeline:JoinNode" nodeID="JoinNode2">
+<!--@BendPoints 7,21-->
+    <nodeSuccessors name="next" next="JoinNode1"/>
+  </nodes>
+<!--@Location 2,10-->
+  <nodes xsi:type="pipeline:JoinNode" nodeID="JoinNode1">
+    <nodeSuccessors name="next" next="EndNode4"/>
+  </nodes>
+<!--@Location 2,11-->
+  <nodes xsi:type="pipeline:EndNode" nodeID="EndNode4" name="next">
+    <returnValues name="CompanyInformationForm" type="com.intershop.beehive.core.capi.webform.Form"/>
+<!--The title of a user.-->
+    <returnValues name="Title" type="java.lang.String" optional="true"/>
+  </nodes>
+<!--@Location 2,9-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="GetLocalizedTextByKey0">
+    <pipelet href="enfinity:/core/pipelets/GetLocalizedTextByKey.xml"/>
+    <nodeSuccessors name="next" next="JoinNode1"/>
+    <nodeSuccessors name="pipelet_error" next="JoinNode2"/>
+    <parameterBindings name="Key" objectPath="CompanyInformationForm:Title:Value"/>
+    <returnValueBindings name="LocalizedText" objectPath="Title"/>
+  </nodes>
+<!--@Location 4,11-->
+  <nodes xsi:type="pipeline:EndNode" nodeID="EndNode6" name="error">
+    <returnValues name="CompanyInformationForm" type="com.intershop.beehive.core.capi.webform.Form"/>
+  </nodes>
+</pipeline:Pipeline>

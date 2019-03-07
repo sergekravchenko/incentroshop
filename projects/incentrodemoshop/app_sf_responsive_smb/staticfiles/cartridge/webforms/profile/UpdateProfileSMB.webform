@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<webform:WebForm xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://www.intershop.de/core/2010" xmlns:webform="http://www.intershop.de/webform/2010" name="UpdateProfileSMB">
+  <forms name="UpdateProfileSMBForm">
+    <parameters xsi:type="webform:FormParameter" optional="true" name="Department" type="java.lang.String">
+   	  <validatorBindings validator="GlobalValidators-maxlength">
+        <parameterBindings xsi:type="core:ParameterValueBinding" name="maxLength" value="60"/>
+      </validatorBindings>
+    </parameters>
+  </forms>
+</webform:WebForm>

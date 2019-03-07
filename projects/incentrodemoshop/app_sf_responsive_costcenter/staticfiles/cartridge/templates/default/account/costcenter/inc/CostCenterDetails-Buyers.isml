@@ -1,0 +1,105 @@
+<iscontent type="text/html" charset="UTF-8" compact="true">
+
+<ISUserPermissionMap User="#UserBO#" UserPermissionMap="UserPermissionMap">
+
+<!--- Cost Center Buyers --->
+<hr/>
+<div class="row">
+	<div class="col-xs-6">
+		<h3><istext key="account.costcenter.details.buyers.list.title"/></h3>
+	</div>
+	<isif condition="#isDefined(UserPermissionMap:get("APP_B2B_MANAGE_COSTCENTER"))#">
+		<div class="col-xs-6">
+			<button 
+				data-url="#url(Action('ViewCostCenter-ShowAddBuyerForm'), Parameter('CostCenterID', CostCenterBO:ID), Parameter('CustomerID', CustomerBO:ID))#" 
+				class="btn btn-default pull-right open-costcenter-modal"
+				data-toggle="modal"
+				data-quick-title="<istext key="account.costcenter.details.buyers.action.add.quicktitle"/>"
+			><istext key="account.costcenter.details.buyers.action.add"/></button>
+		</div>
+	</isif>
+</div>
+<div class="row">
+	<div class="col-xs-12">
+		<p><istext key="account.costcenter.details.buyers.list.titleinfo"/></p>
+	</div>
+</div>
+<isif condition="#isDefined(Buyers) AND hasElements(Buyers)#">
+	
+	<div class="row">
+		<div class="col-xs-12">
+			<div class="list-header">
+				<div class="list-header-item col-sm-2">
+					<istext key="account.costcenter.details.buyers.list.header.name"/>
+				</div>
+				<div class="list-header-item col-sm-3">
+					<istext key="account.costcenter.details.buyers.list.header.approvedorders"/>
+				</div>
+				<div class="list-header-item col-sm-3">
+					<istext key="account.costcenter.details.buyers.list.header.pendingorders"/>
+				</div>
+				<div class="list-header-item col-sm-4">
+					<istext key="account.costcenter.details.buyers.list.header.orderspendlimit"/>
+				</div>
+			</div>
+			<div class="list-body"  data-testing-id="cost-center-buyers-list">
+				<isif condition="#isDefined(Buyers) AND hasElements(Buyers)#">
+					<isloop iterator="Buyers" alias="BuyerBO">
+						<div class="list-item-row-big list-item-row">
+							<div class="list-item col-xs-12 col-sm-2">
+								<label class="hidden-lg hidden-md hidden-sm control-label"><istext key="account.costcenter.details.buyers.list.header.name"/>:</label>
+								<span><isUserName User="#BuyerBO#" Customer="#CustomerBO#"></span>
+							</div>
+							
+							<div class="list-item col-xs-12 col-sm-3">
+								<ispipeline pipeline="ProcessCostCenterBuyers-GetBuyerApprovedOrdersCount"
+											params="#ParamMap(ParamEntry('CustomerBO', CustomerBO), ParamEntry('BuyerBO', BuyerBO), ParamEntry('OrderDomain', CurrentOrganization:OwningDomain), 
+											ParamEntry('CostCenterBO', CostCenterBO), ParamEntry('OrderCurrency', CurrentRequest:Currency))#" alias="ApprovedOrdersResult">
+								<label class="hidden-lg hidden-md hidden-sm control-label"><istext key="account.costcenter.details.buyers.list.header.approvedorders"/>:</label>
+								<span><isprint value="#ApprovedOrdersResult:ApprovedOrdersCount#"></span>
+							</div>
+							
+							<div class="list-item col-xs-12 col-sm-3">
+								<ISCreateMap mapname="Parameters"
+									key0="CustomerBO" value0="#CustomerBO#"
+									key1="UserBO" value1="#BuyerBO#"
+									key2="BasketDomain" value2="#CurrentOrganization:Domain#"
+								>
+								<ispipeline pipeline="ViewUsers-GetPendingOrdersCount" params="#Parameters#" alias="PendingOrdersResult">
+								<label class="hidden-lg hidden-md hidden-sm control-label"><istext key="account.costcenter.details.buyers.list.header.pendingorders"/>:</label>
+								<span><isprint value="#PendingOrdersResult:PendingOrdersCount#"></span>
+							</div>
+							
+							<isset name="OrderApprovalExtension" value="#BuyerBO:Extension("UserBOOrderApprovalExtension")#" scope="request">
+							<isset name="CostCenterBudgetExtension" value="#BuyerBO:Extension("UserBOCostCenterBudgetExtension")#" scope="request">
+							<div class="list-item col-xs-12 col-sm-3">
+								<label class="hidden-lg hidden-md hidden-sm control-label"><istext key="account.costcenter.details.buyers.list.header.orderspendlimit"/>:</label>
+								<span><isprint value="#CostCenterBudgetExtension:Budget(CostCenterBO:ID).' / '.localizeText('account.costcenter.label.budget.period.'.CostCenterBudgetExtension:BudgetPeriod(CostCenterBO:ID))#"/></span>
+							</div>
+							<div class="list-item col-xs-3 text-left-xs col-sm-1 text-right-sm text-right-lg">
+								<isif condition="#isDefined(UserPermissionMap:get("APP_B2B_MANAGE_COSTCENTER"))#">
+									<a	href=""
+										data-url="#url(Action('ViewCostCenter-EditBuyerBudget'), Parameter('CostCenterID', CostCenterBO:ID), Parameter('CustomerID', CustomerBO:ID), Parameter('BuyerID', BuyerBO:ID), Parameter('FormType', 'edit'))#" 
+										class="btn-tool open-costcenter-modal" 
+										data-quick-title="<istext key="account.costcenter.details.buyers.action.editbudget.title"/>">
+										<span class="glyphicon glyphicon-pencil" title="<istext key="account.costcenter.details.action.edit"/>"></span>
+									</a>
+									<a	href="#url(Action('ViewCostCenter-RemoveCostCenterBuyer'), Parameter('CostCenterID', CostCenterBO:ID), Parameter('BuyerID', BuyerBO:ID))#"
+										class="btn-tool"
+										data-quick-title="<istext key="account.costcenter.details.buyers.list.action.remove"/>">
+										<span class="glyphicon glyphicon-trash" title="<istext key="account.costcenter.list.action.remove.label"/>"></span>
+									</a>
+								</isif>
+							</div>
+						</div>
+					</isloop>
+				</isif>
+			</div>
+		</table>
+	</div>
+	
+<iselse>
+	
+	<p><istext key="account.costcenter.details.buyers.list.nobuyers"/></p>
+	
+</isif>

@@ -1,0 +1,176 @@
+<iscontent type="text/html" charset="UTF-8" compact="true" templatemarker="true">
+<isinclude template="modules/user/Modules">
+
+<!--- needed for the links with css class "kor-approve-order-submit" --->
+<isinclude template="inc/CSRFGuardJSToken"/>
+
+<isinclude template="email/order/RequisitionTypeInc"/>
+<isif condition="#ListCase EQ 'MyOpen'#">
+	<isset name="breadcrumbKey" value="account.pendingorders.link" scope="request">
+	<isset name="backLinkKey" value="approval.detailspage.back_to_pending.link" scope="request">
+	<isset name="backLinkAction" value="ViewApprovals-MyOpen" scope="request">
+	<isset name="selectedNavigationItem" value="PENDINGORDERS" scope="request">
+<iselseif condition="#ListCase EQ 'AllOpen'#">
+	<isset name="breadcrumbKey" value="account.openorders.link" scope="request">
+	<isset name="backLinkKey" value="approval.detailspage.back_to_orders.link" scope="request">
+	<isset name="backLinkAction" value="ViewApprovals-AllOpen" scope="request">
+	<isset name="selectedNavigationItem" value="OPENORDERS" scope="request">
+<iselseif condition="#ListCase EQ 'MyRejected'#">
+	<isset name="breadcrumbKey" value="account.rejectedorders.link" scope="request">
+	<isset name="backLinkKey" value="approval.detailspage.back_to_rejected.link" scope="request">
+	<isset name="backLinkAction" value="ViewApprovals-MyRejected" scope="request">
+	<isset name="selectedNavigationItem" value="REJECTEDORDERS" scope="request">
+<iselseif condition="#ListCase EQ 'AllRejected'#">
+	<isset name="breadcrumbKey" value="account.allrejectedorders.link" scope="request">
+	<isset name="backLinkKey" value="approval.detailspage.back_to_allrejected.link" scope="request">
+	<isset name="backLinkAction" value="ViewApprovals-AllRejected" scope="request">
+	<isset name="selectedNavigationItem" value="ALLREJECTEDORDERS" scope="request">
+<iselseif condition="#ListCase EQ 'AllApproved'#">
+	<isset name="breadcrumbKey" value="account.allapprovedorders.link" scope="request">
+	<isset name="backLinkKey" value="approval.detailspage.back_to_allapproved.link" scope="request">
+	<isset name="backLinkAction" value="ViewApprovals-AllApproved" scope="request">
+	<isset name="selectedNavigationItem" value="ALLAPPROVEDORDERS" scope="request">
+</isif>
+
+<isinclude template="account/approval/ApprovalDetailsBreadcrumbs">
+
+<!--- Marketing slot --->
+<div class="marketing-area">
+	<ISMarketingSlot id="baseMarketing">
+</div>
+
+<div class="account-wrapper" data-testing-id="approval-details-page">
+
+	<div class="row account-main">
+		<!--- Left Navigation Panel --->
+		<div class="col-md-3 account-nav-box">
+			<isif condition="#isDefined(selectedNavigationItem)#">
+				<isAccountNavigation selecteditem="#selectedNavigationItem#">
+			</isif>
+		</div>
+
+		<isset name="CurrentCartBO" value="#BasketBO#" scope="request">
+		<isset name="CustomerBO" value="#BasketBO:CustomerBO#" scope="request">
+		<isset name="CartPayment" value="#CurrentCartBO:Extension("Payment")#" scope="request"/>
+		<isset name="OrderPayment" value="#BasketBO:Extension("Payment")#" scope="request"/>
+		<isset name="OrderShippingBucket" value="#BasketBO:Extension("ShippingBucket")#" scope="request"/>
+		<isset name="UserApproval" value="#BasketBO:UserBO:Extension("UserBOOrderApprovalExtension")#" scope="request" >
+		<isset name="BasketPayment" value="#BasketBO:Extension("Payment")#" scope="request"/>
+		<isset name="BasketShippingMethod" value="#BasketBO:Extension("ShippingMethod")#" scope="request"/>
+		<isset name="AdditionalInformationExtension" value="#BasketBO:Extension("BasketBOAdditionalInformationExtension")#" scope="request"/>
+		<isif condition="#AdditionalInformationExtension:CostCenter NE ''#">
+			<isset name="CostCenterExtension" value="#BasketBO:Extension("BasketBOCostCenterExtension")#" scope="request"/>
+		</isif>
+
+		<div class="col-md-9">
+			<div class="marketing-area">
+				<ISMarketingSlot id="contentMarketing">
+			</div>
+			
+			<a class="btn-tool pull-right"	href="javascript:window.print()" title="<istext key="account.orderdetails.print_link.text"/>">
+				<span class="glyphicon glyphicon-print"></span>
+			</a>
+			
+			<h1><istext key="approval.detailspage.heading" /></h1>
+			<isif condition="#isDefined(Approved) OR isDefined(PartiallyApproved) OR isDefined(Rejected)#">
+				<div class="alert alert-<isif condition="#isDefined(PartiallyApproved)#">info<iselse>success</isif>">
+					<isif condition="#isDefined(Approved)#">
+						<istext key="#'approval.'.BasketType.'_approved.text'#" />
+					<iselseif condition="#isDefined(PartiallyApproved)#"/>
+						<istext key="#'approval.'.BasketType.'_partially_approved.text'#" />
+					<iselse/>
+						<istext key="#'approval.'.BasketType.'_rejected.text'#" />
+					</isif>
+				</div>
+			</isif>
+			
+			<isinclude template="account/ApprovalDetailsHeading"/>
+			<isinclude template="account/ApprovalDetailsPurchaserBudget"/>
+				
+			<isinclude extensionpoint="AdditionalApprovalDetails"/>
+			
+			<isif condition="#ListCase EQ 'AllOpen'#">
+				<div class="text-right">
+					<isinclude template="account/ApprovalDetailsActions"/>
+				</div>
+			</isif>	
+			
+			<h2><istext key="#'approval.detailspage.'.BasketType.'_details.heading'#" /></h2>
+			
+			<div class="row<isif condition="#RecurringBasket:Recurring#"> equal</isif>">
+				<!--- b2b: purchaser info --->
+				<isinclude template="checkout/review/Purchaser"/>
+				
+				<!--- Subscription Info --->
+				<isinclude template="checkout/common/widgets/SubscriptionInfo">
+			</div>
+			<div class="row equal">
+				<div class="col-sm-6">
+					<!---Billing Address --->
+					<div class="infobox">
+						<h3><istext key="checkout.address.billing.label" /></h3>
+						<isaddress address="#BasketBO:InvoiceToAddressBO#" showemail="#NOT(CurrentSession:LoggedIn)#">
+					</div>
+				</div>
+				<div class="col-sm-6">
+					<!---show payment details --->
+					<div class="infobox">
+						<h3><istext key="checkout.widget.payment_method.heading" /></h3>
+						<div>
+							<isPaymentMethodDisplay paymentBOs="#BasketPayment:PaymentBOs#">
+						</div>
+						<isinclude extensionpoint="PaymentInfoExtensions">
+					</div>
+				</div>
+			</div>
+			<isloop iterator="BasketShippingMethod:BasketShippingMethodSelectionBucketBOs" alias="Bucket">
+				<div class="row equal">
+					<div class="col-sm-6">
+						<!---Shipping Address --->
+						<div class="infobox">
+							<h3><istext key="checkout.widget.shipping-address.heading" /></h3>
+							<isaddress address="#Bucket:ShipToAddress#" showemail="#Bucket:SelectedShippingMethod:DigitalDelivery#">
+						</div>
+					</div>
+					<div class="col-sm-6">
+						<!---Shipping Method --->
+						<div class="infobox">
+							<h3><istext key="checkout.widget.shipping_method.heading" /></h3>
+							<isinclude template="checkout/common/widgets/ShippingMethodInc">
+						</div>
+					</div>
+				</div>
+
+				<!--- Pack Slip Message --->
+				<isinclude template="checkout/gifting/PackSlipMessageView">
+		
+				<!--- Line Items --->
+				<isset name="bucket" value="#Bucket#" scope="request"/>
+				<isinclude template="cart/common/LineItemsDetails.isml">
+
+
+			</isloop><!--- Bucket loop --->
+			
+			<div class="section cost-summary pull-right">
+				<h3><istext key="checkout.order_summary.heading" /></h3>
+				<isinclude template="cart/common/CostSummary.isml" />
+			</div>
+			
+			<isif condition="#ListCase EQ 'AllOpen'#">
+	    		<div class="section text-right">
+					<isinclude template="account/ApprovalDetailsActions"/>
+				</div>
+				<isinclude template="account/ApprovalDetailsRejectOrderForm"/>
+			</isif>
+			<div class="section">
+				<a href="<islink link="#url(action(backLinkAction))#">">
+					<istext key="#backLinkKey#"/>
+				</a>
+	
+				<a class="pull-right" href="<islink link="#url(action('ViewHomepage-Start'))#">">
+					<istext key="account.orderdetails.links.continue_shopping"/>
+				</a>
+			</div>
+		</div>
+	</div>
+</div>

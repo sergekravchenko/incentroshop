@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<enfinity xmlns:dt="http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt">
+<shared-pagelet-page id="pg_homepage_layout1" domain="inSPIRED-MasterRepository">
+<definition-name>app_sf_responsive_cm:pagevariant.standard.pagelet2-Pagevariant</definition-name>
+<online>true</online>
+<placeholder-configurations>
+<placeholder-configuration hide-target-content="true" place-target-content-on-top="false">
+<pagelet-overriding-placeholder placeholder-id="ph_homepageLayout1_ContainerContent_bottom@pg_homepage_layout1" />
+</placeholder-configuration>
+<placeholder-configuration hide-target-content="true" place-target-content-on-top="false">
+<pagelet-overriding-placeholder placeholder-id="ph_homepageLayout1_ContainerContent_middle@pg_homepage_layout1" />
+</placeholder-configuration>
+<placeholder-configuration hide-target-content="true" place-target-content-on-top="false">
+<pagelet-overriding-placeholder placeholder-id="ph_homepageLayout1_ContainerContent_top@pg_homepage_layout1" />
+</placeholder-configuration>
+</placeholder-configurations>
+<placeholder-definitions>
+<placeholder-definition id="ph_homepageLayout1_ContainerContent_bottom@pg_homepage_layout1" external="false">
+<definition-name>app_sf_responsive_cm:slot.container.content.pagelet2-Slot</definition-name>
+<parent-placeholder placeholder-id="ph_homepageLayout1_ContainerContent_bottom"/>
+</placeholder-definition>
+<placeholder-definition id="ph_homepageLayout1_ContainerContent_middle@pg_homepage_layout1" external="false">
+<definition-name>app_sf_responsive_cm:slot.container.content.pagelet2-Slot</definition-name>
+<parent-placeholder placeholder-id="ph_homepageLayout1_ContainerContent_middle"/>
+</placeholder-definition>
+<placeholder-definition id="ph_homepageLayout1_ContainerContent_top@pg_homepage_layout1" external="false">
+<definition-name>app_sf_responsive_cm:slot.container.content.pagelet2-Slot</definition-name>
+<parent-placeholder placeholder-id="ph_homepageLayout1_ContainerContent_top"/>
+</placeholder-definition>
+</placeholder-definitions>
+<custom-attributes>
+<custom-attribute name="OVERLOAD_VALIDITY" dt:dt="boolean">true</custom-attribute>
+</custom-attributes>
+</shared-pagelet-page>
+<pagelet-placeholder-assignment id=".uTAqDgBpWcAAAFVMS1vsG8X">
+<placeholder pagelet-domain="inSPIRED-MasterRepository" pagelet-id="pg_homepage_layout1">
+<pagelet-overriding-placeholder placeholder-id="ph_homepageLayout1_ContainerContent_bottom@pg_homepage_layout1"/>
+</placeholder>
+<pagelet id="cmp_brands_carousel" domain="inSPIRED-inTRONICS_Business-smb-responsive"/>
+<position>2</position>
+<online>true</online>
+</pagelet-placeholder-assignment>
+<pagelet-placeholder-assignment id="HxjAqDgBPRcAAAFVtrZvsG8S">
+<placeholder pagelet-domain="inSPIRED-MasterRepository" pagelet-id="pg_homepage_layout1">
+<pagelet-overriding-placeholder placeholder-id="ph_homepageLayout1_ContainerContent_bottom@pg_homepage_layout1"/>
+</placeholder>
+<pagelet id="cmp_seo" domain="inSPIRED-MasterRepository"/>
+<position>3</position>
+<online>true</online>
+</pagelet-placeholder-assignment>
+<pagelet-placeholder-assignment id="y9bAqDgBIVAAAAFVkXtvsG8X">
+<placeholder pagelet-domain="inSPIRED-MasterRepository" pagelet-id="pg_homepage_layout1">
+<pagelet-overriding-placeholder placeholder-id="ph_homepageLayout1_ContainerContent_bottom@pg_homepage_layout1"/>
+</placeholder>
+<pagelet id="cmp_homepage_featuredProducts" domain="inSPIRED-inTRONICS_Business-smb-responsive"/>
+<position>1</position>
+<online>true</online>
+</pagelet-placeholder-assignment>
+<pagelet-placeholder-assignment id="ddXAqDgBApkAAAFV23pvsG6q">
+<placeholder pagelet-domain="inSPIRED-MasterRepository" pagelet-id="pg_homepage_layout1">
+<pagelet-overriding-placeholder placeholder-id="ph_homepageLayout1_ContainerContent_middle@pg_homepage_layout1"/>
+</placeholder>
+<pagelet id="cmp_homepage_promotion_container" domain="inSPIRED-inTRONICS_Business-smb-responsive"/>
+<position>1</position>
+<online>true</online>
+</pagelet-placeholder-assignment>
+<pagelet-placeholder-assignment id="hn_AqDgBgoYAAAFV1yxvsG6q">
+<placeholder pagelet-domain="inSPIRED-MasterRepository" pagelet-id="pg_homepage_layout1">
+<pagelet-overriding-placeholder placeholder-id="ph_homepageLayout1_ContainerContent_top@pg_homepage_layout1"/>
+</placeholder>
+<pagelet id="cmp_hompage_video_teaser" domain="inSPIRED-inTRONICS_Business-smb-responsive"/>
+<position>1</position>
+<online>true</online>
+</pagelet-placeholder-assignment>
+</enfinity>

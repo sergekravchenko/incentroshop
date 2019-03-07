@@ -1,0 +1,15 @@
+<iscontent type="text/html" charset="UTF-8" compact="true">
+
+<isif condition="#RenderedInCollection#">
+	<ISUUID name="CollectionItemID">
+	<div class="panel panel-default">
+		<div class="panel-heading" role="tab" id="heading_<isprint value="#CollectionItemID#">">
+			<a role="button" data-toggle="collapse" data-parent="<isprint value="#'#'.CollectionID#">" href="#'#'#collapse_<isprint value="#CollectionItemID#">" <isif condition="#Pagelet:Id EQ ActiveElementID#">aria-expanded="true"</isif> aria-controls="<isprint value="#CollectionItemID#">">
+				<h4 class="panel-title">
+					<isprint value="#PageletConfigurationParameters:Title#">
+				</h4>
+			</a>
+		</div>
+		<div id="collapse_<isprint value="#CollectionItemID#">" class="panel-collapse collapse <isif condition="#Pagelet:Id EQ ActiveElementID#">in</isif>" role="tabpanel" aria-labelledby="heading_<isprint value="#CollectionItemID#">">
+			<div class="panel-body">
+</isif>

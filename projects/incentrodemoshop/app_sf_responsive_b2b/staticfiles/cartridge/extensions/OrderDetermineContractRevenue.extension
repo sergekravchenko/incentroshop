@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<extensionpoint:ExtensionPointModel
+	xmlns:extensionpoint="http://www.intershop.de/extensionpoint/2011"
+	name="OrderDetermineContractRevenue">
+	<extensionBindings type="pipeline" extensionPoint="ProcessOrders-AfterCheckout"
+		extension="DetermineContractRevenue-Start" />
+</extensionpoint:ExtensionPointModel>

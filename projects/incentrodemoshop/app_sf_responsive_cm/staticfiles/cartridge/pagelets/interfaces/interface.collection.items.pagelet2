@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pagelet:PageletModel xmlns:pagelet="http://www.intershop.de/pagelet/2010" name="interface.collection.items.pagelet2">
+  <callParameterInterfaces name="Interface">
+    <callParameterDefinitions optional="true" name="RenderedInCollection" type="java.lang.Boolean"/>
+    <callParameterDefinitions optional="true" name="ActiveElementID" type="java.lang.String"/>
+    <callParameterDefinitions optional="true" name="CollectionID" type="java.lang.String"/>
+  </callParameterInterfaces>
+</pagelet:PageletModel>

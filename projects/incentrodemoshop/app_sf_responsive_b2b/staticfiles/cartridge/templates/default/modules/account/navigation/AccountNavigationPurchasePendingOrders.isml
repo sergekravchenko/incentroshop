@@ -1,0 +1,9 @@
+<iscontent type="text/html" charset="UTF-8" compact="true">
+<iscomment>TODO this check must use a permission (not a role), but implicit permission are given</iscomment>
+<isif condition="#NOT CurrentUserBO:Extension("UserBORoleExtension"):hasRole("APP_B2B_OCI_USER")#">
+	<isif condition="#isDefined(UserPermissionMap:get("APP_B2B_PURCHASE"))#">
+		<li class="<isif condition="#selecteditem EQ 'PENDINGORDERS'#">active</isif>">
+			<a title="<istext key="account.navigation.pendingorders.link"/>" href="#URL(Action('ViewApprovals-MyOpen'))#"><istext key="account.navigation.pendingorders.link"/></a>
+		</li>
+	</isif>
+</isif>

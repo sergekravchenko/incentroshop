@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pagelet:PageletModel xmlns:pagelet="http://www.intershop.de/pagelet/2010" name="component.system.headerCheckout.pagelet2">
+  <pageletDefinitions name="Component" remoteInclude="true">
+    <callParameterInterfaces referencedName="app_sf_responsive_cm:interface.pagevariant.header.pagelet2-Interface"/>
+    <configurationParameterDefinitions name="Logo" optional="true" typeReference="bc_pmc:types.pagelet2-ImageFileRef"/>
+    <configurationParameterDefinitions name="MobileLogo" optional="true" typeReference="bc_pmc:types.pagelet2-ImageFileRef"/>
+    <renderTemplate referencedName="component/system/HeaderCheckout"/>
+    <slotInclusionDefinitions>
+      <slotDefinition referencedName="app_sf_responsive_cm:slot.header.utility.pagelet2-Slot"/>
+    </slotInclusionDefinitions>
+    <slotInclusionDefinitions>
+      <slotDefinition referencedName="app_sf_responsive_cm:slot.header.promotion.pagelet2-Slot"/>
+    </slotInclusionDefinitions>
+  </pageletDefinitions>
+</pagelet:PageletModel>

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--provides inbound URL to test the basket data sent from punch\-out catalog into the external procurement system
+@Group punchout-->
+
+<pipeline:Pipeline xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pipeline="http://www.intershop.de/pipeline/2010"
+    name="TestPunchoutInboundData" overrideMode="Inherit" type="view">
+<!--@Location 4,1-->
+  <nodes xsi:type="pipeline:StartNode" nodeID="StartNode1" name="DemoData">
+    <nodeSuccessors name="next" next="InteractionNode1"/>
+  </nodes>
+<!--@Location 4,3-->
+  <nodes xsi:type="pipeline:InteractionNode" nodeID="InteractionNode1">
+    <template referencedName="punchout/BasketDataForm"/>
+  </nodes>
+<!--@Location 2,1-->
+  <nodes xsi:type="pipeline:StartNode" nodeID="StartNode0" name="Start">
+    <nodeSuccessors name="next" next="KeyMapper0"/>
+  </nodes>
+<!--@Location 2,2-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="KeyMapper0">
+    <configurationValues name="ValueType" value="Dictionary Value"/>
+    <pipelet href="enfinity:/core/pipelets/KeyMapper.xml"/>
+    <nodeSuccessors name="next" next="CheckForEmptyIterator0"/>
+    <parameterBindings name="InValue_1" objectPath="CurrentRequest:PipelineDictionary:FormKey"/>
+    <returnValueBindings name="OutValue_1" objectPath="InboundBasketDataKeys"/>
+  </nodes>
+<!--@Location 2,3-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="CheckForEmptyIterator0">
+    <pipelet href="enfinity:/core/pipelets/CheckForEmptyIterator.xml"/>
+    <nodeSuccessors name="next" next="SortIteratorByComparator0"/>
+<!--@BendPoints 7,7-->
+    <nodeSuccessors name="pipelet_error" next="JoinNode0"/>
+    <parameterBindings name="FilledIterator" objectPath="InboundBasketDataKeys"/>
+  </nodes>
+<!--@Location 2,4-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="SortIteratorByComparator0">
+    <configurationValues name="ComparatorClassName" value="com.intershop.application.responsive.b2b.test.capi.OCIFieldNameComparator"/>
+    <pipelet href="enfinity:/bc_foundation/pipelets/SortIteratorByComparator.xml"/>
+    <nodeSuccessors name="next" next="LoopNode0"/>
+    <parameterBindings name="Comparator" nullBinding="true"/>
+    <parameterBindings name="Iterator" objectPath="InboundBasketDataKeys"/>
+    <parameterBindings name="SortingAttribute" nullBinding="true"/>
+    <parameterBindings name="SortingOrder" nullBinding="true"/>
+    <returnValueBindings name="SortedIterator" objectPath="InboundBasketDataKeysSorted"/>
+  </nodes>
+<!--@Location 2,5-->
+  <nodes xsi:type="pipeline:LoopNode" nodeID="LoopNode0" loop="InboundBasketDataKeys">
+    <nodeSuccessors name="next" next="JoinNode0"/>
+    <entry key="InboundBasketDataKey">
+      <nodeSuccessors name="loop_entry_next" next="KeyMapper1"/>
+    </entry>
+  </nodes>
+<!--@Location 2,6-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="KeyMapper1">
+    <configurationValues name="ValueType" value="Dictionary Value"/>
+    <pipelet href="enfinity:/core/pipelets/KeyMapper.xml"/>
+    <nodeSuccessors name="next" next="AddEntryToMap0"/>
+    <parameterBindings name="InValue_1" objectPath="CurrentRequest:PipelineDictionary:getFormValue(InboundBasketDataKey)"/>
+    <returnValueBindings name="OutValue_1" objectPath="InboundBasketDataValue"/>
+  </nodes>
+<!--@Location 2,7-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="AddEntryToMap0">
+    <pipelet href="enfinity:/core/pipelets/AddEntryToMap.xml"/>
+<!--@BendPoints 3,15 3,11-->
+    <nodeSuccessors name="next" next="LoopNode0_Entry"/>
+    <parameterBindings name="InMap" objectPath="InboundBasketDataMap"/>
+    <parameterBindings name="Key" objectPath="InboundBasketDataKey"/>
+    <parameterBindings name="Value" objectPath="InboundBasketDataValue"/>
+    <returnValueBindings name="Keys" objectPath="InboundBasketDataMapKeys"/>
+    <returnValueBindings name="OutMap" objectPath="InboundBasketDataMap"/>
+  </nodes>
+<!--@Location 3,5-->
+  <nodes xsi:type="pipeline:JoinNode" nodeID="JoinNode0">
+<!--@BendPoints 9,11-->
+    <nodeSuccessors name="next" next="InteractionNode0"/>
+  </nodes>
+<!--@Location 4,7-->
+  <nodes xsi:type="pipeline:InteractionNode" nodeID="InteractionNode0">
+    <template referencedName="punchout/InboundBasketData"/>
+  </nodes>
+<!--@Location 6,1-->
+  <nodes xsi:type="pipeline:StartNode" nodeID="StartNode2" name="Tests">
+    <nodeSuccessors name="next" next="InteractionNode2"/>
+  </nodes>
+<!--@Location 6,3-->
+  <nodes xsi:type="pipeline:InteractionNode" nodeID="InteractionNode2">
+    <template referencedName="punchout/OCITestsForm.isml"/>
+  </nodes>
+</pipeline:Pipeline>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pagelet:PageletModel xmlns:pagelet="http://www.intershop.de/pagelet/2010" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://www.intershop.de/core/2010" name="component.shopping.searchResult.pagelet2">
+  <pageletDefinitions name="Component">
+    <callParameterDefinitions optional="true" name="ProductBOs" type="java.util.Iterator"/>
+    <callParameterDefinitions optional="true" name="Pagelets" type="java.util.Iterator"/>
+    <callParameterDefinitions optional="true" name="ListNavigationVO" type="com.intershop.sellside.storefront.base.capi.common.ListNavigationVO"/>
+    <callParameterDefinitions optional="true" name="ListNavigationContentVO" type="java.lang.Object"/>
+    <callParameterDefinitions optional="true" name="ProductSearchResult" type="java.lang.Object"/>
+    <callParameterDefinitions optional="true" name="ContentSearchResult" type="java.lang.Object"/>
+    <callParameterDefinitions optional="true" name="SelectedSearchResult" type="java.lang.Object"/>
+    <callParameterDefinitions optional="true" name="SearchCategoryUUID" type="java.lang.String"/>
+    <callParameterDefinitions optional="true" name="SearchTerm" type="java.lang.String"/>
+    <callParameterDefinitions optional="true" name="SortingAttribute" type="java.lang.String"/>
+    <callParameterDefinitions optional="true" name="CategoryBO" type="com.intershop.component.catalog.capi.CatalogCategoryBO"/>
+    <callParameterInterfaces referencedName="app_sf_responsive_cm:interface.pagevariant.content.pagelet2-Interface"/>
+    <configurationParameterDefinitions name="ProductView1" localizable="false" typeReference="bc_pmc:types.pagelet2-ViewContext">
+      <parameterBindings xsi:type="core:ParameterValueBinding" name="ObjectType" value="Product"/>
+    </configurationParameterDefinitions>
+    <configurationParameterDefinitions name="ProductView2" localizable="false" typeReference="bc_pmc:types.pagelet2-ViewContext">
+      <parameterBindings xsi:type="core:ParameterValueBinding" name="ObjectType" value="Product"/>
+    </configurationParameterDefinitions>
+    <configurationParameterDefinitions optional="true" name="Sortings" localizable="false" multiple="true" typeReference="sld_mcm:parametertype.sortby.pagelet2-SortBy"/>
+    <renderTemplate referencedName="component/shopping/SearchResult"/>
+    <slotInclusionDefinitions>
+      <slotDefinition referencedName="app_sf_responsive_cm:slot.marketing.base.pagelet2-Slot"/>
+    </slotInclusionDefinitions>
+    <slotInclusionDefinitions>
+      <slotDefinition referencedName="app_sf_responsive_cm:slot.marketing.content.pagelet2-Slot"/>
+    </slotInclusionDefinitions>
+    <slotInclusionDefinitions>
+      <slotDefinition referencedName="app_sf_responsive_cm:slot.marketing.sidePanel.pagelet2-Slot"/>
+    </slotInclusionDefinitions>
+  </pageletDefinitions>
+</pagelet:PageletModel>

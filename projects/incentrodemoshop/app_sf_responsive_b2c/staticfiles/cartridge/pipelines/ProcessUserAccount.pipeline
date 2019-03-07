@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--A pipeline for processing user registration.
+@Group Customer-->
+
+<pipeline:Pipeline xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pipeline="http://www.intershop.de/pipeline/2010"
+    name="ProcessUserAccount" overrideMode="Inherit" type="process">
+<!--@Location 1,1-->
+  <nodes xsi:type="pipeline:StartNode" nodeID="StartNode0" strict="true" name="CreateUser"
+      callMode="Private">
+<!--@BendPoints 3,4-->
+    <nodeSuccessors name="next" next="GenerateSeriesNumber0"/>
+    <parameters name="Login" type="java.lang.String"/>
+    <parameters name="Password" type="java.lang.String"/>
+    <parameters name="Organization" type="com.intershop.component.organization.capi.Organization"/>
+    <parameters name="PasswordConfirmation" type="java.lang.String"/>
+    <parameters name="Email" type="java.lang.String"/>
+<!--the form value which holds the country code-->
+    <parameters name="CountryCode" type="java.lang.String" optional="true"/>
+<!--the form value which holds the preferred locale to be assigned to the user-->
+    <parameters name="LocaleID" type="java.lang.String" optional="true"/>
+<!--the form value which holds a first name to be assigned to the user-->
+    <parameters name="FirstName" type="java.lang.String" optional="true"/>
+<!--the form value which holds a last name to be assigned to the user-->
+    <parameters name="LastName" type="java.lang.String" optional="true"/>
+<!--the form value which holds address attribute street to be assigned to the user-->
+    <parameters name="Street" type="java.lang.String" optional="true"/>
+<!--the form value which holds address attribute street2 to be assigned to the user-->
+    <parameters name="Street2" type="java.lang.String" optional="true"/>
+<!--the form value which holds a city to be assigned to the user-->
+    <parameters name="City" type="java.lang.String" optional="true"/>
+<!--the form value which holds a state to be assigned to the user-->
+    <parameters name="State" type="java.lang.String" optional="true"/>
+<!--the form value which holds a postal code (or zip code) to be assigned to the user-->
+    <parameters name="PostalCode" type="java.lang.String" optional="true"/>
+<!--the form value which holds a home phone number to be assigned to the user-->
+    <parameters name="PhoneHome" type="java.lang.String" optional="true"/>
+<!--the dictionary value which holds a birthday date to be assigned to the user-->
+    <parameters name="BirthdayDate" type="java.util.Date" optional="true"/>
+<!--whether the user wishes to receive order confirmations per email-->
+    <parameters name="ConfirmMail" type="java.lang.String" optional="true"/>
+<!--the form value which holds the second last name to be assigned to the user-->
+    <parameters name="SecurityQuestion" type="java.lang.String" optional="true"/>
+<!--The new password of the user. -->
+    <parameters name="PasswordReminder" type="java.lang.String" optional="true"/>
+    <parameters name="Company" type="java.lang.String" optional="true"/>
+    <parameters name="Mobile" type="java.lang.String" optional="true"/>
+    <parameters name="SecondName" type="java.lang.String" optional="true"/>
+    <parameters name="Title" type="java.lang.String" optional="true"/>
+    <parameters name="Street3" type="java.lang.String" optional="true"/>
+<!--the form value which holds the address number to be assigned to the user-->
+    <parameters name="AddressNr" type="java.lang.String" optional="true"/>
+<!--Whether a default address for the new user should be created. The default value is true.-->
+    <parameters name="CreateDefaultAddress" type="java.lang.String"/>
+<!--The customer repository in which this customer is.-->
+    <parameters name="CustomerBORepository" type="com.intershop.component.customer.capi.CustomerBORepository"/>
+<!--The user repository in which this user is.-->
+    <parameters name="UserBORepository" type="com.intershop.component.user.capi.UserBORepository"/>
+<!--The first address line.-->
+    <parameters name="Address1" type="java.lang.String" optional="true"/>
+<!--The second address line.-->
+    <parameters name="Address2" type="java.lang.String" optional="true"/>
+<!--The third address line.-->
+    <parameters name="Address3" type="java.lang.String" optional="true"/>
+<!--The company name.-->
+    <parameters name="CompanyName" type="java.lang.String" optional="true"/>
+<!--The alternative company name.-->
+    <parameters name="CompanyName2" type="java.lang.String" optional="true"/>
+<!--The business phone number.-->
+    <parameters name="PhoneBusiness" type="java.lang.String" optional="true"/>
+<!--The fax number.-->
+    <parameters name="Fax" type="java.lang.String" optional="true"/>
+<!--The industry.-->
+    <parameters name="Industry" type="java.lang.String" optional="true"/>
+<!--The taxation ID.-->
+    <parameters name="TaxationID" type="java.lang.String" optional="true"/>
+<!--The department.-->
+    <parameters name="Department" type="java.lang.String" optional="true"/>
+    <parameters name="ShipToAddress" type="java.lang.Boolean" optional="true"/>
+    <parameters name="InvoiceToAddress" type="java.lang.Boolean" optional="true"/>
+    <parameters name="PreferredShipToAddress" type="java.lang.Boolean" optional="true"/>
+    <parameters name="PreferredInvoiceToAddress" type="java.lang.Boolean" optional="true"/>
+  </nodes>
+<!--@Location 1,2-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="GenerateSeriesNumber0">
+    <configurationValues name="DomainSpecific" value="false"/>
+    <configurationValues name="NumberPattern" value="00000000"/>
+    <configurationValues name="SeriesIdentifier" value="UserSeries"/>
+    <configurationValues name="StartWith" value="1"/>
+    <pipelet href="enfinity:/core/pipelets/GenerateSeriesNumber.xml"/>
+    <nodeSuccessors name="next" next="KeyMapper0"/>
+    <returnValueBindings name="SeriesNumber" objectPath="BusinessPartnerNo"/>
+  </nodes>
+<!--@Location 1,3-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="KeyMapper0">
+    <pipelet href="enfinity:/bc_foundation/pipelets/KeyMapper.xml"/>
+    <nodeSuccessors name="next" next="GetUserByBusinessPartnerNo0"/>
+    <parameterBindings name="InValue_1" constant="true"/>
+    <parameterBindings name="InValue_2" constant="true"/>
+    <returnValueBindings name="OutValue_1" objectPath="IsActive"/>
+    <returnValueBindings name="OutValue_2" objectPath="ConfirmMail"/>
+  </nodes>
+<!--@Location 1,4-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="GetUserByBusinessPartnerNo0">
+    <pipelet href="enfinity:/bc_foundation/pipelets/GetUserByBusinessPartnerNo.xml"/>
+    <nodeSuccessors name="next" next="DecisionNode1" action="begin"/>
+    <parameterBindings name="Domain" objectPath="Organization:Domain"/>
+  </nodes>
+<!--@Location 1,5-->
+  <nodes xsi:type="pipeline:DecisionNode" nodeID="DecisionNode1" conditionKey="User"
+      operator="undef">
+    <nodeSuccessors name="decision_yes" next="ValidatePassword0"/>
+<!--@BendPoints 4,11-->
+    <nodeSuccessors name="decision_no" next="SetDictionaryValue0"/>
+  </nodes>
+<!--@Location 1,6-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="ValidatePassword0">
+    <pipelet href="enfinity:/bc_user/pipelets/ValidatePassword.xml"/>
+    <nodeSuccessors name="next" next="CallNode0"/>
+    <nodeSuccessors name="pipelet_error" next="JoinNode3"/>
+  </nodes>
+<!--@Location 1,7-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode0">
+    <nodeSuccessors name="next" next="KeyMapper1"/>
+    <nodeSuccessors name="ERROR" next="JoinNode1"/>
+    <parameterBindings name="CustomerNo" objectPath="BusinessPartnerNo"/>
+    <startNode referencedName="ProcessCustomer-Create"/>
+  </nodes>
+<!--@Location 1,8-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="KeyMapper1">
+    <pipelet href="enfinity:/bc_foundation/pipelets/KeyMapper.xml"/>
+    <nodeSuccessors name="next" next="DecisionNode0"/>
+    <parameterBindings name="InValue_1" objectPath="CustomerBO:Extension(&quot;PrivateCustomer&quot;)"/>
+    <returnValueBindings name="OutValue_1" objectPath="PrivateCustomerExtension"/>
+  </nodes>
+<!--@Location 1,9-->
+  <nodes xsi:type="pipeline:DecisionNode" nodeID="DecisionNode0" conditionKey="PrivateCustomerExtension">
+    <nodeSuccessors name="decision_yes" next="KeyMapper2"/>
+    <nodeSuccessors name="decision_no" next="JoinNode2"/>
+  </nodes>
+<!--@Location 1,10-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="KeyMapper2">
+    <pipelet href="enfinity:/bc_foundation/pipelets/KeyMapper.xml"/>
+    <nodeSuccessors name="next" next="DecisionNode3"/>
+    <parameterBindings name="InValue_1" objectPath="PrivateCustomerExtension:UserBO"/>
+    <returnValueBindings name="OutValue_1" objectPath="UserBO"/>
+  </nodes>
+<!--@Location 1,11-->
+  <nodes xsi:type="pipeline:DecisionNode" nodeID="DecisionNode3" conditionKey="UserBO">
+    <nodeSuccessors name="decision_yes" next="CallNode1"/>
+    <nodeSuccessors name="decision_no" next="JoinNode5"/>
+  </nodes>
+<!--@Location 1,12-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode1">
+    <nodeSuccessors name="next" next="SwitchLocale0"/>
+    <nodeSuccessors name="ERROR" next="JoinNode0"/>
+    <startNode referencedName="This:UpdateUser"/>
+  </nodes>
+<!--@Location 1,13-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="SwitchLocale0">
+    <pipelet href="enfinity:/core/pipelets/SwitchLocale.xml"/>
+<!--@BendPoints 3,28-->
+    <nodeSuccessors name="next" next="DecisionNode2"/>
+    <parameterBindings name="LocaleID" objectPath="OldLocale:LocaleID"/>
+  </nodes>
+<!--@Location 1,14-->
+  <nodes xsi:type="pipeline:DecisionNode" nodeID="DecisionNode2" conditionKey="ERROR_User"
+      operator="undef">
+    <nodeSuccessors name="decision_yes" next="EndNode1" action="commit"/>
+    <nodeSuccessors name="decision_no" next="JoinNode4"/>
+  </nodes>
+<!--@Location 1,15-->
+  <nodes xsi:type="pipeline:EndNode" nodeID="EndNode1" strict="true">
+    <returnValues name="CustomerBO" type="com.intershop.component.customer.capi.CustomerBO"
+        optional="true"/>
+    <returnValues name="UserBO" type="java.lang.Object" optional="true"/>
+  </nodes>
+<!--@Location 3,14-->
+  <nodes xsi:type="pipeline:JoinNode" nodeID="JoinNode4">
+    <nodeSuccessors name="next" next="EndNode0" action="rollback"/>
+  </nodes>
+<!--@Location 3,15-->
+  <nodes xsi:type="pipeline:EndNode" nodeID="EndNode0" name="ERROR" strict="true">
+    <returnValues name="ERROR_User" type="java.lang.String" optional="true"/>
+  </nodes>
+<!--@Location 3,12-->
+  <nodes xsi:type="pipeline:JoinNode" nodeID="JoinNode0">
+    <nodeSuccessors name="next" next="JoinNode4"/>
+  </nodes>
+<!--@Location 3,11-->
+  <nodes xsi:type="pipeline:JoinNode" nodeID="JoinNode5">
+    <nodeSuccessors name="next" next="JoinNode0"/>
+  </nodes>
+<!--@Location 3,9-->
+  <nodes xsi:type="pipeline:JoinNode" nodeID="JoinNode2">
+    <nodeSuccessors name="next" next="JoinNode5"/>
+  </nodes>
+<!--@Location 3,7-->
+  <nodes xsi:type="pipeline:JoinNode" nodeID="JoinNode1">
+    <nodeSuccessors name="next" next="JoinNode2"/>
+  </nodes>
+<!--@Location 3,6-->
+  <nodes xsi:type="pipeline:JoinNode" nodeID="JoinNode3">
+    <nodeSuccessors name="next" next="JoinNode1"/>
+  </nodes>
+<!--@Location 2,5-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="SetDictionaryValue0">
+    <configurationValues name="Name" value="ERROR_User"/>
+    <configurationValues name="Value" value="BusinessPartnerNoNotUnique"/>
+    <pipelet href="enfinity:/bc_foundation/pipelets/SetDictionaryValue.xml"/>
+<!--@BendPoints 7,11-->
+    <nodeSuccessors name="next" next="JoinNode3"/>
+  </nodes>
+</pipeline:Pipeline>

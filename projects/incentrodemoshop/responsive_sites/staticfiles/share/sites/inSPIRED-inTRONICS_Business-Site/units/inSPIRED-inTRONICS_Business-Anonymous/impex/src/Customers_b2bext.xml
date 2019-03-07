@@ -1,0 +1,902 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<enfinity
+    xmlns     = "http://www.intershop.com/xml/ns/intershop/customer/impex/7.3"
+    xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:dt  = "http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt"
+    xsi:schemaLocation = "http://www.intershop.com/xml/ns/intershop/customer/impex/7.3 b2b_customer.xsd
+    http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt dt.xsd"
+    major="6" minor="1" family="enfinity" branch="enterprise" build=""
+>
+	<customer id="OilCorp">
+		<customer-type>SMB</customer-type>
+		<company-name>Oil Corp</company-name>
+		<description>Oil Corp is one of the world's leading oil companies.</description>
+		<taxation-id>89548681508155</taxation-id>
+		<enabled>1</enabled>
+		<approval-status>1</approval-status>
+		<users>
+			<user business-partner-no="OilCorp">
+				<business-partner-no>OilCorp</business-partner-no>
+				<profile>
+					<first-name>OilCorp</first-name>
+					<last-name>OilCorp</last-name>
+					<email>OilCorp</email>
+				</profile>
+				<user-groups>
+					<user-group id="IG_SMBCustomers" domain="inSPIRED-inTRONICS_Business-Anonymous"/>
+					<user-group id="IG_RegisteredUsers" domain="inSPIRED-inTRONICS_Business-Anonymous"/>
+				</user-groups>
+			</user>
+			<user business-partner-no="jlink">
+				<business-partner-no>jlink</business-partner-no>
+				<profile>
+					<credentials>
+						<login>jlink@test.intershop.de</login>
+						<password>!InterShop00!</password>
+						<enabled>1</enabled>
+						<password-reminder>intershop</password-reminder>
+						<reminder-email>jlink@test.intershop.de</reminder-email>
+						<security-question>Who was your first employer?</security-question>
+					</credentials>
+					<first-name>Jack</first-name>
+					<last-name>Link</last-name>
+					<email>jlink@test.intershop.de</email>
+					<preferred-locale>en_US</preferred-locale>
+					<mail-confirmation>1</mail-confirmation>
+					    <custom-attributes>
+						<custom-attribute name="RoleID" dt:dt="string">APP_B2B_BUYER,APP_B2B_COSTCENTER_OWNER</custom-attribute>
+						<custom-attribute name="OrderApproval_WeeklyBudget" dt:dt="money">10000 USD</custom-attribute>
+						<custom-attribute name="OrderApproval_SingleOrderThresholdAmount" dt:dt="money">500 USD</custom-attribute><custom-attribute name="OrderApproval_SelectedBudgetType" dt:dt="string">WEEKLY</custom-attribute>
+					    </custom-attributes>
+				</profile>
+			</user>
+			<user business-partner-no="pmiller">
+				<business-partner-no>pmiller</business-partner-no>
+				<profile>
+					<credentials>
+						<login>pmiller@test.intershop.de</login>
+						<password>!InterShop00!</password>
+						<enabled>1</enabled>
+						<password-reminder>intershop</password-reminder>
+						<reminder-email>pmiller@test.intershop.de</reminder-email>
+						<security-question>Who was your first employer?</security-question>
+					</credentials>
+					<first-name>Patricia</first-name>
+					<last-name>Miller</last-name>
+					<email>pmiller@test.intershop.de</email>
+					<preferred-locale>en_US</preferred-locale>
+					<mail-confirmation>1</mail-confirmation>
+					    <custom-attributes>
+						<custom-attribute name="RoleID" dt:dt="string">APP_B2B_BUYER,APP_B2B_APPROVER</custom-attribute>
+						<custom-attribute name="OrderApproval_QuarterlyBudget" dt:dt="money">10000 USD</custom-attribute>
+						<custom-attribute name="OrderApproval_SingleOrderThresholdAmount" dt:dt="money">500 USD</custom-attribute><custom-attribute name="OrderApproval_SelectedBudgetType" dt:dt="string">QUARTERLY</custom-attribute>
+					    </custom-attributes>
+				</profile>
+			</user>
+			<user business-partner-no="bboldner">
+				<business-partner-no>bboldner</business-partner-no>
+				<profile>
+					<credentials>
+						<login>bboldner@test.intershop.de</login>
+						<password>!InterShop00!</password>
+						<enabled>1</enabled>
+						<password-reminder>intershop</password-reminder>
+						<reminder-email>bboldner@test.intershop.de</reminder-email>
+						<security-question>Who was your first employer?</security-question>
+					</credentials>
+					<first-name>Bernhard</first-name>
+					<last-name>Boldner</last-name>
+					<email>bboldner@test.intershop.de</email>
+					<preferred-locale>en_US</preferred-locale>
+					<mail-confirmation>1</mail-confirmation>
+					    <custom-attributes>
+						<custom-attribute name="RoleID" dt:dt="string">APP_B2B_BUYER,APP_B2B_APPROVER,APP_B2B_ACCOUNT_OWNER,APP_B2B_ACCOUNT_OWNER,APP_B2B_COSTCENTER_OWNER</custom-attribute>
+						<custom-attribute name="OrderApproval_WeeklyBudget" dt:dt="money">10000 USD</custom-attribute>
+						<custom-attribute name="OrderApproval_SingleOrderThresholdAmount" dt:dt="money">500 USD</custom-attribute><custom-attribute name="OrderApproval_SelectedBudgetType" dt:dt="string">WEEKLY</custom-attribute>
+					    </custom-attributes>
+				</profile>
+			</user>
+			<user business-partner-no="agerocci">
+				<business-partner-no>agerocci</business-partner-no>
+				<profile>
+					<credentials>
+						<login>agerocci@test.intershop.de</login>
+						<password>!InterShop00!</password>
+						<enabled>1</enabled>
+						<password-reminder>intershop</password-reminder>
+						<reminder-email>agerocci@test.intershop.de</reminder-email>
+						<security-question>Who was your first employer?</security-question>
+					</credentials>
+					<first-name>Alfonso</first-name>
+					<last-name>Gerocci</last-name>
+					<email>agerocci@test.intershop.de</email>
+					<preferred-locale>en_US</preferred-locale>
+					<mail-confirmation>1</mail-confirmation>
+					    <custom-attributes>
+						<custom-attribute name="RoleID" dt:dt="string">APP_B2B_BUYER,APP_B2B_COSTCENTER_OWNER</custom-attribute>
+						<custom-attribute name="OrderApproval_MonthlyBudget" dt:dt="money">10000 USD</custom-attribute>
+						<custom-attribute name="OrderApproval_SingleOrderThresholdAmount" dt:dt="money">500 USD</custom-attribute><custom-attribute name="OrderApproval_SelectedBudgetType" dt:dt="string">MONTHLY</custom-attribute>
+					    </custom-attributes>
+				</profile>
+			</user>
+			<user business-partner-no="ociuser">
+				<business-partner-no>ociuser</business-partner-no>
+				<profile>
+					<credentials>
+						<login>ociuser@test.intershop.de</login>
+						<password>!InterShop00!</password>
+						<enabled>1</enabled>
+						<reminder-email>ociuser@test.intershop.de</reminder-email>
+					</credentials>
+					<first-name>OCI</first-name>
+					<last-name>User</last-name>
+					<email>ociuser@test.intershop.de</email>
+					<preferred-locale>en_US</preferred-locale>
+					<mail-confirmation>1</mail-confirmation>
+					    <custom-attributes>
+						<custom-attribute name="RoleID" dt:dt="string">APP_B2B_OCI_USER</custom-attribute>
+						<custom-attribute name="OrderApproval_MonthlyBudget" dt:dt="money">0 USD</custom-attribute>
+						<custom-attribute name="OrderApproval_SingleOrderThresholdAmount" dt:dt="money">0 USD</custom-attribute><custom-attribute name="OrderApproval_SelectedBudgetType" dt:dt="string">MONTHLY</custom-attribute>
+					    </custom-attributes>
+				</profile>
+				<user-groups>
+					<user-group id="APP_B2B_OCI_USER" domain="inSPIRED-inTRONICS_Business-Anonymous"/>
+				</user-groups>
+			</user>			
+		</users>
+		<preferred-invoice-to-address name="customeraddr-CMsKGZB11qbwALABALAUddH">
+			<company-name1>Oil Corp</company-name1>
+			<address-name>customeraddr-CMsKGZB11qbwALABALAUddH</address-name>
+			<first-name>Mark</first-name>
+			<last-name>Zimmermann</last-name>
+			<city>Burgau</city>
+			<postal-code>65432</postal-code>
+			<address-line1>Trainerstraße 5</address-line1>
+			<country-code>DE</country-code>
+			<phone-home>4936453456757</phone-home>
+			<invoice-to-address>1</invoice-to-address>
+		</preferred-invoice-to-address>
+		<preferred-ship-to-address name="customeraddr-CMsKGZB11qbwGURKUH8tUddH">
+			<company-name1>Oil Corp</company-name1>
+			<address-name>customeraddr-CMsKGZB11qbwGURKUH8tUddH</address-name>
+			<first-name>Peter</first-name>
+			<last-name>Ducke</last-name>
+			<city>Bensen</city>
+			<postal-code>14104</postal-code>
+			<address-line1>Sturm Street 12</address-line1>
+			<country-code>DE</country-code>
+			<phone-home>49364141041</phone-home>
+			<ship-to-address>1</ship-to-address>
+		</preferred-ship-to-address>
+		<addresses>
+			<address name="customeraddr-m7MKAB11fOgAAAE8EX8hfGup">
+				<company-name1>Oil Corp</company-name1>
+				<address-name>customeraddr-m7MKAB11fOgAAAE8EX8hfGup</address-name>
+				<first-name>Jack</first-name>
+				<last-name>Link</last-name>
+				<title></title>
+				<city>Hamburg</city>
+				<postal-code>12345</postal-code>
+				<address-line1>Main Street 12</address-line1>
+				<country-code>DE</country-code>
+				<phone-home></phone-home>
+				<email></email>
+				<default-address>1</default-address>
+				<ship-to-address>1</ship-to-address>
+				<invoice-to-address>1</invoice-to-address>
+			</address>
+		</addresses>
+		<cost-object-types>
+		    <cost-object-type name="Project">
+		        <display-name xml:lang="en-US">Project</display-name>
+		        <description xml:lang="en-US">Cost object type representing the projects of the company.</description>
+		        <display-name xml:lang="de-DE">Projekt</display-name>
+		        <description xml:lang="de-DE">Kostenträgertyp für Projekte des Unternehmens.</description>
+		    </cost-object-type>
+		    
+		    <cost-object-type name="PurchaseOrderNumber">
+		        <display-name xml:lang="en-US">Purchase Order Number</display-name>
+		        <description xml:lang="en-US">The related purchase order number of the company.</description>
+		        <display-name xml:lang="de-DE">Interne Bestellnummer</display-name>
+		        <description xml:lang="de-DE">Die zugehörige interne Bestellnummer des Unternehmens.</description>
+		    </cost-object-type>
+		</cost-object-types>
+	</customer>
+	<customer id="CarPort">
+		<customer-type>SMB</customer-type>
+		<company-name>Car Port</company-name>
+		<description>Car Port is one of the world's leading automotive companies.</description>
+		<taxation-id>AB_/94 - 1508155</taxation-id>
+		<enabled>1</enabled>
+		<approval-status>1</approval-status>
+		<users>
+			<user business-partner-no="CarPort">
+				<business-partner-no>CarPort</business-partner-no>
+				<profile>
+					<first-name>CarPort</first-name>
+					<last-name>CarPort</last-name>
+					<email>CarPort</email>
+				</profile>
+				<user-groups>
+					<user-group id="IG_SMBCustomers" domain="inSPIRED-inTRONICS_Business-Anonymous"/>
+					<user-group id="IG_RegisteredUsers" domain="inSPIRED-inTRONICS_Business-Anonymous"/>
+				</user-groups>
+			</user>
+			<user business-partner-no="mjogger">
+				<business-partner-no>mjogger</business-partner-no>
+				<profile>
+					<credentials>
+						<login>mjogger@test.intershop.de</login>
+						<password>!InterShop00!</password>
+						<enabled>1</enabled>
+						<password-reminder>intershop</password-reminder>
+						<reminder-email>mjogger@test.intershop.de</reminder-email>
+						<security-question>Who was your first employer?</security-question>
+					</credentials>
+					<first-name>Mick</first-name>
+					<last-name>Jogger</last-name>
+					<email>mjogger@test.intershop.de</email>
+					<preferred-locale>en_US</preferred-locale>
+					<mail-confirmation>1</mail-confirmation>
+					    <custom-attributes>
+						<custom-attribute name="RoleID" dt:dt="string">APP_B2B_BUYER</custom-attribute>
+						<custom-attribute name="OrderApproval_MonthlyBudget" dt:dt="money">10000 USD</custom-attribute>
+						<custom-attribute name="OrderApproval_SingleOrderThresholdAmount" dt:dt="money">500 USD</custom-attribute><custom-attribute name="OrderApproval_SelectedBudgetType" dt:dt="string">MONTHLY</custom-attribute>
+					    </custom-attributes>
+				</profile>
+			</user>
+			<user business-partner-no="amihnart">
+				<business-partner-no>amihnart</business-partner-no>
+				<profile>
+					<credentials>
+						<login>amihnart@test.intershop.de</login>
+						<password>!InterShop00!</password>
+						<enabled>1</enabled>
+						<password-reminder>intershop</password-reminder>
+						<reminder-email>amihnart@test.intershop.de</reminder-email>
+						<security-question>Who was your first employer?</security-question>
+					</credentials>
+					<first-name>Albrecht</first-name>
+					<last-name>Mihnart</last-name>
+					<email>amihnart@test.intershop.de</email>
+					<preferred-locale>en_US</preferred-locale>
+					<mail-confirmation>1</mail-confirmation>
+					    <custom-attributes>
+						<custom-attribute name="RoleID" dt:dt="string">APP_B2B_BUYER,APP_B2B_APPROVER</custom-attribute>
+						<custom-attribute name="OrderApproval_QuarterlyBudget" dt:dt="money">10000 USD</custom-attribute>
+						<custom-attribute name="OrderApproval_SingleOrderThresholdAmount" dt:dt="money">500 USD</custom-attribute><custom-attribute name="OrderApproval_SelectedBudgetType" dt:dt="string">QUARTERLY</custom-attribute>
+					    </custom-attributes>
+				</profile>
+			</user>
+			<user business-partner-no="bsofos">
+				<business-partner-no>bsofos</business-partner-no>
+				<profile>
+					<credentials>
+						<login>bsofos@test.intershop.de</login>
+						<password>!InterShop00!</password>
+						<enabled>1</enabled>
+						<password-reminder>intershop</password-reminder>
+						<reminder-email>bsofos@test.intershop.de</reminder-email>
+						<security-question>Who was your first employer?</security-question>
+					</credentials>
+					<first-name>Benjamin</first-name>
+					<last-name>Sofos</last-name>
+					<email>bsofos@test.intershop.de</email>
+					<preferred-locale>en_US</preferred-locale>
+					<mail-confirmation>1</mail-confirmation>
+					    <custom-attributes>
+						<custom-attribute name="RoleID" dt:dt="string">APP_B2B_BUYER,APP_B2B_ACCOUNT_OWNER</custom-attribute>
+						<custom-attribute name="OrderApproval_WeeklyBudget" dt:dt="money">10000 USD</custom-attribute>
+						<custom-attribute name="OrderApproval_SingleOrderThresholdAmount" dt:dt="money">500 USD</custom-attribute><custom-attribute name="OrderApproval_SelectedBudgetType" dt:dt="string">WEEKLY</custom-attribute>
+					    </custom-attributes>
+				</profile>
+			</user>
+			<user business-partner-no="bmeyr">
+				<business-partner-no>bmeyr</business-partner-no>
+				<profile>
+					<credentials>
+						<login>bmeyr@test.intershop.de</login>
+						<password>!InterShop00!</password>
+						<enabled>1</enabled>
+						<password-reminder>intershop</password-reminder>
+						<reminder-email>bmeyr@test.intershop.de</reminder-email>
+						<security-question>Who was your first employer?</security-question>
+					</credentials>
+					<first-name>Bernd</first-name>
+					<last-name>Meyr</last-name>
+					<email>bmeyr@test.intershop.de</email>
+					<preferred-locale>en_US</preferred-locale>
+					<mail-confirmation>1</mail-confirmation>
+					    <custom-attributes>
+						<custom-attribute name="RoleID" dt:dt="string">APP_B2B_BUYER</custom-attribute>
+						<custom-attribute name="OrderApproval_MonthlyBudget" dt:dt="money">10000 USD</custom-attribute>
+						<custom-attribute name="OrderApproval_SingleOrderThresholdAmount" dt:dt="money">500 USD</custom-attribute><custom-attribute name="OrderApproval_SelectedBudgetType" dt:dt="string">MONTHLY</custom-attribute>
+					    </custom-attributes>
+				</profile>
+			</user>
+		</users>
+		<preferred-invoice-to-address name="customeraddr-CMsKGZB23qbwABLABLAUddH">
+			<company-name1>Car Port</company-name1>
+			<address-name>customeraddr-CMsKGZB23qbwABLABLAUddH</address-name>
+			<first-name>Joe</first-name>
+			<last-name>DiMaggio</last-name>
+			<title>Mr.</title>
+			<city>Berlin</city>
+			<postal-code>12546</postal-code>
+			<address-line1>Paying Street 23</address-line1>
+			<country-code>DE</country-code>
+			<phone-home>49364565458</phone-home>
+			<invoice-to-address>1</invoice-to-address>
+		</preferred-invoice-to-address>
+		<preferred-ship-to-address name="customeraddr-CMsKGZB23qbwAAAE8FH8tUddH">
+			<company-name1>Car Port</company-name1>
+			<address-name>customeraddr-CMsKGZB23qbwAAAE8FH8tUddH</address-name>
+			<first-name>Dom</first-name>
+			<last-name>DiMaggio</last-name>
+			<title>Mr.</title>
+			<city>Berlin</city>
+			<postal-code>12546</postal-code>
+			<address-line1>Shipping Street 23</address-line1>
+			<country-code>DE</country-code>
+			<phone-home>49364565458</phone-home>
+			<ship-to-address>1</ship-to-address>
+		</preferred-ship-to-address>
+		<addresses>
+			<address name="customeraddr-NVwKAB11qb0AAAE8FH8hfGup">
+				<company-name1>Car Port</company-name1>
+				<address-name>customeraddr-NVwKAB11qb0AAAE8FH8hfGup</address-name>
+				<first-name>Mick</first-name>
+				<last-name>Jogger</last-name>
+				<title></title>
+				<city>Stuttgart</city>
+				<postal-code>67890</postal-code>
+				<address-line1>Main Street 12</address-line1>
+				<country-code>DE</country-code>
+				<phone-home></phone-home>
+				<email></email>
+				<default-address>1</default-address>
+				<ship-to-address>1</ship-to-address>
+				<invoice-to-address>1</invoice-to-address>
+			</address>
+		</addresses>
+		<cost-object-types>
+		    <cost-object-type name="Project">
+		        <display-name xml:lang="en-US">Project</display-name>
+		        <description xml:lang="en-US">Cost object type representing the projects of the company.</description>
+		        <display-name xml:lang="de-DE">Projekt</display-name>
+		        <description xml:lang="de-DE">Kostenträgertyp für Projekte des Unternehmens.</description>
+		    </cost-object-type>
+		    
+		    <cost-object-type name="PurchaseOrderNumber">
+		        <display-name xml:lang="en-US">Purchase Order Number</display-name>
+		        <description xml:lang="en-US">The related purchase order number of the company.</description>
+		        <display-name xml:lang="de-DE">Interne Bestellnummer</display-name>
+		        <description xml:lang="de-DE">Die zugehörige interne Bestellnummer des Unternehmens.</description>
+		    </cost-object-type>
+		</cost-object-types>
+	</customer>
+	<customer id="BioTech">
+		<customer-type>SMB</customer-type>
+		<company-name>Bio Tech</company-name>
+		<description>Bio Tech is one of the world's leading companies in bio technologies.</description>
+		<taxation-id>MST MXA 90L01</taxation-id>
+		<enabled>1</enabled>
+		<approval-status>1</approval-status>
+		<users>
+			<user business-partner-no="BioTech">
+				<business-partner-no>BioTech</business-partner-no>
+				<profile>
+					<first-name>BioTech</first-name>
+					<last-name>BioTech</last-name>
+					<email>BioTech</email>
+				</profile>
+				<user-groups>
+					<user-group id="IG_SMBCustomers" domain="inSPIRED-inTRONICS_Business-Anonymous"/>
+					<user-group id="IG_RegisteredUsers" domain="inSPIRED-inTRONICS_Business-Anonymous"/>
+				</user-groups>
+			</user>
+			<user business-partner-no="agoro">
+				<business-partner-no>agoro</business-partner-no>
+				<profile>
+					<credentials>
+						<login>agoro@test.intershop.de</login>
+						<password>!InterShop00!</password>
+						<enabled>1</enabled>
+						<password-reminder>intershop</password-reminder>
+						<reminder-email>agoro@test.intershop.de</reminder-email>
+						<security-question>Who was your first employer?</security-question>
+					</credentials>
+					<first-name>Al</first-name>
+					<last-name>Goro</last-name>
+					<email>agoro@test.intershop.de</email>
+					<preferred-locale>en_US</preferred-locale>
+					<mail-confirmation>1</mail-confirmation>
+					    <custom-attributes>
+						<custom-attribute name="RoleID" dt:dt="string">APP_B2B_BUYER</custom-attribute>
+						<custom-attribute name="OrderApproval_QuarterlyBudget" dt:dt="money">10000 USD</custom-attribute>
+						<custom-attribute name="OrderApproval_SingleOrderThresholdAmount" dt:dt="money">500 USD</custom-attribute><custom-attribute name="OrderApproval_SelectedBudgetType" dt:dt="string">QUARTERLY</custom-attribute>
+					    </custom-attributes>
+				</profile>
+			</user>
+			<user business-partner-no="bassange">
+				<business-partner-no>bassange</business-partner-no>
+				<profile>
+					<credentials>
+						<login>bassange@test.intershop.de</login>
+						<password>!InterShop00!</password>
+						<enabled>1</enabled>
+						<password-reminder>intershop</password-reminder>
+						<reminder-email>bassange@test.intershop.de</reminder-email>
+						<security-question>Who was your first employer?</security-question>
+					</credentials>
+					<first-name>Bernhard</first-name>
+					<last-name>Assange</last-name>
+					<email>bassange@test.intershop.de</email>
+					<preferred-locale>en_US</preferred-locale>
+					<mail-confirmation>1</mail-confirmation>
+					    <custom-attributes>
+						<custom-attribute name="RoleID" dt:dt="string">APP_B2B_BUYER,APP_B2B_APPROVER</custom-attribute>
+						<custom-attribute name="OrderApproval_WeeklyBudget" dt:dt="money">10000 USD</custom-attribute>
+						<custom-attribute name="OrderApproval_SingleOrderThresholdAmount" dt:dt="money">500 USD</custom-attribute><custom-attribute name="OrderApproval_SelectedBudgetType" dt:dt="string">WEEKLY</custom-attribute>
+					    </custom-attributes>
+				</profile>
+			</user>
+			<user business-partner-no="ckitera">
+				<business-partner-no>ckitera</business-partner-no>
+				<profile>
+					<credentials>
+						<login>ckitera@test.intershop.de</login>
+						<password>!InterShop00!</password>
+						<enabled>1</enabled>
+						<password-reminder>intershop</password-reminder>
+						<reminder-email>ckitera@test.intershop.de</reminder-email>
+						<security-question>Who was your first employer?</security-question>
+					</credentials>
+					<first-name>Conny</first-name>
+					<last-name>Kitera</last-name>
+					<email>ckitera@test.intershop.de</email>
+					<preferred-locale>en_US</preferred-locale>
+					<mail-confirmation>1</mail-confirmation>
+					    <custom-attributes>
+						<custom-attribute name="RoleID" dt:dt="string">APP_B2B_BUYER,APP_B2B_ACCOUNT_OWNER</custom-attribute>
+						<custom-attribute name="OrderApproval_MonthlyBudget" dt:dt="money">10000 USD</custom-attribute>
+						<custom-attribute name="OrderApproval_SingleOrderThresholdAmount" dt:dt="money">500 USD</custom-attribute><custom-attribute name="OrderApproval_SelectedBudgetType" dt:dt="string">MONTHLY</custom-attribute>
+					    </custom-attributes>
+				</profile>
+			</user>
+			<user business-partner-no="dhanssen">
+				<business-partner-no>dhanssen</business-partner-no>
+				<profile>
+					<credentials>
+						<login>dhanssen@test.intershop.de</login>
+						<password>!InterShop00!</password>
+						<enabled>1</enabled>
+						<password-reminder>intershop</password-reminder>
+						<reminder-email>dhanssen@test.intershop.de</reminder-email>
+						<security-question>Who was your first employer?</security-question>
+					</credentials>
+					<first-name>Dieter</first-name>
+					<last-name>Hanssen</last-name>
+					<email>dhanssen@test.intershop.de</email>
+					<preferred-locale>en_US</preferred-locale>
+					<mail-confirmation>1</mail-confirmation>
+					    <custom-attributes>
+						<custom-attribute name="RoleID" dt:dt="string">APP_B2B_BUYER</custom-attribute>
+						<custom-attribute name="OrderApproval_MonthlyBudget" dt:dt="money">10000 USD</custom-attribute>
+						<custom-attribute name="OrderApproval_SingleOrderThresholdAmount" dt:dt="money">500 USD</custom-attribute><custom-attribute name="OrderApproval_SelectedBudgetType" dt:dt="string">MONTHLY</custom-attribute>
+					    </custom-attributes>
+				</profile>
+			</user>
+		</users>
+		<preferred-invoice-to-address name="customeraddr-CtUKAB11qbsAAAE8FH8hfGup">
+			<company-name1>Bio Tech</company-name1>
+			<address-name>customeraddr-CtUKAB11qbsAAAE8FH8hfGup</address-name>
+			<first-name>Al</first-name>
+			<last-name>Goro</last-name>
+			<title></title>
+			<city>Heidelberg</city>
+			<postal-code>53268</postal-code>
+			<address-line1>Main Street 12</address-line1>
+			<country-code>DE</country-code>
+			<phone-home></phone-home>
+			<email></email>
+			<ship-to-address>1</ship-to-address>
+			<invoice-to-address>1</invoice-to-address>
+		</preferred-invoice-to-address>
+		<preferred-ship-to-address name="customeraddr-CtUKAB11qbsAAAE8FH8hfGXX">
+			<company-name1>Bio Tech</company-name1>
+			<address-name>customeraddr-CtUKAB11qbsAAAE8FH8hfGXX</address-name>
+			<first-name>Mohamed</first-name>
+			<last-name>Ali</last-name>
+			<title></title>
+			<city>Jena</city>
+			<postal-code>07745</postal-code>
+			<address-line1>Am Platz der Kosmonauten 1</address-line1>
+			<country-code>DE</country-code>
+			<phone-home></phone-home>
+			<email></email>
+			<ship-to-address>1</ship-to-address>
+			<invoice-to-address>1</invoice-to-address>
+		</preferred-ship-to-address>
+		<addresses>
+			<address name="customeraddr-09YKAB11qbwAAAE8FH8hfGYY">
+				<company-name1>Bio Tech</company-name1>
+				<address-name>customeraddr-09YKAB11qbwAAAE8FH8hfGYY</address-name>
+				<first-name>Mark Uwe</first-name>
+				<last-name>Kling</last-name>
+				<title></title>
+				<city>Berlin</city>
+				<postal-code>10557</postal-code>
+				<address-line1>Willy-Brandt-Straße 1</address-line1>
+				<country-code>DE</country-code>
+				<phone-home></phone-home>
+				<email></email>
+				<default-address>1</default-address>
+				<ship-to-address>1</ship-to-address>
+				<invoice-to-address>1</invoice-to-address>
+			</address>
+		</addresses>
+		
+		<cost-object-types>
+		    <cost-object-type name="Project">
+		        <display-name xml:lang="en-US">Project</display-name>
+		        <description xml:lang="en-US">Cost object type representing the projects of the company.</description>
+		        <display-name xml:lang="de-DE">Projekt</display-name>
+		        <description xml:lang="de-DE">Kostenträgertyp für Projekte des Unternehmens.</description>
+		    </cost-object-type>		    
+		    <cost-object-type name="PurchaseOrderNumber">
+		        <display-name xml:lang="en-US">Purchase Order Number</display-name>
+		        <description xml:lang="en-US">The related purchase order number of the company.</description>
+		        <display-name xml:lang="de-DE">Interne Bestellnummer</display-name>
+		        <description xml:lang="de-DE">Die zugehörige interne Bestellnummer des Unternehmens.</description>
+		    </cost-object-type>
+		</cost-object-types>
+	</customer>
+	<customer id="AgroNet">
+		<customer-type>SMB</customer-type>
+		<company-name>Agro Net</company-name>
+		<description>Agro Net is one of the leading companies for agricultural equipment.</description>
+		<taxation-id>986d35608155</taxation-id>
+		<enabled>1</enabled>
+		<approval-status>1</approval-status>
+		<users>
+			<user business-partner-no="AgroNet">
+				<business-partner-no>AgroNet</business-partner-no>
+				<profile>
+					<first-name>AgroNet</first-name>
+					<last-name>AgroNet</last-name>
+					<email>AgroNet</email>
+				</profile>
+				<user-groups>
+					<user-group id="IG_SMBCustomers" domain="inSPIRED-inTRONICS_Business-Anonymous"/>
+					<user-group id="IG_RegisteredUsers" domain="inSPIRED-inTRONICS_Business-Anonymous"/>
+				</user-groups>
+			</user>
+			<user business-partner-no="slamar">
+				<business-partner-no>slamar</business-partner-no>
+				<profile>
+					<credentials>
+						<login>slamar@test.intershop.de</login>
+						<password>!InterShop00!</password>
+						<enabled>1</enabled>
+						<password-reminder>intershop</password-reminder>
+						<reminder-email>slamar@test.intershop.de</reminder-email>
+						<security-question>Who was your first employer?</security-question>
+					</credentials>
+					<first-name>Semur</first-name>
+					<last-name>Lamar</last-name>
+					<email>slamar@test.intershop.de</email>
+					<preferred-locale>en_US</preferred-locale>
+					<mail-confirmation>1</mail-confirmation>
+					    <custom-attributes>
+						<custom-attribute name="RoleID" dt:dt="string">APP_B2B_BUYER</custom-attribute>
+						<custom-attribute name="OrderApproval_MonthlyBudget" dt:dt="money">1000 USD</custom-attribute>
+						<custom-attribute name="OrderApproval_SingleOrderThresholdAmount" dt:dt="money">100 USD</custom-attribute>
+					    </custom-attributes>
+				</profile>
+			</user>
+			<user business-partner-no="educking">
+				<business-partner-no>educking</business-partner-no>
+				<profile>
+					<credentials>
+						<login>educking@test.intershop.de</login>
+						<password>!InterShop00!</password>
+						<enabled>1</enabled>
+						<password-reminder>intershop</password-reminder>
+						<reminder-email>educking@test.intershop.de</reminder-email>
+						<security-question>Who was your first employer?</security-question>
+					</credentials>
+					<first-name>Emil</first-name>
+					<last-name>Ducking</last-name>
+					<email>educking@test.intershop.de</email>
+					<preferred-locale>en_US</preferred-locale>
+					<mail-confirmation>1</mail-confirmation>
+					    <custom-attributes>
+						<custom-attribute name="RoleID" dt:dt="string">APP_B2B_BUYER,APP_B2B_APPROVER</custom-attribute>
+						<custom-attribute name="OrderApproval_QuarterlyBudget" dt:dt="money">2000 USD</custom-attribute>
+						<custom-attribute name="OrderApproval_SingleOrderThresholdAmount" dt:dt="money">500 USD</custom-attribute><custom-attribute name="OrderApproval_SelectedBudgetType" dt:dt="string">QUARTERLY</custom-attribute>
+					    </custom-attributes>
+				</profile>
+			</user>
+			<user business-partner-no="fbirdo">
+				<business-partner-no>fbirdo</business-partner-no>
+				<profile>
+					<credentials>
+						<login>fbirdo@test.intershop.de</login>
+						<password>!InterShop00!</password>
+						<enabled>1</enabled>
+						<password-reminder>intershop</password-reminder>
+						<reminder-email>fbirdo@test.intershop.de</reminder-email>
+						<security-question>Who was your first employer?</security-question>
+					</credentials>
+					<first-name>Fritz</first-name>
+					<last-name>Birdo</last-name>
+					<email>fbirdo@test.intershop.de</email>
+					<preferred-locale>en_US</preferred-locale>
+					<mail-confirmation>1</mail-confirmation>
+					    <custom-attributes>
+						<custom-attribute name="RoleID" dt:dt="string">APP_B2B_BUYER,APP_B2B_ACCOUNT_OWNER</custom-attribute>
+						<custom-attribute name="OrderApproval_WeeklyBudget" dt:dt="money">10000 USD</custom-attribute>
+						<custom-attribute name="OrderApproval_SingleOrderThresholdAmount" dt:dt="money">500 USD</custom-attribute><custom-attribute name="OrderApproval_SelectedBudgetType" dt:dt="string">WEEKLY</custom-attribute>
+					    </custom-attributes>
+				</profile>
+			</user>
+			<user business-partner-no="ggoosen">
+				<business-partner-no>ggoosen</business-partner-no>
+				<profile>
+					<credentials>
+						<login>ggoosen@test.intershop.de</login>
+						<password>!InterShop00!</password>
+						<enabled>1</enabled>
+						<password-reminder>intershop</password-reminder>
+						<reminder-email>ggoosen@test.intershop.de</reminder-email>
+						<security-question>Who was your first employer?</security-question>
+					</credentials>
+					<first-name>Gerhardt</first-name>
+					<last-name>Goosen</last-name>
+					<email>ggoosen@test.intershop.de</email>
+					<preferred-locale>en_US</preferred-locale>
+					<mail-confirmation>1</mail-confirmation>
+					    <custom-attributes>
+						<custom-attribute name="RoleID" dt:dt="string">APP_B2B_BUYER</custom-attribute>
+						<custom-attribute name="OrderApproval_MonthlyBudget" dt:dt="money">10000 USD</custom-attribute>
+						<custom-attribute name="OrderApproval_SingleOrderThresholdAmount" dt:dt="money">500 USD</custom-attribute><custom-attribute name="OrderApproval_SelectedBudgetType" dt:dt="string">MONTHLY</custom-attribute>
+					    </custom-attributes>
+				</profile>
+			</user>
+			<user business-partner-no="abeat">
+				<business-partner-no>abeat</business-partner-no>
+				<profile>
+					<credentials>
+						<login>abeat@test.intershop.de</login>
+						<password>!InterShop00!</password>
+						<enabled>1</enabled>
+						<password-reminder>intershop</password-reminder>
+						<reminder-email>abeat@test.intershop.de</reminder-email>
+						<security-question>In which band you play?</security-question>
+					</credentials>
+					<first-name>Arnim</first-name>
+					<last-name>Teutoburg-Weiß</last-name>
+					<email>abeat@test.intershop.de</email>
+					<preferred-locale>en_US</preferred-locale>
+					<mail-confirmation>1</mail-confirmation>
+					<mail-confirmation>1</mail-confirmation>
+					<custom-attributes>
+						<custom-attribute name="RoleID" dt:dt="string">APP_B2B_BUYER</custom-attribute>
+						<custom-attribute name="OrderApproval_MonthlyBudget" dt:dt="money">10000 USD</custom-attribute>
+						<custom-attribute name="OrderApproval_SingleOrderThresholdAmount" dt:dt="money">500 USD</custom-attribute><custom-attribute name="OrderApproval_SelectedBudgetType" dt:dt="string">MONTHLY</custom-attribute>
+					</custom-attributes>
+				</profile>
+			</user>
+		</users>
+		<preferred-invoice-to-address name="customeraddr-CMsKGZB11qbwABLABLAUddH">
+			<company-name1>Agro Net</company-name1>
+			<address-name>customeraddr-CMsKGZB11qbwABLABLAUddH</address-name>
+			<first-name>David</first-name>
+			<second-name>Anton</second-name>
+			<last-name>DaPayer</last-name>
+			<title>Mr.</title>
+			<city>Berlin</city>
+			<postal-code>12546</postal-code>
+			<address-line1>Paying Street 12</address-line1>
+			<country-code>DE</country-code>
+			<phone-home>49364565457</phone-home>
+			<invoice-to-address>1</invoice-to-address>
+		</preferred-invoice-to-address>
+		<preferred-ship-to-address name="customeraddr-CMsKGZB11qbwAAAE8FH8tUddH">
+			<company-name1>Agro Net</company-name1>
+			<address-name>customeraddr-CMsKGZB11qbwAAAE8FH8tUddH</address-name>
+			<first-name>Rene</first-name>
+			<last-name>Eckardt</last-name>
+			<title>Mr.</title>
+			<city>Berlin</city>
+			<postal-code>12546</postal-code>
+			<address-line1>Shipping Street 12</address-line1>
+			<country-code>DE</country-code>
+			<phone-home>49364565457</phone-home>
+			<ship-to-address>1</ship-to-address>
+		</preferred-ship-to-address>
+		<addresses>
+			<address name="customeraddr-09YKAB11qbwAAAE8FH8hfGup">
+				<company-name1>Agro Net</company-name1>
+				<address-name>customeraddr-09YKAB11qbwAAAE8FH8hfGup</address-name>
+				<first-name>Semur</first-name>
+				<last-name>Lamar</last-name>
+				<title></title>
+				<city>Berlin</city>
+				<postal-code>12546</postal-code>
+				<address-line1>Main Street 12</address-line1>
+				<country-code>DE</country-code>
+				<phone-home></phone-home>
+				<email></email>
+				<default-address>1</default-address>
+				<ship-to-address>1</ship-to-address>
+				<invoice-to-address>1</invoice-to-address>
+			</address>
+		</addresses>
+		<cost-object-types>
+		    <cost-object-type name="Project">
+		        <display-name xml:lang="en-US">Project</display-name>
+		        <description xml:lang="en-US">Cost object type representing the projects of the company.</description>
+		        <display-name xml:lang="de-DE">Projekt</display-name>
+		        <description xml:lang="de-DE">Kostenträgertyp für Projekte des Unternehmens.</description>
+		    </cost-object-type>		    
+		    <cost-object-type name="PurchaseOrderNumber">
+		        <display-name xml:lang="en-US">Purchase Order Number</display-name>
+		        <description xml:lang="en-US">The related purchase order number of the company.</description>
+		        <display-name xml:lang="de-DE">Interne Bestellnummer</display-name>
+		        <description xml:lang="de-DE">Die zugehörige interne Bestellnummer des Unternehmens.</description>
+		    </cost-object-type>
+		</cost-object-types>
+	</customer>
+	<customer id="DeepSpaceResources">
+		<customer-type>SMB</customer-type>
+		<company-name>Deep Space Resources Inc.</company-name>
+		<description>Deep Space Resources Inc. is one of the leading companies for harvesting resources in space.</description>
+		<taxation-id>9872-6273-8172</taxation-id>
+		<enabled>1</enabled>
+		<approval-status>1</approval-status>
+		<users>
+			<user business-partner-no="DeepSpaceResources">
+				<business-partner-no>DeepSpaceResources</business-partner-no>
+				<profile>
+					<first-name>DeepSpaceResources</first-name>
+					<last-name>DeepSpaceResources</last-name>
+					<email>DeepSpaceResources</email>
+				</profile>
+				<user-groups>
+					<user-group id="IG_SMBCustomers" domain="inSPIRED-inTRONICS_Business-Anonymous"/>
+					<user-group id="IG_RegisteredUsers" domain="inSPIRED-inTRONICS_Business-Anonymous"/>
+				</user-groups>
+			</user>
+			<user business-partner-no="aarbeit">
+				<business-partner-no>aarbeit</business-partner-no>
+				<profile>
+					<credentials>
+						<login>aarbeit@test.intershop.de</login>
+						<password>!InterShop00!</password>
+						<enabled>1</enabled>
+						<password-reminder>intershop</password-reminder>
+						<reminder-email>aarbeit@test.intershop.de</reminder-email>
+						<security-question>Who was your first employer?</security-question>
+					</credentials>
+					<title>Dr.</title>
+					<first-name>Andi</first-name>
+					<last-name>Arbeit</last-name>
+					<department>WARPdev</department>
+					<email>aarbeit@test.intershop.de</email>
+					<preferred-locale>en_US</preferred-locale>
+					<mail-confirmation>1</mail-confirmation>
+					    <custom-attributes>
+						<custom-attribute name="RoleID" dt:dt="string">APP_B2B_BUYER</custom-attribute>
+						<custom-attribute name="OrderApproval_QuarterlyBudget" dt:dt="money">10000 USD</custom-attribute>
+						<custom-attribute name="OrderApproval_SingleOrderThresholdAmount" dt:dt="money">500 USD</custom-attribute><custom-attribute name="OrderApproval_SelectedBudgetType" dt:dt="string">QUARTERLY</custom-attribute>
+					    </custom-attributes>
+				</profile>
+			</user>
+			<user business-partner-no="nbrightstrong">
+				<business-partner-no>nbrightstrong</business-partner-no>
+				<profile>
+					<credentials>
+						<login>nbrightstrong@test.intershop.de</login>
+						<password>!InterShop00!</password>
+						<enabled>1</enabled>
+						<password-reminder>intershop</password-reminder>
+						<reminder-email>nbrightstrong@test.intershop.de</reminder-email>
+						<security-question>Who was your first employer?</security-question>
+					</credentials>
+					<first-name>Neil</first-name>
+					<last-name>Brightstrong</last-name>
+					<email>nbrightstrong@test.intershop.de</email>
+					<preferred-locale>en_US</preferred-locale>
+					<mail-confirmation>1</mail-confirmation>
+					    <custom-attributes>
+						<custom-attribute name="RoleID" dt:dt="string">APP_B2B_BUYER,APP_B2B_APPROVER</custom-attribute>
+						<custom-attribute name="OrderApproval_WeeklyBudget" dt:dt="money">10000 USD</custom-attribute>
+						<custom-attribute name="OrderApproval_SingleOrderThresholdAmount" dt:dt="money">500 USD</custom-attribute><custom-attribute name="OrderApproval_SelectedBudgetType" dt:dt="string">WEEKLY</custom-attribute>
+					    </custom-attributes>
+				</profile>
+			</user>
+			<user business-partner-no="lworms">
+				<business-partner-no>lworms</business-partner-no>
+				<profile>
+					<credentials>
+						<login>lworms@test.intershop.de</login>
+						<password>!InterShop00!</password>
+						<enabled>1</enabled>
+						<password-reminder>intershop</password-reminder>
+						<reminder-email>lworms@test.intershop.de</reminder-email>
+						<security-question>Who was your first employer?</security-question>
+					</credentials>
+					<first-name>Lynn</first-name>
+					<second-name>I.</second-name>
+					<last-name>Worms</last-name>
+					<email>lworms@test.intershop.de</email>
+					<preferred-locale>en_US</preferred-locale>
+					<mail-confirmation>1</mail-confirmation>
+					    <custom-attributes>
+						<custom-attribute name="RoleID" dt:dt="string">APP_B2B_BUYER,APP_B2B_ACCOUNT_OWNER</custom-attribute>
+						<custom-attribute name="OrderApproval_MonthlyBudget" dt:dt="money">10000 USD</custom-attribute>
+						<custom-attribute name="OrderApproval_SingleOrderThresholdAmount" dt:dt="money">500 USD</custom-attribute><custom-attribute name="OrderApproval_SelectedBudgetType" dt:dt="string">MONTHLY</custom-attribute>
+					    </custom-attributes>
+				</profile>
+			</user>
+			<user business-partner-no="eyereverse">
+				<business-partner-no>eyereverse</business-partner-no>
+				<profile>
+					<credentials>
+						<login>eyereverse@test.intershop.de</login>
+						<password>!InterShop00!</password>
+						<enabled>1</enabled>
+						<password-reminder>intershop</password-reminder>
+						<reminder-email>eyereverse@test.intershop.de</reminder-email>
+						<security-question>Who was your first employer?</security-question>
+					</credentials>
+					<first-name>Eye</first-name>
+					<last-name>Reverse</last-name>
+					<email>eyereverse@test.intershop.de</email>
+					<preferred-locale>en_US</preferred-locale>
+					<mail-confirmation>1</mail-confirmation>
+					    <custom-attributes>
+						<custom-attribute name="RoleID" dt:dt="string">APP_B2B_BUYER</custom-attribute>
+						<custom-attribute name="OrderApproval_MonthlyBudget" dt:dt="money">10000 USD</custom-attribute>
+						<custom-attribute name="OrderApproval_SingleOrderThresholdAmount" dt:dt="money">500 USD</custom-attribute><custom-attribute name="OrderApproval_SelectedBudgetType" dt:dt="string">MONTHLY</custom-attribute>
+					    </custom-attributes>
+				</profile>
+			</user>
+		</users>
+		<addresses>
+			<address name="customeraddr-GOYKAB11xXgAAAE9R04lhDVj">
+				<company-name1>Deep Space Resources Inc.</company-name1>
+				<address-name>customeraddr-GOYKAB11xXgAAAE9R04lhDVj</address-name>
+				<first-name>Andi</first-name>
+				<last-name>Arbeit</last-name> 
+				<title></title>
+				<city>Jena</city>
+				<postal-code>07743</postal-code>
+				<address-line1>Marsstr. 1-5</address-line1>
+				<country-code>DE</country-code>
+				<phone-home></phone-home>
+				<email></email>
+				<default-address>1</default-address>
+				<ship-to-address>1</ship-to-address>
+				<invoice-to-address>1</invoice-to-address>
+			</address>
+		</addresses>
+		<cost-object-types>
+		    <cost-object-type name="Project">
+		        <display-name xml:lang="en-US">Project</display-name>
+		        <description xml:lang="en-US">Cost object type representing the projects of the company.</description>
+		        <display-name xml:lang="de-DE">Projekt</display-name>
+		        <description xml:lang="de-DE">Kostenträgertyp für Projekte des Unternehmens.</description>
+		    </cost-object-type>
+		    
+		    <cost-object-type name="PurchaseOrderNumber">
+		        <display-name xml:lang="en-US">Purchase Order Number</display-name>
+		        <description xml:lang="en-US">The related purchase order number of the company.</description>
+		        <display-name xml:lang="de-DE">Interne Bestellnummer</display-name>
+		        <description xml:lang="de-DE">Die zugehörige interne Bestellnummer des Unternehmens.</description>
+		    </cost-object-type>
+		</cost-object-types>
+	</customer>
+</enfinity>

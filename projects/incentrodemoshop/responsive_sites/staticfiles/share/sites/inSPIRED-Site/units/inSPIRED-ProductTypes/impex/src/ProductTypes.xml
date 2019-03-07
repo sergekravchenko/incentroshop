@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<enfinity
+    xmlns     = "http://www.intershop.com/xml/ns/enfinity/7.1/xcs/impex"
+    xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:dt  = "http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt"
+    xsi:schemaLocation = "http://www.intershop.com/xml/ns/enfinity/7.1/xcs/impex catalog.xsd
+    http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt dt.xsd"
+    major="6" minor="1" family="enfinity" branch="enterprise" build=""
+>
+</enfinity>

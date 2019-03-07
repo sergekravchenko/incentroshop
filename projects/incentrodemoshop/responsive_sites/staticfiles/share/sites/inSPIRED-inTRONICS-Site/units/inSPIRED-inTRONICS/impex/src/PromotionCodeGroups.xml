@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<enfinity
+xsi:schemaLocation="http://www.intershop.com/xml/ns/enfinity/6.6/bc_marketing/impex bc_marketing.xsd
+http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt dt.xsd"
+xmlns="http://www.intershop.com/xml/ns/enfinity/6.6/bc_marketing/impex"
+xmlns:ns2="http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xmlns:xml="http://www.w3.org/XML/1998/namespace"
+xmlns:dt="http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt"
+major="6" minor="6" family="enfinity" branch="enterprise" build="7.4.6.3.20140718213013">
+<promotion-code-group id="Promotion Code Group 1">
+<use-promotion-time>true</use-promotion-time>
+<number-of-reuses>0</number-of-reuses>
+<number-of-reuses-per-customer>0</number-of-reuses-per-customer>
+<enabled>true</enabled>
+<use-promotion-target-groups>true</use-promotion-target-groups>
+<use-promotion-apps>false</use-promotion-apps>
+<target-group/>
+<applications>b2c-responsive</applications>
+<promotions>
+<promotion-id>10EUROrderDiscount</promotion-id>
+<promotion-id>10USDOrderDiscount</promotion-id>
+</promotions>
+<custom-attributes>
+<custom-attribute name="description" ns2:dt="string" xml:lang="en-US">Demo Promotion Code Group.</custom-attribute>
+<custom-attribute name="name" ns2:dt="string" xml:lang="en-US">Promotion Code Group 1</custom-attribute>
+</custom-attributes>
+</promotion-code-group>
+</enfinity>

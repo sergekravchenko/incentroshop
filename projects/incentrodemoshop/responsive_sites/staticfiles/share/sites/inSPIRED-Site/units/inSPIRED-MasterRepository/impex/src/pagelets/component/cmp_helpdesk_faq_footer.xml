@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<enfinity xmlns:dt="http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt">
+<pagelet-component id="cmp_helpdesk_faq_footer">
+<definition-name>app_sf_responsive_cm:component.common.freeStyle.pagelet2-Component</definition-name>
+<display-name xml:lang="de-DE">Hilfe - FAQ - Footer</display-name>
+<display-name xml:lang="en-US">Helpdesk - FAQ - Footer</display-name>
+<display-name xml:lang="fr-FR">Assistance technique - FAQ - Bas de page</display-name>
+<online>true</online>
+<author business-partner-no="admin" domain="inSPIRED"/>
+<configuration-parameters>
+<configuration-parameter name="HTML">
+<definition-name>app_sf_responsive_cm:component.common.freeStyle.pagelet2-Component-HTML</definition-name>
+<value name="HTML" xml:lang="de-DE">&lt;div class=&quot;&quot;&gt;
+&lt;p&gt;War das hilfreich? &lt;a href=&quot;pipeline://ViewHomepage-Start&quot;&gt;Weiter einkaufen&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Noch Fragen? &lt;a href=&quot;pipeline://ViewContact-Start&quot;&gt;Kundendienst kontaktieren&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;</value>
+<value name="HTML" xml:lang="en-US">&lt;div class=&quot;&quot;&gt;
+&lt;p&gt;Did this help? &lt;a href=&quot;pipeline://ViewHomepage-Start&quot;&gt;Continue Shopping&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Still have questions? &lt;a href=&quot;pipeline://ViewContact-Start&quot;&gt;Contact User Service&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;</value>
+<value name="HTML" xml:lang="fr-FR">&lt;div class=&quot;&quot;&gt;
+&lt;p&gt;Cela vous a-t-il aidé ? &lt;a href=&quot;pipeline://ViewHomepage-Start&quot;&gt;Poursuivre mes achats&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Avez vous encore des questions ? &lt;a href=&quot;pipeline://ViewContact-Start&quot;&gt;Contacter le Service aux utilisateurs&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;</value>
+</configuration-parameter>
+</configuration-parameters>
+</pagelet-component>
+</enfinity>

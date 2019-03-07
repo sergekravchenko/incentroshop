@@ -1,0 +1,11 @@
+<iscontent type="text/html" charset="UTF-8" compact="true">
+<iscache type="relative" hour="24">
+<isinclude template="modules/Modules">
+
+<isif condition="#isDefined(PageletConfigurationParameters:NavigationLink) AND (PageletConfigurationParameters:NavigationLink NE '')#">
+	<li class="dropdown">
+		<a <ishref link="#PageletConfigurationParameters:NavigationLink#">><isprint value="#PageletConfigurationParameters:NavigationTitle#"></a>
+		<!--- Mobile Dropdown Anchor --->
+		<a class="dropdown-toggle visible-xs" data-toggle="dropdown"><span class="glyphicon"></span></a>
+	</li>
+</isif>

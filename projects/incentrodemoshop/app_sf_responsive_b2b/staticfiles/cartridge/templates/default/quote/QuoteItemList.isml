@@ -1,0 +1,244 @@
+<iscontent type="text/html" charset="UTF-8" compact="true">
+<isinclude template="modules/Modules">
+
+<isif condition="#EditMode EQ "true"#">
+	<isset scope="request" name="ChangeQuantity" value="true">
+	<isset scope="request" name="ChangePrice" value="false">
+	<isset scope="request" name="ChangeTotal" value="true">
+</isif>
+
+<isif condition="#RemoveItem EQ "true"#">
+	<isset scope="request" name="ShowActions" value="true">
+</isif>
+
+<isset scope="request" name="ShowSellerPrice" value="true">
+<isif condition="#Quote:State<4#">
+	<isset scope="request" name="ShowSellerPrice" value="false">
+</isif>
+
+<isset scope="request" name="RemoveItem" value="false">
+<isif condition="#Quote:State==0#">
+	<isset scope="request" name="RemoveItem" value="true">
+</isif>
+
+<isset scope="request" name="IsEmptyQuote" value="#Quote:IndependentItemsCount == 0#">
+<isif condition="#NOT(IsEmptyQuote)#">
+	<div class="hidden-xs list-header">
+		<div class="col-sm-3 col-xs-3 list-header-item">
+			<istext key="quote.items.table.description" />
+		</div>
+		<div class="col-sm-9 col-xs-9">
+			<div class="col-sm-2 col-sm-offset-4 list-header-item">
+				<istext key="quote.items.table.quantity" />
+			</div>
+			<div class="col-sm-4 list-header-item text-right">
+				<istext key="quote.items.table.price" />
+			</div>
+			<div class="col-sm-2 list-header-item text-right">
+				<istext key="quote.items.table.total" />
+			</div>
+		</div>
+	</div>
+	<isset scope="request" name="NeedsQuotation" value="#"false"#">
+	<isloop iterator="Quote:IndependentItems" alias="PLI">
+		<isif condition="#PLI:NeedsQuotation EQ "true"#">
+			<isset scope="request" name="NeedsQuotation" value="#"true"#">
+		</isif>
+
+		<ispipeline pipeline="ProcessB2CProduct-GetProductBO" params="#ParamMap(ParamEntry('ProductRef', PLI:ProductRef))#" alias="dict">
+		<div class="list-body">
+			<div class="list-item-row list-item-row-big">
+		
+				<div class="col-sm-2 col-xs-3">
+					<isif condition="#NOT(isDefined(dict:ProductBO))#">
+		   			    <img class="ish-product-photo"  width="80" height="80" alt="" src="#WebRoot()#/images/no_image_available.gif"/>
+					<iselseif condition="#dict:ProductBO:Online#">
+					<a href="#URL(Action('ViewProduct-Start'),Parameter('SKU',dict:ProductBO:SKU))#">
+						<ISProductImage  ProductBO="#dict:ProductBO#" ImageType="S">
+					</a>
+					<iselse>
+						<ISProductImage  ProductBO="#dict:ProductBO#" ImageType="S">
+					</isif>
+				</div>
+				<div class="col-sm-10 col-xs-9">
+					<div class="row">
+						<div class="col-sm-4 cart-group-details list-item">
+							<div class="pli-description">
+								
+								<isif condition="#NOT(isDefined(dict:ProductBO))#">
+									<isprint value="#PLI:Name#">
+								<iselseif condition="#dict:ProductBO:Online#">
+									<a href="#URL(Action('ViewProduct-Start'),Parameter('SKU',dict:ProductBO:SKU))#">
+										<isprint value="#dict:ProductBO:Name#">
+									</a>
+								<iselse>
+									<isprint value="#dict:ProductBO:Name#">
+								</isif>	
+								<p class="product-id"><istext key="account.wishlist.table.item.item"/> <isprint value="#PLI:ProductRef:ProductSKU#"/></p>
+								<isset name="VariationInfo" value="#dict:ProductBO:ProductVariationInformationBO#" scope="request"/>
+								<isif condition="#hasElements(VariationInfo:VariationAttributes)#">
+									<dl class="dl-horizontal">
+										<isloop iterator="VariationInfo:VariationAttributes" alias="VariationAttribute">
+											<dt><isprint value="#VariationAttribute:DisplayName#"/>:</dt>
+											<dd><isprint value="#VariationInfo:SelectedVariationValue(VariationAttribute)#"/></dd>
+										</isloop>
+									</dl>
+								</isif>
+								<isif condition="#PLI:DependentListItemsCount > 0#">
+									<dl class="dl-horizontal">
+										<isloop iterator="PLI:DependentListItems" alias="DPLI">
+											<dt>
+												<isprint value="#DPLI:Quantity:Value#" style="INTEGER" /> 
+											</dt>
+											<dd>
+												<a href="#URL(Action('ViewProduct-Start'),Parameter('SKU',DPLI:Product:SKU))#">
+													<isprint value="#DPLI:Name#"/>
+												</a><br />
+												<istext key="account.wishlist.table.item.item"/> <isprint value="#DPLI:Product:SKU#"/></span>
+											</dd>
+										</isloop>
+									</dl>
+								</isif>
+								
+								<isif condition="#NOT(isDefined(dict:ProductBO)) OR NOT(dict:ProductBO:Online)#">
+									<span class="text-danger"><istext key="quote.items.not_availableMessage" /></span><br/>
+								</isif>
+								
+								<isif condition="#RemoveItem EQ "true"#">
+								    <a  class="btn-tool" href="#URL(Action('ViewQuote-Dispatch'),Parameter('removeitem',PLI:UUID),Parameter('QuoteUUID',Quote:UUID))#"><span class="glyphicon glyphicon-trash"></span></a>
+								</isif>
+							</div>
+						</div>
+						<input type="hidden" name="Items" value="<isprint value="#PLI:UUID#">"/>
+						<input type="hidden" name="QuoteForm_CurrencyMnemonic" value="<isprint value="#Quote:Total:CurrencyMnemonic#">"/>
+						<div class="col-sm-2 text-right">
+							<div class="form-group">
+								<div class="col-xs-4">
+									<span class="mobile-cart-label"><istext key="account.orderdetails.items_table.quantity" /></span>
+								</div>
+								<div class="col-xs-6 col-md-12 col-sm-12 pull-right">
+									<isif condition="#isDefined(QuantityErrorMap) AND isDefined(QuantityErrorMap:get(PLI:UUID))#">
+										<img src="#WebRoot()#/images/error.gif" width="16" height="15" alt="" border="0"/>
+										<isif condition="#ChangeQuantity EQ "true"#">
+											<input type="number" min="1" name="#PLI:UUID#_Quantity" value="<isprint value="#QuantityErrorMap:get(PLI:UUID)#">" size="3" 
+												class="quantity form-control"
+												required data-bv-notempty-message = "<istext key="shopping_cart.quote.quantity.required.validation.message"/>"
+												data-bv-regexp="true"
+												data-bv-regexp-regexp="^[0]{0,1}[1-9]+[0-9]*$"
+												data-bv-regexp-message= "<istext key="shopping_cart.quantity.invalid.error"/>"
+												data-bv-greaterThan-message = " "	/>
+										<iselse>
+											<isprint value="#PLI:Quantity#">
+										</isif>
+									<iselse>
+										<isif condition="#ChangeQuantity EQ "true"#">
+											<input type="number" min="1" name="#PLI:UUID#_Quantity" value="<isprint value="#PLI:Quantity#">" 
+												class ="quantity form-control"
+												required data-bv-notempty-message = "<istext key="shopping_cart.quote.quantity.required.validation.message"/>"
+												data-bv-regexp="true"
+												data-bv-regexp-regexp="^[0]{0,1}[1-9]+[0-9]*$"
+												data-bv-regexp-message= "<istext key="shopping_cart.quantity.invalid.error"/>"
+												data-bv-greaterThan-message = " "	
+											 />
+										<iselse>
+											<isprint value="#PLI:Quantity#">
+										</isif>
+									</isif>
+								</div>
+							</div>
+						</div>
+						<!--- price --->
+						<div class="col-sm-4 text-right">
+							<div class="text-right">
+								<span class="mobile-cart-label"><istext key="quote.items.table.price" /></span>
+								<isif condition="#ShowSellerPrice EQ "true"#">
+								
+									<isif condition="#NOT (PLI:NeedsQuotation EQ "true")#">
+										<p class="text-nowrap"><istext key="quote.items.original_price.label" /> <isprint value="#PLI:OriginSinglePricePC#"></p>
+									</isif>
+										<p class="text-nowrap"><istext key="quote.items.suggested_price.label" /> <isprint value="#PLI:SinglePricePC#"></p>									
+								</isif>
+							
+								<isif condition="#ShowSellerPrice EQ "true"#">
+									<isif condition="#PLI:NeedsQuotation EQ "false"#">
+									
+									</isif>
+								<iselse>
+									<isif condition="#PLI:NeedsQuotation EQ "true"#">
+									<iselse>
+										<p class="text-nowrap"><isprint value="#PLI:OriginSinglePricePC#"></p>
+									</isif>
+								</isif>
+							</div>
+						</div>
+	
+						<!--- total --->
+						<div class="col-sm-2 text-right">
+							<span class="mobile-cart-label"><istext key="quote.items.table.total" /></span>
+							
+							<isif condition="#ShowSellerPrice EQ "true"#">
+							
+								<isif condition="#NOT(PLI:NeedsQuotation EQ "true")#">
+									<p class="text-nowrap">
+										<span class="visible-xs-inline"><istext key="quote.items.original_price.label" /> </span>
+										<isprint value="#PLI:OriginNetPricePC#">
+									</p>
+								</isif>
+									<p class="text-nowrap">
+										<span class="visible-xs-inline"><istext key="quote.items.suggested_price.label" /> </span>
+										<isprint value="#PLI:NetPricePC#">
+									</p>
+								
+							<iselse>
+							
+								<isif condition="#PLI:NeedsQuotation EQ "true"#">
+									<br /><span class="text-nowrap"><istext key="quote.items.upon_request.label" /></span>
+								<iselse>
+									<span class="text-nowrap"><isprint value="#PLI:OriginNetPricePC#"></span>
+								</isif>
+								
+							</isif>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</isloop>
+</isif>	
+	
+<isif condition="#IsEmptyQuote#"> 
+	<div class="clearfix section section-seperator">
+		<div class="list-body">
+			<istext key="quote.items.no_available_items" />
+		</div>
+	</div>
+<iselse>		
+	<div class="clearfix section section-seperator">	
+		<div class="list-body">
+			<isif condition="#ShowSellerPrice EQ "true"#">
+					<div class="col-sm-2 col-sm-offset-8">
+						<div  class="total-price text-right"><istext key="quote.items.total.suggested.label" /></div>
+					</div>
+					<div class="col-sm-2">
+						<div class="total-price text-right"><isprint value="#Quote:Total#"></div>
+					</div>
+			<iselse>
+					<isif condition="#NeedsQuotation EQ "true"#">
+						<div class="col-sm-2 col-sm-offset-8">
+							<div> </div>
+						</div>
+						<div class="col-sm-2">
+							<div> <istext key="quote.items.price_upon_request.label" /></div>
+						</div>
+					<iselse>
+						<div class="col-sm-2 col-sm-offset-8">
+							<div class="total-price text-right"><istext key="quote.items.total.label" /></div>
+						</div>
+						<div class="col-sm-2">
+							<div class="total-price text-right"><isprint value="#Quote:OriginTotal#"></div>
+						</div>
+					</isif>
+			</isif>
+		</div>
+	</div>
+</isif>

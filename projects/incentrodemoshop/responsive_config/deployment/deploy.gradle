@@ -1,0 +1,3 @@
+// to deploy stuff to share, since this no cartridge anymore
+apply plugin: com.intershop.deploy.assembly.TargetPlugin
+apply plugin: com.intershop.deploy.infrastructure.InfrastructureDeploymentPlugin

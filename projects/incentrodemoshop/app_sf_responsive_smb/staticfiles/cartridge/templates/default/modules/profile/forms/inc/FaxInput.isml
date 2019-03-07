@@ -1,0 +1,21 @@
+<iscontent type="text/html" charset="UTF-8" compact="true">
+<isinclude template="modules/common/Modules">
+<div class="form-group">
+	<label class="control-label col-sm-4" for="<isprint value="#webform:Fax:QualifiedName.idSuffix#">">
+		<istext key="account.companyprofile.fax.label" />
+	</label>
+	<div class="col-sm-8">
+		<input class="form-control"
+			type="text"
+			maxlength="35"
+			<isif condition="#isDefined(webform:Fax:Value)#">
+				value="<isprint value="#webform:Fax:Value#">"
+			<iselseif condition="#isDefined(profile)#">
+				value="<isprint value="#profile:Fax#">"
+			<iselseif condition="#isDefined(address)#">
+				value="<isprint value="#address:Fax#">"
+			</isif>
+			name="<isprint value="#webform:Fax:QualifiedName.idSuffix#">"
+			id="<isprint value="#webform:Fax:QualifiedName.idSuffix#">"/>
+	</div>
+</div>

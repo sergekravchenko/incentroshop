@@ -1,0 +1,31 @@
+<iscontent personalized="true" type="text/html" charset="UTF-8" compact="true">
+<isinclude template="modules/B2BModules">
+
+<!--- Approval required link and dialog--->
+<div class="col-xs-12">
+	<isinclude template="modules/customer/Modules">
+	<isCurrentCustomerBO currentcustomerbo="CurrentCustomerBO">
+	<isCurrentUserBO currentuserbo="CurrentUserBO">
+	
+	<!--- show this div only if the order requires an approval --->
+	<!--- maybe using extension point in ViewCheckoutReview-Start--->
+	<ISCreateMap mapname="PipelineParameters"
+		 key0="UserBO" value0="#CurrentUserBO#"
+		 key1="CustomerBO" value1="#CurrentCustomerBO#"
+		 key2="BasketBO" value2="#CurrentCartBO#"
+	>
+	<ispipeline pipeline="ProcessOrderApproval-IsOrderApprovalRequired"  params="#PipelineParameters#" alias="Dict" />
+	<isif condition="#isDefined(Dict:IsApprovalRequired) AND (Dict:IsApprovalRequired EQ 'true')#">
+		<div class="text-right">
+			<div class="approval-required" title="<istext key="approval.cart.approver" />">
+				<span><istext key="approval.cart.approval_required" /></span>
+				<a data-dialog href="[data-approval-dialog]" class="details-link" />
+					<istext key="approval.cart.link.details" />
+				</a>
+				<div data-approval-dialog role="dialog" class="hidden">
+					<isinclude template="checkout/common/ApprovalDetails"/>
+				</div>
+			</div>
+		</div>
+	</isif>
+</div>

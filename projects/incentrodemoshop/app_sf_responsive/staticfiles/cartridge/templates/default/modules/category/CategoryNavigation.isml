@@ -1,0 +1,34 @@
+<iscontent personalized="true" type="text/html" charset="UTF-8" compact="true">
+<iscache type="relative" hour="24">
+<iscachekey object="#CategoryBO#">
+<isinclude template="modules/Modules">
+<isCurrentUserBO currentuserbo="UserBO">
+<isset name="SubCategoriesIterator" value="#CategoryBO:SortedAccessibleSubCatalogCategoryBOs(UserBO)#" scope="request">
+
+<isif condition="#(CategoryBO:Accessible) AND (CategoryBO:VisibleInMenu)#">
+	<ISUUID name="RenderEntityID">
+	<ISRenderEntityRenderingStart RenderEntityRenderObject="#CategoryBO#" RenderEntityID="#RenderEntityID#">
+		<li class="dropdown" id="mobileCat-#CategoryBO:Name#">
+			<a href="#URLEX(InsecureURL,'',Action('ViewStandardCatalog-Browse'), Parameter('CatalogID', CategoryBO:CatalogBO:Name), Parameter('CategoryName', CategoryBO:Name))#" data-testing-id="<isprint value="#CategoryBO:Name#">-link">
+				<isif condition="#isDefined(AlternateNavigationTitle) AND (AlternateNavigationTitle NE '')#">
+					<isprint value="#AlternateNavigationTitle#">
+				<iselse>
+					<isprint value="#CategoryBO:DisplayName#">
+				</isif>
+			</a>
+			<!--- Mobile Dropdown Anchor --->
+			<isif condition="#SubCategoriesIterator:isEmpty#">
+				<a class="dropdown-toggle visible-xs" data-toggle="dropdown" data-target="#'#'#mobileCat-#CategoryBO:Name#"><span class="glyphicon" ></span></a>
+			<iselse/>
+				<a class="dropdown-toggle visible-xs" data-toggle="dropdown" data-target="#'#'#mobileCat-#CategoryBO:Name#"><span class="glyphicon glyphicon-plus" ></span></a>
+			</isif>
+
+			<ISSubCategories
+				CategoryBO="#CategoryBO#"
+				recursive="true"
+				subcategoriesdepth="#1#"
+				maxsubcategoriesdepth="#2#"
+			>
+		</li>
+	<ISRenderEntityRenderingEnd RenderEntityRenderObject="#CategoryBO#" RenderEntityID="#RenderEntityID#">
+</isif>

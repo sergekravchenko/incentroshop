@@ -1,0 +1,59 @@
+<iscontent type="text/html" charset="UTF-8" compact="true">
+<isinclude template="modules/Modules">
+
+<!--- convert the Grid parameter settings to bootstrap grid system CSS --->
+<isset name="Grid" value="#PageletConfigurationParameters:Grid#" scope="request"/>
+<isset name="GridCSS" value="" scope="request"/>
+<isif condition="#Grid:isDefinedForXSmallDevices#">
+	<isif condition="#Grid:isHiddenForXSmallDevices#">
+		<isset name="GridCSS" value="#GridCSS.'hidden-xs '#" scope="request"/>
+	<iselse>
+		<isset name="GridCSS" value="#GridCSS.'col-xs-'.Grid:getForXSmallDevices.' '#" scope="request"/>
+	</isif>
+</isif>
+<isif condition="#Grid:isDefinedForSmallDevices#">
+	<isif condition="#Grid:isHiddenForSmallDevices#">
+		<isset name="GridCSS" value="#GridCSS.'hidden-sm '#" scope="request"/>
+	<iselse>
+		<isset name="GridCSS" value="#GridCSS.'col-sm-'.Grid:getForSmallDevices.' '#" scope="request"/>
+	</isif>
+</isif>
+<isif condition="#Grid:isDefinedForMediumDevices#">
+	<isif condition="#Grid:isHiddenForMediumDevices#">
+		<isset name="GridCSS" value="#GridCSS.'hidden-md '#" scope="request"/>
+	<iselse>
+		<isset name="GridCSS" value="#GridCSS.'col-md-'.Grid:getForMediumDevices.' '#" scope="request"/>
+	</isif>
+</isif>
+<isif condition="#Grid:isDefinedForLargeDevices#">
+	<isif condition="#Grid:isHiddenForLargeDevices#">
+		<isset name="GridCSS" value="#GridCSS.'hidden-lg '#" scope="request"/>
+	<iselse>
+		<isset name="GridCSS" value="#GridCSS.'col-lg-'.Grid:getForLargeDevices.' '#" scope="request"/>
+	</isif>
+</isif>
+
+<div id="Pagelet_<isprint value="#Pagelet:UUID#">" class="content-container <isprint value="#GridCSS#"> <isif condition="#isDefined(PageletConfigurationParameters:CSSClass)#"><isprint value="#PageletConfigurationParameters:CSSClass#"></isif>"
+	<isif condition="#isDefined(PageletConfigurationParameters:TrackingCode) AND (PageletConfigurationParameters:TrackingCode NE "")#">data-tracking="<isprint value="#PageletConfigurationParameters:TrackingCode#" encoding="url"/>"</isif>
+>
+	<isif condition="#isDefined(PageletConfigurationParameters:UpperBound) AND (PageletConfigurationParameters:UpperBound >= 0)#">
+		<isslotiterator Slot="#Pagelet:SubSlot("app_sf_responsive_cm:slot.container.content.pagelet2-Slot")#" AssignmentsAlias="ContainerPageletAssignments">
+		<ISUUID name="RenderEntityID">
+		<ISRenderEntityRenderingStart RenderEntityRenderObject="#Pagelet:SubSlot("app_sf_responsive_cm:slot.container.content.pagelet2-Slot")#" RenderEntityID="#RenderEntityID#">
+		<ISCreatePlaceholderRenderEvents RenderContextID="#RenderEntityID#" Slot="#Pagelet:SubSlot("app_sf_responsive_cm:slot.container.content.pagelet2-Slot")#" ComponentHierarchyKey="#ComponentHierarchyKey#">
+		
+		<isloop iterator="ContainerPageletAssignments" alias="ContainerPageletAssignment" counter="PageletCounter">
+			<isif condition="#PageletCounter > PageletConfigurationParameters:UpperBound#">
+				<isbreak>
+			</isif>
+			<ISCreatePlaceholderRenderEvents RenderContextID="#RenderEntityID#" PageletAssignment="#ContainerPageletAssignment#">
+			<ispageletassignment PageletAssignment="#ContainerPageletAssignment#">
+		</isloop>
+		
+		<ISCreatePlaceholderRenderEvents RenderContextID="#RenderEntityID#">
+		<ISRenderEntityRenderingEnd RenderEntityRenderObject="#Pagelet:SubSlot("app_sf_responsive_cm:slot.container.content.pagelet2-Slot")#" RenderEntityID="#RenderEntityID#">
+	<iselse>
+		<isslot slot="app_sf_responsive_cm:slot.container.content.pagelet2-Slot">
+	</isif>
+</div>
+<isinclude extensionpoint="ContainerEnd"/>

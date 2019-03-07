@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Determines the revenue of each contract that is fulfilled by a given order.
+@Group Contract-->
+
+<pipeline:Pipeline xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pipeline="http://www.intershop.de/pipeline/2010"
+    name="DetermineContractRevenue" overrideMode="Inherit" type="extension">
+<!--The accumulation of the actual amount in that way 
+might no be necessary for other contract types later.
+@Location 0,5-->
+  <nodes xsi:type="pipeline:Text" nodeID="Text0"/>
+<!--@Location 1,0-->
+  <nodes xsi:type="pipeline:StartNode" nodeID="StartNode0" strict="true" name="Start"
+      callMode="Private">
+    <nodeSuccessors name="next" next="GetApplicationBO0"/>
+<!--Order which has been created or approved.-->
+    <parameters name="Order" type="com.intershop.beehive.bts.capi.orderprocess.fulfillment.Order"/>
+    <parameters name="Session" type="com.intershop.beehive.core.capi.request.Session"/>
+    <parameters name="User" type="com.intershop.beehive.core.capi.user.User"/>
+  </nodes>
+<!--@Location 1,1-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="GetApplicationBO0">
+    <pipelet href="enfinity:/bc_application/pipelets/GetApplicationBO.xml"/>
+    <nodeSuccessors name="next" next="KeyMapper0"/>
+  </nodes>
+<!--@Location 1,2-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="KeyMapper0">
+    <pipelet href="enfinity:/core/pipelets/KeyMapper.xml"/>
+    <nodeSuccessors name="next" next="GetOrderBO0"/>
+    <parameterBindings name="InValue_1" objectPath="ApplicationBO:Extension(&quot;Order&quot;):getOrderBORepository(Order)"/>
+    <returnValueBindings name="OutValue_1" objectPath="OrderBORepository"/>
+  </nodes>
+<!--@Location 1,3-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="GetOrderBO0">
+    <pipelet href="enfinity:/bc_order/pipelets/GetOrderBO.xml"/>
+    <nodeSuccessors name="next" next="DetermineContractRevenueFromOrder0" action="begin"/>
+    <parameterBindings name="Order" objectPath="Order"/>
+  </nodes>
+<!--@Location 1,4-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="DetermineContractRevenueFromOrder0">
+    <pipelet href="enfinity:/bc_contract/pipelets/DetermineContractRevenueFromOrder.xml"/>
+    <nodeSuccessors name="next" next="LoopNode0"/>
+  </nodes>
+<!--@Location 1,5-->
+  <nodes xsi:type="pipeline:LoopNode" nodeID="LoopNode0" loop="OrderBO:Extension(&quot;Contract&quot;):ContractBaseBOs">
+    <nodeSuccessors name="next" next="EndNode0" action="commit"/>
+    <entry key="ContractBaseBO">
+      <nodeSuccessors name="loop_entry_next" next="KeyMapper1"/>
+    </entry>
+  </nodes>
+<!--@Location 1,6-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="KeyMapper1">
+    <pipelet href="enfinity:/bc_foundation/pipelets/KeyMapper.xml"/>
+    <nodeSuccessors name="next" next="AcquireInstanceResource0"/>
+    <parameterBindings name="InValue_1" objectPath="OrderBO:Extension(&quot;Contract&quot;):ContractRevenue(ContractBaseBO)"/>
+    <returnValueBindings name="OutValue_1" objectPath="ContractRevenue"/>
+  </nodes>
+<!--@Location 1,7-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="AcquireInstanceResource0">
+    <configurationValues name="ProcessDescription" value="UpdateSalesTarget"/>
+    <configurationValues name="ProcessName" value="UpdateSalesTarget"/>
+    <pipelet href="enfinity:/core/pipelets/AcquireInstanceResource.xml"/>
+    <nodeSuccessors name="next" next="CumulateSalesTargetActualAmount0"/>
+    <nodeSuccessors name="pipelet_error" next="JoinNode1"/>
+    <parameterBindings name="PersistentObject" objectPath="ContractBaseBO:SalesTarget:Extension(&quot;PersistentObjectBOExtension&quot;):PersistentObject"/>
+    <parameterBindings name="ProcessDescription" constant="UpdateSalesTarget"/>
+    <parameterBindings name="ProcessName" constant="UpdateSalesTarget"/>
+    <parameterBindings name="User" objectPath="CurrentUser"/>
+    <returnValueBindings name="Process" objectPath="UpdateSaleTargetAmountProcess"/>
+  </nodes>
+<!--@Location 1,8-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="CumulateSalesTargetActualAmount0">
+    <pipelet href="enfinity:/bc_contract/pipelets/CumulateSalesTargetActualAmount.xml"/>
+    <nodeSuccessors name="next" next="ReleaseInstanceResource0"/>
+    <parameterBindings name="Amount" objectPath="ContractRevenue"/>
+    <parameterBindings name="SalesTargetBO" objectPath="ContractBaseBO:SalesTarget"/>
+  </nodes>
+<!--@Location 1,9-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="ReleaseInstanceResource0">
+    <pipelet href="enfinity:/core/pipelets/ReleaseInstanceResource.xml"/>
+    <nodeSuccessors name="next" next="JoinNode0"/>
+    <nodeSuccessors name="pipelet_error" next="JoinNode1"/>
+    <parameterBindings name="PersistentObject" objectPath="ContractBaseBO:SalesTarget:Extension(&quot;PersistentObjectBOExtension&quot;):PersistentObject"/>
+    <parameterBindings name="User" objectPath="CurrentUser"/>
+    <returnValueBindings name="Process" objectPath="UpdateSaleTargetAmountProcess"/>
+  </nodes>
+<!--@Location 1,10-->
+  <nodes xsi:type="pipeline:JoinNode" nodeID="JoinNode0">
+<!--@BendPoints 1,21-->
+    <nodeSuccessors name="next" next="LoopNode0_Entry"/>
+  </nodes>
+<!--@Location 2,9-->
+  <nodes xsi:type="pipeline:JoinNode" nodeID="JoinNode1">
+    <nodeSuccessors name="next" next="JoinNode0"/>
+  </nodes>
+<!--@Location 3,7-->
+  <nodes xsi:type="pipeline:EndNode" nodeID="EndNode0" strict="true"/>
+</pipeline:Pipeline>

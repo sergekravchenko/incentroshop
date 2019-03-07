@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pagelet:PageletModel xmlns:pagelet="http://www.intershop.de/pagelet/2010" name="component.checkout.emptyCart.pagelet2">
+  <pageletDefinitions name="Component">
+    <callParameterDefinitions name="Dictionary" type="com.intershop.beehive.core.capi.pipeline.PipelineDictionary"/>
+    <callParameterInterfaces referencedName="app_sf_responsive_cm:interface.pagevariant.content.pagelet2-Interface"/>
+    <renderTemplate referencedName="component/checkout/EmptyCart"/>
+    <slotInclusionDefinitions>
+      <slotDefinition referencedName="app_sf_responsive_cm:slot.marketing.content.pagelet2-Slot"/>
+    </slotInclusionDefinitions>
+  </pageletDefinitions>
+</pagelet:PageletModel>

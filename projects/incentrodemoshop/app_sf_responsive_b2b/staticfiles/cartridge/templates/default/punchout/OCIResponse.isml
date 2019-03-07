@@ -1,0 +1,67 @@
+<iscontent type="text/html" charset="UTF-8" compact="true">
+<iscache type="forbidden">
+
+<isinclude template="modules/B2BModules">
+
+<isGetProductPriceContext CustomerBO="#CustomerBO#" ProductPriceContext="ProductPriceContext">
+
+<html>
+<head>
+  <title>Untitled</title>
+</head>
+  <isif condition="#((AUTOSUBMIT NE 'true') AND (FUNCTION EQ 'BACKGROUND_SEARCH')) OR (AUTOSUBMIT EQ 'false')#"> 
+	<body>
+  <iselse>
+	<body onload="onLoad()">
+   
+	  <script language="JavaScript">
+	  <!--
+	    function onLoad()
+	      {
+	      	form.submit();
+	      }
+	  // -->
+	  </script>
+	  <noscript>
+	    <b>JavaScript is not enabled but required for this page ...</b> 
+	  </noscript> 
+  </isif>
+  
+    <form name="form" method="post" action="<isprint value="#PunchoutRequest:ReturnURL#"/>" data-testing-id="oci-basket">
+    
+    <!---
+    The BACKGROUND_SEARCH does not deal with baskets
+    --->
+    <isif condition="#(FUNCTION NE 'BACKGROUND_SEARCH')#"> 
+       	<isset scope="request" name="index" value="#0#" >
+       	<!--- do not use counter="index" in loop, it can not be set manually elsewhere --->
+        <isloop iterator="CurrentCartBO:ProductLineItemBOs" alias="PLI">
+			<isif condition="#NOT (PLI:HiddenGift OR PLI:FreeGift)#">
+				<isset scope="request" name="index" value="#index + 1#">
+				<isset name="PLIWarranty" value="#PLI:Extension("Warranty")#" scope="request"/>
+				<isOCIFieldsBasketPLI PLI="#PLI#" ociFieldIndex="#index#" ConfigurationData="#ConfigurationData#">
+				<isif condition="#isDefined(PLIWarranty:BasketWarrantyLineItem)#">
+					<isset scope="request" name="index" value="#index + 1#">
+                    <isOCIFieldsBasketPLI PLI="#PLI#" ociFieldIndex="#index#" useRelatedWarrantyFlag="true" ConfigurationData="#ConfigurationData#">
+				</isif>
+			</isif>
+		</isloop>
+				    
+    <iselse>
+        <isloop iterator="ProductBOs" alias="ProductBO" counter="index">	
+        	<isset name="ProductBOPunchout" value="#ProductBO:Extension("Punchout")#" scope="request">
+        	<isloop iterator="ConfigurationData:ConfigurationFieldsList" alias="ociFieldName">
+        		<isset name="ociFieldValue" value="#ProductBOPunchout:Value(ociFieldName, PunchoutUserBO, CurrentRequest:Currency)#" scope="request">
+        		<isif condition="#isDefined(ociFieldValue)#">
+        			<isif condition="#ociFieldName EQ 'NEW_ITEM-LONGTEXT'#">
+						<input type="hidden" name="<isprint value="#ociFieldName#">_<isprint value="#index#">:132[]" value="#stringToHtml(ociFieldValue)#">
+        			<iselse>
+						<input type="hidden" name="<isprint value="#ociFieldName#">[<isprint value="#index#">]" value="#stringToHtml(ociFieldValue)#">
+        			</isif>
+        		</isif>
+        	</isloop>
+		</isloop>
+    </isif>
+  </form>
+</body>
+</html>

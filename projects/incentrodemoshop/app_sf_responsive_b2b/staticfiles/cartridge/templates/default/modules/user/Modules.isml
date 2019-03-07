@@ -1,0 +1,27 @@
+<iscontent type="text/html" charset="UTF-8" compact="true">
+
+<ismodule template="modules/user/UserBudgetCalculator.isml"
+    strict="true"
+    name="UserBudgetCalculator"
+    attribute="User"
+    returnattribute="UserBudgetCalculator"
+>
+<!---
+	Places the User Permissions names in the dictionary.
+
+	Parameters:
+		- user (required)
+			Means a java UserBO - the user which permissions to be retrieved
+
+	Returns collection of unique strings ordered ascending by permission name.
+    Returned collection then could be put in the calling template dictionary under specified key
+
+	Usage:
+		<isUserPermissions user="#UserBO#" permissions="UserPermissions">
+--->
+<ismodule template="modules/user/UserPermissions.isml"
+	strict="true"
+	name="UserPermissions"
+	attribute="user"
+	returnattribute="permissions"
+>

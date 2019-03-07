@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<enfinity xmlns:dt="http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt">
+<shared-component-template id="cmp_tmp_footer" domain="inSPIRED-MasterRepository">
+<definition-name>app_sf_responsive_cm:component.system.footer.pagelet2-Component</definition-name>
+<placeholder-configurations>
+<placeholder-configuration hide-target-content="true" place-target-content-on-top="false">
+<pagelet-overriding-placeholder placeholder-id="slot.footer.content.pagelet2-Slot@cmp_tmp_footer" />
+</placeholder-configuration>
+</placeholder-configurations>
+<placeholder-definitions>
+<placeholder-definition id="slot.footer.content.pagelet2-Slot@cmp_tmp_footer" external="false">
+<definition-name>app_sf_responsive_cm:slot.footer.content.pagelet2-Slot</definition-name>
+<slot definition-name="app_sf_responsive_cm:slot.footer.content.pagelet2-Slot"/>
+</placeholder-definition>
+</placeholder-definitions>
+</shared-component-template>
+<pagelet-placeholder-assignment id="93vAqDgBnUQAAAFVkeI.CFRR">
+<placeholder pagelet-domain="inSPIRED-MasterRepository" pagelet-id="cmp_tmp_footer">
+<pagelet-overriding-placeholder placeholder-id="slot.footer.content.pagelet2-Slot@cmp_tmp_footer"/>
+</placeholder>
+<pagelet id="cmp_tmp_footer_content" domain="inSPIRED-inTRONICS-b2c-responsive"/>
+<position>2</position>
+<online>true</online>
+</pagelet-placeholder-assignment>
+<pagelet-placeholder-assignment id="DuIKAE8FhIYAAAFOCIkA9Gdd">
+<placeholder pagelet-domain="inSPIRED-MasterRepository" pagelet-id="cmp_tmp_footer">
+<pagelet-overriding-placeholder placeholder-id="slot.footer.content.pagelet2-Slot@cmp_tmp_footer"/>
+</placeholder>
+<pagelet id="cmp_tmp_footer_content_top" domain="inSPIRED-MasterRepository"/>
+<position>1</position>
+<online>true</online>
+</pagelet-placeholder-assignment>
+</enfinity>

@@ -1,0 +1,7 @@
+<iscontent type="text/html" charset="UTF-8" compact="true">
+<iscachekey object="#ProductBO#">
+<isif condition="#isDefined(ProductBO:Attribute(PageletConfigurationParameters:AttributeName)) AND ((ProductBO:Attribute(PageletConfigurationParameters:AttributeName) EQ PageletConfigurationParameters:AttributeValue))#">
+	<isif condition="#isDefined(PageletConfigurationParameters:CSSClass)#"><div class="<isprint value="#PageletConfigurationParameters:CSSClass#">"></isif>
+		<isslot slot="app_sf_responsive_cm:slot.container.content.pagelet2-Slot">
+	<isif condition="#isDefined(PageletConfigurationParameters:CSSClass)#"></div></isif>
+</isif>

@@ -1,0 +1,123 @@
+<iscontent type="text/html" charset="UTF-8" compact="true">
+
+<isinclude template="modules/B2BModulesCostCenter">
+<isif condition="#NOT UserBOs:Empty#">
+<!--- BUYERS RESULT LIST --->
+<isform 
+	method="post" 
+	action="#URLEX(SecureURL,'',Action('ViewCostCenter-AddCostCenterBuyer'))#" 
+	name="#getValue(CostCenterAddBuyerForm:Alias)#"
+	class="form-horizontal bv-form"
+	data-bv-message="This value is not valid"
+	data-bv-feedbackicons-valid="glyphicon glyphicon-ok"
+	data-bv-feedbackicons-invalid="glyphicon glyphicon-remove"
+	data-bv-feedbackicons-validating="glyphicon glyphicon-refresh"
+>
+
+	<input type="hidden" name="<isprint value="#CostCenterUsersForm:CustomerID:QualifiedName#">" value="<isprint value="#CustomerBO:ID#">"/>
+	<input type="hidden" name="<isprint value="#CostCenterUsersForm:CostCenterID:QualifiedName#">" value="<isprint value="#CostCenterID#">"/>
+<div class="section">
+		<table class="table table-condensed" data-table="CostCenterBuyerList">
+			<thead>
+				<th class="text-center" style="width: 100px;">
+					<a href="#'#'#" data-toggle-select="all"><istext key="account.costcenter.details.buyers.list.header.selectall"/></a>
+					<a href="#'#'#" data-toggle-select="clear" style="display: none;"><istext key="account.costcenter.details.buyers.list.header.clearall"/></a>
+				</th>
+				<th>
+					<istext key="account.costcenter.details.buyers.list.header.name"/>
+				</th>
+				<th style="width: 400px;">
+					<istext key="account.costcenter.details.buyers.list.header.orderspendlimit"/>
+				</th>
+			</thead>
+			<tbody>
+				<isloop iterator="UserBOs" alias="UserBO">
+					<tr>
+						<!--- CHECKBOX --->
+						<td class="text-center">
+							<input type="checkbox" name="SelectedObjectUUID" value="<isprint value="#UserBO:ID#">" id="<isprint value="#'UserID_'.UserBO:ID#">" />
+						</td>
+
+						<!--- USER NAME --->
+						<td>
+							<label for="<isprint value="#'UserID_'.UserBO:ID#">" style="cursor: pointer;">
+								<isif condition="#(UserBO:FirstName EQ '') AND (UserBO:LastName EQ '')#">
+									<isprint value="#UserBO:Login#">
+								<iselse>
+									<isprint value="#UserBO:FirstName#"> <isprint value="#UserBO:LastName#">
+								</isif>
+							</label>
+						</td>
+
+						<!--- BUDGET and BUDGET PERIOD --->
+						<td>
+						<div class="row">
+							<div class="col-sm-6 col-xs-10"> 
+								<!--- SPEND LIMIT --->
+									<div class="input-group"> 
+										<span class="input-group-addon">
+											<isprint value="#CurrentRequest:CurrencyCode#">
+										</span>
+										<input type="text" 
+											name="Budget_<isprint value="#UserBO:ID#">" 
+											value="" 
+											class="form-control" 
+											data-bv-regexp="true"  data-bv-regexp-regexp="^[0-9.]+$"
+											data-bv-regexp-message="<istext key="account.costcenter.details.buyers.list.budget.error.valid">"
+										/>
+									</div>
+								</div>
+								<!--- PERIOD FOR ORDER SPEND LIMIT --->
+								<div class="col-sm-5 col-xs-10">
+									<select
+										class="form-control" 
+										name="BudgetPeriod_<isprint value="#UserBO:ID#">"
+										required
+									>
+										<option value="fixed" <isif condition="#(CostCenterUsersForm:Period:Value EQ 'fixed') OR (CostCenterUsersForm:Period:Value EQ '')#">selected="selected"</isif>><istext key="account.costcenter.label.budget.period.fixed"></option>
+										<option value="weekly" <isif condition="#CostCenterUsersForm:Period:Value EQ 'weekly'#">selected="selected"</isif>><istext key="account.costcenter.form.field.budget.period.value.weekly"></option>
+										<option value="monthly" <isif condition="#CostCenterUsersForm:Period:Value EQ 'monthly'#">selected="selected"</isif>><istext key="account.costcenter.form.field.budget.period.value.monthly"></option>
+										<option value="quarterly" <isif condition="#CostCenterUsersForm:Period:Value EQ 'quarterly'#">selected="selected"</isif>><istext key="account.costcenter.form.field.budget.period.value.quarterly"></option>
+									</select>
+								</div>
+							</div>	
+						</td>
+					</tr>
+				</isloop>
+			</tbody>
+		</table>
+	</div>
+	<div class="row">
+		<div class="modal-footer">
+			<div class="pull-right">
+				<button class="btn btn-primary" type="submit" name="add"><istext key="account.costcenter.details.buyers.action.add"></button>
+				<button type="button" class="btn btn-default" data-dismiss="modal" name="cancel"><istext key="account.costcenter.form.button.cancel.text"></button>
+			</div>
+		</div>
+	</div>
+
+	<script>
+		$('[data-table="CostCenterBuyerList"]').DataTable({
+		    "responsive": true,
+		    "bLengthChange" : false,
+		    "order": [[ 1, "asc" ]],
+		    "columnDefs": [ {
+		        "targets": 0,
+		        "searchable": false,
+		        "orderable": false
+		      } ]
+		});
+	</script>
+</isform>
+<iselse/>
+<div class="section">
+	<istext key="account.costcenter.details.add.buyers.list.empty">
+</div>
+<div class="row">
+	<div class="modal-footer">
+		<div class="pull-right">
+			<button type="button" class="btn btn-default" data-dismiss="modal" name="cancel"><istext key="account.costcenter.form.button.cancel.text"></button>
+		</div>
+	</div>
+</div>
+</isif>

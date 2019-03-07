@@ -1,0 +1,4 @@
+<iscontent type="text/html" charset="UTF-8" compact="true">
+<li class="<isif condition="#selecteditem EQ 'BACKINSTOCK'#">active</isif>">
+	<a title="<istext key="account.navigation.backinstock.link"/>" href="#URL(Action('ViewBackInStockNotification-List'))#"><istext key="account.navigation.backinstock.link"/></a>
+</li>

@@ -1,0 +1,45 @@
+<iscontent type="text/html" charset="UTF-8" compact="true">
+<isinclude template="modules/Modules">
+
+<isinclude template="email/mailTemplate/MailConfig"/>
+<isinclude template="email/order/RequisitionTypeInc"/>
+<subject><istext key="#'email.'.BasketType.'_approval.heading'#" parameter0="#encodeValue(ChannelName)#" encoding="off"/></subject>
+
+<isinclude template="email/mailTemplate/MailHeader"/>
+
+<p>
+	<istext key="email.hello.label.firstname_lastname" parameter0="#UserBO:FirstName#" parameter1="#UserBO:LastName#" />
+</p>
+<p><istext key="#'email.'.BasketType.'_approval.created.text'#" parameter0="#BasketBO:UserBO:FirstName#" parameter1="#BasketBO:UserBO:LastName#" parameter2="#BasketBO:CreationDate#" /></p>
+
+<table cellpadding="0" cellspacing="0" class="mobileButtonPattern" bgcolor="#'#'#1db5b5">
+	<tr>
+		<td>
+			<table cellpadding="0" cellspacing="10" width="100%">
+				<tr>
+					<td class="button">
+						<a href="#URLEx('https', '', Action('ViewApprovals-Details'), Parameter('BasketID', BasketBO:ID), Parameter('ListCase', 'AllOpen'))#">
+							<istext key="#'email.approve_'.BasketType.'.button'#" />
+						</a>
+					</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+</table>
+
+<p class="copyLink">
+	<istext key="email.password.link.expiry" parameter0="#encodeValue(ApplicationBO:Configuration:Integer("PasswordRelatedLinkLifeTime", "(Integer)24"))#" 
+	parameter1="#URLEx('https', '', Action('ViewApprovals-Details'), Parameter('BasketID', BasketBO:ID), Parameter('ListCase', 'AllOpen'))#" 
+	encoding="off" />
+</p>
+
+<isset name="ShowBuyer" value="true" scope="request"/>
+<isinclude template="email/order/OrderInfo"/>
+
+<p>
+	<istext key="email.kind_regards.label"/><br />
+	<istext key="email.notification.service" parameter0="#ChannelName#"/>
+</p>
+
+<isinclude template="email/mailTemplate/MailFooter"/>

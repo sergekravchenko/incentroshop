@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pagelet:PageletModel xmlns:pagelet="http://www.intershop.de/pagelet/2010" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://www.intershop.de/core/2010" name="component.shopping.noSearchResult.pagelet2">
+  <pageletDefinitions name="Component">
+    <callParameterDefinitions optional="true" name="SearchTerm" type="java.lang.String"/>
+    <callParameterDefinitions optional="true" name="ProductBOs" type="java.util.Iterator"/>
+    <callParameterDefinitions optional="true" name="AlternativeSearchTerm" type="java.lang.String"/>
+    <callParameterDefinitions optional="true" name="ListNavigationVO" type="com.intershop.sellside.storefront.base.capi.common.ListNavigationVO"/>
+    <callParameterInterfaces referencedName="app_sf_responsive_cm:interface.pagevariant.content.pagelet2-Interface"/>
+    <configurationParameterDefinitions name="HTML" typeReference="bc_pmc:types.pagelet2-Html"/>
+    <configurationParameterDefinitions name="ProductView" localizable="false" typeReference="bc_pmc:types.pagelet2-ViewContext">
+      <parameterBindings xsi:type="core:ParameterValueBinding" name="ObjectType" value="Product"/>
+    </configurationParameterDefinitions>
+    <renderTemplate referencedName="component/shopping/NoSearchResult"/>
+    <slotInclusionDefinitions>
+      <slotDefinition referencedName="app_sf_responsive_cm:slot.marketing.base.pagelet2-Slot"/>
+    </slotInclusionDefinitions>
+  </pageletDefinitions>
+</pagelet:PageletModel>

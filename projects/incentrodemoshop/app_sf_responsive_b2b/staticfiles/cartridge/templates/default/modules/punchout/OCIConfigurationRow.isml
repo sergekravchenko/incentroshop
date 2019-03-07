@@ -1,0 +1,33 @@
+<iscontent type="text/html" charset="UTF-8" compact="true">
+<iscache type="forbidden">
+
+<div class="list-item-row" data-testing-class="row-oci-punchout-configuration">
+	<div class="col-sm-4 list-item control-label" data-testing-class="row-label">
+		<isprint value="#FieldName#">
+	</div>
+	
+	<div class="col-sm-4 list-item">
+		<input type="text" 
+			value="<isprint value="#FieldTransform#">"
+			name="OCIConfigurationForm_OCI.<isprint value="#FieldName#">.VALUE"
+			data-testing-class="row-transform"
+			size="18"
+			maxlength="256"
+			class="form-control"
+		/>
+	</div>
+	
+	<div class="col-sm-4 list-item">
+		<select 
+			name="OCIConfigurationForm_OCI.<isprint value="#FieldName#">.FORMAT"
+			data-testing-class="row-format"
+			class="form-control">
+			<option value=""><istext key="punchout.configuration.formatter.displayname.None"/></option>
+			<isloop iterator="PunchoutPlaceholderFormatterProvider:FormatterIds" alias="FormatterID">
+				<option value="<isprint value="#FormatterID#">"
+					<isif condition="#FieldFormat EQ FormatterID#">selected="selected"</isif>
+				><istext key="#'punchout.configuration.formatter.displayname.' . FormatterID#"/></option>
+			</isloop>
+		</select>
+	</div>
+</div>

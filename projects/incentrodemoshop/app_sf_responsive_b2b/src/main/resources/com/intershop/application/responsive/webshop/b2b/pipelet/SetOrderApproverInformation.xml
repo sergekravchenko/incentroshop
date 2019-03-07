@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<DPipelet dbo.type="com.intershop.beehive.core.rapi.pipeline.DPipelet" id="Pipelet1" >
+<pipeletName>SetOrderApproverInformation</pipeletName>
+<pipeletClass>com.intershop.application.responsive.webshop.b2b.pipelet.SetOrderApproverInformation</pipeletClass>
+<errorConnector>false</errorConnector>
+<properties>
+<DPipeletProperty dbo.type="com.intershop.beehive.core.rapi.pipeline.DPipeletProperty" id="dictionary-in_OrderBO" >
+<key>OrderBO</key>
+<input>required</input>
+<propertyClass>com.intershop.component.order.capi.OrderBO</propertyClass>
+<group>dictionary-in</group>
+</DPipeletProperty>
+<DPipeletProperty dbo.type="com.intershop.beehive.core.rapi.pipeline.DPipeletProperty" id="dictionary-in_ApproverFirstName" >
+<key>ApproverFirstName</key>
+<propertyClass>java.lang.String</propertyClass>
+<group>dictionary-in</group>
+</DPipeletProperty>
+<DPipeletProperty dbo.type="com.intershop.beehive.core.rapi.pipeline.DPipeletProperty" id="dictionary-in_ApproverLastName" >
+<key>ApproverLastName</key>
+<propertyClass>java.lang.String</propertyClass>
+<group>dictionary-in</group>
+</DPipeletProperty>
+<DPipeletProperty dbo.type="com.intershop.beehive.core.rapi.pipeline.DPipeletProperty" id="dictionary-in_ApprovalDate" >
+<key>ApprovalDate</key>
+<propertyClass>java.util.Date</propertyClass>
+<group>dictionary-in</group>
+</DPipeletProperty>
+<DPipeletProperty dbo.type="com.intershop.beehive.core.rapi.pipeline.DPipeletProperty" id="dictionary-in_ApprovalComment" >
+<key>ApprovalComment</key>
+<propertyClass>java.lang.String</propertyClass>
+<group>dictionary-in</group>
+</DPipeletProperty>
+</properties>
+</DPipelet>

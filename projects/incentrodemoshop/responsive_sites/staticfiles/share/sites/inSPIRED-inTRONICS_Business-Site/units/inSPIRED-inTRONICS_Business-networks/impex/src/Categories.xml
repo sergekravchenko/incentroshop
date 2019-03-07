@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<enfinity xmlns="http://www.intershop.com/xml/ns/enfinity/7.1/xcs/impex" xmlns:dt="http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" branch="enterprise" build="build" family="enfinity" major="6" minor="1" xsi:schemaLocation="http://www.intershop.com/xml/ns/enfinity/7.1/xcs/impex catalog.xsd http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt dt.xsd">
+<category name="wlan">
+<name>wlan</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<display-name xml:lang="fr-FR">Points d&apos;accès WLAN</display-name>
+<display-name xml:lang="en-US">WLAN Access Points</display-name>
+<description xml:lang="de-DE">Mit einem WLAN (Wireless Local Area Network)-Zugangspunkt können Sie Ihr eigenes drahtloses Netzwerk aufbauen und Netzwerkressourcen wie Drucker und Speicher teilen.</description>
+<description xml:lang="fr-FR">Établissez un réseau local sans fil avec des points d&apos;accès WLAN et partagez les ressources comme les imprimantes et le stockage sur votre réseau.</description>
+<description xml:lang="en-US">Establish a wireless local area network with WLAN access points and share ressources like printers and storage accross your network.</description>
+<display-name xml:lang="de-DE">WLAN Access Points</display-name>
+<parent name="networks"/>
+<images>
+<image-ref image-base-name="M/7935626-9312.jpg" image-type="M" image-view="front"/>
+</images>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="fr-FR">True</custom-attribute>
+<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="en-US">True</custom-attribute>
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+</custom-attributes>
+</category>
+<category name="phones">
+<name>phones</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<display-name xml:lang="fr-FR">Téléphones</display-name>
+<display-name xml:lang="en-US">Telephones</display-name>
+<description xml:lang="fr-FR">Appelez vos collègues, partenaires commerciaux ou clients avec ces téléphones géniaux.</description>
+<description xml:lang="en-US">Call your colleagues, business partners or customers with these great phones.</description>
+<description xml:lang="de-DE">Rufen Sie Ihre Kollegen, Geschäftspartner oder Kunden mit einem dieser großartigen Telefone an.</description>
+<display-name xml:lang="de-DE">Telefone</display-name>
+<parent name="networks"/>
+<images>
+<image-ref image-base-name="M/9403403-7209.jpg" image-type="M" image-view="front"/>
+</images>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_SORTING_TYPE">default</custom-attribute>
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+</custom-attributes>
+</category>
+<category name="network-cables">
+<name>network-cables</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<description xml:lang="de-DE">Jede Art von Netzwerk-Kabeln, um kleine bis große Netzwerke aufzubauen.</description>
+<description xml:lang="fr-FR">Tous types de câbles réseau pour la mise en place d&apos;infrastructures réseau de petite à grande taille.</description>
+<description xml:lang="en-US">All kind of network cables for setting up small to large network infrastructures.</description>
+<display-name xml:lang="de-DE">Netzwerkkabel</display-name>
+<display-name xml:lang="fr-FR">Câbles réseau</display-name>
+<display-name xml:lang="en-US">Network Cables</display-name>
+<parent name="networks"/>
+<images>
+<image-ref image-base-name="M/28918-6725.jpg" image-type="M" image-view="front"/>
+</images>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="fr-FR">True</custom-attribute>
+<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="en-US">True</custom-attribute>
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+</custom-attributes>
+</category>
+<category name="switches">
+<name>switches</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<display-name xml:lang="de-DE">Switches</display-name>
+<description xml:lang="fr-FR">Utilisez des commutateurs pour inclure de nombreux périphériques dans votre réseau.</description>
+<description xml:lang="en-US">Use switches to include many devices into your network.</description>
+<description xml:lang="de-DE">Um viele Geräte in ein Netzwerk zu integrieren, benutzen Sie Switches.</description>
+<display-name xml:lang="fr-FR">Commutateur réseau</display-name>
+<display-name xml:lang="en-US">Switches</display-name>
+<parent name="networks"/>
+<images>
+<image-ref image-base-name="M/436235-9188.jpg" image-type="M" image-view="front"/>
+</images>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="fr-FR">True</custom-attribute>
+<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="en-US">True</custom-attribute>
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+</custom-attributes>
+</category>
+<category import-mode="UPDATE" name="networks">
+<name>networks</name>
+<root>1</root>
+<product-assignment-query/>
+<template/>
+<online>1</online>
+<category-links>
+</category-links>
+<display-name xml:lang="de-DE">Netzwerke</display-name>
+<display-name xml:lang="fr-FR">Réseaux</display-name>
+<display-name xml:lang="en-US">Networks</display-name>
+<description xml:lang="fr-FR">Catalogue d’équipement réseau</description>
+<description xml:lang="en-US">Network equipment catalog</description>
+<description xml:lang="de-DE">Katalog für Netzwerkausrüstung</description>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="ShowInMenu">True</custom-attribute>
+</custom-attributes>
+</category>
+<category name="hubs-concentrators">
+<name>hubs-concentrators</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<display-name xml:lang="de-DE">Hubs</display-name>
+<display-name xml:lang="fr-FR">Concentrateurs et Concentrateurs</display-name>
+<display-name xml:lang="en-US">Hubs &amp; Concentrators</display-name>
+<parent name="networks"/>
+<images>
+<image-ref image-base-name="M/456100-4938.jpg" image-type="M" image-view="front"/>
+</images>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_SORTING_TYPE">default</custom-attribute>
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+</custom-attributes>
+</category>
+<category name="firewalls">
+<name>firewalls</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<description xml:lang="de-DE">Firewalls schützen Firmen-Netwerke vor Angriffen von außen und stellen darüber hinaus weitere Dienste wie VPN (Virtual Private Networks) zur Verfügung.</description>
+<description xml:lang="fr-FR">Les pare-feu protègent les réseaux d&apos;entreprise contre les menaces d&apos;Internet et fournissent des services supplémentaires comme le VPN (Virtual Private Networks).</description>
+<description xml:lang="en-US">Firewalls are protecting company networks against threats from the internet and are providing additional services like VPN (Virtual Private Networks).</description>
+<display-name xml:lang="de-DE">Firewalls</display-name>
+<display-name xml:lang="fr-FR">Pare-feu</display-name>
+<display-name xml:lang="en-US">Firewalls</display-name>
+<parent name="networks"/>
+<images>
+<image-ref image-base-name="M/3542794-1807.jpg" image-type="M" image-view="front"/>
+</images>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_SORTING_TYPE">default</custom-attribute>
+</custom-attributes>
+</category>
+<category name="network-media-converters">
+<name>network-media-converters</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<description xml:lang="fr-FR">Utiliser des convertisseurs de média dans des réseaux non homogènes avec des câbles à fibre optique.</description>
+<description xml:lang="en-US">Use media converters in inhomogeneous networks with fiber cables.</description>
+<description xml:lang="de-DE">Benutzen Sie Media Konverter in inhomogenen Netzwerken mit Fiber Kabeln.</description>
+<display-name xml:lang="de-DE">Netzwerk Media Konverter</display-name>
+<display-name xml:lang="fr-FR">Convertisseurs de média réseau</display-name>
+<display-name xml:lang="en-US">Network media converters</display-name>
+<parent name="networks"/>
+<images>
+<image-ref image-base-name="M/879884-1490.jpg" image-type="M" image-view="front"/>
+</images>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="fr-FR">True</custom-attribute>
+<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="en-US">True</custom-attribute>
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+</custom-attributes>
+</category>
+<category name="routers">
+<name>routers</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<description xml:lang="fr-FR">Connectez vos appareils à un routeur pour permettre la communication entre eux, l&apos;Internet et d&apos;autres ressources partagées (par exemple des imprimantes).</description>
+<description xml:lang="en-US">Connect your devices with a router to enable communication between all of them, the internet and other shared ressources (e.g. printers).</description>
+<description xml:lang="de-DE">Um eine Kommunikation zwischen all Ihren Geräten aufzubauen, auf das Internet zugreifen zu können und andere freigegebene Ressourcen (z.Bsp. Drucker) zu benutzen, verbinden Sie alle Ihre Geräte mit einem Router.</description>
+<display-name xml:lang="fr-FR">Routeurs</display-name>
+<display-name xml:lang="en-US">Routers</display-name>
+<display-name xml:lang="de-DE">Router</display-name>
+<parent name="networks"/>
+<images>
+<image-ref image-base-name="M/4708234-9659.jpg" image-type="M" image-view="front"/>
+</images>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="fr-FR">True</custom-attribute>
+<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="en-US">True</custom-attribute>
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+</custom-attributes>
+</category>
+<category name="network-cards-adapters">
+<name>network-cards-adapters</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<description xml:lang="de-DE">Eine Auswahl von Netzwerkkarten und -Adaptern.</description>
+<description xml:lang="fr-FR">Une collection de cartes réseau et d&apos;adaptateurs.</description>
+<description xml:lang="en-US">A collection of network cards and adapters.</description>
+<display-name xml:lang="de-DE">Netzwerkkarten/-adapter</display-name>
+<display-name xml:lang="fr-FR">Cartes réseau et adaptateurs</display-name>
+<display-name xml:lang="en-US">Network Cards &amp; Adapters</display-name>
+<parent name="networks"/>
+<images>
+<image-ref image-base-name="M/1654252-8637.jpg" image-type="M" image-view="front"/>
+</images>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="fr-FR">True</custom-attribute>
+<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="en-US">True</custom-attribute>
+</custom-attributes>
+</category>
+</enfinity>

@@ -1,0 +1,37 @@
+<iscontent type="text/html" charset="UTF-8" compact="true">
+<isinclude template="modules/Modules">
+
+<isif condition="#hasElements(PageletConfigurationParameters:Products)#">
+	<isinclude template="component/common/inc/CollectionItemPrefix.isml">
+	
+		<isset name="ProductBOs" value="#PageletConfigurationParameters:Products:Iterator#" scope="request"/>
+
+		<ispipeline pipeline="FireTrackingEvents-ViewProductList"
+			params="#ParamMap(
+				ParamEntry('CurrentSession', CurrentSession),
+				ParamEntry('CurrentRequest', CurrentRequest),
+				ParamEntry('ProductList', ProductBOs),
+				ParamEntry('PageName', PageletConfigurationParameters:Title),
+				ParamEntry('PageType', ''))#"
+			alias="dict" />
+
+	<div
+		class="product-list-container <isprint value="#PageletConfigurationParameters:CSSClass#">">
+		<isif
+			condition="#NOT(RenderedInCollection EQ 'true') AND isDefined(PageletConfigurationParameters:Title) AND (PageletConfigurationParameters:Title NE '')#">
+			<h2>
+				<isprint value="#PageletConfigurationParameters:Title#">
+			</h2>
+		</isif>
+		<ISProductList
+			ProductBOs="#ProductBOs#"
+			viewContext="#PageletConfigurationParameters:ProductView#"
+			listBehavior="#PageletConfigurationParameters:ListStyle#"
+			numberOfProductsPerSlide="#PageletConfigurationParameters:SlideItems#"
+			listItemCssClass="#PageletConfigurationParameters:ListItemCSSClass#"
+		>
+	</div>
+
+	<isinclude template="component/common/inc/CollectionItemSuffix.isml">
+
+</isif>

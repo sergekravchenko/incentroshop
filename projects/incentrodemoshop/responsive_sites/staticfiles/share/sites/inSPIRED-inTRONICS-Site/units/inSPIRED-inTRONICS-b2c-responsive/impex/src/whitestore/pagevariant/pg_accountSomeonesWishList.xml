@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<enfinity xmlns:dt="http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt">
+<pagelet-page id="pg_accountSomeonesWishList">
+<definition-name>app_sf_responsive_cm:pagevariant.standard.pagelet2-Pagevariant</definition-name>
+<parent id="pg_tmp_accountPage" domain="inSPIRED-inTRONICS-b2c-responsive" />
+<display-name xml:lang="de-DE">Benutzerkonto - Andere Wunschliste</display-name>
+<display-name xml:lang="en-US">Account - Someone&apos;s Wish List</display-name>
+<online>true</online>
+<author business-partner-no="admin" domain="inSPIRED"/>
+<placeholder-configurations>
+<placeholder-configuration hide-target-content="false" place-target-content-on-top="false">
+<parent-placeholder placeholder-id="ph_accountPage_baseMarketing"/>
+</placeholder-configuration>
+<placeholder-configuration hide-target-content="false" place-target-content-on-top="false">
+<parent-placeholder placeholder-id="ph_accountPage_contentMarketing"/>
+</placeholder-configuration>
+</placeholder-configurations>
+</pagelet-page>
+</enfinity>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pagelet:PageletModel xmlns:pagelet="http://www.intershop.de/pagelet/2010" name="component.system.error.pagelet2">
+  <pageletDefinitions name="Component">
+    <callParameterDefinitions optional="true" name="Dictionary" type="com.intershop.beehive.core.capi.pipeline.PipelineDictionary"/>
+    <callParameterDefinitions optional="true" name="ErrorCode" type="java.lang.String"/>
+    <callParameterInterfaces referencedName="app_sf_responsive_cm:interface.pagevariant.content.pagelet2-Interface"/>
+    <configurationParameterDefinitions name="HTML" typeReference="bc_pmc:types.pagelet2-Html"/>
+    <renderTemplate referencedName="component/system/Error"/>
+    <slotInclusionDefinitions>
+      <slotDefinition referencedName="app_sf_responsive_cm:slot.marketing.base.pagelet2-Slot"/>
+    </slotInclusionDefinitions>
+  </pageletDefinitions>
+</pagelet:PageletModel>

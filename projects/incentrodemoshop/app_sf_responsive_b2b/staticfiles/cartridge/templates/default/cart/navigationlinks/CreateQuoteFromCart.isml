@@ -1,0 +1,11 @@
+<iscontent type="text/html" charset="UTF-8" compact="false">
+<!--- do not compact this template to keep line breaks after the buttons that result in some space when rendering --->
+<isinclude template="inc/CSRFGuardJSToken"/>
+<input type="hidden" name="LinkSource" value="Shopping" />
+
+<iscomment>TODO this check must use a permission (not a role) when ready</iscomment>
+<isif condition="#NOT UserBO:Extension("UserBORoleExtension"):hasRole("APP_B2B_OCI_USER")#">
+	<a data-csrf-guarded href="#URL(Action('ViewCart-Dispatch'), Parameter('createQuote', 'true'))#" class="btn btn-default" id="createQuote" name="createQuote">
+		<istext key="shopping_cart.quote.create.button" />
+	</a>
+</isif>

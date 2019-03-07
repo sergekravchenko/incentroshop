@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--@Group quotes-->
+
+<pipeline:Pipeline xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pipeline="http://www.intershop.de/pipeline/2010"
+    name="ProcessQuoteRequestNotifications" overrideMode="Inherit"
+    type="extension">
+<!--@Location 1,0-->
+  <nodes xsi:type="pipeline:StartNode" nodeID="StartNode_sl-0EKK7Eeem5_1qm8VFmg" strict="true"
+      name="EmailQuoteRequestResponded" callMode="Private">
+    <nodeSuccessors name="next" next="DecisionNode_y7RKQPYBEee8lsTlIykoQQ"/>
+    <parameters name="QuoteBO" type="com.intershop.component.quote.capi.QuoteBO"/>
+    <parameters name="ApplicationBO" type="com.intershop.component.application.capi.ApplicationBO"
+        optional="true"/>
+  </nodes>
+<!--@Location 1,1-->
+  <nodes xsi:type="pipeline:DecisionNode" nodeID="DecisionNode_y7RKQPYBEee8lsTlIykoQQ"
+      conditionKey="ApplicationBO">
+    <nodeSuccessors name="decision_yes" next="JoinNode_4mVPoPYBEee8lsTlIykoQQ"/>
+    <nodeSuccessors name="decision_no" next="GetApplicationBO_y7Wp0PYBEee8lsTlIykoQQ"/>
+  </nodes>
+<!--@Location 1,2-->
+  <nodes xsi:type="pipeline:JoinNode" nodeID="JoinNode_4mVPoPYBEee8lsTlIykoQQ">
+    <nodeSuccessors name="next" next="GetDomainPreference_y7J1gPYBEee8lsTlIykoQQ"/>
+  </nodes>
+<!--@Location 1,3-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="GetDomainPreference_y7J1gPYBEee8lsTlIykoQQ">
+    <configurationValues name="DefaultPreferenceKey" value="QuoteNotificationEmailFrom"/>
+    <configurationValues name="Type" value="String"/>
+    <pipelet href="enfinity:/bc_foundation/pipelets/GetDomainPreference.xml"/>
+    <nodeSuccessors name="next" next="ProcessMail_wRQzAKK7Eeem5_1qm8VFmg"/>
+<!--@BendPoints 5,7-->
+    <nodeSuccessors name="pipelet_error" next="JoinNode_El5Y8PYCEee8lsTlIykoQQ"/>
+    <parameterBindings name="PreferenceDomain" objectPath="ApplicationBO:PersistentObject:Domain"/>
+    <returnValueBindings name="PreferenceStringValue" objectPath="MailFrom"/>
+  </nodes>
+<!--@Location 1,4-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="ProcessMail_wRQzAKK7Eeem5_1qm8VFmg">
+    <configurationValues name="UseErrorConnector" value="true"/>
+    <configurationValues name="WaitForResult" value="true"/>
+    <pipelet href="enfinity:/bc_mail/pipelets/ProcessMail.xml"/>
+    <nodeSuccessors name="next" next="EndNode_t7ToQKK7Eeem5_1qm8VFmg"/>
+    <nodeSuccessors name="pipelet_error" next="JoinNode_El5Y8PYCEee8lsTlIykoQQ"/>
+    <parameterBindings name="MailTemplate" constant="email/quoting/UpdateQuoteStateEMailNotification"/>
+    <parameterBindings name="MailTo" objectPath="QuoteBO:UserBO:Email"/>
+  </nodes>
+<!--@Location 1,5-->
+  <nodes xsi:type="pipeline:EndNode" nodeID="EndNode_t7ToQKK7Eeem5_1qm8VFmg" strict="true"/>
+<!--@Location 2,4-->
+  <nodes xsi:type="pipeline:JoinNode" nodeID="JoinNode_El5Y8PYCEee8lsTlIykoQQ">
+    <nodeSuccessors name="next" next="EndNode_wRTPQKK7Eeem5_1qm8VFmg"/>
+  </nodes>
+<!--@Location 2,5-->
+  <nodes xsi:type="pipeline:EndNode" nodeID="EndNode_wRTPQKK7Eeem5_1qm8VFmg" name="Error"
+      strict="true"/>
+<!--@Location 2,1-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="GetApplicationBO_y7Wp0PYBEee8lsTlIykoQQ">
+    <pipelet href="enfinity:/bc_application/pipelets/GetApplicationBO.xml"/>
+<!--@BendPoints 5,5-->
+    <nodeSuccessors name="next" next="JoinNode_4mVPoPYBEee8lsTlIykoQQ"/>
+  </nodes>
+</pipeline:Pipeline>

@@ -1,0 +1,82 @@
+<iscontent type="text/html" charset="UTF-8" compact="true" templatemarker="true">
+
+<div class="row section">
+	<div class="col-md-8 col-xs-10">
+		<h3>
+			<istext key="gdpr.profile.personal.data.heading" />
+		</h3>
+		<isif condition="#isDefined(ShowMessage)#">
+			<div class="alert alert-success alert-fade">
+				<isif condition="#ShowMessage EQ 'PersonalDataDownloadRequest'#">
+					<p><istext key="gdpr.profile.request_data.message" /></p>
+				</isif>
+			</div>
+		</isif>
+		<div class="row">
+			<!---Request/Delete personal data links   --->
+			<div class="col-sm-12">
+				<p>
+					<istext key="gdpr.profile.information.personal.data.message" />
+				</p>
+				<isset scope="request" name="requestDataType" value="#ApplicationBO:NamedObject("GDPRRequestTypeEnumProvider"):ByName("REQUEST_DATA")#"/>
+				<isset scope="request" name="hasPendingPersonalDataRequest" value="#UserBO:Extension("PersonalData"):hasPendingPersonalDataRequest(requestDataType)#"/>
+				<isset scope="request" name="requestDeleteDataType" value="#ApplicationBO:NamedObject("GDPRRequestTypeEnumProvider"):ByName("DELETE_DATA")#"/>
+				<isset scope="request" name="hasPendingDeletePersonalDataRequest" value="#UserBO:Extension("PersonalData"):hasPendingPersonalDataRequest(requestDeleteDataType)#"/>
+				<p>
+					<isform class="form-horizontal bv-form" action = "#URL(Action('ViewPersonalDataRequestHandling-RequestPersonalData'))#" method="post" name="RequestDataForm">
+						<p>
+							<div class="button"><input type = "submit" class = "btn btn-default" value = "<istext key="gdpr.profile.request.personal.data.button"/>" <isif condition="#hasPendingPersonalDataRequest#">disabled="disabled"</isif>/></div>
+						</p>
+
+						<isif condition="#hasPendingPersonalDataRequest#">
+							<p class="help-block"><istext key="gdpr.profile.already_requested.message"></p>
+						</isif>	
+					</isform>
+				</p>
+                 <br />
+				<isif condition="#hasPendingDeletePersonalDataRequest#">
+					<p class="help-block"><istext key="gdpr.profile.delete.personal.data.already_requested.message"></p>
+				<iselse/>
+				<p>
+					<h4>
+						<a class = "btn btn-default" data-toggle="modal" data-target="#'#'#myModalDeleteAccount" > 
+							<istext key="gdpr.profile.delete.personal.data.button" />
+						</a>
+					</h4>
+				</p>
+				</isif>	
+			</div>
+		</div>
+
+		<!---Delete your Personal data dialog --->
+		<div class="modal fade" id="myModalDeleteAccount" role="dialog">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">			
+						<button class="close" data-dismiss="modal" title="<istext key="dialog.close.text">" aria-label="<istext key="dialog.close.text"/>">
+							<span aria-hidden="true">&times;</span>
+						</button>
+							<h1 class="modal-title vertical-align-center">
+								<istext key="gdpr.confirm.delete.personal.data.dialog.title">
+							</h1>
+					</div>
+					<div class="modal-body">
+						<p>
+							<istext key="gdpr.confirm.delete.personal.data.dialog.text" />
+						</p>
+					</div>
+					<div class="modal-footer">
+					<isform class="form-horizontal bv-form" action = "#URL(Action('ViewPersonalDataRequestHandling-RequestAccountDeletion'))#" method="post" name="RequestDeleteDataForm">
+							<div class="button">
+							   <input type = "submit" class = "btn btn-danger" value = "<istext key="gdpr.confirm.delete.personal.data.dialog.button.confirm">" />
+							   <button class="btn btn-default" data-dismiss="modal" name="cancel">
+									<istext key="gdpr.confirm.delete.personal.data.dialog.button.cancel">
+								</button>
+							</div>
+					</isform>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

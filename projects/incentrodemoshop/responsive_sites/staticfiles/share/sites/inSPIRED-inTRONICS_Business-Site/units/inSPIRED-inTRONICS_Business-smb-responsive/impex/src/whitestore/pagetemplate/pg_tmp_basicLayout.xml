@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<enfinity xmlns:dt="http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt">
+<page-template id="pg_tmp_basicLayout">
+<definition-name>app_sf_responsive_cm:pagevariant.standard.pagelet2-Pagevariant</definition-name>
+<display-name xml:lang="de-DE">Grundsätzliches Layout</display-name>
+<display-name xml:lang="en-US">Basic Layout</display-name>
+<description xml:lang="de-DE">Grundsätzliches Storefront-Seitenlayout mit Header, Footer und einem editierbaren Haupt-Content-Bereich.</description>
+<description xml:lang="en-US">Basic storefront page layout with header and footer and an editable main content area.</description>
+<active>true</active>
+<author business-partner-no="admin" domain="inSPIRED"/>
+<configuration-parameters>
+</configuration-parameters>
+<slots>
+<slot>
+<definition-name>app_sf_responsive_cm:slot.pagevariant.content.pagelet2-Slot</definition-name>
+<optional>false</optional>
+<sorting>false</sorting>
+</slot>
+<slot>
+<definition-name>app_sf_responsive_cm:slot.pagevariant.footer.pagelet2-Slot</definition-name>
+<optional>false</optional>
+<sorting>false</sorting>
+</slot>
+<slot>
+<definition-name>app_sf_responsive_cm:slot.pagevariant.header.pagelet2-Slot</definition-name>
+<optional>false</optional>
+<sorting>false</sorting>
+</slot>
+</slots>
+<placeholder-definitions>
+<placeholder-definition id="ph_contentSlot">
+<definition-name>app_sf_responsive_cm:slot.pagevariant.content.pagelet2-Slot</definition-name>
+<display-name xml:lang="de-DE">Content</display-name>
+<display-name xml:lang="en-US">Content</display-name>
+<position>1</position>
+<slot definition-name="app_sf_responsive_cm:slot.pagevariant.content.pagelet2-Slot"/>
+</placeholder-definition>
+</placeholder-definitions>
+</page-template>
+<pagelet-slot-assignment id="URAKAM5hoNgAAAFCL5NZoGsH">
+<slot definition-name="app_sf_responsive_cm:slot.pagevariant.footer.pagelet2-Slot" parent-pagelet-id="pg_tmp_basicLayout" domain="inSPIRED-inTRONICS_Business-smb-responsive"/>
+<pagelet id="cmp_tmp_footer" domain="inSPIRED-inTRONICS_Business-smb-responsive"/>
+<position>1</position>
+<online>true</online>
+</pagelet-slot-assignment>
+<pagelet-slot-assignment id="iO4KAM7fSLMAAAE8j1hAHLnq">
+<slot definition-name="app_sf_responsive_cm:slot.pagevariant.header.pagelet2-Slot" parent-pagelet-id="pg_tmp_basicLayout" domain="inSPIRED-inTRONICS_Business-smb-responsive"/>
+<pagelet id="cmp_tmp_header" domain="inSPIRED-inTRONICS_Business-smb-responsive"/>
+<position>1</position>
+<online>true</online>
+</pagelet-slot-assignment>
+</enfinity>

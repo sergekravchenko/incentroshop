@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<extensionpoint:ExtensionPointModel xmlns:extensionpoint="http://www.intershop.de/extensionpoint/2011" name="CheckoutAddresses">
+  <extensionBindings type="isml" extensionPoint="modules/address/Address-AddressBeginningExtensions" extension="checkout/address/AddressSmbExt"/>
+  <extensionBindings type="isml" extensionPoint="modules/address/forms/AddressDefaultNoState-AddressDefaultNoStateExtensions" extension="modules/address/forms/AddressDefaultNoStateSmbExt"/>
+  <extensionBindings type="isml" extensionPoint="modules/address/forms/AddressDefault-AddressDefaultExtensions" extension="modules/address/forms/AddressDefaultSmbExt"/>
+  <extensionBindings type="isml" extensionPoint="modules/address/forms/AddressDE-AddressDEExtensions" extension="modules/address/forms/AddressDESmbExt"/>
+  <extensionBindings type="isml" extensionPoint="modules/address/forms/AddressFR-AddressFRExtensions" extension="modules/address/forms/AddressFRSmbExt"/>
+  <extensionBindings type="isml" extensionPoint="modules/address/forms/AddressGB-AddressGBExtensions" extension="modules/address/forms/AddressGBSmbExt"/>
+  <extensionBindings type="isml" extensionPoint="modules/address/forms/AddressUS-AddressUSExtensions" extension="modules/address/forms/AddressUSSmbExt"/>
+  <extensionBindings type="isml" extensionPoint="checkout/address/NewUserAddressPage-AdditionalAddressInformationExtensions" extension="checkout/address/CheckoutAddressCompanyInformation"/>
+  <extensionBindings type="isml" extensionPoint="checkout/address/MultipleShippingPage-AddressSelectExtensions" extension="checkout/address/CompanyNameSelect"/>
+  <extensionBindings type="isml" extensionPoint="checkout/address/MultipleShippingPage-AddressForm" extension="modules/address/forms/AddressForm"/>
+  <extensionBindings type="isml" extensionPoint="checkout/address/AddressBookPage-RegisteredUserExtensions" extension="checkout/address/RegisteredUserFields"/>
+  <extensionBindings type="isml" extensionPoint="checkout/address/AddressBookPage-AddressSelectExtensions" extension="checkout/address/CompanyNameSelect"/>
+  <extensionBindings type="isml" extensionPoint="checkout/address/AddressBookPage-AdditionalAddressFieldsExtensions" extension="checkout/address/CompanyCustomerAddressInformation"/>
+  <extensionBindings type="isml" extensionPoint="checkout/address/AddressBookPage-InvoiceToAddressDetailsExtensions" extension="checkout/address/UnregisteredAddressDetails"/>
+  <extensionBindings type="isml" extensionPoint="checkout/address/AddressBookPage-AddressForm" extension="modules/address/forms/AddressForm"/>
+</extensionpoint:ExtensionPointModel>

@@ -1,0 +1,72 @@
+<iscontent personalized="true" type="text/html" charset="UTF-8" compact="true">
+<isinclude template="modules/Modules">
+<isinclude template="inc/RecommModules" />
+<isset name="execute" value="true" scope="request">
+<ISPLACEMENT placeholderid="JS_head"><script type="text/javascript" src="#WebRoot()#/js/recommendation.js"></script></ISPLACEMENT>
+
+<isinclude template="component/common/inc/CollectionItemPrefix.isml">
+
+<!--- default recommendation content (e.g. the title) will initially be hidden, once results are available the whole content is shown --->
+<div id="recommendation-engine-list" class="product-list-container <isprint value="#PageletConfigurationParameters:CSSClass#">" style="display: none;">
+	
+	<isif condition="#NOT(RenderedInCollection EQ 'true') AND isDefined(PageletConfigurationParameters:Title) AND (PageletConfigurationParameters:Title NE '')#">
+		<h2><isprint value="#PageletConfigurationParameters:Title#"></h2>
+	</isif>
+	
+	<!--- save pagelet configuration parameter values to use it later in the recommendation specific javascript --->
+	<script type="text/javascript">
+		var recommMaxNumbersOfProducts=99;
+		<isif condition="#isDefined(PageletConfigurationParameters:MaxNumberOfProducts)#">
+			recommMaxNumbersOfProducts=<isprint value="#PageletConfigurationParameters:MaxNumberOfProducts#">;
+		</isif>
+		var recommViewContextId='';
+		<isif condition="#isDefined(PageletConfigurationParameters:ProductView)#">
+			recommViewContextId='<isprint value="#PageletConfigurationParameters:ProductView:Id#">';
+		</isif>
+	</script>
+	
+	<isif condition="#isDefined(PageletConfigurationParameters:ListStyle) AND (PageletConfigurationParameters:ListStyle EQ 'carousel')#">
+		<!--- carousel --->
+		<div class="product-list slick-carousel" data-li-css-classes="product-list-item <isprint value="#PageletConfigurationParameters:ListItemCSSClass#">"
+			<isif condition="#PageletConfigurationParameters:SlideItems EQ '1'#">
+				data-slick='{"slidesToShow": 1, "slidesToScroll": 1}'
+			<iselseif condition="#PageletConfigurationParameters:SlideItems EQ '2'#">
+				data-slick='{"slidesToShow": 2, "slidesToScroll": 2}'
+			<iselseif condition="#PageletConfigurationParameters:SlideItems EQ '3'#">
+				data-slick='{"slidesToShow": 3, "slidesToScroll": 3, "responsive": [{"breakpoint": 992, "settings": {"slidesToShow": 2, "slidesToScroll": 2}}]}'
+			<iselse>
+				data-slick='{"slidesToShow": 4, "slidesToScroll": 4, "responsive": [{"breakpoint": 992, "settings": {"slidesToShow": 3, "slidesToScroll": 3}}, {"breakpoint": 768, "settings": {"slidesToShow": 2, "slidesToScroll": 2}}]}'
+			</isif>
+		>
+		</div>
+	<iselse>
+		<!--- Product list --->
+		<div class="product-list row" data-li-css-classes="product-list-item <isprint value="#PageletConfigurationParameters:ListItemCSSClass#">"></div>
+	</isif>
+	
+	<!---load with the right request --->
+	<isif condition="#PageletConfigurationParameters:RecommendationType EQ 'Product'#">
+		<ISProductRecommRequest ItemIDs="#ProductBO:SKU#">
+	<iselseif condition="#PageletConfigurationParameters:RecommendationType EQ 'Cart'#">
+		<isloop iterator="Dictionary:CurrentCartBO:ProductLineItemBOs" alias="PLI">
+			<isset name ="SKU" value="#PLI:ProductBO:SKU#" scope="request">
+			<isif condition="#isDefined(SKUList)#">
+				<isset name ="SKUList" value="#SKUList.','.SKU#" scope="request">
+			<iselse>
+				<isset name ="SKUList" value="#SKU#" scope="request">
+			</isif>
+		</isloop>
+		<ISBasketRecommRequest ItemIDs="#SKUList#">
+	<iselseif condition="#PageletConfigurationParameters:RecommendationType EQ 'SearchTerm'#">
+		<ISSearchRecommRequest SearchTerm="#SearchTerm#">
+	<iselseif condition="#PageletConfigurationParameters:RecommendationType EQ 'TopSeller'#">
+		<ISTopsellerRecommRequest>
+	<iselseif condition="#PageletConfigurationParameters:RecommendationType EQ 'User'#">
+		<ISUserRecommRequest>
+	<iselse>
+		<!--- this should not happen --->
+	</isif>
+	
+</div>
+
+<isinclude template="component/common/inc/CollectionItemSuffix.isml">

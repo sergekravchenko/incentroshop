@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<enfinity xmlns:dt="http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt">
+<pagelet-component id="cmp_helpdesk_managersInfo_costCenters">
+<definition-name>app_sf_responsive_cm:component.common.freeStyle.pagelet2-Component</definition-name>
+<display-name xml:lang="de-DE">Kostenstellen</display-name>
+<display-name xml:lang="en-US">Cost Centers</display-name>
+<display-name xml:lang="fr-FR">Centres de coûts</display-name>
+<online>true</online>
+<author business-partner-no="admin" domain="inSPIRED"/>
+<configuration-parameters>
+<configuration-parameter name="HTML">
+<definition-name>app_sf_responsive_cm:component.common.freeStyle.pagelet2-Component-HTML</definition-name>
+<value name="HTML" xml:lang="de-DE">&lt;h1&gt;Kostenstellen&lt;/h1&gt;
+&lt;p&gt;Mit &lt;em&gt;Kostenstellen&lt;/em&gt; können Kundenorganisationen Einkäufe gemäß ihrer internen Kostenrechnung verfolgen und sicherstellen, dass die Einkäufe mit den definierten Budgets übereinstimmen.&lt;/p&gt;
+Administratoren von Kundenorganisationen können Kostenstellen anlegen, bearbeiten und löschen sowie ihnen einen Kostenstellenverwalter und Einkäufer zuordnen.&lt;/p&gt;
+&lt;p&gt;Kostenstellen können aktiviert und deaktiviert werden, um sich an Änderungen in der Buchhaltung einer Kundenorganisation anzupassen.&lt;/p&gt;
+&lt;h2&gt;Kostenstellenmanagement &lt;/h2&gt;
+&lt;p&gt;Kostenstellen können im Bereich &lt;em&gt;Kostenstellen&lt;/em&gt; in &lt;em&gt;Mein Konto&lt;/em&gt; verwaltet werden. Administratoren und Kostenstellenverwalter können hier Kostenstellen anlegen, bearbeiten, aktivieren, deaktivieren, löschen und sich einen Überblick über die Anzahl der Bestellungen und das ausgegebene Budget pro Kostenstelle verschaffen.&lt;/p&gt;
+&lt;h3&gt;Kostenstellen anlegen&lt;/h3&gt;
+&lt;p&gt;Kostenstellenverwalter und Administratoren können auf der Liste &lt;em&gt;Kostenstelle&lt;/em&gt; neue Kostenstellen anlegen. Eine Kostenstelle muss eine eindeutige ID innerhalb der Kundenorganisation haben, ein Name und ein Kostenstellenverwalter muss definiert sein, der alle für diese Kostenstelle erteilten Bestellungen genehmigt oder ablehnt.&lt;br /&gt;&lt;strong&gt;HINWEIS:&lt;/strong&gt; Nur Benutzer mit der Rolle &lt;em&gt;Kostenstellenverwalter&lt;/em&gt; können als Kostenstellenverwalter für eine bestimmte Kostenstelle eingestellt werden. Zusätzlich kann ein Budget für Kostenstellen definiert werden.&lt;/p&gt;
+&lt;h3&gt;Kostenstellenbudgets definieren&lt;/h3&gt;
+&lt;p&gt;Budgets können für die Kostenstelle selbst und speziell für jeden Einkäufer der Kostenstelle definiert werden. Budgets können auf &lt;em&gt;monatlich, vierteljährlich, jährlich&lt;/em&gt; oder &lt;em&gt;fest&lt;/em&gt; gesetzt werden. Wiederkehrende Budgets werden am Ende des definierten Zeitraums automatisch zurückgesetzt.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Interaktionen von Budgets und Abonnements&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;In der Regel ist ein Abonnement ein einmaliger, aber periodisch ausgeführter Kauf bestimmter Produkte oder Dienstleistungen. In abonnementbasierten Geschäftsmodellen zahlen die Kunden daher regelmäßig für die Nutzung oder den Erhalt eines definierten Satzes von Produkten.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;HINWEIS:&lt;/strong&gt; Sobald das Abonnement genehmigt ist, benötigen alle nachfolgenden Bestellungen, die durch dieses Abonnement erstellt werden, keine zusätzliche Genehmigung. Während eine solche wiederkehrende Bestellung das Budget reduziert, wird die wiederkehrende Bestellung selbst nicht gegen das Budget geprüft. Das heißt, die wiederkehrende Bestellung wird auch dann aufgegeben, wenn sie das Budget überschreitet.&lt;/p&gt;
+&lt;h3&gt;Kostenstellen Löschen&lt;/h3&gt;
+&lt;p&gt;&lt;em&gt;Administratoren&lt;/em&gt; oder &lt;em&gt;Kostenstellenmanager&lt;/em&gt; können nicht mehr benötigte Kostenstellen löschen, indem sie auf das Symbol &lt;em&gt;Löschen&lt;/em&gt; in der &lt;em&gt;Kostenstellen&lt;/em&gt;-Liste klicken.&lt;/p&gt;
+&lt;h3&gt;Kostenstellen deaktivieren/reaktivieren&lt;/h3&gt;
+&lt;p&gt;Kostenstellen, die jetzt nicht benötigt werden, aber für eine spätere Verwendung gespeichert werden sollen oder um alle für diese Kostenstelle erteilten Bestellungen zu sehen, können durch Klicken auf das Symbol Deaktivieren/Reaktivieren in der &lt;em&gt;Kostenstellen&lt;/em&gt;-Liste deaktiviert und wieder aktiviert werden.&lt;/p&gt;
+&lt;h3&gt;Einkäufer zu einer Kostenstelle hinzufügen&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;Auf der Kostenstellen-Detailseite klicken Sie auf &lt;em&gt;Hinzufügen&lt;/em&gt;.&lt;br /&gt;Der &lt;em&gt;Einkäufer hinzufügen&lt;/em&gt; Dialog wird gestartet.&lt;/li&gt;.
+&lt;li&gt;Markieren Sie die Kontrollkästchen aller Einkäufer, die Sie der Kostenstelle hinzufügen möchten, und klicken Sie auf &lt;em&gt;Hinzufügen&lt;/em&gt;.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3&gt;Einkäuferbudgets bearbeiten&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;Auf der Seite mit den Kostenstellendetails klicken Sie auf die Schaltfläche Bearbeiten neben dem Einkäufer, den Sie bearbeiten möchten.&lt;br /&gt;Der &lt;em&gt;Einkäufer bearbeiten&lt;/em&gt; Dialog wird gestartet.&lt;/li&gt;
+&lt;li&gt;Geben Sie das Budget ein und legen Sie den Zeitraum fest (monatlich, vierteljährlich, jährlich oder fest). Wiederkehrende Budgets werden am Ende des definierten Zeitraums automatisch zurückgesetzt.&lt;/li&gt;
+&lt;li&gt;Klicken Sie Speichern um die Einstellungen zu bestätigen.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;Bestellungen zu Kostenstellen zuordnen&lt;/h2&gt;
+&lt;p&gt;Sobald ein Einkäufer zu mindestens einer Kostenstelle hinzugefügt wurde, ist die Auswahl einer Kostenstelle für eine Bestellung obligatorisch. Andernfalls könnte eine Bestellung ohne Angabe einer Kostenstelle erteilt werden.&lt;br /&gt;
+&lt;strong&gt;HINWEIS:&lt;/strong&gt; Deaktivierte Kostenstellen können beim Checkout nicht ausgewählt werden.&lt;br /&gt;
+&lt;strong&gt;HINWEIS:&lt;/strong&gt; Wiederkehrende Bestellungen aus einem Abonnement gehören weiterhin zu der Kostenstelle, der sie ursprünglich zugeordnet wurden. Darüber hinaus kann ein Abonnement auch zukünftige Bestellungen anlegen, wenn die ursprüngliche Kostenstelle deaktiviert oder gelöscht wurde. D.h. es kann sinnvoll sein, alle Abonnements einer Kostenstelle zu stornieren, bevor sie deaktiviert/gelöscht wird.&lt;/p&gt;
+&lt;h2&gt;Kostenstellengenehmigung&lt;/h2&gt;
+&lt;p&gt;Wenn eine Bestellung einer Kostenstelle zugeordnet wird, ist die Genehmigung durch den &lt;em&gt;Kostenstellenverwalter&lt;/em&gt; erforderlich, unabhängig vom Kostenstellenbudget oder dem benutzerspezifischen Kostenstellenbudget. Der &lt;em&gt;Kostenstellenverwalter&lt;/em&gt; erhält im Rahmen der Bestellgenehmigung Informationen über bereits ausgegebene Gesamtkostenstellen- und benutzerspezifische Kostenstellenbudgets. Auf dieser Grundlage kann die Bestellung genehmigt oder abgelehnt werden. Der Grund für eine Ablehnung kann durch einen Kommentar erfasst werden.&lt;/p&gt;
+&lt;p&gt;Die Kostenstellengenehmigung wird immer zuerst durchgeführt, gefolgt von der benutzerspezifischen Bestellgenehmigung, die das Ausgabenlimit und das Benutzerbudget berücksichtigt.&lt;br /&gt;&lt;strong&gt;HINWEIS:&lt;/strong&gt; Ein &lt;em&gt;Kostenstellenverwalter&lt;/em&gt; kann eigene Bestellungen genehmigen.</value>
+<value name="HTML" xml:lang="en-US">&lt;h1&gt;Cost Centers&lt;/h1&gt;
+&lt;p&gt;With &lt;em&gt;cost centers&lt;/em&gt; customer organizations can track purchases according to their internal cost accounting and make sure purchases are in line with defined budgets.&lt;/p&gt;
+&lt;p&gt;Administrators of customer organizations can create, edit and delete cost centers as well as assign a cost center owner and buyers to them.&lt;/p&gt;
+&lt;p&gt;Cost centers can be activated and deactivated in order to adapt to changes in the accounting of a customer organization.&lt;/p&gt;
+&lt;h2&gt;Cost Center Management&lt;/h2&gt;
+&lt;p&gt;Cost centers can be managed in the &lt;em&gt;Cost Centers &lt;/em&gt;section of &lt;em&gt;My Account&lt;/em&gt;. Administrators and Cost Center Managers can create, edit, activate/deactivate and delete cost centers here and get an overview of the amount of orders and spent budget per cost center.&lt;/p&gt;
+&lt;h3&gt;Create Cost Centers&lt;/h3&gt;
+&lt;p&gt;Cost center managers and administrators can create new cost centers at the &lt;em&gt;Cost Center&lt;/em&gt; list. A cost center must have a unique ID within the customer organization, a name and cost center manager defined that approves or rejects all orders placed for this cost center.&lt;br /&gt;&lt;strong&gt;NOTE:&lt;/strong&gt; Only users with the role &lt;em&gt;Cost Center Manager &lt;/em&gt;can be set as a cost center manager for a specific cost center. In addition, a budget can be defined for cost centers.&lt;/p&gt;
+&lt;h3&gt;Set Cost Center Budgets&lt;/h3&gt;
+&lt;p&gt;Budgets can be defined for the cost center itself and specifically for each buyer of the cost center. Budgets can be set to &lt;em&gt;monthly, quarterly, yearly&lt;/em&gt; or &lt;em&gt;fixed&lt;/em&gt;. Recurring budgets are automatically reset at the end of the defined period.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Interactions of Budgets and Subscriptions&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Generally, a subscription is an one-time triggered, but periodically executed purchase of certain products or services. In subscription-based business models, consequently, customers pay periodically to use or receive a defined set of products at a regular base.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;NOTE:&lt;/strong&gt; Once the subscription is approved all subsequent orders created by this subscription do not require any additional approval. While such a recurring order reduces the budget, the recurring order itself will not be checked against the budget. That is, the recurring order will be placed even if it exceeds the budget.&lt;/p&gt;
+&lt;h3&gt;Delete Cost Centers&lt;/h3&gt;
+&lt;p&gt;&lt;em&gt;Administrators&lt;/em&gt; or &lt;em&gt;Cost Center Managers &lt;/em&gt;can delete cost centers that are no longer needed by clicking on the &lt;em&gt;delete&lt;/em&gt; icon in the &lt;em&gt;Cost Centers&lt;/em&gt; list.&lt;/p&gt;
+&lt;h3&gt;Deactivate/Reactivate Cost Centers&lt;/h3&gt;
+&lt;p&gt;Cost centers that are not needed now but should be saved for later use or to see all orders placed for this cost center later on, can be deactivated and reactivated again by clicking on the on the deactivate/reactivate icon in the &lt;em&gt;Cost Centers&lt;/em&gt; list.&lt;/p&gt;
+&lt;h3&gt;Add Buyers to a Cost Center&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;At the cost center details page click &lt;em&gt;Add&lt;/em&gt;.&lt;br /&gt;The &lt;em&gt;Add Buyers&lt;/em&gt; dialog is started.&lt;/li&gt;
+&lt;li&gt;Mark the check-boxes of all buyers you want to add to the cost center and click &lt;em&gt;Add&lt;/em&gt;.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3&gt;Edit Buyer Budgets&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;At the cost center details page click the Edit button next to the buyer you want to edit.&lt;br /&gt;The &lt;em&gt;Edit Buyer&lt;/em&gt; dialog is started.&lt;/li&gt;
+&lt;li&gt;Enter the budget and specify the period (&lt;em&gt;monthly, quarterly, yearly&lt;/em&gt; or &lt;em&gt;fixed&lt;/em&gt;).Recurring budgets are automatically reset at the end of the defined period.&lt;/li&gt;
+&lt;li&gt;Click Save to confirm the settings.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;Assigning Orders to Cost Centers&lt;/h2&gt;
+&lt;p&gt;Once a buyer is added to at least one cost center the selection of a cost center for an order is mandatory. Otherwise an order could be placed without providing a cost center.&lt;br /&gt;&lt;strong&gt;NOTE:&lt;/strong&gt; Deactivated cost centers cannot be selected during checkout.&lt;br /&gt;&lt;strong&gt;NOTE:&lt;/strong&gt; Recurring orders created from a subscription will further on belong to the cost center to which they were initially assigned. Furthermore a subscription may also create future orders if the initial cost center was deactivated or deleted. This means, it may be a good idea to cancel all subscriptions of a cost center before it is deactivated/deleted.&lt;/p&gt;
+&lt;h2&gt;Cost Center Approval&lt;/h2&gt;
+&lt;p&gt;When an order is assigned to a cost center the approval from the &lt;em&gt;Cost Center Manager&lt;/em&gt; is required, regardless of the cost center budget or the user-specific cost center budget. The &lt;em&gt;Cost Center Manager&lt;/em&gt; receives information about already spent total cost center and user-specific cost center budgets in context of the order approval. Based on this the order can be approved or rejected. The reason for a rejection can be captured by a comment.&lt;/p&gt;
+&lt;p&gt;Cost center approval is always performed first, followed by the user-specific order approval that takes the users order spend limit and user budget into consideration.&lt;br /&gt;&lt;strong&gt;NOTE:&lt;/strong&gt; A &lt;em&gt;Cost Center Manager&lt;/em&gt; can approve own orders.&lt;/p&gt;</value>
+<value name="HTML" xml:lang="fr-FR">&lt;h1&gt;Centres de coûts&lt;/h1&gt;
+&lt;p&gt;Avec &lt;em&gt;Centres de coûts&lt;/em&gt; les organisations clientes ont la possibilité de suivre les achats selon leurs comptabilisation des coûts internes et de s’’assurer que les achats sont conformément aux budgets définis.&lt;/p&gt;
+&lt;p&gt;Les administrateurs des organisations cliente peuvent créer, modifier et supprimer les centres de coûts et ils peuvent les assigner aussi un propriétaire du centre de côuts et des acheteurs.&lt;/p&gt;
+&lt;p&gt;Les centres de coûts peuvent être activés et désactivés afin de s’’adapter aux modifications de la comptabilité d’’une organisation cliente.&lt;/p&gt;
+&lt;h2&gt;Gestion des centres des coûts&lt;/h2&gt;
+&lt;p&gt;Les centres de coûts peuvent être gérer dans la section &lt;em&gt;Centres de coûts&lt;/em&gt; de &lt;em&gt;Mon compte&lt;/em&gt;. Ici, les administrateurs et les responsables du centre de coûts peuvent créer, modifier, activer/désactiver et supprimer les centres de côuts et obtenir un aperçu du volume de commandes et du budget de dépense par centre de coûts.&lt;/p&gt;
+&lt;h3&gt;Créer un centre de côuts&lt;/h3&gt;
+&lt;p&gt;Les administrateurs et responsables du centre de coûts peuvent créer des nouveaux centres de coûts dans la liste du &lt;em&gt;Centre de côuts&lt;/em&gt;. Un centre de coûts doit avoir un ID unique dans une organisation cliente, un nom et un responsable de centre de coûts défini qui approuve ou rejette tous les commandes passées pour ce centre de coûts.&lt;br /&gt;&lt;strong&gt;REMARQUE  :&lt;/strong&gt; Seuls les utilisateurs ayant le rôle &lt;em&gt;Responsable du centre de coûts&lt;/ em&gt; peut être défini comme un responsable du centre de coûts pour un centre de coûts. En outre, un budget peut être défini pour les centres de coûts.&lt;/p&gt;
+&lt;h3&gt;Établir un budget de centre de coûts&lt;/h3&gt;
+&lt;p&gt;Les budgets peuvent être définis pour le centre de coûts lui-même et spécifique à chaque acheteur du centre de coûts. Les budgets peuvent être établis &lt;em&gt;mensuels, trimestriels, annuels&lt;/em&gt; ou &lt;em&gt;fixés&lt;/em&gt;. Les budgets récurrents seront remis automatiquement à la fin de la période déterminée.&lt;/p&gt;
+&lt;h3&gt;Supprimer les centres de coûts&lt;/h3&gt;
+&lt;p&gt;Les&lt;em&gt;administrateurs&lt;/em&gt; ou les&lt;em&gt;responsables de centre de coûts&lt;/em&gt; ont la possibilité de supprimer les centres de coûts dont ils n’’ont plus besoin en cliquant l&apos;icône &lt;em&gt;Supprimer&lt;/em&gt; dans la liste des &lt;em&gt;Centres des coûts&lt;/em&gt;.&lt;/p&gt;
+&lt;h3&gt;Désactiver/Réactiver les centres des coûts&lt;/h3&gt;
+&lt;p&gt;Les centres de coûts qui ne sont pas nécessaires maintenant, mais doit être enregistrés pour une utilisation ultérieure ou pour afficher toutes les commandes passées pour ce centre de coûts plus tard, peuvent être désactivés et réactivés à nouveau en cliquant sur l&apos;icône désactiver / réactiver dans la liste des &lt;em&gt;Centres de coûts&lt;em&gt;.&lt;/p&gt;
+&lt;h3&gt;Ajouter les acheteurs au centre de coûts&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;Cliquez &lt;em&gt;Ajouter&lt;/em&gt; sur la page de détails de centre de coûts.&lt;br /&gt;Le dialogue &lt;em&gt;Ajouter les acheteurs&lt;/em&gt; sera ouvert.&lt;/li&gt;
+&lt;li&gt;Cochez les cases de tous les acheteurs qui vous souhaitez ajouter au centre de coûts et cliquez &lt;em&gt;Ajouter&lt;/em&gt;.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3&gt;Modifier les budgets des acheteurs&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;Sur la page des détails de centre de coûts cliquez sur le bouton Modifier à côté de l’’acheteur qui vous souhaitez modifier.&lt;br /&gt;Le dialogue &lt;em&gt;Modifier l’’acheteur&lt;/em&gt; sera ouvert.&lt;/li&gt;
+&lt;li&gt;Saisissez le budget et spécifiez la période(&lt;em&gt;mensuelle, trimestrielle, annuelles&lt;/em&gt; ou &lt;em&gt;fixée&lt;/em&gt;). Les budgets récurrents seront remis automatiquement à la fin de la période déterminée.&lt;/li&gt;
+&lt;li&gt;Cliquez Enregistrer pour la validation des réglages.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;Affecter une commande à un centre de coûts&lt;/h2&gt;
+&lt;p&gt;Une fois un acheteurs a été ajouté à au moins un centre de coûts, il est obligatoire de choisir un centre de coûts pour une commande. Autrement une commande pourrait être passée sans fournir un centre de coûts.&lt;br /&gt;&lt;strong&gt;Remarque :&lt;/strong&gt; Les centres de coûts désactivés ne peut pas être sélectionnés lors du passage de la commande.&lt;/p&gt;
+&lt;h2&gt;Approbation de centre de coûts&lt;/h2&gt;
+&lt;p&gt;Si une commande est affectée à un centre de coûts, l’’approbation du &lt;em&gt;Responsable du centre de coûts&lt;/em&gt; sera requis, quel que soit le budget du centre de coûts ou le budget du centre de coûts spécifique à l’’utilisateur. Le &lt;em&gt;Responsable de centre du coûts&lt;/em&gt; reçoit des informations sur le budget total du centre de coûts déjà dépensé et le budget spécifique à l&apos;utilisateur du centre de coûts `déjà dépensé dans le cadre d&apos;approbation de commande. Sur la base de cela, la commande peut être approuvée ou rejetée. La raison du rejet peut être mise par écrit dans un commentaire.&lt;/p&gt;
+&lt;p&gt;L&apos;approbation du centre de coûts est toujours effectuée en premier lieu, suivie par l&apos;approbation de commande spécifique à l&apos;utilisateur ce qui prends le plafond de dépense de l&apos;utilisateur et le budget d&apos;utilisateur en considération.&lt;br /&gt;&lt;strong&gt;REMARQUE:&lt;/strong&gt; Un &lt;em&gt;Responsable du centre de coûts&lt;/em&gt; peut approuver ses propres commandes.&lt;/p&gt;</value>
+</configuration-parameter>
+</configuration-parameters>
+</pagelet-component>
+</enfinity>

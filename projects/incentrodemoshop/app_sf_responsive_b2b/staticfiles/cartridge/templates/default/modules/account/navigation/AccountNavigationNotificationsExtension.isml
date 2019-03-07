@@ -1,0 +1,11 @@
+<iscontent type="text/html" charset="UTF-8" compact="true">
+<isif condition="#NOT CurrentUserBO:Extension("UserBORoleExtension"):hasRole("APP_B2B_OCI_USER")#">
+	<li class="account-nav-header" data-toggle="collapse" data-target="#'#'#collapseNotification">
+		<p class="account-nav-heading"><span class="glyphicon glyphicon-bell"></span> <istext key="account.navigation.notifications.subtitle"/></p>
+	</li>
+	<li id="collapseNotification" class="collapse">
+		<ul class="account-navigation list-unstyled">
+			<isinclude extensionpoint="AccountNavigationExtension"/>
+		</ul>
+	</li>
+</isif>

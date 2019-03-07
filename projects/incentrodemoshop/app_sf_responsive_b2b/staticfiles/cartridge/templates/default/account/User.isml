@@ -1,0 +1,137 @@
+<iscontent type="text/html" charset="UTF-8" compact="true">
+<iscache type="forbidden">
+<isinclude template="modules/B2BModules">
+
+<isset name="SelectedUser" value="#CustomerBO:Extension("GroupCustomer"):UserBOByID(UserID)#" scope="request">
+<isset name="OrderApprovalExtension" value="#SelectedUser:Extension("UserBOOrderApprovalExtension")#" scope="request">
+
+<!--- ROLES --->
+<isset name="SelectedUserRoleIDs" value="#SelectedUser:Extension("UserBORoleExtension"):RoleIDs#" scope="request">
+<!--- ORDERED SET OF PERMISSIONS NAME --->
+<isUserPermissions user="#SelectedUser#" permissions="SelectedUserPermissions">
+
+<!--- BREADCRUMB --->
+<div class="breadcrumbs row">
+	<isAccountBreadcrumb trailtext="#SelectedUser:FirstName.' '.SelectedUser:LastName#" link="#URL(Action('ViewUsers-Start'))#" text="#localizeText('account.users.link')#">
+</div>
+
+<!--- Marketing slot --->
+<div class="marketing-area">
+	<ISMarketingSlot id="baseMarketing">
+</div>
+
+<div class="account-wrapper" data-testing-id="user-details-page">
+	
+	<div class="row account-main">
+		
+		<!--- Left Navigation Panel --->
+		<div class="col-md-3 account-nav-box">
+			<isAccountNavigation selecteditem="USERS">
+		</div>
+		    
+		<div class="col-md-9">
+			<div class="marketing-area">
+				<ISMarketingSlot id="contentMarketing">
+			</div>
+			
+			<h1><istext key="account.user.details.heading" /></h1>
+			
+			
+			<div class="row section">
+				<div class="col-md-4 pull-right col-xs-2">
+					<a data-testing-id="edit-profile-button" class="btn-tool" title="<istext key="account.profile.update.link"/>" href="#URLEX(SecureURL,'',Action('ViewUserProfile-View'), Parameter('UserID', SelectedUser:ID))#">
+						<span class="glyphicon glyphicon-pencil"></span>
+					</a>
+				</div>
+				<div class="col-md-8 col-xs-10">
+					<h3>
+						<istext key="account.user.details.profile.heading"/>
+					</h3>
+					<div class="row">
+						<div class="col-sm-12">
+							<dl class="dl-horizontal dl-separator">
+								<dt><istext key="account.profile.name.label"/></dt>
+								<dd>
+									<isif condition="#(isDefined(SelectedUser:Title) AND (SelectedUser:Title NE ''))#"><isprint value="#SelectedUser:Title#">&nbsp;</isif><isprint value="#SelectedUser:FirstName#"> <isprint value="#SelectedUser:LastName#">
+								</dd>
+							
+								<isif condition="#isDefined(SelectedUser:Department) AND (SelectedUser:Department NE '')#">
+									<dt><istext key="account.profile.department.label" /></dt>
+									<dd><isprint value="#SelectedUser:Department#"></dd>
+								</isif>
+							
+								<isif condition="#isDefined(SelectedUser:PhoneBusiness) AND (SelectedUser:PhoneBusiness NE '')#">
+									<dt><istext key="account.profile.phone.label"/></dt>
+									<dd><isprint value="#SelectedUser:PhoneBusiness#"></dd>
+								</isif>
+							
+								<dt><istext key="account.profile.email.label" /></dt>
+								<dd><isprint value="#SelectedUser:Email#"></dd>
+							</dl>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="row section">
+				<div class="col-md-4 pull-right col-xs-2">
+					<a class="btn-tool" title="<istext key="account.profile.update.link"/>" href="#URLEX(SecureURL,'',Action('ViewUserRole-View'), Parameter('UserID', SelectedUser:ID))#">
+						<span class="glyphicon glyphicon-pencil"></span>
+					</a>
+				</div>
+				<div class="col-md-8 col-xs-10">
+					<h3>
+						<istext key="account.user.details.profile.role_and_budget_limits.heading"/>
+					</h3>
+					<div class="row">
+						<div class="col-sm-12">
+							<dl class="dl-horizontal dl-separator">
+								<dt><istext key="account.user.new.role.label" /></dt>
+								<dd>
+									<isloop iterator="SelectedUserRoleIDs" alias="RoleID">
+										<isset name="UserRole" value="#CustomerBO:Extension("CustomerBOSecurityExtension"):RoleByID(RoleID)#" scope="request">
+										<isprint value="#UserRole:Name#">
+										<isif condition="#hasNext(RoleID)#">, </isif>
+									</isloop>
+								</dd>
+								
+								<dt><istext key="account.user.new.permissions.label" /></dt>
+								<dd>
+									<isloop iterator="SelectedUserPermissions" alias="Permission">
+										<isprint value="#Permission#"><isif condition="#hasNext(Permission)#"><br/></isif>
+									</isloop>
+								</dd>
+							</dl>
+							<dl class="dl-horizontal dl-separator">
+								<dt><istext key="account.user.new.order_spend_limit.label" /></dt>
+								<dd>
+									<isif condition="#OrderApprovalExtension:SingleOrderThresholdAmount:Available#">
+										<isprint value="#OrderApprovalExtension:SingleOrderThresholdAmount#">
+									<iselse/>
+										<istext key="approval.details.threshold.unlimited"/>
+									</isif>
+								</dd>
+								
+								<isif condition="#OrderApprovalExtension:Budget(OrderApprovalExtension:BudgetType):Available#">
+									<dt>
+										<istext key="account.budget.common.per_type" parameter0="#lcase(OrderApprovalExtension:BudgetType)#" />
+									</dt>
+									<dd>
+										<isprint value="#OrderApprovalExtension:Budget(OrderApprovalExtension:BudgetType)#">
+									</dd>
+								<iselse>
+									<dt>
+										<istext key="account.user.budget.label"/>
+									</dt>
+									<dd>
+										<istext key="account.budget.common.undefined"/>
+									</dd>
+								</isif>
+							</dl>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

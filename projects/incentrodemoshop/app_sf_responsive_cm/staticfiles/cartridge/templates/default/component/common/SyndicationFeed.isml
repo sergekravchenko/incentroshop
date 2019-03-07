@@ -1,0 +1,81 @@
+<iscontent type="text/html" charset="UTF-8" compact="true">
+
+<%
+	// Followed code checking is request url added to feed url 
+	// for soquero automated test OnSiteInterlinkingTest.testSoQueroContentFeed
+	String requestUrl = (String)getObject("RequestString");
+	String feedUrl = (String)getObject("SyndFeedURL");
+	if(requestUrl != null && feedUrl != null && feedUrl.endsWith(requestUrl))
+	{
+		out.print("<!-- requestUrlAppended -->");
+	}
+%>
+
+<isif condition="#hasElements(PageletConfigurationParameters:DisplayOptions)#">
+	<isloop iterator="PageletConfigurationParameters:DisplayOptions" alias="DisplayOption">
+		<%getPipelineDictionary().put((String) getObject("DisplayOption"), true);%>
+	</isloop>
+</isif>
+
+<isif condition="#isDefined(SyndFeed)#">
+	<isif condition="#hasLoopElements(SyndFeed:Entries)#">
+		<div class="contentBoxStyle">
+			<h3>
+				<isif condition="#isDefined(SyndFeed:Image) AND (ShowImage EQ 'true')#">
+					<isif condition="#isDefined(SyndFeed:Image:Link)#">
+						<a href="<isprint value="#SyndFeed:Image:Link#">" <isif condition="#isDefined(NewTargetWindow) AND (NewTargetWindow EQ 'true')#">target="<isprint value="#Pagelet:Id#">"</isif>>
+					</isif>
+					<img src="<isprint value="#SyndFeed:Image:getUrl#">" title="<isprint value="#SyndFeed:Image:Title#">" />
+					<isif condition="#isDefined(SyndFeed:Image:Link)#">
+						</a>
+					</isif>
+				</isif>
+				<isif condition="#isDefined(ShowFeedHeader) AND (ShowFeedHeader EQ 'true')#">
+					<isif condition="#isDefined(SyndFeed:Title)#">
+						<isprint value="#SyndFeed:Title#">
+					</isif>
+				<iselse>
+					<isif condition="#isDefined(PageletConfigurationParameters:HeaderText)#">
+						<isprint value="#PageletConfigurationParameters:HeaderText#">
+					</isif>
+				</isif>
+			</h3>
+			<div class="contentBoxBody">
+				<isset name="SyndFeedEntriesCount" value="#0#" scope="request">
+				<isloop iterator="SyndFeed:Entries" alias="sfe">
+					<isif condition="#isDefined(PageletConfigurationParameters:MaxItems)#">
+						<isif condition="#val(PageletConfigurationParameters:MaxItems) EQ val(SyndFeedEntriesCount)#">
+							<isbreak/>
+						</isif>
+					</isif>
+					<isset name="SyndFeedEntriesCount" value="#SyndFeedEntriesCount + 1#" scope="request">
+					<p>
+						<isif condition="#isDefined(sfe:Link)#">
+							<a href="<isprint value="#sfe:Link#">" <isif condition="#isDefined(NewTargetWindow) AND (NewTargetWindow EQ 'true')#">target="<isprint value="#Pagelet:Id#">"</isif>><isprint value="#sfe:Title#" /></a>
+						<iselse>
+							<isprint value="#sfe:Title#" />
+						</isif>
+					</p>
+					<isif condition="#isDefined(ShowDescriptions) AND (ShowDescriptions EQ 'true')#">
+						<isif condition="#isDefined(sfe:Description:Type) AND (sfe:Description:Type EQ 'text/html') AND (EnableHTML EQ 'true')#">
+							<p><isprint value="#sfe:Description:Value#" encoding="off"/></p>
+						<iselseif condition="#isDefined(sfe:Description:Value) AND (ShowDescriptions EQ 'true')#">
+							<p><isprint value="#sfe:Description:Value#"/></p>
+						</isif>
+						<isloop iterator="sfe:Contents" alias="sfec">
+							<p>
+								<isif condition="#(sfec:Type EQ 'html') AND (EnableHTML EQ 'true')#">
+									<isprint value="#sfec:Value#" encoding="off">
+								<iselse>
+									<isprint value="#sfec:Value#">
+								</isif>
+							</p>
+						</isloop>
+					</isif>
+				</isloop>
+			</div>
+		</div>
+	</isif>
+<iselse>
+	<!-- No syndication feed available -->
+</isif>

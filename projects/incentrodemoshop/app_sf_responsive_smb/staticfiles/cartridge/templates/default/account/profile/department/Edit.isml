@@ -1,0 +1,18 @@
+<iscontent type="text/html" charset="UTF-8" compact="true">
+
+<isset name="CompanyCustomer" value="#CustomerBO:Extension("CompanyCustomer")#" scope="request">
+
+<!--- Available for business customers only--->
+<isif condition="#isDefined(CompanyCustomer)#">
+	<div class="form-group">
+		<label class="col-sm-3 col-md-3 control-label" for="<isprint value="#CurrentForm:Department:QualifiedName#">"><istext key="account.update_profile.department.label"/></label>
+		<div class="col-md-4 col-sm-6">
+			<input class="form-control" maxlength="60"
+				type="text"
+				name="<isprint value="#CurrentForm:Department:QualifiedName#">"
+				id="<isprint value="#CurrentForm:Department:QualifiedName#">"
+				value="<isif condition="#CurrentForm:Submitted#"><isprint value="#CurrentForm:Department:Value#"><iselse><isprint value="#UserBO:Department#"></isif>"
+			/>
+		</div>
+	</div>
+</isif>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pagelet:PageletModel xmlns:pagelet="http://www.intershop.de/pagelet/2010" name="component.search.searchTermSpecificContent.pagelet2">
+  <pageletDefinitions name="Component">
+    <callParameterDefinitions optional="true" name="SearchTerm" type="java.lang.String"/>
+    <callParameterInterfaces referencedName="app_sf_responsive_cm:interface.container.content.pagelet2-Interface"/>
+    <callParameterInterfaces referencedName="app_sf_responsive_cm:interface.marketing.base.pagelet2-Interface"/>
+    <callParameterInterfaces referencedName="app_sf_responsive_cm:interface.marketing.content.pagelet2-Interface"/>
+    <callParameterInterfaces referencedName="app_sf_responsive_cm:interface.marketing.sidePanel.pagelet2-Interface"/>
+    <callParameterInterfaces referencedName="app_sf_responsive_cm:interface.pagevariant.content.pagelet2-Interface"/>
+    <configurationParameterDefinitions name="SearchTermCondition" typeReference="bc_pmc:types.pagelet2-Text"/>
+    <configurationParameterDefinitions optional="true" name="CSSClass" typeReference="bc_pmc:types.pagelet2-Text"/>
+    <renderTemplate referencedName="component/search/SearchTermSpecificContent.isml"/>
+    <slotInclusionDefinitions>
+      <slotDefinition referencedName="app_sf_responsive_cm:slot.container.content.pagelet2-Slot"/>
+    </slotInclusionDefinitions>
+  </pageletDefinitions>
+</pagelet:PageletModel>

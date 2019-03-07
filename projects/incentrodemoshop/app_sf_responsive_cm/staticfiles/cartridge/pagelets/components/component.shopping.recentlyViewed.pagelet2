@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pagelet:PageletModel xmlns:pagelet="http://www.intershop.de/pagelet/2010" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://www.intershop.de/core/2010" name="component.shopping.recentlyViewed.pagelet2">
+  <pageletDefinitions name="Component" container="true">
+    <callParameterInterfaces referencedName="app_sf_responsive_cm:interface.pagevariant.content.pagelet2-Interface"/>
+    <configurationParameterDefinitions name="ProductView" localizable="false" typeReference="bc_pmc:types.pagelet2-ViewContext">
+      <parameterBindings xsi:type="core:ParameterValueBinding" name="ObjectType" value="Product"/>
+    </configurationParameterDefinitions>
+    <configurationParameterDefinitions name="ListItemCSSClass" optional="true" localizable="false" typeReference="bc_pmc:types.pagelet2-Text"/>
+    <renderPipeline referencedName="RenderPagelet-GetAllRecentlyViewedItems"/>
+    <renderTemplate referencedName="component/shopping/RecentlyViewed"/>
+    <slotInclusionDefinitions>
+      <slotDefinition referencedName="app_sf_responsive_cm:slot.marketing.base.pagelet2-Slot"/>
+    </slotInclusionDefinitions>
+  </pageletDefinitions>
+</pagelet:PageletModel>

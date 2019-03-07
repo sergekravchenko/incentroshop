@@ -1,0 +1,22 @@
+<iscontent personalized="true" type="text/html" charset="UTF-8" compact="true">
+
+<!--- fallback to Order extension --->
+<isif condition="#NOT isDefined(AdditionalInformationExtension)#">
+	<isset name="AdditionalInformationExtension" value="#OrderBO:Extension("OrderBOAdditionalInformationExtension")#" scope="request"/>
+</isif>
+<!--- fallback to Basket extension --->
+<isif condition="#NOT isDefined(AdditionalInformationExtension)#">
+	<isset name="AdditionalInformationExtension" value="#BasketBO:Extension("BasketBOAdditionalInformationExtension")#" scope="request"/>
+</isif>
+
+<!--- display message to merchant --->	
+<isif condition="#AdditionalInformationExtension:MessageToMerchant NE ''#">
+	<div class="col-xs-12"> 
+		<div class="infobox">
+			<h3><istext key="checkout.additional_data.message" /></h3>
+			<div>
+				<isprint value="#AdditionalInformationExtension:MessageToMerchant#" />
+			</div>
+		</div>
+	</div>
+</isif>

@@ -1,0 +1,70 @@
+<iscontent type="text/html" charset="UTF-8" compact="true">
+
+<isif condition="#isDefined(Addition)#">
+	<isset name="MAX" value="#Comparison:Value + Addition:Value#" scope="request" />
+<iselse>
+	<isset name="MAX" value="#Comparison:Value#" scope="request" />
+</isif>
+
+<isif condition="#MAX > Limit:Value#">
+	
+	<isset name="PERCENT" value="#100#" scope="request" />
+	
+	<isif condition="#isDefined(Addition)#">
+		<isset name="ADDITION_PERCENT" value="#(Addition:Value / MAX * 100)#" scope="request" />
+		<isset name="PERCENT" value="#100 - ADDITION_PERCENT#" scope="request" />
+	</isif>
+	
+	<isset name="WIDTH" value="#PERCENT#" scope="request" />
+	
+	<isif condition="#Comparison:Value > Limit:Value#">
+		<isset name="COLOR" value="progress-bar-danger" scope="request"/>
+		<isset name="ADDITION_OPACITY" value="opacity: 0.80;" scope="request"/>
+	<iselse>
+		<isset name="COLOR" value="progress-bar-success" scope="request"/>
+	</isif>
+	
+	<isset name="ADDITION_COLOR" value="progress-bar-danger" scope="request"/>
+	<isset name="OVERFLOW" value="#(Limit:Value / MAX * 100)#" scope="request"/>
+	
+<iselse>
+
+	<isset name="PERCENT" value="#(Comparison:Value / Limit:Value * 100)#" scope="request"/>
+
+	<isif condition="#isDefined(Addition)#">
+		<isset name="ADDITION_PERCENT" value="#(Addition:Value / Limit:Value * 100)#" scope="request" />
+		<isset name="ADDITION_COLOR" value="progress-bar-warning" scope="request"/>
+	</isif>
+	
+	<isset name="WIDTH" value="#PERCENT#" scope="request" />
+	<isset name="COLOR" value="progress-bar-success" scope="request"/>
+	
+</isif>
+
+
+<isif condition="#MAX > Limit:Value#">
+	<div class="progress-overflow">
+		<div class="progress-overflow-indicator" style="width: <isprint value="#OVERFLOW#">%;">
+			<span class="overflow-display"><isprint value="#OVERFLOW#" formatter="#.#">%</span>
+		</div>
+	</div>
+</isif>
+		
+<div class="progress">
+	<div class="progress-bar <isprint value="#COLOR#">" role="progressbar"
+		aria-valuenow="<isprint value="#PERCENT#">"
+		style="width: <isprint value="#WIDTH#" symbols="DecimalSeparator=.">%;"
+		aria-valuemin="0" aria-valuemax="100"
+		>
+		<span class="progress-display"><isprint value="#Comparison#"></span>
+	</div>
+	<isif condition="#isDefined(ADDITION_PERCENT)#">
+		<div class="progress-bar <isprint value="#ADDITION_COLOR#"/>" role="progressbar"
+		aria-valuenow="<isprint value="#ADDITION_PERCENT#">"
+		style="width: <isprint value="#ADDITION_PERCENT#" symbols="DecimalSeparator=.">%;<isprint value="#ADDITION_OPACITY#">"
+		aria-valuemin="0" aria-valuemax="<isprint value="#ADDITION_PERCENT#">"
+		>
+			<span class="progress-display"><isprint value="#Addition#"></span>
+		</div>
+	</isif>
+</div>

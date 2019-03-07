@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pagelet:PageletModel xmlns:pagelet="http://www.intershop.de/pagelet/2010" name="component.common.freeStyleWithTitle.pagelet2">
+  <pageletDefinitions name="Component">
+    <callParameterInterfaces referencedName="app_sf_responsive_cm:interface.collection.items.pagelet2-Interface"/>
+    <configurationParameterDefinitions name="Title" typeReference="bc_pmc:types.pagelet2-Text"/>
+    <configurationParameterDefinitions name="HTML" typeReference="bc_pmc:types.pagelet2-Html"/>
+    <renderTemplate referencedName="component/common/FreeStyleWithTitle"/>
+  </pageletDefinitions>
+</pagelet:PageletModel>

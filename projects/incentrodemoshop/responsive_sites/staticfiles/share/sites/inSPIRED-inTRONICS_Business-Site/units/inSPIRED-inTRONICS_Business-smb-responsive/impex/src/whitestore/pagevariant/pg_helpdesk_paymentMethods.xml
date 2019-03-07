@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<enfinity xmlns:dt="http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt">
+<pagelet-page id="pg_helpdesk_paymentMethods">
+<definition-name>app_sf_responsive_cm:pagevariant.standard.pagelet2-Pagevariant</definition-name>
+<parent id="pg_tmp_helpDeskPage" domain="inSPIRED-inTRONICS_Business-smb-responsive" />
+<display-name xml:lang="de-DE">Hilfe - Zahlungsarten</display-name>
+<display-name xml:lang="en-US">Helpdesk - Payment Methods</display-name>
+<online>true</online>
+<author business-partner-no="admin" domain="inSPIRED"/>
+<configuration-parameters>
+<configuration-parameter name="MetaInfo">
+<definition-name>app_sf_responsive_cm:pagevariant.standard.pagelet2-Pagevariant-MetaInfo</definition-name>
+<value name="MetaInfo" xml:lang="de-DE">metaTitle=Zahlungsart;metaDescription=;metaKeywords=</value>
+<value name="MetaInfo" xml:lang="en-US">metaTitle=Payment Methods;metaDescription=;metaKeywords=</value>
+</configuration-parameter>
+</configuration-parameters>
+<placeholder-configurations>
+<placeholder-configuration hide-target-content="false" place-target-content-on-top="false">
+<parent-placeholder placeholder-id="ph_helpDeskPage_BaseMarketing"/>
+</placeholder-configuration>
+<placeholder-configuration hide-target-content="false" place-target-content-on-top="false">
+<parent-placeholder placeholder-id="ph_helpDeskPage_Content"/>
+</placeholder-configuration>
+<placeholder-configuration hide-target-content="false" place-target-content-on-top="false">
+<parent-placeholder placeholder-id="ph_helpDeskPage_sidePanelMarketing"/>
+</placeholder-configuration>
+</placeholder-configurations>
+</pagelet-page>
+<pagelet-placeholder-assignment id="7AAKDgAbRVgAAAE_cReSFMeq">
+<placeholder pagelet-domain="inSPIRED-inTRONICS_Business-smb-responsive" pagelet-id="pg_helpdesk_paymentMethods">
+<parent-placeholder placeholder-id="ph_helpDeskPage_Content"/>
+</placeholder>
+<pagelet id="cmp_helpdesk_paymentMethods" domain="inSPIRED-inTRONICS_Business-smb-responsive"/>
+<position>1</position>
+<online>true</online>
+</pagelet-placeholder-assignment>
+</enfinity>

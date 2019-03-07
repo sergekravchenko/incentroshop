@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Override instance from app_sf_responsive TODO: Find out a better solution, just to change scope to application in app_sf_responsive is not an option -->
+<components xmlns="http://www.intershop.de/component/2010">
+
+	<!-- Contact us subject keys -->
+	<instance name="contactUsEnumerationKeyProvider" with="EnumerationKeyProvider">
+		<fulfill requirement="key" value="orderinquiries"/>
+		<fulfill requirement="key" value="returns"/>
+		<fulfill requirement="key" value="myaccount"/>
+		<fulfill requirement="key" value="personal_data" />
+		<fulfill requirement="key" value="personal_data_deletion" />
+		<fulfill requirement="key" value="orderplacing"/>
+		<fulfill requirement="key" value="giftcertificates"/>
+		<fulfill requirement="key" value="productquestion"/>
+	</instance>
+
+</components>

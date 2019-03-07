@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<enfinity xmlns:dt="http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt">
+<pagelet-component id="cmp_searchResult">
+<definition-name>app_sf_responsive_cm:component.shopping.searchResult.pagelet2-Component</definition-name>
+<display-name xml:lang="de-DE">Suchergebnis</display-name>
+<display-name xml:lang="en-US">Search Result</display-name>
+<online>true</online>
+<author business-partner-no="admin" domain="inSPIRED"/>
+<configuration-parameters>
+<configuration-parameter name="ProductView1">
+<definition-name>app_sf_responsive_cm:component.shopping.searchResult.pagelet2-Component-ProductView1</definition-name>
+<value name="ProductView1">app_sf_responsive:vc_productTile@inSPIRED-inTRONICS_Business-smb-responsive</value>
+</configuration-parameter>
+<configuration-parameter name="ProductView2">
+<definition-name>app_sf_responsive_cm:component.shopping.searchResult.pagelet2-Component-ProductView2</definition-name>
+<value name="ProductView2">app_sf_responsive:vc_productList@inSPIRED-inTRONICS_Business-smb-responsive</value>
+</configuration-parameter>
+<configuration-parameter name="Sortings">
+<definition-name>app_sf_responsive_cm:component.shopping.searchResult.pagelet2-Component-Sortings</definition-name>
+<value name="Sortings">
+<value>name-asc</value>
+<value>name-desc</value>
+<value>ProductSalePrice-asc</value>
+<value>ProductSalePrice-desc</value>
+<value>SalesRankUnitsIndex-desc</value>
+<value>ArrivalDate-desc</value>
+</value>
+</configuration-parameter>
+</configuration-parameters>
+<slots>
+<slot>
+<definition-name>app_sf_responsive_cm:slot.marketing.base.pagelet2-Slot</definition-name>
+<optional>false</optional>
+<sorting>false</sorting>
+</slot>
+<slot>
+<definition-name>app_sf_responsive_cm:slot.marketing.content.pagelet2-Slot</definition-name>
+<optional>false</optional>
+<sorting>false</sorting>
+</slot>
+<slot>
+<definition-name>app_sf_responsive_cm:slot.marketing.sidePanel.pagelet2-Slot</definition-name>
+<optional>false</optional>
+<sorting>false</sorting>
+</slot>
+</slots>
+</pagelet-component>
+</enfinity>

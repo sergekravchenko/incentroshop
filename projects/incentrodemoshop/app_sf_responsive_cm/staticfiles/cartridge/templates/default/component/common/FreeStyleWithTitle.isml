@@ -1,0 +1,13 @@
+<iscontent type="text/html" charset="UTF-8" compact="true">
+<isinclude template="modules/Modules">
+
+<isinclude template="component/common/inc/CollectionItemPrefix.isml">
+
+<div>
+	<isif condition="#NOT(RenderedInCollection EQ 'true') AND isDefined(PageletConfigurationParameters:Title) AND (PageletConfigurationParameters:Title NE '')#">
+		<h2><isprint value="#PageletConfigurationParameters:Title#"></h2>
+	</isif>
+	<isHtmlPrint value="#PageletConfigurationParameters:HTML#">
+</div>
+
+<isinclude template="component/common/inc/CollectionItemSuffix.isml">

@@ -1,0 +1,36 @@
+<iscontent type="text/html" charset="UTF-8" compact="true">
+<isset name="CostCenterBOs" value="#CurrentCartBO:UserBO:Extension("CostCenter"):BuyerCostCenterBOs#" scope="request">
+<isif condition="#hasLoopElements(CostCenterBOs)#">
+	<isset name="OnlyOneCostCenter" value="#NOT isDefined(ERROR_CostCenterMissing) AND (CostCenterBOs:Size==1)#" scope="request">
+	<div class="section clearfix" id="Checkout_CostCenterSelection">
+			<!--- server side error message --->
+			<isif condition="#isDefined(ERROR_CostCenterMissing)#">
+				<div role="alert" class="alert alert-danger">
+					<istext key="checkout.payment.costcenter.error"/>
+				</div>
+			</isif>
+			<p class="indicates-required"><span class="required">*</span><istext key="account.required_field.message" /></p>
+			<div class="form-group<isif condition="#isDefined(ERROR_CostCenterMissing)#"> has-error</isif>">
+				<!--- Cost center selection --->
+				<label class="control-label col-sm-2"><istext key="checkout.payment.costcenter.label" /><span class="required">*</span></label>
+				<div class="col-sm-6" id="CostCenter_Dropdown">
+					<!--- Cost center id from basket if already set --->
+					<isset name="SelectedCostCenterID" value="#CurrentCartBO:Extension("BasketBOCostCenterExtension"):CostCenterBO:ID#" scope="request"/>
+					<select 
+						data-testing-id="CostCenterSelection"
+						class="form-control" 
+						name="CostCenterID" 
+						data-bv-notempty-message="<istext key="checkout.payment.costcenter.error"/>"/>">
+						<isif condition="#(NOT isDefined(SelectedCostCenterID) OR (SelectedCostCenterID EQ '')) AND NOT OnlyOneCostCenter#">	
+							<option value=""><istext key="checkout.payment.costcenter.select.option.first"/></option>
+						</isif>
+						<isloop iterator="CostCenterBOs" alias="CostCenter">
+							<option value="#CostCenter:ID#"
+								<isif condition="#(CostCenter:ID EQ SelectedCostCenterID) OR OnlyOneCostCenter#">selected</isif>
+							><isprint value="#CostCenter:Name#"> - <isprint value="#CostCenter:DisplayName#"></option>		
+						</isloop>
+					</select>
+				</div>
+			</div>
+	</div>
+</isif>

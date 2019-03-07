@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pagelet:PageletModel xmlns:pagelet="http://www.intershop.de/pagelet/2010" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://www.intershop.de/core/2010" name="component.shopping.categoryPage.pagelet2">
+  <pageletDefinitions name="Component">
+    <callParameterDefinitions name="CategoryBO" type="com.intershop.component.catalog.capi.CatalogCategoryBO"/>
+    <callParameterDefinitions name="CatalogBO" type="com.intershop.component.catalog.capi.CatalogBO"/>
+    <callParameterDefinitions name="Repository" type="com.intershop.component.mvc.capi.catalog.Repository"/>
+    <callParameterDefinitions name="CurrentOrganization" type="com.intershop.component.organization.capi.Organization"/>
+    <callParameterDefinitions optional="true" name="PageNumber" type="java.lang.String"/>
+    <callParameterDefinitions optional="true" name="PageSize" type="java.lang.String"/>
+    <callParameterDefinitions optional="true" name="SortingAttribute" type="java.lang.String"/>
+    <callParameterDefinitions optional="true" name="Action" type="java.lang.String"/>
+    <callParameterDefinitions optional="true" name="PageableID" type="java.lang.String"/>
+    <callParameterDefinitions optional="true" name="SearchParameter" type="java.lang.String"/>
+    <callParameterDefinitions optional="true" name="ListNavigationVO" type="com.intershop.sellside.storefront.base.capi.common.ListNavigationVO"/>
+    <callParameterDefinitions optional="true" name="hasParametricNavigation" type="java.lang.Boolean"/>
+    <callParameterInterfaces referencedName="app_sf_responsive_cm:interface.pagevariant.content.pagelet2-Interface"/>
+    <configurationParameterDefinitions name="SubCategoryView" localizable="false" typeReference="bc_pmc:types.pagelet2-ViewContext">
+      <parameterBindings xsi:type="core:ParameterValueBinding" name="ObjectType" value="Category"/>
+    </configurationParameterDefinitions>
+    <renderTemplate referencedName="component/shopping/CategoryPage"/>
+    <slotInclusionDefinitions>
+      <slotDefinition referencedName="app_sf_responsive_cm:slot.marketing.base.pagelet2-Slot"/>
+    </slotInclusionDefinitions>
+    <slotInclusionDefinitions>
+      <slotDefinition referencedName="app_sf_responsive_cm:slot.marketing.content.pagelet2-Slot"/>
+    </slotInclusionDefinitions>
+    <slotInclusionDefinitions>
+      <slotDefinition referencedName="app_sf_responsive_cm:slot.marketing.sidePanel.pagelet2-Slot"/>
+    </slotInclusionDefinitions>
+    <slotInclusionDefinitions>
+      <slotDefinition referencedName="app_sf_responsive_cm:slot.marketing.category.pagelet2-Slot"/>
+    </slotInclusionDefinitions>
+  </pageletDefinitions>
+</pagelet:PageletModel>

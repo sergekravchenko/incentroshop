@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<DPipelet dbo.type="com.intershop.beehive.core.rapi.pipeline.DPipelet" id="Pipelet1" >
+<pipeletName>SetOrderPendingOrderDocumentNo</pipeletName>
+<pipeletClass>com.intershop.application.responsive.webshop.b2b.pipelet.SetOrderPendingOrderDocumentNo</pipeletClass>
+<errorConnector>false</errorConnector>
+<transactionMode>required</transactionMode>
+<properties>
+<DPipeletProperty dbo.type="com.intershop.beehive.core.rapi.pipeline.DPipeletProperty" id="dictionary-in_OrderBO" >
+<key>OrderBO</key>
+<input>required</input>
+<propertyClass>com.intershop.component.order.capi.OrderBO</propertyClass>
+<group>dictionary-in</group>
+</DPipeletProperty>
+<DPipeletProperty dbo.type="com.intershop.beehive.core.rapi.pipeline.DPipeletProperty" id="dictionary-in_PendingOrderDocumentNo" >
+<key>PendingOrderDocumentNo</key>
+<input>required</input>
+<propertyClass>java.lang.String</propertyClass>
+<group>dictionary-in</group>
+</DPipeletProperty>
+</properties>
+</DPipelet>

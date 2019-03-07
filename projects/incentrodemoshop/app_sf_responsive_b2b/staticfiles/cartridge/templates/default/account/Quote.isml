@@ -1,0 +1,44 @@
+<iscontent type="text/html" charset="UTF-8" compact="true">
+
+<ismodule template="quote/QuoteState"
+	name="QuoteState"
+	attribute="quote"
+	attribute="displaymode"
+	attribute="currentdate"
+>
+
+<isset scope="request" name="EditMode" value="#(Quote:State==0) OR (  ( (Quote:State==4) OR (Quote:State==6) ) AND ( (Quote:Modified EQ "true") OR (EditMode EQ "true") ) )#" >
+<isset scope="request" name="EditDisplayName" value="false">
+<isset scope="request" name="EditDescription" value="false">
+<isif condition="#(Quote:State==0) OR ( (Quote:State==4) AND (EditMode EQ "true") )#">
+	<isset scope="request" name="EditDescription" value="true">
+	<isset scope="request" name="EditDisplayName" value="true">
+</isif>
+
+<div class="breadcrumbs row">
+	<isAccountBreadcrumb trailtext="#localizeText('quote.quote_details.link')#" link="#URL(Action("ViewQuoteList-Paging"), Parameter("PageNumber",PageNumber))#" text="#localizeText('quote.quotes.link')#">
+</div>
+
+<!--- Marketing slot --->
+<div class="marketing-area">
+	<ISMarketingSlot id="baseMarketing">
+</div>
+
+<div class="account-wrapper">
+	
+  <div class="row account-main">
+		<!--- Left Navigation Panel --->
+		<div class="col-md-3 account-nav-box">
+	           <isAccountNavigation selecteditem="QUOTES">
+          </div>
+	  	 <div class="col-md-9">
+			<!--- Marketing slot --->
+			<div class="marketing-area">
+				<ISMarketingSlot id="contentMarketing">
+			</div>
+			
+			<isinclude template="quote/EditQuote">
+		</div>
+	</div>
+</div>
+

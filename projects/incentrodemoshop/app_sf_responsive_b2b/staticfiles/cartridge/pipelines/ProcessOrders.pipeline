@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--This pipeline handles the creation of the order using the basket. It handles also further steps like sending notification mail, book inventory, and so on.
+@Group Order-->
+
+<pipeline:Pipeline xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pipeline="http://www.intershop.de/pipeline/2010"
+    name="ProcessOrders" overrideMode="Inherit" type="process">
+<!--@Location 10,34-->
+  <nodes xsi:type="pipeline:EndNode" nodeID="EndNode0" name="ERROR" strict="true">
+    <returnValues name="AuthorizationResultsIterator" type="java.util.Iterator" optional="true"/>
+    <returnValues name="FailedInventoryIterator" type="java.util.Iterator&lt;com.intershop.beehive.xcs.capi.inventory.InventoryStatus>"
+        optional="true"/>
+    <returnValues name="AdjustedItems" type="java.util.Map" optional="true"/>
+    <returnValues name="NotAvailableProductBOs" type="java.util.Iterator" optional="true"/>
+    <returnValues name="NotAvailableProducts" type="java.util.Iterator" optional="true"/>
+    <returnValues name="PaymentReduceResultsIterator" type="java.util.Iterator" optional="true"/>
+    <returnValues name="PaymentRefundResultsIterator" type="java.util.Iterator" optional="true"/>
+    <returnValues name="Reverse_Gift_Card_Creation" type="java.lang.String" optional="true"/>
+    <returnValues name="PaymentCancelResultsIterator" type="java.util.Iterator" optional="true"/>
+  </nodes>
+<!--Call Super pipeline
+@Location 3,2-->
+  <nodes xsi:type="pipeline:Text" nodeID="Text0"/>
+<!--@Since IS 7.3.1
+Triggers all the necessary procedures of a successful order.
+@Location 2,1-->
+  <nodes xsi:type="pipeline:StartNode" nodeID="StartNode0" strict="true" name="AfterCheckoutProcessing"
+      callMode="Private">
+    <nodeSuccessors name="next" next="CallNode0"/>
+<!--The affected User.-->
+    <parameters name="User" type="com.intershop.beehive.core.capi.user.User"/>
+<!--The affected Organization.-->
+    <parameters name="Organization" type="com.intershop.component.organization.capi.Organization"/>
+<!--The made Order.-->
+    <parameters name="Order" type="com.intershop.beehive.bts.capi.orderprocess.fulfillment.Order"/>
+<!--The app context.-->
+    <parameters name="ApplicationBO" type="com.intershop.component.application.capi.ApplicationBO"/>
+<!--The affected Session.-->
+    <parameters name="TargetSession" type="com.intershop.beehive.core.capi.request.Session"/>
+<!--The used Domain.-->
+    <parameters name="Domain" type="com.intershop.beehive.core.capi.domain.Domain"/>
+<!--The affected Request-->
+    <parameters name="Request" type="com.intershop.beehive.core.capi.request.Request"/>
+  </nodes>
+<!--@Location 2,2-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode0">
+    <nodeSuccessors name="next" next="ExtensionPointNode0"/>
+    <startNode referencedName="Super:AfterCheckoutProcessing"/>
+  </nodes>
+<!--The order is created, validation is successful
+and (possible external) payments were authorized.
+@Location 2,3-->
+  <nodes xsi:type="pipeline:ExtensionPointNode" nodeID="ExtensionPointNode0" name="AfterCheckout"
+      strict="true">
+    <nodeSuccessors name="next" next="EndNode1"/>
+    <parameters name="Order" type="com.intershop.beehive.bts.capi.orderprocess.fulfillment.Order"/>
+    <parameters name="Session" type="com.intershop.beehive.core.capi.request.Session"/>
+    <parameters name="User" type="com.intershop.beehive.core.capi.user.User"/>
+    <parameterBindings name="Session" objectPath="TargetSession"/>
+  </nodes>
+<!--@Location 2,4-->
+  <nodes xsi:type="pipeline:EndNode" nodeID="EndNode1" strict="true"/>
+</pipeline:Pipeline>

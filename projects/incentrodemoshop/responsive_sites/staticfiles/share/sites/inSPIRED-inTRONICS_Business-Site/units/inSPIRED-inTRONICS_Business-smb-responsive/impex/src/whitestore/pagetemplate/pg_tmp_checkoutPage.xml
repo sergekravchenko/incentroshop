@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<enfinity xmlns:dt="http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt">
+<page-template id="pg_tmp_checkoutPage">
+<definition-name>app_sf_responsive_cm:pagevariant.standard.pagelet2-Pagevariant</definition-name>
+<display-name xml:lang="de-DE">Kassen-Seite</display-name>
+<display-name xml:lang="en-US">Checkout Page</display-name>
+<description xml:lang="de-DE">Das Layout der Kassen-Seite enthält einen Marketing-Slot und arbeitet mit einem Workingtemplate.</description>
+<description xml:lang="en-US">Checkout page layout that exposes one marketing slot and works with a WorkingTemplate.</description>
+<active>true</active>
+<author business-partner-no="admin" domain="inSPIRED"/>
+<configuration-parameters>
+</configuration-parameters>
+<slots>
+<slot>
+<definition-name>app_sf_responsive_cm:slot.pagevariant.content.pagelet2-Slot</definition-name>
+<optional>false</optional>
+<sorting>false</sorting>
+</slot>
+<slot>
+<definition-name>app_sf_responsive_cm:slot.pagevariant.footer.pagelet2-Slot</definition-name>
+<optional>false</optional>
+<sorting>false</sorting>
+</slot>
+<slot>
+<definition-name>app_sf_responsive_cm:slot.pagevariant.header.pagelet2-Slot</definition-name>
+<optional>false</optional>
+<sorting>false</sorting>
+</slot>
+</slots>
+<placeholder-configurations>
+<placeholder-configuration hide-target-content="false" place-target-content-on-top="false">
+<pagelet-slot-assignment-placeholder placeholder-id="ph_workingTemplate_baseMarketing" assignment-id="QP0KAM4.BuMAAAE_6XtRWAm5"/>
+</placeholder-configuration>
+<placeholder-configuration hide-target-content="false" place-target-content-on-top="false">
+<pagelet-slot-assignment-placeholder placeholder-id="ph_workingTemplate_contentMarketing" assignment-id="QP0KAM4.BuMAAAE_6XtRWAm5"/>
+</placeholder-configuration>
+<placeholder-configuration hide-target-content="false" place-target-content-on-top="false">
+<pagelet-slot-assignment-placeholder placeholder-id="ph_workingTemplate_sidePanelMarketing" assignment-id="QP0KAM4.BuMAAAE_6XtRWAm5"/>
+</placeholder-configuration>
+</placeholder-configurations>
+<placeholder-definitions>
+<placeholder-definition id="ph_checkoutPage_baseMarketing">
+<definition-name>app_sf_responsive_cm:slot.marketing.base.pagelet2-Slot</definition-name>
+<display-name xml:lang="de-DE">Standard-Marketing</display-name>
+<display-name xml:lang="en-US">Base Marketing</display-name>
+<position>1</position>
+<pagelet-slot-assignment-placeholder placeholder-id="ph_workingTemplate_baseMarketing" assignment-id="QP0KAM4.BuMAAAE_6XtRWAm5"/>
+</placeholder-definition>
+</placeholder-definitions>
+</page-template>
+<pagelet-slot-assignment id="QP0KAM4.BuMAAAE_6XtRWAm5">
+<slot definition-name="app_sf_responsive_cm:slot.pagevariant.content.pagelet2-Slot" parent-pagelet-id="pg_tmp_checkoutPage" domain="inSPIRED-inTRONICS_Business-smb-responsive"/>
+<pagelet id="cmp_tmp_workingTemplate" domain="inSPIRED-inTRONICS_Business-smb-responsive"/>
+<position>1</position>
+<online>true</online>
+</pagelet-slot-assignment>
+<pagelet-slot-assignment id="v.wKAM5hhfAAAAFC8ABZoGsI">
+<slot definition-name="app_sf_responsive_cm:slot.pagevariant.footer.pagelet2-Slot" parent-pagelet-id="pg_tmp_checkoutPage" domain="inSPIRED-inTRONICS_Business-smb-responsive"/>
+<pagelet id="cmp_tmp_footer" domain="inSPIRED-inTRONICS_Business-smb-responsive"/>
+<position>1</position>
+<online>true</online>
+</pagelet-slot-assignment>
+<pagelet-slot-assignment id="GUQKAM4.4YgAAAE_sf9RWAmo">
+<slot definition-name="app_sf_responsive_cm:slot.pagevariant.header.pagelet2-Slot" parent-pagelet-id="pg_tmp_checkoutPage" domain="inSPIRED-inTRONICS_Business-smb-responsive"/>
+<pagelet id="cmp_tmp_headerCheckout" domain="inSPIRED-inTRONICS_Business-smb-responsive"/>
+<position>1</position>
+<online>true</online>
+</pagelet-slot-assignment>
+</enfinity>

@@ -1,0 +1,31 @@
+<iscontent personalized="true" type="text/html" charset="UTF-8" compact="true">
+
+<div class="modal-dialog">
+	<div class="modal-content">
+		<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal" title="<istext key="dialog.close.text">" aria-label="<istext key="dialog.close.text"/>"><span aria-hidden="true">&times;</span></button>
+			<h1 class="modal-title"><istext key="approval.details.heading" /></h1>
+		</div>
+		<div class="modal-body">
+			<p>
+				<istext key="approval.details.conditions"/>
+			</p>
+			
+			<ul>
+				<isinclude template="checkout/common/OrderSpendLimitApprovalCondition"/>
+				<isinclude template="checkout/common/BudgetApprovalCondition"/>
+				<isinclude extensionpoint="ApprovalConditions"/>
+			</ul>
+			<p>
+				<istext key="approval.details.place_order" />
+			</p>
+			<p>
+				<istext key="approval.details.after" parameter0="#encodeValue(URLEX(SecureURL, '', Action('ViewApprovals-MyOpen')))#" parameter1="#encodeValue(URLEX(SecureURL, '', Action('ViewUserAccount-Start')))#" encoding="off"/>
+			</p>
+			<h3><istext key="approval.details.contacts.heading" /></h3>
+			<isinclude template="checkout/common/CustomerApprovers"/>
+			<isinclude extensionpoint="Approvers" />
+		
+		</div>
+	</div>
+</div>

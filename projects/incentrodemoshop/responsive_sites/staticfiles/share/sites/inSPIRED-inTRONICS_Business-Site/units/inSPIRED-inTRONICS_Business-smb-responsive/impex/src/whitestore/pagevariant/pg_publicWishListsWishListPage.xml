@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<enfinity xmlns:dt="http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt">
+<pagelet-page id="pg_publicWishListsWishListPage">
+<definition-name>app_sf_responsive_cm:pagevariant.standard.pagelet2-Pagevariant</definition-name>
+<parent id="pg_tmp_workingTemplate" domain="inSPIRED-inTRONICS_Business-smb-responsive" />
+<display-name xml:lang="de-DE">Öffentliche Wunschlisten - Wunschlistenseite</display-name>
+<display-name xml:lang="en-US">Public Wish Lists - Wish List Page</display-name>
+<online>true</online>
+<author business-partner-no="admin" domain="inSPIRED"/>
+<configuration-parameters>
+<configuration-parameter name="MetaInfo">
+<definition-name>app_sf_responsive_cm:pagevariant.standard.pagelet2-Pagevariant-MetaInfo</definition-name>
+<value name="MetaInfo" xml:lang="de-DE">metaTitle=Öffentliche Wunschliste;metaDescription=;metaKeywords=</value>
+<value name="MetaInfo" xml:lang="en-US">metaTitle=Public Wish List;metaDescription=;metaKeywords=</value>
+</configuration-parameter>
+</configuration-parameters>
+<placeholder-configurations>
+<placeholder-configuration hide-target-content="false" place-target-content-on-top="false">
+<parent-placeholder placeholder-id="ph_workingTemplatePage_baseMarketing"/>
+</placeholder-configuration>
+</placeholder-configurations>
+</pagelet-page>
+</enfinity>

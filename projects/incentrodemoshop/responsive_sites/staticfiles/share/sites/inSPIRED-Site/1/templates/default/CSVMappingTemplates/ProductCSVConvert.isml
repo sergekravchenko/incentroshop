@@ -1,0 +1,288 @@
+<iscontent type="text/xml" charset="UTF-8" compact="false" session="false" templatemarker="false">
+<enfinity
+	xsi:schemaLocation="http://www.intershop.com/xml/ns/enfinity/7.1/xcs/impex catalog.xsd http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt dt.xsd"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://www.intershop.com/xml/ns/enfinity/7.1/xcs/impex"
+	xmlns:xml="http://www.w3.org/XML/1998/namespace"
+	xmlns:dt="http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt"
+	major="6" minor="1" family="enfinity" branch="enterprise" build="<isprint value="#BuildNumber#">">
+
+	<isif condition="#isDefined(data)#">
+    <isloop iterator="data">
+			<isif condition="#isDefined(data:Offer) and (data:Offer eq '1')#">
+				<offer sku="<isprint value="#data:SKU#">">
+					<sku><isprint value="#data:SKU#"></sku>
+					<isif condition="#isDefined(data:OfferedProductSKU)#">
+						<offered-product sku="<isprint value="#data:OfferedProductSKU#">" <isif condition="#isDefined(data:OfferedProductDomain)#">domain="<isprint value="#data:OfferedProductDomain#">"</isif>/>
+					</isif>
+					<isif condition="#isDefined(data:Name)#">
+						<isif condition="#isDefined(data:NameLang)#">
+							<name xml:lang="<isprint value="#data:NameLang#">"><isprint value="#data:Name#"></name>
+						<iselse>
+							<name><isprint value="#data:Name#"></name>
+						</isif>
+					</isif>
+					<isif condition="#isDefined(data:LongDescription)#">
+						<isif condition="#isDefined(data:LongDescriptionLang)#">
+							<long-description xml:lang="<isprint value="#data:LongDescriptionLang#">"><isprint value="#data:LongDescription#"></long-description>
+						<iselse>
+							<long-description><isprint value="#data:LongDescription#"></long-description>
+						</isif>
+					</isif>
+					<isif condition="#isDefined(data:ShortDescription)#">
+						<isif condition="#isDefined(data:ShortDescriptionLang)#">
+							<short-description xml:lang="<isprint value="#data:ShortDescriptionLang#">"><isprint value="#data:ShortDescription#"></short-description>
+						<iselse>
+							<short-description><isprint value="#data:ShortDescription#"></short-description>
+						</isif>
+					</isif>
+					<isif condition="#isDefined(data:CategoryLink1) or isDefined(data:CategoryLink2)#">
+						<category-links>
+							<isif condition="#isDefined(data:CategoryLink1)#">
+								<category-link name="<isprint value="#data:CategoryLink1#">"
+									<isif condition="#isDefined(data:CategoryLink1Domain)#">domain="<isprint value="#data:CategoryLink1Domain#">"</isif>
+									<isif condition="#isDefined(data:CategoryLink1Default)#">default="<isprint value="#data:CategoryLink1Default#">"</isif>
+									<isif condition="#isDefined(data:CategoryLink1Hotdeal)#">hotdeal="<isprint value="#data:CategoryLink1Hotdeal#">"</isif>/>
+							</isif>
+							<isif condition="#isDefined(data:CategoryLink2)#">
+								<category-link name="<isprint value="#data:CategoryLink2#">"
+									<isif condition="#isDefined(data:CategoryLink2Domain)#">domain="<isprint value="#data:CategoryLink2Domain#">"</isif>
+									<isif condition="#isDefined(data:CategoryLink2Default)#">default="<isprint value="#data:CategoryLink2Default#">"</isif>
+									<isif condition="#isDefined(data:CategoryLink2Hotdeal)#">hotdeal="<isprint value="#data:CategoryLink2Hotdeal#">"</isif>/>
+							</isif>
+						</category-links>
+					</isif>
+					<product-list-prices>
+						<isif condition="#isDefined(data:Price1)#">
+							<product-list-price currency="<isprint value="#data:Price1Currency#">" net-price="0"><isprint value="#data:Price1#"></product-list-price>
+						</isif>
+						<isif condition="#isDefined(data:Price2)#">
+							<product-list-price currency="<isprint value="#data:Price2Currency#">" net-price="0"><isprint value="#data:Price2#"></product-list-price>
+						</isif>
+					</product-list-prices>
+					<isif condition="#isDefined(data:ProductType)#">
+						<product-type name="<isprint value="#data:ProductType#">" domain="<isprint value="#data:ProductTypeDomain#">"/>
+					</isif>
+					<isif condition="#isDefined(data:Online)#">
+						<online><isprint value="#data:Online#"></online>
+					</isif>
+					<isif condition="#isDefined(data:Available)#">
+						<available><isprint value="#data:Available#"></available>
+					</isif>
+					<isif condition="#isDefined(data:LastOrderDate)#">
+						<last-order-date><isprint value="#data:LastOrderDate#"></last-order-date>
+					</isif>
+					<isif condition="#isDefined(data:EndOfLife)#">
+						<end-of-life><isprint value="#data:EndOfLife#"></end-of-life>
+					</isif>
+					<isif condition="#isDefined(data:TaxClass)#">
+						<tax-class id="<isprint value="#data:TaxClass#">"/>
+					</isif>
+					<isif condition="#isDefined(data:ListPriceUsed)#">
+						<list-price-used><isprint value="#data:ListPriceUsed#"></list-price-used>
+					</isif>
+					<isif condition="#isDefined(data:QuantityUnit)#">
+						<quantity unit="<isprint value="#data:QuantityUnit#">">
+					<iselse>
+						<quantity>
+					</isif>
+						<isif condition="#isDefined(data:QuantityStep)#">
+							<step-quantity><isprint value="#data:QuantityStep#"></step-quantity>
+						</isif>
+						<isif condition="#isDefined(data:QuantityMin)#">
+							<min-order-quantity><isprint value="#data:QuantityMin#"></min-order-quantity>
+						</isif>
+						<isif condition="#isDefined(data:QuantityPrice)#">
+							<price-quantity><isprint value="#data:QuantityPrice#"></price-quantity>
+						</isif>
+					</quantity>
+					<manufacturer>
+						<isif condition="#isDefined(data:ManufacturerName)#">
+							<manufacturer-name><isprint value="#data:ManufacturerName#"></manufacturer-name>
+						</isif>
+						<isif condition="#isDefined(data:ManufacturerSKU)#">
+							<manufacturer-sku><isprint value="#data:ManufacturerSKU#"></manufacturer-sku>
+						</isif>
+			        </manufacturer>
+					<order-required-attributes>
+						<isif condition="#data:OrderRequiredAttribute1#">
+							<order-required-attribute name="<isprint value="#data:OrderRequiredAttribute1#">"/>
+						</isif>
+						<isif condition="#data:OrderRequiredAttribute2#">
+							<order-required-attribute name="<isprint value="#data:OrderRequiredAttribute2#">"/>
+						</isif>
+						<isif condition="#data:OrderRequiredAttribute3#">
+							<order-required-attribute name="<isprint value="#data:OrderRequiredAttribute3#">"/>
+						</isif>
+					</order-required-attributes>
+					<custom-attributes>
+						<isif condition="#isDefined(data:CustomAttributeKey1) and isDefined(data:CustomAttributeValue1)#">
+							<custom-attribute name="<isprint value="#data:CustomAttributeKey1#">" dt:dt="string"><isprint value="#data:CustomAttributeValue1#"></custom-attribute>
+						</isif>
+						<isif condition="#isDefined(data:CustomAttributeKey2) and isDefined(data:CustomAttributeValue2)#">
+							<custom-attribute name="<isprint value="#data:CustomAttributeKey2#">" dt:dt="string"><isprint value="#data:CustomAttributeValue2#"></custom-attribute>
+						</isif>
+						<isif condition="#isDefined(data:CustomAttributeKey3) and isDefined(data:CustomAttributeValue3)#">
+							<custom-attribute name="<isprint value="#data:CustomAttributeKey3#">" dt:dt="string"><isprint value="#data:CustomAttributeValue3#"></custom-attribute>
+						</isif>
+						<isif condition="#isDefined(data:CustomAttributeKey4) and isDefined(data:CustomAttributeValue4)#">
+							<custom-attribute name="<isprint value="#data:CustomAttributeKey4#">" dt:dt="string"><isprint value="#data:CustomAttributeValue4#"></custom-attribute>
+						</isif>
+						<isif condition="#isDefined(data:CustomAttributeKey5) and isDefined(data:CustomAttributeValue5)#">
+							<custom-attribute name="<isprint value="#data:CustomAttributeKey5#">" dt:dt="string"><isprint value="#data:CustomAttributeValue5#"></custom-attribute>
+						</isif>
+						<isif condition="#isDefined(data:CustomAttributeKey6) and isDefined(data:CustomAttributeValue6)#">
+							<custom-attribute name="<isprint value="#data:CustomAttributeKey6#">" dt:dt="string"><isprint value="#data:CustomAttributeValue6#"></custom-attribute>
+						</isif>
+						<isif condition="#isDefined(data:CustomAttributeKey7) and isDefined(data:CustomAttributeValue7)#">
+							<custom-attribute name="<isprint value="#data:CustomAttributeKey7#">" dt:dt="string"><isprint value="#data:CustomAttributeValue7#"></custom-attribute>
+						</isif>
+						<isif condition="#isDefined(data:CustomAttributeKey8) and isDefined(data:CustomAttributeValue8)#">
+							<custom-attribute name="<isprint value="#data:CustomAttributeKey8#">" dt:dt="string"><isprint value="#data:CustomAttributeValue8#"></custom-attribute>
+						</isif>
+						<isif condition="#isDefined(data:CustomAttributeKey9) and isDefined(data:CustomAttributeValue9)#">
+							<custom-attribute name="<isprint value="#data:CustomAttributeKey9#">" dt:dt="string"><isprint value="#data:CustomAttributeValue9#"></custom-attribute>
+						</isif>
+						<isif condition="#isDefined(data:CustomAttributeKey10) and isDefined(data:CustomAttributeValue10)#">
+							<custom-attribute name="<isprint value="#data:CustomAttributeKey10#">" dt:dt="string"><isprint value="#data:CustomAttributeValue10#"></custom-attribute>
+						</isif>
+					</custom-attributes>
+				</offer>
+			<iselse>
+				<product sku="<isprint value="#data:SKU#">">
+					<sku><isprint value="#data:SKU#"></sku>
+					<isif condition="#isDefined(data:Name)#">
+						<isif condition="#isDefined(data:NameLang)#">
+							<name xml:lang="<isprint value="#data:NameLang#">"><isprint value="#data:Name#"></name>
+						<iselse>
+							<name><isprint value="#data:Name#"></name>
+						</isif>
+					</isif>
+					<isif condition="#isDefined(data:LongDescription)#">
+						<isif condition="#isDefined(data:LongDescriptionLang)#">
+							<long-description xml:lang="<isprint value="#data:LongDescriptionLang#">"><isprint value="#data:LongDescription#"></long-description>
+						<iselse>
+							<long-description><isprint value="#data:LongDescription#"></long-description>
+						</isif>
+					</isif>
+					<isif condition="#isDefined(data:ShortDescription)#">
+						<isif condition="#isDefined(data:ShortDescriptionLang)#">
+							<short-description xml:lang="<isprint value="#data:ShortDescriptionLang#">"><isprint value="#data:ShortDescription#"></short-description>
+						<iselse>
+							<short-description><isprint value="#data:ShortDescription#"></short-description>
+						</isif>
+					</isif>
+					<category-links>
+						<isif condition="#isDefined(data:CategoryLink1)#">
+							<category-link name="<isprint value="#data:CategoryLink1#">"
+								<isif condition="#isDefined(data:CategoryLink1Domain)#">domain="<isprint value="#data:CategoryLink1Domain#">"</isif>
+								<isif condition="#isDefined(data:CategoryLink1Default)#">default="<isprint value="#data:CategoryLink1Default#">"</isif>
+								<isif condition="#isDefined(data:CategoryLink1Hotdeal)#">hotdeal="<isprint value="#data:CategoryLink1Hotdeal#">"</isif>/>
+						</isif>
+						<isif condition="#isDefined(data:CategoryLink2)#">
+							<category-link name="<isprint value="#data:CategoryLink2#">"
+								<isif condition="#isDefined(data:CategoryLink2Domain)#">domain="<isprint value="#data:CategoryLink2Domain#">"</isif>
+								<isif condition="#isDefined(data:CategoryLink2Default)#">default="<isprint value="#data:CategoryLink2Default#">"</isif>
+								<isif condition="#isDefined(data:CategoryLink2Hotdeal)#">hotdeal="<isprint value="#data:CategoryLink2Hotdeal#">"</isif>/>
+						</isif>
+					</category-links>
+					<product-list-prices>
+						<isif condition="#isDefined(data:Price1)#">
+							<product-list-price currency="<isprint value="#data:Price1Currency#">" net-price="0"><isprint value="#data:Price1#"></product-list-price>
+						</isif>
+						<isif condition="#isDefined(data:Price2)#">
+							<product-list-price currency="<isprint value="#data:Price2Currency#">" net-price="0"><isprint value="#data:Price2#"></product-list-price>
+						</isif>
+					</product-list-prices>
+					<isif condition="#isDefined(data:ProductType)#">
+						<product-type name="<isprint value="#data:ProductType#">" domain="<isprint value="#data:ProductTypeDomain#">"/>
+					</isif>
+					<isif condition="#isDefined(data:Online)#">
+						<online><isprint value="#data:Online#"></online>
+					</isif>
+					<isif condition="#isDefined(data:Available)#">
+						<available><isprint value="#data:Available#"></available>
+					</isif>
+					<isif condition="#isDefined(data:LastOrderDate)#">
+						<last-order-date><isprint value="#data:LastOrderDate#"></last-order-date>
+					</isif>
+					<isif condition="#isDefined(data:EndOfLife)#">
+						<end-of-life><isprint value="#data:EndOfLife#"></end-of-life>
+					</isif>
+					<isif condition="#isDefined(data:TaxClass)#">
+						<tax-class id="<isprint value="#data:TaxClass#">"/>
+					</isif>
+					<isif condition="#isDefined(data:ListPriceUsed)#">
+						<list-price-used><isprint value="#data:ListPriceUsed#"></list-price-used>
+					</isif>
+					<manufacturer>
+						<isif condition="#isDefined(data:ManufacturerName)#">
+							<manufacturer-name><isprint value="#data:ManufacturerName#"></manufacturer-name>
+						</isif>
+						<isif condition="#isDefined(data:ManufacturerSKU)#">
+							<manufacturer-sku><isprint value="#data:ManufacturerSKU#"></manufacturer-sku>
+						</isif>
+			        </manufacturer>
+					<isif condition="#isDefined(data:QuantityUnit)#">
+						<quantity unit="<isprint value="#data:QuantityUnit#">">
+					<iselse>
+						<quantity>
+					</isif>
+						<isif condition="#isDefined(data:QuantityStep)#">
+							<step-quantity><isprint value="#data:QuantityStep#"></step-quantity>
+						</isif>
+						<isif condition="#isDefined(data:QuantityMin)#">
+							<min-order-quantity><isprint value="#data:QuantityMin#"></min-order-quantity>
+						</isif>
+						<isif condition="#isDefined(data:QuantityPrice)#">
+							<price-quantity><isprint value="#data:QuantityPrice#"></price-quantity>
+						</isif>
+					</quantity>
+					<order-required-attributes>
+						<isif condition="#data:OrderRequiredAttribute1#">
+							<order-required-attribute name="<isprint value="#data:OrderRequiredAttribute1#">"/>
+						</isif>
+						<isif condition="#data:OrderRequiredAttribute2#">
+							<order-required-attribute name="<isprint value="#data:OrderRequiredAttribute2#">"/>
+						</isif>
+						<isif condition="#data:OrderRequiredAttribute3#">
+							<order-required-attribute name="<isprint value="#data:OrderRequiredAttribute3#">"/>
+						</isif>
+					</order-required-attributes>
+					<custom-attributes>
+						<isif condition="#isDefined(data:CustomAttributeKey1) and isDefined(data:CustomAttributeValue1)#">
+							<custom-attribute name="<isprint value="#data:CustomAttributeKey1#">" dt:dt="string"><isprint value="#data:CustomAttributeValue1#"></custom-attribute>
+						</isif>
+						<isif condition="#isDefined(data:CustomAttributeKey2) and isDefined(data:CustomAttributeValue2)#">
+							<custom-attribute name="<isprint value="#data:CustomAttributeKey2#">" dt:dt="string"><isprint value="#data:CustomAttributeValue2#"></custom-attribute>
+						</isif>
+						<isif condition="#isDefined(data:CustomAttributeKey3) and isDefined(data:CustomAttributeValue3)#">
+							<custom-attribute name="<isprint value="#data:CustomAttributeKey3#">" dt:dt="string"><isprint value="#data:CustomAttributeValue3#"></custom-attribute>
+						</isif>
+						<isif condition="#isDefined(data:CustomAttributeKey4) and isDefined(data:CustomAttributeValue4)#">
+							<custom-attribute name="<isprint value="#data:CustomAttributeKey4#">" dt:dt="string"><isprint value="#data:CustomAttributeValue4#"></custom-attribute>
+						</isif>
+						<isif condition="#isDefined(data:CustomAttributeKey5) and isDefined(data:CustomAttributeValue5)#">
+							<custom-attribute name="<isprint value="#data:CustomAttributeKey5#">" dt:dt="string"><isprint value="#data:CustomAttributeValue5#"></custom-attribute>
+						</isif>
+						<isif condition="#isDefined(data:CustomAttributeKey6) and isDefined(data:CustomAttributeValue6)#">
+							<custom-attribute name="<isprint value="#data:CustomAttributeKey6#">" dt:dt="string"><isprint value="#data:CustomAttributeValue6#"></custom-attribute>
+						</isif>
+						<isif condition="#isDefined(data:CustomAttributeKey7) and isDefined(data:CustomAttributeValue7)#">
+							<custom-attribute name="<isprint value="#data:CustomAttributeKey7#">" dt:dt="string"><isprint value="#data:CustomAttributeValue7#"></custom-attribute>
+						</isif>
+						<isif condition="#isDefined(data:CustomAttributeKey8) and isDefined(data:CustomAttributeValue8)#">
+							<custom-attribute name="<isprint value="#data:CustomAttributeKey8#">" dt:dt="string"><isprint value="#data:CustomAttributeValue8#"></custom-attribute>
+						</isif>
+						<isif condition="#isDefined(data:CustomAttributeKey9) and isDefined(data:CustomAttributeValue9)#">
+							<custom-attribute name="<isprint value="#data:CustomAttributeKey9#">" dt:dt="string"><isprint value="#data:CustomAttributeValue9#"></custom-attribute>
+						</isif>
+						<isif condition="#isDefined(data:CustomAttributeKey10) and isDefined(data:CustomAttributeValue10)#">
+							<custom-attribute name="<isprint value="#data:CustomAttributeKey10#">" dt:dt="string"><isprint value="#data:CustomAttributeValue10#"></custom-attribute>
+						</isif>
+					</custom-attributes>
+				</product>
+			</isif>
+	  </isloop>
+	</isif>
+</enfinity>

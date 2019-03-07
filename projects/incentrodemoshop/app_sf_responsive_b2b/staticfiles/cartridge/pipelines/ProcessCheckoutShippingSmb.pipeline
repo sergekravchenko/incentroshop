@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Extension for Checkout shipping process
+@Group Checkout-->
+
+<pipeline:Pipeline xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pipeline="http://www.intershop.de/pipeline/2010"
+    name="ProcessCheckoutShippingSmb" overrideMode="Inherit" type="process">
+<!--@Location 2,0-->
+  <nodes xsi:type="pipeline:StartNode" nodeID="StartNode1" strict="true" name="ContinueCheckout"
+      callMode="Private">
+    <nodeSuccessors name="next" next="KeyMapper0"/>
+    <parameters name="AllFormValues" type="java.util.Map"/>
+<!--The basket-->
+    <parameters name="Basket" type="com.intershop.component.basket.capi.BasketBO"/>
+  </nodes>
+<!--@Location 2,1-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="KeyMapper0">
+    <configurationValues name="ValueType" value="Form Values (String[])"/>
+    <pipelet href="enfinity:/bc_foundation/pipelets/KeyMapper.xml"/>
+    <nodeSuccessors name="next" next="CallNode2"/>
+    <parameterBindings name="InValue_1" objectPath="AllFormValues:orderReferenceId"/>
+    <parameterBindings name="InValue_2" objectPath="AllFormValues:desiredDeliveryDate"/>
+    <returnValueBindings name="OutValue_1" objectPath="OrderReferenceForm_OrderReferenceID"/>
+    <returnValueBindings name="OutValue_2" objectPath="DesiredDeliveryDateForm_DesiredDeliveryDate"/>
+  </nodes>
+<!--@Location 2,2-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode2">
+    <nodeSuccessors name="next" next="UpdateCustomAttribute0"/>
+    <nodeSuccessors name="ERROR" next="RemoveCustomAttribute0"/>
+    <startNode referencedName="Super:ValidateOrderForm"/>
+  </nodes>
+<!--@Location 2,3-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="UpdateCustomAttribute0">
+    <pipelet href="enfinity:/bc_foundation/pipelets/UpdateCustomAttribute.xml"/>
+    <nodeSuccessors name="next" next="SetDictionaryValue1"/>
+    <nodeSuccessors name="pipelet_error" next="JoinNode1"/>
+    <parameterBindings name="AttributeName" constant="orderReferenceID"/>
+    <parameterBindings name="AttributeType" constant="String"/>
+    <parameterBindings name="AttributeValue" objectPath="OrderForm:OrderReferenceID:Value"/>
+    <parameterBindings name="ExtensibleObject" objectPath="Basket:ExtensibleObject"/>
+  </nodes>
+<!--@Location 2,4-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="SetDictionaryValue1">
+    <configurationValues name="Name" value="ContinueAllowed"/>
+    <configurationValues name="Value" value="true"/>
+    <configurationValues name="ValueType" value="Dictionary Value"/>
+    <pipelet href="enfinity:/bc_foundation/pipelets/SetDictionaryValue.xml"/>
+    <nodeSuccessors name="next" next="JoinNode0"/>
+  </nodes>
+<!--@Location 2,5-->
+  <nodes xsi:type="pipeline:JoinNode" nodeID="JoinNode0">
+    <nodeSuccessors name="next" next="CallNode3"/>
+  </nodes>
+<!--@Location 2,6-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode3">
+    <nodeSuccessors name="next" next="DecisionNode0"/>
+<!--@BendPoints 9,13-->
+    <nodeSuccessors name="ERROR" next="SetDictionaryValue5"/>
+    <startNode referencedName="This:ValidateDeliveryDateForm"/>
+  </nodes>
+<!--@Location 2,7-->
+  <nodes xsi:type="pipeline:DecisionNode" nodeID="DecisionNode0" conditionKey="DeliveryDateForm:DesiredDeliveryDate:Value"
+      operator="str_empty">
+<!--@BendPoints 3,15-->
+    <nodeSuccessors name="decision_yes" next="RemoveCustomAttribute2"/>
+    <nodeSuccessors name="decision_no" next="UpdateCustomAttribute1"/>
+  </nodes>
+<!--@Location 1,8-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="RemoveCustomAttribute2">
+    <configurationValues name="DefaultAttributeName" value="desiredDeliveryDate"/>
+    <pipelet href="enfinity:/bc_foundation/pipelets/RemoveCustomAttribute.xml"/>
+<!--@BendPoints 3,19-->
+    <nodeSuccessors name="next" next="JoinNode4"/>
+    <parameterBindings name="AttributeName" nullBinding="true"/>
+    <parameterBindings name="ExtensibleObject" objectPath="Basket:ExtensibleObject"/>
+  </nodes>
+<!--@Location 2,9-->
+  <nodes xsi:type="pipeline:JoinNode" nodeID="JoinNode4">
+    <nodeSuccessors name="next" next="SetDictionaryValue3"/>
+  </nodes>
+<!--@Location 2,10-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="SetDictionaryValue3">
+    <configurationValues name="Name" value="ContinueAllowed"/>
+    <configurationValues name="Value" value="true"/>
+    <configurationValues name="ValueType" value="Dictionary Value"/>
+    <pipelet href="enfinity:/bc_foundation/pipelets/SetDictionaryValue.xml"/>
+    <nodeSuccessors name="next" next="JoinNode3"/>
+  </nodes>
+<!--@Location 2,11-->
+  <nodes xsi:type="pipeline:JoinNode" nodeID="JoinNode3">
+    <nodeSuccessors name="next" next="EndNode1"/>
+  </nodes>
+<!--@Location 2,12-->
+  <nodes xsi:type="pipeline:EndNode" nodeID="EndNode1" strict="true">
+<!--Flag that describes wether continuing is allowed or not-->
+    <returnValues name="ContinueAllowed" type="java.lang.String"/>
+    <returnValues name="Error_DesiredDeliveryDate" type="java.lang.String" optional="true"/>
+  </nodes>
+<!--@Location 2,8-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="UpdateCustomAttribute1">
+    <configurationValues name="DefaultAttributeName" value="desiredDeliveryDate"/>
+    <configurationValues name="DefaultAttributeType" value="Date"/>
+    <pipelet href="enfinity:/bc_foundation/pipelets/UpdateCustomAttribute.xml"/>
+    <nodeSuccessors name="next" next="JoinNode4"/>
+    <nodeSuccessors name="pipelet_error" next="JoinNode2"/>
+    <parameterBindings name="AttributeName" nullBinding="true"/>
+    <parameterBindings name="AttributeType" nullBinding="true"/>
+    <parameterBindings name="AttributeValue" objectPath="DeliveryDateForm:DesiredDeliveryDate:Value"/>
+    <parameterBindings name="ExtensibleObject" objectPath="Basket:ExtensibleObject"/>
+  </nodes>
+<!--@Location 4,8-->
+  <nodes xsi:type="pipeline:JoinNode" nodeID="JoinNode2">
+    <nodeSuccessors name="next" next="SetDictionaryValue2"/>
+  </nodes>
+<!--@Location 4,10-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="SetDictionaryValue2">
+    <configurationValues name="Name" value="ContinueAllowed"/>
+    <configurationValues name="Value" value="false"/>
+    <configurationValues name="ValueType" value="Dictionary Value"/>
+    <pipelet href="enfinity:/bc_foundation/pipelets/SetDictionaryValue.xml"/>
+<!--@BendPoints 9,23-->
+    <nodeSuccessors name="next" next="JoinNode3"/>
+  </nodes>
+<!--@Location 4,7-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="SetDictionaryValue5">
+    <configurationValues name="Name" value="Error_DesiredDeliveryDate"/>
+    <configurationValues name="Value" value="true"/>
+    <configurationValues name="ValueType" value="Dictionary Value"/>
+    <pipelet href="enfinity:/bc_foundation/pipelets/SetDictionaryValue.xml"/>
+    <nodeSuccessors name="next" next="JoinNode2"/>
+  </nodes>
+<!--@Location 4,3-->
+  <nodes xsi:type="pipeline:JoinNode" nodeID="JoinNode1">
+    <nodeSuccessors name="next" next="SetDictionaryValue0"/>
+  </nodes>
+<!--@Location 4,4-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="SetDictionaryValue0">
+    <configurationValues name="Name" value="ContinueAllowed"/>
+    <configurationValues name="Value" value="false"/>
+    <configurationValues name="ValueType" value="Dictionary Value"/>
+    <pipelet href="enfinity:/bc_foundation/pipelets/SetDictionaryValue.xml"/>
+<!--@BendPoints 9,11-->
+    <nodeSuccessors name="next" next="JoinNode0"/>
+  </nodes>
+<!--@Location 4,2-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="RemoveCustomAttribute0">
+    <pipelet href="enfinity:/bc_foundation/pipelets/RemoveCustomAttribute.xml"/>
+    <nodeSuccessors name="next" next="JoinNode1"/>
+    <parameterBindings name="AttributeName" constant="orderReferenceID"/>
+    <parameterBindings name="ExtensibleObject" objectPath="Basket:ExtensibleObject"/>
+  </nodes>
+<!--@Location 6,0-->
+  <nodes xsi:type="pipeline:StartNode" nodeID="StartNode4" name="CreateDeliveryDateForm"
+      callMode="Private">
+<!--@BendPoints 13,2-->
+    <nodeSuccessors name="next" next="CreateForm1"/>
+  </nodes>
+<!--@Location 6,1-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="CreateForm1">
+    <configurationValues name="FormName" value="DesiredDeliveryDateForm"/>
+    <configurationValues name="FormResource" value="DesiredDeliveryDateForm"/>
+    <pipelet href="enfinity:/core/pipelets/CreateForm.xml"/>
+    <nodeSuccessors name="next" next="EndNode5"/>
+    <returnValueBindings name="Form" objectPath="DeliveryDateForm"/>
+  </nodes>
+<!--@Location 6,2-->
+  <nodes xsi:type="pipeline:EndNode" nodeID="EndNode5"/>
+<!--@Location 0,0-->
+  <nodes xsi:type="pipeline:StartNode" nodeID="StartNode0" strict="true" name="Start"
+      callMode="Private">
+    <nodeSuccessors name="next" next="CallNode1"/>
+  </nodes>
+<!--@Location 0,1-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode1">
+    <nodeSuccessors name="next" next="CallNode0"/>
+    <startNode referencedName="This:CreateOrderForm"/>
+  </nodes>
+<!--@Location 0,2-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode0">
+    <nodeSuccessors name="next" next="EndNode0"/>
+    <startNode referencedName="This:CreateDeliveryDateForm"/>
+  </nodes>
+<!--@Location 0,3-->
+  <nodes xsi:type="pipeline:EndNode" nodeID="EndNode0" strict="true"/>
+<!--@Location 6,4-->
+  <nodes xsi:type="pipeline:StartNode" nodeID="StartNode2" name="ValidateDeliveryDateForm"
+      callMode="Private">
+    <nodeSuccessors name="next" next="CallNode4"/>
+  </nodes>
+<!--@Location 6,5-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode4">
+    <nodeSuccessors name="next" next="ValidateForm0"/>
+    <startNode referencedName="This:CreateDeliveryDateForm"/>
+  </nodes>
+<!--@Location 6,6-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="ValidateForm0">
+    <configurationValues name="Trim" value="true"/>
+    <pipelet href="enfinity:/core/pipelets/ValidateForm.xml"/>
+    <nodeSuccessors name="next" next="EndNode2"/>
+<!--@BendPoints 15,13-->
+    <nodeSuccessors name="pipelet_error" next="EndNode3"/>
+    <parameterBindings name="Form" objectPath="DeliveryDateForm"/>
+  </nodes>
+<!--@Location 6,7-->
+  <nodes xsi:type="pipeline:EndNode" nodeID="EndNode2"/>
+<!--@Location 7,7-->
+  <nodes xsi:type="pipeline:EndNode" nodeID="EndNode3" name="ERROR"/>
+</pipeline:Pipeline>

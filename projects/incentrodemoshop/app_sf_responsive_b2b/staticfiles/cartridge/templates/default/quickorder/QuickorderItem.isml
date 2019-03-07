@@ -1,0 +1,46 @@
+<iscontent type="text/html" charset="UTF-8" compact="true">
+<iscache type="relative" hour="0">
+
+<input type="hidden" id="jsonproductid" />
+
+<div class="col-sm-6 list-item search-container  form-group <isif condition="#isDefined(errors) AND ((errors:get(key) EQ 'QuantityWithoutSKU') OR (errors:get(key) EQ 'ProductNotFound'))#">has-error</isif>">
+	
+	<div class="visible-xs"><istext key="quickorder.productid.label" /></div>
+		<div class="quickorder-search-container">
+		<input type="text" 
+			autocomplete="off"
+			name="SKU_<isprint value="#key#">"
+			value="<isif condition="#isDefined(SKUs:get(key))#"><isprint value="#SKUs:get(key)#"></isif>"
+			class="form-control search-productId"
+			data-suggestURL="#URL(Action('ViewSuggestSearch-SuggestSKU'), Parameter('MaxAutoSuggestResults', '10'))#"
+		/>
+		<ul class="search-suggest-results"></ul>
+	</div>
+	<isif condition="#isDefined(errors) AND (errors:get(key) EQ 'QuantityWithoutSKU')#">
+		<small class="help-block"><istext key="quickorder.error.QuantityWithoutSKU"></small>
+	 <iselseif condition="#isDefined(errors) AND (errors:get(key) EQ 'ProductNotFound')#">
+	 	<small class="help-block"><istext key="quickorder.error.ProductNotFound"></small>
+	</isif>	
+	<small class="help-block" id="availability-SKU_<isprint value="#key#">"> </small>
+</div>
+
+<div class="col-sm-2 list-item form-group <isif condition="#isDefined(errors) AND ((errors:get(key) EQ 'SKUWithoutQuantity') OR (errors:get(key) EQ 'InvalidQuantity'))#">has-error</isif>">
+	
+	<div class="visible-xs"><istext key="quickorder.quantity.label" /></div>
+	
+	<input type="number"
+		min="1"
+		max="<isprint value="#maxItemQuantity#" formatter="0">"
+		name="Quantity_<isprint value="#key#">"
+		value="<isif condition="#isDefined(Quantities:get(key))#"><isprint value="#Quantities:get(key)#"></isif>"
+		class="form-control quick-order-quantity"
+	/>
+	<isif condition="#isDefined(errors) AND ((errors:get(key) EQ 'SKUWithoutQuantity') OR (errors:get(key) EQ 'InvalidQuantity'))#">
+		<small class="help-block"><istext key="quickorder.error.SKUWithoutQuantity"></small>
+	</isif>
+</div>
+
+<div class="col-sm-2 list-item">
+	<!--- css class "remove-row" will be needed for JS --->
+	<a href="javascript:void(0)" class="btn btn-link remove-row" title="remove-current-row"><istext key="quick.order.remove.row.link"/></a>
+</div>

@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<enfinity xmlns="http://www.intershop.com/xml/ns/enfinity/7.1/xcs/impex" xmlns:dt="http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" branch="enterprise" build="build" family="enfinity" major="6" minor="1" xsi:schemaLocation="http://www.intershop.com/xml/ns/enfinity/7.1/xcs/impex catalog.xsd http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt dt.xsd">
+<category name="832">
+<name>832</name>
+<root>0</root>
+<product-assignment-query/>
+<template/>
+<online>1</online>
+<category-links>
+</category-links>
+<display-name xml:lang="fr-FR">Caméras d&apos;action</display-name>
+<display-name xml:lang="en-US">Action Cameras</display-name>
+<parent name="Cameras-Camcorders"/>
+<images>
+<image-ref image-base-name="M/M4548736000919.jpg" image-type="M" image-view="front"/>
+</images>
+</category>
+<category name="577">
+<name>577</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<description xml:lang="de-DE">Eine Webcam ist eine digitale Videokamera, die direkt an einen Computer oder ein Netzwerk angeschlossen werden muss und nicht separat genutzt werden kann. Webcams eignen sich hervorragend für Video-Telefonie und Chat: Endlich können Sie Ihre fernen Freunden oder Ihre Familie beim Sprechen/Chatten sehent! Network Attached Webcams können als erschwingliche Sicherheits-Kameras verwendet werden.</description>
+<display-name xml:lang="fr-FR">Webcams</display-name>
+<display-name xml:lang="en-US">Webcams</display-name>
+<display-name xml:lang="de-DE">Webcams</display-name>
+<parent name="Cameras-Camcorders"/>
+<images>
+<image-ref image-base-name="M/3930709-8114.jpg" image-type="M" image-view="front"/>
+</images>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="fr-FR">True</custom-attribute>
+<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="en-US">True</custom-attribute>
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+</custom-attributes>
+</category>
+<category name="584">
+<name>584</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<description xml:lang="de-DE">Mit tragbaren Camcordern können Sie Ihre eigenen Video-Aufzeichnung und Filmaufnahmen machen. Diese Art Kamera können Sie jederzeit bei sich haben, um die wichtigen Momente Ihres Lebens aufzunehmen und mit Freunden oder Familie zu teilen. Sie können sogar Ihren eigenen Film drehen!</description>
+<display-name xml:lang="fr-FR">Caméscopes</display-name>
+<display-name xml:lang="en-US">Camcorders</display-name>
+<display-name xml:lang="de-DE">Digitale Videokameras</display-name>
+<parent name="Cameras-Camcorders"/>
+<images>
+<image-ref image-base-name="M/4729528-9270.jpg" image-type="M" image-view="front"/>
+</images>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="PRODUCT_SORTING_TYPE">default</custom-attribute>
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+</custom-attributes>
+</category>
+<category import-mode="UPDATE" name="Cameras-Camcorders">
+<name>Cameras-Camcorders</name>
+<root>1</root>
+<product-assignment-query/>
+<template/>
+<online>1</online>
+<category-links>
+</category-links>
+<description xml:lang="fr-FR">Le catalogue des produits de caméras et caméscopes.</description>
+<description xml:lang="en-US">The cameras and camcorders products catalog.</description>
+<display-name xml:lang="fr-FR">Caméras</display-name>
+<display-name xml:lang="en-US">Cameras</display-name>
+<description xml:lang="de-DE">Der Produkt- und Servicekatalog für Kameras &amp; Camcorder.</description>
+<display-name xml:lang="de-DE">Kameras</display-name>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="ShowInMenu">True</custom-attribute>
+</custom-attributes>
+</category>
+<category name="585">
+<name>585</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<display-name xml:lang="de-DE">Kamerazubehör</display-name>
+<display-name xml:lang="fr-FR">Accessoires pour caméras</display-name>
+<display-name xml:lang="en-US">Camera Accessories</display-name>
+<parent name="Cameras-Camcorders"/>
+<images>
+<image-ref image-base-name="M/4905524961133_1.jpg" image-type="M" image-view="front"/>
+</images>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_SORTING_TYPE">default</custom-attribute>
+</custom-attributes>
+</category>
+<category name="575">
+<name>575</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+<category-link domain="inSPIRED-Computers" name="902">
+<category-link-type name="ES_Accessory_C"/>
+</category-link>
+<category-link name="1290">
+<category-link-type name="ES_Accessory_C"/>
+</category-link>
+</category-links>
+<display-name xml:lang="fr-FR">Appareils photo numériques</display-name>
+<display-name xml:lang="en-US">Digital Cameras</display-name>
+<display-name xml:lang="de-DE">Digitale Kameras</display-name>
+<description xml:lang="de-DE">Mit einer digitalen Kamera werden alle Bilder, die Sie machen digital gespeichert und sofort nach der Aufnahme als Bild angezeigt. Dies bedeutet, dass Sie so viele Bilder machen können wie Sie möchten ohne dauernd neue Filme kaufen zu müssen. Es ist einfach, die Bilder von Ihrer Kamera auf Ihren Computer herunterladen, entweder zu Hause oder im Geschäft und sie vor dem Druck zu bearbeiten. Sobald sie auf Ihrem Computer sind, können Sie Ihre Bilder  ganz einfach mit dem Rest der Welt teilen, indem Sie sie online stellen oder per E-Mail an Freunde verschicken.</description>
+<parent name="Cameras-Camcorders"/>
+<images>
+<image-ref image-base-name="M/3957278-6938.jpg" image-type="M" image-view="front"/>
+</images>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="richContent" xml:lang="fr-FR">&lt;p&gt;&lt;strong&gt;TestImport Caméras &lt;/strong&gt;&lt;/p&gt; &lt;p&gt;Caméras numériques font des images incroyables, bien mieux que les smartphones. Découvrez-le vous-même : la facilité d&apos;utilisation, l&apos;excellente qualité d&apos;image, la large plage de zoom et la mise au point rapide. Les appareils photo numériques réduisent automatiquement les effets des vibrations afin d&apos;obtenir des images plus claires et plus nettes. Chez inSPIRED, nous offrons le meilleur équipement de caméra pour tous les usages - loisirs ou travail, robuste ou sophistiqué, toujours au meilleur rapport qualité-prix. Tout le monde - débutants et professionnels - se sentent à l&apos;aise dans le monde de la photographie avec nos appareils photo numériques de pointe.&lt;/p&gt;&lt;p&gt; &lt;strong&gt;Le meilleur choix pour les débutants et les professionnels &lt;/strong&gt;&lt;/p&gt; &lt;p&gt; Les appareils photo numériques modernes offrent beaucoup d&apos;options avec de nombreux réglages, mais permettent toujours une manipulation facile. Nos appareils Canon et Kodak produisent des images fascinantes. Les appareils photo compacts sont adaptés aux loisirs et à la photographie de plein air. Mais nous avons aussi des appareils bien équipés qui peuvent être utilisés dans des occasions spéciales comme la photographie sous-marine - des fonctions et des conceptions spécifiques à des fins spécifiques. Prenez, par exemple, le GoPro Hero 5 : Une caméra d&apos;action bien équipée dans un boîtier compact qui offre une haute qualité vidéo et une faible consommation de batterie.&lt;/p&gt; &lt;p&gt;&lt;strong&gt;Nouvelles caméras - Trendy, élégant, design compact &lt;/strong&gt;&lt;/p&gt; &lt;p&gt;Vous l&apos;aimez simple, moderne et impressionnant ? Alors vous devez voir les nouveaux produits de Canon. Ici vous vivez pour voir une nouvelle dimension de la photographie avec la série IXUS. Les nouvelles solutions sont adaptées aux besoins des clients. La série M de Kodak est la meilleure option pour plus de flexibilité. Ils sont faciles à transporter et arborent un écran tactile, qui vous permet de faire les réglages directement sur l&apos;écran. Grâce à sa face avant réversible, cette série est particulièrement adaptée à la prise de selfies.&lt;/p&gt;.</custom-attribute>
+<custom-attribute dt:dt="string" name="richContent" xml:lang="en-US">&lt;p&gt;&lt;strong&gt;TestImport Cameras&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Digital cameras make amazing pictures, much better than smartphones do. Discover it yourself: the easy handling, the excellent picture quality, the wide zoom range and the quick focus. Digital cameras automatically minimize the effects of vibration to deliver clearer and sharper pictures. At inSPIRED, we offer the best camera equipment for every purpose – leisure or work, robust or sophisticated, always at the best value option. Everyone - both beginners and professionals - feel comfortable in the world of photography with our top digital cameras.&lt;/p&gt;
+&lt;p&gt; &lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;The best choice for beginners and professionals&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Modern digital cameras offer a lot of options with many settings, but still allow for an easy handling. Our cameras from Canon and Kodak produce fascinating pictures. The compact cameras are suitable for leisure and outdoor photography. But we also have extensively equipped devices that can be used in special occasions like underwater photography – specific functions and designs for specific purposes. Take, for example, the GoPro Hero 5: A well-equipped action camera in a compact body that offers high video quality and low battery consumption.&lt;/p&gt;
+&lt;p&gt; &lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;New Cameras - Trendy, stylish, compact design&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;You like it simple, modern and impressive? Then you must see the new products from Canon. Here you live to see a new dimension of photography with the IXUS series. The new solutions are adapted to the needs of the customers. Kodak’s M series is the best option for more flexibility. They are easy to carry and sport a touch screen, which allows you to make the settings directly on the display. Thanks to its reversible front, this series is especially suited to take selfies.&lt;/p&gt;</custom-attribute>
+<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="fr-FR">True</custom-attribute>
+<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="en-US">True</custom-attribute>
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+</custom-attributes>
+</category>
+<category name="1290">
+<name>1290</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<description xml:lang="de-DE">Nehmen Sie Ihre Kamera überall hin sicher mit, mit einem dies bequemen Fotoapparathüllen.</description>
+<display-name xml:lang="de-DE">Kamerataschen und Rucksäcke</display-name>
+<display-name xml:lang="fr-FR">Sacs et valises</display-name>
+<display-name xml:lang="en-US">Bags &amp; Cases</display-name>
+<parent name="Cameras-Camcorders"/>
+<images>
+<image-ref image-base-name="M/4584970-3468.jpg" image-type="M" image-view="front"/>
+</images>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_SORTING_TYPE">default</custom-attribute>
+</custom-attributes>
+</category>
+</enfinity>

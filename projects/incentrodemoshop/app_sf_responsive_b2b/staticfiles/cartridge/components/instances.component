@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<components xmlns="http://www.intershop.de/component/2010">
+
+	<instance name="BasketPOToBasketBOObjectMapper" with="BasketPOToBasketBOObjectMapperImpl" scope="app"/>
+
+	<fulfill requirement="dispatchEntry" of="CheckoutDispatcher">
+		<instance with="DispatchEntry">
+			<fulfill requirement="target" value="ViewCart-View"/>
+			<fulfill requirement="position" value="12"/>
+			<!-- Basket Validation, Scope "Quote" -->
+			<fulfill requirement="failureCode" value="QuoteExpired"/>
+			<fulfill requirement="failureCode" value="QuoteRejected"/>
+			<fulfill requirement="failureCode" value="QuoteHasNoLineItems"/>
+			<fulfill requirement="failureCode" value="BasketHasQuotesAndIsRecurring"/>
+		</instance>
+	</fulfill>
+
+</components>

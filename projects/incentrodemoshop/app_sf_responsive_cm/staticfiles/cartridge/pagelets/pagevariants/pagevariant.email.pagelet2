@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pagelet:PageletModel xmlns:pagelet="http://www.intershop.de/pagelet/2010" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://www.intershop.de/core/2010" name="pagevariant.email.pagelet2">
+  <pageletDefinitions name="Pagevariant" page="true">
+    <callParameterInterfaces referencedName="app_sf_responsive:interface.page.email.pagelet2-Interface"/>
+    <configurationParameterDefinitions name="Subject" typeReference="bc_pmc:types.pagelet2-Text">
+      <parameterBindings xsi:type="core:ParameterValueBinding" name="Key0" value="ChannelDisplayName"/>
+    </configurationParameterDefinitions>
+    <configurationParameterDefinitions optional="true" name="Message1" typeReference="bc_pmc:types.pagelet2-Html">
+      <parameterBindings xsi:type="core:ParameterValueBinding" name="Key0" value="Date"/>
+      <parameterBindings xsi:type="core:ParameterValueBinding" name="Key1" value="FriendsName"/>
+      <parameterBindings xsi:type="core:ParameterValueBinding" name="Key2" value="FriendsEmail"/>
+      <parameterBindings xsi:type="core:ParameterValueBinding" name="Key3" value="SenderName"/>
+      <parameterBindings xsi:type="core:ParameterValueBinding" name="Key4" value="SenderEmail"/>
+      <parameterBindings xsi:type="core:ParameterValueBinding" name="Key5" value="EmailMessage"/>
+      <parameterBindings xsi:type="core:ParameterValueBinding" name="Key6" value="ChannelDisplayName"/>
+    </configurationParameterDefinitions>
+    <configurationParameterDefinitions optional="true" name="Message2" typeReference="bc_pmc:types.pagelet2-Html">
+      <parameterBindings xsi:type="core:ParameterValueBinding" name="Key0" value="Date"/>
+      <parameterBindings xsi:type="core:ParameterValueBinding" name="Key1" value="FriendsName"/>
+      <parameterBindings xsi:type="core:ParameterValueBinding" name="Key2" value="FriendsEmail"/>
+      <parameterBindings xsi:type="core:ParameterValueBinding" name="Key3" value="SenderName"/>
+      <parameterBindings xsi:type="core:ParameterValueBinding" name="Key4" value="SenderEmail"/>
+      <parameterBindings xsi:type="core:ParameterValueBinding" name="Key5" value="EmailMessage"/>
+      <parameterBindings xsi:type="core:ParameterValueBinding" name="Key6" value="ChannelDisplayName"/>
+    </configurationParameterDefinitions>
+    <renderTemplate referencedName="pagevariant/Email.isml"/>
+    <slotInclusionDefinitions>
+      <slotDefinition referencedName="app_sf_responsive_cm:slot.marketing.email.pagelet2-Slot"/>
+    </slotInclusionDefinitions>
+  </pageletDefinitions>
+</pagelet:PageletModel>

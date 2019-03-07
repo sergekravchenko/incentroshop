@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<enfinity xmlns:dt="http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt">
+<pagelet-entry-point id="pwa.include.homepage.pagelet2-Include">
+<definition-name>app_sf_responsive_cm:pwa.include.homepage.pagelet2-Include</definition-name>
+<page>false</page>
+<sorting>false</sorting>
+<display-name xml:lang="en-US">PWA Homepage Content</display-name>
+<description xml:lang="en-US">Include to manage content for the Homepage of the Intershop Progressive Web App.</description>
+</pagelet-entry-point>
+<pagelet-pagelet-entry-point-assignment>
+<pagelet-entry-point id="pwa.include.homepage.pagelet2-Include" domain="inSPIRED-inTRONICS-b2c-responsive" resource-set="app_sf_responsive_cm"/>
+<pagelet id="cmp_brands_carousel" domain="inSPIRED-inTRONICS-b2c-responsive"/>
+<position>2</position>
+<online>true</online>
+</pagelet-pagelet-entry-point-assignment>
+<pagelet-pagelet-entry-point-assignment>
+<pagelet-entry-point id="pwa.include.homepage.pagelet2-Include" domain="inSPIRED-inTRONICS-b2c-responsive" resource-set="app_sf_responsive_cm"/>
+<pagelet id="pwa_homepage_grid" domain="inSPIRED-inTRONICS-b2c-responsive"/>
+<position>1</position>
+<online>true</online>
+</pagelet-pagelet-entry-point-assignment>
+</enfinity>

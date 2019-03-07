@@ -1,0 +1,2 @@
+<iscontent type="application/json" charset="UTF-8" compact="true" httpstatus="200" templatemarker="false"
+>{<isif condition="#isDefined(CostCenterIDExists)#">"CostCenterIDExists":"true"<isif condition="#isDefined(InvalidBudgetValue)#">,</isif></isif><isif condition="#isDefined(InvalidBudgetValue)#">"InvalidBudgetValue":"true"</isif>}

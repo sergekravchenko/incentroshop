@@ -1,0 +1,4 @@
+<iscontent type="text/html" charset="UTF-8" compact="true">
+
+<isinclude template="modules/address/forms/inc/HiddenFieldsPreferredAddress.isml">
+<input type="hidden" name="IsRegistration" value="true" />

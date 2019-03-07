@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<enfinity xmlns="http://www.intershop.com/xml/ns/enfinity/7.1/xcs/impex" xmlns:dt="http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" branch="enterprise" build="build" family="enfinity" major="6" minor="1" xsi:schemaLocation="http://www.intershop.com/xml/ns/enfinity/7.1/xcs/impex catalog.xsd http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt dt.xsd">
+<category import-mode="UPDATE" name="presentation-conferencing">
+<name>presentation-conferencing</name>
+<root>1</root>
+<product-assignment-query/>
+<template/>
+<online>1</online>
+<category-links>
+</category-links>
+<description xml:lang="de-DE">Katalog für Präsentations- und Konferenzausrüstung</description>
+<description xml:lang="fr-FR">Catalogue d’équipement de présentation et de conférence électronique</description>
+<description xml:lang="en-US">Presentation and conferencing equipment catalog</description>
+<display-name xml:lang="de-DE">Konferenzausstattung</display-name>
+<display-name xml:lang="fr-FR">Conférences</display-name>
+<display-name xml:lang="en-US">Conferencing</display-name>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="ShowInMenu">True</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_SORTING_TYPE">default</custom-attribute>
+</custom-attributes>
+</category>
+<category name="audio-equipment">
+<name>audio-equipment</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<description xml:lang="de-DE">Lautsprecher und Mikrofone für Konferenzen</description>
+<description xml:lang="fr-FR">Entendre ce que dit votre interlocuteur et être confiant que votre interlocuteur peut vous comprendre est la clé du succès des conférences. Choisissez des haut-parleurs et des microphones pour vos besoins de conférence.</description>
+<description xml:lang="en-US">Hearing what your conversational partner says and being confident about that your opposite can understand you is key to successfull conferences. Choose loudspeakers and microphones for your conferencing needs.</description>
+<display-name xml:lang="de-DE">Audio Produkte</display-name>
+<display-name xml:lang="fr-FR">Équipement audio</display-name>
+<display-name xml:lang="en-US">Audio Equipment</display-name>
+<parent name="presentation-conferencing"/>
+<images>
+<image-ref image-base-name="M/1365531-2733.jpg" image-type="M" image-view="front"/>
+</images>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="fr-FR">True</custom-attribute>
+<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="en-US">True</custom-attribute>
+</custom-attributes>
+</category>
+<category name="data-projectors">
+<name>data-projectors</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<description xml:lang="fr-FR">Les présentations gagnent en effet, lorsqu&apos;elles sont montrées aussi claires et lumineuses que possible. Impressionnez votre public avec votre travail affiché par nos projecteurs de données.</description>
+<description xml:lang="en-US">Presentations gain effect, when shown as bright and clear as possible. Impress your audience with your work displayed by our data projectors.</description>
+<description xml:lang="de-DE">Präsentationen gewinnen an Eindruck, wenn sie hell und klar vorgeführt werden. Beeindrucken Sie Ihr Publikum mit Ihrer Arbeit präsentiert mit einem unserer Beamer.</description>
+<display-name xml:lang="de-DE">Beamer</display-name>
+<display-name xml:lang="fr-FR">Projecteurs de données</display-name>
+<display-name xml:lang="en-US">Data Projectors</display-name>
+<parent name="presentation-conferencing"/>
+<images>
+<image-ref image-base-name="M/0027242869158_1.jpg" image-type="M" image-view="front"/>
+</images>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="fr-FR">True</custom-attribute>
+<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="en-US">True</custom-attribute>
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+</custom-attributes>
+</category>
+<category name="headsets">
+<name>headsets</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<description xml:lang="de-DE">Headsets für Online-Konferenzen</description>
+<display-name xml:lang="fr-FR">Casques</display-name>
+<display-name xml:lang="en-US">Headsets</display-name>
+<display-name xml:lang="de-DE">Headsets</display-name>
+<description xml:lang="fr-FR">Casques d&apos;écoute pour les conférences en ligne</description>
+<description xml:lang="en-US">Headsets for online conferences</description>
+<parent name="presentation-conferencing"/>
+<images>
+<image-ref image-base-name="M/1312670-8443.jpg" image-type="M" image-view="front"/>
+</images>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="fr-FR">True</custom-attribute>
+<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="en-US">True</custom-attribute>
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+</custom-attributes>
+</category>
+<category name="roommanager">
+<name>roommanager</name>
+<root>0</root>
+<product-assignment-query/>
+<template/>
+<online>1</online>
+<category-links>
+</category-links>
+<display-name xml:lang="fr-FR">Gestionnaire de salle</display-name>
+<display-name xml:lang="en-US">Room Manager</display-name>
+<description xml:lang="de-DE">Touchscreen-Lösung für alle Besprechungsräume</description>
+<display-name xml:lang="de-DE">Raummanager</display-name>
+<description xml:lang="fr-FR">Solution d&apos;écran tactile pour toutes les salles de réunion</description>
+<description xml:lang="en-US">Touchscreen solution for all meeting rooms</description>
+<parent name="presentation-conferencing"/>
+<images>
+<image-ref image-base-name="M/M_201807233_side.jpg" image-type="M" image-view="front"/>
+</images>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="PRODUCT_SORTING_TYPE">default</custom-attribute>
+<custom-attribute dt:dt="string" name="richContent" xml:lang="fr-FR"></custom-attribute>
+<custom-attribute dt:dt="string" name="richContent" xml:lang="en-US"/>
+<custom-attribute dt:dt="string" name="richContent" xml:lang="de-DE"/>
+</custom-attributes>
+</category>
+<category name="videoconferencesystems">
+<name>videoconferencesystems</name>
+<root>0</root>
+<product-assignment-query/>
+<template/>
+<online>1</online>
+<category-links>
+</category-links>
+<description xml:lang="de-DE">Videokonferenzsysteme für eine perfekte Zusammenarbeit</description>
+<display-name xml:lang="fr-FR">Systèmes de vidéoconférence</display-name>
+<display-name xml:lang="en-US">Video conference systems</display-name>
+<description xml:lang="fr-FR">Systèmes de vidéoconférence pour un travail d&apos;équipe parfait</description>
+<description xml:lang="en-US">Video conference systems for perfect teamwork</description>
+<display-name xml:lang="de-DE">Videokonferenzsysteme</display-name>
+<parent name="presentation-conferencing"/>
+<images>
+<image-ref image-base-name="M/M_201807181_front.jpg" image-type="M" image-view="front"/>
+</images>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="richContent" xml:lang="en-US">Combine affordable and flexible conference cameras, speakers, microphones and control panels for the holding of any kind of audio and video conference using Skype for Business. Intuitive operation with high-quality audio and video. Easy management of meetings, content and participants.</custom-attribute>
+<custom-attribute dt:dt="string" name="richContent" xml:lang="de-DE">Kombinieren Sie preisgünstige und flexible Konferenzkameras, Lautsprecher, Mikrofone und Bedienkonsolen zur Realisierung von Audio- und Videokonferenzen jeglicher Art mit Skype for Business. Intuitive Bedienung mit einwandfreier Audio- und Videoqualität. Leichte Verwaltung von Meetings, Inhalten und Teilnehmern.</custom-attribute>
+<custom-attribute dt:dt="string" name="richContent" xml:lang="fr-FR">Combinez des caméras de conférence, des haut-parleurs, des microphones et des panneaux de contrôle abordables et flexibles pour la tenue de tout type de conférence audio et vidéo en utilisant Skype pour les entreprises. Fonctionnement intuitif avec audio et vidéo de haute qualité. Gestion facile des réunions, du contenu et des participants.</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_SORTING_TYPE">default</custom-attribute>
+<custom-attribute dt:dt="string" name="richContent" xml:lang="de-DE"/>
+</custom-attributes>
+</category>
+</enfinity>

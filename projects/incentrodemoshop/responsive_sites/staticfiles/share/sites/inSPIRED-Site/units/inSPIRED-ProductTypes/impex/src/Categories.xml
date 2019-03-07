@@ -1,0 +1,3687 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<enfinity xmlns="http://www.intershop.com/xml/ns/enfinity/7.1/xcs/impex" xmlns:dt="http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" branch="enterprise" build="6.5.0.4.45" family="enfinity" major="6" minor="1" xsi:schemaLocation="http://www.intershop.com/xml/ns/enfinity/7.1/xcs/impex catalog.xsd http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt dt.xsd">
+<category name="TE - Studio Mounting">
+<name>TE - Studio Mounting</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<description xml:lang="de-DE">Studio Mounting</description>
+<display-name xml:lang="de-DE">Studio Mounting</display-name>
+<description xml:lang="fr-FR">Montage en studio</description>
+<description xml:lang="en-US">Studio Mounting</description>
+<display-name xml:lang="fr-FR">Montage en studio</display-name>
+<display-name xml:lang="en-US">Studio Mounting</display-name>
+<parent name="T - Studio Equipment"/>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_ATTRIBUTE">ProductTypes</custom-attribute>
+<custom-attribute dt:dt="int" name="PRODUCT_BINDING_TYPE">1</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_VALUE">TE - Studio Mounting</custom-attribute>
+</custom-attributes>
+</category>
+<category name="TD - Studio Light &amp; Flashes">
+<name>TD - Studio Light &amp; Flashes</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<description xml:lang="de-DE">Studio Light &amp; Flashes</description>
+<display-name xml:lang="fr-FR">Lumière de studio et flashes</display-name>
+<display-name xml:lang="en-US">Studio Light &amp; Flashes</display-name>
+<display-name xml:lang="de-DE">Studio Light &amp; Flashes</display-name>
+<description xml:lang="fr-FR">Lumière de studio et flashes</description>
+<description xml:lang="en-US">Studio Light &amp; Flashes</description>
+<parent name="T - Studio Equipment"/>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_ATTRIBUTE">ProductTypes</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_VALUE">TD - Studio Light &amp; Flashes</custom-attribute>
+<custom-attribute dt:dt="int" name="PRODUCT_BINDING_TYPE">1</custom-attribute>
+</custom-attributes>
+</category>
+<category name="TG - Light Meters">
+<name>TG - Light Meters</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<description xml:lang="de-DE">Light Meters</description>
+<display-name xml:lang="fr-FR">Compteurs de lumière</display-name>
+<display-name xml:lang="en-US">Light Meters</display-name>
+<display-name xml:lang="de-DE">Light Meters</display-name>
+<description xml:lang="fr-FR">Compteurs de lumière</description>
+<description xml:lang="en-US">Light Meters</description>
+<parent name="T - Studio Equipment"/>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_VALUE">TG - Light Meters</custom-attribute>
+<custom-attribute dt:dt="int" name="PRODUCT_BINDING_TYPE">1</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_ATTRIBUTE">ProductTypes</custom-attribute>
+</custom-attributes>
+</category>
+<category name="U - Darkroom">
+<name>U - Darkroom</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<display-name xml:lang="fr-FR">Chambre noire</display-name>
+<display-name xml:lang="en-US">Darkroom</display-name>
+<display-name xml:lang="de-DE">Dunkelkammer</display-name>
+<description xml:lang="fr-FR">Chambre noire</description>
+<description xml:lang="en-US">Darkroom</description>
+<description xml:lang="de-DE">Dunkelkammer</description>
+<parent name="ProductTypes"/>
+<custom-attributes>
+<custom-attribute dt:dt="int" name="PRODUCT_BINDING_TYPE">1</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_ATTRIBUTE">ProductTypes</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_VALUE">U - Darkroom</custom-attribute>
+</custom-attributes>
+</category>
+<category name="UA - Photo Enlarging Paper">
+<name>UA - Photo Enlarging Paper</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<display-name xml:lang="fr-FR">Agrandir le papier photo</display-name>
+<display-name xml:lang="en-US">Photo Enlarging Paper</display-name>
+<display-name xml:lang="de-DE">Fotopapier</display-name>
+<description xml:lang="fr-FR">Agrandir le papier photo</description>
+<description xml:lang="en-US">Photo Enlarging Paper</description>
+<description xml:lang="de-DE">Fotopapier</description>
+<parent name="U - Darkroom"/>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_VALUE">UA - Photo Enlarging Paper</custom-attribute>
+<custom-attribute dt:dt="int" name="PRODUCT_BINDING_TYPE">1</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_ATTRIBUTE">ProductTypes</custom-attribute>
+</custom-attributes>
+</category>
+<category name="UB - Photographic Chemistry">
+<name>UB - Photographic Chemistry</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<display-name xml:lang="de-DE">Photographic Chemistry</display-name>
+<description xml:lang="de-DE">Photographic Chemistry</description>
+<display-name xml:lang="fr-FR">Chimie photographique</display-name>
+<display-name xml:lang="en-US">Photographic Chemistry</display-name>
+<description xml:lang="fr-FR">Chimie photographique</description>
+<description xml:lang="en-US">Photographic Chemistry</description>
+<parent name="U - Darkroom"/>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_ATTRIBUTE">ProductTypes</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_VALUE">UB - Photographic Chemistry</custom-attribute>
+<custom-attribute dt:dt="int" name="PRODUCT_BINDING_TYPE">1</custom-attribute>
+</custom-attributes>
+</category>
+<category name="UE - Developing &amp; Processing Equipment">
+<name>UE - Developing &amp; Processing Equipment</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<description xml:lang="de-DE">Developing &amp; Processing Equipment</description>
+<display-name xml:lang="de-DE">Developing &amp; Processing Equipment</display-name>
+<description xml:lang="fr-FR">Développement et traitement de l&apos;équipement</description>
+<description xml:lang="en-US">Developing &amp; Processing Equipment</description>
+<display-name xml:lang="fr-FR">Développement et traitement de l&apos;équipement</display-name>
+<display-name xml:lang="en-US">Developing &amp; Processing Equipment</display-name>
+<parent name="U - Darkroom"/>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_ATTRIBUTE">ProductTypes</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_VALUE">UE - Developing &amp; Processing Equipment</custom-attribute>
+<custom-attribute dt:dt="int" name="PRODUCT_BINDING_TYPE">1</custom-attribute>
+</custom-attributes>
+</category>
+<category name="UF - Darkroom Accessories, Safelight &amp; Setup">
+<name>UF - Darkroom Accessories, Safelight &amp; Setup</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<display-name xml:lang="fr-FR">Accessoires de chambre noire, Safelight &amp; Setup</display-name>
+<display-name xml:lang="en-US">Darkroom Accessories, Safelight &amp; Setup</display-name>
+<description xml:lang="fr-FR">Accessoires de chambre noire, Safelight &amp; Setup</description>
+<description xml:lang="en-US">Darkroom Accessories, Safelight &amp; Setup</description>
+<description xml:lang="de-DE">Darkroom Accessories, Safelight &amp; Setup</description>
+<display-name xml:lang="de-DE">Darkroom Accessories, Safelight &amp; Setup</display-name>
+<parent name="U - Darkroom"/>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_VALUE">UF - Darkroom Accessories, Safelight &amp; Setup</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_ATTRIBUTE">ProductTypes</custom-attribute>
+<custom-attribute dt:dt="int" name="PRODUCT_BINDING_TYPE">1</custom-attribute>
+</custom-attributes>
+</category>
+<category name="V - Photo Storage &amp; Presentation">
+<name>V - Photo Storage &amp; Presentation</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<display-name xml:lang="fr-FR">Stockage et présentation de photos</display-name>
+<display-name xml:lang="en-US">Photo Storage &amp; Presentation</display-name>
+<display-name xml:lang="de-DE">Fotospeicherung und -präsentation</display-name>
+<description xml:lang="fr-FR">Stockage et présentation de photos</description>
+<description xml:lang="en-US">Photo Storage &amp; Presentation</description>
+<description xml:lang="de-DE">Fotospeicherung und -präsentation</description>
+<parent name="ProductTypes"/>
+<custom-attributes>
+<custom-attribute dt:dt="int" name="PRODUCT_BINDING_TYPE">1</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_VALUE">V - Photo Storage &amp; Presentation</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_ATTRIBUTE">ProductTypes</custom-attribute>
+</custom-attributes>
+</category>
+<category name="VA - Photo Frames">
+<name>VA - Photo Frames</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<description xml:lang="de-DE">Fotorahmen</description>
+<display-name xml:lang="fr-FR">Cadres photo</display-name>
+<display-name xml:lang="en-US">Photo Frames</display-name>
+<description xml:lang="fr-FR">Cadres photo</description>
+<description xml:lang="en-US">Photo Frames</description>
+<display-name xml:lang="de-DE">Fotorahmen</display-name>
+<parent name="V - Photo Storage &amp; Presentation"/>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_ATTRIBUTE">ProductTypes</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_VALUE">VA - Photo Frames</custom-attribute>
+<custom-attribute dt:dt="int" name="PRODUCT_BINDING_TYPE">1</custom-attribute>
+</custom-attributes>
+</category>
+<category name="VB - Photo Albums &amp; Archival Storage">
+<name>VB - Photo Albums &amp; Archival Storage</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<display-name xml:lang="fr-FR">Albums de photos et entreposage d&apos;archives</display-name>
+<display-name xml:lang="en-US">Photo Albums &amp; Archival Storage</display-name>
+<display-name xml:lang="de-DE">Fotoalben und Archivierung</display-name>
+<description xml:lang="fr-FR">Albums de photos et entreposage d&apos;archives</description>
+<description xml:lang="en-US">Photo Albums &amp; Archival Storage</description>
+<description xml:lang="de-DE">Fotoalben und Archivierung</description>
+<parent name="V - Photo Storage &amp; Presentation"/>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_VALUE">VB - Photo Albums &amp; Archival Storage</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_ATTRIBUTE">ProductTypes</custom-attribute>
+<custom-attribute dt:dt="int" name="PRODUCT_BINDING_TYPE">1</custom-attribute>
+</custom-attributes>
+</category>
+<category name="VC - Cutters &amp; Trimmers">
+<name>VC - Cutters &amp; Trimmers</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<display-name xml:lang="de-DE">Cutters &amp; Trimmers</display-name>
+<description xml:lang="fr-FR">Couteaux et taille-bordures</description>
+<description xml:lang="en-US">Cutters &amp; Trimmers</description>
+<description xml:lang="de-DE">Cutters &amp; Trimmers</description>
+<display-name xml:lang="fr-FR">Couteaux et taille-bordures</display-name>
+<display-name xml:lang="en-US">Cutters &amp; Trimmers</display-name>
+<parent name="V - Photo Storage &amp; Presentation"/>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_ATTRIBUTE">ProductTypes</custom-attribute>
+<custom-attribute dt:dt="int" name="PRODUCT_BINDING_TYPE">1</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_VALUE">VC - Cutters &amp; Trimmers</custom-attribute>
+</custom-attributes>
+</category>
+<category name="VD - Laminators">
+<name>VD - Laminators</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<description xml:lang="fr-FR">Laminateurs</description>
+<description xml:lang="en-US">Laminators</description>
+<display-name xml:lang="fr-FR">Laminateurs</display-name>
+<display-name xml:lang="en-US">Laminators</display-name>
+<display-name xml:lang="de-DE">Laminators</display-name>
+<description xml:lang="de-DE">Laminators</description>
+<parent name="V - Photo Storage &amp; Presentation"/>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_VALUE">VD - Laminators</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_ATTRIBUTE">ProductTypes</custom-attribute>
+<custom-attribute dt:dt="int" name="PRODUCT_BINDING_TYPE">1</custom-attribute>
+</custom-attributes>
+</category>
+<category name="W - Professional Video">
+<name>W - Professional Video</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<display-name xml:lang="de-DE">Professional Video</display-name>
+<description xml:lang="de-DE">Professional Video</description>
+<description xml:lang="fr-FR">Vidéo professionnelle</description>
+<description xml:lang="en-US">Professional Video</description>
+<display-name xml:lang="fr-FR">Vidéo professionnelle</display-name>
+<display-name xml:lang="en-US">Professional Video</display-name>
+<parent name="ProductTypes"/>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_ATTRIBUTE">ProductTypes</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_VALUE">W - Professional Video</custom-attribute>
+<custom-attribute dt:dt="int" name="PRODUCT_BINDING_TYPE">1</custom-attribute>
+</custom-attributes>
+</category>
+<category name="WA - Video Editing Controllers, Mixers &amp; Titlers">
+<name>WA - Video Editing Controllers, Mixers &amp; Titlers</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<display-name xml:lang="de-DE">Videobearbeitung, Mischen &amp; Untertitelung</display-name>
+<description xml:lang="de-DE">Videobearbeitung, Mischen &amp; Untertitelung</description>
+<description xml:lang="fr-FR">Contrôleurs de montage vidéo, Mixers &amp; Titlers</description>
+<description xml:lang="en-US">Video Editing Controllers, Mixers &amp; Titlers</description>
+<display-name xml:lang="fr-FR">Contrôleurs de montage vidéo, Mixers &amp; Titlers</display-name>
+<display-name xml:lang="en-US">Video Editing Controllers, Mixers &amp; Titlers</display-name>
+<parent name="W - Professional Video"/>
+<custom-attributes>
+<custom-attribute dt:dt="int" name="PRODUCT_BINDING_TYPE">1</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_ATTRIBUTE">ProductTypes</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_VALUE">WA - Video Editing Controllers, Mixers &amp; Titlers</custom-attribute>
+</custom-attributes>
+</category>
+<category name="WB - Studio &amp; Field Monitors">
+<name>WB - Studio &amp; Field Monitors</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<description xml:lang="de-DE">Monitore für den Innen- und Außenbereich</description>
+<display-name xml:lang="fr-FR">Moniteurs de studio et de terrain</display-name>
+<display-name xml:lang="en-US">Studio &amp; Field Monitors</display-name>
+<description xml:lang="fr-FR">Moniteurs de studio et de terrain</description>
+<description xml:lang="en-US">Studio &amp; Field Monitors</description>
+<display-name xml:lang="de-DE">Monitore für den Innen- und Außenbereich</display-name>
+<parent name="W - Professional Video"/>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_ATTRIBUTE">ProductTypes</custom-attribute>
+<custom-attribute dt:dt="int" name="PRODUCT_BINDING_TYPE">1</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_VALUE">WB - Studio &amp; Field Monitors</custom-attribute>
+</custom-attributes>
+</category>
+<category name="WC - Studio &amp; Production Equipment">
+<name>WC - Studio &amp; Production Equipment</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<description xml:lang="de-DE">Studio- &amp; Produktionsausrüstung</description>
+<description xml:lang="fr-FR">Équipement de studio et de production</description>
+<description xml:lang="en-US">Studio &amp; Production Equipment</description>
+<display-name xml:lang="de-DE">Studio- &amp; Produktionsausrüstung</display-name>
+<display-name xml:lang="fr-FR">Équipement de studio et de production</display-name>
+<display-name xml:lang="en-US">Studio &amp; Production Equipment</display-name>
+<parent name="W - Professional Video"/>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_VALUE">WC - Studio &amp; Production Equipment</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_ATTRIBUTE">ProductTypes</custom-attribute>
+<custom-attribute dt:dt="int" name="PRODUCT_BINDING_TYPE">1</custom-attribute>
+</custom-attributes>
+</category>
+<category name="X - Professional Audio">
+<name>X - Professional Audio</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<display-name xml:lang="fr-FR">Audio professionnel</display-name>
+<display-name xml:lang="en-US">Professional Audio</display-name>
+<description xml:lang="de-DE">Professional Audio</description>
+<display-name xml:lang="de-DE">Professional Audio</display-name>
+<description xml:lang="fr-FR">Audio professionnel</description>
+<description xml:lang="en-US">Professional Audio</description>
+<parent name="ProductTypes"/>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_VALUE">X - Professional Audio</custom-attribute>
+<custom-attribute dt:dt="int" name="PRODUCT_BINDING_TYPE">1</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_ATTRIBUTE">ProductTypes</custom-attribute>
+</custom-attributes>
+</category>
+<category name="XA - Audio Mixers">
+<name>XA - Audio Mixers</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<display-name xml:lang="fr-FR">Mélangeurs audio</display-name>
+<display-name xml:lang="en-US">Audio Mixers</display-name>
+<display-name xml:lang="de-DE">Tonmischpulte</display-name>
+<description xml:lang="fr-FR">Mélangeurs audio</description>
+<description xml:lang="en-US">Audio Mixers</description>
+<description xml:lang="de-DE">Tonmischpulte</description>
+<parent name="X - Professional Audio"/>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_VALUE">XA - Audio Mixers</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_ATTRIBUTE">ProductTypes</custom-attribute>
+<custom-attribute dt:dt="int" name="PRODUCT_BINDING_TYPE">1</custom-attribute>
+</custom-attributes>
+</category>
+<category name="HA - Reference Material">
+<name>HA - Reference Material</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<display-name xml:lang="de-DE">Referenzmaterial</display-name>
+<display-name xml:lang="fr-FR">Matériel de référence</display-name>
+<display-name xml:lang="en-US">Reference Material</display-name>
+<description xml:lang="fr-FR">Matériel de référence</description>
+<description xml:lang="en-US">Reference Material</description>
+<description xml:lang="de-DE">Referenzmaterial</description>
+<parent name="H - Learning Resources"/>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_VALUE">HA - Reference Material</custom-attribute>
+<custom-attribute dt:dt="int" name="PRODUCT_BINDING_TYPE">1</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_ATTRIBUTE">ProductTypes</custom-attribute>
+</custom-attributes>
+</category>
+<category name="JH - DVRs">
+<name>JH - DVRs</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<description xml:lang="fr-FR">enregistreurs numériques</description>
+<description xml:lang="en-US">DVRs</description>
+<display-name xml:lang="fr-FR">enregistreurs numériques</display-name>
+<display-name xml:lang="en-US">DVRs</display-name>
+<display-name xml:lang="de-DE">DVRs</display-name>
+<description xml:lang="de-DE">DVRs</description>
+<parent name="J - Video"/>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_VALUE">JH - DVRs</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_ATTRIBUTE">ProductTypes</custom-attribute>
+<custom-attribute dt:dt="int" name="PRODUCT_BINDING_TYPE">1</custom-attribute>
+</custom-attributes>
+</category>
+<category name="JI - Combined AV Devices">
+<name>JI - Combined AV Devices</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<description xml:lang="fr-FR">Appareils audiovisuels combinés</description>
+<description xml:lang="en-US">Combined AV Devices</description>
+<description xml:lang="de-DE">AV-Geräte (Kombination)</description>
+<display-name xml:lang="de-DE">AV-Geräte (Kombination)</display-name>
+<display-name xml:lang="fr-FR">Appareils audiovisuels combinés</display-name>
+<display-name xml:lang="en-US">Combined AV Devices</display-name>
+<parent name="J - Video"/>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_VALUE">JI - Combined AV Devices</custom-attribute>
+<custom-attribute dt:dt="int" name="PRODUCT_BINDING_TYPE">1</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_ATTRIBUTE">ProductTypes</custom-attribute>
+</custom-attributes>
+</category>
+<category name="DE - Bar Code Readers">
+<name>DE - Bar Code Readers</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<display-name xml:lang="fr-FR">Lecteurs de codes à barres</display-name>
+<display-name xml:lang="en-US">Bar Code Readers</display-name>
+<display-name xml:lang="de-DE">Strichcodeleser</display-name>
+<description xml:lang="de-DE">Strichcodeleser</description>
+<description xml:lang="fr-FR">Lecteurs de codes à barres</description>
+<description xml:lang="en-US">Bar Code Readers</description>
+<parent name="D - Input Devices"/>
+<custom-attributes>
+<custom-attribute dt:dt="int" name="PRODUCT_BINDING_TYPE">1</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_ATTRIBUTE">ProductTypes</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_VALUE">DE - Bar Code Readers</custom-attribute>
+</custom-attributes>
+</category>
+<category name="LC - Flashes">
+<name>LC - Flashes</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<description xml:lang="de-DE">Blitzgeräte</description>
+<description xml:lang="fr-FR">Flashes</description>
+<description xml:lang="en-US">Flashes</description>
+<display-name xml:lang="fr-FR">Flashes</display-name>
+<display-name xml:lang="en-US">Flashes</display-name>
+<display-name xml:lang="de-DE">Blitzgeräte</display-name>
+<parent name="L - Cameras &amp; Optical Systems"/>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_ATTRIBUTE">ProductTypes</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_VALUE">LC - Flashes</custom-attribute>
+<custom-attribute dt:dt="int" name="PRODUCT_BINDING_TYPE">1</custom-attribute>
+</custom-attributes>
+</category>
+<category name="LD - Binoculars">
+<name>LD - Binoculars</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<description xml:lang="fr-FR">Jumelles</description>
+<description xml:lang="en-US">Binoculars</description>
+<display-name xml:lang="fr-FR">Jumelles</display-name>
+<display-name xml:lang="en-US">Binoculars</display-name>
+<display-name xml:lang="de-DE">Fernglas</display-name>
+<description xml:lang="de-DE">Fernglas</description>
+<parent name="L - Cameras &amp; Optical Systems"/>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_VALUE">LD - Binoculars</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_ATTRIBUTE">ProductTypes</custom-attribute>
+<custom-attribute dt:dt="int" name="PRODUCT_BINDING_TYPE">1</custom-attribute>
+</custom-attributes>
+</category>
+<category name="LG - Film">
+<name>LG - Film</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<description xml:lang="fr-FR">Film</description>
+<description xml:lang="en-US">Film</description>
+<description xml:lang="de-DE">Film</description>
+<display-name xml:lang="fr-FR">Film</display-name>
+<display-name xml:lang="en-US">Film</display-name>
+<display-name xml:lang="de-DE">Film</display-name>
+<parent name="L - Cameras &amp; Optical Systems"/>
+<custom-attributes>
+<custom-attribute dt:dt="int" name="PRODUCT_BINDING_TYPE">1</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_ATTRIBUTE">ProductTypes</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_VALUE">LG - Film</custom-attribute>
+</custom-attributes>
+</category>
+<category name="SF - Personal Care">
+<name>SF - Personal Care</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<description xml:lang="de-DE">Körperpflege</description>
+<display-name xml:lang="fr-FR">Soins personnels</display-name>
+<display-name xml:lang="en-US">Personal Care</display-name>
+<display-name xml:lang="de-DE">Körperpflege</display-name>
+<description xml:lang="fr-FR">Soins personnels</description>
+<description xml:lang="en-US">Personal Care</description>
+<parent name="S - Small Appliances"/>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_ATTRIBUTE">ProductTypes</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_VALUE">SF - Personal Care</custom-attribute>
+<custom-attribute dt:dt="int" name="PRODUCT_BINDING_TYPE">1</custom-attribute>
+</custom-attributes>
+</category>
+<category name="TC - Light Control">
+<name>TC - Light Control</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<description xml:lang="de-DE">Lichtsteuerung</description>
+<display-name xml:lang="fr-FR">Contrôle de l&apos;éclairage</display-name>
+<display-name xml:lang="en-US">Light Control</display-name>
+<display-name xml:lang="de-DE">Lichtsteuerung</display-name>
+<description xml:lang="fr-FR">Contrôle de l&apos;éclairage</description>
+<description xml:lang="en-US">Light Control</description>
+<parent name="T - Studio Equipment"/>
+<custom-attributes>
+<custom-attribute dt:dt="int" name="PRODUCT_BINDING_TYPE">1</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_ATTRIBUTE">ProductTypes</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_VALUE">TC - Light Control</custom-attribute>
+</custom-attributes>
+</category>
+<category name="DH - Input Adapters">
+<name>DH - Input Adapters</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<description xml:lang="de-DE">Eingabe Adapter</description>
+<display-name xml:lang="fr-FR">Adaptateurs d&apos;entrée</display-name>
+<display-name xml:lang="en-US">Input Adapters</display-name>
+<display-name xml:lang="de-DE">Eingabe Adapter</display-name>
+<description xml:lang="fr-FR">Adaptateurs d&apos;entrée</description>
+<description xml:lang="en-US">Input Adapters</description>
+<parent name="D - Input Devices"/>
+<custom-attributes>
+<custom-attribute dt:dt="int" name="PRODUCT_BINDING_TYPE">1</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_VALUE">DH - Input Adapters</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_ATTRIBUTE">ProductTypes</custom-attribute>
+</custom-attributes>
+</category>
+<category name="DI - Input Cables">
+<name>DI - Input Cables</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<display-name xml:lang="fr-FR">Câbles d&apos;entrée</display-name>
+<display-name xml:lang="en-US">Input Cables</display-name>
+<description xml:lang="de-DE">Eingabe Kabel</description>
+<description xml:lang="fr-FR">Câbles d&apos;entrée</description>
+<description xml:lang="en-US">Input Cables</description>
+<display-name xml:lang="de-DE">Eingabe Kabel</display-name>
+<parent name="D - Input Devices"/>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_VALUE">DI - Input Cables</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_ATTRIBUTE">ProductTypes</custom-attribute>
+<custom-attribute dt:dt="int" name="PRODUCT_BINDING_TYPE">1</custom-attribute>
+</custom-attributes>
+</category>
+<category name="DJ - Input Accessories">
+<name>DJ - Input Accessories</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<description xml:lang="fr-FR">Accessoires d&apos;entrée</description>
+<description xml:lang="en-US">Input Accessories</description>
+<description xml:lang="de-DE">Eingabe Zubehör</description>
+<display-name xml:lang="fr-FR">Accessoires d&apos;entrée</display-name>
+<display-name xml:lang="en-US">Input Accessories</display-name>
+<display-name xml:lang="de-DE">Eingabe Zubehör</display-name>
+<parent name="D - Input Devices"/>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_VALUE">DJ - Input Accessories</custom-attribute>
+<custom-attribute dt:dt="int" name="PRODUCT_BINDING_TYPE">1</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_ATTRIBUTE">ProductTypes</custom-attribute>
+</custom-attributes>
+</category>
+<category name="DK - Input Service &amp; Support">
+<name>DK - Input Service &amp; Support</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<description xml:lang="de-DE">Eingabegeräte Service &amp; Support</description>
+<display-name xml:lang="fr-FR">Service de saisie et de soutien</display-name>
+<display-name xml:lang="en-US">Input Service &amp; Support</display-name>
+<description xml:lang="fr-FR">Service de saisie et de soutien</description>
+<description xml:lang="en-US">Input Service &amp; Support</description>
+<display-name xml:lang="de-DE">Eingabegeräte Service &amp; Support</display-name>
+<parent name="D - Input Devices"/>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_VALUE">DK - Input Service &amp; Support</custom-attribute>
+<custom-attribute dt:dt="int" name="PRODUCT_BINDING_TYPE">1</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_ATTRIBUTE">ProductTypes</custom-attribute>
+</custom-attributes>
+</category>
+<category name="E - Output Devices">
+<name>E - Output Devices</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<description xml:lang="de-DE">Ausgabegeräte</description>
+<display-name xml:lang="fr-FR">Périphériques de sortie</display-name>
+<display-name xml:lang="en-US">Output Devices</display-name>
+<display-name xml:lang="de-DE">Ausgabegeräte</display-name>
+<description xml:lang="fr-FR">Périphériques de sortie</description>
+<description xml:lang="en-US">Output Devices</description>
+<parent name="ProductTypes"/>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_VALUE">E - Output Devices</custom-attribute>
+<custom-attribute dt:dt="int" name="PRODUCT_BINDING_TYPE">1</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_ATTRIBUTE">ProductTypes</custom-attribute>
+</custom-attributes>
+</category>
+<category name="EA - Monitors">
+<name>EA - Monitors</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<display-name xml:lang="fr-FR">Moniteurs</display-name>
+<display-name xml:lang="en-US">Monitors</display-name>
+<display-name xml:lang="de-DE">Monitore</display-name>
+<description xml:lang="de-DE">Monitore</description>
+<description xml:lang="fr-FR">Moniteurs</description>
+<description xml:lang="en-US">Monitors</description>
+<parent name="E - Output Devices"/>
+<custom-attributes>
+<custom-attribute dt:dt="int" name="PRODUCT_BINDING_TYPE">1</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_VALUE">EA - Monitors</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_ATTRIBUTE">ProductTypes</custom-attribute>
+</custom-attributes>
+</category>
+<category name="EB - Presentation Monitors">
+<name>EB - Presentation Monitors</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<description xml:lang="de-DE">Präsentationsmonitore</description>
+<display-name xml:lang="fr-FR">Moniteurs de présentation</display-name>
+<display-name xml:lang="en-US">Presentation Monitors</display-name>
+<display-name xml:lang="de-DE">Präsentationsmonitore</display-name>
+<description xml:lang="fr-FR">Moniteurs de présentation</description>
+<description xml:lang="en-US">Presentation Monitors</description>
+<parent name="E - Output Devices"/>
+<custom-attributes>
+<custom-attribute dt:dt="int" name="PRODUCT_BINDING_TYPE">1</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_VALUE">EB - Presentation Monitors</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_ATTRIBUTE">ProductTypes</custom-attribute>
+</custom-attributes>
+</category>
+<category name="EC - Projectors">
+<name>EC - Projectors</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<display-name xml:lang="fr-FR">Projecteurs</display-name>
+<display-name xml:lang="en-US">Projectors</display-name>
+<display-name xml:lang="de-DE">Projektoren</display-name>
+<description xml:lang="de-DE">Projektoren</description>
+<description xml:lang="fr-FR">Projecteurs</description>
+<description xml:lang="en-US">Projectors</description>
+<parent name="E - Output Devices"/>
+<custom-attributes>
+<custom-attribute dt:dt="int" name="PRODUCT_BINDING_TYPE">1</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_VALUE">EC - Projectors</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_ATTRIBUTE">ProductTypes</custom-attribute>
+</custom-attributes>
+</category>
+<category name="ED - Printers">
+<name>ED - Printers</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<description xml:lang="de-DE">Drucker</description>
+<display-name xml:lang="de-DE">Drucker</display-name>
+<description xml:lang="fr-FR">Imprimantes</description>
+<description xml:lang="en-US">Printers</description>
+<display-name xml:lang="fr-FR">Imprimantes</display-name>
+<display-name xml:lang="en-US">Printers</display-name>
+<parent name="E - Output Devices"/>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_VALUE">ED - Printers</custom-attribute>
+<custom-attribute dt:dt="int" name="PRODUCT_BINDING_TYPE">1</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_ATTRIBUTE">ProductTypes</custom-attribute>
+</custom-attributes>
+</category>
+<category name="EE - Audio Output">
+<name>EE - Audio Output</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<display-name xml:lang="de-DE">Audioausgang</display-name>
+<description xml:lang="fr-FR">Sortie audio</description>
+<description xml:lang="en-US">Audio Output</description>
+<description xml:lang="de-DE">Audioausgang</description>
+<display-name xml:lang="fr-FR">Sortie audio</display-name>
+<display-name xml:lang="en-US">Audio Output</display-name>
+<parent name="E - Output Devices"/>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_VALUE">EE - Audio Output</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_ATTRIBUTE">ProductTypes</custom-attribute>
+<custom-attribute dt:dt="int" name="PRODUCT_BINDING_TYPE">1</custom-attribute>
+</custom-attributes>
+</category>
+<category name="EF - Video Cards">
+<name>EF - Video Cards</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<description xml:lang="de-DE">Videokarten</description>
+<display-name xml:lang="de-DE">Videokarten</display-name>
+<description xml:lang="fr-FR">Cartes vidéo</description>
+<description xml:lang="en-US">Video Cards</description>
+<display-name xml:lang="fr-FR">Cartes vidéo</display-name>
+<display-name xml:lang="en-US">Video Cards</display-name>
+<parent name="E - Output Devices"/>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_VALUE">EF - Video Cards</custom-attribute>
+<custom-attribute dt:dt="int" name="PRODUCT_BINDING_TYPE">1</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_ATTRIBUTE">ProductTypes</custom-attribute>
+</custom-attributes>
+</category>
+<category name="KA - Home Audio">
+<name>KA - Home Audio</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<description xml:lang="fr-FR">Audio pour la maison</description>
+<description xml:lang="en-US">Home Audio</description>
+<display-name xml:lang="de-DE">Heim-Audio</display-name>
+<description xml:lang="de-DE">Heim-Audio</description>
+<display-name xml:lang="fr-FR">Audio pour la maison</display-name>
+<display-name xml:lang="en-US">Home Audio</display-name>
+<parent name="K - Audio"/>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_VALUE">KA - Home Audio</custom-attribute>
+<custom-attribute dt:dt="int" name="PRODUCT_BINDING_TYPE">1</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_ATTRIBUTE">ProductTypes</custom-attribute>
+</custom-attributes>
+</category>
+<category name="EG - Sound Cards">
+<name>EG - Sound Cards</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<description xml:lang="de-DE">Soundkarten</description>
+<display-name xml:lang="fr-FR">Cartes son</display-name>
+<display-name xml:lang="en-US">Sound Cards</display-name>
+<description xml:lang="fr-FR">Cartes son</description>
+<description xml:lang="en-US">Sound Cards</description>
+<display-name xml:lang="de-DE">Soundkarten</display-name>
+<parent name="E - Output Devices"/>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_ATTRIBUTE">ProductTypes</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_VALUE">EG - Sound Cards</custom-attribute>
+<custom-attribute dt:dt="int" name="PRODUCT_BINDING_TYPE">1</custom-attribute>
+</custom-attributes>
+</category>
+<category name="EH - Output Cables">
+<name>EH - Output Cables</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<display-name xml:lang="fr-FR">Câbles de sortie</display-name>
+<display-name xml:lang="en-US">Output Cables</display-name>
+<display-name xml:lang="de-DE">Ausgabe Kabel</display-name>
+<description xml:lang="de-DE">Ausgabe Kabel</description>
+<description xml:lang="fr-FR">Câbles de sortie</description>
+<description xml:lang="en-US">Output Cables</description>
+<parent name="E - Output Devices"/>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_VALUE">EH - Output Cables</custom-attribute>
+<custom-attribute dt:dt="int" name="PRODUCT_BINDING_TYPE">1</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_ATTRIBUTE">ProductTypes</custom-attribute>
+</custom-attributes>
+</category>
+<category name="EI - Printer Consumables">
+<name>EI - Printer Consumables</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<description xml:lang="fr-FR">Consommables pour imprimante</description>
+<description xml:lang="en-US">Printer Consumables</description>
+<description xml:lang="de-DE">Druckerverbrauchsmaterial</description>
+<display-name xml:lang="fr-FR">Consommables pour imprimante</display-name>
+<display-name xml:lang="en-US">Printer Consumables</display-name>
+<display-name xml:lang="de-DE">Druckerverbrauchsmaterial</display-name>
+<parent name="E - Output Devices"/>
+<custom-attributes>
+<custom-attribute dt:dt="int" name="PRODUCT_BINDING_TYPE">1</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_VALUE">EI - Printer Consumables</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_ATTRIBUTE">ProductTypes</custom-attribute>
+</custom-attributes>
+</category>
+<category name="EJ - Output Accessories">
+<name>EJ - Output Accessories</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<display-name xml:lang="fr-FR">Accessoires de sortie</display-name>
+<display-name xml:lang="en-US">Output Accessories</display-name>
+<description xml:lang="fr-FR">Accessoires de sortie</description>
+<description xml:lang="en-US">Output Accessories</description>
+<display-name xml:lang="de-DE">Ausgabe Zubehör</display-name>
+<description xml:lang="de-DE">Ausgabe Zubehör</description>
+<parent name="E - Output Devices"/>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_VALUE">EJ - Output Accessories</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_ATTRIBUTE">ProductTypes</custom-attribute>
+<custom-attribute dt:dt="int" name="PRODUCT_BINDING_TYPE">1</custom-attribute>
+</custom-attributes>
+</category>
+<category name="F - Networking">
+<name>F - Networking</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<description xml:lang="fr-FR">Mise en réseau</description>
+<description xml:lang="en-US">Networking</description>
+<description xml:lang="de-DE">Netzwerk</description>
+<display-name xml:lang="de-DE">Netzwerk</display-name>
+<display-name xml:lang="fr-FR">Mise en réseau</display-name>
+<display-name xml:lang="en-US">Networking</display-name>
+<parent name="ProductTypes"/>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_ATTRIBUTE">ProductTypes</custom-attribute>
+<custom-attribute dt:dt="int" name="PRODUCT_BINDING_TYPE">1</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_VALUE">F - Networking</custom-attribute>
+</custom-attributes>
+</category>
+<category name="FA - Modems">
+<name>FA - Modems</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<display-name xml:lang="de-DE">Modems</display-name>
+<display-name xml:lang="fr-FR">Modems</display-name>
+<display-name xml:lang="en-US">Modems</display-name>
+<description xml:lang="de-DE">Modems</description>
+<description xml:lang="fr-FR">Modems</description>
+<description xml:lang="en-US">Modems</description>
+<parent name="F - Networking"/>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_VALUE">FA - Modems</custom-attribute>
+<custom-attribute dt:dt="int" name="PRODUCT_BINDING_TYPE">1</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_ATTRIBUTE">ProductTypes</custom-attribute>
+</custom-attributes>
+</category>
+<category name="FB - Video Conferencing">
+<name>FB - Video Conferencing</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<display-name xml:lang="fr-FR">Vidéo conférence</display-name>
+<display-name xml:lang="en-US">Video Conferencing</display-name>
+<display-name xml:lang="de-DE">Videokonferenz</display-name>
+<description xml:lang="fr-FR">Vidéo conférence</description>
+<description xml:lang="en-US">Video Conferencing</description>
+<description xml:lang="de-DE">Videokonferenz</description>
+<parent name="F - Networking"/>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_VALUE">FB - Video Conferencing</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_ATTRIBUTE">ProductTypes</custom-attribute>
+<custom-attribute dt:dt="int" name="PRODUCT_BINDING_TYPE">1</custom-attribute>
+</custom-attributes>
+</category>
+<category name="FC - Concentrators &amp; Multiplexers">
+<name>FC - Concentrators &amp; Multiplexers</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<description xml:lang="fr-FR">Concentrateurs et multiplexeurs</description>
+<description xml:lang="en-US">Concentrators &amp; Multiplexers</description>
+<display-name xml:lang="fr-FR">Concentrateurs et multiplexeurs</display-name>
+<display-name xml:lang="en-US">Concentrators &amp; Multiplexers</display-name>
+<display-name xml:lang="de-DE">Konzentratoren &amp; Multiplexer</display-name>
+<description xml:lang="de-DE">Konzentratoren &amp; Multiplexer</description>
+<parent name="F - Networking"/>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_ATTRIBUTE">ProductTypes</custom-attribute>
+<custom-attribute dt:dt="int" name="PRODUCT_BINDING_TYPE">1</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_VALUE">FC - Concentrators &amp; Multiplexers</custom-attribute>
+</custom-attributes>
+</category>
+<category name="FD - Repeaters &amp; Transceivers">
+<name>FD - Repeaters &amp; Transceivers</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<display-name xml:lang="de-DE">Repeater &amp; Transceiver</display-name>
+<description xml:lang="fr-FR">Répéteurs et émetteurs-récepteurs</description>
+<description xml:lang="en-US">Repeaters &amp; Transceivers</description>
+<description xml:lang="de-DE">Repeater &amp; Transceiver</description>
+<display-name xml:lang="fr-FR">Répéteurs et émetteurs-récepteurs</display-name>
+<display-name xml:lang="en-US">Repeaters &amp; Transceivers</display-name>
+<parent name="F - Networking"/>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_VALUE">FD - Repeaters &amp; Transceivers</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_ATTRIBUTE">ProductTypes</custom-attribute>
+<custom-attribute dt:dt="int" name="PRODUCT_BINDING_TYPE">1</custom-attribute>
+</custom-attributes>
+</category>
+<category name="FE - Hubs &amp; Switches">
+<name>FE - Hubs &amp; Switches</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<display-name xml:lang="de-DE">Hubs &amp; Switches</display-name>
+<description xml:lang="fr-FR">Concentrateurs et commutateurs</description>
+<description xml:lang="en-US">Hubs &amp; Switches</description>
+<description xml:lang="de-DE">Hubs &amp; Switches</description>
+<display-name xml:lang="fr-FR">Concentrateurs et commutateurs</display-name>
+<display-name xml:lang="en-US">Hubs &amp; Switches</display-name>
+<parent name="F - Networking"/>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_ATTRIBUTE">ProductTypes</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_VALUE">FE - Hubs &amp; Switches</custom-attribute>
+<custom-attribute dt:dt="int" name="PRODUCT_BINDING_TYPE">1</custom-attribute>
+</custom-attributes>
+</category>
+<category name="FG - Network Devices">
+<name>FG - Network Devices</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<description xml:lang="fr-FR">Périphériques de réseau</description>
+<description xml:lang="en-US">Network Devices</description>
+<description xml:lang="de-DE">Netzwerkgeräte</description>
+<display-name xml:lang="fr-FR">Périphériques de réseau</display-name>
+<display-name xml:lang="en-US">Network Devices</display-name>
+<display-name xml:lang="de-DE">Netzwerkgeräte</display-name>
+<parent name="F - Networking"/>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_ATTRIBUTE">ProductTypes</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_VALUE">FG - Network Devices</custom-attribute>
+<custom-attribute dt:dt="int" name="PRODUCT_BINDING_TYPE">1</custom-attribute>
+</custom-attributes>
+</category>
+<category name="FH - Network Adapters">
+<name>FH - Network Adapters</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<description xml:lang="de-DE">Netzwerkadapter</description>
+<display-name xml:lang="fr-FR">Adaptateurs réseau</display-name>
+<display-name xml:lang="en-US">Network Adapters</display-name>
+<display-name xml:lang="de-DE">Netzwerkadapter</display-name>
+<description xml:lang="fr-FR">Adaptateurs réseau</description>
+<description xml:lang="en-US">Network Adapters</description>
+<parent name="F - Networking"/>
+<custom-attributes>
+<custom-attribute dt:dt="int" name="PRODUCT_BINDING_TYPE">1</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_ATTRIBUTE">ProductTypes</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_VALUE">FH - Network Adapters</custom-attribute>
+</custom-attributes>
+</category>
+<category name="FI - Network Cables">
+<name>FI - Network Cables</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<display-name xml:lang="fr-FR">Câbles réseau</display-name>
+<display-name xml:lang="en-US">Network Cables</display-name>
+<display-name xml:lang="de-DE">Netzwerkkabel</display-name>
+<description xml:lang="fr-FR">Câbles réseau</description>
+<description xml:lang="en-US">Network Cables</description>
+<description xml:lang="de-DE">Netzwerkkabel</description>
+<parent name="F - Networking"/>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_VALUE">FI - Network Cables</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_ATTRIBUTE">ProductTypes</custom-attribute>
+<custom-attribute dt:dt="int" name="PRODUCT_BINDING_TYPE">1</custom-attribute>
+</custom-attributes>
+</category>
+<category name="FJ - Network Accessories">
+<name>FJ - Network Accessories</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<description xml:lang="fr-FR">Accessoires réseau</description>
+<description xml:lang="en-US">Network Accessories</description>
+<display-name xml:lang="fr-FR">Accessoires réseau</display-name>
+<display-name xml:lang="en-US">Network Accessories</display-name>
+<display-name xml:lang="de-DE">Netzwerkzubehör</display-name>
+<description xml:lang="de-DE">Netzwerkzubehör</description>
+<parent name="F - Networking"/>
+<custom-attributes>
+<custom-attribute dt:dt="int" name="PRODUCT_BINDING_TYPE">1</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_VALUE">FJ - Network Accessories</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_ATTRIBUTE">ProductTypes</custom-attribute>
+</custom-attributes>
+</category>
+<category name="FK - Network Service &amp; Support">
+<name>FK - Network Service &amp; Support</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<description xml:lang="fr-FR">Service et support réseau</description>
+<description xml:lang="en-US">Network Service &amp; Support</description>
+<display-name xml:lang="de-DE">Netzwerk Service &amp; Support</display-name>
+<description xml:lang="de-DE">Netzwerk Service &amp; Support</description>
+<display-name xml:lang="fr-FR">Service et support réseau</display-name>
+<display-name xml:lang="en-US">Network Service &amp; Support</display-name>
+<parent name="F - Networking"/>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_VALUE">FK - Network Service &amp; Support</custom-attribute>
+<custom-attribute dt:dt="int" name="PRODUCT_BINDING_TYPE">1</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_ATTRIBUTE">ProductTypes</custom-attribute>
+</custom-attributes>
+</category>
+<category name="G - Software">
+<name>G - Software</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<description xml:lang="de-DE">Software</description>
+<description xml:lang="fr-FR">Logiciels</description>
+<description xml:lang="en-US">Software</description>
+<display-name xml:lang="fr-FR">Logiciels</display-name>
+<display-name xml:lang="en-US">Software</display-name>
+<display-name xml:lang="de-DE">Software</display-name>
+<parent name="ProductTypes"/>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_VALUE">G - Software</custom-attribute>
+<custom-attribute dt:dt="int" name="PRODUCT_BINDING_TYPE">1</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_ATTRIBUTE">ProductTypes</custom-attribute>
+</custom-attributes>
+</category>
+<category name="GA - Operating Systems">
+<name>GA - Operating Systems</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<description xml:lang="de-DE">Betriebssysteme</description>
+<description xml:lang="fr-FR">Logiciels d’exploitation</description>
+<description xml:lang="en-US">Operating Systems</description>
+<display-name xml:lang="de-DE">Betriebssysteme</display-name>
+<display-name xml:lang="fr-FR">Logiciels d’exploitation</display-name>
+<display-name xml:lang="en-US">Operating Systems</display-name>
+<parent name="G - Software"/>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_VALUE">GA - Operating Systems</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_ATTRIBUTE">ProductTypes</custom-attribute>
+<custom-attribute dt:dt="int" name="PRODUCT_BINDING_TYPE">1</custom-attribute>
+</custom-attributes>
+</category>
+<category name="GB - Applications">
+<name>GB - Applications</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<display-name xml:lang="fr-FR">Applications</display-name>
+<display-name xml:lang="en-US">Applications</display-name>
+<display-name xml:lang="de-DE">Anwendungen</display-name>
+<description xml:lang="de-DE">Anwendungen</description>
+<description xml:lang="fr-FR">Applications</description>
+<description xml:lang="en-US">Applications</description>
+<parent name="G - Software"/>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_VALUE">GB - Applications</custom-attribute>
+<custom-attribute dt:dt="int" name="PRODUCT_BINDING_TYPE">1</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_ATTRIBUTE">ProductTypes</custom-attribute>
+</custom-attributes>
+</category>
+<category name="H - Learning Resources">
+<name>H - Learning Resources</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<description xml:lang="fr-FR">Ressources d&apos;apprentissage</description>
+<description xml:lang="en-US">Learning Resources</description>
+<description xml:lang="de-DE">Lernmittel</description>
+<display-name xml:lang="de-DE">Lernmittel</display-name>
+<display-name xml:lang="fr-FR">Ressources d&apos;apprentissage</display-name>
+<display-name xml:lang="en-US">Learning Resources</display-name>
+<parent name="ProductTypes"/>
+<custom-attributes>
+<custom-attribute dt:dt="int" name="PRODUCT_BINDING_TYPE">1</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_VALUE">H - Learning Resources</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_ATTRIBUTE">ProductTypes</custom-attribute>
+</custom-attributes>
+</category>
+<category name="HB - Training Courses">
+<name>HB - Training Courses</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<display-name xml:lang="de-DE">Schulungen</display-name>
+<display-name xml:lang="fr-FR">Cours de formation</display-name>
+<display-name xml:lang="en-US">Training Courses</display-name>
+<description xml:lang="fr-FR">Cours de formation</description>
+<description xml:lang="en-US">Training Courses</description>
+<description xml:lang="de-DE">Schulungen</description>
+<parent name="H - Learning Resources"/>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_VALUE">HB - Training Courses</custom-attribute>
+<custom-attribute dt:dt="int" name="PRODUCT_BINDING_TYPE">1</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_ATTRIBUTE">ProductTypes</custom-attribute>
+</custom-attributes>
+</category>
+<category name="I - Films">
+<name>I - Films</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<display-name xml:lang="de-DE">Filme</display-name>
+<description xml:lang="fr-FR">Films</description>
+<description xml:lang="en-US">Films</description>
+<description xml:lang="de-DE">Filme</description>
+<display-name xml:lang="fr-FR">Films</display-name>
+<display-name xml:lang="en-US">Films</display-name>
+<parent name="ProductTypes"/>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_ATTRIBUTE">ProductTypes</custom-attribute>
+<custom-attribute dt:dt="int" name="PRODUCT_BINDING_TYPE">1</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_VALUE">I - Films</custom-attribute>
+</custom-attributes>
+</category>
+<category name="IA - Films &amp; Videos">
+<name>IA - Films &amp; Videos</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<display-name xml:lang="fr-FR">Films et vidéos</display-name>
+<display-name xml:lang="en-US">Films &amp; Videos</display-name>
+<display-name xml:lang="de-DE">Filme &amp; Videos</display-name>
+<description xml:lang="fr-FR">Films et vidéos</description>
+<description xml:lang="en-US">Films &amp; Videos</description>
+<description xml:lang="de-DE">Filme &amp; Videos</description>
+<parent name="I - Films"/>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_ATTRIBUTE">ProductTypes</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_VALUE">IA - Films &amp; Videos</custom-attribute>
+<custom-attribute dt:dt="int" name="PRODUCT_BINDING_TYPE">1</custom-attribute>
+</custom-attributes>
+</category>
+<category name="J - Video">
+<name>J - Video</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<description xml:lang="fr-FR">Vidéo</description>
+<description xml:lang="en-US">Video</description>
+<description xml:lang="de-DE">Video</description>
+<display-name xml:lang="fr-FR">Vidéo</display-name>
+<display-name xml:lang="en-US">Video</display-name>
+<display-name xml:lang="de-DE">Video</display-name>
+<parent name="ProductTypes"/>
+<custom-attributes>
+<custom-attribute dt:dt="int" name="PRODUCT_BINDING_TYPE">1</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_ATTRIBUTE">ProductTypes</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_VALUE">J - Video</custom-attribute>
+</custom-attributes>
+</category>
+<category name="JB - VCRs">
+<name>JB - VCRs</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<description xml:lang="fr-FR">magnétoscopes</description>
+<description xml:lang="en-US">VCRs</description>
+<display-name xml:lang="de-DE">Videorecorder</display-name>
+<description xml:lang="de-DE">Videorecorder</description>
+<display-name xml:lang="fr-FR">magnétoscopes</display-name>
+<display-name xml:lang="en-US">VCRs</display-name>
+<parent name="J - Video"/>
+<custom-attributes>
+<custom-attribute dt:dt="int" name="PRODUCT_BINDING_TYPE">1</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_ATTRIBUTE">ProductTypes</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_VALUE">JB - VCRs</custom-attribute>
+</custom-attributes>
+</category>
+<category name="JC - DVD Players">
+<name>JC - DVD Players</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<display-name xml:lang="de-DE">DVD-Player</display-name>
+<description xml:lang="fr-FR">Lecteurs DVD</description>
+<description xml:lang="en-US">DVD Players</description>
+<description xml:lang="de-DE">DVD-Player</description>
+<display-name xml:lang="fr-FR">Lecteurs DVD</display-name>
+<display-name xml:lang="en-US">DVD Players</display-name>
+<parent name="J - Video"/>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_ATTRIBUTE">ProductTypes</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_VALUE">JC - DVD Players</custom-attribute>
+<custom-attribute dt:dt="int" name="PRODUCT_BINDING_TYPE">1</custom-attribute>
+</custom-attributes>
+</category>
+<category name="JD - Camcorders &amp; Digital Cameras">
+<name>JD - Camcorders &amp; Digital Cameras</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<display-name xml:lang="de-DE">Camcorder &amp; Digitalkameras</display-name>
+<display-name xml:lang="fr-FR">Caméscopes et appareils photographiques numériques</display-name>
+<display-name xml:lang="en-US">Camcorders &amp; Digital Cameras</display-name>
+<description xml:lang="de-DE">Camcorder &amp; Digitalkameras</description>
+<description xml:lang="fr-FR">Caméscopes et appareils photographiques numériques</description>
+<description xml:lang="en-US">Camcorders &amp; Digital Cameras</description>
+<parent name="J - Video"/>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_ATTRIBUTE">ProductTypes</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_VALUE">JD - Camcorders &amp; Digital Cameras</custom-attribute>
+<custom-attribute dt:dt="int" name="PRODUCT_BINDING_TYPE">1</custom-attribute>
+</custom-attributes>
+</category>
+<category name="JE - Web TV">
+<name>JE - Web TV</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<description xml:lang="de-DE">Web-TV</description>
+<display-name xml:lang="fr-FR">Web TV</display-name>
+<display-name xml:lang="en-US">Web TV</display-name>
+<description xml:lang="fr-FR">Web TV</description>
+<description xml:lang="en-US">Web TV</description>
+<display-name xml:lang="de-DE">Web-TV</display-name>
+<parent name="J - Video"/>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_ATTRIBUTE">ProductTypes</custom-attribute>
+<custom-attribute dt:dt="int" name="PRODUCT_BINDING_TYPE">1</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_VALUE">JE - Web TV</custom-attribute>
+</custom-attributes>
+</category>
+<category name="JF - Video Game Consoles">
+<name>JF - Video Game Consoles</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<display-name xml:lang="fr-FR">Consoles de jeux vidéo</display-name>
+<display-name xml:lang="en-US">Video Game Consoles</display-name>
+<description xml:lang="fr-FR">Consoles de jeux vidéo</description>
+<description xml:lang="en-US">Video Game Consoles</description>
+<description xml:lang="de-DE">Videospielkonsolen</description>
+<display-name xml:lang="de-DE">Videospielkonsolen</display-name>
+<parent name="J - Video"/>
+<custom-attributes>
+<custom-attribute dt:dt="int" name="PRODUCT_BINDING_TYPE">1</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_ATTRIBUTE">ProductTypes</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_VALUE">JF - Video Game Consoles</custom-attribute>
+</custom-attributes>
+</category>
+<category name="JG - Satellite TV">
+<name>JG - Satellite TV</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<description xml:lang="fr-FR">Télévision par satellite</description>
+<description xml:lang="en-US">Satellite TV</description>
+<display-name xml:lang="fr-FR">Télévision par satellite</display-name>
+<display-name xml:lang="en-US">Satellite TV</display-name>
+<description xml:lang="de-DE">Satellitenfernsehen</description>
+<display-name xml:lang="de-DE">Satellitenfernsehen</display-name>
+<parent name="J - Video"/>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_VALUE">JG - Satellite TV</custom-attribute>
+<custom-attribute dt:dt="int" name="PRODUCT_BINDING_TYPE">1</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_ATTRIBUTE">ProductTypes</custom-attribute>
+</custom-attributes>
+</category>
+<category name="JJ - Car Audio / Video">
+<name>JJ - Car Audio / Video</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<display-name xml:lang="de-DE">Kfz Audio / Video</display-name>
+<display-name xml:lang="fr-FR">Audio et vidéo pour la voiture</display-name>
+<display-name xml:lang="en-US">Car Audio / Video</display-name>
+<description xml:lang="de-DE">Kfz Audio / Video</description>
+<description xml:lang="fr-FR">Audio et vidéo pour la voiture</description>
+<description xml:lang="en-US">Car Audio / Video</description>
+<parent name="J - Video"/>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_VALUE">JJ - Car Audio / Video</custom-attribute>
+<custom-attribute dt:dt="int" name="PRODUCT_BINDING_TYPE">1</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_ATTRIBUTE">ProductTypes</custom-attribute>
+</custom-attributes>
+</category>
+<category name="JK - Digital AV Players &amp; Recorders">
+<name>JK - Digital AV Players &amp; Recorders</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<display-name xml:lang="fr-FR">Lecteurs et enregistreurs AV numériques</display-name>
+<display-name xml:lang="en-US">Digital AV Players &amp; Recorders</display-name>
+<display-name xml:lang="de-DE">Digitale AV-Player &amp; -Recorder</display-name>
+<description xml:lang="de-DE">Digitale AV-Player &amp; -Recorder</description>
+<description xml:lang="fr-FR">Lecteurs et enregistreurs AV numériques</description>
+<description xml:lang="en-US">Digital AV Players &amp; Recorders</description>
+<parent name="J - Video"/>
+<custom-attributes>
+<custom-attribute dt:dt="int" name="PRODUCT_BINDING_TYPE">1</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_VALUE">JK - Digital AV Players &amp; Recorders</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_ATTRIBUTE">ProductTypes</custom-attribute>
+</custom-attributes>
+</category>
+<category name="K - Audio">
+<name>K - Audio</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<display-name xml:lang="fr-FR">Audio</display-name>
+<display-name xml:lang="en-US">Audio</display-name>
+<display-name xml:lang="de-DE">Audio</display-name>
+<description xml:lang="de-DE">Audio</description>
+<description xml:lang="fr-FR">Audio</description>
+<description xml:lang="en-US">Audio</description>
+<parent name="ProductTypes"/>
+<custom-attributes>
+<custom-attribute dt:dt="int" name="PRODUCT_BINDING_TYPE">1</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_ATTRIBUTE">ProductTypes</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_VALUE">K - Audio</custom-attribute>
+</custom-attributes>
+</category>
+<category name="AA - Desktops &amp; Servers">
+<name>AA - Desktops &amp; Servers</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<description xml:lang="fr-FR">Ordinateurs de bureau et serveurs</description>
+<description xml:lang="en-US">Desktops &amp; Servers</description>
+<display-name xml:lang="de-DE">Desktops &amp; Server</display-name>
+<display-name xml:lang="fr-FR">Ordinateurs de bureau et serveurs</display-name>
+<display-name xml:lang="en-US">Desktops &amp; Servers</display-name>
+<description xml:lang="de-DE">Desktops &amp; Server</description>
+<parent name="A - Systems"/>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_ATTRIBUTE">ProductTypes</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_VALUE">AA - Desktops &amp; Servers</custom-attribute>
+<custom-attribute dt:dt="int" name="PRODUCT_BINDING_TYPE">1</custom-attribute>
+</custom-attributes>
+</category>
+<!-- 
+<category name="Gift Card">
+<name>Gift Card</name>
+<root>0</root>
+<product-assignment-query></product-assignment-query>
+<template></template>
+<online>1</online>
+<category-links>
+</category-links>
+<display-name xml:lang="en-US">Gift Card</display-name>
+<description xml:lang="en-US">Gift Card</description>
+<display-name xml:lang="de-DE">Geschenkgutschein</display-name>
+<description xml:lang="de-DE">Geschenk Gutschein</description>
+<parent name="ProductTypes" />
+<custom-attributes>
+<custom-attribute name="ShowInMenu" dt:dt="string">True</custom-attribute>
+</custom-attributes>
+</category>
+ -->
+<category name="AB - Notebooks">
+<name>AB - Notebooks</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<description xml:lang="de-DE">Notebooks</description>
+<display-name xml:lang="fr-FR">Carnets de notes</display-name>
+<display-name xml:lang="en-US">Notebooks</display-name>
+<display-name xml:lang="de-DE">Notebooks</display-name>
+<description xml:lang="fr-FR">Carnets de notes</description>
+<description xml:lang="en-US">Notebooks</description>
+<parent name="A - Systems"/>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_ATTRIBUTE">ProductTypes</custom-attribute>
+<custom-attribute dt:dt="int" name="PRODUCT_BINDING_TYPE">1</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_VALUE">AB - Notebooks</custom-attribute>
+</custom-attributes>
+</category>
+<category name="AC - Handhelds">
+<name>AC - Handhelds</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<description xml:lang="de-DE">Handhelds</description>
+<display-name xml:lang="de-DE">Handhelds</display-name>
+<display-name xml:lang="fr-FR">Ordinateurs de poche</display-name>
+<display-name xml:lang="en-US">Handhelds</display-name>
+<description xml:lang="fr-FR">Ordinateurs de poche</description>
+<description xml:lang="en-US">Handhelds</description>
+<parent name="A - Systems"/>
+<custom-attributes>
+<custom-attribute dt:dt="int" name="PRODUCT_BINDING_TYPE">1</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_ATTRIBUTE">ProductTypes</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_VALUE">AC - Handhelds</custom-attribute>
+</custom-attributes>
+</category>
+<category name="AD - Processor Upgrades">
+<name>AD - Processor Upgrades</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<display-name xml:lang="fr-FR">Mises à niveau des processeurs</display-name>
+<display-name xml:lang="en-US">Processor Upgrades</display-name>
+<display-name xml:lang="de-DE">Prozessor-Upgrades</display-name>
+<description xml:lang="fr-FR">Mises à niveau des processeurs</description>
+<description xml:lang="en-US">Processor Upgrades</description>
+<description xml:lang="de-DE">Prozessor-Upgrades</description>
+<parent name="A - Systems"/>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_ATTRIBUTE">ProductTypes</custom-attribute>
+<custom-attribute dt:dt="int" name="PRODUCT_BINDING_TYPE">1</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_VALUE">AD - Processor Upgrades</custom-attribute>
+</custom-attributes>
+</category>
+<category name="AE - Motherboards">
+<name>AE - Motherboards</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<description xml:lang="de-DE">Motherboards</description>
+<display-name xml:lang="fr-FR">Cartes mères</display-name>
+<display-name xml:lang="en-US">Motherboards</display-name>
+<display-name xml:lang="de-DE">Motherboards</display-name>
+<description xml:lang="fr-FR">Cartes mères</description>
+<description xml:lang="en-US">Motherboards</description>
+<parent name="A - Systems"/>
+<custom-attributes>
+<custom-attribute dt:dt="int" name="PRODUCT_BINDING_TYPE">1</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_ATTRIBUTE">ProductTypes</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_VALUE">AE - Motherboards</custom-attribute>
+</custom-attributes>
+</category>
+<category name="AF - System Cabinets">
+<name>AF - System Cabinets</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<description xml:lang="de-DE">Systemgehäuse</description>
+<display-name xml:lang="de-DE">Systemgehäuse</display-name>
+<description xml:lang="fr-FR">Armoires système</description>
+<description xml:lang="en-US">System Cabinets</description>
+<display-name xml:lang="fr-FR">Armoires système</display-name>
+<display-name xml:lang="en-US">System Cabinets</display-name>
+<parent name="A - Systems"/>
+<custom-attributes>
+<custom-attribute dt:dt="int" name="PRODUCT_BINDING_TYPE">1</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_ATTRIBUTE">ProductTypes</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_VALUE">AF - System Cabinets</custom-attribute>
+</custom-attributes>
+</category>
+<category name="AG - UPS &amp; Power Devices">
+<name>AG - UPS &amp; Power Devices</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<display-name xml:lang="fr-FR">Onduleurs et dispositifs d&apos;alimentation</display-name>
+<display-name xml:lang="en-US">UPS &amp; Power Devices</display-name>
+<display-name xml:lang="de-DE">USV &amp; Stromversorgungsgeräte</display-name>
+<description xml:lang="fr-FR">Onduleurs et dispositifs d&apos;alimentation</description>
+<description xml:lang="en-US">UPS &amp; Power Devices</description>
+<description xml:lang="de-DE">USV &amp; Stromversorgungsgeräte</description>
+<parent name="A - Systems"/>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_ATTRIBUTE">ProductTypes</custom-attribute>
+<custom-attribute dt:dt="int" name="PRODUCT_BINDING_TYPE">1</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_VALUE">AG - UPS &amp; Power Devices</custom-attribute>
+</custom-attributes>
+</category>
+<category name="AH - System &amp; Power Cables">
+<name>AH - System &amp; Power Cables</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<description xml:lang="fr-FR">Câbles de système et d&apos;alimentation</description>
+<description xml:lang="en-US">System &amp; Power Cables</description>
+<display-name xml:lang="de-DE">System- &amp; Stromkabel</display-name>
+<display-name xml:lang="fr-FR">Câbles de système et d&apos;alimentation</display-name>
+<display-name xml:lang="en-US">System &amp; Power Cables</display-name>
+<description xml:lang="de-DE">System- &amp; Stromkabel</description>
+<parent name="A - Systems"/>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_ATTRIBUTE">ProductTypes</custom-attribute>
+<custom-attribute dt:dt="int" name="PRODUCT_BINDING_TYPE">1</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_VALUE">AH - System &amp; Power Cables</custom-attribute>
+</custom-attributes>
+</category>
+<category name="AI - Port Expansion">
+<name>AI - Port Expansion</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<description xml:lang="fr-FR">Agrandissement du port</description>
+<description xml:lang="en-US">Port Expansion</description>
+<display-name xml:lang="fr-FR">Agrandissement du port</display-name>
+<display-name xml:lang="en-US">Port Expansion</display-name>
+<description xml:lang="de-DE">Anschlusserweiterung</description>
+<display-name xml:lang="de-DE">Anschlusserweiterung</display-name>
+<parent name="A - Systems"/>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_VALUE">AI - Port Expansion</custom-attribute>
+<custom-attribute dt:dt="int" name="PRODUCT_BINDING_TYPE">1</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_ATTRIBUTE">ProductTypes</custom-attribute>
+</custom-attributes>
+</category>
+<category name="AJ - System Accessories">
+<name>AJ - System Accessories</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<description xml:lang="de-DE">Systemzubehör</description>
+<display-name xml:lang="fr-FR">Accessoires du système</display-name>
+<display-name xml:lang="en-US">System Accessories</display-name>
+<display-name xml:lang="de-DE">Systemzubehör</display-name>
+<description xml:lang="fr-FR">Accessoires du système</description>
+<description xml:lang="en-US">System Accessories</description>
+<parent name="A - Systems"/>
+<custom-attributes>
+<custom-attribute dt:dt="int" name="PRODUCT_BINDING_TYPE">1</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_ATTRIBUTE">ProductTypes</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_VALUE">AJ - System Accessories</custom-attribute>
+</custom-attributes>
+</category>
+<category name="AK - System Service &amp; Support">
+<name>AK - System Service &amp; Support</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<display-name xml:lang="de-DE">Systeme Service &amp; Support</display-name>
+<description xml:lang="de-DE">Systeme Service &amp; Support</description>
+<display-name xml:lang="fr-FR">Service et support système</display-name>
+<display-name xml:lang="en-US">System Service &amp; Support</display-name>
+<description xml:lang="fr-FR">Service et support système</description>
+<description xml:lang="en-US">System Service &amp; Support</description>
+<parent name="A - Systems"/>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_ATTRIBUTE">ProductTypes</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_VALUE">AK - System Service &amp; Support</custom-attribute>
+<custom-attribute dt:dt="int" name="PRODUCT_BINDING_TYPE">1</custom-attribute>
+</custom-attributes>
+</category>
+<category name="B - Memory">
+<name>B - Memory</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<display-name xml:lang="de-DE">Speicher</display-name>
+<description xml:lang="fr-FR">Mémoire</description>
+<description xml:lang="en-US">Memory</description>
+<display-name xml:lang="fr-FR">Mémoire</display-name>
+<display-name xml:lang="en-US">Memory</display-name>
+<description xml:lang="de-DE">Speicher</description>
+<parent name="ProductTypes"/>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_ATTRIBUTE">ProductTypes</custom-attribute>
+<custom-attribute dt:dt="int" name="PRODUCT_BINDING_TYPE">1</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_VALUE">B - Memory</custom-attribute>
+</custom-attributes>
+</category>
+<category name="BA - RAM">
+<name>BA - RAM</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<display-name xml:lang="fr-FR">RAM</display-name>
+<display-name xml:lang="en-US">RAM</display-name>
+<display-name xml:lang="de-DE">RAM</display-name>
+<description xml:lang="fr-FR">RAM</description>
+<description xml:lang="en-US">RAM</description>
+<description xml:lang="de-DE">RAM</description>
+<parent name="B - Memory"/>
+<custom-attributes>
+<custom-attribute dt:dt="int" name="PRODUCT_BINDING_TYPE">1</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_VALUE">BA - RAM</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_ATTRIBUTE">ProductTypes</custom-attribute>
+</custom-attributes>
+</category>
+<category name="BB - Video Memory">
+<name>BB - Video Memory</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<display-name xml:lang="de-DE">Videospeicher</display-name>
+<display-name xml:lang="fr-FR">Mémoire vidéo</display-name>
+<display-name xml:lang="en-US">Video Memory</display-name>
+<description xml:lang="fr-FR">Mémoire vidéo</description>
+<description xml:lang="en-US">Video Memory</description>
+<description xml:lang="de-DE">Videospeicher</description>
+<parent name="B - Memory"/>
+<custom-attributes>
+<custom-attribute dt:dt="int" name="PRODUCT_BINDING_TYPE">1</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_VALUE">BB - Video Memory</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_ATTRIBUTE">ProductTypes</custom-attribute>
+</custom-attributes>
+</category>
+<category name="BC - Cache Memory">
+<name>BC - Cache Memory</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<description xml:lang="de-DE">Cache Memory</description>
+<display-name xml:lang="de-DE">Cache Memory</display-name>
+<display-name xml:lang="fr-FR">Mémoire cache</display-name>
+<display-name xml:lang="en-US">Cache Memory</display-name>
+<description xml:lang="fr-FR">Mémoire cache</description>
+<description xml:lang="en-US">Cache Memory</description>
+<parent name="B - Memory"/>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_VALUE">BC - Cache Memory</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_ATTRIBUTE">ProductTypes</custom-attribute>
+<custom-attribute dt:dt="int" name="PRODUCT_BINDING_TYPE">1</custom-attribute>
+</custom-attributes>
+</category>
+<category name="BD - Flash Memory">
+<name>BD - Flash Memory</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<display-name xml:lang="de-DE">Flash-Speicher</display-name>
+<description xml:lang="fr-FR">Mémoire flash</description>
+<description xml:lang="en-US">Flash Memory</description>
+<description xml:lang="de-DE">Flash-Speicher</description>
+<display-name xml:lang="fr-FR">Mémoire flash</display-name>
+<display-name xml:lang="en-US">Flash Memory</display-name>
+<parent name="B - Memory"/>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_VALUE">BD - Flash Memory</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_ATTRIBUTE">ProductTypes</custom-attribute>
+<custom-attribute dt:dt="int" name="PRODUCT_BINDING_TYPE">1</custom-attribute>
+</custom-attributes>
+</category>
+<category name="BE - Read-Only Memory">
+<name>BE - Read-Only Memory</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<description xml:lang="fr-FR">Mémoire morte</description>
+<description xml:lang="en-US">Read-Only Memory</description>
+<display-name xml:lang="de-DE">Read-Only Speicher</display-name>
+<description xml:lang="de-DE">Read-Only Speicher</description>
+<display-name xml:lang="fr-FR">Mémoire morte</display-name>
+<display-name xml:lang="en-US">Read-Only Memory</display-name>
+<parent name="B - Memory"/>
+<custom-attributes>
+<custom-attribute dt:dt="int" name="PRODUCT_BINDING_TYPE">1</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_ATTRIBUTE">ProductTypes</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_VALUE">BE - Read-Only Memory</custom-attribute>
+</custom-attributes>
+</category>
+<category name="BF - Memory Adapters">
+<name>BF - Memory Adapters</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<display-name xml:lang="fr-FR">Adaptateurs de mémoire</display-name>
+<display-name xml:lang="en-US">Memory Adapters</display-name>
+<display-name xml:lang="de-DE">Speicheradapter</display-name>
+<description xml:lang="fr-FR">Adaptateurs de mémoire</description>
+<description xml:lang="en-US">Memory Adapters</description>
+<description xml:lang="de-DE">Speicheradapter</description>
+<parent name="B - Memory"/>
+<custom-attributes>
+<custom-attribute dt:dt="int" name="PRODUCT_BINDING_TYPE">1</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_VALUE">BF - Memory Adapters</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_ATTRIBUTE">ProductTypes</custom-attribute>
+</custom-attributes>
+</category>
+<category name="C - Storage Devices">
+<name>C - Storage Devices</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<description xml:lang="de-DE">Speichergeräte</description>
+<display-name xml:lang="de-DE">Speichergeräte</display-name>
+<display-name xml:lang="fr-FR">Périphériques de stockage</display-name>
+<display-name xml:lang="en-US">Storage Devices</display-name>
+<description xml:lang="fr-FR">Périphériques de stockage</description>
+<description xml:lang="en-US">Storage Devices</description>
+<parent name="ProductTypes"/>
+<custom-attributes>
+<custom-attribute dt:dt="int" name="PRODUCT_BINDING_TYPE">1</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_VALUE">C - Storage Devices</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_ATTRIBUTE">ProductTypes</custom-attribute>
+</custom-attributes>
+</category>
+<category name="CA - Hard Drives">
+<name>CA - Hard Drives</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<description xml:lang="fr-FR">Disques durs</description>
+<description xml:lang="en-US">Hard Drives</description>
+<description xml:lang="de-DE">Festplatten</description>
+<display-name xml:lang="de-DE">Festplatten</display-name>
+<display-name xml:lang="fr-FR">Disques durs</display-name>
+<display-name xml:lang="en-US">Hard Drives</display-name>
+<parent name="C - Storage Devices"/>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_VALUE">CA - Hard Drives</custom-attribute>
+<custom-attribute dt:dt="int" name="PRODUCT_BINDING_TYPE">1</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_ATTRIBUTE">ProductTypes</custom-attribute>
+</custom-attributes>
+</category>
+<category name="CB - Undefined">
+<name>CB - Undefined</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<display-name xml:lang="fr-FR">Indéfini</display-name>
+<display-name xml:lang="en-US">Undefined</display-name>
+<description xml:lang="fr-FR">Indéfini</description>
+<description xml:lang="en-US">Undefined</description>
+<display-name xml:lang="de-DE">Nicht definiert</display-name>
+<description xml:lang="de-DE">Nicht definiert</description>
+<parent name="C - Storage Devices"/>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_ATTRIBUTE">ProductTypes</custom-attribute>
+<custom-attribute dt:dt="int" name="PRODUCT_BINDING_TYPE">1</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_VALUE">CB - Undefined</custom-attribute>
+</custom-attributes>
+</category>
+<category name="CC - Disk Drives">
+<name>CC - Disk Drives</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<description xml:lang="fr-FR">Lecteurs de disques</description>
+<description xml:lang="en-US">Disk Drives</description>
+<display-name xml:lang="fr-FR">Lecteurs de disques</display-name>
+<display-name xml:lang="en-US">Disk Drives</display-name>
+<description xml:lang="de-DE">Datenträgerlaufwerke</description>
+<display-name xml:lang="de-DE">Datenträgerlaufwerke</display-name>
+<parent name="C - Storage Devices"/>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_ATTRIBUTE">ProductTypes</custom-attribute>
+<custom-attribute dt:dt="int" name="PRODUCT_BINDING_TYPE">1</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_VALUE">CC - Disk Drives</custom-attribute>
+</custom-attributes>
+</category>
+<category name="CD - Tape Drives">
+<name>CD - Tape Drives</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<description xml:lang="fr-FR">Lecteurs de bande</description>
+<description xml:lang="en-US">Tape Drives</description>
+<display-name xml:lang="fr-FR">Lecteurs de bande</display-name>
+<display-name xml:lang="en-US">Tape Drives</display-name>
+<display-name xml:lang="de-DE">Bandlaufwerke</display-name>
+<description xml:lang="de-DE">Bandlaufwerke</description>
+<parent name="C - Storage Devices"/>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_VALUE">CD - Tape Drives</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_ATTRIBUTE">ProductTypes</custom-attribute>
+<custom-attribute dt:dt="int" name="PRODUCT_BINDING_TYPE">1</custom-attribute>
+</custom-attributes>
+</category>
+<category name="CE - Network Storage">
+<name>CE - Network Storage</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<display-name xml:lang="de-DE">Netzwerkspeicher</display-name>
+<description xml:lang="de-DE">Netzwerkspeicher</description>
+<display-name xml:lang="fr-FR">Stockage en réseau</display-name>
+<display-name xml:lang="en-US">Network Storage</display-name>
+<description xml:lang="fr-FR">Stockage en réseau</description>
+<description xml:lang="en-US">Network Storage</description>
+<parent name="C - Storage Devices"/>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_VALUE">CE - Network Storage</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_ATTRIBUTE">ProductTypes</custom-attribute>
+<custom-attribute dt:dt="int" name="PRODUCT_BINDING_TYPE">1</custom-attribute>
+</custom-attributes>
+</category>
+<category name="CF - Removable Media">
+<name>CF - Removable Media</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<description xml:lang="fr-FR">Média amovible</description>
+<description xml:lang="en-US">Removable Media</description>
+<description xml:lang="de-DE">Wechselmedien</description>
+<display-name xml:lang="fr-FR">Média amovible</display-name>
+<display-name xml:lang="en-US">Removable Media</display-name>
+<display-name xml:lang="de-DE">Wechselmedien</display-name>
+<parent name="C - Storage Devices"/>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_ATTRIBUTE">ProductTypes</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_VALUE">CF - Removable Media</custom-attribute>
+<custom-attribute dt:dt="int" name="PRODUCT_BINDING_TYPE">1</custom-attribute>
+</custom-attributes>
+</category>
+<category name="CG - Storage Adapters">
+<name>CG - Storage Adapters</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<description xml:lang="de-DE">Speicheradapter</description>
+<display-name xml:lang="de-DE">Speicheradapter</display-name>
+<description xml:lang="fr-FR">Adaptateurs de stockage</description>
+<description xml:lang="en-US">Storage Adapters</description>
+<display-name xml:lang="fr-FR">Adaptateurs de stockage</display-name>
+<display-name xml:lang="en-US">Storage Adapters</display-name>
+<parent name="C - Storage Devices"/>
+<custom-attributes>
+<custom-attribute dt:dt="int" name="PRODUCT_BINDING_TYPE">1</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_VALUE">CG - Storage Adapters</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_ATTRIBUTE">ProductTypes</custom-attribute>
+</custom-attributes>
+</category>
+<category name="CH - Storage Cables">
+<name>CH - Storage Cables</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<description xml:lang="fr-FR">Câbles de rangement</description>
+<description xml:lang="en-US">Storage Cables</description>
+<display-name xml:lang="de-DE">Speicherkabel</display-name>
+<description xml:lang="de-DE">Speicherkabel</description>
+<display-name xml:lang="fr-FR">Câbles de rangement</display-name>
+<display-name xml:lang="en-US">Storage Cables</display-name>
+<parent name="C - Storage Devices"/>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_VALUE">CH - Storage Cables</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_ATTRIBUTE">ProductTypes</custom-attribute>
+<custom-attribute dt:dt="int" name="PRODUCT_BINDING_TYPE">1</custom-attribute>
+</custom-attributes>
+</category>
+<category name="DG - PC &amp; Network Cameras">
+<name>DG - PC &amp; Network Cameras</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<display-name xml:lang="de-DE">PC- und Netzwerkkameras</display-name>
+<description xml:lang="fr-FR">Caméras PC et réseau</description>
+<description xml:lang="en-US">PC &amp; Network Cameras</description>
+<display-name xml:lang="fr-FR">Caméras PC et réseau</display-name>
+<display-name xml:lang="en-US">PC &amp; Network Cameras</display-name>
+<description xml:lang="de-DE">PC- und Netzwerkkameras</description>
+<parent name="D - Input Devices"/>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_ATTRIBUTE">ProductTypes</custom-attribute>
+<custom-attribute dt:dt="int" name="PRODUCT_BINDING_TYPE">1</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_VALUE">DG - PC &amp; Network Cameras</custom-attribute>
+</custom-attributes>
+</category>
+<category name="UD - Enlargers &amp; Components">
+<name>UD - Enlargers &amp; Components</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<description xml:lang="de-DE">Enlargers &amp; Components</description>
+<description xml:lang="fr-FR">Agrandisseurs et composants</description>
+<description xml:lang="en-US">Enlargers &amp; Components</description>
+<display-name xml:lang="fr-FR">Agrandisseurs et composants</display-name>
+<display-name xml:lang="en-US">Enlargers &amp; Components</display-name>
+<display-name xml:lang="de-DE">Enlargers &amp; Components</display-name>
+<parent name="U - Darkroom"/>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_ATTRIBUTE">ProductTypes</custom-attribute>
+<custom-attribute dt:dt="int" name="PRODUCT_BINDING_TYPE">1</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_VALUE">UD - Enlargers &amp; Components</custom-attribute>
+</custom-attributes>
+</category>
+<category name="CI - Storage Enclosures &amp; RAID Arrays">
+<name>CI - Storage Enclosures &amp; RAID Arrays</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<description xml:lang="fr-FR">Enceintes de stockage et réseaux RAID</description>
+<description xml:lang="en-US">Storage Enclosures &amp; RAID Arrays</description>
+<display-name xml:lang="de-DE">Storage-Gehäuse und RAID-Arrays</display-name>
+<display-name xml:lang="fr-FR">Enceintes de stockage et réseaux RAID</display-name>
+<display-name xml:lang="en-US">Storage Enclosures &amp; RAID Arrays</display-name>
+<description xml:lang="de-DE">Storage-Gehäuse und RAID-Arrays</description>
+<parent name="C - Storage Devices"/>
+<custom-attributes>
+<custom-attribute dt:dt="int" name="PRODUCT_BINDING_TYPE">1</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_VALUE">CI - Storage Enclosures &amp; RAID Arrays</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_ATTRIBUTE">ProductTypes</custom-attribute>
+</custom-attributes>
+</category>
+<category import-mode="UPDATE" name="ProductTypes">
+<name>ProductTypes</name>
+<root>1</root>
+<product-assignment-query/>
+<template/>
+<online>1</online>
+<classification-system>Custom</classification-system>
+<category-links>
+</category-links>
+<description xml:lang="de-DE">Der Klassifikationskatalog für die Definition von Produkttypen.</description>
+<display-name xml:lang="fr-FR">Types de produits</display-name>
+<display-name xml:lang="en-US">Product Types</display-name>
+<display-name xml:lang="de-DE">Produkttypen</display-name>
+<description xml:lang="fr-FR">Le catalogue de classification est utilisé pour définir les types de produit.</description>
+<description xml:lang="en-US">The classification catalog used to define product types.</description>
+</category>
+<category name="A - Systems">
+<name>A - Systems</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<description xml:lang="fr-FR">Systèmes</description>
+<description xml:lang="en-US">Systems</description>
+<display-name xml:lang="de-DE">Systeme</display-name>
+<description xml:lang="de-DE">Systeme</description>
+<display-name xml:lang="fr-FR">Systèmes</display-name>
+<display-name xml:lang="en-US">Systems</display-name>
+<parent name="ProductTypes"/>
+<custom-attributes>
+<custom-attribute dt:dt="int" name="PRODUCT_BINDING_TYPE">1</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_ATTRIBUTE">ProductTypes</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_VALUE">A - Systems</custom-attribute>
+</custom-attributes>
+</category>
+<category name="KD - Speakers">
+<name>KD - Speakers</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<display-name xml:lang="de-DE">Lautsprecher</display-name>
+<description xml:lang="fr-FR">Haut-parleurs</description>
+<description xml:lang="en-US">Speakers</description>
+<display-name xml:lang="fr-FR">Haut-parleurs</display-name>
+<display-name xml:lang="en-US">Speakers</display-name>
+<description xml:lang="de-DE">Lautsprecher</description>
+<parent name="K - Audio"/>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_VALUE">KD - Speakers</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_ATTRIBUTE">ProductTypes</custom-attribute>
+<custom-attribute dt:dt="int" name="PRODUCT_BINDING_TYPE">1</custom-attribute>
+</custom-attributes>
+</category>
+<category name="D - Input Devices">
+<name>D - Input Devices</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<description xml:lang="de-DE">Eingabegeräte</description>
+<display-name xml:lang="fr-FR">Périphériques d&apos;entrée</display-name>
+<display-name xml:lang="en-US">Input Devices</display-name>
+<description xml:lang="fr-FR">Périphériques d&apos;entrée</description>
+<description xml:lang="en-US">Input Devices</description>
+<display-name xml:lang="de-DE">Eingabegeräte</display-name>
+<parent name="ProductTypes"/>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_ATTRIBUTE">ProductTypes</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_VALUE">D - Input Devices</custom-attribute>
+<custom-attribute dt:dt="int" name="PRODUCT_BINDING_TYPE">1</custom-attribute>
+</custom-attributes>
+</category>
+<category name="DA - Keyboards">
+<name>DA - Keyboards</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<description xml:lang="de-DE">Tastaturen</description>
+<description xml:lang="fr-FR">Claviers</description>
+<description xml:lang="en-US">Keyboards</description>
+<display-name xml:lang="fr-FR">Claviers</display-name>
+<display-name xml:lang="en-US">Keyboards</display-name>
+<display-name xml:lang="de-DE">Tastaturen</display-name>
+<parent name="D - Input Devices"/>
+<custom-attributes>
+<custom-attribute dt:dt="int" name="PRODUCT_BINDING_TYPE">1</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_ATTRIBUTE">ProductTypes</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_VALUE">DA - Keyboards</custom-attribute>
+</custom-attributes>
+</category>
+<category name="DB - Pointing Devices">
+<name>DB - Pointing Devices</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<display-name xml:lang="de-DE">Zeigegeräte</display-name>
+<display-name xml:lang="fr-FR">Dispositifs de pointage</display-name>
+<display-name xml:lang="en-US">Pointing Devices</display-name>
+<description xml:lang="de-DE">Zeigegeräte</description>
+<description xml:lang="fr-FR">Dispositifs de pointage</description>
+<description xml:lang="en-US">Pointing Devices</description>
+<parent name="D - Input Devices"/>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_ATTRIBUTE">ProductTypes</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_VALUE">DB - Pointing Devices</custom-attribute>
+<custom-attribute dt:dt="int" name="PRODUCT_BINDING_TYPE">1</custom-attribute>
+</custom-attributes>
+</category>
+<category name="DC - Game Controllers">
+<name>DC - Game Controllers</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<description xml:lang="de-DE">Game Controller</description>
+<display-name xml:lang="de-DE">Game Controller</display-name>
+<description xml:lang="fr-FR">Contrôleurs de jeu</description>
+<description xml:lang="en-US">Game Controllers</description>
+<display-name xml:lang="fr-FR">Contrôleurs de jeu</display-name>
+<display-name xml:lang="en-US">Game Controllers</display-name>
+<parent name="D - Input Devices"/>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_ATTRIBUTE">ProductTypes</custom-attribute>
+<custom-attribute dt:dt="int" name="PRODUCT_BINDING_TYPE">1</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_VALUE">DC - Game Controllers</custom-attribute>
+</custom-attributes>
+</category>
+<category name="DD - Scanners">
+<name>DD - Scanners</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<display-name xml:lang="de-DE">Scanner</display-name>
+<description xml:lang="de-DE">Scanner</description>
+<display-name xml:lang="fr-FR">Scanners</display-name>
+<display-name xml:lang="en-US">Scanners</display-name>
+<description xml:lang="fr-FR">Scanners</description>
+<description xml:lang="en-US">Scanners</description>
+<parent name="D - Input Devices"/>
+<custom-attributes>
+<custom-attribute dt:dt="int" name="PRODUCT_BINDING_TYPE">1</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_VALUE">DD - Scanners</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_ATTRIBUTE">ProductTypes</custom-attribute>
+</custom-attributes>
+</category>
+<category name="DF - Audio Input">
+<name>DF - Audio Input</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<description xml:lang="de-DE">Audioeingang</description>
+<display-name xml:lang="fr-FR">Entrée audio</display-name>
+<display-name xml:lang="en-US">Audio Input</display-name>
+<display-name xml:lang="de-DE">Audioeingang</display-name>
+<description xml:lang="fr-FR">Entrée audio</description>
+<description xml:lang="en-US">Audio Input</description>
+<parent name="D - Input Devices"/>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_VALUE">DF - Audio Input</custom-attribute>
+<custom-attribute dt:dt="int" name="PRODUCT_BINDING_TYPE">1</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_ATTRIBUTE">ProductTypes</custom-attribute>
+</custom-attributes>
+</category>
+<category name="KB - Portable Audio">
+<name>KB - Portable Audio</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<display-name xml:lang="fr-FR">Audio portable</display-name>
+<display-name xml:lang="en-US">Portable Audio</display-name>
+<description xml:lang="de-DE">Tragbares Audio</description>
+<display-name xml:lang="de-DE">Tragbares Audio</display-name>
+<description xml:lang="fr-FR">Audio portable</description>
+<description xml:lang="en-US">Portable Audio</description>
+<parent name="K - Audio"/>
+<custom-attributes>
+<custom-attribute dt:dt="int" name="PRODUCT_BINDING_TYPE">1</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_VALUE">KB - Portable Audio</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_ATTRIBUTE">ProductTypes</custom-attribute>
+</custom-attributes>
+</category>
+<category name="CK - Storage Service &amp; Support">
+<name>CK - Storage Service &amp; Support</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<description xml:lang="fr-FR">Service et support de stockage</description>
+<description xml:lang="en-US">Storage Service &amp; Support</description>
+<display-name xml:lang="fr-FR">Service et support de stockage</display-name>
+<display-name xml:lang="en-US">Storage Service &amp; Support</display-name>
+<display-name xml:lang="de-DE">Speichergeräte Service &amp; Support</display-name>
+<description xml:lang="de-DE">Speichergeräte Service &amp; Support</description>
+<parent name="C - Storage Devices"/>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_VALUE">CK - Storage Service &amp; Support</custom-attribute>
+<custom-attribute dt:dt="int" name="PRODUCT_BINDING_TYPE">1</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_ATTRIBUTE">ProductTypes</custom-attribute>
+</custom-attributes>
+</category>
+<category name="KE - Headsets &amp; Microphones">
+<name>KE - Headsets &amp; Microphones</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<description xml:lang="de-DE">Kopfhörer &amp; Mikrofone</description>
+<description xml:lang="fr-FR">Casques et microphones</description>
+<description xml:lang="en-US">Headsets &amp; Microphones</description>
+<display-name xml:lang="fr-FR">Casques et microphones</display-name>
+<display-name xml:lang="en-US">Headsets &amp; Microphones</display-name>
+<display-name xml:lang="de-DE">Kopfhörer &amp; Mikrofone</display-name>
+<parent name="K - Audio"/>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_ATTRIBUTE">ProductTypes</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_VALUE">KE - Headsets &amp; Microphones</custom-attribute>
+<custom-attribute dt:dt="int" name="PRODUCT_BINDING_TYPE">1</custom-attribute>
+</custom-attributes>
+</category>
+<category name="LB - Lenses">
+<name>LB - Lenses</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<description xml:lang="fr-FR">Lentilles</description>
+<description xml:lang="en-US">Lenses</description>
+<display-name xml:lang="fr-FR">Lentilles</display-name>
+<display-name xml:lang="en-US">Lenses</display-name>
+<description xml:lang="de-DE">Objektiv/Filter</description>
+<display-name xml:lang="de-DE">Objektiv/Filter</display-name>
+<parent name="L - Cameras &amp; Optical Systems"/>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_ATTRIBUTE">ProductTypes</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_VALUE">LB - Lenses</custom-attribute>
+<custom-attribute dt:dt="int" name="PRODUCT_BINDING_TYPE">1</custom-attribute>
+</custom-attributes>
+</category>
+<category name="LA - Cameras">
+<name>LA - Cameras</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<display-name xml:lang="fr-FR">Caméras</display-name>
+<display-name xml:lang="en-US">Cameras</display-name>
+<display-name xml:lang="de-DE">Kameras</display-name>
+<description xml:lang="fr-FR">Caméras</description>
+<description xml:lang="en-US">Cameras</description>
+<description xml:lang="de-DE">Kameras</description>
+<parent name="L - Cameras &amp; Optical Systems"/>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_ATTRIBUTE">ProductTypes</custom-attribute>
+<custom-attribute dt:dt="int" name="PRODUCT_BINDING_TYPE">1</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_VALUE">LA - Cameras</custom-attribute>
+</custom-attributes>
+</category>
+<category name="L - Cameras &amp; Optical Systems">
+<name>L - Cameras &amp; Optical Systems</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<display-name xml:lang="fr-FR">Caméras et systèmes optiques</display-name>
+<display-name xml:lang="en-US">Cameras &amp; Optical Systems</display-name>
+<description xml:lang="de-DE">Kameras &amp; Optische Systeme</description>
+<description xml:lang="fr-FR">Caméras et systèmes optiques</description>
+<description xml:lang="en-US">Cameras &amp; Optical Systems</description>
+<display-name xml:lang="de-DE">Kameras &amp; Optische Systeme</display-name>
+<parent name="ProductTypes"/>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_VALUE">L - Cameras &amp; Optical Systems</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_ATTRIBUTE">ProductTypes</custom-attribute>
+<custom-attribute dt:dt="int" name="PRODUCT_BINDING_TYPE">1</custom-attribute>
+</custom-attributes>
+</category>
+<category name="LF - Filters">
+<name>LF - Filters</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<description xml:lang="de-DE">Filter</description>
+<description xml:lang="fr-FR">Filtres</description>
+<description xml:lang="en-US">Filters</description>
+<display-name xml:lang="fr-FR">Filtres</display-name>
+<display-name xml:lang="en-US">Filters</display-name>
+<display-name xml:lang="de-DE">Filter</display-name>
+<parent name="L - Cameras &amp; Optical Systems"/>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_VALUE">LF - Filters</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_ATTRIBUTE">ProductTypes</custom-attribute>
+<custom-attribute dt:dt="int" name="PRODUCT_BINDING_TYPE">1</custom-attribute>
+</custom-attributes>
+</category>
+<category name="M - CE Options">
+<name>M - CE Options</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<description xml:lang="de-DE">CE-Optionen</description>
+<display-name xml:lang="fr-FR">Options CE</display-name>
+<display-name xml:lang="en-US">CE Options</display-name>
+<description xml:lang="fr-FR">Options CE</description>
+<description xml:lang="en-US">CE Options</description>
+<display-name xml:lang="de-DE">CE-Optionen</display-name>
+<parent name="ProductTypes"/>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_ATTRIBUTE">ProductTypes</custom-attribute>
+<custom-attribute dt:dt="int" name="PRODUCT_BINDING_TYPE">1</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_VALUE">M - CE Options</custom-attribute>
+</custom-attributes>
+</category>
+<category name="MA - aerials">
+<name>MA - aerials</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<description xml:lang="de-DE">Antennen</description>
+<description xml:lang="fr-FR">aériennes</description>
+<description xml:lang="en-US">aerials</description>
+<display-name xml:lang="de-DE">Antennen</display-name>
+<display-name xml:lang="fr-FR">aériennes</display-name>
+<display-name xml:lang="en-US">aerials</display-name>
+<parent name="M - CE Options"/>
+<custom-attributes>
+<custom-attribute dt:dt="int" name="PRODUCT_BINDING_TYPE">1</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_ATTRIBUTE">ProductTypes</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_VALUE">MA - aerials</custom-attribute>
+</custom-attributes>
+</category>
+<category name="MC - AV Blank Media">
+<name>MC - AV Blank Media</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<display-name xml:lang="fr-FR">AV Blank Media</display-name>
+<display-name xml:lang="en-US">AV Blank Media</display-name>
+<display-name xml:lang="de-DE">Leere AV-Medien</display-name>
+<description xml:lang="fr-FR">AV Blank Media</description>
+<description xml:lang="en-US">AV Blank Media</description>
+<description xml:lang="de-DE">Leere AV-Medien</description>
+<parent name="M - CE Options"/>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_VALUE">MC - AV Blank Media</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_ATTRIBUTE">ProductTypes</custom-attribute>
+<custom-attribute dt:dt="int" name="PRODUCT_BINDING_TYPE">1</custom-attribute>
+</custom-attributes>
+</category>
+<category name="MB - Tripods &amp; Video Support Equipment">
+<name>MB - Tripods &amp; Video Support Equipment</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<description xml:lang="de-DE">Stative &amp; Video-Halterungssysteme</description>
+<description xml:lang="fr-FR">Trépieds et équipement de soutien vidéo</description>
+<description xml:lang="en-US">Tripods &amp; Video Support Equipment</description>
+<display-name xml:lang="de-DE">Stative &amp; Video-Halterungssysteme</display-name>
+<display-name xml:lang="fr-FR">Trépieds et équipement de soutien vidéo</display-name>
+<display-name xml:lang="en-US">Tripods &amp; Video Support Equipment</display-name>
+<parent name="M - CE Options"/>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_VALUE">MB - Tripods &amp; Video Support Equipment</custom-attribute>
+<custom-attribute dt:dt="int" name="PRODUCT_BINDING_TYPE">1</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_ATTRIBUTE">ProductTypes</custom-attribute>
+</custom-attributes>
+</category>
+<category name="MF - Remote Controls">
+<name>MF - Remote Controls</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<description xml:lang="fr-FR">Télécommandes</description>
+<description xml:lang="en-US">Remote Controls</description>
+<display-name xml:lang="fr-FR">Télécommandes</display-name>
+<display-name xml:lang="en-US">Remote Controls</display-name>
+<display-name xml:lang="de-DE">Fernsteuerungen</display-name>
+<description xml:lang="de-DE">Fernsteuerungen</description>
+<parent name="M - CE Options"/>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_VALUE">MF - Remote Controls</custom-attribute>
+<custom-attribute dt:dt="int" name="PRODUCT_BINDING_TYPE">1</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_ATTRIBUTE">ProductTypes</custom-attribute>
+</custom-attributes>
+</category>
+<category name="MG - Power Devices &amp; Batteries">
+<name>MG - Power Devices &amp; Batteries</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<display-name xml:lang="fr-FR">Appareils d&apos;alimentation et batteries</display-name>
+<display-name xml:lang="en-US">Power Devices &amp; Batteries</display-name>
+<description xml:lang="fr-FR">Appareils d&apos;alimentation et batteries</description>
+<description xml:lang="en-US">Power Devices &amp; Batteries</description>
+<description xml:lang="de-DE">Netzgeräte &amp; Batterien/Akkus</description>
+<display-name xml:lang="de-DE">Netzgeräte &amp; Batterien/Akkus</display-name>
+<parent name="M - CE Options"/>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_VALUE">MG - Power Devices &amp; Batteries</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_ATTRIBUTE">ProductTypes</custom-attribute>
+<custom-attribute dt:dt="int" name="PRODUCT_BINDING_TYPE">1</custom-attribute>
+</custom-attributes>
+</category>
+<category name="MH - Cables">
+<name>MH - Cables</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<display-name xml:lang="fr-FR">Câbles</display-name>
+<display-name xml:lang="en-US">Cables</display-name>
+<display-name xml:lang="de-DE">Kabel</display-name>
+<description xml:lang="fr-FR">Câbles</description>
+<description xml:lang="en-US">Cables</description>
+<description xml:lang="de-DE">Kabel</description>
+<parent name="M - CE Options"/>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_ATTRIBUTE">ProductTypes</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_VALUE">MH - Cables</custom-attribute>
+<custom-attribute dt:dt="int" name="PRODUCT_BINDING_TYPE">1</custom-attribute>
+</custom-attributes>
+</category>
+<category name="MI - Accessories">
+<name>MI - Accessories</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<description xml:lang="fr-FR">Accessoires</description>
+<description xml:lang="en-US">Accessories</description>
+<display-name xml:lang="fr-FR">Accessoires</display-name>
+<display-name xml:lang="en-US">Accessories</display-name>
+<description xml:lang="de-DE">Zubehör</description>
+<display-name xml:lang="de-DE">Zubehör</display-name>
+<parent name="M - CE Options"/>
+<custom-attributes>
+<custom-attribute dt:dt="int" name="PRODUCT_BINDING_TYPE">1</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_VALUE">MI - Accessories</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_ATTRIBUTE">ProductTypes</custom-attribute>
+</custom-attributes>
+</category>
+<category name="MJ - Service &amp; Support">
+<name>MJ - Service &amp; Support</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<description xml:lang="fr-FR">Service &amp; soutien</description>
+<description xml:lang="en-US">Service &amp; Support</description>
+<display-name xml:lang="fr-FR">Service &amp; soutien</display-name>
+<display-name xml:lang="en-US">Service &amp; Support</display-name>
+<display-name xml:lang="de-DE">Service &amp; Support</display-name>
+<description xml:lang="de-DE">Service &amp; Support</description>
+<parent name="M - CE Options"/>
+<custom-attributes>
+<custom-attribute dt:dt="int" name="PRODUCT_BINDING_TYPE">1</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_ATTRIBUTE">ProductTypes</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_VALUE">MJ - Service &amp; Support</custom-attribute>
+</custom-attributes>
+</category>
+<category name="MK - Photo &amp; Video Accessories">
+<name>MK - Photo &amp; Video Accessories</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<display-name xml:lang="fr-FR">Accessoires photo et vidéo</display-name>
+<display-name xml:lang="en-US">Photo &amp; Video Accessories</display-name>
+<description xml:lang="fr-FR">Accessoires photo et vidéo</description>
+<description xml:lang="en-US">Photo &amp; Video Accessories</description>
+<display-name xml:lang="de-DE">Photo &amp; Video Accessories</display-name>
+<description xml:lang="de-DE">Photo &amp; Video Accessories</description>
+<parent name="M - CE Options"/>
+<custom-attributes>
+<custom-attribute dt:dt="int" name="PRODUCT_BINDING_TYPE">1</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_ATTRIBUTE">ProductTypes</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_VALUE">MK - Photo &amp; Video Accessories</custom-attribute>
+</custom-attributes>
+</category>
+<category name="MD - AV Furniture">
+<name>MD - AV Furniture</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<description xml:lang="de-DE">AV-Möbel</description>
+<display-name xml:lang="fr-FR">Meubles AV</display-name>
+<display-name xml:lang="en-US">AV Furniture</display-name>
+<display-name xml:lang="de-DE">AV-Möbel</display-name>
+<description xml:lang="fr-FR">Meubles AV</description>
+<description xml:lang="en-US">AV Furniture</description>
+<parent name="M - CE Options"/>
+<custom-attributes>
+<custom-attribute dt:dt="int" name="PRODUCT_BINDING_TYPE">1</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_VALUE">MD - AV Furniture</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_ATTRIBUTE">ProductTypes</custom-attribute>
+</custom-attributes>
+</category>
+<category name="N - Specialized Electronics">
+<name>N - Specialized Electronics</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<display-name xml:lang="de-DE">Spezialisierte Elektronik</display-name>
+<description xml:lang="fr-FR">Électronique spécialisée</description>
+<description xml:lang="en-US">Specialized Electronics</description>
+<description xml:lang="de-DE">Spezialisierte Elektronik</description>
+<display-name xml:lang="fr-FR">Électronique spécialisée</display-name>
+<display-name xml:lang="en-US">Specialized Electronics</display-name>
+<parent name="ProductTypes"/>
+<custom-attributes>
+<custom-attribute dt:dt="int" name="PRODUCT_BINDING_TYPE">1</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_VALUE">N - Specialized Electronics</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_ATTRIBUTE">ProductTypes</custom-attribute>
+</custom-attributes>
+</category>
+<category name="NA - Radar Detectors">
+<name>NA - Radar Detectors</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<display-name xml:lang="de-DE">Radardetektoren</display-name>
+<description xml:lang="de-DE">Radardetektoren</description>
+<display-name xml:lang="fr-FR">Détecteurs de radar</display-name>
+<display-name xml:lang="en-US">Radar Detectors</display-name>
+<description xml:lang="fr-FR">Détecteurs de radar</description>
+<description xml:lang="en-US">Radar Detectors</description>
+<parent name="N - Specialized Electronics"/>
+<custom-attributes>
+<custom-attribute dt:dt="int" name="PRODUCT_BINDING_TYPE">1</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_ATTRIBUTE">ProductTypes</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_VALUE">NA - Radar Detectors</custom-attribute>
+</custom-attributes>
+</category>
+<category name="NB - Car Security Systems">
+<name>NB - Car Security Systems</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<display-name xml:lang="fr-FR">Systèmes de sécurité automobile</display-name>
+<display-name xml:lang="en-US">Car Security Systems</display-name>
+<description xml:lang="de-DE">Sicherheitssysteme für PKW</description>
+<display-name xml:lang="de-DE">Sicherheitssysteme für PKW</display-name>
+<description xml:lang="fr-FR">Systèmes de sécurité automobile</description>
+<description xml:lang="en-US">Car Security Systems</description>
+<parent name="N - Specialized Electronics"/>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_ATTRIBUTE">ProductTypes</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_VALUE">NB - Car Security Systems</custom-attribute>
+<custom-attribute dt:dt="int" name="PRODUCT_BINDING_TYPE">1</custom-attribute>
+</custom-attributes>
+</category>
+<category name="O - Office Equipment">
+<name>O - Office Equipment</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<display-name xml:lang="de-DE">Büroausstattung</display-name>
+<description xml:lang="de-DE">Büroausstattung</description>
+<description xml:lang="fr-FR">Équipement de bureau</description>
+<description xml:lang="en-US">Office Equipment</description>
+<display-name xml:lang="fr-FR">Équipement de bureau</display-name>
+<display-name xml:lang="en-US">Office Equipment</display-name>
+<parent name="ProductTypes"/>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_VALUE">O - Office Equipment</custom-attribute>
+<custom-attribute dt:dt="int" name="PRODUCT_BINDING_TYPE">1</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_ATTRIBUTE">ProductTypes</custom-attribute>
+</custom-attributes>
+</category>
+<category name="OA - Multifunction &amp; Office Machines">
+<name>OA - Multifunction &amp; Office Machines</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<description xml:lang="fr-FR">Machines de bureau et multifonctions</description>
+<description xml:lang="en-US">Multifunction &amp; Office Machines</description>
+<display-name xml:lang="de-DE">Multifunktions- und Bürogeräte</display-name>
+<display-name xml:lang="fr-FR">Machines de bureau et multifonctions</display-name>
+<display-name xml:lang="en-US">Multifunction &amp; Office Machines</display-name>
+<description xml:lang="de-DE">Multifunktions- und Bürogeräte</description>
+<parent name="O - Office Equipment"/>
+<custom-attributes>
+<custom-attribute dt:dt="int" name="PRODUCT_BINDING_TYPE">1</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_VALUE">OA - Multifunction &amp; Office Machines</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_ATTRIBUTE">ProductTypes</custom-attribute>
+</custom-attributes>
+</category>
+<category name="P - Communication">
+<name>P - Communication</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<display-name xml:lang="fr-FR">Communication</display-name>
+<display-name xml:lang="en-US">Communication</display-name>
+<display-name xml:lang="de-DE">Kommunikation</display-name>
+<description xml:lang="de-DE">Kommunikation</description>
+<description xml:lang="fr-FR">Communication</description>
+<description xml:lang="en-US">Communication</description>
+<parent name="ProductTypes"/>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_ATTRIBUTE">ProductTypes</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_VALUE">P - Communication</custom-attribute>
+<custom-attribute dt:dt="int" name="PRODUCT_BINDING_TYPE">1</custom-attribute>
+</custom-attributes>
+</category>
+<category name="PA - Telephones">
+<name>PA - Telephones</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<description xml:lang="fr-FR">Téléphones</description>
+<description xml:lang="en-US">Telephones</description>
+<description xml:lang="de-DE">Telefone</description>
+<display-name xml:lang="fr-FR">Téléphones</display-name>
+<display-name xml:lang="en-US">Telephones</display-name>
+<display-name xml:lang="de-DE">Telefone</display-name>
+<parent name="P - Communication"/>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_ATTRIBUTE">ProductTypes</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_VALUE">PA - Telephones</custom-attribute>
+<custom-attribute dt:dt="int" name="PRODUCT_BINDING_TYPE">1</custom-attribute>
+</custom-attributes>
+</category>
+<category name="PB - Mobile Phones">
+<name>PB - Mobile Phones</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<display-name xml:lang="de-DE">Mobiltelefone</display-name>
+<description xml:lang="de-DE">Mobiltelefone</description>
+<display-name xml:lang="fr-FR">Téléphones mobiles</display-name>
+<display-name xml:lang="en-US">Mobile Phones</display-name>
+<description xml:lang="fr-FR">Téléphones mobiles</description>
+<description xml:lang="en-US">Mobile Phones</description>
+<parent name="P - Communication"/>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_VALUE">PB - Mobile Phones</custom-attribute>
+<custom-attribute dt:dt="int" name="PRODUCT_BINDING_TYPE">1</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_ATTRIBUTE">ProductTypes</custom-attribute>
+</custom-attributes>
+</category>
+<category name="PC - Pagers">
+<name>PC - Pagers</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<description xml:lang="de-DE">Pager</description>
+<description xml:lang="fr-FR">Téléavertisseurs</description>
+<description xml:lang="en-US">Pagers</description>
+<display-name xml:lang="de-DE">Pager</display-name>
+<display-name xml:lang="fr-FR">Téléavertisseurs</display-name>
+<display-name xml:lang="en-US">Pagers</display-name>
+<parent name="P - Communication"/>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_VALUE">PC - Pagers</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_ATTRIBUTE">ProductTypes</custom-attribute>
+<custom-attribute dt:dt="int" name="PRODUCT_BINDING_TYPE">1</custom-attribute>
+</custom-attributes>
+</category>
+<category name="PD - Answering Machines &amp; Caller ID">
+<name>PD - Answering Machines &amp; Caller ID</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<description xml:lang="de-DE">Anrufbeantworter &amp; Anrufererkennung</description>
+<description xml:lang="fr-FR">Répondeurs et identification de l&apos;appelant</description>
+<description xml:lang="en-US">Answering Machines &amp; Caller ID</description>
+<display-name xml:lang="fr-FR">Répondeurs et identification de l&apos;appelant</display-name>
+<display-name xml:lang="en-US">Answering Machines &amp; Caller ID</display-name>
+<display-name xml:lang="de-DE">Anrufbeantworter &amp; Anrufererkennung</display-name>
+<parent name="P - Communication"/>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_ATTRIBUTE">ProductTypes</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_VALUE">PD - Answering Machines &amp; Caller ID</custom-attribute>
+<custom-attribute dt:dt="int" name="PRODUCT_BINDING_TYPE">1</custom-attribute>
+</custom-attributes>
+</category>
+<category name="PE - Two-Way Radios">
+<name>PE - Two-Way Radios</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<display-name xml:lang="fr-FR">Radios bidirectionnelles</display-name>
+<display-name xml:lang="en-US">Two-Way Radios</display-name>
+<display-name xml:lang="de-DE">Zwei-Wege-Radios</display-name>
+<description xml:lang="de-DE">Zwei-Wege-Radios</description>
+<description xml:lang="fr-FR">Radios bidirectionnelles</description>
+<description xml:lang="en-US">Two-Way Radios</description>
+<parent name="P - Communication"/>
+<custom-attributes>
+<custom-attribute dt:dt="int" name="PRODUCT_BINDING_TYPE">1</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_ATTRIBUTE">ProductTypes</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_VALUE">PE - Two-Way Radios</custom-attribute>
+</custom-attributes>
+</category>
+<category name="PF - GPS Receivers">
+<name>PF - GPS Receivers</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<display-name xml:lang="de-DE">GPS-Receiver</display-name>
+<display-name xml:lang="fr-FR">Récepteurs GPS</display-name>
+<display-name xml:lang="en-US">GPS Receivers</display-name>
+<description xml:lang="fr-FR">Récepteurs GPS</description>
+<description xml:lang="en-US">GPS Receivers</description>
+<description xml:lang="de-DE">GPS-Receiver</description>
+<parent name="P - Communication"/>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_VALUE">PF - GPS Receivers</custom-attribute>
+<custom-attribute dt:dt="int" name="PRODUCT_BINDING_TYPE">1</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_ATTRIBUTE">ProductTypes</custom-attribute>
+</custom-attributes>
+</category>
+<category name="PG - GPS kits">
+<name>PG - GPS kits</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<description xml:lang="de-DE">GPS-Kits</description>
+<display-name xml:lang="de-DE">GPS-Kits</display-name>
+<description xml:lang="fr-FR">Kits GPS</description>
+<description xml:lang="en-US">GPS kits</description>
+<display-name xml:lang="fr-FR">Kits GPS</display-name>
+<display-name xml:lang="en-US">GPS kits</display-name>
+<parent name="P - Communication"/>
+<custom-attributes>
+<custom-attribute dt:dt="int" name="PRODUCT_BINDING_TYPE">1</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_ATTRIBUTE">ProductTypes</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_VALUE">PG - GPS kits</custom-attribute>
+</custom-attributes>
+</category>
+<category name="PH - GPS Software">
+<name>PH - GPS Software</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<display-name xml:lang="de-DE">GPS-Software</display-name>
+<description xml:lang="de-DE">GPS-Software</description>
+<description xml:lang="fr-FR">Logiciel GPS</description>
+<description xml:lang="en-US">GPS Software</description>
+<display-name xml:lang="fr-FR">Logiciel GPS</display-name>
+<display-name xml:lang="en-US">GPS Software</display-name>
+<parent name="P - Communication"/>
+<custom-attributes>
+<custom-attribute dt:dt="int" name="PRODUCT_BINDING_TYPE">1</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_VALUE">PH - GPS Software</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_ATTRIBUTE">ProductTypes</custom-attribute>
+</custom-attributes>
+</category>
+<category name="Q - White Goods">
+<name>Q - White Goods</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<display-name xml:lang="de-DE">White Goods</display-name>
+<description xml:lang="de-DE">White Goods</description>
+<display-name xml:lang="fr-FR">Produits blancs</display-name>
+<display-name xml:lang="en-US">White Goods</display-name>
+<description xml:lang="fr-FR">Produits blancs</description>
+<description xml:lang="en-US">White Goods</description>
+<parent name="ProductTypes"/>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_VALUE">Q - White Goods</custom-attribute>
+<custom-attribute dt:dt="int" name="PRODUCT_BINDING_TYPE">1</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_ATTRIBUTE">ProductTypes</custom-attribute>
+</custom-attributes>
+</category>
+<category name="QA - White Goods">
+<name>QA - White Goods</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<description xml:lang="fr-FR">Produits blancs</description>
+<description xml:lang="en-US">White Goods</description>
+<display-name xml:lang="fr-FR">Produits blancs</display-name>
+<display-name xml:lang="en-US">White Goods</display-name>
+<display-name xml:lang="de-DE">White Goods</display-name>
+<description xml:lang="de-DE">White Goods</description>
+<parent name="Q - White Goods"/>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_ATTRIBUTE">ProductTypes</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_VALUE">QA - White Goods</custom-attribute>
+<custom-attribute dt:dt="int" name="PRODUCT_BINDING_TYPE">1</custom-attribute>
+</custom-attributes>
+</category>
+<category name="R - Large Appliances">
+<name>R - Large Appliances</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<display-name xml:lang="de-DE">Großgeräte</display-name>
+<description xml:lang="fr-FR">Gros appareils électroménagers</description>
+<description xml:lang="en-US">Large Appliances</description>
+<description xml:lang="de-DE">Großgeräte</description>
+<display-name xml:lang="fr-FR">Gros appareils électroménagers</display-name>
+<display-name xml:lang="en-US">Large Appliances</display-name>
+<parent name="ProductTypes"/>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_VALUE">R - Large Appliances</custom-attribute>
+<custom-attribute dt:dt="int" name="PRODUCT_BINDING_TYPE">1</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_ATTRIBUTE">ProductTypes</custom-attribute>
+</custom-attributes>
+</category>
+<category name="RA - Refrigerators &amp; Freezers">
+<name>RA - Refrigerators &amp; Freezers</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<display-name xml:lang="fr-FR">Réfrigérateurs et congélateurs</display-name>
+<display-name xml:lang="en-US">Refrigerators &amp; Freezers</display-name>
+<description xml:lang="de-DE">Kühl- &amp; Gefrierschränke</description>
+<display-name xml:lang="de-DE">Kühl- &amp; Gefrierschränke</display-name>
+<description xml:lang="fr-FR">Réfrigérateurs et congélateurs</description>
+<description xml:lang="en-US">Refrigerators &amp; Freezers</description>
+<parent name="R - Large Appliances"/>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_ATTRIBUTE">ProductTypes</custom-attribute>
+<custom-attribute dt:dt="int" name="PRODUCT_BINDING_TYPE">1</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_VALUE">RA - Refrigerators &amp; Freezers</custom-attribute>
+</custom-attributes>
+</category>
+<category name="RB - Ranges &amp; Ovens">
+<name>RB - Ranges &amp; Ovens</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<description xml:lang="de-DE">Herde &amp; Backöfen</description>
+<display-name xml:lang="fr-FR">Gammes et fours</display-name>
+<display-name xml:lang="en-US">Ranges &amp; Ovens</display-name>
+<display-name xml:lang="de-DE">Herde &amp; Backöfen</display-name>
+<description xml:lang="fr-FR">Gammes et fours</description>
+<description xml:lang="en-US">Ranges &amp; Ovens</description>
+<parent name="R - Large Appliances"/>
+<custom-attributes>
+<custom-attribute dt:dt="int" name="PRODUCT_BINDING_TYPE">1</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_VALUE">RB - Ranges &amp; Ovens</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_ATTRIBUTE">ProductTypes</custom-attribute>
+</custom-attributes>
+</category>
+<category name="RC - Cooktops">
+<name>RC - Cooktops</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<display-name xml:lang="de-DE">Kochfelder</display-name>
+<description xml:lang="fr-FR">Plans de cuisson</description>
+<description xml:lang="en-US">Cooktops</description>
+<description xml:lang="de-DE">Kochfelder</description>
+<display-name xml:lang="fr-FR">Plans de cuisson</display-name>
+<display-name xml:lang="en-US">Cooktops</display-name>
+<parent name="R - Large Appliances"/>
+<custom-attributes>
+<custom-attribute dt:dt="int" name="PRODUCT_BINDING_TYPE">1</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_VALUE">RC - Cooktops</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_ATTRIBUTE">ProductTypes</custom-attribute>
+</custom-attributes>
+</category>
+<category name="RD - Hoods">
+<name>RD - Hoods</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<description xml:lang="fr-FR">Capots</description>
+<description xml:lang="en-US">Hoods</description>
+<description xml:lang="de-DE">Abzugshauben</description>
+<display-name xml:lang="fr-FR">Capots</display-name>
+<display-name xml:lang="en-US">Hoods</display-name>
+<display-name xml:lang="de-DE">Abzugshauben</display-name>
+<parent name="R - Large Appliances"/>
+<custom-attributes>
+<custom-attribute dt:dt="int" name="PRODUCT_BINDING_TYPE">1</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_ATTRIBUTE">ProductTypes</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_VALUE">RD - Hoods</custom-attribute>
+</custom-attributes>
+</category>
+<category name="RE - Dishwashers">
+<name>RE - Dishwashers</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<display-name xml:lang="fr-FR">Lave-vaisselle</display-name>
+<display-name xml:lang="en-US">Dishwashers</display-name>
+<description xml:lang="de-DE">Geschirrspülmaschinen</description>
+<description xml:lang="fr-FR">Lave-vaisselle</description>
+<description xml:lang="en-US">Dishwashers</description>
+<display-name xml:lang="de-DE">Geschirrspülmaschinen</display-name>
+<parent name="R - Large Appliances"/>
+<custom-attributes>
+<custom-attribute dt:dt="int" name="PRODUCT_BINDING_TYPE">1</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_ATTRIBUTE">ProductTypes</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_VALUE">RE - Dishwashers</custom-attribute>
+</custom-attributes>
+</category>
+<category name="RF - Microwave Ovens">
+<name>RF - Microwave Ovens</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<description xml:lang="fr-FR">Fours à micro-ondes</description>
+<description xml:lang="en-US">Microwave Ovens</description>
+<display-name xml:lang="de-DE">Mikrowellenherde</display-name>
+<description xml:lang="de-DE">Mikrowellenherde</description>
+<display-name xml:lang="fr-FR">Fours à micro-ondes</display-name>
+<display-name xml:lang="en-US">Microwave Ovens</display-name>
+<parent name="R - Large Appliances"/>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_VALUE">RF - Microwave Ovens</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_ATTRIBUTE">ProductTypes</custom-attribute>
+<custom-attribute dt:dt="int" name="PRODUCT_BINDING_TYPE">1</custom-attribute>
+</custom-attributes>
+</category>
+<category name="RG - Large Appliance Accessories">
+<name>RG - Large Appliance Accessories</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<display-name xml:lang="de-DE">Zubehör für Großgeräte</display-name>
+<display-name xml:lang="fr-FR">Accessoires pour gros appareils électroménagers</display-name>
+<display-name xml:lang="en-US">Large Appliance Accessories</display-name>
+<description xml:lang="fr-FR">Accessoires pour gros appareils électroménagers</description>
+<description xml:lang="en-US">Large Appliance Accessories</description>
+<description xml:lang="de-DE">Zubehör für Großgeräte</description>
+<parent name="R - Large Appliances"/>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_ATTRIBUTE">ProductTypes</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_VALUE">RG - Large Appliance Accessories</custom-attribute>
+<custom-attribute dt:dt="int" name="PRODUCT_BINDING_TYPE">1</custom-attribute>
+</custom-attributes>
+</category>
+<category name="RH - Washers &amp; Dryers">
+<name>RH - Washers &amp; Dryers</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<description xml:lang="de-DE">Waschmaschinen &amp; Trockner</description>
+<display-name xml:lang="fr-FR">Laveuses et sécheuses</display-name>
+<display-name xml:lang="en-US">Washers &amp; Dryers</display-name>
+<description xml:lang="fr-FR">Laveuses et sécheuses</description>
+<description xml:lang="en-US">Washers &amp; Dryers</description>
+<display-name xml:lang="de-DE">Waschmaschinen &amp; Trockner</display-name>
+<parent name="R - Large Appliances"/>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_VALUE">RH - Washers &amp; Dryers</custom-attribute>
+<custom-attribute dt:dt="int" name="PRODUCT_BINDING_TYPE">1</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_ATTRIBUTE">ProductTypes</custom-attribute>
+</custom-attributes>
+</category>
+<category name="S - Small Appliances">
+<name>S - Small Appliances</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<description xml:lang="fr-FR">Petits appareils</description>
+<description xml:lang="en-US">Small Appliances</description>
+<description xml:lang="de-DE">Kleingeräte</description>
+<display-name xml:lang="de-DE">Kleingeräte</display-name>
+<display-name xml:lang="fr-FR">Petits appareils</display-name>
+<display-name xml:lang="en-US">Small Appliances</display-name>
+<parent name="ProductTypes"/>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_VALUE">S - Small Appliances</custom-attribute>
+<custom-attribute dt:dt="int" name="PRODUCT_BINDING_TYPE">1</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_ATTRIBUTE">ProductTypes</custom-attribute>
+</custom-attributes>
+</category>
+<category name="SA - Vacuum Cleaners">
+<name>SA - Vacuum Cleaners</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<display-name xml:lang="fr-FR">Aspirateurs d&apos;aspirateur</display-name>
+<display-name xml:lang="en-US">Vacuum Cleaners</display-name>
+<description xml:lang="de-DE">Staubsauger</description>
+<description xml:lang="fr-FR">Aspirateurs d&apos;aspirateur</description>
+<description xml:lang="en-US">Vacuum Cleaners</description>
+<display-name xml:lang="de-DE">Staubsauger</display-name>
+<parent name="S - Small Appliances"/>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_VALUE">SA - Vacuum Cleaners</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_ATTRIBUTE">ProductTypes</custom-attribute>
+<custom-attribute dt:dt="int" name="PRODUCT_BINDING_TYPE">1</custom-attribute>
+</custom-attributes>
+</category>
+<category name="SB - Food Processors">
+<name>SB - Food Processors</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<display-name xml:lang="de-DE">Küchenmaschinen &amp; Mixer</display-name>
+<description xml:lang="fr-FR">Transformateurs d&apos;aliments</description>
+<description xml:lang="en-US">Food Processors</description>
+<description xml:lang="de-DE">Küchenmaschinen &amp; Mixer</description>
+<display-name xml:lang="fr-FR">Transformateurs d&apos;aliments</display-name>
+<display-name xml:lang="en-US">Food Processors</display-name>
+<parent name="S - Small Appliances"/>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_VALUE">SB - Food Processors</custom-attribute>
+<custom-attribute dt:dt="int" name="PRODUCT_BINDING_TYPE">1</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_ATTRIBUTE">ProductTypes</custom-attribute>
+</custom-attributes>
+</category>
+<category name="SC - Coffee Makers">
+<name>SC - Coffee Makers</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<description xml:lang="de-DE">Kaffeemaschinen</description>
+<display-name xml:lang="de-DE">Kaffeemaschinen</display-name>
+<description xml:lang="fr-FR">Cafetières</description>
+<description xml:lang="en-US">Coffee Makers</description>
+<display-name xml:lang="fr-FR">Cafetières</display-name>
+<display-name xml:lang="en-US">Coffee Makers</display-name>
+<parent name="S - Small Appliances"/>
+<custom-attributes>
+<custom-attribute dt:dt="int" name="PRODUCT_BINDING_TYPE">1</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_VALUE">SC - Coffee Makers</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_ATTRIBUTE">ProductTypes</custom-attribute>
+</custom-attributes>
+</category>
+<category name="SD - Irons">
+<name>SD - Irons</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<description xml:lang="de-DE">Bügeleisen</description>
+<description xml:lang="fr-FR">Fers à repasser</description>
+<description xml:lang="en-US">Irons</description>
+<display-name xml:lang="de-DE">Bügeleisen</display-name>
+<display-name xml:lang="fr-FR">Fers à repasser</display-name>
+<display-name xml:lang="en-US">Irons</display-name>
+<parent name="S - Small Appliances"/>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_VALUE">SD - Irons</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_ATTRIBUTE">ProductTypes</custom-attribute>
+<custom-attribute dt:dt="int" name="PRODUCT_BINDING_TYPE">1</custom-attribute>
+</custom-attributes>
+</category>
+<category name="SE - Toasters &amp; Grills">
+<name>SE - Toasters &amp; Grills</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<description xml:lang="fr-FR">Grille-pain et grillades</description>
+<description xml:lang="en-US">Toasters &amp; Grills</description>
+<description xml:lang="de-DE">Toaster &amp; Grills</description>
+<display-name xml:lang="de-DE">Toaster &amp; Grills</display-name>
+<display-name xml:lang="fr-FR">Grille-pain et grillades</display-name>
+<display-name xml:lang="en-US">Toasters &amp; Grills</display-name>
+<parent name="S - Small Appliances"/>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_ATTRIBUTE">ProductTypes</custom-attribute>
+<custom-attribute dt:dt="int" name="PRODUCT_BINDING_TYPE">1</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_VALUE">SE - Toasters &amp; Grills</custom-attribute>
+</custom-attributes>
+</category>
+<category name="SG - Heaters &amp; Coolers">
+<name>SG - Heaters &amp; Coolers</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<display-name xml:lang="fr-FR">Chauffages et refroidisseurs</display-name>
+<display-name xml:lang="en-US">Heaters &amp; Coolers</display-name>
+<description xml:lang="de-DE">Heiz- &amp; Kühlgeräte</description>
+<display-name xml:lang="de-DE">Heiz- &amp; Kühlgeräte</display-name>
+<description xml:lang="fr-FR">Chauffages et refroidisseurs</description>
+<description xml:lang="en-US">Heaters &amp; Coolers</description>
+<parent name="S - Small Appliances"/>
+<custom-attributes>
+<custom-attribute dt:dt="int" name="PRODUCT_BINDING_TYPE">1</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_ATTRIBUTE">ProductTypes</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_VALUE">SG - Heaters &amp; Coolers</custom-attribute>
+</custom-attributes>
+</category>
+<category name="SH - Small Kitchen Appliances">
+<name>SH - Small Kitchen Appliances</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<display-name xml:lang="de-DE">Kleine Küchengeräte</display-name>
+<display-name xml:lang="fr-FR">Petits appareils de cuisine</display-name>
+<display-name xml:lang="en-US">Small Kitchen Appliances</display-name>
+<description xml:lang="de-DE">Kleine Küchengeräte</description>
+<description xml:lang="fr-FR">Petits appareils de cuisine</description>
+<description xml:lang="en-US">Small Kitchen Appliances</description>
+<parent name="S - Small Appliances"/>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_VALUE">SH - Small Kitchen Appliances</custom-attribute>
+<custom-attribute dt:dt="int" name="PRODUCT_BINDING_TYPE">1</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_ATTRIBUTE">ProductTypes</custom-attribute>
+</custom-attributes>
+</category>
+<category name="SI - Small Appliances Accessories">
+<name>SI - Small Appliances Accessories</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<display-name xml:lang="de-DE">Zubehör für Kleingeräte</display-name>
+<display-name xml:lang="fr-FR">Petits appareils électroménagers Accessoires</display-name>
+<display-name xml:lang="en-US">Small Appliances Accessories</display-name>
+<description xml:lang="fr-FR">Petits appareils électroménagers Accessoires</description>
+<description xml:lang="en-US">Small Appliances Accessories</description>
+<description xml:lang="de-DE">Zubehör für Kleingeräte</description>
+<parent name="S - Small Appliances"/>
+<custom-attributes>
+<custom-attribute dt:dt="int" name="PRODUCT_BINDING_TYPE">1</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_VALUE">SI - Small Appliances Accessories</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_ATTRIBUTE">ProductTypes</custom-attribute>
+</custom-attributes>
+</category>
+<category name="T - Studio Equipment">
+<name>T - Studio Equipment</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<description xml:lang="de-DE">Studioausrüstung</description>
+<display-name xml:lang="de-DE">Studioausrüstung</display-name>
+<display-name xml:lang="fr-FR">Équipement de studio</display-name>
+<display-name xml:lang="en-US">Studio Equipment</display-name>
+<description xml:lang="fr-FR">Équipement de studio</description>
+<description xml:lang="en-US">Studio Equipment</description>
+<parent name="ProductTypes"/>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_VALUE">T - Studio Equipment</custom-attribute>
+<custom-attribute dt:dt="int" name="PRODUCT_BINDING_TYPE">1</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_ATTRIBUTE">ProductTypes</custom-attribute>
+</custom-attributes>
+</category>
+<category name="TA - Backgrounds">
+<name>TA - Backgrounds</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<display-name xml:lang="de-DE">Hintergründe</display-name>
+<display-name xml:lang="fr-FR">Arrière-plans</display-name>
+<display-name xml:lang="en-US">Backgrounds</display-name>
+<description xml:lang="de-DE">Hintergründe</description>
+<description xml:lang="fr-FR">Arrière-plans</description>
+<description xml:lang="en-US">Backgrounds</description>
+<parent name="T - Studio Equipment"/>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_VALUE">TA - Backgrounds</custom-attribute>
+<custom-attribute dt:dt="int" name="PRODUCT_BINDING_TYPE">1</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_ATTRIBUTE">ProductTypes</custom-attribute>
+</custom-attributes>
+</category>
+<category name="TB - Lighting Filters">
+<name>TB - Lighting Filters</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<description xml:lang="fr-FR">Filtres d&apos;éclairage</description>
+<description xml:lang="en-US">Lighting Filters</description>
+<display-name xml:lang="de-DE">Beleuchtungsfilter</display-name>
+<description xml:lang="de-DE">Beleuchtungsfilter</description>
+<display-name xml:lang="fr-FR">Filtres d&apos;éclairage</display-name>
+<display-name xml:lang="en-US">Lighting Filters</display-name>
+<parent name="T - Studio Equipment"/>
+<custom-attributes>
+<custom-attribute dt:dt="int" name="PRODUCT_BINDING_TYPE">1</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_ATTRIBUTE">ProductTypes</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_VALUE">TB - Lighting Filters</custom-attribute>
+</custom-attributes>
+</category>
+<category name="EK - Output Service &amp; Support">
+<name>EK - Output Service &amp; Support</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<display-name xml:lang="fr-FR">Service et support de sortie</display-name>
+<display-name xml:lang="en-US">Output Service &amp; Support</display-name>
+<description xml:lang="de-DE">Ausgabegeräte Service &amp; Support</description>
+<display-name xml:lang="de-DE">Ausgabegeräte Service &amp; Support</display-name>
+<description xml:lang="fr-FR">Service et support de sortie</description>
+<description xml:lang="en-US">Output Service &amp; Support</description>
+<parent name="E - Output Devices"/>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_VALUE">EK - Output Service &amp; Support</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_ATTRIBUTE">ProductTypes</custom-attribute>
+<custom-attribute dt:dt="int" name="PRODUCT_BINDING_TYPE">1</custom-attribute>
+</custom-attributes>
+</category>
+<category name="FF - Bridges &amp; Routers">
+<name>FF - Bridges &amp; Routers</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<description xml:lang="de-DE">Bridges &amp; Router</description>
+<description xml:lang="fr-FR">Ponts et routeurs</description>
+<description xml:lang="en-US">Bridges &amp; Routers</description>
+<display-name xml:lang="de-DE">Bridges &amp; Router</display-name>
+<display-name xml:lang="fr-FR">Ponts et routeurs</display-name>
+<display-name xml:lang="en-US">Bridges &amp; Routers</display-name>
+<parent name="F - Networking"/>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_ATTRIBUTE">ProductTypes</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_VALUE">FF - Bridges &amp; Routers</custom-attribute>
+<custom-attribute dt:dt="int" name="PRODUCT_BINDING_TYPE">1</custom-attribute>
+</custom-attributes>
+</category>
+<category name="GC - Software Service &amp; Support">
+<name>GC - Software Service &amp; Support</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<display-name xml:lang="de-DE">Software Service &amp; Support</display-name>
+<description xml:lang="de-DE">Software Service &amp; Support</description>
+<display-name xml:lang="fr-FR">Service et support logiciel</display-name>
+<display-name xml:lang="en-US">Software Service &amp; Support</display-name>
+<description xml:lang="fr-FR">Service et support logiciel</description>
+<description xml:lang="en-US">Software Service &amp; Support</description>
+<parent name="G - Software"/>
+<custom-attributes>
+<custom-attribute dt:dt="int" name="PRODUCT_BINDING_TYPE">1</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_ATTRIBUTE">ProductTypes</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_VALUE">GC - Software Service &amp; Support</custom-attribute>
+</custom-attributes>
+</category>
+<category name="JA - Televisions">
+<name>JA - Televisions</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<description xml:lang="fr-FR">Téléviseurs</description>
+<description xml:lang="en-US">Televisions</description>
+<display-name xml:lang="de-DE">Fernseher</display-name>
+<description xml:lang="de-DE">Fernseher</description>
+<display-name xml:lang="fr-FR">Téléviseurs</display-name>
+<display-name xml:lang="en-US">Televisions</display-name>
+<parent name="J - Video"/>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_VALUE">JA - Televisions</custom-attribute>
+<custom-attribute dt:dt="int" name="PRODUCT_BINDING_TYPE">1</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_ATTRIBUTE">ProductTypes</custom-attribute>
+</custom-attributes>
+</category>
+<category name="CJ - Storage Accessories">
+<name>CJ - Storage Accessories</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<description xml:lang="de-DE">Speicherzubehör</description>
+<description xml:lang="fr-FR">Accessoires de rangement</description>
+<description xml:lang="en-US">Storage Accessories</description>
+<display-name xml:lang="de-DE">Speicherzubehör</display-name>
+<display-name xml:lang="fr-FR">Accessoires de rangement</display-name>
+<display-name xml:lang="en-US">Storage Accessories</display-name>
+<parent name="C - Storage Devices"/>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_VALUE">CJ - Storage Accessories</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_ATTRIBUTE">ProductTypes</custom-attribute>
+<custom-attribute dt:dt="int" name="PRODUCT_BINDING_TYPE">1</custom-attribute>
+</custom-attributes>
+</category>
+<category name="KC - Car Audio">
+<name>KC - Car Audio</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<description xml:lang="de-DE">Audio für das Auto</description>
+<display-name xml:lang="fr-FR">Audio pour l&apos;auto</display-name>
+<display-name xml:lang="en-US">Car Audio</display-name>
+<description xml:lang="fr-FR">Audio pour l&apos;auto</description>
+<description xml:lang="en-US">Car Audio</description>
+<display-name xml:lang="de-DE">Audio für das Auto</display-name>
+<parent name="K - Audio"/>
+<custom-attributes>
+<custom-attribute dt:dt="int" name="PRODUCT_BINDING_TYPE">1</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_ATTRIBUTE">ProductTypes</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_VALUE">KC - Car Audio</custom-attribute>
+</custom-attributes>
+</category>
+<category name="LE - Telescopes">
+<name>LE - Telescopes</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<description xml:lang="de-DE">Teleskope</description>
+<display-name xml:lang="de-DE">Teleskope</display-name>
+<description xml:lang="fr-FR">Télescopes</description>
+<description xml:lang="en-US">Telescopes</description>
+<display-name xml:lang="fr-FR">Télescopes</display-name>
+<display-name xml:lang="en-US">Telescopes</display-name>
+<parent name="L - Cameras &amp; Optical Systems"/>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_VALUE">LE - Telescopes</custom-attribute>
+<custom-attribute dt:dt="int" name="PRODUCT_BINDING_TYPE">1</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_ATTRIBUTE">ProductTypes</custom-attribute>
+</custom-attributes>
+</category>
+<category name="ME - Carrying Cases">
+<name>ME - Carrying Cases</name>
+<root>0</root>
+<product-assignment-query/>
+<template>category/CatalogCategory</template>
+<online>1</online>
+<category-links>
+</category-links>
+<display-name xml:lang="de-DE">Tragetaschen</display-name>
+<display-name xml:lang="fr-FR">Étuis de transport</display-name>
+<display-name xml:lang="en-US">Carrying Cases</display-name>
+<description xml:lang="fr-FR">Étuis de transport</description>
+<description xml:lang="en-US">Carrying Cases</description>
+<description xml:lang="de-DE">Tragetaschen</description>
+<parent name="M - CE Options"/>
+<custom-attributes>
+<custom-attribute dt:dt="int" name="PRODUCT_BINDING_TYPE">1</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_VALUE">ME - Carrying Cases</custom-attribute>
+<custom-attribute dt:dt="string" name="PRODUCT_BINDING_ATTRIBUTE">ProductTypes</custom-attribute>
+</custom-attributes>
+</category>
+<!-- 
+<product-type name="Standard Gift Card">
+<name>Standard Gift Card</name>
+<parent name="Basic" domain="system"/>
+<default>0</default>
+<product-type-attributes>
+<product-type-attribute name="GC_ORDER_REQUIRED_GiftCardService" dt:dt="string">
+<display-name xml:lang="en-US">GC_ORDER_REQUIRED_GiftCardService</display-name>
+<order-required>0</order-required>
+<unit xml:lang="en-US"> </unit>
+<localizable>0</localizable>
+<value xml:lang="en-US" default="1">Standard GiftCard</value>
+</product-type-attribute>
+</product-type-attributes>
+</product-type>
+ -->
+</enfinity>

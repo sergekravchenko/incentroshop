@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<enfinity xmlns:dt="http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt">
+<component-template id="cmp_tmp_helpDeskPage">
+<definition-name>app_sf_responsive_cm:component.shopping.staticPage.pagelet2-Component</definition-name>
+<display-name xml:lang="de-DE">Hilfe-Seite</display-name>
+<display-name xml:lang="en-US">HelpDesk Page</display-name>
+<active>true</active>
+<author business-partner-no="admin" domain="inSPIRED"/>
+<configuration-parameters>
+<configuration-parameter name="NavigationDepth">
+<definition-name>app_sf_responsive_cm:component.shopping.staticPage.pagelet2-Component-NavigationDepth</definition-name>
+<value name="NavigationDepth" xml:lang="de-DE">3</value>
+<value name="NavigationDepth" xml:lang="en-US">3</value>
+</configuration-parameter>
+<configuration-parameter name="NavigationRoot">
+<definition-name>app_sf_responsive_cm:component.shopping.staticPage.pagelet2-Component-NavigationRoot</definition-name>
+<value name="NavigationRoot" xml:lang="de-DE">systempage.helpdesk.index.pagelet2-Page</value>
+<value name="NavigationRoot" xml:lang="en-US">systempage.helpdesk.index.pagelet2-Page</value>
+</configuration-parameter>
+<configuration-parameter name="ShowNavigation">
+<definition-name>app_sf_responsive_cm:component.shopping.staticPage.pagelet2-Component-ShowNavigation</definition-name>
+<value name="ShowNavigation" xml:lang="de-DE">true</value>
+<value name="ShowNavigation" xml:lang="en-US">true</value>
+</configuration-parameter>
+</configuration-parameters>
+<slots>
+<slot>
+<definition-name>app_sf_responsive_cm:slot.marketing.base.pagelet2-Slot</definition-name>
+<optional>false</optional>
+<sorting>false</sorting>
+</slot>
+<slot>
+<definition-name>app_sf_responsive_cm:slot.marketing.sidePanel.pagelet2-Slot</definition-name>
+<optional>false</optional>
+<sorting>false</sorting>
+</slot>
+<slot>
+<definition-name>app_sf_responsive_cm:slot.staticPage.content.pagelet2-Slot</definition-name>
+<optional>false</optional>
+<sorting>false</sorting>
+</slot>
+</slots>
+<placeholder-definitions>
+<placeholder-definition id="ph_helpDesk_BaseMarketing">
+<definition-name>app_sf_responsive_cm:slot.marketing.base.pagelet2-Slot</definition-name>
+<display-name xml:lang="de-DE">Standard-Marketing</display-name>
+<display-name xml:lang="en-US">Base Marketing</display-name>
+<position>1</position>
+<slot definition-name="app_sf_responsive_cm:slot.marketing.base.pagelet2-Slot"/>
+</placeholder-definition>
+<placeholder-definition id="ph_helpDesk_Content">
+<definition-name>app_sf_responsive_cm:slot.staticPage.content.pagelet2-Slot</definition-name>
+<display-name xml:lang="de-DE">Content</display-name>
+<display-name xml:lang="en-US">Content</display-name>
+<position>2</position>
+<slot definition-name="app_sf_responsive_cm:slot.staticPage.content.pagelet2-Slot"/>
+</placeholder-definition>
+<placeholder-definition id="ph_helpDesk_sidePanelMarketing">
+<definition-name>app_sf_responsive_cm:slot.marketing.sidePanel.pagelet2-Slot</definition-name>
+<display-name xml:lang="de-DE">Seitenrand-Marketing</display-name>
+<display-name xml:lang="en-US">Side Panel Marketing</display-name>
+<position>3</position>
+<slot definition-name="app_sf_responsive_cm:slot.marketing.sidePanel.pagelet2-Slot"/>
+</placeholder-definition>
+</placeholder-definitions>
+</component-template>
+</enfinity>

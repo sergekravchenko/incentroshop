@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<enfinity xmlns:dt="http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt">
+<pagelet-component id="cmp_recentlyViewedList">
+<definition-name>app_sf_responsive_cm:component.common.recentlyViewed.pagelet2-Component</definition-name>
+<display-name xml:lang="de-DE">Liste Zuletzt angesehen</display-name>
+<display-name xml:lang="en-US">Recently Viewed List</display-name>
+<online>true</online>
+<author business-partner-no="admin" domain="inSPIRED"/>
+<configuration-parameters>
+<configuration-parameter name="DisplayCategories">
+<definition-name>app_sf_responsive_cm:component.common.recentlyViewed.pagelet2-Component-DisplayCategories</definition-name>
+<value name="DisplayCategories">true</value>
+</configuration-parameter>
+<configuration-parameter name="DisplaySearchTerms">
+<definition-name>app_sf_responsive_cm:component.common.recentlyViewed.pagelet2-Component-DisplaySearchTerms</definition-name>
+<value name="DisplaySearchTerms">true</value>
+</configuration-parameter>
+<configuration-parameter name="DisplayViewAllButton">
+<definition-name>app_sf_responsive_cm:component.common.recentlyViewed.pagelet2-Component-DisplayViewAllButton</definition-name>
+<value name="DisplayViewAllButton">true</value>
+</configuration-parameter>
+<configuration-parameter name="ListItemCSSClass">
+<definition-name>app_sf_responsive_cm:component.common.recentlyViewed.pagelet2-Component-ListItemCSSClass</definition-name>
+<value name="ListItemCSSClass">col-xs-6 col-md-3</value>
+</configuration-parameter>
+<configuration-parameter name="ListStyle">
+<definition-name>app_sf_responsive_cm:component.common.recentlyViewed.pagelet2-Component-ListStyle</definition-name>
+<value name="ListStyle">carousel</value>
+</configuration-parameter>
+<configuration-parameter name="ProductView">
+<definition-name>app_sf_responsive_cm:component.common.recentlyViewed.pagelet2-Component-ProductView</definition-name>
+<value name="ProductView">app_sf_responsive:vc_productTile@inSPIRED-inTRONICS-b2c-responsive</value>
+</configuration-parameter>
+<configuration-parameter name="SlideItems">
+<definition-name>app_sf_responsive_cm:component.common.recentlyViewed.pagelet2-Component-SlideItems</definition-name>
+<value name="SlideItems">4</value>
+</configuration-parameter>
+<configuration-parameter name="Title">
+<definition-name>app_sf_responsive_cm:component.common.recentlyViewed.pagelet2-Component-Title</definition-name>
+<value name="Title" xml:lang="de-DE">Zuletzt angesehen</value>
+<value name="Title" xml:lang="en-US">Recently Viewed</value>
+</configuration-parameter>
+</configuration-parameters>
+</pagelet-component>
+</enfinity>

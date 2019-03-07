@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<enfinity xmlns:dt="http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt">
+<pagelet-component id="cmp_homepage_slider">
+<definition-name>app_sf_responsive_cm:component.common.carousel.pagelet2-Component</definition-name>
+<display-name xml:lang="en-US">Homepage Slider</display-name>
+<display-name xml:lang="fr-FR">Diaporama sur la page d&apos;accueil</display-name>
+<online>true</online>
+<author business-partner-no="admin" domain="inSPIRED"/>
+<configuration-parameters>
+<configuration-parameter name="CSSClass">
+<definition-name>app_sf_responsive_cm:component.common.carousel.pagelet2-Component-CSSClass</definition-name>
+<value name="CSSClass">homepage-carousel</value>
+</configuration-parameter>
+<configuration-parameter name="ShowIndicators">
+<definition-name>app_sf_responsive_cm:component.common.carousel.pagelet2-Component-ShowIndicators</definition-name>
+<value name="ShowIndicators">false</value>
+</configuration-parameter>
+<configuration-parameter name="SlideInterval">
+<definition-name>app_sf_responsive_cm:component.common.carousel.pagelet2-Component-SlideInterval</definition-name>
+<value name="SlideInterval">10000</value>
+</configuration-parameter>
+<configuration-parameter name="SlideItems">
+<definition-name>app_sf_responsive_cm:component.common.carousel.pagelet2-Component-SlideItems</definition-name>
+<value name="SlideItems">1</value>
+</configuration-parameter>
+<configuration-parameter name="StartCycling">
+<definition-name>app_sf_responsive_cm:component.common.carousel.pagelet2-Component-StartCycling</definition-name>
+<value name="StartCycling">true</value>
+</configuration-parameter>
+</configuration-parameters>
+<slots>
+<slot>
+<definition-name>app_sf_responsive_cm:slot.carousel.items.pagelet2-Slot</definition-name>
+<optional>false</optional>
+<sorting>false</sorting>
+</slot>
+</slots>
+</pagelet-component>
+<pagelet-slot-assignment id="0_MKAE8MslMAAAFTmtIpbC1v">
+<slot definition-name="app_sf_responsive_cm:slot.carousel.items.pagelet2-Slot" parent-pagelet-id="cmp_homepage_slider" domain="inSPIRED-inTRONICS-b2c-responsive"/>
+<pagelet id="cmp_homepage_sliderteaser1" domain="inSPIRED-inTRONICS-b2c-responsive"/>
+<position>1</position>
+<online>true</online>
+</pagelet-slot-assignment>
+<pagelet-slot-assignment id="z9gKAE8MP68AAAFTK7QpbC1v">
+<slot definition-name="app_sf_responsive_cm:slot.carousel.items.pagelet2-Slot" parent-pagelet-id="cmp_homepage_slider" domain="inSPIRED-inTRONICS-b2c-responsive"/>
+<pagelet id="cmp_homepage_sliderteaser2" domain="inSPIRED-inTRONICS-b2c-responsive"/>
+<position>2</position>
+<online>true</online>
+</pagelet-slot-assignment>
+</enfinity>

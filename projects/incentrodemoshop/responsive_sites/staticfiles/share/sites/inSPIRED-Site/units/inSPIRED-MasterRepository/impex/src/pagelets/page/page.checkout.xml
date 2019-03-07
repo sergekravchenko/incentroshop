@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<enfinity xmlns:dt="http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt">
+<pagelet-entry-point id="page.checkout">
+<definition-name>app_sf_responsive:page.content.pagelet2-Page</definition-name>
+<page>true</page>
+<sorting>false</sorting>
+<display-name xml:lang="de-DE">Kasse-Seiten</display-name>
+<display-name xml:lang="en-US">Checkout Pages</display-name>
+<display-name xml:lang="fr-FR">Pages de passage de commande</display-name>
+<description xml:lang="de-DE">Das ist die Stammseite für alle Warenkorb- und Abmeldungs-Seiten..</description>
+<description xml:lang="en-US">This is the parent page for all our cart and checkout pages.</description>
+<description xml:lang="fr-FR">C&apos;est la page mère de tous les pages de panier et pages de passage de commande</description>
+</pagelet-entry-point>
+</enfinity>

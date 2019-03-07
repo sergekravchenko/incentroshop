@@ -1,0 +1,32 @@
+<iscontent personalized="true" type="text/html" charset="UTF-8" compact="true">
+<iscache type="relative" hour="24">
+<iscachekey object="#ProductBO#">
+<isinclude template="modules/Modules">
+
+<isset name="ImageViews" value="#ProductBO:Extension("Image"):ImageContainerBO:getImageViewIDsExcludePrimary(ImageType)#" scope="request">
+
+<isif condition="#hasElements(ImageViews)#">
+	<div <isif condition="#isDefined(ExpressShop)#">id="prodimgcarouselexprshop"<iselse>id="prodimgcarousel"</isif> class="carousel slide">
+		<div class="carousel-inner product-img-inner">
+			<isif condition="#isDefined(IncludePrimaryImage) AND (IncludePrimaryImage EQ 'false')#">
+			<iselse>
+				<ISProductImage ProductBO="#ProductBO#" ImageType="#ImageType#" RichSnippetsEnabled="#RichSnippetsEnabled#">
+			</isif>
+			<isloop iterator="ImageViews" alias="ImageView">
+				<ISProductImage ProductBO="#ProductBO#" ImageType="#ImageType#" ImageView="#ImageView#" RichSnippetsEnabled="#RichSnippetsEnabled#">
+			</isloop>
+		</div>
+		<a class="left carousel-control" <isif condition="#isDefined(ExpressShop)#">href="#'#'#prodimgcarouselexprshop"<iselse>href="#'#'#prodimgcarousel"</isif> role="button" data-slide="prev">
+			<span class="glyphicon glyphicon-chevron-left"></span>
+		</a>
+		<a class="right carousel-control" <isif condition="#isDefined(ExpressShop)#">href="#'#'#prodimgcarouselexprshop"<iselse>href="#'#'#prodimgcarousel"</isif> role="button" data-slide="next">
+			<span class="glyphicon glyphicon-chevron-right"></span>
+		</a>
+	</div>
+<iselse>
+	<div id="prodimgcarousel" class="carousel slide">
+		<div class="product-img-main product-img-inner">
+			<ISProductImage ProductBO="#ProductBO#" ImageType="#ImageType#" ImageView="front" RichSnippetsEnabled="#RichSnippetsEnabled#">
+		</div>
+	</div>
+</isif>

@@ -1,0 +1,19 @@
+<iscontent charset="UTF-8" compact="true" templatemarker="true">
+<div class="modal-dialog">
+	<div class="modal-content">
+		<div class="modal-header">
+			<a class="close" href="#URL(Action('ViewUsers-Start'))#" title="<istext key="dialog.close.text">" aria-label="<istext key="dialog.close.text"/>"><span aria-hidden="true">&times;</span></a>
+			<h2 class="modal-title"><istext key="account.user.delete_user_dialog.header" parameter0="#DeletedUserFirstName#" parameter1="#DeletedUserLastName#"></h2>
+		</div>
+		
+		<div class="modal-body">
+			<p><istext key="account.user.delete_user.confirmation" parameter0="#DeletedUserFirstName#" parameter1="#DeletedUserLastName#"></p>
+		</div>
+		
+		<div class="modal-footer">
+			<a class="btn btn-primary" href="#URL(Action('ViewUsers-Start'))#">
+	        	<istext key="account.user.delete_user.confirmation.ok_button.text">
+	    	</a>
+		</div>
+	</div>
+</div>

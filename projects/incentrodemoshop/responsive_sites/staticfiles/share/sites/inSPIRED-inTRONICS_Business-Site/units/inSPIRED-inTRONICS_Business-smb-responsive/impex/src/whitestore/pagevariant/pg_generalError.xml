@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<enfinity xmlns:dt="http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt">
+<pagelet-page id="pg_generalError">
+<definition-name>app_sf_responsive_cm:pagevariant.standard.pagelet2-Pagevariant</definition-name>
+<parent id="pg_tmp_basicLayout" domain="inSPIRED-inTRONICS_Business-smb-responsive" />
+<display-name xml:lang="de-DE">Allgemeiner Fehler.</display-name>
+<display-name xml:lang="en-US">General Error</display-name>
+<online>true</online>
+<author business-partner-no="admin" domain="inSPIRED"/>
+<configuration-parameters>
+<configuration-parameter name="HTMLBodyClass">
+<definition-name>app_sf_responsive_cm:pagevariant.standard.pagelet2-Pagevariant-HTMLBodyClass</definition-name>
+<value name="HTMLBodyClass">errorpage</value>
+</configuration-parameter>
+<configuration-parameter name="MetaInfo">
+<definition-name>app_sf_responsive_cm:pagevariant.standard.pagelet2-Pagevariant-MetaInfo</definition-name>
+<value name="MetaInfo" xml:lang="de-DE">metaTitle=Allgemeiner Fehler;metaDescription=;metaKeywords=</value>
+<value name="MetaInfo" xml:lang="en-US">metaTitle=General Error;metaDescription=;metaKeywords=</value>
+</configuration-parameter>
+</configuration-parameters>
+<placeholder-configurations>
+<placeholder-configuration hide-target-content="false" place-target-content-on-top="false">
+<parent-placeholder placeholder-id="ph_contentSlot"/>
+</placeholder-configuration>
+</placeholder-configurations>
+</pagelet-page>
+<pagelet-placeholder-assignment id="OyrAqAArdJYAAAE9nQUKjAG9">
+<placeholder pagelet-domain="inSPIRED-inTRONICS_Business-smb-responsive" pagelet-id="pg_generalError">
+<parent-placeholder placeholder-id="ph_contentSlot"/>
+</placeholder>
+<pagelet id="cmp_generalError" domain="inSPIRED-inTRONICS_Business-smb-responsive"/>
+<position>1</position>
+<online>true</online>
+</pagelet-placeholder-assignment>
+</enfinity>

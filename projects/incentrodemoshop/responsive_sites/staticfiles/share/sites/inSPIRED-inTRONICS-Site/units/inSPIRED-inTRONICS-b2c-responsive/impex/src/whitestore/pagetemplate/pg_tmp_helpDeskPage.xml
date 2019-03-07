@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<enfinity xmlns:dt="http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt">
+<page-template id="pg_tmp_helpDeskPage">
+<definition-name>app_sf_responsive_cm:pagevariant.standard.pagelet2-Pagevariant</definition-name>
+<display-name xml:lang="de-DE">Hilfe-Seite</display-name>
+<display-name xml:lang="en-US">HelpDesk Page</display-name>
+<description xml:lang="de-DE">Hilfe-Seiten-Layout für Seiten im Hilfe-Kontext.</description>
+<description xml:lang="en-US">HelpDesk Page layout for pages in the HelpDesk context.</description>
+<active>true</active>
+<author business-partner-no="admin" domain="inSPIRED"/>
+<configuration-parameters>
+</configuration-parameters>
+<slots>
+<slot>
+<definition-name>app_sf_responsive_cm:slot.pagevariant.content.pagelet2-Slot</definition-name>
+<optional>false</optional>
+<sorting>false</sorting>
+</slot>
+<slot>
+<definition-name>app_sf_responsive_cm:slot.pagevariant.footer.pagelet2-Slot</definition-name>
+<optional>false</optional>
+<sorting>false</sorting>
+</slot>
+<slot>
+<definition-name>app_sf_responsive_cm:slot.pagevariant.header.pagelet2-Slot</definition-name>
+<optional>false</optional>
+<sorting>false</sorting>
+</slot>
+</slots>
+<placeholder-configurations>
+<placeholder-configuration hide-target-content="false" place-target-content-on-top="false">
+<pagelet-slot-assignment-placeholder placeholder-id="ph_helpDesk_BaseMarketing" assignment-id="_70KDgAbuIwAAAE_xh.rjKPm"/>
+</placeholder-configuration>
+<placeholder-configuration hide-target-content="false" place-target-content-on-top="false">
+<pagelet-slot-assignment-placeholder placeholder-id="ph_helpDesk_Content" assignment-id="_70KDgAbuIwAAAE_xh.rjKPm"/>
+</placeholder-configuration>
+<placeholder-configuration hide-target-content="false" place-target-content-on-top="false">
+<pagelet-slot-assignment-placeholder placeholder-id="ph_helpDesk_sidePanelMarketing" assignment-id="_70KDgAbuIwAAAE_xh.rjKPm"/>
+</placeholder-configuration>
+</placeholder-configurations>
+<placeholder-definitions>
+<placeholder-definition id="ph_helpDeskPage_BaseMarketing">
+<definition-name>app_sf_responsive_cm:slot.marketing.base.pagelet2-Slot</definition-name>
+<display-name xml:lang="de-DE">Standard-Marketing</display-name>
+<display-name xml:lang="en-US">Base Marketing</display-name>
+<position>1</position>
+<pagelet-slot-assignment-placeholder placeholder-id="ph_helpDesk_BaseMarketing" assignment-id="_70KDgAbuIwAAAE_xh.rjKPm"/>
+</placeholder-definition>
+<placeholder-definition id="ph_helpDeskPage_Content">
+<definition-name>app_sf_responsive_cm:slot.staticPage.content.pagelet2-Slot</definition-name>
+<display-name xml:lang="de-DE">Content</display-name>
+<display-name xml:lang="en-US">Content</display-name>
+<position>2</position>
+<pagelet-slot-assignment-placeholder placeholder-id="ph_helpDesk_Content" assignment-id="_70KDgAbuIwAAAE_xh.rjKPm"/>
+</placeholder-definition>
+<placeholder-definition id="ph_helpDeskPage_sidePanelMarketing">
+<definition-name>app_sf_responsive_cm:slot.marketing.sidePanel.pagelet2-Slot</definition-name>
+<display-name xml:lang="de-DE">Seitenrand-Marketing</display-name>
+<display-name xml:lang="en-US">Side Panel Marketing</display-name>
+<position>3</position>
+<pagelet-slot-assignment-placeholder placeholder-id="ph_helpDesk_sidePanelMarketing" assignment-id="_70KDgAbuIwAAAE_xh.rjKPm"/>
+</placeholder-definition>
+</placeholder-definitions>
+</page-template>
+<pagelet-slot-assignment id="_70KDgAbuIwAAAE_xh.rjKPm">
+<slot definition-name="app_sf_responsive_cm:slot.pagevariant.content.pagelet2-Slot" parent-pagelet-id="pg_tmp_helpDeskPage" domain="inSPIRED-inTRONICS-b2c-responsive"/>
+<pagelet id="cmp_tmp_helpDeskPage" domain="inSPIRED-inTRONICS-b2c-responsive"/>
+<position>1</position>
+<online>true</online>
+</pagelet-slot-assignment>
+<pagelet-slot-assignment id="YgAKAM5hO4gAAAFCwXxZoGsI">
+<slot definition-name="app_sf_responsive_cm:slot.pagevariant.footer.pagelet2-Slot" parent-pagelet-id="pg_tmp_helpDeskPage" domain="inSPIRED-inTRONICS-b2c-responsive"/>
+<pagelet id="cmp_tmp_footer" domain="inSPIRED-inTRONICS-b2c-responsive"/>
+<position>1</position>
+<online>true</online>
+</pagelet-slot-assignment>
+<pagelet-slot-assignment id="QJQKDgAbNLQAAAE_61qrjKPl">
+<slot definition-name="app_sf_responsive_cm:slot.pagevariant.header.pagelet2-Slot" parent-pagelet-id="pg_tmp_helpDeskPage" domain="inSPIRED-inTRONICS-b2c-responsive"/>
+<pagelet id="cmp_tmp_header" domain="inSPIRED-inTRONICS-b2c-responsive"/>
+<position>1</position>
+<online>true</online>
+</pagelet-slot-assignment>
+</enfinity>

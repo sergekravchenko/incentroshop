@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Extension for Checkout shipping process
+@Group Checkout-->
+
+<pipeline:Pipeline xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pipeline="http://www.intershop.de/pipeline/2010"
+    name="ProcessCheckoutShippingSmb" overrideMode="Inherit" type="process">
+<!--@Location 2,0-->
+  <nodes xsi:type="pipeline:StartNode" nodeID="StartNode1" strict="true" name="ContinueCheckout"
+      callMode="Private">
+    <nodeSuccessors name="next" next="KeyMapper0"/>
+    <parameters name="AllFormValues" type="java.util.Map"/>
+<!--The basket-->
+    <parameters name="Basket" type="com.intershop.component.basket.capi.BasketBO"/>
+  </nodes>
+<!--@Location 2,1-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="KeyMapper0">
+    <configurationValues name="ValueType" value="Form Values (String[])"/>
+    <pipelet href="enfinity:/bc_foundation/pipelets/KeyMapper.xml"/>
+    <nodeSuccessors name="next" next="CallNode2"/>
+    <parameterBindings name="InValue_1" objectPath="AllFormValues:orderReferenceId"/>
+    <returnValueBindings name="OutValue_1" objectPath="OrderReferenceForm_OrderReferenceID"/>
+  </nodes>
+<!--@Location 2,2-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode2">
+    <nodeSuccessors name="next" next="UpdateCustomAttribute0"/>
+<!--@BendPoints 9,5-->
+    <nodeSuccessors name="ERROR" next="RemoveCustomAttribute0"/>
+    <startNode referencedName="This:ValidateOrderForm"/>
+  </nodes>
+<!--@Location 2,3-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="UpdateCustomAttribute0">
+    <pipelet href="enfinity:/bc_foundation/pipelets/UpdateCustomAttribute.xml"/>
+    <nodeSuccessors name="next" next="SetDictionaryValue1"/>
+<!--@BendPoints 7,8-->
+    <nodeSuccessors name="pipelet_error" next="JoinNode1"/>
+    <parameterBindings name="AttributeName" constant="orderReferenceID"/>
+    <parameterBindings name="AttributeType" constant="String"/>
+    <parameterBindings name="AttributeValue" objectPath="OrderForm:OrderReferenceID:Value"/>
+    <parameterBindings name="ExtensibleObject" objectPath="Basket:ExtensibleObject"/>
+  </nodes>
+<!--@Location 2,5-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="SetDictionaryValue1">
+    <configurationValues name="Name" value="ContinueAllowed"/>
+    <configurationValues name="Value" value="true"/>
+    <configurationValues name="ValueType" value="Dictionary Value"/>
+    <pipelet href="enfinity:/bc_foundation/pipelets/SetDictionaryValue.xml"/>
+    <nodeSuccessors name="next" next="JoinNode0"/>
+  </nodes>
+<!--@Location 2,6-->
+  <nodes xsi:type="pipeline:JoinNode" nodeID="JoinNode0">
+    <nodeSuccessors name="next" next="EndNode1"/>
+  </nodes>
+<!--@Location 2,7-->
+  <nodes xsi:type="pipeline:EndNode" nodeID="EndNode1" strict="true">
+<!--Flag that describes wether continuing is allowed or not-->
+    <returnValues name="ContinueAllowed" type="java.lang.String"/>
+  </nodes>
+<!--@Location 4,4-->
+  <nodes xsi:type="pipeline:JoinNode" nodeID="JoinNode1">
+    <nodeSuccessors name="next" next="SetDictionaryValue0"/>
+  </nodes>
+<!--@Location 4,5-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="SetDictionaryValue0">
+    <configurationValues name="Name" value="ContinueAllowed"/>
+    <configurationValues name="Value" value="false"/>
+    <configurationValues name="ValueType" value="Dictionary Value"/>
+    <pipelet href="enfinity:/bc_foundation/pipelets/SetDictionaryValue.xml"/>
+<!--@BendPoints 9,13-->
+    <nodeSuccessors name="next" next="JoinNode0"/>
+  </nodes>
+<!--@Location 4,3-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="RemoveCustomAttribute0">
+    <pipelet href="enfinity:/bc_foundation/pipelets/RemoveCustomAttribute.xml"/>
+    <nodeSuccessors name="next" next="JoinNode1"/>
+    <parameterBindings name="AttributeName" constant="orderReferenceID"/>
+    <parameterBindings name="ExtensibleObject" objectPath="Basket:ExtensibleObject"/>
+  </nodes>
+<!--@Location 5,0-->
+  <nodes xsi:type="pipeline:StartNode" nodeID="StartNode3" name="CreateOrderForm"
+      callMode="Private">
+<!--@BendPoints 11,2-->
+    <nodeSuccessors name="next" next="CreateForm0"/>
+  </nodes>
+<!--@Location 5,1-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="CreateForm0">
+    <configurationValues name="FormName" value="OrderReferenceForm"/>
+    <configurationValues name="FormResource" value="OrderReferenceForm"/>
+    <pipelet href="enfinity:/core/pipelets/CreateForm.xml"/>
+    <nodeSuccessors name="next" next="EndNode4"/>
+    <returnValueBindings name="Form" objectPath="OrderForm"/>
+  </nodes>
+<!--@Location 5,2-->
+  <nodes xsi:type="pipeline:EndNode" nodeID="EndNode4"/>
+<!--@Location 0,0-->
+  <nodes xsi:type="pipeline:StartNode" nodeID="StartNode0" strict="true" name="Start"
+      callMode="Private">
+    <nodeSuccessors name="next" next="CallNode1"/>
+  </nodes>
+<!--@Location 0,1-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode1">
+    <nodeSuccessors name="next" next="EndNode0"/>
+    <startNode referencedName="This:CreateOrderForm"/>
+  </nodes>
+<!--@Location 0,2-->
+  <nodes xsi:type="pipeline:EndNode" nodeID="EndNode0" strict="true"/>
+<!--@Location 7,0-->
+  <nodes xsi:type="pipeline:StartNode" nodeID="StartNode2" name="ValidateOrderForm"
+      callMode="Private">
+    <nodeSuccessors name="next" next="CallNode0"/>
+  </nodes>
+<!--@Location 7,1-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode0">
+    <nodeSuccessors name="next" next="ValidateForm0"/>
+    <startNode referencedName="This:CreateOrderForm"/>
+  </nodes>
+<!--@Location 7,2-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="ValidateForm0">
+    <configurationValues name="Trim" value="true"/>
+    <pipelet href="enfinity:/core/pipelets/ValidateForm.xml"/>
+    <nodeSuccessors name="next" next="EndNode2"/>
+    <nodeSuccessors name="pipelet_error" next="EndNode3"/>
+    <parameterBindings name="Form" objectPath="OrderForm"/>
+  </nodes>
+<!--@Location 7,3-->
+  <nodes xsi:type="pipeline:EndNode" nodeID="EndNode2"/>
+<!--@Location 8,3-->
+  <nodes xsi:type="pipeline:EndNode" nodeID="EndNode3" name="ERROR"/>
+</pipeline:Pipeline>

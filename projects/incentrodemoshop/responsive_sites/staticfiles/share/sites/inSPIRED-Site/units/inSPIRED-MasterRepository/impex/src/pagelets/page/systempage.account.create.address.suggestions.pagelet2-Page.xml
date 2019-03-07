@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<enfinity xmlns:dt="http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt">
+<pagelet-entry-point id="systempage.account.create.address.suggestions.pagelet2-Page">
+<definition-name>app_sf_responsive:systempage.account.create.address.suggestions.pagelet2-Page</definition-name>
+<page>true</page>
+<sorting>false</sorting>
+<parent id="page.account" domain="inSPIRED-MasterRepository" position="21.0" resource-set="app_sf_responsive">
+</parent>
+<display-name xml:lang="de-DE">Benutzerkonto anlegen - Adressvorschläge</display-name>
+<display-name xml:lang="en-US">Create Account - Address Suggestions</display-name>
+<display-name xml:lang="fr-FR">Créer un compte- suggestions d&apos;adresse</display-name>
+</pagelet-entry-point>
+<pagelet-pagelet-entry-point-assignment>
+<pagelet-entry-point id="systempage.account.create.address.suggestions.pagelet2-Page" domain="inSPIRED-MasterRepository" resource-set="app_sf_responsive"/>
+<pagelet id="pg_accountCreateAddressSuggestions" domain="inSPIRED-MasterRepository"/>
+<position>1</position>
+<online>true</online>
+</pagelet-pagelet-entry-point-assignment>
+</enfinity>

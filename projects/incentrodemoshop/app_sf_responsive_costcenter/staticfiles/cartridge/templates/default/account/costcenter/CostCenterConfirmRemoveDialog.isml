@@ -1,0 +1,21 @@
+<iscontent type="text/html" charset="UTF-8" compact="true">
+
+<isinclude template="modules/B2BModulesCostCenter">
+
+<!--- DIALOG - CONFIRM REMOVE A COST CENTER--->
+<div data-dynamic-block-name="CostCenterConfirmRemoveDialog" data-dynamic-block-id="CostCenterConfirmRemoveDialog" data-testing-id="cost-center-confirm-remove-dialog">
+	<p><istext key="account.costcenter.dialog.confirm.remove.question" parameter0="#encodeValue(CostCenterBO:Name)#" parameter1="#encodeValue(CostCenterBO:DisplayName)#" encoding="off"></p>
+	<div class="row">	
+		<div class="modal-footer">
+			<div class="pull-right">
+				<a href="<isprint value="#url(Action('ViewCostCenter-Remove'), Parameter('CostCenterID', CostCenterBO:ID))#">"
+					class="btn btn-primary"  data-testing-id="remove-confirm-button">
+					<istext key="account.costcenter.dialog.button.remove">
+				</a>
+				<button class="btn btn-default" data-dismiss="modal" data-testing-id="remove-cancel-button">
+					<istext key="account.costcenter.dialog.button.cancel">
+				</button>
+			</div>
+		</div>
+	</div>
+</div>

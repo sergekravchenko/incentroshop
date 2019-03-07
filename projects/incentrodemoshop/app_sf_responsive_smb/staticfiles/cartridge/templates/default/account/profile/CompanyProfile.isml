@@ -1,0 +1,43 @@
+<iscontent type="text/html" charset="UTF-8" compact="true">
+
+<!--- Only available for business customers --->
+<isset name="CompanyCustomer" value="#CustomerBO:Extension("CompanyCustomer")#" scope="request">
+
+
+<isif condition="#isDefined(CompanyCustomer)#">
+	<div class="row section">
+		<div class="col-md-4 pull-right col-xs-2">
+			<a class="btn-tool" title="<istext key="account.profile.update.link"/>" href="#URLEX(SecureURL,'',Action('ViewCompanyProfileSettings-ViewProfilePreferences'))#">
+				<span class="glyphicon glyphicon-pencil"></span>
+			</a>
+		</div>
+		<div class="col-md-8 col-xs-10">
+			<h3>
+				<istext key="account.company_profile.detail.heading"/>
+			</h3>
+			<div class="row">
+				<div class="col-sm-12">
+					<dl class="dl-horizontal dl-separator">
+						<dt><istext key="account.company_profile.name.label"/></dt>
+						<dd>
+							<isprint value="#CompanyCustomer:CompanyName#">
+							<isif condition="#isDefined(CompanyCustomer:CompanyName2) AND (CompanyCustomer:CompanyName2 NE '')#">
+								<br/><isprint value="#CompanyCustomer:CompanyName2#">
+							</isif>
+						</dd>
+						
+						<dt><istext key="account.company_profile.industry.label"/></dt>
+						<dd>
+							<isprint value="#CompanyCustomer:Industry#">
+						</dd>
+						
+						<dt><istext key="account.company_profile.taxation_id.label"/></dt>
+						<dd>
+							<isprint value="#CompanyCustomer:TaxationID#">
+						</dd>
+					</dl>
+				</div>
+			</div>
+		</div>
+	</div>
+</isif>

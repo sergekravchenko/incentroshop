@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<enfinity xmlns:dt="http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt">
+<component-template id="cmp_tmp_headerNavigation_brands">
+<definition-name>app_sf_responsive_cm:component.common.freeStyle.pagelet2-Component</definition-name>
+<display-name xml:lang="de-DE">Header Navigation - Marken</display-name>
+<display-name xml:lang="en-US">Header Navigation - Brands</display-name>
+<active>true</active>
+<author business-partner-no="admin" domain="inSPIRED"/>
+<configuration-parameters>
+<configuration-parameter name="HTML">
+<definition-name>app_sf_responsive_cm:component.common.freeStyle.pagelet2-Component-HTML</definition-name>
+<value name="HTML" xml:lang="de-DE">&lt;li class=&quot;dropdown&quot;&gt;
+&lt;a href=&quot;page://page.brandindex&quot;&gt;Marken&lt;/a&gt;
+&lt;a data-target=&quot;#&quot; data-toggle=&quot;dropdown&quot; class=&quot;dropdown-toggle visible-xs&quot;&gt;&lt;span class=&quot;glyphicon&quot;&gt;&lt;/span&gt;&lt;/a&gt;
+&lt;/li&gt;</value>
+<value name="HTML" xml:lang="en-US">&lt;li class=&quot;dropdown&quot;&gt;
+&lt;a href=&quot;page://page.brandindex&quot;&gt;Brands&lt;/a&gt;
+&lt;a data-target=&quot;#&quot; data-toggle=&quot;dropdown&quot; class=&quot;dropdown-toggle visible-xs&quot;&gt;&lt;span class=&quot;glyphicon&quot;&gt;&lt;/span&gt;&lt;/a&gt;
+&lt;/li&gt;
+</value>
+</configuration-parameter>
+</configuration-parameters>
+</component-template>
+</enfinity>

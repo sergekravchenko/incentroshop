@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Order template functionality-->
+
+<pipeline:Pipeline xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pipeline="http://www.intershop.de/pipeline/2010"
+    name="ProcessOrderTemplate" type="process">
+<!--@Location 2,0-->
+  <nodes xsi:type="pipeline:StartNode" nodeID="StartNode0" strict="true" visibility="Private"
+      name="GetAll" callMode="Private">
+    <nodeSuccessors name="next" next="GetApplicationBO0"/>
+  </nodes>
+<!--@Location 2,1-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="GetApplicationBO0">
+    <pipelet href="enfinity:/bc_application/pipelets/GetApplicationBO.xml"/>
+    <nodeSuccessors name="next" next="KeyMapper2"/>
+  </nodes>
+<!--@Location 2,2-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="KeyMapper2">
+    <pipelet href="enfinity:/core/pipelets/KeyMapper.xml"/>
+<!--@BendPoints 5,6-->
+    <nodeSuccessors name="next" next="GetUserBO0"/>
+    <parameterBindings name="InValue_1" objectPath="ApplicationBO:Repository(&quot;UserBORepository&quot;)"/>
+    <returnValueBindings name="OutValue_1" objectPath="UserBORepository"/>
+  </nodes>
+<!--@Location 2,3-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="GetUserBO0">
+    <pipelet href="enfinity:/bc_user/pipelets/GetUserBO.xml"/>
+    <nodeSuccessors name="next" next="KeyMapper1"/>
+    <parameterBindings name="UserID" objectPath="CurrentUser:ID"/>
+  </nodes>
+<!--@Location 2,4-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="KeyMapper1">
+    <pipelet href="enfinity:/core/pipelets/KeyMapper.xml"/>
+    <nodeSuccessors name="next" next="KeyMapper0"/>
+    <parameterBindings name="InValue_1" objectPath="UserBO:Extension(&quot;Wishlist&quot;)"/>
+    <returnValueBindings name="OutValue_1" objectPath="WishlistBORepository"/>
+  </nodes>
+<!--@Location 2,5-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="KeyMapper0">
+    <pipelet href="enfinity:/core/pipelets/KeyMapper.xml"/>
+    <nodeSuccessors name="next" next="EndNode1"/>
+    <parameterBindings name="InValue_1" objectPath="WishlistBORepository:AllWishlistBOs"/>
+    <returnValueBindings name="OutValue_1" objectPath="OrderTemplates"/>
+  </nodes>
+<!--@Location 2,6-->
+  <nodes xsi:type="pipeline:EndNode" nodeID="EndNode1" strict="true">
+    <returnValues name="OrderTemplates" type="java.util.Collection&lt;com.intershop.component.wishlist.capi.WishlistBO>"
+        optional="true"/>
+  </nodes>
+</pipeline:Pipeline>

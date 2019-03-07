@@ -1,0 +1,70 @@
+<iscontent personalized="true" type="text/html" charset="UTF-8" compact="true">
+<iscache type="forbidden">
+<isinclude template="modules/Modules">
+
+<isif condition="#(isDefined(ProductBOs)) and (hasElements(ProductBOs))#">
+	
+	<isinclude template="component/common/inc/CollectionItemPrefix.isml">
+	
+	<div class="product-list-container <isprint value="#PageletConfigurationParameters:CSSClass#">">
+		<isif condition="#NOT(RenderedInCollection EQ 'true') AND isDefined(PageletConfigurationParameters:Title) AND (PageletConfigurationParameters:Title NE '')#">
+			<h2><isprint value="#PageletConfigurationParameters:Title#"></h2>
+		</isif>
+		<ISProductList
+			ProductBOs="#ProductBOs:Iterator#"
+			viewContext="#PageletConfigurationParameters:ProductView#"
+			maxNumberOfProducts="#PageletConfigurationParameters:MaxNumberOfProducts#"
+			listBehavior="#PageletConfigurationParameters:ListStyle#"
+			numberOfProductsPerSlide="#PageletConfigurationParameters:SlideItems#"
+			listItemCssClass="#PageletConfigurationParameters:ListItemCSSClass#"
+		>
+		
+		<isif condition="#PageletConfigurationParameters:DisplayCategories#">
+			<isset name="CategoryPrefSize" value="#CurrentDomain:Configuration:Integer("RecentlyViewedItemsCategoryListSize")#" scope="request">
+			<isif condition="#isDefined(CategoryPrefSize) AND (CategoryPrefSize > 0) #">
+				<isif condition="#isDefined(CategoryBOs) AND hasElements(CategoryBOs)#">
+				<div class="row recently-viewed-links-container">
+						<h3 class="col-lg-1 col-md-2 col-xs-12"><istext key="product.recentlyViewed.categories" /></h3>
+						<ul class="col-lg-11 col-md-10 col-xs-12 recently-viewed-links">
+							<isloop iterator="CategoryBOs" alias="CategoryBO" counter="CategoryCount">
+								<isset name="CategoryBO" value="#CategoryBO#" scope="request">
+								<li>
+									<a href="#URLEX(InsecureURL,'',Action('ViewStandardCatalog-Browse'), Parameter('CatalogID', CategoryBO:CatalogBO:Name), Parameter('CategoryName', CategoryBO:Name))#">
+										<isprint value="#CategoryBO:DisplayName#">
+									</a>
+								</li>
+							</isloop>
+						</ul>
+					</div>
+				</isif>
+			</isif>
+		</isif>
+		
+		<isif condition="#PageletConfigurationParameters:DisplaySearchTerms#">
+			<isset name="SearchPrefSize" value="#CurrentDomain:Configuration:Integer("RecentlyViewedItemsKeywordSearchListSize")#" scope="request">
+			<isif condition="#isDefined(SearchPrefSize) AND (SearchPrefSize > 0) #">
+				<isif condition="#isDefined(KeywordSearches) AND hasElements(KeywordSearches)#">
+					<div class="row recently-viewed-links-container">
+						<h3 class="col-lg-1 col-md-2 col-xs-12"><istext key="product.recentlyViewed.searches" /></h3>
+						<ul class="col-lg-11 col-md-10 col-xs-12 recently-viewed-links">
+							<isloop iterator="KeywordSearches" alias="Search">
+								<li>
+									<a href="#URL(Action('ViewParametricSearch-SimpleOfferSearch'), Parameter('SearchTerm', Search))#">
+										<isprint value="#Search#">
+									</a>
+								</li>
+							</isloop>
+						</ul>
+					</div>
+				</isif>
+			</isif>
+		</isif>
+		
+		<isif condition="#PageletConfigurationParameters:DisplayViewAllButton#">
+			<a class="view-all" <ishref link="page://systempage.browsingHistory.pagelet2-Page">><istext key="common.view_all.link" /></a>
+		</isif>
+	</div>
+	
+	<isinclude template="component/common/inc/CollectionItemSuffix.isml">
+	
+</isif>

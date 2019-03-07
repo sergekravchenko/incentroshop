@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<extensionpoint:ExtensionPointModel xmlns:extensionpoint="http://www.intershop.de/extensionpoint/2011" name="UpdateProfileForm">
+  <extensionBindings type="pipeline" extensionPoint="ViewProfileSettings-UpdateProfileFormCreated" extension="UpdateProfileSettings-UpdateProfileForm"/>
+</extensionpoint:ExtensionPointModel>

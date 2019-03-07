@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<enfinity xmlns:dt="http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt">
+<pagelet-component id="cmp_helpdesk_buyersinfo_contracts">
+<definition-name>app_sf_responsive_cm:component.common.freeStyle.pagelet2-Component</definition-name>
+<display-name xml:lang="de-DE">Verträge</display-name>
+<display-name xml:lang="en-US">Contracts</display-name>
+<display-name xml:lang="fr-FR">Contrats</display-name>
+<online>true</online>
+<author business-partner-no="admin" domain="inSPIRED"/>
+<configuration-parameters>
+<configuration-parameter name="HTML">
+<definition-name>app_sf_responsive_cm:component.common.freeStyle.pagelet2-Component-HTML</definition-name>
+<value name="HTML" xml:lang="de-DE">&lt;h1&gt;Verträge&lt;/h1&gt;
+&lt;p&gt;Kundenorganisationen und Händler können umsatzabhängige Verträge abschließen. Diese Verträge definieren reduzierte Preise für einen bestimmten Satz von Produkten für einen bestimmten Zeitraum. Die Benutzer der Kunden profitieren dann von den reduzierten Preisen gemäß ihren Vertragsbedingungen.&lt;/p&gt;
+&lt;h2&gt;Vertragsbasierter Einkauf&lt;/h2&gt;
+&lt;p&gt;Wenn Sie ein Produkt kaufen, das einem Vertrag unterliegt, wird die entsprechende Bedingung (der reduzierte Preis) automatisch angewendet und der Kauf wird zum Zielvolumen des Vertrags hinzugefügt.&lt;/p&gt; &lt;h2&gt; Anzeigen von Verträgen&lt;/h2&gt; &lt;p&gt;
+Die &lt;em&gt;Mein Konto&lt;/em&gt; Seite zeigt grundlegende Informationen für eine begrenzte Anzahl von Verträgen. Um alle Verträge für Ihre Organisation zu sehen:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Öffnen Sie Mein Konto | Verträge. Auf dieser Seite werden die Vertrags-ID, -Typ, Gültigkeitszeitraum und der Umsatzentwicklung angezeigt.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Klicken Sie auf einen Kontaktnamen. Die Vertragsdetailansicht zeigt alle Kontraktinformationen und listet die zugehörigen Bestellungen auf.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;</value>
+<value name="HTML" xml:lang="en-US">&lt;h1&gt;Contracting&lt;/h1&gt;
+&lt;p&gt;Customer organizations and merchants can agree revenue-based contracts. These contracts define reduced prices for a certain set of products for a defined time. The customers&apos; users then benefit from the reduced prices according to their contract conditions.&lt;/p&gt;
+&lt;h2&gt;Contract-Based Purchasing&lt;/h2&gt;
+&lt;p&gt;When you purchase a product that is subject to a contract, the corresponding condition (the reduced price) is automatically applied, and the purchase is added to contract&apos;s target volume.&lt;/p&gt;
+&lt;h2&gt;Viewing Contracts&lt;/h2&gt;
+&lt;p&gt;The &lt;em&gt;My Account&lt;/em&gt; page shows basic information for a limited number of contracts. To see all contracts for your organization:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Open My Account | Contracts. This page displays the contract ID, type, validity period and the revenue progress.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Click a contract name. The contract detail view shows all contract information and lists the related orders made.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;</value>
+<value name="HTML" xml:lang="fr-FR">&lt;h1&gt;Conclusion des contrats&lt;/h1&gt;
+&lt;p&gt;Les organisations clientes et les marchands peuvent établir des contrats fondés sur les revenus. Ces contrats définissent les prix réduits pour une certaine sélection de produits pour une durée déterminée. Par conséquent, les utilisateurs des organisations clientes profitent des prix réduits conformément aux conditions de leurs contrats.&lt;/p&gt;
+&lt;h2&gt;Achats contractuels&lt;/h2&gt;
+&lt;p&gt;Lors de l’’achat d’’un produit qui fait l‘‘objet d‘‘un contrat, le critère correspondant (le prix réduit) est automatiquement appliqué et l’’achat est ajouté au volume ciblé du contrat.&lt;/p&gt;
+&lt;h2&gt;Afficher les contrats&lt;/h2&gt;
+&lt;p&gt;La page de &lt;em&gt;Mon compte&lt;/em&gt; affiche les informations pour un nombre restreint de contrats. Afficher tous les contrats de mon organisation :&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Ouvrir Mon compte | Contrats. Cette page affiche les ID contrats, le type, la période de validité et le progrès de chiffre d&apos;affaires.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Cliquez sur un nom de contrat. La vue détaillée de contrat affiche tous les informations et listes réalisées par les commandes pertinentes.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;</value>
+</configuration-parameter>
+</configuration-parameters>
+</pagelet-component>
+</enfinity>

@@ -1,0 +1,86 @@
+<iscontent type="text/html" charset="UTF-8" compact="true">
+<isinclude template="modules/B2BModulesCostCenter">
+<div class="row">
+<div class="col-xs-12 " >
+<!--- BUYERS RESULT LIST --->
+<isform 
+	method="post" 
+	action="#URLEX(SecureURL,'',Action('ViewCostCenter-SaveBuyerBudget'))#" 
+	name="#getValue(CostCenterEditUserBudgetForm:Alias)#" 
+	class="form-horizontal bv-form"
+	data-bv-message="This value is not valid"
+	data-bv-feedbackicons-valid="glyphicon glyphicon-ok"
+	data-bv-feedbackicons-invalid="glyphicon glyphicon-remove"
+	data-bv-feedbackicons-validating="glyphicon glyphicon-refresh"
+>
+
+	<input type="hidden" name="<isprint value="#CostCenterEditUserBudgetForm:CustomerID:QualifiedName#">" value="<isprint value="#CustomerBO:ID#">"/>
+	<input type="hidden" name="<isprint value="#CostCenterEditUserBudgetForm:CostCenterID:QualifiedName#">" value="<isprint value="#CostCenterID#">"/>
+	<input type="hidden" name="<isprint value="#CostCenterEditUserBudgetForm:BuyerID:QualifiedName#">" value="<isprint value="#UserBO:ID#">"/>
+	<!--- BUYER --->
+	<div class="row form-vertical-space">
+		<div class="col-xs-2">	
+			<label>
+				<istext key="account.costcenter.details.buyers.list.header.name" />
+			</label>
+		</div>	
+		<div class="col-xs-6">
+			<isUserName User="#UserBO#" Customer="#CustomerBO#">
+	    </div>
+	</div>
+	
+	<!--- BUDGET and BUDGET PERIOD --->
+	<div class="row form-vertical-space">
+		<div class="col-xs-2">
+			<label class="control-label" for="<isprint value="#CostCenterEditUserBudgetForm:Budget:QualifiedName#">"><istext key="account.costcenter.details.buyers.dialog.editbudget.budget.label" /></label>
+		</div>
+		
+		<!--- BUDGET --->
+		<div class="col-xs-5">	
+			<div class="input-group"> 
+				<span class="input-group-addon">
+					<isprint value="#CurrentRequest:CurrencyCode#">
+				</span>
+				
+				<input type="text" 
+					class="form-control<isif condition="#CostCenterEditUserBudgetForm:Budget:isInvalid#"> error</isif>" 
+					name="<isprint value="#CostCenterEditUserBudgetForm:Budget:QualifiedName#">" 
+					id="<isprint value="#CostCenterEditUserBudgetForm:Budget:QualifiedName#">" 
+					value="<isprint value="#CostCenterEditUserBudgetForm:Budget:Value:Value#">" 
+					<!--- data-bv-regexp="true"  data-bv-regexp-regexp="^[0-9.]+$" ---> 
+				/>
+			</div>
+	    </div>
+	    
+	    <!--- BUDGET PERIOD --->
+		<div class="col-xs-5">
+			<select
+				class="form-control" 
+				name="<isprint value="#CostCenterEditUserBudgetForm:BudgetPeriod:QualifiedName#">"
+				required 
+			>
+				<option value="fixed" <isif condition="#(CostCenterEditUserBudgetForm:BudgetPeriod:Value EQ 'fixed') OR (CostCenterEditUserBudgetForm:BudgetPeriod:Value EQ '')#">selected="selected"</isif>><istext key="account.costcenter.label.budget.period.fixed"></option>
+				<option value="weekly" <isif condition="#CostCenterEditUserBudgetForm:BudgetPeriod:Value EQ 'weekly'#">selected="selected"</isif>><istext key="account.costcenter.form.field.budget.period.value.weekly"></option>
+				<option value="monthly" <isif condition="#CostCenterEditUserBudgetForm:BudgetPeriod:Value EQ 'monthly'#">selected="selected"</isif>><istext key="account.costcenter.form.field.budget.period.value.monthly"></option>
+				<option value="quarterly" <isif condition="#CostCenterEditUserBudgetForm:BudgetPeriod:Value EQ 'quarterly'#">selected="selected"</isif>><istext key="account.costcenter.form.field.budget.period.value.quarterly"></option>
+			</select>
+		</div>
+	</div>
+	
+	<div class="row">
+		<div class="col-xs-12 col-md-12 modal-footer">
+			<div class="pull-right">
+				<button class="btn btn-primary" type="submit" name="add"><istext key="account.costcenter.details.buyers.action.save"></button>
+				<button type="button" class="btn btn-default" data-dismiss="modal" name="cancel"><istext key="account.costcenter.form.button.cancel.text"></button>
+			</div>
+		</div>	
+	</div>
+	<script>
+		$('[data-table="CostCenterBuyerList"]').DataTable({
+		    "bLengthChange" : false
+		});
+	</script>
+	
+</isform>
+</div>
+</div>

@@ -1,0 +1,29 @@
+apply plugin: 'javabase-cartridge'
+apply plugin: 'static-cartridge'
+
+intershop 
+{
+    displayName = 'Application Suite - Responsive Starter Store Applications - B2B'
+    description = 'Extends the application type "intershop.SMBResponsive" with additional B2B functionality.'
+}
+
+
+dependencies 
+{
+    compile group: 'com.intershop.platform', name: 'ac_ruleengine_drools'
+    compile group: 'com.intershop.platform', name: 'ac_pdf_flyingsaucer'
+
+    compile group: 'com.intershop.business', name: 'sld_enterprise_app'
+    compile group: 'com.intershop.business', name: 'sld_ch_consumer_plugin'
+    compile group: 'com.intershop.business', name: 'sld_ch_partner_plugin'
+    compile group: 'com.intershop.business', name: 'sld_pdf'
+    compile group: 'com.intershop.business', name: 'ac_order_status_import_xml'
+    compile group: 'com.intershop.business', name: 'ac_order_export_xml'
+    compile group: 'com.intershop.business', name: 'as_backoffice'
+    compile group: 'com.intershop.business', name: 'ac_cxml'
+
+    compile project(':as_responsive')
+    compile project(':app_sf_responsive_b2b')
+    compile project(':app_sf_responsive_costcenter')
+}
+

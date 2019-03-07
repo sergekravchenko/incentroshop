@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<enfinity xmlns="http://www.intershop.com/xml/ns/enfinity/7.1/xcs/impex" xmlns:dt="http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" branch="enterprise" build="build" family="enfinity" major="6" minor="1" xsi:schemaLocation="http://www.intershop.com/xml/ns/enfinity/7.1/xcs/impex catalog.xsd http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt dt.xsd">
+<category import-mode="UPDATE" name="servers">
+<name>servers</name>
+<root>1</root>
+<product-assignment-query/>
+<template/>
+<online>1</online>
+<category-links>
+</category-links>
+<description xml:lang="fr-FR">Le catalogue de serveurs.</description>
+<description xml:lang="en-US">The servers catalog.</description>
+<display-name xml:lang="fr-FR">Serveurs</display-name>
+<display-name xml:lang="en-US">Servers</display-name>
+<description xml:lang="de-DE">Katalog für Server.</description>
+<display-name xml:lang="de-DE">Server</display-name>
+<custom-attributes>
+<custom-attribute dt:dt="string" name="ShowInMenu">True</custom-attribute>
+</custom-attributes>
+</category>
+<category name="servers-server-packages">
+<name>servers-server-packages</name>
+<root>0</root>
+<product-assignment-query/>
+<template/>
+<online>1</online>
+<category-links>
+</category-links>
+<display-name xml:lang="fr-FR">Paquets Serveur</display-name>
+<display-name xml:lang="en-US">Server Packages</display-name>
+<parent name="servers"/>
+<images>
+<image-ref image-base-name="M/8955371-7422.jpg" image-type="M" image-view="front"/>
+</images>
+</category>
+<category name="servers-disk-arrays">
+<name>servers-disk-arrays</name>
+<root>0</root>
+<product-assignment-query/>
+<template/>
+<online>1</online>
+<category-links>
+</category-links>
+<display-name xml:lang="fr-FR">Tableaux de disques</display-name>
+<display-name xml:lang="en-US">Disk Arrays</display-name>
+<parent name="servers-data-storage"/>
+<images>
+<image-ref image-base-name="M/1727170-9607.jpg" image-type="M" image-view="front"/>
+</images>
+</category>
+<category name="servers-data-storage">
+<name>servers-data-storage</name>
+<root>0</root>
+<product-assignment-query/>
+<template/>
+<online>1</online>
+<category-links>
+</category-links>
+<display-name xml:lang="fr-FR">Stockage des données</display-name>
+<display-name xml:lang="en-US">Data Storage</display-name>
+<parent name="servers"/>
+<images>
+<image-ref image-base-name="M/1727170-9607.jpg" image-type="M" image-view="front"/>
+</images>
+</category>
+<category name="servers-rack-consoles">
+<name>servers-rack-consoles</name>
+<root>0</root>
+<product-assignment-query/>
+<template/>
+<online>1</online>
+<category-links>
+</category-links>
+<display-name xml:lang="fr-FR">Consoles à crémaillère</display-name>
+<display-name xml:lang="en-US">Rack Consoles</display-name>
+<parent name="servers"/>
+<images>
+<image-ref image-base-name="M/1647803-3538.jpg" image-type="M" image-view="front"/>
+</images>
+</category>
+<category name="servers-storage-servers">
+<name>servers-storage-servers</name>
+<root>0</root>
+<product-assignment-query/>
+<template/>
+<online>1</online>
+<category-links>
+</category-links>
+<display-name xml:lang="fr-FR">Serveurs de stockage</display-name>
+<display-name xml:lang="en-US">Storage Servers</display-name>
+<parent name="servers-data-storage"/>
+<images>
+<image-ref image-base-name="M/3846127-4466.jpg" image-type="M" image-view="front"/>
+</images>
+</category>
+<category name="servers-tape-drives">
+<name>servers-tape-drives</name>
+<root>0</root>
+<product-assignment-query/>
+<template/>
+<online>1</online>
+<category-links>
+</category-links>
+<display-name xml:lang="fr-FR">Lecteurs de bande</display-name>
+<display-name xml:lang="en-US">Tape Drives</display-name>
+<parent name="servers-data-storage"/>
+<images>
+<image-ref image-base-name="M/4745389-9041.jpg" image-type="M" image-view="front"/>
+</images>
+</category>
+<category name="servers-uninterruptible-power-supplies">
+<name>servers-uninterruptible-power-supplies</name>
+<root>0</root>
+<product-assignment-query/>
+<template/>
+<online>1</online>
+<category-links>
+</category-links>
+<display-name xml:lang="fr-FR">Alimentations sans coupure</display-name>
+<display-name xml:lang="en-US">Uninterruptible Power Supplies</display-name>
+<parent name="servers"/>
+<images>
+<image-ref image-base-name="M/478689-6904.jpg" image-type="M" image-view="front"/>
+</images>
+</category>
+</enfinity>

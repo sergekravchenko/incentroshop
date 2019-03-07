@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<enfinity xmlns:dt="http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt">
+<pagelet-page id="pg_returnpolicy">
+<definition-name>app_sf_responsive_cm:pagevariant.standard.pagelet2-Pagevariant</definition-name>
+<parent id="pg_tmp_staticContentPage" domain="inSPIRED-inTRONICS_Business-smb-responsive" />
+<display-name xml:lang="de-DE">Rückgabebedingungen</display-name>
+<display-name xml:lang="en-US">Return Policy</display-name>
+<online>true</online>
+<author business-partner-no="admin" domain="inSPIRED"/>
+<placeholder-configurations>
+<placeholder-configuration hide-target-content="false" place-target-content-on-top="false">
+<parent-placeholder placeholder-id="ph_staticContentPage_BaseMarketing"/>
+</placeholder-configuration>
+<placeholder-configuration hide-target-content="false" place-target-content-on-top="false">
+<parent-placeholder placeholder-id="ph_staticContentPage_Content"/>
+</placeholder-configuration>
+</placeholder-configurations>
+</pagelet-page>
+<pagelet-placeholder-assignment id="qUgKDgAbJ74AAAE_wC.SFMhh">
+<placeholder pagelet-domain="inSPIRED-inTRONICS_Business-smb-responsive" pagelet-id="pg_returnpolicy">
+<parent-placeholder placeholder-id="ph_staticContentPage_Content"/>
+</placeholder>
+<pagelet id="cmp_returnpolicy" domain="inSPIRED-inTRONICS_Business-smb-responsive"/>
+<position>1</position>
+<online>true</online>
+</pagelet-placeholder-assignment>
+</enfinity>

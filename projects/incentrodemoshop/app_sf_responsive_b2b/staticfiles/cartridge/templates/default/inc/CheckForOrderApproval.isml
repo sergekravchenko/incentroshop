@@ -1,0 +1,44 @@
+<iscontent type="text/html" charset="UTF-8" compact="true">
+
+<%@page import = "com.intershop.beehive.core.capi.user.User"%>
+<%@page import = "com.intershop.beehive.core.capi.app.AppContextUtil"%>
+<%@page import = "com.intershop.component.application.capi.ApplicationBO"%>
+<%@page import = "com.intershop.component.user.capi.UserBORepository"%>
+<%@page import = "com.intershop.component.user.capi.UserBO"%>
+<%@page import = "com.intershop.component.customer.capi.CustomerBORepository"%>
+<%@page import = "com.intershop.component.customer.capi.CustomerBO"%>
+<%@page import = "com.intershop.component.customer.capi.CustomerBODetailsExtension"%>
+<%@page import = "com.intershop.component.customer.capi.CustomerBOCompanyCustomerExtension"%>
+<%@page import="com.intershop.component.approval.capi.user.UserBOOrderApprovalExtension"%>
+<%
+	// set default value in pipeline dictionary
+	getPipelineDictionary().put("isOrderApprovalRequired", Boolean.FALSE);
+
+	User user = (User) getObject("CurrentUser");
+	if (user != null)
+	{
+	    ApplicationBO applicationBO = AppContextUtil.getCurrentAppContext().getVariable(ApplicationBO.CURRENT);
+
+		UserBORepository userBORepository = applicationBO.getRepository("UserBORepository");
+		CustomerBORepository customerBORepository = applicationBO.getRepository("CustomerBORepository");
+
+		UserBO userBO = userBORepository.getUserBOByID(user.getID());
+		if ((userBO != null) && (userBO.isRegistered()))
+		{
+		    CustomerBO customerBO = customerBORepository.getCustomerBO(userBO);
+			if (customerBO != null)
+			{
+			    // verify that customer is a company customer
+				CustomerBODetailsExtension companyCustomerExtension = customerBO.getExtension("CompanyCustomer");
+				if (companyCustomerExtension != null)
+				{
+					UserBOOrderApprovalExtension orderApprovalExtension = userBO.getExtension("UserBOOrderApprovalExtension");
+					if (orderApprovalExtension.isApprovalRequired())
+					{
+						getPipelineDictionary().put("isOrderApprovalRequired", Boolean.TRUE);
+					}
+				}
+			}
+		}
+	}
+%>

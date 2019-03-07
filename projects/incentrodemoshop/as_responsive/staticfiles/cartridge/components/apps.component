@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<components xmlns="http://www.intershop.de/component/2010">
+
+    <!-- ************************************************************************************ -->
+    <!-- *           Application Type "intershop.B2CResponsive"                                * -->
+    <!-- ************************************************************************************ -->
+
+    <instance name="intershop.B2CResponsive.Cartridges" with="CartridgeListProvider">
+        <fulfill requirement="selectedCartridge" value="bc_marketing_impex"/>
+        <fulfill requirement="selectedCartridge" value="app_sf_responsive_b2c"/>
+        <fulfill requirement="selectedCartridge" value="app_sf_responsive_cm"/>
+        <fulfill requirement="selectedCartridge" value="app_sf_rest"/>
+        <fulfill requirement="selectedCartridge" value="sld_pdf"/>
+        <fulfill requirement="selectedCartridge" value="ac_pdf_flyingsaucer"/>
+        <fulfill requirement="selectedCartridge" value="bc_urlrewrite"/>
+        <fulfill requirement="selectedCartridge" value="ac_customer_segment_std" />
+        <fulfill requirement="selectedCartridge" value="pf_axis2"/>
+
+        <fulfill requirement="selectedCartridge" value="ac_gtm"/>
+        <fulfill requirement="selectedCartridge" value="ac_gtm_google_analytics"/>
+        <fulfill requirement="selectedCartridge" value="ac_gtm_sf"/>
+        <fulfill requirement="selectedCartridge" value="ac_order_submission_service" />
+        <fulfill requirement="selectedCartridge" value="ac_order_history_service" />
+        <fulfill requirement="selectedCartridge" value="ac_inventory_service" />
+
+        <fulfill requirement="subProvider" with="intershop.DemoCartridges" />
+    </instance>
+
+    <instance name="intershop.B2CResponsive" with="ApplicationType">
+        <fulfill requirement="id" value="intershop.B2CResponsive"/>
+        <fulfill requirement="urlIdentifier" value="b2c-responsive"/>
+        <fulfill requirement="cartridgeListProvider" with="intershop.B2CResponsive.Cartridges"/>
+        <fulfill requirement="applicationLifecycleListener">
+        	<!-- listener hooks 'LocalizationApplicationLifecycleHook' and 'ServiceConfigurationApplicationLifecycleHook' are only required on migrated systems 
+        	     where these hooks have been used to create domains for their business features, this is now done via pipeline extension points -->
+            <instance name="localization.localizationApplicationLifecycleHook" with="LocalizationApplicationLifecycleHook">
+                <fulfill requirement="deleteOnly" value="true"/>
+            </instance>
+            <instance name="service.serviceConfigurationApplicationLifecycleHook" with="ServiceConfigurationApplicationLifecycleHook">
+                <fulfill requirement="deleteOnly" value="true"/>
+            </instance>
+            <instance name="marketing.exclusionGroupApplicationLifecycleHook" with="ExclusionGroupApplicationLifecycleHook"/>
+        </fulfill>
+        <fulfill requirement="namedObject">
+            <instance with="NamedObject">
+                <fulfill requirement="name" value="PreviewConfigurationModel"/>
+                <fulfill requirement="object" with="intershop.B2CResponsive.PreviewConfigurationModel"/>
+            </instance>
+        </fulfill>
+        <fulfill requirement="namedObject">
+            <instance with="NamedObject">
+                <fulfill requirement="name" value="ApplicationCallInterface"/>
+                <fulfill requirement="object">
+                    <instance with="b2c.B2CApplicationCallInterface">
+                        <fulfill requirement="defaultCallTarget" value="Default-Start"/>
+                        <fulfill requirement="app" with="intershop.B2CResponsive"/>
+                    </instance>
+                </fulfill>
+            </instance>
+        </fulfill>
+        <fulfill requirement="namedObject">
+            <instance with="NamedObject">
+                <fulfill requirement="name" value="ParameterizedStringResolver"/>
+                <fulfill requirement="object">
+                    <instance with="StorefrontParameterizedStringResolver"/>
+                </fulfill>
+            </instance>
+         </fulfill>
+         <fulfill requirement="namedObject">
+            <instance with="NamedObject">
+                <fulfill requirement="name" value="MediaAssetsImageFile.isml/Image"/>
+                <fulfill requirement="object">
+                    <instance with="sld_pmc.MediaAssetMapperImpl">
+                        <fulfill requirement="pageletDefinition" value="app_sf_responsive_cm:component.common.imageEnhanced.pagelet2-Component" />
+                        <fulfill requirement="pageletConfiguration" value="{'PageletConfiguration_Image':'%1$s'}" />
+                        <fulfill requirement="pageletName" value="%s (Enhanced Image Teaser)" />
+                    </instance>
+                </fulfill>
+            </instance>
+         </fulfill>
+         <fulfill requirement="namedObject">
+            <instance with="NamedObject">
+                <fulfill requirement="name" value="MediaAssetsVideoFile.isml/Video"/>
+                <fulfill requirement="object">
+                    <instance with="sld_pmc.MediaAssetMapperImpl">
+                        <fulfill requirement="pageletDefinition" value="app_sf_responsive_cm:component.common.video.pagelet2-Component" />
+                        <fulfill requirement="pageletConfiguration" value="{'PageletConfiguration_Video':'%1$s'}" />
+                        <fulfill requirement="pageletName" value="%s (Video)" />
+                    </instance>
+                </fulfill>
+            </instance>
+         </fulfill>
+    </instance>
+
+    <fulfill requirement="namedObject" of="intershop.B2CResponsive" with="intershop.B2CWebShop.RESTAPI"/>
+
+    <fulfill requirement="app" with="intershop.B2CResponsive" of="AppEngine"/>
+    <fulfill requirement="app" with="intershop.B2CResponsive" of="intershop.B2CBackoffice.ApplicationTypes"/>
+
+    <instance name="intershop.B2CResponsive.PreviewConfigurationModel" with="ListBasedPreviewConfigurationModel">
+
+        <!-- hidden parameters, all into one group -->
+        <fulfill requirement="configurationAttributeFactory">
+            <instance with="PreviewPromotionFactory">
+                <fulfill requirement="group" value="ParameterGroup0"/>
+            </instance>
+            <instance with="PreviewCampaignFactory">
+                <fulfill requirement="group" value="ParameterGroup0"/>
+            </instance>
+            <instance with="PreviewABTestGroupFactory">
+                <fulfill requirement="group" value="ParameterGroup0"/>
+            </instance>
+            <instance with="PreviewTargetUrlFactory">
+                <fulfill requirement="group" value="ParameterGroup0"/>
+            </instance>
+            <instance with="PreviewPageVariantFactory">
+                <fulfill requirement="group" value="ParameterGroup0"/>
+            </instance>
+            <instance with="PreviewBooleanFactory">
+                <fulfill requirement="group" value="ParameterGroup0"/>
+                <fulfill requirement="id" value="ProductAvailabilityIgnored" />
+                <fulfill requirement="visible" value="false" />
+                <fulfill requirement="singleValued" value="true" />
+                <fulfill requirement="defaultValue" value="false" />
+            </instance>
+            <instance with="PreviewStorefrontEditingFactory">
+                <fulfill requirement="group" value="ParameterGroup0"/>
+            </instance>
+        </fulfill>
+
+        <!-- visible parameters, grouping according to configuration panel UI requirements -->
+        <fulfill requirement="configurationAttributeFactory">
+            <instance with="PreviewDateFactory">
+                <fulfill requirement="group" value="ParameterGroup1"/>
+            </instance>
+        </fulfill>
+        <fulfill requirement="configurationAttributeFactory">
+            <instance with="PreviewApplicationFactory">
+                <fulfill requirement="group" value="ParameterGroup2"/>
+            </instance>
+            <instance with="PreviewLocaleFactory">
+                <fulfill requirement="group" value="ParameterGroup2"/>
+              </instance>
+            <instance with="PreviewCurrencyFactory">
+                <fulfill requirement="group" value="ParameterGroup2"/>
+            </instance>
+        </fulfill>
+        <fulfill requirement="configurationAttributeFactory">
+            <instance with="PreviewUserGroupFactory">
+                <fulfill requirement="group" value="ParameterGroup3"/>
+            </instance>
+        </fulfill>
+		<fulfill requirement="configurationAttributeFactory">
+            <instance with="PreviewCustomerSegmentBOFactory">
+                <fulfill requirement="group" value="ParameterGroup3"/>
+            </instance>
+        </fulfill>
+        <fulfill requirement="configurationAttributeFactory">
+            <instance with="PreviewBooleanFactory">
+                <fulfill requirement="group" value="ParameterGroup4"/>
+                <fulfill requirement="id" value="ProductOnlineIgnored" />
+                <fulfill requirement="visible" value="true" />
+                <fulfill requirement="singleValued" value="true" />
+                <fulfill requirement="defaultValue" value="true" />
+            </instance>
+            <instance  with="PreviewBooleanFactory">
+                <fulfill requirement="group" value="ParameterGroup4"/>
+                <fulfill requirement="id" value="ProductInventoryIgnored" />
+                <fulfill requirement="visible" value="true" />
+                <fulfill requirement="singleValued" value="true" />
+                <fulfill requirement="defaultValue" value="true" />
+            </instance>
+            <instance with="PreviewBooleanFactory">
+                <fulfill requirement="group" value="ParameterGroup4"/>
+                <fulfill requirement="id" value="CatalogCategoryOnlineIgnored" />
+                <fulfill requirement="visible" value="true" />
+                <fulfill requirement="singleValued" value="true" />
+                <fulfill requirement="defaultValue" value="true" />
+            </instance>
+        </fulfill>
+        <fulfill requirement="configurationAttributeFactory">
+            <instance with="PreviewDisplayDeviceFactory">
+                <fulfill requirement="group" value="ParameterGroup5"/>
+                <fulfill requirement="validDisplayDeviceType">
+                    <instance with="CustomDisplayDeviceType">
+                        <fulfill requirement="id" value="MANUAL"/>
+                    </instance>
+                    <instance with="CustomDisplayDeviceType">
+                        <fulfill requirement="id" value="BROWSER"/>
+                    </instance>
+                    <instance with="PresetDisplayDeviceType">
+                        <fulfill requirement="id" value="Mobile_Landscape"/>
+                        <fulfill requirement="width" value="480"/>
+                        <fulfill requirement="height" value="320"/>
+                    </instance>
+                    <instance with="PresetDisplayDeviceType">
+                        <fulfill requirement="id" value="Mobile_Portrait"/>
+                        <fulfill requirement="width" value="320"/>
+                        <fulfill requirement="height" value="480"/>
+                    </instance>
+                    <instance with="PresetDisplayDeviceType">
+                        <fulfill requirement="id" value="Tablet_Landscape"/>
+                        <fulfill requirement="width" value="1280"/>
+                        <fulfill requirement="height" value="800"/>
+                    </instance>
+                    <instance with="PresetDisplayDeviceType">
+                        <fulfill requirement="id" value="Tablet_Portrait"/>
+                        <fulfill requirement="width" value="800"/>
+                        <fulfill requirement="height" value="1280"/>
+                    </instance>
+                 </fulfill>
+                 <fulfill requirement="defaultDisplayDeviceTypeId" value="BROWSER"/>
+             </instance>
+        </fulfill>
+    </instance>
+
+
+    <!-- ************************************************************************************ -->
+    <!-- *           Application Type "intershop.SMBResponsive"                               * -->
+    <!-- ************************************************************************************ -->
+
+    <instance name="intershop.SMBResponsive.Cartridges" with="CartridgeListProvider">
+        <fulfill requirement="selectedCartridge" value="bc_marketing_impex"/>
+        <fulfill requirement="selectedCartridge" value="app_sf_responsive_smb"/>
+        <fulfill requirement="selectedCartridge" value="app_sf_responsive_cm"/>
+        <fulfill requirement="selectedCartridge" value="app_sf_rest"/>
+        <fulfill requirement="selectedCartridge" value="sld_pdf"/>
+		<fulfill requirement="selectedCartridge" value="bc_urlrewrite"/>
+        <fulfill requirement="selectedCartridge" value="ac_pdf_flyingsaucer"/>
+        <fulfill requirement="selectedCartridge" value="ac_customer_segment_std" />
+        <fulfill requirement="selectedCartridge" value="ac_order_submission_service" />
+        <fulfill requirement="selectedCartridge" value="ac_order_history_service" />
+		<fulfill requirement="selectedCartridge" value="pf_axis2"/>
+        <fulfill requirement="subProvider" with="intershop.DemoCartridges" />
+    </instance>
+
+    <instance name="intershop.SMBResponsive" with="ApplicationType">
+        <fulfill requirement="id" value="intershop.SMBResponsive" />
+        <fulfill requirement="urlIdentifier" value="smb-responsive" />
+        <fulfill requirement="cartridgeListProvider" with="intershop.SMBResponsive.Cartridges" />
+        <fulfill requirement="applicationLifecycleListener">
+        	<!-- listener hooks 'LocalizationApplicationLifecycleHook' and 'ServiceConfigurationApplicationLifecycleHook' are only required on migrated systems 
+        	     where these hooks have been used to create domains for their business features, this is now done via pipeline extension points -->
+            <instance name="localization.localizationApplicationLifecycleHookSMB" with="LocalizationApplicationLifecycleHook">
+                <fulfill requirement="deleteOnly" value="true"/>
+            </instance>
+            <instance name="service.serviceConfigurationApplicationLifecycleHookSMB" with="ServiceConfigurationApplicationLifecycleHook">
+                <fulfill requirement="deleteOnly" value="true"/>
+            </instance>
+            <instance name="marketing.exclusionGroupApplicationLifecycleHookSMB" with="ExclusionGroupApplicationLifecycleHook"/>
+        </fulfill>
+        <fulfill requirement="namedObject">
+            <instance with="NamedObject">
+                <fulfill requirement="name" value="PreviewConfigurationModel"/>
+                <fulfill requirement="object" with="intershop.B2CResponsive.PreviewConfigurationModel"/>
+            </instance>
+        </fulfill>
+        <fulfill requirement="namedObject">
+            <instance with="NamedObject">
+                <fulfill requirement="name" value="ApplicationCallInterface"/>
+                <fulfill requirement="object">
+                    <instance with="b2c.B2CApplicationCallInterface">
+                        <fulfill requirement="defaultCallTarget" value="Default-Start"/>
+                        <fulfill requirement="app" with="intershop.SMBResponsive"/>
+                    </instance>
+                </fulfill>
+            </instance>
+        </fulfill>
+        <fulfill requirement="namedObject">
+            <instance with="NamedObject">
+                <fulfill requirement="name" value="ParameterizedStringResolver"/>
+                <fulfill requirement="object">
+                    <instance with="StorefrontParameterizedStringResolver"/>
+                </fulfill>
+            </instance>
+         </fulfill>
+         <fulfill requirement="namedObject">
+            <instance with="NamedObject">
+                <fulfill requirement="name" value="MediaAssetsImageFile.isml/Image"/>
+                <fulfill requirement="object">
+                    <instance with="sld_pmc.MediaAssetMapperImpl">
+                        <fulfill requirement="pageletDefinition" value="app_sf_responsive_cm:component.common.imageEnhanced.pagelet2-Component" />
+                        <fulfill requirement="pageletConfiguration" value="{'PageletConfiguration_Image':'%1$s'}" />
+                        <fulfill requirement="pageletName" value="%s (Enhanced Image Teaser)" />
+                    </instance>
+                </fulfill>
+            </instance>
+         </fulfill>
+         <fulfill requirement="namedObject">
+            <instance with="NamedObject">
+                <fulfill requirement="name" value="MediaAssetsVideoFile.isml/Video"/>
+                <fulfill requirement="object">
+                    <instance with="sld_pmc.MediaAssetMapperImpl">
+                        <fulfill requirement="pageletDefinition" value="app_sf_responsive_cm:component.common.video.pagelet2-Component" />
+                        <fulfill requirement="pageletConfiguration" value="{'PageletConfiguration_Video':'%1$s'}" />
+                        <fulfill requirement="pageletName" value="%s (Video)" />
+                    </instance>
+                </fulfill>
+            </instance>
+         </fulfill>
+    </instance>
+
+    <fulfill requirement="namedObject" of="intershop.SMBResponsive" with="intershop.B2BWebShop.RESTAPI"/>
+
+    <fulfill requirement="app" with="intershop.SMBResponsive" of="AppEngine"/>
+    <fulfill requirement="app" with="intershop.SMBResponsive" of="intershop.B2CBackoffice.ApplicationTypes"/>
+    
+
+</components>

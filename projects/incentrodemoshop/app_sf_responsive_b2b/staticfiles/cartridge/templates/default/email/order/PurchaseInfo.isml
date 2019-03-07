@@ -1,0 +1,98 @@
+<iscontent type="text/html" charset="UTF-8" compact="true">
+
+<isset name="CostCenter" value="#BasketBO:Extension("BasketBOCostCenterExtension")#" scope="request"/>
+<isset name="RecurringBasket" value="#BasketBO:Extension("RecurringBasket")#" scope="request"/>
+<isset name="IsSubscription" value="#RecurringBasket:isRecurring#" scope="request"/>
+<isset name="PriceDisplayTypeName" value="#BasketBO:PriceDisplayTypeName#" scope="request">
+
+<isif condition="#IsSubscription#">
+	<isset name="DocumentNoLabelKey" value="email.pending_order_confirmation.id_of_subscription.label" scope="request"/>
+	<isset name="DocumentNo" value="#RecurringBasket:RecurringOrderDocumentNo#" scope="request"/>
+<iselse/>
+	<isset name="DocumentNoLabelKey" value="email.order_approval.id_of_order.label" scope="request"/>
+	<isset name="DocumentNo" value="#BasketBO:RequisitionDocumentNo#" scope="request"/>
+</isif>
+
+<table cellpadding="10" cellspacing="0" class="pattern">
+	<tr class="mobileTable">
+		<td width="600" class="orderConfirmationBucketInfo">
+			<table cellpadding="0" cellspacing="0" width="100%" class="dataList">
+				<tr>
+					<td valign="top">
+						<istext key="#DocumentNoLabelKey#" />
+					</td>
+					<td valign="top">
+						<isprint value="#DocumentNo#" />
+					</td>
+				</tr>
+				<tr>
+					<td valign="top">
+						<istext key="email.reject_order.order_date.label" />
+					</td>
+					<td valign="top">
+						<isprint value="#BasketBO:CreationDate#" formatter="dd-MMM-yyyy" />
+					</td>
+				</tr>
+				<tr>
+					<td valign="top">
+						<istext key="email.pending_order_confirmation.order_total.label" />
+					</td>
+					<td valign="top">
+						<isprint value="#BasketBO:BasketTotalPriceMinusLimitedTenderGross#">
+					</td>
+				</tr>
+				<isif condition="#ShowBuyer EQ 'true'#">
+					<tr>
+						<td valign="top">
+							<istext key="email.order_approval.purchaser.label" />
+						</td>
+						<td valign="top">
+							<isprint value="#BasketBO:User:Profile:DataSheet:FirstName . ' ' . BasketBO:User:Profile:DataSheet:LastName#" />
+						</td>
+					</tr>
+				</isif>
+				<isif condition="#isDefined(CostCenter:CostCenterBO)#">
+					<tr>
+						<td valign="top">
+							<istext key="email.order_approval.cost_center.label" />
+						</td>
+						<td valign="top">
+							<isprint value="#CostCenter:CostCenterBO:Name#" /> - <isprint value="#CostCenter:CostCenterBO:DisplayName#" />
+						</td>
+					</tr>
+				</isif>
+
+				<isif condition="#IsSubscription#">
+					<tr>
+						<td>&nbsp;</td>
+						<td>&nbsp;</td>
+					</tr>
+					<tr>
+						<td valign="top">
+							<istext key="subscription.display.recurrence.label" />
+						</td>
+						<td valign="top">
+							<isPeriodDisplay period="#RecurringBasket:RecurrenceInformation:Interval#">
+						</td>
+					</tr>
+					<tr>
+						<td valign="top">
+							<istext key="subscription.display.start_date.label" />
+						</td>
+						<td valign="top">
+							<isprint value="#RecurringBasket:RecurrenceInformation:StartDate#" formatter="dd-MMM-yyyy" />
+						</td>
+					</tr>
+					<tr>
+						<td valign="top">
+							<istext key="subscription.display.end_date.label" />
+						</td>
+						<td valign="top">
+							<isprint value="#RecurringBasket:RecurrenceInformation:EndDate#" formatter="dd-MMM-yyyy" />
+						</td>
+					</tr>
+				</isif>
+			</table>
+		</td>
+	</tr>
+</table>

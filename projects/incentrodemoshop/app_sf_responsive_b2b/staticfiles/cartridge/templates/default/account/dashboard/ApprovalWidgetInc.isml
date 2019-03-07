@@ -1,0 +1,65 @@
+<iscontent type="text/html" charset="UTF-8" compact="true">
+
+<!--- Variable definitions --->
+<isset name="OrderApprovalManagementServiceExtension" value="#CustomerBO:Extension("OrderApprovalManagement")#" scope="request"/>
+
+<isif condition="#OrderApprovalManagementServiceExtension:Enabled#">
+<ISCreateMap mapname="PipelineParameters"
+	key0="User" value0="#CurrentUser#"
+>
+<ispipeline pipeline="BusinessObjectUtils-GetUserBO"  params="#PipelineParameters#" alias="BusinessObjectDict" />
+	
+<isUserPermissionMap User="#BusinessObjectDict:UserBO#" UserPermissionMap="UserPermissionMap">
+<ISGetPreference preferencekey="EnableRecurringOrders" domainname="#CurrentDomain:DefaultApplication:Domain:DomainName#" type="String" return="EnableRecurringOrders">
+<isset scope="request" name="UserApproval" value="#BusinessObjectDict:UserBO:Extension("UserBOOrderApprovalExtension")#">
+<isset scope="request" name="CostCenterExtension" value="#BusinessObjectDict:UserBO:Extension("CostCenter")#">
+
+<div class="section" data-testing-id="my-approvals-section">
+	
+	<h2><istext key="approval.widget.my_approvals.heading" /></h2>
+	
+	<div class="row account-dashboard bubble-section">
+		<div class="col-sm-6">
+			<div class="row">
+				<div class="col-xs-6 col-sm-6">
+					<a href="#URLEX(SecureURL,'',Action('ViewApprovals-AllOpen'))#" class="circle-icon show">
+						<span><isprint value="#UserApproval:AllOpenOrdersCount#"></span>
+					</a>
+					<a href="#URLEX(SecureURL,'',Action('ViewApprovals-AllOpen'))#"><istext key="approval.widget.link.orders_waiting_for_approval.label" /></a>
+					<p class="total"><istext key="approval.widget.total.text" /> <isprint value="#UserApproval:AllOpenOrdersTotal#"></p>
+				</div>
+				<div class="col-xs-6 col-sm-6 item-details">
+					<div>
+						<a href="#URLEX(SecureURL,'',Action('ViewApprovals-AllApproved'))#"><isprint value="#UserApproval:AllApprovedOrdersCount#"> <istext key="approval.widget.link.orders_approved.label" /></a>
+						<p><istext key="approval.widget.total.text" /> <isprint value="#UserApproval:AllApprovedOrdersTotal#"></p>
+					</div>
+					<div>
+						<a href="#URLEX(SecureURL,'',Action('ViewApprovals-AllRejected'))#"><isprint value="#UserApproval:AllRejectedOrdersCount#"> <istext key="approval.widget.link.orders_rejected.label" /></a>
+						<p><istext key="approval.widget.total.text" /> <isprint value="#UserApproval:AllRejectedOrdersTotal#"></p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<isif condition="#isDefined(EnableRecurringOrders) AND (EnableRecurringOrders EQ "true")#">
+			<div class="col-sm-6">
+				<div class="row">
+					<div class="col-xs-6 col-sm-6">
+						<a href="#URLEX(SecureURL,'',Action('ViewApprovals-AllOpen'))#" class="circle-icon show">
+							<span><isprint value="#UserApproval:AllOpenSubscriptionsCount#"></span>
+						</a>
+						<a href="#URLEX(SecureURL,'',Action('ViewApprovals-AllOpen'))#"><istext key="approval.widget.link.subscriptions_waiting_for_approval.label" /></a>
+					</div>
+					<div class="col-xs-6 col-sm-6 item-details">
+						<div>
+							<a href="#URLEX(SecureURL,'',Action('ViewApprovals-AllApproved'))#"><isprint value="#UserApproval:AllApprovedSubscriptionsCount#"> <istext key="approval.widget.link.subscriptions_approved.label" /></a>
+						</div>
+						<div>
+							<a href="#URLEX(SecureURL,'',Action('ViewApprovals-AllRejected'))#"><isprint value="#UserApproval:AllRejectedSubscriptionsCount#"> <istext key="approval.widget.link.subscriptions_rejected.label" /></a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</isif>
+	</div>
+</div>
+</isif>	

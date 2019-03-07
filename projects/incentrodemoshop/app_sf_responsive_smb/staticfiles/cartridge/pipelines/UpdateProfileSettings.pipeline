@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--This pipeline extends form definition of UpdateProfileForm to be able to process specific B2B form actions.-->
+
+<pipeline:Pipeline xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pipeline="http://www.intershop.de/pipeline/2010"
+    name="UpdateProfileSettings" type="extension">
+<!--@Location 2,0-->
+  <nodes xsi:type="pipeline:StartNode" nodeID="StartNode1" strict="true" visibility="Private"
+      name="UpdateProfile" callMode="Private">
+    <nodeSuccessors name="next" next="UpdateUserBO0"/>
+    <parameters name="UserBO" type="com.intershop.component.user.capi.UserBO"/>
+<!--The form.-->
+    <parameters name="CurrentForm" type="com.intershop.beehive.core.capi.webform.Form"/>
+  </nodes>
+<!--@Location 2,1-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="UpdateUserBO0">
+    <configurationValues name="UpdateMissingProperties" value="false"/>
+    <pipelet href="enfinity:/bc_user/pipelets/UpdateUserBO.xml"/>
+    <nodeSuccessors name="next" next="EndNode1"/>
+    <parameterBindings name="Department" objectPath="CurrentForm:Department:Value"/>
+    <parameterBindings name="PhoneBusiness" objectPath="CurrentForm:Phone:Value"/>
+    <parameterBindings name="UserBO" objectPath="UserBO"/>
+  </nodes>
+<!--@Location 2,2-->
+  <nodes xsi:type="pipeline:EndNode" nodeID="EndNode1" name="next" strict="true"/>
+<!--@Location 0,0-->
+  <nodes xsi:type="pipeline:StartNode" nodeID="StartNode0" strict="true" visibility="Private"
+      name="UpdateProfileForm" callMode="Private">
+    <nodeSuccessors name="next" next="CreateForm0"/>
+    <parameters name="UpdateProfileForm" type="com.intershop.beehive.core.capi.webform.Form"/>
+  </nodes>
+<!--@Location 0,1-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="CreateForm0">
+    <configurationValues name="FormName" value="UpdateProfileSMBForm"/>
+    <configurationValues name="FormResource" value="UpdateProfileSMB"/>
+    <pipelet href="enfinity:/core/pipelets/CreateForm.xml"/>
+    <nodeSuccessors name="next" next="MergeForms0"/>
+    <returnValueBindings name="Form" objectPath="DepartmentForm"/>
+  </nodes>
+<!--@Location 0,2-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="MergeForms0">
+    <pipelet href="enfinity:/core/pipelets/MergeForms.xml"/>
+    <nodeSuccessors name="next" next="EndNode0"/>
+    <parameterBindings name="ExtensionForm" objectPath="DepartmentForm"/>
+    <parameterBindings name="MasterForm" objectPath="UpdateProfileForm"/>
+  </nodes>
+<!--@Location 0,3-->
+  <nodes xsi:type="pipeline:EndNode" nodeID="EndNode0" name="next" strict="true">
+    <returnValues name="MergedForm" type="com.intershop.beehive.core.capi.webform.Form"/>
+  </nodes>
+</pipeline:Pipeline>

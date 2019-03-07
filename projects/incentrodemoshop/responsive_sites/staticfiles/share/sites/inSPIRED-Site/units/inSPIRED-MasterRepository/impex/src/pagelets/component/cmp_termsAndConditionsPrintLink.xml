@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<enfinity xmlns:dt="http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt">
+<pagelet-component id="cmp_termsAndConditionsPrintLink">
+<definition-name>app_sf_responsive_cm:component.common.freeStyle.pagelet2-Component</definition-name>
+<display-name xml:lang="de-DE">Allgemeine Geschäftsbedingungen - Drucken</display-name>
+<display-name xml:lang="en-US">Terms &amp; Conditions - Print Link</display-name>
+<display-name xml:lang="fr-FR">Conditions de vente - Lien Imprimer</display-name>
+<online>true</online>
+<author business-partner-no="admin" domain="inSPIRED"/>
+<configuration-parameters>
+<configuration-parameter name="HTML">
+<definition-name>app_sf_responsive_cm:component.common.freeStyle.pagelet2-Component-HTML</definition-name>
+<value name="HTML" xml:lang="de-DE">&lt;p&gt;&lt;a href=&quot;page://systempage.termsAndConditions.pagelet2-Page&quot; class=&quot;gd-push-15 kor-open-as-popup kor-active-label hide-from-print ish-link-printProduct&quot; data-popup-title=&quot;Allgemeine Geschäftsbedingungen&quot; data-popup-properties=&quot;scrollbars=yes&quot;&gt;Druckversion&lt;/a&gt;&lt;input type=&quot;button&quot; value=&quot;Diese Seite drucken&quot; onclick=&quot;window.print()&quot; class=&quot;kor-content hide-from-print&quot; style=&quot;margin-left: -78px;&quot; /&gt;&lt;/p&gt;</value>
+<value name="HTML" xml:lang="en-US">&lt;p&gt;&lt;a href=&quot;page://systempage.termsAndConditions.pagelet2-Page&quot; data-popup-title=&quot;Terms and Conditions&quot;&gt;print version&lt;/a&gt;&lt;input type=&quot;button&quot; value=&quot;Print this page&quot; onclick=&quot;window.print()&quot; class=&quot;btn btn-default&quot; style=&quot;margin-left: -78px;&quot; /&gt;&lt;/p&gt;</value>
+<value name="HTML" xml:lang="fr-FR">&lt;p&gt;&lt;a href=&quot;page://systempage.termsAndConditions.pagelet2-Page&quot; data-popup-title=&quot;Terms and Conditions&quot;&gt;version imprimée&lt;/a&gt;&lt;input type=&quot;button&quot; value=&quot;Print this page&quot; onclick=&quot;window.print()&quot; class=&quot;btn btn-default&quot; style=&quot;margin-left: -78px;&quot; /&gt;&lt;/p&gt;</value>
+</configuration-parameter>
+</configuration-parameters>
+</pagelet-component>
+</enfinity>

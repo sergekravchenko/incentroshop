@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<extensionpoint:ExtensionPointModel xmlns:extensionpoint="http://www.intershop.de/extensionpoint/2011" name="InitAddressForm">
+  <extensionBindings type="pipeline" extensionPoint="ViewUserAddressList-AddressFormInitializing" extension="ProcessWebformsSmb-InitAddressForm"/>
+  <extensionBindings type="pipeline" extensionPoint="ViewCheckoutAddressBook-AddressFormInitializing" extension="ProcessWebformsSmb-InitAddressForm"/>
+</extensionpoint:ExtensionPointModel>

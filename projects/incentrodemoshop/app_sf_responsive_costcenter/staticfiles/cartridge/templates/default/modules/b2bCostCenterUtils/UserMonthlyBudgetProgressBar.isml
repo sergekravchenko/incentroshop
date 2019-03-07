@@ -1,0 +1,21 @@
+<iscontent type="text/html" charset="UTF-8" compact="true">
+
+<isif condition="#isDefined(User)#">
+	
+	<ISUserBudgetCalculator User="#User#" UserBudgetCalculator="UserBudgetCalculator">
+	
+	<isif condition="#isDefined(UserBudgetCalculator)#">
+		<div class="progress" data-toggle="popover" data-html="true" data-placement="top" data-content="<p><istext key="account.user.list.table.monthly_budget" /></p>
+			<dl class='dl-horizontal'>
+				<dt><istext key="account.user.list.spent.label" /></dt>
+				<dd><isprint value="#UserBudgetCalculator:SpentBudget#"> (<isprint value="#UserBudgetCalculator:SpentBudgetPercentage#">%)</dd>
+				<dt><istext key="account.user.list.left.label" /></dt>
+				<dd><isprint value="#UserBudgetCalculator:RemainingBudget#"> (<isprint value="#UserBudgetCalculator:RemainingBudgetPercentage#">%)</dd>
+			</dl>">
+			<div class="progress-bar<isif condition="#(UserBudgetCalculator:SpentBudgetPercentage >= 1.0)#"> progress-bar-danger</isif>" role="progressbar" aria-valuenow="<isprint value="#UserBudgetCalculator:SpentBudgetPercentage#">" aria-valuemin="0" aria-valuemax="100" style="width: <isprint value="#UserBudgetCalculator:SpentBudgetPercentage#" symbols="DecimalSeparator=.">%;">
+				<span class="progress-display"><isprint value="#UserBudgetCalculator:SpentBudgetPercentage#">%</span>
+			</div>
+		</div>
+	</isif>
+	
+</isif>

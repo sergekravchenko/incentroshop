@@ -1,0 +1,209 @@
+<iscontent personalized="true" type="text/html" charset="UTF-8" compact="true">
+<isif condition="#(isDefined(ListNavigationVO)) AND (NOT ListNavigationVO:PageCacheAllowed)#">
+	<iscache type="forbidden">
+<iselse>
+	<iscache type="relative" hour="24">
+</isif>
+<isinclude template="modules/Modules">
+<isinclude template="modules/search/index/Modules">
+
+<div class="breadcrumbs row">
+	<ISBreadcrumb showhomelink="true" searchresult="#SearchResult#" searchterm="#SearchTerm#">
+</div>
+
+<div class="marketing-area">
+	<isslot slot="app_sf_responsive_cm:slot.marketing.base.pagelet2-Slot">
+</div>
+
+<isif condition="#(SelectedSearchResult EQ 'SFContentSearch') OR (ProductSearchResult:Pageable:ElementCount == 0)#">
+	<isset name="ContentSearchResultActive" value="#1==1#" scope="request"/>
+<iselse>
+	<isset name="ContentSearchResultActive" value="#1==0#" scope="request"/>
+</isif>
+
+<!--- product search results --->
+<div id="product-search-result"  data-testing-id="search-result-page" class="row product-search-result <isif condition="#NOT(ContentSearchResultActive)#">content-active<iselse>content</isif>" <isif condition="#ContentSearchResultActive#">style="display:none;"</isif> >
+	
+	<div class="col-sm-3">
+		<div class="search-product-list">
+			<isif condition="#(ListNavigationVO:AnyFilterSelected AND (ListNavigationVO:SearchTerm NE '' ) OR (ListNavigationVO:NonCategoryFilterSelected)) #">
+				<a href="<isfilterlink pipelinename="#ListNavigationVO:HandlerPipeline.'-Browse'#"
+										params="ListNavigationVO:GenericHandlerPipelineParams"
+										searchparameter="#ListNavigationVO:SearchResult:Query:RemoveAllConditions#"
+										pagesize="#ListNavigationVO:PageSize#"
+										>">
+					<istext key="search.clear_all.button.label" />
+				</a>
+			</isif>
+			<div><istext key="search.refine_your_search.heading" /></div>
+			<ISFilterList 
+				ListNavigationVO="#ListNavigationVO#" 
+				showCount="true" 
+				showSelected="true"
+				CategoryBO="#CategoryBO#">
+			
+			<div class="marketing-area">
+				<isslot slot="app_sf_responsive_cm:slot.marketing.sidePanel.pagelet2-Slot">
+			</div>
+		</div>
+	</div>
+	<div class="col-sm-9">
+		<div class="row">
+			<div class="col-lg-8 col-md-6 col-xs-5">
+				<isif condition="#isDefined(ListNavigationVO)#">
+					<isif condition="#isDefined(ProductSearchResult) AND isDefined(ContentSearchResult)#">
+						<isset name="TotalCount" value="#ProductSearchResult:Pageable:ElementCount + ContentSearchResult:Pageable:ElementCount#" scope="request">
+					<iselse>
+						<isset name="TotalCount" value="#ListNavigationVO:OverallCount#" scope="request">
+					</isif>
+					<h1><istext key="search.title.text" parameter1="#ListNavigationVO:SearchTerm#" parameter2="#TotalCount#"/></h1>
+				</isif>
+			</div>
+			<div class="col-lg-4 col-md-6 col-xs-7 text-right">
+				<ISSearchResultTypeSwitch 
+					ProductSearchResult="#ProductSearchResult#" 
+					ContentSearchResult="#ContentSearchResult#" 
+					ContentSearchResultActive="#ContentSearchResultActive#"
+					contentDataSwitchTargetID="content-search-result"
+					productDataSwitchTargetID="product-search-result"
+				>
+			</div>
+		</div>	
+		
+		<div class="marketing-area">
+			<isslot slot="app_sf_responsive_cm:slot.marketing.content.pagelet2-Slot">
+		</div>
+		
+		<ISProductListFilters
+			ListNavigationVO="#ListNavigationVO#"
+			ViewType="#ViewType#"
+			sortings="#PageletConfigurationParameters:Sortings#"
+		>
+		
+		<div class="search-product-list" data-tracking="searchterm:<isprint value="#SearchTerm#" encoding="url"/>">
+			<isif condition="#isDefined(ViewType) AND (ViewType EQ '2')#">
+				<ISProductList
+					ProductBOs="#ProductBOs#"
+			        ListNavigationVO="#ListNavigationVO#"
+					viewContext="#PageletConfigurationParameters:ProductView2#"
+					listItemCssClass="col-md-12 list-view"
+				>
+			<iselse>
+				<ISProductList
+					ProductBOs="#ProductBOs#"
+			        ListNavigationVO="#ListNavigationVO#"
+					viewContext="#PageletConfigurationParameters:ProductView1#"
+					listItemCssClass="col-md-4 col-xs-6 grid-view"
+				>
+			</isif>
+		</div>
+	</div>
+</div>
+
+<!--- content search results --->
+<div id="content-search-result" <isif condition="#NOT(ContentSearchResultActive)#">style="display:none;"</isif> class="row search-result-container <isif condition="#ContentSearchResultActive#">content-active<iselse>content</isif>">
+	
+	<div class="col-sm-3">
+		<div class="">
+			<isif condition="#(ListNavigationContentVO:AnyFilterSelected AND (ListNavigationContentVO:SearchTerm NE '' ) OR (ListNavigationContentVO:NonCategoryFilterSelected)) #">
+				<a href="<isfilterlink pipelinename="#ListNavigationContentVO:HandlerPipeline.'-Browse'#"
+										params="ListNavigationContentVO:GenericHandlerPipelineParams"
+										searchparameter="#ListNavigationContentVO:SearchResult:Query:RemoveAllConditions#"
+										pagesize="#ListNavigationContentVO:PageSize#"
+										>">
+					<istext key="search.clear_all.button.label" />
+				</a>
+			</isif>
+			<div><istext key="search.refine_your_search.heading" /></div>
+			<ISFilterList 
+				ListNavigationVO="#ListNavigationContentVO#" 
+				showCount="true" 
+				showSelected="true"
+				CategoryBO="#CategoryBO#">
+		</div>
+	</div>
+	
+	<div class="col-sm-9">
+		<div class="row">
+			<div class="col-lg-8 col-md-6 col-xs-5">
+				<isif condition="#isDefined(ListNavigationContentVO)#">
+					<isif condition="#isDefined(ProductSearchResult) AND isDefined(ContentSearchResult)#"> 
+						<isset name="TotalCount" value="#ProductSearchResult:Pageable:ElementCount + ContentSearchResult:Pageable:ElementCount#" scope="request">
+					<iselse>
+						<isset name="TotalCount" value="#ListNavigationContentVO:OverallCount#" scope="request">
+					</isif>
+					<h1><istext key="search.title.text" parameter1="#ListNavigationContentVO:SearchTerm#" parameter2="#TotalCount#"/></h1>
+				</isif>
+			</div>
+			<div class="col-lg-4 col-md-6 col-xs-7 text-right">
+				<ISSearchResultTypeSwitch 
+					ProductSearchResult="#ProductSearchResult#" 
+					ContentSearchResult="#ContentSearchResult#" 
+					ContentSearchResultActive="#ContentSearchResultActive#"
+					contentDataSwitchTargetID="content-search-result"
+					productDataSwitchTargetID="product-search-result"
+				>
+			</div>
+		</div>
+		<div class="filters-row row">
+			<div class="">
+				<isif condition="#isDefined(ListNavigationContentVO)#">
+					<isif condition="#ListNavigationContentVO:PageCount NE '0'#">
+						<ismappagination 
+							pipeline="#ListNavigationContentVO:HandlerPipeline.'-ProductPaging'#"
+							params="#ListNavigationContentVO:GenericHandlerPipelineParams#"
+							itemcount="#ListNavigationContentVO:ElementCount#"
+							currentpage="#ListNavigationContentVO:CurrentPage#"
+							pagesize="#ListNavigationContentVO:PageSize#"
+							pagecount="#ListNavigationContentVO:PageCount#"
+							sortvalue="#ListNavigationContentVO:SortingAttribute#"	
+						>
+					</isif> 
+				</isif>
+				<div class="col-lg-6 col-xs-12 pull-right">
+					<div class="row">
+						<div class="col-xs-6">
+							<ISSortBy ListNavigationVO="#ListNavigationContentVO#" sortings="#PageletConfigurationParameters:Sortings#">
+						</div>
+						<div class="col-xs-6">
+							<ISItemsPerPage ListNavigationVO="#ListNavigationContentVO#" displayType="dropdown" pageSizes="9,12,15,24" showViewAll="true">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--- content result list --->
+		<isif condition="#hasElements(Pagelets)#">
+			<ul class="search-content-list">
+				<isloop iterator="Pagelets" alias="resultItem" counter="counter">
+					<isif condition="#isDefined(resultItem)#">
+						<li class="<isif condition="#counter == 1#">item-first<iselseif condition="#NOT(hasNext(resultItem))#">item-last<iselse>item</isif>">
+							<div class="section">
+								<isif condition="#isDefined(resultItem:Title)#">
+									<isset name="ItemTitle" value="#resultItem:Title#" scope="request"/>
+								<iselse>
+									<isset name="ItemTitle" value="No Title" scope="request"/>
+								</isif>
+									<h3 class="product-title">
+										<a href="#URL(Action('ViewContent-Start'),Parameter('PageletEntryPointID',resultItem:PageletEntryPointID))#"><isprint value="#resultItem:Highlighter:getHighlightedText(ItemTitle, "<strong>", "</strong>")#" encoding="off"></a> 
+									</h3>
+								<isif condition="#resultItem:Content NE ''#">
+									<div>
+										<!--- get one text part with a max length of 250 that contains the searched terms --->
+										<isset name="SnippetsIterator" value="#resultItem:Highlighter:BestSnippets(resultItem:Content, "(Integer)250", "(Integer)1")#" scope="request"/>
+										<isloop alias="snip" iterator="SnippetsIterator">
+											<p>...<isprint value="#resultItem:Highlighter:getHighlightedText(snip,"<strong>","</strong>")#" encoding="off">...</p>
+										</isloop>
+										<small class="help-block"><isprint value="#resultItem:Date(Locale)#"></small>
+									</div>
+								</isif>
+							</div>
+						</li>
+					</isif>
+				</isloop>
+			</ul>
+		</isif>
+	</div>
+</div>
+
+<isinclude url="#URL(Action('IncludeRecentlyViewedItems-AddRecentlyViewedSearchTerm'), Parameter('SearchTerm', SearchTerm))#">

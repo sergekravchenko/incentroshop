@@ -1,0 +1,47 @@
+<iscontent charset="UTF-8" compact="true">
+<isinclude template="modules/B2BModules">
+
+<ISCurrentUserBO currentuserbo="CurrentUserBO">
+<ISCurrentCustomerBO currentcustomerbo="CurrentCustomerBO">
+<ISUserPermissionMap User="#CurrentUserBO#" UserPermissionMap="UserPermissionMap">
+<isset name="OrderApprovalManagementServiceExtension" value="#CurrentCustomerBO:Extension("OrderApprovalManagement")#" scope="request"/>
+
+<ul class="account-navigation list-unstyled" id="AccountNav">
+	<li class="visible-xs">
+		<a href="#URL(Action('ViewUserAccount-Start'))#"><istext key="account.login_status.myaccount.link"/></a>
+	</li>
+	<li class="account-welcome visible-s">
+		<isif condition="#isDefined(CurrentUserBO:LastName) AND (CurrentUserBO:LastName NE '')#">
+			<h4><isprint value="#CurrentUserBO:LastName#">, <isprint value="#CurrentUserBO:FirstName#"></h4>
+		<iselse>
+			<h4 class="ellipsis"><isprint value="#CurrentUserBO:Email#"></h4>
+		</isif>
+		
+		<isset name="CompanyCustomer" value="#CurrentCustomerBO:Extension("CompanyCustomer")#" scope="request"/>
+		<isif condition="#isDefined(CompanyCustomer)#">
+			<p><small><isprint value="#CompanyCustomer:CompanyName#"></small></p>
+		</isif>
+		
+		<isset name="UserRoles" value="#CurrentUserBO:Extension("UserBORoleExtension")#" scope="request"/>
+		<isset name="CustomerSecurity" value="#CurrentCustomerBO:Extension("CustomerBOSecurityExtension")#" scope="request"/>
+		
+		<isif condition="#isDefined(UserRoles) AND isDefined(CustomerSecurity)#">
+			<p>
+				<small>
+					<isloop iterator="UserRoles:RoleIDs" alias="RoleID">
+						<isprint value="#CustomerSecurity:RoleByID(RoleID):Name#"><isif condition="#hasNext(RoleID)#">, </isif>
+					</isloop>
+				</small>
+			</p>
+		</isif>
+	</li>
+ 
+	<iscomment>TODO this check must use a permission (not a role) when ready</iscomment>
+	<isif condition="#NOT CurrentUserBO:Extension("UserBORoleExtension"):hasRole("APP_B2B_OCI_USER")#">
+		<li>
+			<a href="#URL(Action('ViewUserAccount-LogoutUser'))#"><istext key="account.navigation.logout.link"/></a>
+		</li>
+	</isif>
+	
+	<isinclude extensionpoint="AccountNavigationExtension"/>
+</ul>

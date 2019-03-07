@@ -1,0 +1,12 @@
+<iscontent personalized="true" type="text/html" charset="UTF-8" compact="true">
+<iscache type="relative" hour="24">
+<isinclude template="modules/Modules">
+
+<ispipeline pipeline="BusinessObjectUtils-GetUserBO" alias="dict" params="#ParamMap(ParamEntry('User', CurrentUser))#" />
+<isset scope="request" name="UserBO" value="#dict:UserBO#">
+
+<isif condition="#NOT UserBO:Extension("UserBORoleExtension"):hasRole("APP_B2B_OCI_USER")#">
+	<div class="clearfix">
+		<isslot slot="app_sf_responsive_cm:slot.footer.content.pagelet2-Slot">
+	</div>
+</isif>

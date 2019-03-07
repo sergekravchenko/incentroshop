@@ -1,0 +1,741 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<searchIndexConfiguration>
+    <name>product-search-idx-en_US</name>
+    <featureID>SFProductSearch.solr</featureID>
+    <locale>en_US</locale>
+    <online>true</online>
+    <lastIndexStartTime>2012-09-28T11:28:15.524+02:00</lastIndexStartTime>
+    <description></description>
+    <attributes>
+        <attribute>
+            <dataProviderName>CatalogCategoryPath</dataProviderName>
+            <weight>100</weight>
+            <sortable>false</sortable>
+            <filter-options sort="1" name="CategoryUUIDLevelMulti" displayName="Taxonomic Filter" limitCount="-1" minCount="1" position="1" displayType="text_clear" selectionType="taxonomic">
+                <categories/>
+            </filter-options>
+            <description>Adds multiple product category assignments</description>
+            <name>CategoryUUIDLevelMulti</name>
+            <displayName>Multiple Category Assignments</displayName>
+            <ID>0</ID>
+            <dataType>0</dataType>
+            <searchable>false</searchable>
+            <standard>true</standard>
+        </attribute>
+        <attribute>
+            <custom-values>
+                <custom-value name="SpellCheck" type="string">
+                    <value>false</value>
+                </custom-value>
+                <custom-value name="AutoSuggest" type="string">
+                    <value>false</value>
+                </custom-value>
+            </custom-values>
+            <dataProviderName>ProductPO</dataProviderName>
+            <weight>100</weight>
+            <sortable>false</sortable>
+            <filterAttribute>false</filterAttribute>
+            <description>The product UUID</description>
+            <name>UUID</name>
+            <displayName>UUID</displayName>
+            <ID>1</ID>
+            <dataType>0</dataType>
+            <unit></unit>
+            <searchable>false</searchable>
+            <standard>true</standard>
+        </attribute>
+        <attribute>
+            <custom-values>
+                <custom-value name="SpellCheck" type="string">
+                    <value>true</value>
+                </custom-value>
+                <custom-value name="solr.TargetDataType" type="string">
+                    <value>textStemmed</value>
+                </custom-value>
+                <custom-value name="AutoSuggest" type="string">
+                    <value>true</value>
+                </custom-value>
+            </custom-values>
+            <dataProviderName>CatalogCategoryAV</dataProviderName>
+            <weight>60</weight>
+            <sortable>false</sortable>
+            <description></description>
+            <name>CategoryNameLevel0</name>
+            <displayName>Name of Catalog Category Level 0</displayName>
+            <ID>2</ID>
+            <dataType>0</dataType>
+            <unit></unit>
+            <searchable>true</searchable>
+            <standard>false</standard>
+        </attribute>
+        <attribute>
+            <custom-values>
+                <custom-value name="SpellCheck" type="string">
+                    <value>true</value>
+                </custom-value>
+                <custom-value name="solr.TargetDataType" type="string">
+                    <value>textStemmed</value>
+                </custom-value>
+                <custom-value name="AutoSuggest" type="string">
+                    <value>true</value>
+                </custom-value>
+            </custom-values>
+            <dataProviderName>CatalogCategoryAV</dataProviderName>
+            <weight>70</weight>
+            <sortable>false</sortable>
+            <position>0</position>
+            <description></description>
+            <name>CategoryNameLevel1</name>
+            <displayName>Name of Catalog Category Level 1</displayName>
+            <ID>3</ID>
+            <dataType>0</dataType>
+            <unit></unit>
+            <searchable>true</searchable>
+            <standard>false</standard>
+        </attribute>
+        <attribute>
+            <custom-values>
+                <custom-value name="SpellCheck" type="string">
+                    <value>true</value>
+                </custom-value>
+                <custom-value name="solr.TargetDataType" type="string">
+                    <value>textStemmed</value>
+                </custom-value>
+                <custom-value name="AutoSuggest" type="string">
+                    <value>true</value>
+                </custom-value>
+            </custom-values>
+            <dataProviderName>CatalogCategoryAV</dataProviderName>
+            <weight>80</weight>
+            <sortable>false</sortable>
+            <description></description>
+            <name>CategoryNameLevel2</name>
+            <displayName>Name of Catalog Category Level 2</displayName>
+            <ID>4</ID>
+            <dataType>0</dataType>
+            <unit></unit>
+            <searchable>true</searchable>
+            <standard>false</standard>
+        </attribute>
+        <attribute>
+            <custom-values>
+                <custom-value name="SpellCheck" type="string">
+                    <value>true</value>
+                </custom-value>
+                <custom-value name="solr.TargetDataType" type="string">
+                    <value>textStemmed</value>
+                </custom-value>
+                <custom-value name="AutoSuggest" type="string">
+                    <value>true</value>
+                </custom-value>
+            </custom-values>
+            <dataProviderName>CatalogCategoryAV</dataProviderName>
+            <weight>90</weight>
+            <sortable>false</sortable>
+            <description></description>
+            <name>CategoryNameLevel3</name>
+            <displayName>Name of Catalog Category Level 3</displayName>
+            <ID>5</ID>
+            <dataType>0</dataType>
+            <unit></unit>
+            <searchable>true</searchable>
+            <standard>false</standard>
+        </attribute>
+        <attribute>
+            <custom-values>
+                <custom-value name="SpellCheck" type="string">
+                    <value>true</value>
+                </custom-value>
+                <custom-value name="solr.TargetDataType" type="string">
+                    <value>textStemmed</value>
+                </custom-value>
+                <custom-value name="AutoSuggest" type="string">
+                    <value>true</value>
+                </custom-value>
+            </custom-values>
+            <dataProviderName>CatalogCategoryAV</dataProviderName>
+            <weight>100</weight>
+            <sortable>false</sortable>
+            <description></description>
+            <name>CategoryNameLevel4</name>
+            <displayName>Name of Catalog Category Level 4</displayName>
+            <ID>6</ID>
+            <dataType>0</dataType>
+            <unit></unit>
+            <searchable>true</searchable>
+            <standard>false</standard>
+        </attribute>
+        <attribute>
+            <custom-values>
+                <custom-value name="SpellCheck" type="string">
+                    <value>true</value>
+                </custom-value>
+                <custom-value name="solr.TargetDataType" type="string">
+                    <value>textStemmed</value>
+                </custom-value>
+                <custom-value name="AutoSuggest" type="string">
+                    <value>true</value>
+                </custom-value>
+            </custom-values>
+            <dataProviderName>CatalogCategoryAV</dataProviderName>
+            <weight>100</weight>
+            <sortable>false</sortable>
+            <position>0</position>
+            <filterAttribute>false</filterAttribute>
+            <description></description>
+            <name>CategoryNameLevel5</name>
+            <displayName>Name of Catalog Category Level 5</displayName>
+            <ID>7</ID>
+            <dataType>0</dataType>
+            <unit></unit>
+            <searchable>true</searchable>
+            <standard>false</standard>
+        </attribute>
+        <attribute>
+            <custom-values>
+                <custom-value name="SpellCheck" type="string">
+                    <value>false</value>
+                </custom-value>
+                <custom-value name="solr.TargetDataType" type="string">
+                    <value>textID</value>
+                </custom-value>
+                <custom-value name="AutoSuggest" type="string">
+                    <value>false</value>
+                </custom-value>
+            </custom-values>
+            <dataProviderName>ProductVariationAV</dataProviderName>
+            <weight>100</weight>
+            <sortable>false</sortable>
+            <description>The SKU of the product. When indexing variation attribute values this includes also the SKUs of the variations.</description>
+            <name>SKU</name>
+            <displayName>Variation SKUs</displayName>
+            <ID>8</ID>
+            <dataType>6</dataType>
+            <searchable>true</searchable>
+            <standard>false</standard>
+        </attribute>
+        <attribute>
+            <custom-values>
+                <custom-value name="SpellCheck" type="string">
+                    <value>true</value>
+                </custom-value>
+                <custom-value name="AutoSuggest" type="string">
+                    <value>true</value>
+                </custom-value>
+            </custom-values>
+            <dataProviderName>ProductPO</dataProviderName>
+            <weight>100</weight>
+            <sortable>false</sortable>
+            <filter-options sort="2" name="ManufacturerName" displayName="Brand Filter" limitCount="7" minCount="1" position="2" displayType="text_clear" selectionType="single">
+                <categories/>
+            </filter-options>
+            <description>The manufacturer name</description>
+            <name>ManufacturerName</name>
+            <displayName>Manufacturer</displayName>
+            <ID>9</ID>
+            <dataType>0</dataType>
+            <searchable>true</searchable>
+            <standard>false</standard>
+        </attribute>
+        <attribute>
+            <custom-values>
+                <custom-value name="SpellCheck" type="string">
+                    <value>false</value>
+                </custom-value>
+                <custom-value name="solr.TargetDataType" type="string">
+                    <value>textStemmed</value>
+                </custom-value>
+                <custom-value name="AutoSuggest" type="string">
+                    <value>false</value>
+                </custom-value>
+            </custom-values>
+            <dataProviderName>ProductAV2</dataProviderName>
+            <weight>100</weight>
+            <sortable>true</sortable>
+            <labelAsc>Name asc</labelAsc>
+            <labelDesc>Name desc</labelDesc>
+            <description>The product name</description>
+            <name>name</name>
+            <displayName>Product-Name</displayName>
+            <ID>10</ID>
+            <dataType>0</dataType>
+            <unit></unit>
+            <searchable>true</searchable>
+            <standard>false</standard>
+        </attribute>
+        <attribute>
+            <dataProviderName>ProductSalePriceGross</dataProviderName>
+            <weight>100</weight>
+            <sortable>true</sortable>
+            <labelAsc>Price: low to high</labelAsc>
+            <labelDesc>Price: high to low</labelDesc>
+            <filter-options sort="0" name="ProductSalePriceGross" displayName="By Gross Sale Price" limitCount="-1" minCount="1" position="3" displayType="text_clear" selectionType="multiple_or">
+                <ranges>
+                    <range low="0.0" high="24.99">
+                        <format>&lt; $ 25</format>
+                    </range>
+                    <range low="25.0" high="49.99">
+                        <format>$ 25 - $ 50</format>
+                    </range>
+                    <range low="50.0" high="99.99">
+                        <format>$ 50 - $ 100</format>
+                    </range>
+                    <range low="100.0" high="249.99">
+                        <format>$ 100 - $ 250</format>
+                    </range>
+                    <range low="250.0" high="499.99">
+                        <format>$ 250 - $ 500</format>
+                    </range>
+                    <range low="500.0" high="999.999">
+                        <format>$ 500 - $ 1000</format>
+                    </range>
+                    <range low="1000.0">
+                        <format>&gt; $ 1000</format>
+                    </range>
+                </ranges>
+                <custom-values>
+                 <custom-value type="string" name="Scope"><value>CustomerPolicy-Gross</value></custom-value>
+                </custom-values>
+                <categories/>
+            </filter-options>
+            <description>The product gross sale price</description>
+            <name>ProductSalePriceGross</name>
+            <displayName>Gross Sale Price</displayName>
+            <ID>11</ID>
+            <dataType>2</dataType>
+            <searchable>false</searchable>
+            <standard>false</standard>
+        </attribute>
+        <attribute>
+            <dataProviderName>ProductSalePriceNet</dataProviderName>
+            <weight>100</weight>
+            <sortable>true</sortable>
+            <labelAsc>Price: low to high</labelAsc>
+            <labelDesc>Price: high to low</labelDesc>
+            <filter-options sort="0" name="ProductSalePriceNet" displayName="By Net Sale Price" limitCount="-1" minCount="1" position="3" displayType="text_clear" selectionType="multiple_or">
+                <ranges>
+                    <range low="0.0" high="24.99">
+                        <format>&lt;= $ 25</format>
+                    </range>
+                    <range low="25.0" high="49.99">
+                        <format>$ 25 - $ 50</format>
+                    </range>
+                    <range low="50.0" high="99.99">
+                        <format>$ 50 - $ 100</format>
+                    </range>
+                    <range low="100.0" high="249.99">
+                        <format>$ 100 - $ 250</format>
+                    </range>
+                    <range low="250.0" high="499.99">
+                        <format>$ 250 - $ 500</format>
+                    </range>
+                    <range low="500.0" high="999.999">
+                        <format>$ 500 - $ 1000</format>
+                    </range>
+                    <range low="1000.0">
+                        <format>&gt; $ 1000</format>
+                    </range>
+                </ranges>
+               <custom-values>
+                <custom-value type="string" name="Scope"><value>CustomerPolicy-Net</value></custom-value>
+               </custom-values>                
+                <categories/>
+            </filter-options>
+            <description>The product net sale price</description>
+            <name>ProductSalePriceNet</name>
+            <displayName>Net Sale Price</displayName>
+            <ID>11</ID>
+            <dataType>2</dataType>
+            <searchable>false</searchable>
+            <standard>false</standard>
+        </attribute> 
+        <attribute>
+            <custom-values>
+                <custom-value name="SpellCheck" type="string">
+                    <value>false</value>
+                </custom-value>
+                <custom-value name="solr.TargetDataType" type="string">
+                    <value>textStemmed</value>
+                </custom-value>
+                <custom-value name="AutoSuggest" type="string">
+                    <value>false</value>
+                </custom-value>
+            </custom-values>
+            <dataProviderName>ProductAV2</dataProviderName>
+            <weight>60</weight>
+            <sortable>false</sortable>
+            <description>The long description</description>
+            <name>longDescription</name>
+            <displayName>Long-Description</displayName>
+            <ID>12</ID>
+            <dataType>0</dataType>
+            <unit></unit>
+            <searchable>true</searchable>
+            <standard>false</standard>
+        </attribute>
+        <attribute>
+            <custom-values>
+                <custom-value name="SpellCheck" type="string">
+                    <value>false</value>
+                </custom-value>
+                <custom-value name="solr.TargetDataType" type="string">
+                    <value>textStemmed</value>
+                </custom-value>
+                <custom-value name="AutoSuggest" type="string">
+                    <value>false</value>
+                </custom-value>
+            </custom-values>
+            <dataProviderName>ProductAV2</dataProviderName>
+            <weight>80</weight>
+            <sortable>false</sortable>
+            <description>The short description</description>
+            <name>shortDescription</name>
+            <displayName>Short-Description</displayName>
+            <ID>13</ID>
+            <dataType>0</dataType>
+            <unit></unit>
+            <searchable>true</searchable>
+            <standard>false</standard>
+        </attribute>
+        <attribute>
+            <custom-values>
+                <custom-value name="SolrTargetType" type="string">
+                    <value>text</value>
+                </custom-value>
+            </custom-values>
+            <dataProviderName>copy</dataProviderName>
+            <weight>100</weight>
+            <sortable>false</sortable>
+            <filterAttribute>false</filterAttribute>
+            <description>special text search attribute to catch all string values for additional analyzing</description>
+            <name>text</name>
+            <displayName>Text</displayName>
+            <ID>14</ID>
+            <dataType>0</dataType>
+            <searchable>true</searchable>
+            <standard>false</standard>
+        </attribute>
+        <attribute>
+            <custom-values>
+                <custom-value name="AutoSuggest" type="string">
+                    <value>false</value>
+                </custom-value>
+            </custom-values>
+            <dataProviderName>CatalogCategoryPath</dataProviderName>
+            <weight>100</weight>
+            <sortable>false</sortable>
+            <filterAttribute>false</filterAttribute>
+            <description>CatalogDomainName</description>
+            <name>CatalogDomainName</name>
+            <displayName>CatalogDomainName</displayName>
+            <ID>15</ID>
+            <dataType>0</dataType>
+            <unit></unit>
+            <searchable>false</searchable>
+            <standard>false</standard>
+        </attribute>
+        <attribute>
+            <custom-values>
+                <custom-value name="AutoSuggest" type="string">
+                    <value>false</value>
+                </custom-value>
+            </custom-values>
+            <dataProviderName>CatalogCategoryPath</dataProviderName>
+            <weight>100</weight>
+            <sortable>false</sortable>
+            <filterAttribute>false</filterAttribute>
+            <description>CategoryNames</description>
+            <name>CategoryNames</name>
+            <displayName>Category Names</displayName>
+            <ID>16</ID>
+            <dataType>6</dataType>
+            <unit></unit>
+            <searchable>false</searchable>
+            <standard>false</standard>
+        </attribute>
+        <attribute>
+            <dataProviderName>ProductAV</dataProviderName>
+            <weight>100</weight>
+            <sortable>true</sortable>
+            <labelDesc>Topsellers</labelDesc>
+            <description>calculated sales rank units</description>
+            <name>SalesRankUnitsIndex</name>
+            <displayName>Sales Rank Units</displayName>
+            <ID>17</ID>
+            <dataType>1</dataType>
+            <searchable>false</searchable>
+            <standard>false</standard>
+        </attribute>
+        <attribute>
+            <dataProviderName>ProductAV</dataProviderName>
+            <weight>100</weight>
+            <sortable>true</sortable>
+            <labelDesc>Newest Arrivals</labelDesc>
+            <filterAttribute>false</filterAttribute>
+            <description>arrival date for new products</description>
+            <name>ArrivalDate</name>
+            <displayName>Arrival Date</displayName>
+            <ID>18</ID>
+            <dataType>10</dataType>
+            <searchable>false</searchable>
+            <standard>false</standard>
+        </attribute>
+        <attribute>
+            <custom-values>
+                <custom-value name="CombinedVariationAttributeName" type="string">
+                    <value>Attr_Size</value>
+                </custom-value>
+            </custom-values>
+            <dataProviderName>ProductVariationAV</dataProviderName>
+            <weight>100</weight>
+            <sortable>false</sortable>
+            <description>color in combination with size</description>
+            <name>Attr_Color</name>
+            <displayName>Color</displayName>
+            <ID>19</ID>
+            <dataType>6</dataType>
+            <searchable>false</searchable>
+            <standard>false</standard>
+        </attribute>
+        <attribute>
+            <custom-values>
+                <custom-value name="CombinedVariationAttributeName" type="string">
+                    <value>Attr_Color</value>
+                </custom-value>
+            </custom-values>
+            <dataProviderName>ProductVariationAV</dataProviderName>
+            <weight>100</weight>
+            <sortable>false</sortable>
+            <description>size in combination with color</description>
+            <name>Attr_Size</name>
+            <displayName>Size</displayName>
+            <ID>20</ID>
+            <dataType>6</dataType>
+            <searchable>false</searchable>
+            <standard>false</standard>
+        </attribute>
+        <attribute>
+            <custom-values>
+                <custom-value name="SpellCheck" type="string">
+                    <value>false</value>
+                </custom-value>
+                <custom-value name="AutoSuggest" type="string">
+                    <value>false</value>
+                </custom-value>
+            </custom-values>
+            <dataProviderName>ProductAV</dataProviderName>
+            <weight>100</weight>
+            <sortable>false</sortable>
+            <filterAttribute>false</filterAttribute>
+            <description>the original icecat category id</description>
+            <name>IcecatCategoryID</name>
+            <displayName>Icecat Category ID</displayName>
+            <ID>21</ID>
+            <dataType>0</dataType>
+            <unit></unit>
+            <searchable>false</searchable>
+            <standard>false</standard>
+        </attribute>
+        <attribute>
+            <custom-values>
+                <custom-value name="SpellCheck" type="string">
+                    <value>false</value>
+                </custom-value>
+                <custom-value name="SolrTargetFieldName" type="string">
+                    <value>Colour_of_product</value>
+                </custom-value>
+                <custom-value name="AutoSuggest" type="string">
+                    <value>false</value>
+                </custom-value>
+            </custom-values>
+            <dataProviderName>ProductVariationAV</dataProviderName>
+            <weight>100</weight>
+            <sortable>false</sortable>
+            <filterAttribute>false</filterAttribute>
+            <description>Colour of product - variations</description>
+            <name>Colour of product</name>
+            <displayName>Colour of product</displayName>
+            <ID>22</ID>
+            <dataType>6</dataType>
+            <unit></unit>
+            <searchable>false</searchable>
+            <standard>false</standard>
+        </attribute>
+        <attribute>
+            <custom-values>
+                <custom-value name="SpellCheck" type="string">
+                    <value>false</value>
+                </custom-value>
+                <custom-value name="SolrTargetFieldName" type="string">
+                    <value>Hard_disk_drive_capacity</value>
+                </custom-value>
+                <custom-value name="AutoSuggest" type="string">
+                    <value>false</value>
+                </custom-value>
+            </custom-values>
+            <dataProviderName>ProductVariationAV</dataProviderName>
+            <weight>100</weight>
+            <sortable>false</sortable>
+            <filterAttribute>false</filterAttribute>
+            <description>Hard disk drive capacity - variation</description>
+            <name>Hard disk drive capacity</name>
+            <displayName>Hard disk drive capacity</displayName>
+            <ID>23</ID>
+            <dataType>6</dataType>
+            <unit></unit>
+            <searchable>false</searchable>
+            <standard>false</standard>
+        </attribute>
+        <attribute>
+            <custom-values>
+                <custom-value name="SpellCheck" type="string">
+                    <value>false</value>
+                </custom-value>
+                <custom-value name="solr.TargetDataType" type="string">
+                    <value>tint</value>
+                </custom-value>
+                <custom-value name="SourceAttributeName" type="string">
+                    <value>Memory clock speed</value>
+                </custom-value>
+                <custom-value name="AutoSuggest" type="string">
+                    <value>false</value>
+                </custom-value>
+            </custom-values>
+            <dataProviderName>ProductAVNumbers</dataProviderName>
+            <weight>100</weight>
+            <sortable>false</sortable>
+            <filterAttribute>false</filterAttribute>
+            <filter-options sort="0" displayName="Memory Clock Speed" limitCount="-1" minCount="1" position="4" displayType="text_clear" selectionType="single">
+                <ranges>
+                    <range low="2001">
+                        <format>&gt; 2000 MHz</format>
+                    </range>
+                    <range low="1001" high="2000">
+                        <format>1000 - 2000 MHz</format>
+                    </range>
+                    <range high="1000">
+                        <format>&lt; 1000 MHz</format>
+                    </range>
+                </ranges>
+                <categories>
+                    <category>
+                        <categoryName>106</categoryName>
+                        <domain>inSPIRED-Computers</domain>
+                        <position>0</position>
+                    </category>
+                </categories>
+            </filter-options>
+            <description></description>
+            <name>MemClockSpeed</name>
+            <displayName>Memory clock speed</displayName>
+            <ID>24</ID>
+            <dataType>1</dataType>
+            <unit></unit>
+            <searchable>false</searchable>
+            <standard>false</standard>
+        </attribute>
+        <attribute>
+            <dataProviderName>ProductPromotions</dataProviderName>
+            <weight>100</weight>
+            <sortable>false</sortable>
+            <description>The promotion UUIDs</description>
+            <name>PromotionUUID</name>
+            <displayName>Promotion UUID</displayName>
+            <ID>25</ID>
+            <dataType>6</dataType>
+            <searchable>false</searchable>
+            <standard>false</standard>
+        </attribute>
+        <attribute>
+            <dataProviderName>ProductPO</dataProviderName>
+            <weight>100</weight>
+            <sortable>false</sortable>
+            <description>Online flag 0/1 - add it to index offline products - for previewing offline products</description>
+            <name>OnlineFlag</name>
+            <displayName>Online-Flag</displayName>
+            <ID>26</ID>
+            <dataType>1</dataType>
+            <searchable>false</searchable>
+            <standard>false</standard>
+        </attribute>
+        <attribute>
+            <dataProviderName>ProductPO</dataProviderName>
+            <weight>100</weight>
+            <sortable>false</sortable>
+            <description>a date the product is online from - for previewing of products</description>
+            <name>OnlineFrom</name>
+            <displayName>Online-From Date</displayName>
+            <ID>27</ID>
+            <dataType>10</dataType>
+            <searchable>false</searchable>
+            <standard>false</standard>
+        </attribute>
+        <attribute>
+            <dataProviderName>ProductPO</dataProviderName>
+            <weight>100</weight>
+            <sortable>false</sortable>
+            <description>a date the product is online-to - for previewing of products</description>
+            <name>OnlineTo</name>
+            <displayName>Online-To Date</displayName>
+            <ID>28</ID>
+            <dataType>10</dataType>
+            <searchable>false</searchable>
+            <standard>false</standard>
+        </attribute>
+        <attribute>
+            <custom-values>
+                <custom-value name="solr.TargetDataType" type="string">
+                    <value>sDouble</value>
+                </custom-value>
+            </custom-values>
+            <dataProviderName>CatalogCategoryPath</dataProviderName>
+            <weight>100</weight>
+            <sortable>true</sortable>
+            <description>Position of the product in a category for explicit sorting of products in category navigation</description>
+            <name>CategoryPosition</name>
+            <displayName>Category Position</displayName>
+            <ID>29</ID>
+            <dataType>2</dataType>
+            <searchable>false</searchable>
+            <standard>false</standard>
+        </attribute>
+		<attribute>
+            <dataProviderName>ProductListPrice</dataProviderName>
+            <weight>0</weight>
+            <sortable>true</sortable>
+            <description>The product list price</description>
+            <name>ProductListPrice</name>
+            <displayName>Price</displayName>
+            <ID>30</ID>
+            <dataType>2</dataType>
+            <searchable>false</searchable>
+            <standard>false</standard>
+        </attribute>
+        <attribute>
+            <custom-values>
+                <custom-value name="SpellCheck" type="string">
+                    <value>true</value>
+                </custom-value>
+                <custom-value name="AutoSuggest" type="string">
+                    <value>true</value>
+                </custom-value>
+            </custom-values>
+            <dataProviderName>ProductPO</dataProviderName>
+            <weight>100</weight>
+            <sortable>false</sortable>
+            <filter-options sort="2" name="SupplierName" displayName="Supplier" limitCount="7" minCount="1" position="5" displayType="text_clear" selectionType="single">
+                <categories/>
+            </filter-options>
+            <description>The supplier name</description>
+            <name>SupplierName</name>
+            <displayName>Supplier</displayName>
+            <ID>31</ID>
+            <dataType>0</dataType>
+            <searchable>true</searchable>
+            <standard>false</standard>
+        </attribute>
+    </attributes>
+    <filtergroups/>
+    <synonyms/>
+    <stopWords></stopWords>
+</searchIndexConfiguration>

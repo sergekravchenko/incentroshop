@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<enfinity xmlns:dt="http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt">
+<pagelet-component id="cmp_categoryEndcaps_collection">
+<definition-name>app_sf_responsive_cm:component.common.collection.pagelet2-Component</definition-name>
+<display-name xml:lang="de-DE">Kategorie Endcap--Sammlung</display-name>
+<display-name xml:lang="en-US">Category Endcaps Collection</display-name>
+<online>true</online>
+<author business-partner-no="admin" domain="inSPIRED"/>
+<configuration-parameters>
+<configuration-parameter name="CollectionType">
+<definition-name>app_sf_responsive_cm:component.common.collection.pagelet2-Component-CollectionType</definition-name>
+<value name="CollectionType">list</value>
+</configuration-parameter>
+</configuration-parameters>
+<slots>
+<slot>
+<definition-name>app_sf_responsive_cm:slot.collection.items.pagelet2-Slot</definition-name>
+<optional>false</optional>
+<sorting>false</sorting>
+</slot>
+</slots>
+</pagelet-component>
+<pagelet-slot-assignment id="txoKAM4.0CcAAAE.g.FRFOgY">
+<slot definition-name="app_sf_responsive_cm:slot.collection.items.pagelet2-Slot" parent-pagelet-id="cmp_categoryEndcaps_collection" domain="inSPIRED-inTRONICS-b2c-responsive"/>
+<pagelet id="cmp_categoryEndcaps_newArrivals" domain="inSPIRED-inTRONICS-b2c-responsive"/>
+<position>3</position>
+<online>true</online>
+</pagelet-slot-assignment>
+<pagelet-slot-assignment id="tCcKAM4.L_4AAAE.9QNRFOgX">
+<slot definition-name="app_sf_responsive_cm:slot.collection.items.pagelet2-Slot" parent-pagelet-id="cmp_categoryEndcaps_collection" domain="inSPIRED-inTRONICS-b2c-responsive"/>
+<pagelet id="cmp_categoryEndcaps_topRated" domain="inSPIRED-inTRONICS-b2c-responsive"/>
+<position>2</position>
+<online>true</online>
+</pagelet-slot-assignment>
+<pagelet-slot-assignment id="zQoKAM4.uq0AAAE.tO9RFOgT">
+<slot definition-name="app_sf_responsive_cm:slot.collection.items.pagelet2-Slot" parent-pagelet-id="cmp_categoryEndcaps_collection" domain="inSPIRED-inTRONICS-b2c-responsive"/>
+<pagelet id="cmp_categoryEndcaps_topSellers" domain="inSPIRED-inTRONICS-b2c-responsive"/>
+<position>1</position>
+<online>true</online>
+</pagelet-slot-assignment>
+</enfinity>

@@ -1,0 +1,40 @@
+<iscontent personalized="true" type="text/html" charset="UTF-8" compact="true">
+<iscache type="relative" hour="24">
+<isinclude template="modules/navigation/Modules">
+
+<div class="breadcrumbs row">
+	<isContentBreadcrumb
+		navigationRoot="#PageletConfigurationParameters:NavigationRoot#"
+		currentPageletEntryPointID="#PageletEntryPointID#"
+		locale="#CurrentRequest:Locale#"
+	>
+</div>
+
+<div class="marketing-area">
+	<isslot slot="app_sf_responsive_cm:slot.marketing.base.pagelet2-Slot">
+</div>
+
+<div class="row">
+	<isif condition="#(PageletConfigurationParameters:ShowSidePanel EQ 'true') OR (PageletConfigurationParameters:ShowNavigation EQ 'true')#">
+		<div class="page-navigation col-md-3">
+			<div class="page-navigation-contents">
+				<isif condition="#(PageletConfigurationParameters:ShowNavigation EQ 'true')#">
+					<isContentNavigation
+						navigationRoot="#PageletConfigurationParameters:NavigationRoot#"
+						navigationDepth="#PageletConfigurationParameters:NavigationDepth#"
+						currentPageletEntryPointID="#PageletEntryPointID#"
+						locale="#CurrentRequest:Locale#"
+					>
+				</isif>
+				<div class="marketing-area">
+					<isslot slot="app_sf_responsive_cm:slot.marketing.sidePanel.pagelet2-Slot">
+				</div>
+			</div>
+		</div>
+		<div class="col-md-9">
+	<iselse>
+		<div class="col-md-12">
+	</isif>
+			<isslot slot="app_sf_responsive_cm:slot.staticPage.content.pagelet2-Slot">
+		</div>
+</div>

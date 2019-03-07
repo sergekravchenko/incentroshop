@@ -1,0 +1,16 @@
+<iscontent charset="UTF-8" type="text/html" compact="true" templatemarker="true">
+<iscachekey object="#ProductBO#">
+
+<isinclude template="modules/B2BModules">
+
+<isif condition="#NOT(isDefined(USER_HAS_ROLE_APP_B2B_OCI_USER)) OR (USER_HAS_ROLE_APP_B2B_OCI_USER EQ 'false')#">
+	<isif condition="#NOT (ProductBO:isEndOfLife)#">
+		<isif condition="#CurrentSession:isLoggedIn#">
+			<isif condition="#isDefined(ProductBO:ProductPriceBO("SalePrice")) AND NOT(ProductBO:OrderableAsDependentOnly)#">
+				<ISAddToQuote class="btn-default btn-block" ProductBO="#ProductBO#">
+			</isif>
+		<iselse>
+			<ISAddToQuote class="btn-default btn-block" ProductBO="#ProductBO#">
+		</isif>
+	</isif>
+</isif>

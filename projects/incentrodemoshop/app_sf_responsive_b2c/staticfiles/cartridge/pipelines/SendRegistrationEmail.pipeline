@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Send registration email.-->
+
+<pipeline:Pipeline xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pipeline="http://www.intershop.de/pipeline/2010"
+    name="SendRegistrationEmail" overrideMode="Inherit" type="">
+<!--@Location 4,1-->
+  <nodes xsi:type="pipeline:StartNode" nodeID="StartNode1" strict="true" name="SendCustomerApprovalNotification">
+    <nodeSuccessors name="next" next="DecisionNode0"/>
+    <parameters name="CustomerBO" type="com.intershop.component.customer.capi.CustomerBO"/>
+<!--The current App context.-->
+    <parameters name="ApplicationBO" type="com.intershop.component.application.capi.ApplicationBO"/>
+  </nodes>
+<!--@Location 4,2-->
+  <nodes xsi:type="pipeline:DecisionNode" nodeID="DecisionNode0" conditionKey="ApplicationBO:Extension(&quot;CustomerApproval&quot;):Enabled(CustomerBO:CustomerType)"
+      operator="str_eq" conditionValue="true">
+    <nodeSuccessors name="decision_yes" next="LoopNode0"/>
+<!--@BendPoints 11,5-->
+    <nodeSuccessors name="decision_no" next="JoinNode1"/>
+  </nodes>
+<!--@Location 4,3-->
+  <nodes xsi:type="pipeline:LoopNode" nodeID="LoopNode0" loop="ApplicationBO:Extension(&quot;CustomerApproval&quot;):Approvers">
+    <nodeSuccessors name="next" next="JoinNode1"/>
+    <entry key="UserBO">
+      <nodeSuccessors name="loop_entry_next" next="ProcessMail1"/>
+    </entry>
+  </nodes>
+<!--@Location 4,4-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="ProcessMail1">
+    <configurationValues name="UseErrorConnector" value="true"/>
+    <configurationValues name="WaitForResult" value="false"/>
+    <pipelet href="enfinity:/bc_mail/pipelets/ProcessMail.xml"/>
+<!--@BendPoints 8,9 8,7-->
+    <nodeSuccessors name="next" next="LoopNode0_Entry"/>
+    <nodeSuccessors name="pipelet_error" next="EndNode3"/>
+    <parameterBindings name="MailFrom" objectPath="ApplicationBO:Configuration:String(&quot;CustomerPendingApprovalRequestEmailFrom&quot;)"/>
+    <parameterBindings name="MailSubject" objectPath="ApplicationBO:Configuration:String(&quot;CustomerPendingApprovalRequestEmailSubject&quot;)"/>
+    <parameterBindings name="MailTemplate" objectPath="ApplicationBO:Configuration:String(&quot;CustomerPendingApprovalRequestEmailTemplate&quot;)"/>
+    <parameterBindings name="MailTo" objectPath="UserBO:Email"/>
+  </nodes>
+<!--@Location 4,5-->
+  <nodes xsi:type="pipeline:EndNode" nodeID="EndNode3" name="ERROR" strict="true">
+    <returnValues name="AggregatedResult" type="java.lang.Integer" optional="true"/>
+    <returnValues name="MailResult" type="java.lang.String" optional="true"/>
+    <returnValues name="MailResults" type="com.intershop.beehive.core.capi.mail.MailResult"
+        optional="true"/>
+  </nodes>
+<!--@Location 5,3-->
+  <nodes xsi:type="pipeline:JoinNode" nodeID="JoinNode1">
+    <nodeSuccessors name="next" next="EndNode2"/>
+  </nodes>
+<!--@Location 5,5-->
+  <nodes xsi:type="pipeline:EndNode" nodeID="EndNode2" strict="true">
+    <returnValues name="AggregatedResult" type="java.lang.Integer" optional="true"/>
+    <returnValues name="MailResult" type="java.lang.String" optional="true"/>
+    <returnValues name="MailResults" type="com.intershop.beehive.core.capi.mail.MailResult"
+        optional="true"/>
+  </nodes>
+<!--Send registration email to the customer.
+@Location 1,1-->
+  <nodes xsi:type="pipeline:StartNode" nodeID="StartNode0" strict="true" name="Start">
+    <nodeSuccessors name="next" next="CallNode0"/>
+    <parameters name="CustomerBO" type="com.intershop.component.customer.capi.CustomerBO"/>
+<!--The current App context.-->
+    <parameters name="ApplicationBO" type="com.intershop.component.application.capi.ApplicationBO"/>
+    <parameters name="Repository" type="com.intershop.component.mvc.capi.catalog.Repository"/>
+  </nodes>
+<!--@Location 1,2-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode0">
+    <nodeSuccessors name="next" next="GetUserByCustomerBO0"/>
+    <nodeSuccessors name="ERROR" next="GetUserByCustomerBO0"/>
+    <startNode referencedName="This:SendCustomerApprovalNotification"/>
+  </nodes>
+<!--@Location 1,3-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="GetUserByCustomerBO0">
+    <pipelet href="enfinity:/bc_customer/pipelets/GetUserByCustomerBO.xml"/>
+    <nodeSuccessors name="next" next="KeyMapper0"/>
+<!--@BendPoints 5,7-->
+    <nodeSuccessors name="pipelet_error" next="JoinNode0"/>
+  </nodes>
+<!--@Location 1,4-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="KeyMapper0">
+    <pipelet href="enfinity:/bc_foundation/pipelets/KeyMapper.xml"/>
+    <nodeSuccessors name="next" next="GetUserBO0"/>
+    <parameterBindings name="InValue_1" objectPath="ApplicationBO:Repository(&quot;UserBORepository&quot;)"/>
+    <returnValueBindings name="OutValue_1" objectPath="UserBORepository"/>
+  </nodes>
+<!--@Location 1,5-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="GetUserBO0">
+    <pipelet href="enfinity:/bc_user/pipelets/GetUserBO.xml"/>
+    <nodeSuccessors name="next" next="ProcessMail0"/>
+    <parameterBindings name="UserID" objectPath="User:ID"/>
+  </nodes>
+<!--@Location 1,6-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="ProcessMail0">
+    <configurationValues name="UseErrorConnector" value="true"/>
+    <configurationValues name="WaitForResult" value="false"/>
+    <pipelet href="enfinity:/bc_mail/pipelets/ProcessMail.xml"/>
+    <nodeSuccessors name="next" next="EndNode0"/>
+    <nodeSuccessors name="pipelet_error" next="JoinNode0"/>
+    <parameterBindings name="MailFrom" objectPath="Repository:Domain:Configuration:String(&quot;UserRegistrationEmailFrom&quot;)"/>
+    <parameterBindings name="MailSubject" objectPath="Repository:Domain:Configuration:String(&quot;UserRegistrationEmailSubject&quot;)"/>
+    <parameterBindings name="MailTemplate" objectPath="Repository:Domain:Configuration:String(&quot;UserRegistrationEmailTemplate&quot;)"/>
+    <parameterBindings name="MailTo" objectPath="UserBO:Email"/>
+  </nodes>
+<!--@Location 1,7-->
+  <nodes xsi:type="pipeline:EndNode" nodeID="EndNode0" strict="true">
+    <returnValues name="AggregatedResult" type="java.lang.Integer" optional="true"/>
+    <returnValues name="MailResult" type="java.lang.String" optional="true"/>
+    <returnValues name="MailResults" type="com.intershop.beehive.core.capi.mail.MailResult"
+        optional="true"/>
+  </nodes>
+<!--@Location 2,6-->
+  <nodes xsi:type="pipeline:JoinNode" nodeID="JoinNode0">
+    <nodeSuccessors name="next" next="EndNode1"/>
+  </nodes>
+<!--@Location 2,7-->
+  <nodes xsi:type="pipeline:EndNode" nodeID="EndNode1" name="ERROR" strict="true">
+    <returnValues name="AggregatedResult" type="java.lang.Integer" optional="true"/>
+    <returnValues name="MailResult" type="java.lang.String" optional="true"/>
+    <returnValues name="MailResults" type="com.intershop.beehive.core.capi.mail.MailResult"
+        optional="true"/>
+  </nodes>
+</pipeline:Pipeline>

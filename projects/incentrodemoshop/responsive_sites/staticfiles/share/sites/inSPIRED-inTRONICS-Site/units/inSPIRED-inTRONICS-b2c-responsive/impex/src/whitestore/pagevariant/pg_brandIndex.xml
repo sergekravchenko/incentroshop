@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<enfinity xmlns:dt="http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt">
+<pagelet-page id="pg_brandIndex">
+<definition-name>app_sf_responsive_cm:pagevariant.standard.pagelet2-Pagevariant</definition-name>
+<parent id="pg_tmp_basicLayout" domain="inSPIRED-inTRONICS-b2c-responsive" />
+<display-name xml:lang="de-DE">Markenindex</display-name>
+<display-name xml:lang="en-US">Brand Index</display-name>
+<online>true</online>
+<author business-partner-no="admin" domain="inSPIRED"/>
+<configuration-parameters>
+<configuration-parameter name="MetaInfo">
+<definition-name>app_sf_responsive_cm:pagevariant.standard.pagelet2-Pagevariant-MetaInfo</definition-name>
+<value name="MetaInfo" xml:lang="de-DE">metaTitle=Marken-Index;metaDescription=;metaKeywords=</value>
+<value name="MetaInfo" xml:lang="en-US">metaTitle=Brand Index;metaDescription=;metaKeywords=</value>
+</configuration-parameter>
+</configuration-parameters>
+<placeholder-configurations>
+<placeholder-configuration hide-target-content="false" place-target-content-on-top="false">
+<parent-placeholder placeholder-id="ph_contentSlot"/>
+</placeholder-configuration>
+</placeholder-configurations>
+</pagelet-page>
+<pagelet-placeholder-assignment id="zEQKAE8HaWsAAAE9OjAmWEnQ">
+<placeholder pagelet-domain="inSPIRED-inTRONICS-b2c-responsive" pagelet-id="pg_brandIndex">
+<parent-placeholder placeholder-id="ph_contentSlot"/>
+</placeholder>
+<pagelet id="cmp_brandIndex" domain="inSPIRED-inTRONICS-b2c-responsive"/>
+<position>1</position>
+<online>true</online>
+</pagelet-placeholder-assignment>
+</enfinity>

@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--@Group Punchout-->
+
+<pipeline:Pipeline xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pipeline="http://www.intershop.de/pipeline/2010"
+    name="ViewOCISettings" overrideMode="Inherit" type="view">
+<!--@Location 0,0-->
+  <nodes xsi:type="pipeline:StartNode" nodeID="StartNode1" name="Dispatch">
+    <nodeSuccessors name="next" next="DispatchFormAction1"/>
+  </nodes>
+<!--@Location 0,1-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="DispatchFormAction1">
+    <configurationValues name="OutValue_0" value="ViewOCISettings-Start"/>
+    <configurationValues name="OutValue_1" value="ViewOCISettings-Enable"/>
+    <pipelet href="enfinity:/core/pipelets/DispatchFormAction.xml"/>
+    <nodeSuccessors name="next" next="JumpNode2"/>
+    <nodeSuccessors name="pipelet_error" next="JumpNode1"/>
+    <parameterBindings name="Key_0" objectPath="view"/>
+    <parameterBindings name="Key_1" objectPath="enable"/>
+    <returnValueBindings name="SelectionKey" objectPath="JumpTarget"/>
+  </nodes>
+<!--@Location 0,2-->
+  <nodes xsi:type="pipeline:JumpNode" nodeID="JumpNode2">
+    <startNode referencedName="SecureJump-Start"/>
+  </nodes>
+<!--@Location 1,2-->
+  <nodes xsi:type="pipeline:JumpNode" nodeID="JumpNode1">
+    <startNode referencedName="ViewUserAccount-Start"/>
+  </nodes>
+<!--@Location 7,0-->
+  <nodes xsi:type="pipeline:StartNode" nodeID="StartNode2" name="Enable" secure="true">
+    <nodeSuccessors name="next" next="CallNode3"/>
+  </nodes>
+<!--@Location 7,1-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode3">
+    <nodeSuccessors name="next" next="CallNode5"/>
+    <parameterBindings name="AjaxRequestMarker" nullBinding="true"/>
+    <parameterBindings name="LoginToUse" constant="oci_punchout"/>
+    <parameterBindings name="Pipeline" constant="ViewOCISettings-Start"/>
+    <parameterBindings name="Request" objectPath="CurrentRequest"/>
+    <parameterBindings name="Session" objectPath="CurrentSession"/>
+    <startNode referencedName="ViewUserAccount-LoginCheck"/>
+  </nodes>
+<!--@Location 7,2-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode5">
+    <nodeSuccessors name="next" next="DecisionNode1"/>
+    <parameterBindings name="UserID" objectPath="CurrentUser:ID"/>
+    <startNode referencedName="ViewUserAccount-GetCustomerBO"/>
+  </nodes>
+<!--@Location 7,3-->
+  <nodes xsi:type="pipeline:DecisionNode" nodeID="DecisionNode1" conditionKey="UserBO:Extension(&quot;UserBORoleExtension&quot;):hasPermission(&quot;APP_B2B_VIEW_PUNCHOUT&quot;)"
+      operator="str_eq" conditionValue="true">
+    <nodeSuccessors name="decision_yes" next="CallNode2"/>
+    <nodeSuccessors name="decision_no" next="JumpNode0"/>
+  </nodes>
+<!--Creates a first OCI punchout user
+@Location 7,4-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode2">
+    <nodeSuccessors name="next" next="JoinNode1"/>
+    <nodeSuccessors name="Error" next="KeyMapper1"/>
+    <parameterBindings name="Email" objectPath="UserBO:Email"/>
+    <startNode referencedName="ProcessOCISettings-Enable"/>
+  </nodes>
+<!--@Location 7,5-->
+  <nodes xsi:type="pipeline:JoinNode" nodeID="JoinNode1">
+    <nodeSuccessors name="next" next="JoinNode2"/>
+  </nodes>
+<!--@Location 4,5-->
+  <nodes xsi:type="pipeline:JoinNode" nodeID="JoinNode2">
+    <nodeSuccessors name="next" next="RenderSystemPageWithTemplate0_Input"/>
+  </nodes>
+<!--@Location 4,7-->
+  <nodes xsi:type="pipeline:PipelineNodeNode" nodeID="RenderSystemPageWithTemplate0">
+    <configurationValues name="PageEntryPointDefinitionReference" value="app_sf_responsive_b2b:systempage.account.ociSettings.pagelet2-Page"/>
+    <configurationValues name="WorkingTemplate" value="punchout/PunchoutSettings"/>
+    <pipelet href="enfinity:/sld_ch_sf_base/pipelets/com.intershop.sellside.storefront.base.capi.pipeline.RenderSystemPageWithTemplate.pipelinenode"/>
+    <inConnectors name="Input">
+      <parameterBindings name="Dictionary" objectPath="CurrentRequest:PipelineDictionary"/>
+    </inConnectors>
+  </nodes>
+<!--@Location 8,5-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="KeyMapper1">
+    <pipelet href="enfinity:/bc_foundation/pipelets/KeyMapper.xml"/>
+    <nodeSuccessors name="next" next="JoinNode1"/>
+    <parameterBindings name="InValue_1" constant="true"/>
+    <returnValueBindings name="OutValue_1" objectPath="ERROR_EnableOCIPunchout"/>
+  </nodes>
+<!--@Location 5,3-->
+  <nodes xsi:type="pipeline:JumpNode" nodeID="JumpNode0">
+    <startNode referencedName="Error-NotFound"/>
+  </nodes>
+<!--@Location 4,0-->
+  <nodes xsi:type="pipeline:StartNode" nodeID="StartNode0" name="Start">
+    <nodeSuccessors name="next" next="CallNode0"/>
+  </nodes>
+<!--@Location 4,1-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode0">
+    <nodeSuccessors name="next" next="CallNode1"/>
+    <parameterBindings name="AjaxRequestMarker" nullBinding="true"/>
+    <parameterBindings name="LoginToUse" constant="oci_punchout"/>
+    <parameterBindings name="Pipeline" constant="ViewOCISettings-Start"/>
+    <parameterBindings name="Request" objectPath="CurrentRequest"/>
+    <parameterBindings name="Session" objectPath="CurrentSession"/>
+    <startNode referencedName="ViewUserAccount-LoginCheck"/>
+  </nodes>
+<!--@Location 4,2-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode1">
+    <nodeSuccessors name="next" next="DecisionNode0"/>
+    <parameterBindings name="UserID" objectPath="CurrentUser:ID"/>
+    <startNode referencedName="ViewUserAccount-GetCustomerBO"/>
+  </nodes>
+<!--@Location 4,3-->
+  <nodes xsi:type="pipeline:DecisionNode" nodeID="DecisionNode0" conditionKey="UserBO:Extension(&quot;UserBORoleExtension&quot;):hasPermission(&quot;APP_B2B_MANAGE_PUNCHOUT&quot;)"
+      operator="str_eq" conditionValue="true">
+    <nodeSuccessors name="decision_yes" next="JoinNode2"/>
+    <nodeSuccessors name="decision_no" next="JumpNode0"/>
+  </nodes>
+</pipeline:Pipeline>

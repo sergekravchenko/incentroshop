@@ -1,0 +1,71 @@
+<!---[Comment]--->
+<iscontent type="text/html" charset="UTF-8" compact="true">
+<html>
+<head>
+	<title>Punch Out - Basket Test Data Form</title>
+</head>
+<body>
+<form action="#URL(Action('TestPunchoutInboundData-Start'))#" 
+						method="post"
+						name="BasketDataForm">
+<table border="1" bordercolor="#ffffff" cellpadding="2" width="700px">
+<tr><td align="center" colspan="2"><b>Punch Out - Basket Test Data Form</b></td></tr>
+<tr><td align="left" width="40%">key</td><td align="left" width="60%">value</td></tr>
+<tr>
+    <td align="left">NEW_ITEM-MATNR [1]</td>
+    <td align="left"><input type="text" name="NEW_ITEM-MATNR[1]" value="" size="60"></td>
+</tr>
+<tr>
+    <td align="left">NEW_ITEM-MATNR [2]</td>
+    <td align="left"><input type="text" name="NEW_ITEM-MATNR[2]" value="" size="60"></td>
+</tr>
+<tr>
+    <td align="left">NEW_ITEM-UNIT [1]</td>
+    <td align="left"><input type="text" name="NEW_ITEM-UNIT[1]" value="" size="60" size="60"></td>
+</tr>
+<tr>
+    <td align="left">NEW_ITEM-VENDOR [1]</td>
+    <td align="left"><input type="text" name="NEW_ITEM-VENDOR[1]" value="" size="60"></td>
+</tr>
+<tr>
+    <td align="left">NEW_ITEM-QUANTITY [2]</td>
+    <td align="left"><input type="text" name="NEW_ITEM-QUANTITY[2]" value="" size="60"></td>
+</tr>
+<tr>
+    <td align="left">NEW_ITEM-QUANTITY [1]</td>
+    <td align="left"><input type="text" name="NEW_ITEM-QUANTITY[1]" value="" size="60"></td>
+</tr>
+
+<tr>
+    <td align="left">NEW_ITEM-LONGTEXT_3</td>
+    <td align="left"><input type="text" name="NEW_ITEM-LONGTEXT_3:132[]" value="" size="60"></td>
+</tr>
+<tr>
+    <td align="left">NEW_ITEM-UNIT [2]</td>
+    <td align="left"><input type="text" name="NEW_ITEM-UNIT[2]" value="" size="60"></td>
+</tr>
+<tr>
+    <td align="left">NEW_ITEM-LONGTEXT_2:132[]</td>
+    <td align="left"><input type="text" name="NEW_ITEM-LONGTEXT_2:132[]" value="" size="60"></td>
+</tr>
+<tr>
+    <td align="left">NEW_ITEM-QUANTITY [3]</td>
+    <td align="left"><input type="text" name="NEW_ITEM-QUANTITY[3]" value="" size="60"></td>
+</tr>
+<tr>
+    <td align="left">NEW_ITEM-UNIT [3]</td>
+    <td align="left"><input type="text" name="NEW_ITEM-UNIT[3]" value="" size="60"></td>
+</tr>
+<tr>
+    <td align="left">NEW_ITEM-DESCRIPTION [2]</td>
+    <td align="left"><input type="text" name="NEW_ITEM-DESCRIPTION[2]" value="" size="60"></td>
+</tr>
+<tr>
+    <td align="left">NEW_ITEM-MATNR [3]</td>
+    <td align="left"><input type="text" name="NEW_ITEM-MATNR[3]" value="" size="60"></td>
+</tr>
+</table>
+<input type="submit" name="submit" value="submit">
+</form>
+</body>
+</html>

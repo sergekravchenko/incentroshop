@@ -1,0 +1,410 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<enfinity xmlns="http://www.intershop.com/xml/ns/enfinity/7.1/xcs/impex" xmlns:dt="http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" branch="enterprise" build="build" family="enfinity" major="6" minor="1" xsi:schemaLocation="http://www.intershop.com/xml/ns/enfinity/7.1/xcs/impex catalog.xsd http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt dt.xsd">
+	<category name="84214">
+		<name>84214</name>
+		<root>0</root>
+		<product-assignment-query/>
+		<template/>
+		<online>1</online>
+		<category-links>
+		</category-links>
+		<display-name xml:lang="fr-FR">Jeux</display-name>
+		<display-name xml:lang="en-US">Gaming</display-name>
+		<parent name="Home-Entertainment"/>
+		<images>
+			<image-ref image-base-name="M/5748752-3433.jpg" image-type="M" image-view="front"/>
+		</images>
+	</category>
+	<category name="558">
+		<name>558</name>
+		<root>0</root>
+		<product-assignment-query/>
+		<template>category/CatalogCategory</template>
+		<online>1</online>
+		<category-links>
+		</category-links>
+		<display-name xml:lang="fr-FR">Projecteurs de données</display-name>
+		<display-name xml:lang="en-US">Data Projectors</display-name>
+		<display-name xml:lang="de-DE">Data Projectors</display-name>
+		<parent name="220"/>
+		<images>
+			<image-ref image-base-name="M/3454571-3668.jpg" image-type="M" image-view="front"/>
+		</images>
+		<custom-attributes>
+			<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="fr-FR">True</custom-attribute>
+			<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="en-US">True</custom-attribute>
+			<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+			<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+			<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+			<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+		</custom-attributes>
+	</category>
+	<category name="857">
+		<name>857</name>
+		<root>0</root>
+		<product-assignment-query/>
+		<template>category/CatalogCategory</template>
+		<online>1</online>
+		<category-links>
+		</category-links>
+		<description xml:lang="de-DE">Diese Geräte ermöglichen es, Geräte zu Hause aus der Ferne steuern. Nie wieder aufstehen!</description>
+		<display-name xml:lang="de-DE">Fernbedienungen</display-name>
+		<display-name xml:lang="fr-FR">Télécommandes</display-name>
+		<display-name xml:lang="en-US">Remote Controls</display-name>
+		<parent name="1058"/>
+		<images>
+			<image-ref image-base-name="M/3520327-5736.jpg" image-type="M" image-view="front"/>
+		</images>
+		<custom-attributes>
+			<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="fr-FR">True</custom-attribute>
+			<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="en-US">True</custom-attribute>
+			<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+			<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+			<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+			<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+		</custom-attributes>
+	</category>
+	<category name="1584">
+		<name>1584</name>
+		<root>0</root>
+		<product-assignment-query/>
+		<template>category/CatalogCategory</template>
+		<online>1</online>
+		<category-links>
+		</category-links>
+		<display-name xml:lang="de-DE">LED TVs</display-name>
+		<display-name xml:lang="fr-FR">TV LED</display-name>
+		<display-name xml:lang="en-US">LED TVs</display-name>
+		<parent name="220"/>
+		<images>
+			<image-ref image-base-name="M/8806086011815_2.jpg" image-type="M" image-view="front"/>
+		</images>
+		<custom-attributes>
+			<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="fr-FR">True</custom-attribute>
+			<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="en-US">True</custom-attribute>
+			<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+			<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+			<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+			<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+		</custom-attributes>
+	</category>
+	<category name="1081">
+		<name>1081</name>
+		<root>0</root>
+		<product-assignment-query/>
+		<template>category/CatalogCategory</template>
+		<online>1</online>
+		<category-links>
+		</category-links>
+		<display-name xml:lang="fr-FR">Hauts-parleurs</display-name>
+		<display-name xml:lang="en-US">Loudspeakers</display-name>
+		<display-name xml:lang="de-DE">Lautsprecher</display-name>
+		<parent name="1058"/>
+		<images>
+			<image-ref image-base-name="M/4011592-2314.jpg" image-type="M" image-view="front"/>
+		</images>
+		<custom-attributes>
+			<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+			<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+			<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="fr-FR">True</custom-attribute>
+			<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="en-US">True</custom-attribute>
+			<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+			<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+		</custom-attributes>
+	</category>
+	<category name="1078">
+		<name>1078</name>
+		<root>0</root>
+		<product-assignment-query/>
+		<template>category/CatalogCategory</template>
+		<online>1</online>
+		<category-links>
+		</category-links>
+		<display-name xml:lang="de-DE">LCD TV&apos;s</display-name>
+		<description xml:lang="de-DE">LCD ist eine neue Technologie zur Darstellung von Bildern. LCD-Bildschirme sind flach, dünn und haben eine relativ hohe Auflösung und werden daher oft als Computer-Monitor verwendet, aber Sie sind auch sehr geeignet für den Einsatz als Fernseher!</description>
+		<display-name xml:lang="fr-FR">TV LCD</display-name>
+		<display-name xml:lang="en-US">LCD TVs</display-name>
+		<parent name="220"/>
+		<images>
+			<image-ref image-base-name="M/4508470-6345.jpg" image-type="M" image-view="front"/>
+		</images>
+		<custom-attributes>
+			<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+			<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+			<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+			<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+			<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="fr-FR">True</custom-attribute>
+			<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="en-US">True</custom-attribute>
+		</custom-attributes>
+	</category>
+	<category import-mode="UPDATE" name="Home-Entertainment">
+		<name>Home-Entertainment</name>
+		<root>1</root>
+		<product-assignment-query/>
+		<template/>
+		<online>1</online>
+		<category-links>
+		</category-links>
+		<display-name xml:lang="fr-FR">Divertissement à domicile</display-name>
+		<display-name xml:lang="en-US">Home Entertainment</display-name>
+		<description xml:lang="fr-FR">Le catalogue des services et produits de la télévision et du divertissement à domicile.</description>
+		<description xml:lang="en-US">The TV &amp; Home Entertainment products and services catalog.</description>
+		<description xml:lang="de-DE">Der Produkt- und Servicekatalog für TV &amp; Home Entertainment.</description>
+		<display-name xml:lang="de-DE">Home Entertainment</display-name>
+		<custom-attributes>
+			<custom-attribute dt:dt="string" name="PRODUCT_SORTING_TYPE">default</custom-attribute>
+			<custom-attribute dt:dt="string" name="ShowInMenu">True</custom-attribute>
+		</custom-attributes>
+	</category>
+	<category name="1020">
+		<name>1020</name>
+		<root>0</root>
+		<product-assignment-query/>
+		<template>category/CatalogCategory</template>
+		<online>1</online>
+		<category-links>
+		</category-links>
+		<description xml:lang="de-DE">Kopfhörer gibt es in allen möglichen Ausführungen und Qualitäten. Sie können Ihr perfektes Paar dager sicherlich in unserer Datenbank zu finden!</description>
+		<display-name xml:lang="fr-FR">Casques-micros</display-name>
+		<display-name xml:lang="en-US">Headphones</display-name>
+		<display-name xml:lang="de-DE">Kopfhörer</display-name>
+		<parent name="1058"/>
+		<images>
+			<image-ref image-base-name="M/4852579-6260.jpg" image-type="M" image-view="front"/>
+		</images>
+		<custom-attributes>
+			<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="fr-FR">True</custom-attribute>
+			<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="en-US">True</custom-attribute>
+			<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+			<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+			<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+			<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+		</custom-attributes>
+	</category>
+	<category name="1001">
+		<name>1001</name>
+		<root>0</root>
+		<product-assignment-query/>
+		<template>category/CatalogCategory</template>
+		<online>1</online>
+		<category-links>
+		</category-links>
+		<display-name xml:lang="fr-FR">Lecteurs &amp; enregistreurs DVD</display-name>
+		<display-name xml:lang="en-US">DVD Players &amp; Recorders</display-name>
+		<display-name xml:lang="de-DE">DVD-Player/-Recorder</display-name>
+		<description xml:lang="de-DE">Mit Hilfe von DVD-Spielern/-Aufnahmegeräten können Sie Videos von hoher Qualität aufnehmen/sehen , spielen Sie Ihre MP3-CDs, Audio-CD&apos;s und Audio-DVD&apos;s, betrachten Sie Ihre Fotos im JPG-Format. DVD-Recorder haben häufig eine eingebaute Festplatte, auf welcher Sie Ihre Heimvideos aufnehmen und bearbeiten und auf DVD brennen können, oder nehmen Sie Ihre Lieblings-TV-Programme auf, um sie später anzusehen. Einige DVD-Recorder haben eine eine automatische Werbungserkennung: Schauen Sie den Film einfach eine halbe Stunde nach Sendebeginn und er wird all die unerwünschte Werbung für Sie überspringen, Sie müssen nie wieder Anzeigen sehen, die Sie nicht sehen wollen!</description>
+		<parent name="1058"/>
+		<images>
+			<image-ref image-base-name="M/4833886-3661.jpg" image-type="M" image-view="front"/>
+		</images>
+		<custom-attributes>
+			<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+			<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+			<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="fr-FR">True</custom-attribute>
+			<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="en-US">True</custom-attribute>
+			<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+			<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+		</custom-attributes>
+	</category>
+	<category name="1296">
+		<name>1296</name>
+		<root>0</root>
+		<product-assignment-query/>
+		<template>category/CatalogCategory</template>
+		<online>1</online>
+		<category-links>
+		</category-links>
+		<display-name xml:lang="de-DE">TV-Tuner-Karten</display-name>
+		<display-name xml:lang="fr-FR">Tuners TV d&apos;ordinateur</display-name>
+		<display-name xml:lang="en-US">Computer TV Tuners</display-name>
+		<parent name="1058"/>
+		<images>
+			<image-ref image-base-name="M/355309-9091.jpg" image-type="M" image-view="front"/>
+		</images>
+		<custom-attributes>
+			<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+			<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+			<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+			<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+			<custom-attribute dt:dt="string" name="PRODUCT_SORTING_TYPE">default</custom-attribute>
+		</custom-attributes>
+	</category>
+	<category name="1344">
+		<name>1344</name>
+		<root>0</root>
+		<product-assignment-query/>
+		<template>category/CatalogCategory</template>
+		<online>1</online>
+		<category-links>
+		</category-links>
+		<display-name xml:lang="fr-FR">Lecteurs de disques</display-name>
+		<display-name xml:lang="en-US">Record Players</display-name>
+		<display-name xml:lang="de-DE">Plattenspieler</display-name>
+		<parent name="1058"/>
+		<images>
+			<image-ref image-base-name="M/3774976-7584.jpg" image-type="M" image-view="front"/>
+		</images>
+		<custom-attributes>
+			<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+			<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+			<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="fr-FR">True</custom-attribute>
+			<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="en-US">True</custom-attribute>
+			<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+			<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+		</custom-attributes>
+	</category>
+	<category name="1082">
+		<name>1082</name>
+		<root>0</root>
+		<product-assignment-query/>
+		<template>category/CatalogCategory</template>
+		<online>1</online>
+		<category-links>
+		</category-links>
+		<display-name xml:lang="fr-FR">Système Home Cinéma</display-name>
+		<display-name xml:lang="en-US">Home Cinema Systems</display-name>
+		<display-name xml:lang="de-DE">Home-Kino Systeme</display-name>
+		<description xml:lang="de-DE">Nehmen Sie die Filme mit einem dieser fantastischen Heimkino-Systeme mit nach Hause! Ein Heimkino-System enthält in der Regel alles, was Sie brauchen, um die realistische Darstellung Ihrer DVDs oder Videospiele zu genießen: einen DVD-Player, einen Verstärker und Surroundsound-Lautsprecher mit Subwoofer, und alles funktioniert perfekt zusammen. Das einzige, was nicht im Lieferumfang enthalten ist, ist ein Fernseher, so dass Sie die Freiheit haben, selbst einen auszuwählen. Man kann sogar einen statt eines Fernseher für den echten Heimkino-Erlebnis anschließen!</description>
+		<parent name="1058"/>
+		<images>
+			<image-ref image-base-name="M/4312889-319.jpg" image-type="M" image-view="front"/>
+		</images>
+		<custom-attributes>
+			<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+			<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+			<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+			<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+			<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="fr-FR">True</custom-attribute>
+			<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="en-US">True</custom-attribute>
+		</custom-attributes>
+	</category>
+	<category name="8429">
+		<name>8429</name>
+		<root>0</root>
+		<product-assignment-query/>
+		<template/>
+		<online>1</online>
+		<category-links>
+		</category-links>
+		<display-name xml:lang="fr-FR">Casques</display-name>
+		<display-name xml:lang="en-US">Headsets</display-name>
+		<parent name="84214"/>
+		<images>
+			<image-ref image-base-name="M/1454627-2352.jpg" image-type="M" image-view="front"/>
+		</images>
+	</category>
+	<category name="71515">
+		<name>71515</name>
+		<root>0</root>
+		<product-assignment-query/>
+		<template/>
+		<online>1</online>
+		<category-links>
+		</category-links>
+		<display-name xml:lang="fr-FR">Contrôles de jeu</display-name>
+		<display-name xml:lang="en-US">Gaming Controls</display-name>
+		<parent name="84214"/>
+		<images>
+			<image-ref image-base-name="M/5748752-3433.jpg" image-type="M" image-view="front"/>
+		</images>
+	</category>
+	<category name="1058">
+		<name>1058</name>
+		<root>0</root>
+		<product-assignment-query/>
+		<template>category/CatalogCategory</template>
+		<online>1</online>
+		<category-links>
+		</category-links>
+		<display-name xml:lang="fr-FR">Audio &amp; Video</display-name>
+		<display-name xml:lang="en-US">Audio &amp; Video</display-name>
+		<display-name xml:lang="de-DE">Audio u. Video</display-name>
+		<parent name="Home-Entertainment"/>
+		<images>
+			<image-ref image-base-name="M/3961074-8437.jpg" image-type="M" image-view="front"/>
+		</images>
+		<custom-attributes>
+			<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+			<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+			<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+			<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+			<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="fr-FR">True</custom-attribute>
+			<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="en-US">True</custom-attribute>
+		</custom-attributes>
+	</category>
+	<category name="SmartHome">
+		<name>SmartHome</name>
+		<root>0</root>
+		<product-assignment-query/>
+		<template>category/CatalogCategory</template>
+		<online>1</online>
+		<category-links>
+		</category-links>
+		<display-name xml:lang="de-DE">Smart Home</display-name>
+		<display-name xml:lang="fr-FR">Maison intelligente</display-name>
+		<display-name xml:lang="en-US">Smart Home</display-name>
+		<description xml:lang="fr-FR">Des solutions intelligentes pour l&apos;éclairage, les portes et fenêtres ou le chauffage.</description>
+		<description xml:lang="en-US">Smart home solutions for light, doors and windows or heating</description>
+		<parent name="Home-Entertainment"/>
+		<images>
+			<image-ref image-base-name="M/M_201807171_front.jpg" image-type="M" image-view="front"/>
+		</images>
+		<custom-attributes>
+		<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+			<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+		<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+			<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+		<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="fr-FR">True</custom-attribute>
+			<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="en-US">True</custom-attribute>
+		</custom-attributes>
+	</category>
+	<category name="220">
+		<name>220</name>
+		<root>0</root>
+		<product-assignment-query/>
+		<template>category/CatalogCategory</template>
+		<online>1</online>
+		<category-links>
+		</category-links>
+		<display-name xml:lang="de-DE">TVs &amp; Projektoren</display-name>
+		<display-name xml:lang="fr-FR">Télévisions et projecteurs</display-name>
+		<display-name xml:lang="en-US">TVs &amp; Projectors</display-name>
+		<parent name="Home-Entertainment"/>
+		<images>
+			<image-ref image-base-name="M/5920217-5050.jpg" image-type="M" image-view="front"/>
+		</images>
+		<custom-attributes>
+			<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+			<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+			<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+			<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+			<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="fr-FR">True</custom-attribute>
+			<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="en-US">True</custom-attribute>
+		</custom-attributes>
+	</category>
+	<category name="1373">
+		<name>1373</name>
+		<root>0</root>
+		<product-assignment-query/>
+		<template>category/CatalogCategory</template>
+		<online>1</online>
+		<category-links>
+		</category-links>
+		<display-name xml:lang="de-DE">Medienspieler/-recorder</display-name>
+		<description xml:lang="de-DE">Media-Player verbinden Ihr Netzwerk mit Ihrem Home Entertainment Center und erlauben Ihnen, Ihre digitalen Medien, ob Musik, Videos oder Fotos, im Komfort von Ihrem Wohnzimmer zu verwenden, zu teilen und zu genießen. Manche Media Player haben sogar eine eingebaute Harddisk, so dass Sie Ihre Lieblingsfilme speichern können und diese genießen können, ohne Ihren Computer einzuschalten. Sie können den Media Player sogar mit zu Freunden nehmen, um die neusten Filme gemeinsam zu sehen oder Ihre neuste musikalische Entdeckung mit Ihnen zu teilen!</description>
+		<display-name xml:lang="fr-FR">Lecteurs et enregistreurs de médias</display-name>
+		<display-name xml:lang="en-US">Media players &amp; recorders</display-name>
+		<parent name="1058"/>
+		<images>
+			<image-ref image-base-name="M/4313222-9967.jpg" image-type="M" image-view="front"/>
+		</images>
+		<custom-attributes>
+			<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="fr-FR">True</custom-attribute>
+			<custom-attribute dt:dt="string" name="ShowInMenu" xml:lang="en-US">True</custom-attribute>
+			<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+			<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+			<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+			<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+		</custom-attributes>
+	</category>
+</enfinity>

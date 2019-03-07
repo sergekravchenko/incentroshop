@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<enfinity xmlns:dt="http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt">
+<pagelet-component id="cmp_endcaps">
+<definition-name>app_sf_responsive_cm:component.shopping.productListFilter.pagelet2-Component</definition-name>
+<display-name xml:lang="de-DE">Endcaps</display-name>
+<display-name xml:lang="en-US">Endcaps</display-name>
+<online>true</online>
+<author business-partner-no="admin" domain="inSPIRED"/>
+<configuration-parameters>
+<configuration-parameter name="ProductView">
+<definition-name>app_sf_responsive_cm:component.shopping.productListFilter.pagelet2-Component-ProductView</definition-name>
+<value name="ProductView">app_sf_responsive:vc_productTile@inSPIRED-inTRONICS_Business-smb-responsive</value>
+</configuration-parameter>
+<configuration-parameter name="Sortings">
+<definition-name>app_sf_responsive_cm:component.shopping.productListFilter.pagelet2-Component-Sortings</definition-name>
+<value name="Sortings">
+<value>name-asc</value>
+<value>name-desc</value>
+<value>SalesRankUnitsIndex-asc</value>
+<value>ArrivalDate-asc</value>
+</value>
+</configuration-parameter>
+</configuration-parameters>
+<slots>
+<slot>
+<definition-name>app_sf_responsive_cm:slot.marketing.base.pagelet2-Slot</definition-name>
+<optional>false</optional>
+<sorting>false</sorting>
+</slot>
+</slots>
+</pagelet-component>
+</enfinity>

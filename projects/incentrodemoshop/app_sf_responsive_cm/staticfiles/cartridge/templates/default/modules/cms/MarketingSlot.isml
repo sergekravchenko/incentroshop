@@ -1,0 +1,16 @@
+<iscontent type="text/html" charset="UTF-8" compact="true">
+
+<isif condition="#isDefined(id) AND (id NE '') AND isDefined(Pagelet)#">
+	<isif condition="#id EQ 'baseMarketing'#">
+		<!--- Base Marketing slot --->
+		<isslot slot="app_sf_responsive_cm:slot.marketing.base.pagelet2-Slot">
+		
+	<iselseif condition="#id EQ 'contentMarketing'#">
+		<!--- Content Marketing slot --->
+		<isslot slot="app_sf_responsive_cm:slot.marketing.content.pagelet2-Slot">
+		
+	<iselseif condition="#id EQ 'sidePanelMarketing'#">
+		<!--- SidePanel Marketing slot --->
+		<isslot slot="app_sf_responsive_cm:slot.marketing.sidePanel.pagelet2-Slot">
+	</isif>
+</isif>

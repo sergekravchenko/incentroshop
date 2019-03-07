@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pagelet:PageletModel xmlns:pagelet="http://www.intershop.de/pagelet/2010" name="component.category.categoryTile.pagelet2">
+  <pageletDefinitions name="Component">
+    <callParameterInterfaces referencedName="app_sf_responsive:interface.include.category.standard.pagelet2-Interface"/>
+    <callParameterInterfaces referencedName="app_sf_responsive_cm:interface.container.content.pagelet2-Interface"/>
+    <configurationParameterDefinitions name="CSSClass" optional="true" localizable="false"
+        typeReference="bc_pmc:types.pagelet2-Text"/>
+    <configurationParameterDefinitions name="ProductSample" optional="true" localizable="false"
+        typeReference="bc_product:types.pagelet2-ProductBO"/>
+    <renderTemplate referencedName="component/category/CategoryTile"/>
+  </pageletDefinitions>
+</pagelet:PageletModel>

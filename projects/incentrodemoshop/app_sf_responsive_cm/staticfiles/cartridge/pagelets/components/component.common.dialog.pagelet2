@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pagelet:PageletModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pagelet="http://www.intershop.de/pagelet/2010"
+    name="component.common.dialog.pagelet2">
+  <pageletDefinitions name="Component" container="true">
+    <callParameterInterfaces referencedName="app_sf_responsive:interface.include.dialog.pagelet2-Interface"/>
+    <configurationParameterDefinitions name="Title" optional="true" typeReference="bc_pmc:types.pagelet2-Text"/>
+    <configurationParameterDefinitions xsi:type="pagelet:ListParameterDefinition"
+        name="Size" optional="true" localizable="false" typeReference="bc_pmc:types.pagelet2-DropDownBox">
+      <parameterDefinitions name="small" typeReference="bc_pmc:types.pagelet2-Text"/>
+      <parameterDefinitions name="medium" typeReference="bc_pmc:types.pagelet2-Text"/>
+      <parameterDefinitions name="large" typeReference="bc_pmc:types.pagelet2-Text"/>
+    </configurationParameterDefinitions>
+    <configurationParameterDefinitions name="Content" optional="true" typeReference="bc_pmc:types.pagelet2-Html"/>
+    <configurationParameterDefinitions name="Footer" optional="true" typeReference="bc_pmc:types.pagelet2-Html"/>
+    <renderTemplate referencedName="component/common/Dialog"/>
+    <slotInclusionDefinitions>
+      <slotDefinition referencedName="app_sf_responsive_cm:slot.dialog.content.pagelet2-Slot"/>
+    </slotInclusionDefinitions>
+  </pageletDefinitions>
+</pagelet:PageletModel>

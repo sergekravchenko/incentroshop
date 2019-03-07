@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<enfinity xmlns:dt="http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt">
+<view-context id="viewcontext.page.category.pagelet2-ViewContext">
+<definition-name>app_sf_responsive:viewcontext.page.category.pagelet2-ViewContext</definition-name>
+<display-name xml:lang="de-DE">Kategorieseite</display-name>
+<display-name xml:lang="en-US">Category Page</display-name>
+<display-name xml:lang="fr-FR">Page de catégorie</display-name>
+<description xml:lang="de-DE">Das ist der Seitenansichtskontext einer Kategorie</description>
+<description xml:lang="en-US">This is the page view context of a category</description>
+<description xml:lang="fr-FR">C&apos;est le contexte de vue de page d&apos;une catégorie.</description>
+<configuration-parameters>
+<configuration-parameter name="SubCategoryViewContext">
+<definition-name>app_sf_responsive:viewcontext.page.category.pagelet2-ViewContext-SubCategoryViewContext</definition-name>
+<value name="SubCategoryViewContext">app_sf_responsive:viewcontext.page.subCategory.pagelet2-ViewContext@inSPIRED-inTRONICS_Business-smb-responsive</value>
+</configuration-parameter>
+</configuration-parameters>
+<fallbacks>
+<pagelet-entry-point id="viewcontext.page.category.pagelet2-ViewContext/PageCategory">
+<definition-name>app_sf_responsive:page.category.pagelet2-Page</definition-name>
+<page>true</page>
+<configuration-parameters>
+<configuration-parameter name="HasParametricNavigation">
+<definition-name>app_sf_responsive:page.category.pagelet2-Page-HasParametricNavigation</definition-name>
+<value name="HasParametricNavigation">true</value>
+</configuration-parameter>
+<configuration-parameter name="SearchQueryDefinitionID">
+<definition-name>app_sf_responsive:page.category.pagelet2-Page-SearchQueryDefinitionID</definition-name>
+<value name="SearchQueryDefinitionID">fallback_searchquerydefinition</value>
+</configuration-parameter>
+</configuration-parameters>
+</pagelet-entry-point>
+<pagelet-entry-point id="viewcontext.page.category.pagelet2-ViewContext/PageFamily">
+<definition-name>app_sf_responsive:page.family.pagelet2-Page</definition-name>
+<page>true</page>
+<configuration-parameters>
+<configuration-parameter name="HasParametricNavigation">
+<definition-name>app_sf_responsive:page.family.pagelet2-Page-HasParametricNavigation</definition-name>
+<value name="HasParametricNavigation">true</value>
+</configuration-parameter>
+<configuration-parameter name="SearchQueryDefinitionID">
+<definition-name>app_sf_responsive:page.family.pagelet2-Page-SearchQueryDefinitionID</definition-name>
+<value name="SearchQueryDefinitionID">fallback_searchquerydefinition</value>
+</configuration-parameter>
+</configuration-parameters>
+</pagelet-entry-point>
+</fallbacks>
+</view-context>
+</enfinity>

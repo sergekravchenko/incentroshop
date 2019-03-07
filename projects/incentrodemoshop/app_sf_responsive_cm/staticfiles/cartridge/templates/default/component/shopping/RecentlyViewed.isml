@@ -1,0 +1,78 @@
+<iscontent personalized="true" type="text/html" charset="UTF-8" compact="true">
+<iscache type="forbidden">
+<isinclude template="modules/Modules">
+
+<div class="row breadcrumbs">
+	<ISBreadcrumb showhomelink="true" trailtext0="#localizeText("application.recentlyViewed.breadcrumb.label")#">
+</div>
+
+<div class="marketing-area">
+	<isslot slot="app_sf_responsive_cm:slot.marketing.base.pagelet2-Slot">
+</div>
+
+<div class="row">
+	<isif condition="#hasElements(KeywordSearches) OR hasElements(CategoryBOs) OR hasElements(ProductBOs)#">
+		<div class="col-sm-3">
+			<isset name="SearchPrefSize" value="#CurrentDomain:Configuration:Integer("RecentlyViewedItemsKeywordSearchListSize")#" scope="request">
+			<isif condition="#isDefined(SearchPrefSize) AND (SearchPrefSize > 0) #">
+				<isif condition="#isDefined(KeywordSearches) AND hasElements(KeywordSearches)#">
+					<div class="recently-viewed-searches filter-group">
+						<h3><istext key="application.recentlyViewed.search.heading" /></h3>
+						<ul class="filter-list">
+							<isloop iterator="KeywordSearches" alias="Search">
+								<li class="filter-item">
+									<a class="filter-item-name" href="#URL(Action('ViewParametricSearch-SimpleOfferSearch'), Parameter('SearchTerm', Search))#">
+										<isprint value="#Search#">
+									</a>
+								</li>
+							</isloop>
+						</ul>
+					</div>
+				</isif>
+			</isif>
+			
+			<isset name="CategoryPrefSize" value="#CurrentDomain:Configuration:Integer("RecentlyViewedItemsCategoryListSize")#" scope="request">
+			<isif condition="#isDefined(CategoryPrefSize) AND (CategoryPrefSize > 0) #">
+				<isif condition="#isDefined(CategoryBOs) AND hasElements(CategoryBOs)#">
+					<div class="recently-viewed-categories filter-group">
+						<h3><istext key="application.recentlyViewed.category.heading" /></h3>
+						<ul class="filter-list">
+							<isloop iterator="CategoryBOs" alias="CategoryBO" counter="CategoryCount">
+								<isset name="CategoryBO" value="#CategoryBO#" scope="request">
+								<li class="filter-item">
+									<a class="filter-item-name" href="#URLEX(InsecureURL,'',Action('ViewStandardCatalog-Browse'), Parameter('CatalogID', CategoryBO:CatalogBO:Name), Parameter('CategoryName', CategoryBO:Name))#">
+										<isprint value="#CategoryBO:DisplayName#">
+									</a>
+								</li>
+							</isloop>
+						</ul>
+					</div>
+				</isif>
+			</isif>
+			
+			<a href="#URL(Action('ViewRecentlyViewedItems-ClearAll'))#"><istext key="application.recentlyViewed.clear" /></a>
+		</div>
+		
+		<div class="col-sm-9">
+			<h1><istext key="application.recentlyViewed.product.heading"></h1>
+			<isset name="ProductPrefSize" value="#CurrentDomain:Configuration:Integer("RecentlyViewedItemsProductListSize")#" scope="request">
+			<isif condition="#isDefined(ProductPrefSize) AND (ProductPrefSize > 0)#">
+				<isset name="ListItemCSSClass" value="col-xs-6 col-md-4 grid-view" scope="request">
+				<isif condition="#isDefined(PageletConfigurationParameters:ListItemCSSClass) AND (PageletConfigurationParameters:ListItemCSSClass NE '')#">
+					<isset name="ListItemCSSClass" value="#PageletConfigurationParameters:ListItemCSSClass#" scope="request">
+				</isif>
+				<ISProductList
+					ProductBOs="#ProductBOs#"
+					viewContext="#PageletConfigurationParameters:ProductView#"
+					listItemCssClass="#ListItemCSSClass#"
+					maxNumberOfProducts="#ProductPrefSize#"
+				>
+			</isif>
+		</div>
+	<iselse>
+		<div class="col-sm-12">
+			<h1><istext key="application.recentlyViewed.heading" /></h1>
+			<p><istext key="application.recentlyViewed.empty" /></p>
+		</div>
+	</isif>
+</div>

@@ -1,0 +1,8 @@
+<iscontent personalized="true" type="text/html" charset="UTF-8" compact="true">
+<isinclude template="modules/Modules">
+<isif condition="#CurrentSession:isLoggedIn#">
+	<iscache type="forbidden" />
+	<isHtmlPrint value="#PageletConfigurationParameters:PersonalizedMessage#">
+<iselse>
+	<iscache type="daily" />
+</isif>

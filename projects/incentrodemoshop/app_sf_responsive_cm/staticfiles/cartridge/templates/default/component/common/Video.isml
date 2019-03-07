@@ -1,0 +1,80 @@
+<iscontent type="text/html" charset="UTF-8" compact="true">
+<isinclude template="modules/Modules">
+
+<isif condition="#isDefined(PageletConfigurationParameters:Video) AND (PageletConfigurationParameters:Video NE '')#">
+	<isset name="video" value="#PageletConfigurationParameters:Video#" scope="request"/>
+	
+	<isif condition="#isDefined(PageletConfigurationParameters:VideoSizePreset)#">
+		<isif condition="#(PageletConfigurationParameters:VideoSizePreset EQ 'custom')#">
+			<isset name="videoWidth" value="#PageletConfigurationParameters:VideoWidth#" scope="request"/>
+			<isset name="videoHeight" value="#PageletConfigurationParameters:VideoHeight#" scope="request"/>
+		<iselseif condition="#(PageletConfigurationParameters:VideoSizePreset EQ '560x315')#"/>
+			<isset name="videoWidth" value="560" scope="request"/>
+			<isset name="videoHeight" value="315" scope="request"/>
+		<iselseif condition="#(PageletConfigurationParameters:VideoSizePreset EQ '640x360')#"/>
+			<isset name="videoWidth" value="640" scope="request"/>
+			<isset name="videoHeight" value="360" scope="request"/>
+		<iselseif condition="#(PageletConfigurationParameters:VideoSizePreset EQ '853x480')#"/>
+			<isset name="videoWidth" value="853" scope="request"/>
+			<isset name="videoHeight" value="480" scope="request"/>
+		<iselseif condition="#(PageletConfigurationParameters:VideoSizePreset EQ '1280x720')#"/>
+			<isset name="videoWidth" value="1280" scope="request"/>
+			<isset name="videoHeight" value="720" scope="request"/>
+		</isif>
+	</isif>
+	
+	<div 
+		class="video-container <isif condition="#isDefined(PageletConfigurationParameters:CSSClass) AND (PageletConfigurationParameters:CSSClass NE '')#"><isprint value="#PageletConfigurationParameters:CSSClass#"/></isif>"
+		<isif condition="#isDefined(PageletConfigurationParameters:VideoSizePreset) AND (PageletConfigurationParameters:VideoSizePreset NE 'auto')#">style="width: <isprint value="#videoWidth#">px; height: <isprint value="#videoHeight#">px;"</isif>
+	>
+		<!--- if video reference is a video hoster url, meaning it starts with "http" --->
+		<isif condition="#(replace(video, '^http', '') NE video)#">
+			<div class="video-wrapper">
+				<iframe data-url="<isprint value="#video#">"
+					<isif condition="#isDefined(PageletConfigurationParameters:VideoSizePreset) AND (PageletConfigurationParameters:VideoSizePreset NE 'auto')#">
+						width="<isprint value="#videoWidth#">" 
+						height="<isprint value="#videoHeight#">" 
+					<iselse/>
+						width="1140" 
+						height="640" 
+					</isif>
+					<isif condition="#(PageletConfigurationParameters:Autoplay EQ 'true')#">data-autoplay="true" </isif>
+					frameborder="0" allowfullscreen>
+				</iframe>
+			</div>
+		
+		<!--- the video reference is to a local video file that can be embedded via video tag --->
+		<iselse>
+			<video src="#ContentURL(video)#"
+				autobuffer
+				<isif condition="#(PageletConfigurationParameters:Autoplay EQ 'true')#">
+					class="video autoplay"
+					autoplay controls
+				<iselse>
+					class="video"
+					poster="#ContentURL(PageletConfigurationParameters:Image)#"
+				</isif>
+				<isif condition="#isDefined(PageletConfigurationParameters:VideoSizePreset) AND (PageletConfigurationParameters:VideoSizePreset NE 'auto')#">
+					width="<isprint value="#videoWidth#">" 
+					height="<isprint value="#videoHeight#">" 
+				<iselse>
+					width="100%" 
+					height="auto"
+				</isif>
+				<isif condition="#(PageletConfigurationParameters:Mute EQ 'true')#">muted</isif>
+			>
+			</video>
+			
+			<isif condition="#(PageletConfigurationParameters:Autoplay NE 'true')#">
+				<div class="video-text">
+					<isif condition="#isDefined(PageletConfigurationParameters:Heading) AND (PageletConfigurationParameters:Heading NE '')#">
+						<h1><isprint value="#PageletConfigurationParameters:Heading#"/></h1>
+					</isif>
+					<a class="video-link">
+						<span class="glyphicon glyphicon-play-circle"></span>
+					</a>
+				</div>
+			</isif>
+		</isif>
+	</div>
+</isif>

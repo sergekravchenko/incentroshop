@@ -1,0 +1,17 @@
+<iscontent personalized="true" compact="true" charset="UTF-8">
+<isinclude template="modules/Modules">
+
+<iscachekey object="#CategoryBO#">
+
+<div data-testing-id="category-<isprint value="#CategoryBO:Name#">" class="category-name <isif condition="#PageletConfigurationParameters:CSSClass NE ''#"><isprint value="#PageletConfigurationParameters:CSSClass#"/></isif>" >
+	<a href="#URLEX(InsecureURL,'',Action('ViewStandardCatalog-Browse'), Parameter('CategoryName', CategoryBO:Name), Parameter('CatalogID', CategoryBO:CatalogBO:Name))#">
+		<isif condition="#isDefined(PageletConfigurationParameters:ProductSample)#">
+			<ISProductImage ProductBO="#PageletConfigurationParameters:ProductSample#" ImageType="M">
+		<iselse>
+			<ISCategoryImage category="#CategoryBO#" imagetypeid="M">
+		</isif>
+		<h3>
+			<isprint value="#CategoryBO:DisplayName#">
+		</h3>
+	</a>
+</div>

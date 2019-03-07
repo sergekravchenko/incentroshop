@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<enfinity xmlns:dt="http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt">
+<pagelet-page id="pg_sitemap">
+<definition-name>app_sf_responsive_cm:pagevariant.standard.pagelet2-Pagevariant</definition-name>
+<parent id="pg_tmp_workingTemplateWithSidePanel" domain="inSPIRED-inTRONICS_Business-smb-responsive" />
+<display-name xml:lang="de-DE">Sitemap</display-name>
+<display-name xml:lang="en-US">Sitemap</display-name>
+<online>true</online>
+<author business-partner-no="admin" domain="inSPIRED"/>
+<configuration-parameters>
+<configuration-parameter name="MetaInfo">
+<definition-name>app_sf_responsive_cm:pagevariant.standard.pagelet2-Pagevariant-MetaInfo</definition-name>
+<value name="MetaInfo" xml:lang="de-DE">metaTitle=Sitemap;metaDescription=;metaKeywords=</value>
+<value name="MetaInfo" xml:lang="en-US">metaTitle=Sitemap;metaDescription=;metaKeywords=</value>
+</configuration-parameter>
+</configuration-parameters>
+<placeholder-configurations>
+<placeholder-configuration hide-target-content="false" place-target-content-on-top="false">
+<parent-placeholder placeholder-id="ph_workingTemplateWithSidePanelPage_baseMarketing"/>
+</placeholder-configuration>
+<placeholder-configuration hide-target-content="false" place-target-content-on-top="false">
+<parent-placeholder placeholder-id="ph_workingTemplateWithSidePanelPage_sidePanelMarketing"/>
+</placeholder-configuration>
+</placeholder-configurations>
+</pagelet-page>
+<pagelet-placeholder-assignment id="igYKAM4.yREAAAE_TM0_gL3g">
+<placeholder pagelet-domain="inSPIRED-inTRONICS_Business-smb-responsive" pagelet-id="pg_sitemap">
+<parent-placeholder placeholder-id="ph_workingTemplateWithSidePanelPage_sidePanelMarketing"/>
+</placeholder>
+<pagelet id="cmp_sitemap_sidePanel" domain="inSPIRED-inTRONICS_Business-smb-responsive"/>
+<position>1</position>
+<online>true</online>
+</pagelet-placeholder-assignment>
+</enfinity>

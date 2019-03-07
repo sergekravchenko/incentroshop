@@ -1,0 +1,109 @@
+<iscontent type="text/html" charset="UTF-8" compact="true">
+<%@page import="java.util.List,
+    java.util.LinkedList,
+    java.util.Collection,
+    java.util.Collections,
+    com.google.common.collect.ImmutableList,
+    com.google.common.collect.Iterables,
+    com.intershop.component.user.capi.UserBO,
+    com.intershop.component.b2b.capi.user.UserBudgetCalculator"
+%>
+<isinclude template="modules/B2BModules">
+
+<ISCreateMap mapname="PipelineParameters"
+    key0="CustomerBO" value0="#CustomerBO#"
+>
+<ispipeline pipeline="ViewUsers-TemplateCallback" params="#PipelineParameters#" alias="Result">
+<ISPopulateDictionary map="#Result#">
+<%
+    PipelineDictionary dictionary = getPipelineDictionary();
+    Collection<UserBO> users = dictionary.get("Users");
+    List<UserBO> userList = new LinkedList<UserBO>(users);
+    Collections.sort(userList, Collections.reverseOrder(UserBudgetCalculator.SPENT_BUDGED_PERCENTAGE_COMPARATOR));
+    dictionary.put("Users", new ImmutableList.Builder<UserBO>().addAll(Iterables.limit(userList, 5)).build());
+%>
+
+<div class="section section-seperator">
+
+	<h2><istext key="account.user.widget.user_budgets.heading" /></h2>
+	
+	<div class="list-header no-seperator hidden-xs">
+		<div class="col-xs-4 list-header-item">
+			<istext key="account.user.widget.table.users" />
+		</div>
+		<div class="col-xs-4 list-header-item">
+			<istext key="account.user.list.table.budget_spent" />
+		</div>
+	</div>
+	
+	<div class="list-body">
+		<isloop iterator="Users" alias="User">
+			<isset name="OrderApprovalExtension" value="#User:Extension("UserBOOrderApprovalExtension")#" scope="request">
+		
+		    <ISUserBudgetCalculator User="#User#" UserBudgetCalculator="UserBudgetCalculator">
+			
+			<div class="list-item-row">
+				<isif condition="#UserBudgetCalculator:OrderSpendLimit:Available#">
+					<dl>
+						<dd class="col-xs-4 col-sm-4 list-item">
+							<div >
+								<a href="#URLEX(SecureURL, '', Action('ViewUser-Start'), Parameter('UserID', User:ID))#">
+									<isif condition="#(User:FirstName EQ '') AND (User:LastName EQ '')#">
+										<isprint value="#User:Login#">
+									<iselse>
+										<isprint value="#User:FirstName#"> <isprint value="#User:LastName#">
+									</isif>
+								</a>
+							</div>
+						</dd>
+						
+						<isif condition="#OrderApprovalExtension:Budget(OrderApprovalExtension:BudgetType):Available#">
+						<dd class="col-xs-8 col-sm-8 list-item">
+							<ISUserBudgetCalculator User="#User#" UserBudgetCalculator="UserBudgetCalculator">
+							<isif condition="#OrderApprovalExtension:Budget(OrderApprovalExtension:BudgetType):Available#">
+							
+								<div  data-toggle="popover" data-container="body" data-html="true" data-placement="top" class="progress"  data-content="
+									<div class='row col-md-12'>
+										<div class='col-md-6'><label><istext key="#'orders.widget.'.lcase(OrderApprovalExtension:BudgetType).'_spend_limit.label'#" /></label></div>
+										<div class='col-md-6 text-right'><isprint value="#UserBudgetCalculator:Budget:Value#"></div>
+									</div>
+									<div class='row col-md-12'>
+										<div class='col-md-6'><label><istext key="account.user.list.spent.label" /></label></div>
+										<div class='col-md-6 text-right'><isprint value="#UserBudgetCalculator:SpentBudget:Value#"> (<isprint value="#UserBudgetCalculator:SpentBudgetPercentage#">%)</div>
+									</div>
+									<div class='row col-md-12'>
+										<div class='col-md-6'><label><istext key="account.user.list.left.label" /></label></div>
+										<div class='col-md-6 text-right'><isprint value="#UserBudgetCalculator:RemainingBudget:Value#"> (<isprint value="#UserBudgetCalculator:RemainingBudgetPercentage#">%)</div>
+									</div>
+								">
+									<div class="progress-bar <isif condition="#(UserBudgetCalculator:SpentBudgetPercentage >= 90.0)#"> progress-bar-danger<iselseif condition="#(UserBudgetCalculator:SpentBudgetPercentage >= 70.0)#"> progress-bar-warning</isif>" role="progressbar" aria-valuenow="<isprint value="#UserBudgetCalculator:SpentBudgetPercentage#">" aria-valuemin="0" aria-valuemax="100" style="width: <isprint value="#UserBudgetCalculator:SpentBudgetPercentage#" symbols="DecimalSeparator=.">%;">
+												<span class="progress-display"><isprint value="#UserBudgetCalculator:SpentBudgetPercentage#">%</span>
+									</div>
+								</div>
+							</isif>
+						</dd>
+					<iselse/>
+						<dd class="col-xs-8 col-sm-8 list-item">
+							<p>
+								<istext key="account.budget.common.undefined"/>
+							</p>
+						</dd>
+					</isif>
+					</dl>
+					
+				<iselse/>
+					<div class="col-xs-8 list-item">
+						<p>
+							<istext key="approval.details.threshold.unlimited"/>
+						</p>
+					</div>					
+				</isif>
+				
+			</div>
+			
+		</isloop>
+	</div>
+	
+	<a href="#URLEX(SecureURL, '', Action('ViewUsers-Start'))#"><istext key="account.user.widget.view_all_users.link" /></a>
+	
+</div>

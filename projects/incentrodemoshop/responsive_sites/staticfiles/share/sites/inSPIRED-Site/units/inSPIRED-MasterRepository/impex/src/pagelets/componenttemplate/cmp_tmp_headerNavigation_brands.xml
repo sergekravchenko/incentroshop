@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<enfinity xmlns:dt="http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt">
+<component-template id="cmp_tmp_headerNavigation_brands">
+<definition-name>app_sf_responsive_cm:component.system.mainnavigation.link.pagelet2-Component</definition-name>
+<display-name xml:lang="de-DE">Header Navigation - Marken</display-name>
+<display-name xml:lang="en-US">Header Navigation - Brands</display-name>
+<display-name xml:lang="fr-FR">Navigation en-tête - Marques</display-name>
+<active>true</active>
+<author business-partner-no="admin" domain="inSPIRED"/>
+<configuration-parameters>
+<configuration-parameter name="NavigationLink">
+<definition-name>app_sf_responsive_cm:component.system.mainnavigation.link.pagelet2-Component-NavigationLink</definition-name>
+<value name="NavigationLink">page://page.brandindex</value>
+</configuration-parameter>
+<configuration-parameter name="NavigationTitle">
+<definition-name>app_sf_responsive_cm:component.system.mainnavigation.link.pagelet2-Component-NavigationTitle</definition-name>
+<value name="NavigationTitle" xml:lang="de-DE">Marken</value>
+<value name="NavigationTitle" xml:lang="en-US">Brands</value>
+<value name="NavigationTitle" xml:lang="fr-FR">Marques</value>
+</configuration-parameter>
+</configuration-parameters>
+</component-template>
+</enfinity>

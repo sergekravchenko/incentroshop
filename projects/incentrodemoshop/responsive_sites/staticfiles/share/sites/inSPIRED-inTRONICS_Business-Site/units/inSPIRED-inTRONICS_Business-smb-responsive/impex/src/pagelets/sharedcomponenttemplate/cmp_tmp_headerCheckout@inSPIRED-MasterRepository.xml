@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<enfinity xmlns:dt="http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt">
+<shared-component-template id="cmp_tmp_headerCheckout" domain="inSPIRED-MasterRepository">
+<definition-name>app_sf_responsive_cm:component.system.headerCheckout.pagelet2-Component</definition-name>
+<configuration-parameters>
+<configuration-parameter name="Logo">
+<definition-name>app_sf_responsive_cm:component.system.headerCheckout.pagelet2-Component-Logo</definition-name>
+<value name="Logo" xml:lang="en-US">inSPIRED-inTRONICS_Business-smb-responsive:/logo.png</value>
+</configuration-parameter>
+<configuration-parameter name="MobileLogo">
+<definition-name>app_sf_responsive_cm:component.system.headerCheckout.pagelet2-Component-MobileLogo</definition-name>
+<value name="MobileLogo" xml:lang="en-US">inSPIRED-inTRONICS_Business-smb-responsive:/logo@2x.png</value>
+</configuration-parameter>
+</configuration-parameters>
+</shared-component-template>
+</enfinity>

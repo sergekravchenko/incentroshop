@@ -1,0 +1,35 @@
+<iscontent personalized="true" type="text/html" charset="UTF-8" compact="true">
+<iscache type="relative" hour="24">
+<isinclude template="modules/Modules">
+
+<div class="top-header">
+	<nav class="container">
+		<div class="row">
+			<div class="col-md-10">
+				<ul class="user-links">
+					<li>
+						<isinclude url="#URL(Action('ViewLoginStatus-LogoutButton'))#">
+					</li>
+				</ul>
+				<div class="header-utility">
+					<isslot slot="app_sf_responsive_cm:slot.header.utility.pagelet2-Slot">
+				</div>
+			</div>
+		</div>
+	</nav>
+</div>
+<div class="mid-header mid-header-checkout">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-12 logo-wrapper visible-xs">
+				<isinclude template="component/system/HeaderMobileLogo">
+			</div>
+			<div class="col-sm-3 logo-wrapper hidden-xs">
+				<isinclude template="component/system/HeaderPageLogo">
+			</div>
+			<div class="col-sm-5 header-info-wrapper hidden-xs">
+				<isslot slot="app_sf_responsive_cm:slot.header.promotion.pagelet2-Slot">
+			</div>
+		</div>
+	</div>
+</div>

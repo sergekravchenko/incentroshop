@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--@Group User-->
+
+<pipeline:Pipeline xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pipeline="http://www.intershop.de/pipeline/2010"
+    name="ViewUserRole" overrideMode="Inherit" type="view">
+<!--At the moment the OCI user should not be changed in general.
+The user must not own the implizit assigned roles.
+@Location 4,13-->
+  <nodes xsi:type="pipeline:Text" nodeID="Text0"/>
+<!--@Location 4,0-->
+  <nodes xsi:type="pipeline:StartNode" nodeID="StartNode1" name="CreateForm" callMode="Private">
+    <nodeSuccessors name="next" next="CreateForm0"/>
+  </nodes>
+<!--@Location 4,1-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="CreateForm0">
+    <configurationValues name="FormName" value="UpdateUserRoleForm"/>
+    <configurationValues name="FormResource" value="UserRole"/>
+    <pipelet href="enfinity:/core/pipelets/CreateForm.xml"/>
+    <nodeSuccessors name="next" next="EndNode1"/>
+    <returnValueBindings name="Form" objectPath="UpdateRoleForm"/>
+  </nodes>
+<!--@Location 4,2-->
+  <nodes xsi:type="pipeline:EndNode" nodeID="EndNode1"/>
+<!--TODO: Add Bugdet values
+@Location 6,0-->
+  <nodes xsi:type="pipeline:StartNode" nodeID="StartNode3" name="InitForm" callMode="Private">
+    <nodeSuccessors name="next" next="KeyMapper_maswcDvXEeeVl_touNjESQ"/>
+  </nodes>
+<!--@Location 6,1-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="KeyMapper_maswcDvXEeeVl_touNjESQ">
+    <pipelet href="enfinity:/core/pipelets/KeyMapper.xml"/>
+    <nodeSuccessors name="next" next="SetFormParameterValue1"/>
+    <parameterBindings name="InValue_1" objectPath="SelectedUser:Extension(&quot;UserBOOrderApprovalExtension&quot;)"/>
+    <returnValueBindings name="OutValue_1" objectPath="UserBOOrderApprovalExtension"/>
+  </nodes>
+<!--@Location 6,2-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="SetFormParameterValue1">
+    <pipelet href="enfinity:/core/pipelets/SetFormParameterValue.xml"/>
+    <nodeSuccessors name="next" next="SetFormParameterValue2"/>
+    <parameterBindings name="FormParameter" objectPath="UpdateRoleForm:OrderLimit"/>
+    <parameterBindings name="Value" objectPath="UserBOOrderApprovalExtension:SingleOrderThresholdAmount"/>
+  </nodes>
+<!--@Location 6,3-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="SetFormParameterValue2">
+    <pipelet href="enfinity:/core/pipelets/SetFormParameterValue.xml"/>
+    <nodeSuccessors name="next" next="EndNode0"/>
+    <parameterBindings name="FormParameter" objectPath="UpdateRoleForm:Budget"/>
+    <parameterBindings name="Value" objectPath="UserBOOrderApprovalExtension:Budget(UserBOOrderApprovalExtension:BudgetType)"/>
+  </nodes>
+<!--@Location 6,4-->
+  <nodes xsi:type="pipeline:EndNode" nodeID="EndNode0"/>
+<!--@Location 2,0-->
+  <nodes xsi:type="pipeline:StartNode" nodeID="StartNode2" name="Update">
+    <nodeSuccessors name="next" next="CallNode2"/>
+  </nodes>
+<!--@Location 2,1-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode2">
+    <nodeSuccessors name="next" next="DecisionNode5"/>
+    <startNode referencedName="ViewProfileSettings-Prefix"/>
+  </nodes>
+<!--@Location 2,2-->
+  <nodes xsi:type="pipeline:DecisionNode" nodeID="DecisionNode5" conditionKey="UserBO:Extension(&quot;UserBORoleExtension&quot;):hasPermission(&quot;APP_B2B_MANAGE_USERS&quot;)"
+      operator="str_eq" conditionValue="true">
+    <nodeSuccessors name="decision_yes" next="KeyMapper1"/>
+    <nodeSuccessors name="decision_no" next="JumpNode3"/>
+  </nodes>
+<!--@Location 2,3-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="KeyMapper1">
+    <configurationValues name="ValueType" value="Dictionary Value"/>
+    <pipelet href="enfinity:/core/pipelets/KeyMapper.xml"/>
+    <nodeSuccessors name="next" next="CallNode4"/>
+    <parameterBindings name="InValue_1" constant=""/>
+    <parameterBindings name="InValue_2" constant=""/>
+    <parameterBindings name="InValue_4" objectPath="CustomerBO:Extension(&quot;GroupCustomer&quot;):UserBOByID(UserID)"/>
+    <returnValueBindings name="OutValue_4" objectPath="SelectedUser"/>
+  </nodes>
+<!--@Location 2,4-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode4">
+    <nodeSuccessors name="next" next="ValidateForm0"/>
+    <startNode referencedName="This:CreateForm"/>
+  </nodes>
+<!--@Location 2,5-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="ValidateForm0">
+    <pipelet href="enfinity:/core/pipelets/ValidateForm.xml"/>
+    <nodeSuccessors name="next" next="DecisionNode0"/>
+    <nodeSuccessors name="pipelet_error" next="JoinNode0"/>
+    <parameterBindings name="Form" objectPath="UpdateRoleForm"/>
+  </nodes>
+<!--@Location 2,6-->
+  <nodes xsi:type="pipeline:DecisionNode" nodeID="DecisionNode0" conditionKey="UpdateRoleForm:Budget:Invalid"
+      operator="str_eq" conditionValue="false">
+    <nodeSuccessors name="decision_yes" next="JoinNode1"/>
+    <nodeSuccessors name="decision_no" next="SetFormError0"/>
+  </nodes>
+<!--@Location 2,7-->
+  <nodes xsi:type="pipeline:JoinNode" nodeID="JoinNode1">
+    <nodeSuccessors name="next" next="DecisionNode1"/>
+  </nodes>
+<!--@Location 2,8-->
+  <nodes xsi:type="pipeline:DecisionNode" nodeID="DecisionNode1" conditionKey="UpdateRoleForm:OrderLimit:Invalid"
+      operator="str_eq" conditionValue="false">
+    <nodeSuccessors name="decision_yes" next="JoinNode2"/>
+    <nodeSuccessors name="decision_no" next="SetFormError1"/>
+  </nodes>
+<!--@Location 2,9-->
+  <nodes xsi:type="pipeline:JoinNode" nodeID="JoinNode2">
+    <nodeSuccessors name="next" next="DecisionNode2"/>
+  </nodes>
+<!--@Location 2,10-->
+  <nodes xsi:type="pipeline:DecisionNode" nodeID="DecisionNode2" conditionKey="ERROR">
+    <nodeSuccessors name="decision_yes" next="JoinNode0"/>
+    <nodeSuccessors name="decision_no" next="GetFormSelection0"/>
+  </nodes>
+<!--@Location 0,6-->
+  <nodes xsi:type="pipeline:JoinNode" nodeID="JoinNode0">
+    <nodeSuccessors name="next" next="RenderSystemPageWithTemplate0_Input"/>
+  </nodes>
+<!--@Location 0,8-->
+  <nodes xsi:type="pipeline:PipelineNodeNode" nodeID="RenderSystemPageWithTemplate0">
+    <configurationValues name="PageEntryPointDefinitionReference" value="app_sf_responsive_b2b:systempage.account.profile.user.pagelet2-Page"/>
+    <configurationValues name="WorkingTemplate" value="account/UserRole.isml"/>
+    <pipelet href="enfinity:/sld_ch_sf_base/pipelets/com.intershop.sellside.storefront.base.capi.pipeline.RenderSystemPageWithTemplate.pipelinenode"/>
+    <inConnectors name="Input">
+      <parameterBindings name="Dictionary" objectPath="CurrentRequest:PipelineDictionary"/>
+    </inConnectors>
+  </nodes>
+<!--@Location 2,11-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="GetFormSelection0">
+    <configurationValues name="DefaultParameterName" value="SelectedUserRolesUUID"/>
+    <pipelet href="enfinity:/bc_foundation/pipelets/GetFormSelection.xml"/>
+    <nodeSuccessors name="next" next="DecisionNode6"/>
+    <returnValueBindings name="Selection" objectPath="SelectedUserRoleIDs"/>
+  </nodes>
+<!--@Location 2,12-->
+  <nodes xsi:type="pipeline:DecisionNode" nodeID="DecisionNode6" conditionKey="SelectedUser:Extension(&quot;UserBORoleExtension&quot;):hasRole(&quot;APP_B2B_OCI_USER&quot;)"
+      operator="str_eq" conditionValue="true">
+    <nodeSuccessors name="decision_yes" next="UpdateUserRoles1"/>
+    <nodeSuccessors name="decision_no" next="UpdateUserRoles0"/>
+  </nodes>
+<!--@Location 3,13-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="UpdateUserRoles1">
+    <configurationValues name="AssignImplicitRoles" value="false"/>
+    <pipelet href="enfinity:/bc_b2b_role/pipelets/UpdateUserRoles.xml"/>
+    <nodeSuccessors name="next" next="JoinNode3"/>
+    <parameterBindings name="RoleIDs" objectPath="SelectedUserRoleIDs"/>
+    <parameterBindings name="UserBO" objectPath="SelectedUser"/>
+  </nodes>
+<!--@Location 2,14-->
+  <nodes xsi:type="pipeline:JoinNode" nodeID="JoinNode3">
+    <nodeSuccessors name="next" next="UpdateUserApprovalThresholds0"/>
+  </nodes>
+<!--TODO: Save Budgets
+@Location 2,15-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="UpdateUserApprovalThresholds0">
+    <pipelet href="enfinity:/bc_order_approval/pipelets/UpdateUserApprovalThresholds.xml"/>
+    <nodeSuccessors name="next" next="UpdateBudget0"/>
+    <parameterBindings name="MonthlyBudget" nullBinding="true"/>
+    <parameterBindings name="SingleOrderThresholdAmount" objectPath="UpdateRoleForm:OrderLimit:Value"/>
+    <parameterBindings name="UserBO" objectPath="SelectedUser"/>
+  </nodes>
+<!--@Location 2,16-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="UpdateBudget0">
+    <pipelet href="enfinity:/bc_order_approval/pipelets/UpdateBudget.xml"/>
+    <nodeSuccessors name="next" next="KeyMapper3"/>
+    <parameterBindings name="BudgetAmount" objectPath="UpdateRoleForm:Budget:Value"/>
+    <parameterBindings name="BudgetType" objectPath="UpdateRoleForm:Period:Value"/>
+    <parameterBindings name="UserBO" objectPath="SelectedUser"/>
+  </nodes>
+<!--@displayNearNode@ViewProfileSettings\-ViewProfile
+@Location 2,17-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="KeyMapper3">
+    <configurationValues name="ValueType" value="Form Value"/>
+    <pipelet href="enfinity:/bc_foundation/pipelets/KeyMapper.xml"/>
+    <nodeSuccessors name="next" next="CallNode5"/>
+    <parameterBindings name="InValue_1" constant="ViewUserProfile-View"/>
+    <parameterBindings name="InValue_2" constant="UpdateProfile"/>
+    <returnValueBindings name="OutValue_1" objectPath="JumpTarget"/>
+    <returnValueBindings name="OutValue_2" objectPath="ShowSuccessMessage"/>
+  </nodes>
+<!--@Location 2,18-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode5">
+    <nodeSuccessors name="next" next="JumpNode1"/>
+    <startNode referencedName="ViewData-SecureForBrowserBack"/>
+  </nodes>
+<!--@Location 2,19-->
+  <nodes xsi:type="pipeline:JumpNode" nodeID="JumpNode1">
+    <startNode referencedName="ViewUser-Start"/>
+  </nodes>
+<!--@Location 2,13-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="UpdateUserRoles0">
+    <configurationValues name="AssignImplicitRoles" value="true"/>
+    <pipelet href="enfinity:/bc_b2b_role/pipelets/UpdateUserRoles.xml"/>
+    <nodeSuccessors name="next" next="JoinNode3"/>
+    <parameterBindings name="RoleIDs" objectPath="SelectedUserRoleIDs"/>
+    <parameterBindings name="UserBO" objectPath="SelectedUser"/>
+  </nodes>
+<!--@Location 3,8-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="SetFormError1">
+    <pipelet href="enfinity:/core/pipelets/SetFormError.xml"/>
+    <nodeSuccessors name="next" next="KeyMapper4"/>
+    <parameterBindings name="ErrorMsg" constant="error.money"/>
+    <parameterBindings name="TargetObject" objectPath="UpdateRoleForm:OrderLimit"/>
+  </nodes>
+<!--@Location 4,8-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="KeyMapper4">
+    <configurationValues name="ValueType" value="Dictionary Value"/>
+    <pipelet href="enfinity:/bc_foundation/pipelets/KeyMapper.xml"/>
+    <nodeSuccessors name="next" next="JoinNode2"/>
+    <parameterBindings name="InValue_1" constant="MoneyValue"/>
+    <parameterBindings name="InValue_2" constant=""/>
+    <returnValueBindings name="OutValue_1" objectPath="ERROR"/>
+  </nodes>
+<!--@Location 3,6-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="SetFormError0">
+    <pipelet href="enfinity:/core/pipelets/SetFormError.xml"/>
+    <nodeSuccessors name="next" next="KeyMapper0"/>
+    <parameterBindings name="ErrorMsg" constant="error.money"/>
+    <parameterBindings name="TargetObject" objectPath="UpdateRoleForm:Budget"/>
+  </nodes>
+<!--@Location 4,6-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="KeyMapper0">
+    <configurationValues name="ValueType" value="Dictionary Value"/>
+    <pipelet href="enfinity:/bc_foundation/pipelets/KeyMapper.xml"/>
+    <nodeSuccessors name="next" next="JoinNode1"/>
+    <parameterBindings name="InValue_1" constant="MoneyValue"/>
+    <parameterBindings name="InValue_2" constant=""/>
+    <returnValueBindings name="OutValue_1" objectPath="ERROR"/>
+  </nodes>
+<!--@Location 3,2-->
+  <nodes xsi:type="pipeline:JumpNode" nodeID="JumpNode3">
+    <startNode referencedName="Error-NotFound"/>
+  </nodes>
+<!--@Location 0,0-->
+  <nodes xsi:type="pipeline:StartNode" nodeID="StartNode0" name="View">
+    <nodeSuccessors name="next" next="CallNode0"/>
+  </nodes>
+<!--@Location 0,1-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode0">
+    <nodeSuccessors name="next" next="DecisionNode3"/>
+    <startNode referencedName="ViewProfileSettings-Prefix"/>
+  </nodes>
+<!--@Location 0,2-->
+  <nodes xsi:type="pipeline:DecisionNode" nodeID="DecisionNode3" conditionKey="UserBO:Extension(&quot;UserBORoleExtension&quot;):hasPermission(&quot;APP_B2B_MANAGE_USERS&quot;)"
+      operator="str_eq" conditionValue="true">
+    <nodeSuccessors name="decision_yes" next="KeyMapper2"/>
+    <nodeSuccessors name="decision_no" next="JumpNode0"/>
+  </nodes>
+<!--@Location 0,3-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="KeyMapper2">
+    <configurationValues name="ValueType" value="Dictionary Value"/>
+    <pipelet href="enfinity:/core/pipelets/KeyMapper.xml"/>
+    <nodeSuccessors name="next" next="CallNode1"/>
+    <parameterBindings name="InValue_1" constant=""/>
+    <parameterBindings name="InValue_2" constant=""/>
+    <parameterBindings name="InValue_4" objectPath="CustomerBO:Extension(&quot;GroupCustomer&quot;):UserBOByID(UserID)"/>
+    <returnValueBindings name="OutValue_4" objectPath="SelectedUser"/>
+  </nodes>
+<!--@Location 0,4-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode1">
+    <nodeSuccessors name="next" next="CallNode3"/>
+    <startNode referencedName="This:CreateForm"/>
+  </nodes>
+<!--@Location 0,5-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode3">
+    <nodeSuccessors name="next" next="JoinNode0"/>
+    <startNode referencedName="This:InitForm"/>
+  </nodes>
+<!--@Location 1,2-->
+  <nodes xsi:type="pipeline:JumpNode" nodeID="JumpNode0">
+    <startNode referencedName="Error-NotFound"/>
+  </nodes>
+</pipeline:Pipeline>

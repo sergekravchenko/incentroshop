@@ -1,0 +1,448 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<enfinity
+xsi:schemaLocation="http://www.intershop.com/xml/ns/enfinity/7.1/bc_pricing/impex bc_pricing.xsd"
+xmlns="http://www.intershop.com/xml/ns/enfinity/7.1/bc_pricing/impex"
+xmlns:xml="http://www.w3.org/XML/1998/namespace"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xmlns:dt="http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt">
+    <product-price-list id="HotDealPriceList" priceType="ES_SalePrice">
+        <display-name xml:lang="en-US">Hot Deal Price List</display-name>
+        <description xml:lang="en-US">The Price List for Hot Deals.</description>
+        <enabled>true</enabled>
+        <priority>1.0</priority>
+        <target-groups>
+	        <customer-segments>
+	            <customer-segment id="Everyone" repository-id="inSPIRED-inTRONICS-Anonymous"/>
+	        </customer-segments>
+        </target-groups>
+        <product-price-list-entry sku="4833886">
+            <price-scale-table currency="USD" type-code="1">
+                <price-scale-entries>
+                    <relative-price-entry quantity="1" unit="">
+                        <value>20</value>
+                    </relative-price-entry>
+                </price-scale-entries>
+            </price-scale-table>
+            <price-scale-table currency="EUR" type-code="1">
+                <price-scale-entries>
+                    <relative-price-entry quantity="1" unit="">
+                        <value>20</value>
+                    </relative-price-entry>
+                </price-scale-entries>
+            </price-scale-table>
+        </product-price-list-entry>
+        <product-price-list-entry sku="1612143">
+            <price-scale-table currency="USD" type-code="1">
+                <price-scale-entries>
+                    <relative-price-entry quantity="1" unit="">
+                        <value>20</value>
+                    </relative-price-entry>
+                </price-scale-entries>
+            </price-scale-table>
+            <price-scale-table currency="EUR" type-code="1">
+                <price-scale-entries>
+                    <relative-price-entry quantity="1" unit="">
+                        <value>20</value>
+                    </relative-price-entry>
+                </price-scale-entries>
+            </price-scale-table>
+        </product-price-list-entry>
+        <product-price-list-entry sku="821811">
+            <price-scale-table currency="USD" type-code="1">
+                <price-scale-entries>
+                    <relative-price-entry quantity="1" unit="">
+                        <value>20</value>
+                    </relative-price-entry>
+                </price-scale-entries>
+            </price-scale-table>
+            <price-scale-table currency="EUR" type-code="1">
+                <price-scale-entries>
+                    <relative-price-entry quantity="1" unit="">
+                        <value>20</value>
+                    </relative-price-entry>
+                </price-scale-entries>
+            </price-scale-table>
+        </product-price-list-entry>
+        <product-price-list-entry sku="872843">
+            <price-scale-table currency="USD" type-code="1">
+                <price-scale-entries>
+                    <relative-price-entry quantity="1" unit="">
+                        <value>20</value>
+                    </relative-price-entry>
+                </price-scale-entries>
+            </price-scale-table>
+            <price-scale-table currency="EUR" type-code="1">
+                <price-scale-entries>
+                    <relative-price-entry quantity="1" unit="">
+                        <value>20</value>
+                    </relative-price-entry>
+                </price-scale-entries>
+            </price-scale-table>
+        </product-price-list-entry>
+        <product-price-list-entry sku="1955471">
+            <price-scale-table currency="USD" type-code="1">
+                <price-scale-entries>
+                    <relative-price-entry quantity="1" unit="">
+                        <value>20</value>
+                    </relative-price-entry>
+                </price-scale-entries>
+            </price-scale-table>
+            <price-scale-table currency="EUR" type-code="1">
+                <price-scale-entries>
+                    <relative-price-entry quantity="1" unit="">
+                        <value>20</value>
+                    </relative-price-entry>
+                </price-scale-entries>
+            </price-scale-table>
+        </product-price-list-entry>
+        <product-price-list-entry sku="3950413">
+            <price-scale-table currency="USD" type-code="1">
+                <price-scale-entries>
+                    <relative-price-entry quantity="1" unit="">
+                        <value>20</value>
+                    </relative-price-entry>
+                </price-scale-entries>
+            </price-scale-table>
+            <price-scale-table currency="EUR" type-code="1">
+                <price-scale-entries>
+                    <relative-price-entry quantity="1" unit="">
+                        <value>20</value>
+                    </relative-price-entry>
+                </price-scale-entries>
+            </price-scale-table>
+        </product-price-list-entry>
+        <product-price-list-entry sku="3957279">
+            <price-scale-table currency="USD" type-code="1">
+                <price-scale-entries>
+                    <relative-price-entry quantity="1" unit="">
+                        <value>20</value>
+                    </relative-price-entry>
+                </price-scale-entries>
+            </price-scale-table>
+            <price-scale-table currency="EUR" type-code="1">
+                <price-scale-entries>
+                    <relative-price-entry quantity="1" unit="">
+                        <value>20</value>
+                    </relative-price-entry>
+                </price-scale-entries>
+            </price-scale-table>
+        </product-price-list-entry>
+        <product-price-list-entry sku="4851032">
+            <price-scale-table currency="USD" type-code="1">
+                <price-scale-entries>
+                    <relative-price-entry quantity="1" unit="">
+                        <value>20</value>
+                    </relative-price-entry>
+                </price-scale-entries>
+            </price-scale-table>
+            <price-scale-table currency="EUR" type-code="1">
+                <price-scale-entries>
+                    <relative-price-entry quantity="1" unit="">
+                        <value>20</value>
+                    </relative-price-entry>
+                </price-scale-entries>
+            </price-scale-table>
+        </product-price-list-entry>
+        <product-price-list-entry sku="7006513">
+            <price-scale-table currency="USD" type-code="1">
+                <price-scale-entries>
+                    <relative-price-entry quantity="1" unit="">
+                        <value>20</value>
+                    </relative-price-entry>
+                </price-scale-entries>
+            </price-scale-table>
+            <price-scale-table currency="EUR" type-code="1">
+                <price-scale-entries>
+                    <relative-price-entry quantity="1" unit="">
+                        <value>20</value>
+                    </relative-price-entry>
+                </price-scale-entries>
+            </price-scale-table>
+        </product-price-list-entry>
+        <product-price-list-entry sku="1617139">
+            <price-scale-table currency="USD" type-code="1">
+                <price-scale-entries>
+                    <relative-price-entry quantity="1" unit="">
+                        <value>20</value>
+                    </relative-price-entry>
+                </price-scale-entries>
+            </price-scale-table>
+            <price-scale-table currency="EUR" type-code="1">
+                <price-scale-entries>
+                    <relative-price-entry quantity="1" unit="">
+                        <value>20</value>
+                    </relative-price-entry>
+                </price-scale-entries>
+            </price-scale-table>
+        </product-price-list-entry>
+        <product-price-list-entry sku="1664866">
+            <price-scale-table currency="USD" type-code="1">
+                <price-scale-entries>
+                    <relative-price-entry quantity="1" unit="">
+                        <value>20</value>
+                    </relative-price-entry>
+                </price-scale-entries>
+            </price-scale-table>
+            <price-scale-table currency="EUR" type-code="1">
+                <price-scale-entries>
+                    <relative-price-entry quantity="1" unit="">
+                        <value>20</value>
+                    </relative-price-entry>
+                </price-scale-entries>
+            </price-scale-table>
+        </product-price-list-entry>
+        <product-price-list-entry sku="4868199">
+            <price-scale-table currency="USD" type-code="1">
+                <price-scale-entries>
+                    <relative-price-entry quantity="1" unit="">
+                        <value>20</value>
+                    </relative-price-entry>
+                </price-scale-entries>
+            </price-scale-table>
+            <price-scale-table currency="EUR" type-code="1">
+                <price-scale-entries>
+                    <relative-price-entry quantity="1" unit="">
+                        <value>20</value>
+                    </relative-price-entry>
+                </price-scale-entries>
+            </price-scale-table>
+        </product-price-list-entry>
+    </product-price-list>
+    <product-price-list id="PremiumCustomersPriceList" priceType="ES_SalePrice">
+        <display-name xml:lang="en-US">Premium Customers Price List</display-name>
+        <description xml:lang="en-US">The Price List for Premium Customers.</description>
+        <enabled>true</enabled>
+        <priority>2.0</priority>
+        <target-groups>
+	        <customer-segments>
+	            <customer-segment id="CG_PremiumConsumers" repository-id="inSPIRED-inTRONICS-Anonymous"/>
+	            <customer-segment id="Everyone" repository-id="inSPIRED-inTRONICS-Anonymous"/>
+	        </customer-segments>
+        </target-groups>
+        <product-price-list-entry sku="3953312">
+            <price-scale-table currency="USD" type-code="1">
+                <price-scale-entries>
+                    <relative-price-entry quantity="1" unit="">
+                        <value>10</value>
+                    </relative-price-entry>
+                </price-scale-entries>
+            </price-scale-table>
+            <price-scale-table currency="EUR" type-code="1">
+                <price-scale-entries>
+                    <relative-price-entry quantity="1" unit="">
+                        <value>10</value>
+                    </relative-price-entry>
+                </price-scale-entries>
+            </price-scale-table>
+        </product-price-list-entry>
+        <product-price-list-entry sku="9403799">
+            <price-scale-table currency="USD" type-code="1">
+                <price-scale-entries>
+                    <relative-price-entry quantity="1" unit="">
+                        <value>10</value>
+                    </relative-price-entry>
+                </price-scale-entries>
+            </price-scale-table>
+            <price-scale-table currency="EUR" type-code="1">
+                <price-scale-entries>
+                    <relative-price-entry quantity="1" unit="">
+                        <value>10</value>
+                    </relative-price-entry>
+                </price-scale-entries>
+            </price-scale-table>
+        </product-price-list-entry>
+        <product-price-list-entry sku="4810740">
+            <price-scale-table currency="USD" type-code="1">
+                <price-scale-entries>
+                    <relative-price-entry quantity="1" unit="">
+                        <value>10</value>
+                    </relative-price-entry>
+                </price-scale-entries>
+            </price-scale-table>
+            <price-scale-table currency="EUR" type-code="1">
+                <price-scale-entries>
+                    <relative-price-entry quantity="1" unit="">
+                        <value>10</value>
+                    </relative-price-entry>
+                </price-scale-entries>
+            </price-scale-table>
+        </product-price-list-entry>
+        <product-price-list-entry sku="5899087">
+            <price-scale-table currency="USD" type-code="1">
+                <price-scale-entries>
+                    <relative-price-entry quantity="1" unit="">
+                        <value>10</value>
+                    </relative-price-entry>
+                </price-scale-entries>
+            </price-scale-table>
+            <price-scale-table currency="EUR" type-code="1">
+                <price-scale-entries>
+                    <relative-price-entry quantity="1" unit="">
+                        <value>10</value>
+                    </relative-price-entry>
+                </price-scale-entries>
+            </price-scale-table>
+        </product-price-list-entry>
+        <product-price-list-entry sku="7967570">
+            <price-scale-table currency="USD" type-code="1">
+                <price-scale-entries>
+                    <relative-price-entry quantity="1" unit="">
+                        <value>10</value>
+                    </relative-price-entry>
+                </price-scale-entries>
+            </price-scale-table>
+            <price-scale-table currency="EUR" type-code="1">
+                <price-scale-entries>
+                    <relative-price-entry quantity="1" unit="">
+                        <value>10</value>
+                    </relative-price-entry>
+                </price-scale-entries>
+            </price-scale-table>
+        </product-price-list-entry>
+    </product-price-list>
+    <product-price-list id="AllCustomersPriceList" priceType="ES_SalePrice">
+        <display-name xml:lang="en-US">All Customers Price List</display-name>
+        <description xml:lang="en-US">The Price List for everybody.</description>
+        <enabled>true</enabled>
+        <priority>3.0</priority>
+		<target-groups>
+	        <customer-segments>
+	            <customer-segment id="Everyone" repository-id="inSPIRED-inTRONICS-Anonymous"/>
+	        </customer-segments>
+        </target-groups>
+        <product-price-list-entry sku="3953312">
+            <price-scale-table currency="USD" type-code="1">
+                <price-scale-entries>
+                    <relative-price-entry quantity="1" unit="">
+                        <value>5</value>
+                    </relative-price-entry>
+                </price-scale-entries>
+            </price-scale-table>
+            <price-scale-table currency="EUR" type-code="1">
+                <price-scale-entries>
+                    <relative-price-entry quantity="1" unit="">
+                        <value>5</value>
+                    </relative-price-entry>
+                </price-scale-entries>
+            </price-scale-table>
+        </product-price-list-entry>
+        <product-price-list-entry sku="9403799">
+            <price-scale-table currency="USD" type-code="1">
+                <price-scale-entries>
+                    <relative-price-entry quantity="1" unit="">
+                        <value>5</value>
+                    </relative-price-entry>
+                </price-scale-entries>
+            </price-scale-table>
+            <price-scale-table currency="EUR" type-code="1">
+                <price-scale-entries>
+                    <relative-price-entry quantity="1" unit="">
+                        <value>5</value>
+                    </relative-price-entry>
+                </price-scale-entries>
+            </price-scale-table>
+        </product-price-list-entry>
+        <product-price-list-entry sku="4810740">
+            <price-scale-table currency="USD" type-code="1">
+                <price-scale-entries>
+                    <relative-price-entry quantity="1" unit="">
+                        <value>5</value>
+                    </relative-price-entry>
+                </price-scale-entries>
+            </price-scale-table>
+            <price-scale-table currency="EUR" type-code="1">
+                <price-scale-entries>
+                    <relative-price-entry quantity="1" unit="">
+                        <value>5</value>
+                    </relative-price-entry>
+                </price-scale-entries>
+            </price-scale-table>
+        </product-price-list-entry>
+        <product-price-list-entry sku="5899087">
+            <price-scale-table currency="USD" type-code="1">
+                <price-scale-entries>
+                    <relative-price-entry quantity="1" unit="">
+                        <value>5</value>
+                    </relative-price-entry>
+                </price-scale-entries>
+            </price-scale-table>
+            <price-scale-table currency="EUR" type-code="1">
+                <price-scale-entries>
+                    <relative-price-entry quantity="1" unit="">
+                        <value>5</value>
+                    </relative-price-entry>
+                </price-scale-entries>
+            </price-scale-table>
+        </product-price-list-entry>
+        <product-price-list-entry sku="7967570">
+            <price-scale-table currency="USD" type-code="1">
+                <price-scale-entries>
+                    <relative-price-entry quantity="1" unit="">
+                        <value>5</value>
+                    </relative-price-entry>
+                </price-scale-entries>
+            </price-scale-table>
+            <price-scale-table currency="EUR" type-code="1">
+                <price-scale-entries>
+                    <relative-price-entry quantity="1" unit="">
+                        <value>5</value>
+                    </relative-price-entry>
+                </price-scale-entries>
+            </price-scale-table>
+        </product-price-list-entry>
+    </product-price-list>
+	<product-price-list id="UnregisteredCustomersPriceList" priceType="ES_SalePrice">
+		<display-name xml:lang="en-US">Unregistered Customers Price List</display-name>
+		<description xml:lang="en-US">The Price List for unregistered customers.</description>
+		<enabled>true</enabled>
+		<priority>3.0</priority>
+		<target-groups>
+			<customer-segments>
+				<customer-segment id="IG_UnregisteredUsers" repository-id="inSPIRED-inTRONICS-Anonymous" />
+			</customer-segments>
+		</target-groups>
+		<product-price-list-entry sku="5079758">
+			<price-scale-table currency="EUR" type-code="1">
+				<price-scale-entries>
+					<fixed-price-entry quantity="5.0" unit="">
+						<value>20.0</value>
+					</fixed-price-entry>
+				</price-scale-entries>
+			</price-scale-table>
+			<price-scale-table currency="USD" type-code="1">
+				<price-scale-entries>
+					<fixed-price-entry quantity="5.0" unit="">
+						<value>30.0</value>
+					</fixed-price-entry>
+				</price-scale-entries>
+			</price-scale-table>			
+		</product-price-list-entry>
+	</product-price-list>
+	<product-price-list id="IndividualCustomersPriceList" priceType="ES_SalePrice">
+		<display-name xml:lang="en-US">Individual Customers Price List</display-name>
+		<description xml:lang="en-US">The Price List for individual customers.</description>
+		<enabled>true</enabled>
+		<priority>3.0</priority>
+		<target-groups>
+			<customers>
+				<customer id="Fender"/>
+			</customers>
+		</target-groups>
+		<product-price-list-entry sku="6946441">
+			<price-scale-table currency="EUR" type-code="1">
+				<price-scale-entries>
+					<fixed-price-entry quantity="2.0" unit="">
+						<value>27.0</value>
+					</fixed-price-entry>
+				</price-scale-entries>
+			</price-scale-table>
+			<price-scale-table currency="USD" type-code="1">
+				<price-scale-entries>
+					<fixed-price-entry quantity="2.0" unit="">
+						<value>37.0</value>
+					</fixed-price-entry>
+				</price-scale-entries>
+			</price-scale-table>			
+		</product-price-list-entry>
+	</product-price-list>
+</enfinity>

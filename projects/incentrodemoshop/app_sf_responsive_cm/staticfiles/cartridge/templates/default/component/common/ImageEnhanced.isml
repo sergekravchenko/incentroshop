@@ -1,0 +1,43 @@
+<iscontent type="text/html" charset="UTF-8" compact="true">
+<isinclude template="modules/Modules">
+
+<isif condition="#isDefined(PageletConfigurationParameters:Link) AND (PageletConfigurationParameters:Link NE '') AND NOT(isDefined(PageletConfigurationParameters:LinkText))#">
+	<a class="teaser-link" <ishref link="#PageletConfigurationParameters:Link#"> <isif condition="#isDefined(PageletConfigurationParameters:LinkTitle) AND (PageletConfigurationParameters:LinkTitle NE '')#">title="<isprint value="#PageletConfigurationParameters:LinkTitle#">"</isif>>
+</isif>
+<div class="enhanced-image-container <isif condition="#isDefined(PageletConfigurationParameters:CSSClass) AND (PageletConfigurationParameters:CSSClass NE '')#"><isprint value="#PageletConfigurationParameters:CSSClass#"/></isif>">
+	<picture class="enhanced-image">
+		<isif condition="#isDefined(PageletConfigurationParameters:ImageXS) AND (PageletConfigurationParameters:ImageXS NE '')#">
+			<source srcset="#ContentURL(PageletConfigurationParameters:ImageXS)#" media="(max-width: 767px)">
+		</isif>
+		<isif condition="#isDefined(PageletConfigurationParameters:ImageSM) AND (PageletConfigurationParameters:ImageSM NE '')#">
+			<source srcset="#ContentURL(PageletConfigurationParameters:ImageSM)#" media="(max-width: 991px)">
+		</isif>
+		<isif condition="#isDefined(PageletConfigurationParameters:ImageMD) AND (PageletConfigurationParameters:ImageMD NE '')#">
+			<source srcset="#ContentURL(PageletConfigurationParameters:ImageMD)#" media="(max-width: 1199px)">
+		</isif>
+		<img src="#ContentURL(PageletConfigurationParameters:Image)#" alt="<isif condition="#isDefined(PageletConfigurationParameters:AlternateText) AND (PageletConfigurationParameters:AlternateText NE '')#"><isprint value="#PageletConfigurationParameters:AlternateText#"></isif>" class="enhanced-image <isif condition="#isDefined(PageletConfigurationParameters:CSSClass) AND (PageletConfigurationParameters:CSSClass NE '')#"><isprint value="#PageletConfigurationParameters:CSSClass#"/></isif>">
+	</picture>
+	
+	<div class="enhanced-image-text">
+		<isif condition="#isDefined(PageletConfigurationParameters:Heading1) AND (PageletConfigurationParameters:Heading1 NE '')#">
+			<h1><isprint value="#PageletConfigurationParameters:Heading1#"></h1>
+		</isif>
+		
+		<isif condition="#isDefined(PageletConfigurationParameters:Heading2) AND (PageletConfigurationParameters:Heading2 NE '')#">
+			<h2><isprint value="#PageletConfigurationParameters:Heading2#"></h2>
+		</isif>
+		
+		<isif condition="#isDefined(PageletConfigurationParameters:Description) AND (PageletConfigurationParameters:Description NE '')#">
+			<p class="hidden-xs"><isHtmlPrint value="#PageletConfigurationParameters:Description#"></p>
+		</isif>
+		
+		<isif condition="#isDefined(PageletConfigurationParameters:Link) AND (PageletConfigurationParameters:Link NE '') AND isDefined(PageletConfigurationParameters:LinkText)#">
+			<a class="btn btn-lg btn-primary" <ishref link="#PageletConfigurationParameters:Link#"> <isif condition="#isDefined(PageletConfigurationParameters:LinkTitle) AND (PageletConfigurationParameters:LinkTitle NE '')#">title="<isprint value="#PageletConfigurationParameters:LinkTitle#">"</isif>>
+				<isprint value="#PageletConfigurationParameters:LinkText#">
+			</a>
+		</isif>
+	</div>
+</div>
+<isif condition="#isDefined(PageletConfigurationParameters:Link) AND (PageletConfigurationParameters:Link NE '') AND NOT(isDefined(PageletConfigurationParameters:LinkText))#">
+	</a>
+</isif>

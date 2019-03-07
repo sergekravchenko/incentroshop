@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<extensionpoint:ExtensionPointModel xmlns:extensionpoint="http://www.intershop.de/extensionpoint/2011"
+    name="AccountNavigationApprovalsOpenRequisitionsExtension">
+  <extensionBindings type="isml" extensionPoint="modules/account/navigation/AccountNavigationApprovalsExtension-AccountNavigationExtension"
+      extension="modules/account/navigation/AccountNavigationApprovalsOpenRequisitions" priority="30"/>
+</extensionpoint:ExtensionPointModel>

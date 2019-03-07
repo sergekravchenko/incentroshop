@@ -1,0 +1,15 @@
+apply plugin: 'java-component'
+apply plugin: 'static-cartridge'
+
+intershop 
+{
+    displayName = 'Responsive Starter Store Demo - Catalog'
+    description = 'Catalogs with categories and products for the demo content of the Responsive Starter Store - inSPIRED'
+}
+
+dependencies 
+{
+    compile project(':as_responsive')
+    compile project(':demo_responsive')
+    compile group: 'com.intershop.platform', name: 'core'
+}

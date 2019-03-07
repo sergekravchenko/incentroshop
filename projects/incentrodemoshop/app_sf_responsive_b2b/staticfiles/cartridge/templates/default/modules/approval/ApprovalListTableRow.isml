@@ -1,0 +1,72 @@
+<iscontent type="text/html" charset="UTF-8" compact="true">
+<tr>
+	<td>
+		<div>
+		<isif condition="#isDefined(ApprovalItemLabelKey)#">
+			<label class="control-label hidden-lg hidden-md hidden-sm"><istext key="#ApprovalItemLabelKey#">:&nbsp;</label>
+		</isif>
+		<a href="<isprint value="#DetailsHref#" encoding="off">">
+			<isprint value="#ApprovalItemNumber#">
+		</a>
+		</div>
+		<div class="hidden-lg hidden-md hidden-sm">
+			<label class="control-label"><istext key="account.approvallist.table.date_of_order">:&nbsp;</label>
+			<span><isprint value="#CreationDate#"></span>
+		</div>
+		
+		<isif condition="#DisplayPurchaser EQ 'true'#">
+		<div class="hidden-lg hidden-md hidden-sm">
+			<label class="control-label"><istext key="account.approvallist.table.purchaser">:&nbsp;</label>
+			<span><isprint value="#PurchaserFirstName#">&nbsp;<isprint value="#PurchaserLastName#"></span>
+		</div>
+		</isif>
+		
+		<isif condition="#DisplayApprover EQ 'true'#">
+		<div class="hidden-lg hidden-md hidden-sm">
+			<label class="control-label"><istext key="account.approvallist.table.approver">:&nbsp;</label>
+			<span><isprint value="#ApproverFirstName#">&nbsp;<isprint value="#ApproverLastName#"></span>
+		</div>
+		</isif>
+		
+		<isif condition="#DisplayApprovalDate EQ 'true'#">
+		<div class="hidden-lg hidden-md hidden-sm">
+			<isif condition="#isDefined(ApprovalDateLabelKey)#">
+				<label class="control-label"><istext key="#ApprovalDateLabelKey#">:&nbsp;</label>
+			</isif>
+			<span><isprint value="#ApprovalDate#"></span>
+		</div>
+		</isif>
+		
+		<isif condition="#(IsRecurring EQ 'true') AND (isDefined(RecurrencePeriod))#">
+		<div class="hidden-lg hidden-md hidden-sm">
+			<label class="control-label"><istext key="account.subscription.details.label.recurrence">:&nbsp;</label>
+			<span><isPeriodDisplay period="#RecurrencePeriod#"></span>
+		</div>
+		</isif>
+		
+		<div class="hidden-lg hidden-md hidden-sm">
+			<label class="control-label"><istext key="account.approvallist.table.line_items"/>:&nbsp;</label>
+			<span><isprint value="#ItemCount#" style="INTEGER"></span>
+		</div>
+	</td>
+	<td class="hidden-xs"><isprint value="#CreationDate#" style="DATE_SHORT"></td>
+	<isif condition="#DisplayPurchaser EQ 'true'#">
+		<td class="hidden-xs"><isprint value="#PurchaserFirstName#">&nbsp;<isprint value="#PurchaserLastName#"></td>
+	</isif>
+	<isif condition="#DisplayApprover EQ 'true'#">
+		<td class="hidden-xs"><isprint value="#ApproverFirstName#">&nbsp;<isprint value="#ApproverLastName#"></td>
+	</isif>
+	<isif condition="#DisplayApprovalDate EQ 'true'#">
+		<td class="hidden-xs"><isprint value="#ApprovalDate#"></td>
+	</isif>
+	<isif condition="#IsRecurring EQ 'true'#">
+		<td class="hidden-xs">
+			<isif condition="#isDefined(RecurrencePeriod)#">
+				<isPeriodDisplay period="#RecurrencePeriod#">
+			</isif>
+		</td>
+	</isif>
+	<td class="hidden-xs"><isprint value="#ItemCount#" style="INTEGER"></td>
+	<td class="text-right" nowrap="nowrap"><isprint value="#GrandTotal#"></td>
+	<td class="text-right"><a href="<isprint value="#DetailsHref#" encoding="off">"><istext key="approval.list.details.link" /></a></td>
+</tr>

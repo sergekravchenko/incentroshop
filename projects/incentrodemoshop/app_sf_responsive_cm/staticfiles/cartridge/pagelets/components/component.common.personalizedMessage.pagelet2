@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pagelet:PageletModel xmlns:pagelet="http://www.intershop.de/pagelet/2010" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://www.intershop.de/core/2010" name="component.common.personalizedMessage.pagelet2">
+  <pageletDefinitions name="Component" remoteInclude="true">
+    <callParameterInterfaces referencedName="app_sf_responsive_cm:interface.common.content.advanced.pagelet2-Interface"/>
+    <callParameterInterfaces referencedName="app_sf_responsive_cm:interface.footer.content.pagelet2-Interface"/>
+    <configurationParameterDefinitions name="PersonalizedMessage" typeReference="bc_pmc:types.pagelet2-Html">
+      <parameterBindings xsi:type="core:ParameterValueBinding" name="Key0" value="CurrentUser:Profile:DataSheet:FirstName"/>
+      <parameterBindings xsi:type="core:ParameterValueBinding" name="Key1" value="CurrentUser:Profile:DataSheet:LastName"/>
+      <parameterBindings xsi:type="core:ParameterValueBinding" name="Key2" value="CurrentUser:Profile:Credentials:Login"/>
+    </configurationParameterDefinitions>
+    <renderTemplate referencedName="component/common/PersonalizedMessage"/>
+  </pageletDefinitions>
+</pagelet:PageletModel>

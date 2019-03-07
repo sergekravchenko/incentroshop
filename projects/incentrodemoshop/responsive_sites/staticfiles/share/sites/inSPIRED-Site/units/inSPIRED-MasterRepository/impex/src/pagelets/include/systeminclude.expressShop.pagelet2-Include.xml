@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<enfinity xmlns:dt="http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt">
+<pagelet-entry-point id="systeminclude.expressShop.pagelet2-Include">
+<definition-name>app_sf_responsive:systeminclude.expressShop.pagelet2-Include</definition-name>
+<page>false</page>
+<sorting>false</sorting>
+<display-name xml:lang="de-DE">Express Shop</display-name>
+<display-name xml:lang="en-US">Express Shop</display-name>
+<display-name xml:lang="fr-FR">Magasin express</display-name>
+<description xml:lang="de-DE">Dieses Include wird für die Express-Shop-Komponente verwendet.</description>
+<description xml:lang="en-US">This include is used for the express shop component.</description>
+<description xml:lang="fr-FR">Cette inclusion est utilisée pour le composant du panier d&apos;achat de magasin express.</description>
+</pagelet-entry-point>
+<pagelet-pagelet-entry-point-assignment>
+<pagelet-entry-point id="systeminclude.expressShop.pagelet2-Include" domain="inSPIRED-MasterRepository" resource-set="app_sf_responsive"/>
+<pagelet id="cmp_expressShop" domain="inSPIRED-MasterRepository"/>
+<position>1</position>
+<online>true</online>
+</pagelet-pagelet-entry-point-assignment>
+</enfinity>

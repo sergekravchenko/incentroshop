@@ -1,0 +1,95 @@
+<iscontent type="text/html" charset="UTF-8" compact="true">
+
+<!--- Cost Center Orders --->
+<hr/>
+<div class="row">
+	<div class="col-xs-6">
+		<h3><istext key="account.costcenter.details.orders.list.title"/></h3>
+	</div>
+</div>
+
+<isset name="CostCenterOrderBOs" value="#CostCenterBO:Extension("CostCenterBOOrderExtension"):Orders#" scope="request"/>
+
+<isif condition="#isDefined(CostCenterOrderBOs) AND hasElements(CostCenterOrderBOs)#">
+	
+	<div class="table-responsive">
+		<table class="table table-condensed" data-testing-id="orders-list" data-table="CostCenterOrdersList">
+			<thead>
+				<th data-column-id="order-id">
+					<istext key="account.costcenter.details.orders.list.header.no"/>
+				</th>
+				<th data-column-id="order-items">
+					<istext key="account.costcenter.details.orders.list.header.items"/>
+				</th>
+				<th data-column-id="order-buyer">
+					<istext key="account.costcenter.details.orders.list.header.buyer"/>
+				</th>
+				<th data-column-id="order-date">
+					<istext key="account.costcenter.details.orders.list.header.orderdate"/>
+				</th>
+				<th data-column-id="order-status">
+					<istext key="account.costcenter.details.orders.list.header.orderstatus"/>
+				</th>
+				<th class="text-right" data-column-id="order-total">
+					<istext key="account.costcenter.details.orders.list.header.total"/>
+				</th>
+			</thead>
+			<tbody>
+					<isloop iterator="CostCenterOrderBOs" alias="OrderBO">
+						<tr>
+							<td>
+								<a href="#URLEX(SecureURL,'',Action('ViewCostCenter-OrderDetails'), Parameter('OrderID', OrderBO:ID))#">
+									<isprint value="#OrderBO:DocumentNo#">
+								</a>
+							</td>
+							<td>
+								<isprint value="#OrderBO:TotalProductQuantity#" style="QUANTITY_SHORT">
+							</td>
+							<td>
+								<isif condition="#(OrderBO:BuyerFirstName EQ '') AND (OrderBO:BuyerLastName EQ '')#">
+									<isprint value="#OrderBO:NotificationEmailAddress#">
+								<iselse>
+									<isprint value="#OrderBO:BuyerFirstName#"> <isprint value="#OrderBO:BuyerLastName#"><br/>
+								</isif>
+							</td>
+							<td>
+								<isprint value="#OrderBO:CreationDate#" style="DATE_SHORT">
+							</td>
+							<td>
+								<isOrderStatus Order="#OrderBO#">
+							</td>
+							<td class="text-right">
+								<isprint value="#OrderBO:GrandTotalGross#">
+							</td>
+						</tr>
+					</isloop>
+			</tbody>
+		</table>
+	</div>
+	<script>
+		$('[data-table="CostCenterOrdersList"]').DataTable({
+			"responsive" : true,		    
+			"language": {
+				"sEmptyTable": "<istext key="datatables.sEmptyTable" encoding="javascript"/>",
+				"sInfo": "<istext key="datatables.sInfo" encoding="javascript"/>",
+				"sInfoEmpty": "<istext key="datatables.sInfoEmpty" encoding="javascript"/>",
+				"sInfoFiltered": "<istext key="datatables.sInfoFiltered" encoding="javascript"/>",
+				"sLengthMenu": "<istext key="datatables.sLengthMenu" encoding="javascript"/>",
+				"sLoadingRecords": "<istext key="datatables.sLoadingRecords" encoding="javascript"/>",
+				"sProcessing": "<istext key="datatables.sProcessing" encoding="javascript"/>",
+				"sSearch": "<istext key="datatables.sSearch" encoding="javascript"/>",
+				"sZeroRecords": "<istext key="datatables.sZeroRecords" encoding="javascript"/>",
+				"oPaginate": {
+					"sFirst": "<istext key="datatables.sFirst" encoding="javascript"/>",
+					"sLast": "<istext key="datatables.sLast" encoding="javascript"/>",
+					"sNext": "<istext key="datatables.sNext" encoding="javascript"/>",
+					"sPrevious": "<istext key="datatables.sPrevious" encoding="javascript"/>"
+				}
+			}
+		});
+	</script>
+<iselse>
+	
+	<p><istext key="account.costcenter.details.orders.list.noorders" /></p>
+
+</isif>

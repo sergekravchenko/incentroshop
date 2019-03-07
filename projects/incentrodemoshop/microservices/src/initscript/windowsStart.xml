@@ -1,0 +1,14 @@
+<service>
+    <id>@id@</id>
+    <name>@serviceName@</name>
+    <description>@description@</description>
+    <executable>@execName@.bat</executable>
+    <logpath><@installPath@>\log</logpath>
+    <logmode>rotate</logmode>
+    <serviceaccount>
+        <domain><@windomain@></domain>
+        <user><@osuser@></user>
+        <password><@osuserpassword@></password>
+        <allowservicelogon>true</allowservicelogon>
+    </serviceaccount>
+</service>

@@ -1,0 +1,11 @@
+<iscontent type="text/html" charset="UTF-8" compact="true">
+<isif condition="#BasketBO:Extension("BasketBOAdditionalInformationExtension"):CostCenter NE ''#">
+	<tr>
+		<td>
+			<istext key="email.order_approval.cost_center.label" />
+		</td>
+		<td>
+			<isprint value="#BasketBO:Extension("BasketBOCostCenterExtension"):CostCenterBO:Name#" /> - <isprint value="#BasketBO:Extension("BasketBOCostCenterExtension"):CostCenterBO:DisplayName#" />
+		</td>
+	</tr>
+</isif>

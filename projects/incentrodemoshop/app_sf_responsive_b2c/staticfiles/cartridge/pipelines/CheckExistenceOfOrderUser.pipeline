@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--If order user is anonymous but the notification mail of the order can be mapped to an existing login the corresponding user will be assigned to the order to e.g. make it available in the user's order list.
+@Group Order-->
+
+<pipeline:Pipeline xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pipeline="http://www.intershop.de/pipeline/2010"
+    name="CheckExistenceOfOrderUser" type="extension">
+<!--Save ID of the session user at the order to allow checks at later steps.
+@Location 2,7-->
+  <nodes xsi:type="pipeline:Text" nodeID="Text0"/>
+<!--@Location 0,0-->
+  <nodes xsi:type="pipeline:StartNode" nodeID="StartNode0" strict="true" name="Start"
+      callMode="Private">
+    <nodeSuccessors name="next" next="DecisionNode0"/>
+    <parameters name="CurrentOrder" type="com.intershop.beehive.bts.capi.orderprocess.fulfillment.Order"/>
+    <parameters name="CurrentSession" type="com.intershop.beehive.core.capi.request.Session"/>
+    <parameters name="CurrentUser" type="com.intershop.beehive.core.capi.user.User"/>
+  </nodes>
+<!--@Location 0,1-->
+  <nodes xsi:type="pipeline:DecisionNode" nodeID="DecisionNode0" conditionKey="CurrentOrder:Anonymous"
+      operator="str_eq" conditionValue="true">
+    <nodeSuccessors name="decision_yes" next="GetApplicationBO0"/>
+<!--@BendPoints 3,3-->
+    <nodeSuccessors name="decision_no" next="JoinNode1"/>
+  </nodes>
+<!--@Location 0,2-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="GetApplicationBO0">
+    <pipelet href="enfinity:/bc_application/pipelets/GetApplicationBO.xml"/>
+    <nodeSuccessors name="next" next="GetUserBOByLogin0"/>
+  </nodes>
+<!--@Location 0,3-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="GetUserBOByLogin0">
+    <pipelet href="enfinity:/bc_user/pipelets/GetUserBOByLogin.xml"/>
+    <nodeSuccessors name="next" next="GetCustomerBO0"/>
+    <nodeSuccessors name="pipelet_error" next="JoinNode1"/>
+    <parameterBindings name="Login" objectPath="CurrentOrder:String(&quot;NotificationEMail&quot;)"/>
+    <parameterBindings name="UserBORepository" objectPath="ApplicationBO:Repository(&quot;UserBORepository&quot;)"/>
+  </nodes>
+<!--@Location 0,4-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="GetCustomerBO0">
+    <pipelet href="enfinity:/bc_customer/pipelets/GetCustomerBO.xml"/>
+    <nodeSuccessors name="next" next="GetOrderBO0"/>
+    <parameterBindings name="CustomerBORepository" objectPath="ApplicationBO:Repository(&quot;CustomerBORepository&quot;)"/>
+  </nodes>
+<!--@Location 0,5-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="GetOrderBO0">
+    <pipelet href="enfinity:/bc_order/pipelets/GetOrderBO.xml"/>
+    <nodeSuccessors name="next" next="UpdateOrderBOBuyer1"/>
+    <parameterBindings name="Order" objectPath="CurrentOrder"/>
+    <parameterBindings name="OrderBORepository" objectPath="ApplicationBO:Repository(&quot;OrderBORepository&quot;)"/>
+  </nodes>
+<!--@Location 0,6-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="UpdateOrderBOBuyer1">
+    <pipelet href="enfinity:/sld_ch_b2c_base/pipelets/UpdateOrderBOBuyer.xml"/>
+    <nodeSuccessors name="next" next="UpdateCustomAttributes0"/>
+  </nodes>
+<!--@Location 0,7-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="UpdateCustomAttributes0">
+    <configurationValues name="Attribute_1_Name" value="SessionUserID"/>
+    <configurationValues name="Attribute_1_Type" value="String"/>
+    <pipelet href="enfinity:/core/pipelets/UpdateCustomAttributes.xml"/>
+    <nodeSuccessors name="next" next="JoinNode0"/>
+    <parameterBindings name="Attribute_1_Value" objectPath="CurrentUser:ID"/>
+    <parameterBindings name="ExtensibleObject" objectPath="CurrentOrder"/>
+  </nodes>
+<!--@Location 0,8-->
+  <nodes xsi:type="pipeline:JoinNode" nodeID="JoinNode0">
+    <nodeSuccessors name="next" next="EndNode0"/>
+  </nodes>
+<!--@Location 0,9-->
+  <nodes xsi:type="pipeline:EndNode" nodeID="EndNode0" strict="true"/>
+<!--@Location 1,3-->
+  <nodes xsi:type="pipeline:JoinNode" nodeID="JoinNode1">
+<!--@BendPoints 3,17-->
+    <nodeSuccessors name="next" next="JoinNode0"/>
+  </nodes>
+</pipeline:Pipeline>

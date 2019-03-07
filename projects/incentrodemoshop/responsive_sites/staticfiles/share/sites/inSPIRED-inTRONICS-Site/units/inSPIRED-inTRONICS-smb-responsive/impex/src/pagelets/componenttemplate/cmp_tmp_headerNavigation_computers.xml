@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<enfinity xmlns:dt="http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt">
+<component-template id="cmp_tmp_headerNavigation_computers">
+<definition-name>app_sf_responsive_cm:component.system.mainnavigation.category.pagelet2-Component</definition-name>
+<display-name xml:lang="de-DE">Header Navigation - Computer</display-name>
+<display-name xml:lang="en-US">Header Navigation - Computers</display-name>
+<active>true</active>
+<author business-partner-no="admin" domain="inSPIRED"/>
+<configuration-parameters>
+<configuration-parameter name="AlternateNavigationTitle">
+<definition-name>app_sf_responsive_cm:component.system.mainnavigation.category.pagelet2-Component-AlternateNavigationTitle</definition-name>
+<value name="AlternateNavigationTitle" xml:lang="de-DE">Computer</value>
+<value name="AlternateNavigationTitle" xml:lang="en-US">Computers</value>
+</configuration-parameter>
+<configuration-parameter name="NavigationCategory">
+<definition-name>app_sf_responsive_cm:component.system.mainnavigation.category.pagelet2-Component-NavigationCategory</definition-name>
+<value name="NavigationCategory">1835@inSPIRED-Computers</value>
+</configuration-parameter>
+</configuration-parameters>
+</component-template>
+</enfinity>

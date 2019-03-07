@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<enfinity 
+	xsi:schemaLocation="http://www.intershop.com/xml/ns/enfinity/6.6/bc_marketing/impex bc_marketing.xsd http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt dt.xsd"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns="http://www.intershop.com/xml/ns/enfinity/6.6/bc_marketing/impex" 
+	xmlns:xml="http://www.w3.org/XML/1998/namespace" 
+	xmlns:dt="http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt" 
+	>	
+
+	
+		
+			<unique-promotion-code-list>
+				<promotion-code>INTERSHOP</promotion-code>
+			</unique-promotion-code-list>
+					
+	
+	
+</enfinity>

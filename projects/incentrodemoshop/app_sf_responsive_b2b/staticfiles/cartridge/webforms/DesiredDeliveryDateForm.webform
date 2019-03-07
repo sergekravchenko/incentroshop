@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<webform:WebForm xmlns:core="http://www.intershop.de/core/2010" xmlns:webform="http://www.intershop.de/webform/2010" name="DesiredDeliveryDateForm">
+	<forms name="DesiredDeliveryDateForm">
+		<parameters xsi:type="webform:FormParameter" optional="true" name="DesiredDeliveryDate" type="java.util.Date">
+			<validatorBindings validator="GlobalValidators-date"/>
+			<formatterBinding formatter="GlobalFormatters-date"/>
+		</parameters>
+	</forms>  
+</webform:WebForm>

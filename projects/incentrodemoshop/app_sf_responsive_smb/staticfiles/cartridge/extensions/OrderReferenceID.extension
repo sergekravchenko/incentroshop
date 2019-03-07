@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<extensionpoint:ExtensionPointModel xmlns:extensionpoint="http://www.intershop.de/extensionpoint/2011" name="OrderReferenceID">
+  <extensionBindings type="isml" extensionPoint="checkout/shipping/CheckoutShipping-CheckoutShippingAfterBuckets" extension="checkout/shipping/OrderReferenceID"/>
+</extensionpoint:ExtensionPointModel>

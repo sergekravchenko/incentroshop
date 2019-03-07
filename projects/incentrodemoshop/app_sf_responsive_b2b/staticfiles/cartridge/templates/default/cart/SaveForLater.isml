@@ -1,0 +1,51 @@
+<iscontent type="text/html" charset="UTF-8" compact="true">
+<!---<isset name="PLIWarranty" value="#PLI:Extension("Warranty")#" scope="request"/>--->
+<isinclude template="modules/Modules">
+
+<ismodule template = "modules/account/WishlistItem.isml"
+	name="WishlistItem"
+	attribute="WishlistItem"
+	attribute="Currency"
+	attribute="showImage"
+	attribute="Pagelet"
+	attribute="showQuantityControls"
+	attribute="showQuantitiesText"
+	attribute="showDateAdded"
+	attribute="showPrice"
+	attribute="showAddToCartButton"
+	attribute="showEditItemButtons"
+	attribute="showWishlistLink"
+	attribute="saveForLaterList"
+	strict="true"
+>
+
+<isif condition="#(isDefined(WishlistBO)) AND (hasElements(WishlistBO:Items))#">
+	<div class="ish-section">
+		<div class="ish-bar">
+			<h3><istext key="account.wishlist.saved_for_later.heading"></h3>
+		</div>
+		
+		<isset name="WishlistItems" value="#WishlistBO:Items#" scope="request" />
+		
+		<div class="ish-shiftContent">
+			<table class="ish-productTable">
+				<thead>
+					<tr>
+						<th><istext key="account.wishlist.table.header.item"></th>
+						<th></th>
+						<th><istext key="account.wishlist.table.header.date_added"></th>
+						<th class="ish-itemPrice"><istext key="account.wishlist.table.header.price"/></th>
+						<th>&nbsp;</th>
+					</tr>
+				</thead>
+				<tbody>
+					<isloop iterator="WishlistItems" alias="WishlistItem">
+						<isWishlistItem WishlistItem="#WishlistItem#" Currency="#CurrentRequest:Currency#" showImage="true" saveForLaterList="true"
+							 showQuantitiesText="false" showQuantityControls="true" showDateAdded="true" showPrice="true" showAddToCartButton="true" showEditItemButtons="true">
+						
+					</isloop>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</isif>

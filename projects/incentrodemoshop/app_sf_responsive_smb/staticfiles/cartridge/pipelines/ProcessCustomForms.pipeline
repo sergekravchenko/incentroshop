@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pipeline:Pipeline xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pipeline="http://www.intershop.de/pipeline/2010"
+    name="ProcessCustomForms" overrideMode="Inherit" type="">
+<!--@Location 4,0-->
+  <nodes xsi:type="pipeline:StartNode" nodeID="StartNode2" strict="true" visibility="Private"
+      name="CleanSession" callMode="Private">
+    <nodeSuccessors name="next" next="GetUserBO0"/>
+    <parameters name="ApplicationBO" type="com.intershop.component.application.capi.ApplicationBO"/>
+    <parameters name="CurrentOrganization" type="com.intershop.component.organization.capi.Organization"/>
+  </nodes>
+<!--@Location 4,1-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="GetUserBO0">
+    <pipelet href="enfinity:/bc_user/pipelets/GetUserBO.xml"/>
+    <nodeSuccessors name="next" next="StartSafeChangesBlock0"/>
+    <parameterBindings name="UserBORepository" objectPath="ApplicationBO:Repository(&quot;UserBORepository&quot;)"/>
+    <parameterBindings name="UserID" objectPath="CurrentUser:ID"/>
+  </nodes>
+<!--@Location 4,2-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="StartSafeChangesBlock0">
+    <pipelet href="enfinity:/core/pipelets/StartSafeChangesBlock.xml"/>
+    <nodeSuccessors name="next" next="CallNode6"/>
+  </nodes>
+<!--@Location 4,3-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode6">
+    <nodeSuccessors name="next" next="EndSafeChangesBlock0"/>
+    <parameterBindings name="AddressBORepository" objectPath="UserBO:Extension(&quot;UserBOTempAddressStorageExtension&quot;)"/>
+    <startNode referencedName="ProcessAddress-DeleteAllAddresses"/>
+  </nodes>
+<!--@Location 4,4-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="EndSafeChangesBlock0">
+    <pipelet href="enfinity:/core/pipelets/EndSafeChangesBlock.xml"/>
+    <nodeSuccessors name="next" next="ExchangeSessionObject5"/>
+  </nodes>
+<!--@Location 4,5-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="ExchangeSessionObject5">
+    <configurationValues name="ProcessMethod" value="Put Object to Session"/>
+    <configurationValues name="SessionObjectName" value="T_LoginForm"/>
+    <pipelet href="enfinity:/bc_foundation/pipelets/ExchangeSessionObject.xml"/>
+    <nodeSuccessors name="next" next="ExchangeSessionObject6"/>
+    <nodeSuccessors name="pipelet_error" next="ExchangeSessionObject6"/>
+    <parameterBindings name="SessionObjectName" objectPath="T_LoginForm"/>
+  </nodes>
+<!--@Location 4,6-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="ExchangeSessionObject6">
+    <configurationValues name="ProcessMethod" value="Put Object to Session"/>
+    <configurationValues name="SessionObjectName" value="T_AddressForm"/>
+    <pipelet href="enfinity:/bc_foundation/pipelets/ExchangeSessionObject.xml"/>
+    <nodeSuccessors name="next" next="ExchangeSessionObject7"/>
+    <nodeSuccessors name="pipelet_error" next="ExchangeSessionObject7"/>
+    <parameterBindings name="SessionObjectName" objectPath="T_AddressForm"/>
+  </nodes>
+<!--@Location 4,7-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="ExchangeSessionObject7">
+    <configurationValues name="ProcessMethod" value="Put Object to Session"/>
+    <configurationValues name="SessionObjectName" value="T_CompanyInformationForm"/>
+    <pipelet href="enfinity:/bc_foundation/pipelets/ExchangeSessionObject.xml"/>
+    <nodeSuccessors name="next" next="EndNode3"/>
+    <nodeSuccessors name="pipelet_error" next="EndNode3"/>
+    <parameterBindings name="SessionObjectName" objectPath="T_CompanyInformationForm"/>
+  </nodes>
+<!--@Location 4,8-->
+  <nodes xsi:type="pipeline:EndNode" nodeID="EndNode3" strict="true"/>
+<!--@Location 3,0-->
+  <nodes xsi:type="pipeline:StartNode" nodeID="StartNode1" strict="true" visibility="Private"
+      name="GetAddressFormFromSuggestedAddress" callMode="Private">
+    <nodeSuccessors name="next" next="KeyMapper1"/>
+<!--Choosen by the user seggested address.-->
+    <parameters name="Selection" type="java.lang.String"/>
+    <parameters name="UserBO" type="com.intershop.component.user.capi.UserBO"/>
+  </nodes>
+<!--@Location 3,1-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="KeyMapper1">
+    <pipelet href="enfinity:/bc_foundation/pipelets/KeyMapper.xml"/>
+    <nodeSuccessors name="next" next="GetAddressBO0"/>
+    <parameterBindings name="InValue_1" objectPath="UserBO:Extension(&quot;UserBOTempAddressStorageExtension&quot;)"/>
+    <returnValueBindings name="OutValue_1" objectPath="AddressBORepository"/>
+  </nodes>
+<!--@Location 3,2-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="GetAddressBO0">
+    <pipelet href="enfinity:/bc_address/pipelets/GetAddressBO.xml"/>
+    <nodeSuccessors name="next" next="CallNode5"/>
+    <parameterBindings name="AddressID" objectPath="Selection"/>
+  </nodes>
+<!--@Location 3,3-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode5">
+    <nodeSuccessors name="next" next="MapObjectToForm0"/>
+    <parameterBindings name="Dictionary" objectPath="CurrentRequest:PipelineDictionary"/>
+    <parameterBindings name="FormAlias" constant="AddressForm"/>
+    <parameterBindings name="FormName" constant="AddressForm"/>
+    <startNode referencedName="ProcessWebforms-CreateRegisterFullAddressForm"/>
+    <returnValueBindings name="Form" objectPath="AddressForm"/>
+    <returnValueBindings name="WebFormFileName" objectPath="AddressFormTemplate"/>
+  </nodes>
+<!--@Location 3,4-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="MapObjectToForm0">
+    <configurationValues name="NameFilterType" value="include"/>
+    <pipelet href="enfinity:/core/pipelets/MapObjectToForm.xml"/>
+    <nodeSuccessors name="next" next="ExchangeSessionObject2"/>
+    <parameterBindings name="Form" objectPath="AddressForm"/>
+    <parameterBindings name="SourceObject" objectPath="AddressBO"/>
+  </nodes>
+<!--@Location 3,5-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="ExchangeSessionObject2">
+    <configurationValues name="ProcessMethod" value="Get Object from Session"/>
+    <configurationValues name="SessionObjectName" value="T_AddressForm"/>
+    <pipelet href="enfinity:/bc_foundation/pipelets/ExchangeSessionObject.xml"/>
+    <nodeSuccessors name="next" next="ExchangeSessionObject3"/>
+    <nodeSuccessors name="pipelet_error" next="ExchangeSessionObject3"/>
+    <returnValueBindings name="LoadObject" objectPath="SubmittedAddressForm"/>
+  </nodes>
+<!--@Location 3,6-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="ExchangeSessionObject3">
+    <configurationValues name="ProcessMethod" value="Get Object from Session"/>
+    <configurationValues name="SessionObjectName" value="T_LoginForm"/>
+    <pipelet href="enfinity:/bc_foundation/pipelets/ExchangeSessionObject.xml"/>
+    <nodeSuccessors name="next" next="GetLocalizedTextByKey0"/>
+    <nodeSuccessors name="pipelet_error" next="GetLocalizedTextByKey0"/>
+    <returnValueBindings name="LoadObject" objectPath="LoginForm"/>
+  </nodes>
+<!--@Location 3,7-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="GetLocalizedTextByKey0">
+    <pipelet href="enfinity:/core/pipelets/GetLocalizedTextByKey.xml"/>
+    <nodeSuccessors name="next" next="ExchangeSessionObject4"/>
+    <nodeSuccessors name="pipelet_error" next="ExchangeSessionObject4"/>
+    <parameterBindings name="Key" objectPath="LoginForm:SecurityQuestion:Value"/>
+    <returnValueBindings name="LocalizedText" objectPath="SecurityQuestion"/>
+  </nodes>
+<!--@Location 3,8-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="ExchangeSessionObject4">
+    <configurationValues name="ProcessMethod" value="Get Object from Session"/>
+    <configurationValues name="SessionObjectName" value="T_CompanyInformationForm"/>
+    <pipelet href="enfinity:/bc_foundation/pipelets/ExchangeSessionObject.xml"/>
+    <nodeSuccessors name="next" next="AddMultipleEntriesToMap0"/>
+    <nodeSuccessors name="pipelet_error" next="AddMultipleEntriesToMap0"/>
+    <returnValueBindings name="LoadObject" objectPath="CompanyInformationForm"/>
+  </nodes>
+<!--@Location 3,9-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="AddMultipleEntriesToMap0">
+    <configurationValues name="Mode" value="AppendToValue"/>
+    <configurationValues name="ValueSeparatorChar" value=","/>
+    <pipelet href="enfinity:/core/pipelets/AddMultipleEntriesToMap.xml"/>
+    <nodeSuccessors name="next" next="SetFormParameterValues0"/>
+    <parameterBindings name="InMap" objectPath="FormParameters"/>
+    <parameterBindings name="Key1" objectPath="AddressForm:UseAsBillingAddress"/>
+    <parameterBindings name="Key2" objectPath="AddressForm:UseAsShippingAddress"/>
+    <parameterBindings name="Key3" objectPath="AddressForm:PreferredBillingAddress"/>
+    <parameterBindings name="Key4" objectPath="AddressForm:PreferredShippingAddress"/>
+    <parameterBindings name="Value1" objectPath="SubmittedAddressForm:UseAsBillingAddress:Value"/>
+    <parameterBindings name="Value2" objectPath="SubmittedAddressForm:UseAsShippingAddress:Value"/>
+    <parameterBindings name="Value3" objectPath="SubmittedAddressForm:PreferredBillingAddress:Value"/>
+    <parameterBindings name="Value4" objectPath="SubmittedAddressForm:PreferredShippingAddress:Value"/>
+    <returnValueBindings name="OutMap" objectPath="FormParameters"/>
+  </nodes>
+<!--@Location 3,10-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="SetFormParameterValues0">
+    <pipelet href="enfinity:/core/pipelets/SetFormParameterValues.xml"/>
+    <nodeSuccessors name="next" next="EndNode2"/>
+    <parameterBindings name="FormParameterValuesMap" objectPath="FormParameters"/>
+  </nodes>
+<!--@Location 3,11-->
+  <nodes xsi:type="pipeline:EndNode" nodeID="EndNode2" name="" strict="true">
+    <returnValues name="AddressForm" type="com.intershop.beehive.core.capi.webform.Form"/>
+    <returnValues name="LoginForm" type="com.intershop.beehive.core.capi.webform.Form"/>
+    <returnValues name="SecurityQuestion" type="java.lang.String"/>
+    <returnValues name="CompanyInformationForm" type="com.intershop.beehive.core.capi.webform.Form"/>
+  </nodes>
+<!--@Location 1,0-->
+  <nodes xsi:type="pipeline:StartNode" nodeID="StartNode0" strict="true" visibility="Private"
+      name="ProcessAddressesSuggestions" callMode="Private">
+    <nodeSuccessors name="next" next="GetApplicationPreference0"/>
+    <parameters name="UserBO" type="com.intershop.component.user.capi.UserBO"/>
+    <parameters name="AddressForm" type="com.intershop.beehive.core.capi.webform.Form"/>
+    <parameters name="ApplicationBO" type="com.intershop.component.application.capi.ApplicationBO"/>
+    <parameters name="CurrentOrganization" type="com.intershop.component.organization.capi.Organization"/>
+    <parameters name="LoginForm" type="com.intershop.beehive.core.capi.webform.Form"
+        optional="true"/>
+    <parameters name="CompanyInformationForm" type="com.intershop.beehive.core.capi.webform.Form"/>
+  </nodes>
+<!--@Location 1,1-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="GetApplicationPreference0">
+    <configurationValues name="DefaultApplicationPreferenceKey" value="AddressValidationRegistration"/>
+    <configurationValues name="Type" value="String"/>
+    <pipelet href="enfinity:/core/pipelets/GetApplicationPreference.xml"/>
+    <nodeSuccessors name="next" next="DecisionNode0"/>
+    <nodeSuccessors name="pipelet_error" next="DecisionNode0"/>
+    <parameterBindings name="Application" objectPath="CurrentRequest:RequestApplication"/>
+    <parameterBindings name="DomainPreference" objectPath="CurrentDomain"/>
+  </nodes>
+<!--@Location 1,2-->
+  <nodes xsi:type="pipeline:DecisionNode" nodeID="DecisionNode0" conditionKey="ApplicationPreferenceStringValue"
+      operator="str_eq" conditionValue="true">
+    <nodeSuccessors name="decision_yes" next="CallNode0"/>
+<!--@BendPoints 5,5-->
+    <nodeSuccessors name="decision_no" next="JoinNode0"/>
+  </nodes>
+<!--@Location 1,3-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode0">
+    <nodeSuccessors name="next" next="KeyMapper0"/>
+    <startNode referencedName="ViewUserAccount-DeleteAllSuggestedAddresses"/>
+  </nodes>
+<!--@Location 1,4-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="KeyMapper0">
+    <pipelet href="enfinity:/bc_foundation/pipelets/KeyMapper.xml"/>
+    <nodeSuccessors name="next" next="CreateAddressBO0"/>
+    <parameterBindings name="InValue_1" objectPath="UserBO:Extension(&quot;UserBOTempAddressStorageExtension&quot;)"/>
+    <returnValueBindings name="OutValue_1" objectPath="AddressBORepository"/>
+  </nodes>
+<!--Should not fail, because it is
+only a temp address
+@Location 1,5-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="CreateAddressBO0">
+    <pipelet href="enfinity:/bc_address/pipelets/CreateAddressBO.xml"/>
+    <nodeSuccessors name="next" next="CallNode3"/>
+    <parameterBindings name="AddressLine1" objectPath="AddressForm:Address1:Value"/>
+    <parameterBindings name="AddressLine2" objectPath="AddressForm:Address2:Value"/>
+    <parameterBindings name="AddressLine3" objectPath="AddressForm:Address3:Value"/>
+    <parameterBindings name="AddressName" constant="useraddress"/>
+    <parameterBindings name="City" objectPath="AddressForm:City:Value"/>
+    <parameterBindings name="CompanyName1" objectPath="AddressForm:Company:Value"/>
+    <parameterBindings name="CountryCode" objectPath="AddressForm:CountryCode:Value"/>
+    <parameterBindings name="FirstName" objectPath="AddressForm:FirstName:Value"/>
+    <parameterBindings name="LastName" objectPath="AddressForm:LastName:Value"/>
+    <parameterBindings name="MainDivision" objectPath="AddressForm:State:Value"/>
+    <parameterBindings name="PhoneHome" objectPath="AddressForm:PhoneHome:Value"/>
+    <parameterBindings name="PhoneMobile" objectPath="AddressForm:Mobile:Value"/>
+    <parameterBindings name="PostalCode" objectPath="AddressForm:PostalCode:Value"/>
+    <parameterBindings name="SecondName" objectPath="AddressForm:SecondName:Value"/>
+    <parameterBindings name="Title" objectPath="AddressForm:Title:Value"/>
+    <returnValueBindings name="AddressBO" objectPath="UserAddressBO"/>
+  </nodes>
+<!--@Location 1,7-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode3">
+    <nodeSuccessors name="ERROR" next="JoinNode0"/>
+    <nodeSuccessors name="FAILED" next="DecisionNode1"/>
+    <nodeSuccessors name="NO_SERVICE" next="JoinNode0"/>
+    <nodeSuccessors name="OK" next="JoinNode0"/>
+    <nodeSuccessors name="SUGGESTLIST" next="DecisionNode1"/>
+    <parameterBindings name="AddressBO" objectPath="UserAddressBO"/>
+    <startNode referencedName="ProcessAddressValidation-ValidateAddressBO"/>
+  </nodes>
+<!--@Location 2,7-->
+  <nodes xsi:type="pipeline:JoinNode" nodeID="JoinNode0">
+    <nodeSuccessors name="next" next="EndNode0"/>
+  </nodes>
+<!--@Location 2,12-->
+  <nodes xsi:type="pipeline:EndNode" nodeID="EndNode0" name="Error" strict="true">
+    <returnValues name="NOT_AVAILABLE" type="java.lang.String" optional="true"/>
+  </nodes>
+<!--@Location 1,9-->
+  <nodes xsi:type="pipeline:DecisionNode" nodeID="DecisionNode1" conditionKey="LoginForm">
+    <nodeSuccessors name="decision_yes" next="ExchangeSessionObject0"/>
+    <nodeSuccessors name="decision_no" next="ExchangeSessionObject1"/>
+  </nodes>
+<!--@Location 1,10-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="ExchangeSessionObject0">
+    <configurationValues name="ProcessMethod" value="Put Object to Session"/>
+    <configurationValues name="SessionObjectName" value="T_LoginForm"/>
+    <pipelet href="enfinity:/bc_foundation/pipelets/ExchangeSessionObject.xml"/>
+    <nodeSuccessors name="next" next="ExchangeSessionObject1"/>
+    <nodeSuccessors name="pipelet_error" next="ExchangeSessionObject1"/>
+    <parameterBindings name="SaveObject" objectPath="LoginForm"/>
+    <parameterBindings name="SessionObjectName" objectPath="T_LoginForm"/>
+  </nodes>
+<!--@Location 1,12-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="ExchangeSessionObject1">
+    <configurationValues name="ProcessMethod" value="Put Object to Session"/>
+    <configurationValues name="SessionObjectName" value="T_AddressForm"/>
+    <pipelet href="enfinity:/bc_foundation/pipelets/ExchangeSessionObject.xml"/>
+    <nodeSuccessors name="next" next="ExchangeSessionObject8"/>
+    <nodeSuccessors name="pipelet_error" next="ExchangeSessionObject8"/>
+    <parameterBindings name="SaveObject" objectPath="AddressForm"/>
+    <parameterBindings name="SessionObjectName" objectPath="T_AddressForm"/>
+  </nodes>
+<!--@Location 1,14-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="ExchangeSessionObject8">
+    <configurationValues name="ProcessMethod" value="Put Object to Session"/>
+    <configurationValues name="SessionObjectName" value="T_CompanyInformationForm"/>
+    <pipelet href="enfinity:/bc_foundation/pipelets/ExchangeSessionObject.xml"/>
+    <nodeSuccessors name="next" next="LoopNode0"/>
+    <nodeSuccessors name="pipelet_error" next="LoopNode0"/>
+    <parameterBindings name="SaveObject" objectPath="CompanyInformationForm"/>
+    <parameterBindings name="SessionObjectName" objectPath="T_CompanyInformationForm"/>
+  </nodes>
+<!--@Location 1,15-->
+  <nodes xsi:type="pipeline:LoopNode" nodeID="LoopNode0" loop="AddressValidationResponse:SuggestedAddresses">
+<!--@BendPoints 4,31 4,36 3,36-->
+    <nodeSuccessors name="next" next="EndNode4"/>
+    <entry key="SuggestedAddress">
+      <nodeSuccessors name="loop_entry_next" next="CreateAddressBO1"/>
+    </entry>
+  </nodes>
+<!--Should not fail, because it is
+only a temp address
+@Location 1,16-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="CreateAddressBO1">
+    <pipelet href="enfinity:/bc_address/pipelets/CreateAddressBO.xml"/>
+<!--@BendPoints 3,35 2,35 2,31-->
+    <nodeSuccessors name="next" next="LoopNode0_Entry"/>
+    <parameterBindings name="AddressBOWithInitialData" objectPath="SuggestedAddress"/>
+  </nodes>
+<!--@Location 1,18-->
+  <nodes xsi:type="pipeline:EndNode" nodeID="EndNode4" name="Next" strict="true">
+    <returnValues name="OK" type="java.lang.String" optional="true"/>
+  </nodes>
+</pipeline:Pipeline>

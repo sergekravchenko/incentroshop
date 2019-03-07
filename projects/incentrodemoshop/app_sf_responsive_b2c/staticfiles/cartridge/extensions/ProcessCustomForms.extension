@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<extensionpoint:ExtensionPointModel xmlns:extensionpoint="http://www.intershop.de/extensionpoint/2011" name="ProcessCustomForms">
+  <extensionBindings type="pipeline" extensionPoint="ViewUserAccount-AddressSuggestionsProcessing" extension="ProcessCustomForms-ProcessAddressesSuggestions"/>
+  <extensionBindings type="pipeline" extensionPoint="ViewUserAccount-AddressFormFromSuggestedAddressCreated" extension="ProcessCustomForms-GetAddressFormFromSuggestedAddress"/>
+  <extensionBindings type="pipeline" extensionPoint="ViewUserAccount-SessionCleaning" extension="ProcessCustomForms-CleanSession"/>
+</extensionpoint:ExtensionPointModel>

@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Register customer logic for smb webshop.
+@Group Customer-->
+
+<pipeline:Pipeline xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pipeline="http://www.intershop.de/pipeline/2010"
+    name="ViewUserAccount" overrideMode="Inherit" type="view">
+<!--must be merged to trunk
+@Location 4,0-->
+  <nodes xsi:type="pipeline:Text" nodeID="Text0"/>
+<!--must be merged to trunk
+@Location 7,0-->
+  <nodes xsi:type="pipeline:Text" nodeID="Text1"/>
+<!--@Location 7,1-->
+  <nodes xsi:type="pipeline:StartNode" nodeID="StartNode2" strict="true" name="GetCustomerBO"
+      callMode="Private">
+    <nodeSuccessors name="next" next="KeyMapper2"/>
+    <parameters name="ApplicationBO" type="com.intershop.component.application.capi.ApplicationBO"/>
+    <parameters name="UserID" type="java.lang.String"/>
+  </nodes>
+<!--@Location 7,2-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="KeyMapper2">
+    <pipelet href="enfinity:/core/pipelets/KeyMapper.xml"/>
+    <nodeSuccessors name="next" next="GetUserBO0"/>
+    <parameterBindings name="InValue_1" objectPath="ApplicationBO:Repository(&quot;UserBORepository&quot;)"/>
+    <returnValueBindings name="OutValue_1" objectPath="UserBORepository"/>
+  </nodes>
+<!--@Location 7,3-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="GetUserBO0">
+    <pipelet href="enfinity:/bc_user/pipelets/GetUserBO.xml"/>
+    <nodeSuccessors name="next" next="GetCustomerBO0"/>
+    <parameterBindings name="UserID" objectPath="UserID"/>
+  </nodes>
+<!--@Location 7,4-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="GetCustomerBO0">
+    <pipelet href="enfinity:/bc_customer/pipelets/GetCustomerBO.xml"/>
+    <nodeSuccessors name="next" next="EndNode3"/>
+    <parameterBindings name="CustomerBORepository" objectPath="ApplicationBO:Repository(&quot;CustomerBORepository&quot;)"/>
+  </nodes>
+<!--@Location 7,5-->
+  <nodes xsi:type="pipeline:EndNode" nodeID="EndNode3" strict="true">
+    <returnValues name="UserBO" type="com.intershop.component.user.capi.UserBO"/>
+    <returnValues name="CustomerBO" type="com.intershop.component.customer.capi.CustomerBO"/>
+  </nodes>
+<!--@Location 4,1-->
+  <nodes xsi:type="pipeline:StartNode" nodeID="StartNode1" strict="true" name="LoginCheck"
+      callMode="Private">
+    <nodeSuccessors name="next" next="CheckUserLoggedIn0"/>
+<!--The name of the current pipeline (e.g., ViewUser\-Start)-->
+    <parameters name="Pipeline" type="java.lang.String"/>
+<!--Configure the message displayed at the login form when this login check fails. Localization key is defined as: account.login.&lt;LoginToUse&gt;.message-->
+    <parameters name="LoginToUse" type="java.lang.String" optional="true"/>
+    <parameters name="Request" type="com.intershop.beehive.core.capi.request.Request"/>
+    <parameters name="Session" type="com.intershop.beehive.core.capi.request.Session"/>
+<!--Ajax login checks lead to a different redirect page, therefore these are identified by this attribute.-->
+    <parameters name="AjaxRequestMarker" type="java.lang.String" optional="true"/>
+  </nodes>
+<!--@Location 4,2-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="CheckUserLoggedIn0">
+    <pipelet href="enfinity:/core/pipelets/CheckUserLoggedIn.xml"/>
+    <nodeSuccessors name="next" next="EndNode2"/>
+    <nodeSuccessors name="pipelet_error" next="KeyMapper0"/>
+  </nodes>
+<!--@Location 4,4-->
+  <nodes xsi:type="pipeline:EndNode" nodeID="EndNode2" strict="true"/>
+<!--@Location 5,2-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="KeyMapper0">
+    <pipelet href="enfinity:/core/pipelets/KeyMapper.xml"/>
+    <nodeSuccessors name="next" next="DecisionNode0"/>
+    <parameterBindings name="InValue_1" constant="ViewUserAccount-ShowLogin"/>
+    <parameterBindings name="InValue_2" constant="https"/>
+    <parameterBindings name="InValue_4" constant="TargetPipeline"/>
+    <parameterBindings name="InValue_5" objectPath="Pipeline"/>
+    <parameterBindings name="InValue_6" constant="LoginToUse"/>
+    <parameterBindings name="InValue_7" objectPath="LoginToUse"/>
+    <returnValueBindings name="OutValue_1" objectPath="TargetPipeline"/>
+    <returnValueBindings name="OutValue_2" objectPath="Protocol"/>
+    <returnValueBindings name="OutValue_3" objectPath="TargetSite"/>
+    <returnValueBindings name="OutValue_4" objectPath="Parameter1_Name"/>
+    <returnValueBindings name="OutValue_5" objectPath="Parameter1_Value"/>
+    <returnValueBindings name="OutValue_6" objectPath="Parameter2_Name"/>
+    <returnValueBindings name="OutValue_7" objectPath="Parameter2_Value"/>
+  </nodes>
+<!--@Location 5,3-->
+  <nodes xsi:type="pipeline:DecisionNode" nodeID="DecisionNode0" conditionKey="AjaxRequestMarker"
+      operator="str_empty">
+    <nodeSuccessors name="decision_yes" next="InteractionNode2"/>
+    <nodeSuccessors name="decision_no" next="InteractionNode1"/>
+  </nodes>
+<!--@Location 5,4-->
+  <nodes xsi:type="pipeline:InteractionNode" nodeID="InteractionNode2">
+    <template referencedName="application/Redirect"/>
+  </nodes>
+<!--@Location 6,4-->
+  <nodes xsi:type="pipeline:InteractionNode" nodeID="InteractionNode1">
+    <template referencedName="account/RedirectToLogin"/>
+  </nodes>
+<!--@Location 1,1-->
+  <nodes xsi:type="pipeline:StartNode" nodeID="StartNode0" name="RegisterUser" callMode="Private">
+    <nodeSuccessors name="next" next="CallNode0"/>
+  </nodes>
+<!--@Location 1,2-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode0">
+    <nodeSuccessors name="next" next="EndNode1"/>
+<!--@BendPoints 5,5-->
+    <nodeSuccessors name="ERROR" next="EndNode0"/>
+    <parameterBindings name="Address1" objectPath="AddressForm:Address1:Value"/>
+    <parameterBindings name="Address2" objectPath="AddressForm:Address2:Value"/>
+    <parameterBindings name="Address3" objectPath="AddressForm:Address3:Value"/>
+    <parameterBindings name="AddressNr" objectPath="AddressForm:AddressNr:Value"/>
+    <parameterBindings name="BirthdayDate" objectPath="CompanyInformationForm:Birthday:Value"/>
+    <parameterBindings name="City" objectPath="AddressForm:City:Value"/>
+    <parameterBindings name="CompanyName" objectPath="CompanyInformationForm:CompanyName:Value"/>
+    <parameterBindings name="CompanyName2" objectPath="CompanyInformationForm:CompanyName2:Value"/>
+    <parameterBindings name="ConfirmMail" objectPath="LoginForm:OrderConfirmationMail:Value"/>
+    <parameterBindings name="CountryCode" objectPath="AddressForm:CountryCode:Value"/>
+    <parameterBindings name="CustomerBORepository" objectPath="ApplicationBO:Repository(&quot;CustomerBORepository&quot;)"/>
+    <parameterBindings name="Department" objectPath="CompanyInformationForm:Department:Value"/>
+    <parameterBindings name="Email" objectPath="LoginForm:Login:FormattedValue"/>
+    <parameterBindings name="Fax" objectPath="CompanyInformationForm:Fax:Value"/>
+    <parameterBindings name="FirstName" objectPath="CompanyInformationForm:FirstName:Value"/>
+    <parameterBindings name="Industry" objectPath="CompanyInformationForm:Industry:Value"/>
+    <parameterBindings name="InvoiceToAddress" objectPath="AddressForm:UseAsBillingAddress:Value"/>
+    <parameterBindings name="LastName" objectPath="CompanyInformationForm:LastName:Value"/>
+    <parameterBindings name="LocaleID" objectPath="CompanyInformationForm:LocaleID:Value"/>
+    <parameterBindings name="Login" objectPath="LoginForm:Login:FormattedValue"/>
+    <parameterBindings name="Organization" objectPath="CurrentOrganization"/>
+    <parameterBindings name="Password" objectPath="LoginForm:Password:Value"/>
+    <parameterBindings name="PasswordConfirmation" objectPath="LoginForm:PasswordConfirmation:Value"/>
+    <parameterBindings name="PasswordReminder" objectPath="LoginForm:Answer:Value"/>
+    <parameterBindings name="PhoneBusiness" objectPath="CompanyInformationForm:PhoneBusiness:Value"/>
+    <parameterBindings name="PostalCode" objectPath="AddressForm:PostalCode:Value"/>
+    <parameterBindings name="PreferredBillingAddressBO" objectPath="AddressForm:PreferredBillingAddress:Value"/>
+    <parameterBindings name="PreferredInvoiceToAddress" objectPath="AddressForm:PreferredBillingAddress:Value"/>
+    <parameterBindings name="PreferredShipToAddress" objectPath="AddressForm:PreferredShippingAddress:Value"/>
+    <parameterBindings name="PreferredShippingAddressBO" objectPath="AddressForm:PreferredShippingAddress:Value"/>
+    <parameterBindings name="ReminderEmail" objectPath="LoginForm:Login:FormattedValue"/>
+    <parameterBindings name="SecondName" objectPath="AddressForm:SecondName:Value"/>
+    <parameterBindings name="SecurityQuestion" objectPath="SecurityQuestion"/>
+    <parameterBindings name="ShipToAddress" objectPath="AddressForm:UseAsShippingAddress:Value"/>
+    <parameterBindings name="State" objectPath="AddressForm:State:Value"/>
+    <parameterBindings name="Street" objectPath="AddressForm:Address1:Value"/>
+    <parameterBindings name="Street2" objectPath="AddressForm:Address2:Value"/>
+    <parameterBindings name="Street3" objectPath="AddressForm:Address3:Value"/>
+    <parameterBindings name="TaxationID" objectPath="CompanyInformationForm:TaxationID:Value"/>
+    <parameterBindings name="Title" objectPath="Title"/>
+    <parameterBindings name="UserBORepository" objectPath="ApplicationBO:Repository(&quot;UserBORepository&quot;)"/>
+    <startNode referencedName="ProcessUserAccount-RegisterUser"/>
+  </nodes>
+<!--@Location 1,3-->
+  <nodes xsi:type="pipeline:EndNode" nodeID="EndNode1"/>
+<!--@Location 2,3-->
+  <nodes xsi:type="pipeline:EndNode" nodeID="EndNode0" name="Error"/>
+</pipeline:Pipeline>

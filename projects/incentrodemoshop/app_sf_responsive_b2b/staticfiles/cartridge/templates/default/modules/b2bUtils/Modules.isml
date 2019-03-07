@@ -1,0 +1,137 @@
+<iscontent type="text/html" charset="UTF-8" compact="true">
+
+<!--- places values of a map in the dictionary ---> 
+<ismodule strict="false" template="modules/b2bUtils/PopulateDictionaryInc.isml"
+    name="PopulateDictionary"
+    attribute="map"
+>
+
+<!--- 
+	display a continue shopping link, when parameter is set
+
+      display - is either set or not
+--->
+<ismodule template = "modules/b2bUtils/ContinueShoppingLink.isml" 
+    name="ContinueShoppingLink" 
+    attribute="isDisplayed"
+    strict="true"
+>
+<!--- Places the UserPermissionMap in the dictionary --->
+<ismodule template="modules/b2bUtils/UserPermissionMap.isml"
+    strict="true"
+    name="UserPermissionMap"
+    attribute="User"
+    returnattribute="UserPermissionMap"
+>
+
+<!---
+	Displays the user name
+	In case the current user has APP_B2B_MANAGE_USERS permission the name is displayed as hyper link
+	pointing to User Details page of provided User.
+	Otherwise the name is displayed as regular text.
+	
+	Parameters:
+		- User (required)
+			Means a java UserBO ( User Business Object )
+		- Customer (required)
+			Means a java CustomerBO ( Customer Business Object )
+	Example:
+		<isUserName User="#UserBO#" Customer="#CustomerBO#">
+--->
+<ismodule template="modules/b2bUtils/UserName.isml"
+	name="UserName"
+	strict="true"
+	attribute="User"
+	attribute="Customer"
+>
+
+<!---
+	Displays the department of a selected user
+	
+	Parameters:
+		- User (required)
+			Means a java UserBO ( Order Business Object )
+		- Customer (required)
+			Means a java CustomerBO ( Order Business Object )
+	Example:
+		<isUserDepartment User="#UserBO#" Customer="#CustomerBO#">
+--->
+<ismodule template="modules/b2bUtils/UserDepartment.isml"
+	name="UserDepartment"
+	strict="true"
+	attribute="User"
+	attribute="Customer"
+>
+
+<!---
+	Displays the order status as a label
+	
+	Parameters:
+		- Order (required)
+			Means a java OrderBO ( Order Business Object )
+	Example:
+		<isOrderStatus Order="#OrderBO#">
+--->
+<ismodule template="modules/b2bUtils/OrderStatus.isml"
+	name="OrderStatus"
+	strict="true"
+	attribute="Order"
+>
+
+
+
+<!---
+	Displays the progress as a bar diagram for a given percentage
+	
+	Parameters:
+		- value (required)
+			The percentage (0-100) displayed in the progress bar
+		
+	Example:
+		<isProgressBar value="#30#">
+--->
+<ismodule template="modules/b2bUtils/ProgressBar.isml"
+	name="ProgressBar"
+	strict="true"
+	attribute="value"
+>
+
+<!---
+
+	Draws a progress bar with indicator for 100% limit.
+
+	|=============||===|
+	
+	See above.
+	
+	Parameters:
+		- Comparison (required)
+			Value to compare against the limit
+		- Limit (required)
+			The limit
+		- Addition (optional)
+			If set, draws an additional progress bar that will show addition predicate. 
+--->
+<ismodule template="modules/b2bUtils/IndicatorBar.isml"
+	name="IndicatorBar"
+	strict="true"
+	attribute="Addition"
+	attribute="Comparison"
+	attribute="Limit"
+>
+<!--- 
+Places implementation of existing
+	ApplicationBOExtension in the pipeline dictionary
+	Parameters:
+		- ExtensionName (required)
+			extension id
+		
+	Example:
+		<isApplicationBOExtension ExtensionName="OrderApprovalManagement" Extension="OrderApprovalManagementServiceExtension">
+--->
+<ismodule template = "modules/b2bUtils/ApplicationBOExtension.isml" 
+    name="ApplicationBOExtension" 
+    attribute="ExtensionName"
+    returnattribute="Extension"
+    strict="true"
+>

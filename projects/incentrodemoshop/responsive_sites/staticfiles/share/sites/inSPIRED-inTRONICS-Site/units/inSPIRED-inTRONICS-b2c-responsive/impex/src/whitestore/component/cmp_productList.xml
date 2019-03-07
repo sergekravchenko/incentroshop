@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<enfinity xmlns:dt="http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt">
+<pagelet-component id="cmp_productList">
+<definition-name>app_sf_responsive_cm:component.product.productTile.pagelet2-Component</definition-name>
+<display-name xml:lang="de-DE">Produktliste</display-name>
+<display-name xml:lang="en-US">Product List</display-name>
+<online>true</online>
+<author business-partner-no="admin" domain="inSPIRED"/>
+<configuration-parameters>
+<configuration-parameter name="EnableExpressShop">
+<definition-name>app_sf_responsive_cm:component.product.productTile.pagelet2-Component-EnableExpressShop</definition-name>
+<value name="EnableExpressShop">false</value>
+</configuration-parameter>
+<configuration-parameter name="ShowAddToCart">
+<definition-name>app_sf_responsive_cm:component.product.productTile.pagelet2-Component-ShowAddToCart</definition-name>
+<value name="ShowAddToCart">true</value>
+</configuration-parameter>
+<configuration-parameter name="ShowProductRating">
+<definition-name>app_sf_responsive_cm:component.product.productTile.pagelet2-Component-ShowProductRating</definition-name>
+<value name="ShowProductRating">true</value>
+</configuration-parameter>
+<configuration-parameter name="Type">
+<definition-name>app_sf_responsive_cm:component.product.productTile.pagelet2-Component-Type</definition-name>
+<value name="Type">List</value>
+</configuration-parameter>
+</configuration-parameters>
+</pagelet-component>
+</enfinity>

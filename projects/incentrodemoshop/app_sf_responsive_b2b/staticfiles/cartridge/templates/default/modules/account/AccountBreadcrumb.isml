@@ -1,0 +1,68 @@
+<iscontent charset="UTF-8" compact="true">
+<isinclude template="modules/B2BModules">
+
+<!--- wish list details --->
+<isif condition="#isDefined (wishlistBO)#">
+	<ISBreadcrumb
+		showhomelink="true"
+		link0="#URLEX(SecureURL,'',Action('ViewUserAccount-Start'))#"
+		text0="#localizeText('account.my_account.link')#"
+		link1="#URLEX(SecureURL,'',Action('ViewOrderTemplate-ViewAll'))#"
+		text1="#localizeText('account.ordertemplates.link')#"
+		separatetrailtext="true"
+		trailtext1="#wishlistBO:Name#"
+	>
+<!--- order details --->
+<iselseif condition="#isDefined (orderBO)#">
+	<isif condition="#trailtext EQ ''#">
+		<isset scope="request" name="trailtext" value="#localizeTextEx('account.orderdetails.breadcrumb', ParameterList(orderBO:DocumentNo))#">
+	</isif>
+	<isif condition="#link EQ ''#">
+		<isset scope="request" name="link" value="#URLEX(SecureURL,'',Action('ViewApprovals-MyApproved'))#">
+	</isif>
+	<isif condition="#text EQ ''#">
+		<isset scope="request" name="text" value="#localizeText('account.order_history.link')#">
+	</isif>
+	<ISBreadcrumb
+		showhomelink="true"
+		link0="#URLEX(SecureURL,'',Action('ViewUserAccount-Start'))#"
+		text0="#localizeText('account.my_account.link')#"
+		link1="#link#"
+		text1="#text#"
+		separatetrailtext="true"
+		trailtext1="#trailtext#"
+	>
+<!--- sub-submenu items --->
+<iselseif condition="#isDefined(link1)#">
+	<ISBreadcrumb
+		showhomelink="true"
+		link0="#URLEX(SecureURL,'',Action('ViewUserAccount-Start'))#"
+		text0="#localizeText('account.my_account.link')#"
+		link1="#link#"
+		text1="#text#"
+		link2="#link1#"
+		text2="#text1#"
+		separatetrailtext="true"
+		trailtext1="#trailtext#"
+	>
+<!--- submenu items --->
+<iselseif condition="#isDefined(link)#">
+	<ISBreadcrumb
+		showhomelink="true"
+		link0="#URLEX(SecureURL,'',Action('ViewUserAccount-Start'))#"
+		text0="#localizeText('account.my_account.link')#"
+		link1="#link#"
+		text1="#text#"
+		separatetrailtext="true"
+		trailtext1="#trailtext#"
+	>
+<!--- default --->
+<iselse>
+	<ISBreadcrumb
+		showhomelink="true" 
+		link0="#URLEX(SecureURL,'',Action('ViewUserAccount-Start'))#"
+		text0="#localizeText('account.my_account.link')#"
+		separatetrailtext="true"
+		trailtext0="#trailtext#"
+	>
+</isif>

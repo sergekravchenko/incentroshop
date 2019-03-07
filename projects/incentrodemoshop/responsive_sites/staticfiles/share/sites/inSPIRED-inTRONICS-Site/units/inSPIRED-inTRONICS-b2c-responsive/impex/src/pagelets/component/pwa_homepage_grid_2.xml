@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<enfinity xmlns:dt="http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt">
+<pagelet-component id="pwa_homepage_grid_2">
+<definition-name>app_sf_responsive_cm:component.common.container.pagelet2-Component</definition-name>
+<display-name xml:lang="en-US">PWA Homepage Grid - Third Width Single Slot - left</display-name>
+<online>true</online>
+<configuration-parameters>
+<configuration-parameter name="CSSClass">
+<definition-name>app_sf_responsive_cm:component.common.container.pagelet2-Component-CSSClass</definition-name>
+<value name="CSSClass">p-2</value>
+</configuration-parameter>
+<configuration-parameter name="Grid">
+<definition-name>app_sf_responsive_cm:component.common.container.pagelet2-Component-Grid</definition-name>
+<value name="Grid">ExtraSmall:12,Small:6,Medium:4,Large:0</value>
+</configuration-parameter>
+<configuration-parameter name="UpperBound">
+<definition-name>app_sf_responsive_cm:component.common.container.pagelet2-Component-UpperBound</definition-name>
+<value name="UpperBound">1</value>
+</configuration-parameter>
+</configuration-parameters>
+<slots>
+<slot>
+<definition-name>app_sf_responsive_cm:slot.container.content.pagelet2-Slot</definition-name>
+<optional>false</optional>
+<sorting>false</sorting>
+</slot>
+</slots>
+</pagelet-component>
+<pagelet-slot-assignment id="Wx7AqGMBMPQAAAFlhCFAeBjN">
+<slot definition-name="app_sf_responsive_cm:slot.container.content.pagelet2-Slot" parent-pagelet-id="pwa_homepage_grid_2" domain="inSPIRED-inTRONICS-b2c-responsive"/>
+<pagelet id="pwa_cat_teaser_1" domain="inSPIRED-inTRONICS-b2c-responsive"/>
+<position>1</position>
+<online>true</online>
+</pagelet-slot-assignment>
+</enfinity>

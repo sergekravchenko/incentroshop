@@ -1,0 +1,36 @@
+<iscontent type="text/html" session="false" charset="UTF-8" compact="true">
+<isinclude template="email/mailTemplate/MailConfig" />
+<SUBJECT><istext key="email.gdpr.csr.new.personal.data.request.subject" parameter0="#encodeValue(ChannelName)#" parameter1="#PersonalDataRequestBO:RequestID#" /></SUBJECT>
+
+<isinclude template="email/mailTemplate/Modules">
+
+<!-- Added the e-mail style-->
+<isinclude template="email/mailTemplate/MailStyle" />
+
+<isMailHeader ChannelName="#ChannelName#" >
+<div class="emailBody">
+
+	<istext key="email.gdpr.csr.new.personal.data.request.hello"/>
+	<p><istext key="email.gdpr.csr.new.personal.data.request.message" parameter0="#ChannelName#"/></p>
+	<p>
+		<istext key="email.gdpr.csr.new.personal.data.request.request_id" parameter0="#PersonalDataRequestBO:RequestID#"/>
+	</p>
+	<p>
+		<istext key="email.gdpr.csr.new.personal.data.request.request_type" parameter0="#localizeText(PersonalDataRequestBO:RequestType:LocalizationKey)#" />
+	</p>
+	<p>
+		<istext key="email.gdpr.csr.new.personal.data.request.customer" parameter0="#PersonalDataRequestBO:RequesterName#" />
+	</p>
+	<p>
+	    <isset name="BackofficeSiteName" value="#dict:Repository:OwningDomain:Site:DomainName#" scope="request">
+		<istext key="email.gdpr.csr.new.personal.data.request.require.processing" 
+                parameter0="#encodeValue(SessionlessURLEx('https','',Action('Default-Start','-', BackofficeSiteName,LocaleID,'-')))#"
+                parameter1="#encodeValue(ChannelName)#"
+                encoding="off"/>
+	</p>
+	<p>
+		<istext key="email.gdpr.csr.new.personal.data.request.regards" parameter0="#encodeValue(ChannelName)#" encoding="off" />
+	</p>
+</div>
+
+<isinclude template="email/mailTemplate/MailFooter" />

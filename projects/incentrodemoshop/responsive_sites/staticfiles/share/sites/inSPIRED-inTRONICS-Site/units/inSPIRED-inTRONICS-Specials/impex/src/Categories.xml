@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<enfinity xmlns="http://www.intershop.com/xml/ns/enfinity/7.1/xcs/impex" xmlns:dt="http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" branch="enterprise" build="build" family="enfinity" major="6" minor="1" xsi:schemaLocation="http://www.intershop.com/xml/ns/enfinity/7.1/xcs/impex catalog.xsd http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt dt.xsd">
+	<category name="TopSellers">
+		<name>TopSellers</name>
+		<root>0</root>
+		<product-assignment-query/>
+		<template/>
+		<online>1</online>
+		<category-links>
+		</category-links>
+		<display-name xml:lang="fr-FR">Meilleurs des ventes</display-name>
+		<display-name xml:lang="en-US">Top Sellers</display-name>
+		<description xml:lang="fr-FR">Meilleurs des ventes</description>
+		<description xml:lang="en-US">Top Sellers</description>
+		<parent name="Specials"/>
+		<images>
+			<image-ref domain="inSPIRED-MasterRepository" image-base-name="M/M_201807205_front.jpg" image-type="M" image-view="front"/>
+		</images>
+		<custom-attributes>
+			<custom-attribute dt:dt="string" name="ShowInMenu">True</custom-attribute>
+			<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+			<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+			<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+			<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+		</custom-attributes>
+	</category>
+
+	<category name="GiftCardsCertificates">
+		<name>GiftCardsCertificates</name>
+		<root>0</root>
+		<product-assignment-query/>
+		<template/>
+		<online>1</online>
+		<category-links>
+		</category-links>
+		<display-name xml:lang="fr-FR">Cartes cadeau &amp; chèques-cadeaux</display-name>
+		<display-name xml:lang="en-US">Gift Cards &amp; Certificates</display-name>
+		<description xml:lang="fr-FR">Cartes cadeau &amp; chèques-cadeaux</description>
+		<description xml:lang="en-US">Gift Cards &amp; Certificates</description>
+		<parent name="Specials"/>
+		<images>
+			<image-ref domain="inSPIRED-MasterRepository" image-base-name="M/gc.jpg" image-type="M" image-view="front"/>
+		</images>
+		<custom-attributes>
+			<custom-attribute dt:dt="string" name="ShowInMenu">True</custom-attribute>
+			<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+			<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+			<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+			<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+		</custom-attributes>
+	</category>
+
+	<category import-mode="UPDATE" name="Specials">
+		<name>Specials</name>
+		<root>1</root>
+		<product-assignment-query/>
+		<template/>
+		<online>1</online>
+		<category-links>
+		</category-links>
+		<display-name xml:lang="fr-FR">Spéciaux</display-name>
+		<display-name xml:lang="en-US">Specials</display-name>
+		<description xml:lang="fr-FR">Produits et services spéciaux</description>
+		<description xml:lang="en-US">Special products and services.</description>
+		<description xml:lang="de-DE">Spezielle Produkte und Services.</description>
+		<display-name xml:lang="de-DE">Specials</display-name>
+		<custom-attributes>
+			<custom-attribute dt:dt="string" name="ShowInMenu">True</custom-attribute>
+		</custom-attributes>
+	</category>
+
+	<category name="NewProducts">
+		<name>NewProducts</name>
+		<root>0</root>
+		<product-assignment-query/>
+		<template/>
+		<online>1</online>
+		<category-links>
+		</category-links>
+		<display-name xml:lang="fr-FR">Nouveaux produits</display-name>
+		<display-name xml:lang="en-US">New Products</display-name>
+		<description xml:lang="fr-FR">Nouveaux produits</description>
+		<description xml:lang="en-US">Neue Produkte</description>
+		<parent name="Specials"/>
+		<images>
+			<image-ref domain="inSPIRED-MasterRepository" image-base-name="M/M_201807194_side.jpg" image-type="M" image-view="front"/>
+		</images>
+		<searchquery-definition-name>new_products</searchquery-definition-name>
+		<custom-attributes>
+			<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+			<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+			<custom-attribute dt:dt="string" name="ShowInMenu">True</custom-attribute>
+			<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+			<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+		</custom-attributes>
+	</category>
+
+	<category name="HotDeals">
+		<name>HotDeals</name>
+		<root>0</root>
+		<product-assignment-query/>
+		<template/>
+		<online>1</online>
+		<category-links>
+		</category-links>
+		<display-name xml:lang="fr-FR">Occasions exceptionnelles</display-name>
+		<display-name xml:lang="en-US">Hot Deals</display-name>
+		<description xml:lang="fr-FR">Occasions exceptionnelles</description>
+		<description xml:lang="en-US">Hot Deals</description>
+		<parent name="Specials"/>
+		<images>
+			<image-ref domain="inSPIRED-MasterRepository" image-base-name="M/1612143-4414.jpg" image-type="M" image-view="front"/>
+		</images>
+		<custom-attributes>
+			<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+			<custom-attribute dt:dt="string" name="META_DESCRIPTION_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+			<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="fr-FR">automatic</custom-attribute>
+			<custom-attribute dt:dt="string" name="META_TITLE_GENERATE" xml:lang="en-US">automatic</custom-attribute>
+			<custom-attribute dt:dt="string" name="ShowInMenu">True</custom-attribute>
+		</custom-attributes>
+	</category>
+</enfinity>

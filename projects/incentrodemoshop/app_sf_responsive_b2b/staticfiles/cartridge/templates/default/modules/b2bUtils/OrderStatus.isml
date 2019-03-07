@@ -1,0 +1,15 @@
+<iscontent type="text/html" charset="UTF-8" compact="true">
+
+<isif condition="#isDefined(Order)#">
+	
+	<isif condition="#Order:StatusDisplayName EQ 'new'#">
+		<isset name="OrderStatusLabelColor" value="warning" scope="request"/>
+	<iselse>
+		<isset name="OrderStatusLabelColor" value="default" scope="request"/>
+	</isif>
+	
+	<span class="label label-<isprint value="#OrderStatusLabelColor#">">
+		<isprint value="#Order:StatusDisplayName#">
+	</span>
+	
+</isif>

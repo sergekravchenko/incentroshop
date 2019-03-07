@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<webform:WebForm xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://www.intershop.de/core/2010" xmlns:webform="http://www.intershop.de/webform/2010" name="CostCenter">
+  <forms name="CostCenterForm">
+  	<parameters xsi:type="webform:FormParameter" name="CustomerID" type="java.lang.String" />
+  	<parameters xsi:type="webform:FormParameter" name="CostCenterID" type="java.lang.String" optional="true" />
+  	<parameters xsi:type="webform:FormParameter" name="Number" type="java.lang.String" />
+  	<parameters xsi:type="webform:FormParameter" name="Name" type="java.lang.String" />
+  	
+  	<parameters xsi:type="webform:FormParameter" name="Budget" type="com.intershop.beehive.foundation.quantity.Money">
+		<validatorBindings validator="GlobalValidators-minmoney">
+			<parameterBindings xsi:type="core:ParameterValueBinding" name="min" value="0"/>
+		</validatorBindings>
+	</parameters>
+	
+  	<parameters xsi:type="webform:FormParameter" name="BudgetPeriod" type="java.lang.String" />
+  	<parameters xsi:type="webform:FormParameter" name="Manager" type="java.lang.String" />
+  </forms>
+</webform:WebForm>

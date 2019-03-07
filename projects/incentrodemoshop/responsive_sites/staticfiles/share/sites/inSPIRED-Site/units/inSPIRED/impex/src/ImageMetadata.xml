@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<enfinity
+	xsi:schemaLocation="http://www.intershop.com/xml/ns/enfinity/6.7/bc_image/impex bc_image.xsd http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt dt.xsd"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.intershop.com/xml/ns/enfinity/6.7/bc_image/impex"
+	xmlns:xml="http://www.w3.org/XML/1998/namespace" xmlns:dt="http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt"
+	major="6" minor="1" family="enfinity" branch="enterprise" build="6.5.0.7.15">
+	<image-view id="back" primary-view="false">
+		<name xml:lang="en-US">Back View</name>
+		<image-type-assignments>
+			<image-type-assignment image-type="L" />
+			<image-type-assignment image-type="M" />
+			<image-type-assignment image-type="S" />
+			<image-type-assignment image-type="ZOOM" />
+		</image-type-assignments>
+	</image-view>
+	<image-view id="front" primary-view="true">
+		<name xml:lang="en-US">Front View</name>
+		<image-type-assignments>
+			<image-type-assignment image-type="L" />
+			<image-type-assignment image-type="M" />
+			<image-type-assignment image-type="S" />
+			<image-type-assignment image-type="ZOOM" />
+			<image-type-assignment image-type="swatches" />
+		</image-type-assignments>
+	</image-view>
+	<image-view id="side" primary-view="false">
+		<name xml:lang="en-US">Side View</name>
+		<image-type-assignments>
+			<image-type-assignment image-type="L" />
+			<image-type-assignment image-type="M" />
+			<image-type-assignment image-type="S" />
+			<image-type-assignment image-type="ZOOM" />
+		</image-type-assignments>
+	</image-view>
+	<image-type id="L" source="Internal">
+		<name xml:lang="en-US">L</name>
+		<prefix>inSPIRED:/</prefix>
+		<width>500</width>
+		<height>500</height>
+		<fallback-image>inSPIRED:/not_available.png</fallback-image>
+		<custom-attributes>
+			<custom-attribute name="name" dt:dt="string" xml:lang="en-US">L</custom-attribute>
+		</custom-attributes>
+	</image-type>
+	<image-type id="M" source="Internal">
+		<name xml:lang="en-US">M</name>
+		<prefix>inSPIRED:/</prefix>
+		<width>270</width>
+		<height>270</height>
+		<fallback-image>inSPIRED:/not_available.png</fallback-image>
+		<custom-attributes>
+			<custom-attribute name="name" dt:dt="string" xml:lang="en-US">M</custom-attribute>
+		</custom-attributes>
+	</image-type>
+	<image-type id="S" source="Internal">
+		<name xml:lang="en-US">S</name>
+		<prefix>inSPIRED:/</prefix>
+		<width>110</width>
+		<height>110</height>
+		<fallback-image>inSPIRED:/not_available.png</fallback-image>
+		<custom-attributes>
+			<custom-attribute name="name" dt:dt="string" xml:lang="en-US">S</custom-attribute>
+		</custom-attributes>
+	</image-type>
+	<image-type id="ZOOM" source="Internal">
+		<name xml:lang="en-US">Zoom</name>
+		<prefix>inSPIRED:/</prefix>
+		<width>1500</width>
+		<height>1500</height>
+		<fallback-image>inSPIRED:/not_available.png</fallback-image>
+		<custom-attributes>
+			<custom-attribute name="name" dt:dt="string" xml:lang="en-US">Zoom</custom-attribute>
+		</custom-attributes>
+	</image-type>
+	<image-type id="swatches" source="Internal">
+		<name xml:lang="en-US">swatches</name>
+		<prefix>inSPIRED:/</prefix>
+		<width>32</width>
+		<height>32</height>
+		<fallback-image>inSPIRED:/not_available.png</fallback-image>
+		<custom-attributes>
+			<custom-attribute name="name" dt:dt="string" xml:lang="en-US">swatches</custom-attribute>
+		</custom-attributes>
+	</image-type>
+</enfinity>

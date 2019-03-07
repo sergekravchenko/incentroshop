@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<enfinity xmlns:dt="http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt">
+<pagelet-component id="cmp_helpdesk_buyersinfo_quotes">
+<definition-name>app_sf_responsive_cm:component.common.freeStyle.pagelet2-Component</definition-name>
+<display-name xml:lang="de-DE">Preisangebote</display-name>
+<display-name xml:lang="en-US">Quotes</display-name>
+<display-name xml:lang="fr-FR">Devis</display-name>
+<online>true</online>
+<author business-partner-no="admin" domain="inSPIRED"/>
+<configuration-parameters>
+<configuration-parameter name="HTML">
+<definition-name>app_sf_responsive_cm:component.common.freeStyle.pagelet2-Component-HTML</definition-name>
+<value name="HTML" xml:lang="de-DE">&lt;h1&gt;Preisangebote&lt;/h1&gt;
+&lt;p&gt;Preisangebote werden für Preisverhandlungen zwischen dem Kunden und dem Händler verwendet.&lt;/p&gt;
+&lt;h2&gt;Arbeitsablauf&lt;/h2&gt;
+&lt;p&gt;Auch wenn kompliziertere Prozesse möglich sind, ist die aktuelle Implementierung bewusst einfach gehalten.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://./?[ismediaobject]isfile://inSPIRED-Site/inTRONICS_Business-smb-responsive/inSPIRED-inTRONICS_Business-smb-responsive/en_US/documentation/QuotingFlow.png|/INTERSHOP/static/WFS/inSPIRED-Site/inTRONICS_Business-smb-responsive/inSPIRED-inTRONICS_Business-smb-responsive/en_US/documentation/QuotingFlow.png[/ismediaobject]&quot; alt=&quot;Preisangebote Arbeitsablauf&quot; width=&quot;440&quot; height=&quot;426&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;Die aktuelle Implementierung empfiehlt, dass der Benutzer angemeldet ist, bevor er etwas tut. Nach dem Einloggen kann der Benutzer:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Neue Angebote erstellen&lt;br /&gt;&lt;strong&gt;INFO:&lt;/strong&gt; Nur ein aktives neues Preisangebot ist erlaubt, das Preisangebot verhält sich wie ein Warenkorb.&lt;/li&gt;
+&lt;li&gt;Senden / Löschen / Ablehnen eines Preisangebots.&lt;/li&gt;
+&lt;li&gt;Sehen / Verwalten der Liste der Preisangebote im &lt;em&gt;Mein Konto&lt;/em&gt; Bereich.&lt;/li&gt;
+&lt;li&gt;Sehen Sie die Preisangebotsdetails im &lt;em&gt;Mein Konto&lt;/em&gt; Bereich.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Einschränkungen&lt;/h2&gt;
+&lt;p&gt;Im Allgemeinen ist ein Abonnement ein einmalig ausgelöster, aber periodisch ausgeführter Kauf bestimmter Produkte oder Dienstleistungen.
+ In abonnementbasierten Geschäftsmodellen zahlen Kunden daher regelmäßig für die Nutzung oder den Erhalt einer definierten Menge von Produkten.&lt;/p&gt;
+&lt;p&gt; Die B2X-Edition von Intershop Commerce Management unterstützt Abonnementmodelle über wiederkehrende Bestellungen.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Hinweis:&lt;/strong&gt; Abonnements arbeiten &lt;strong&gt;nicht&lt;/strong&gt; mit Preisangeboten und umgekehrt. Das heißt, es ist nicht möglich, ein Abonnement aus einem Warenkorb der ein Preisangebot enthält zu erstellen. Umgekehrt kann ein Preisangebot nicht zu einem Warenkorb hinzugefügt werden, wenn er bereits als wiederkehrend markiert ist.</value>
+<value name="HTML" xml:lang="en-US">&lt;h1&gt;Quotes&lt;/h1&gt;
+&lt;p&gt;Quotes are used for price negotiations between the customer and the merchant.&lt;/p&gt;
+&lt;h2&gt;Workflow&lt;/h2&gt;
+&lt;p&gt;While there are more complicated processes possible, the current implementation is intentionally kept simple.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://./?[ismediaobject]isfile://inSPIRED-Site/inTRONICS_Business-smb-responsive/inSPIRED-inTRONICS_Business-smb-responsive/en_US/documentation/QuotingFlow.png|/INTERSHOP/static/WFS/inSPIRED-Site/inTRONICS_Business-smb-responsive/inSPIRED-inTRONICS_Business-smb-responsive/en_US/documentation/QuotingFlow.png[/ismediaobject]&quot; alt=&quot;Quting Workflow&quot; width=&quot;440&quot; height=&quot;426&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;The current implementation recommends that the user is logged in before doing anything. After logging in, the user can:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Create new quotes&lt;br /&gt;&lt;strong&gt;INFO:&lt;/strong&gt; Only one active new quote is allowed at a time, the quote behaves like a shopping cart.&lt;/li&gt;
+&lt;li&gt;Submit / delete / refuse a quote.&lt;/li&gt;
+&lt;li&gt;See / manage the list of quotes in the &lt;em&gt;My Account&lt;/em&gt; section.&lt;/li&gt;
+&lt;li&gt;See the quote request details in the &lt;em&gt;My Account&lt;/em&gt; section.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Limitations&lt;/h2&gt;
+&lt;p&gt;Generally, a subscription is an one-time triggered, but periodically executed purchase of certain products or services. In subscription-based business models, consequently, customers pay periodically to use or receive a defined set of products at a regular base.&lt;/p&gt;
+&lt;p&gt;The B2X edition of Intershop Commerce Management supports subscription models via recurring orders.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; Subscritions do &lt;strong&gt;not&lt;/strong&gt; work with quotes and vice versa. That is, one &lt;strong&gt;cannot&lt;/strong&gt; create a subscription from a cart that contains a quote. The other way around, a quote &lt;strong&gt;cannot&lt;/strong&gt; be added to a cart if it is already marked as recurrent.&lt;/p&gt;</value>
+<value name="HTML" xml:lang="fr-FR">&lt;h1&gt;Devis&lt;/h1&gt;
+&lt;p&gt;Les devis sont utilisés pour les négociations de prix entre client et marchand.&lt;/p&gt;
+&lt;h2&gt;Workflow&lt;/h2&gt;
+&lt;p&gt;Bien qu’’il y ait des processus plus complexes, la mise en œuvre actuelle est garder délibérément simple.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://./?[ismediaobject]isfile://inSPIRED-Site/inTRONICS_Business-smb-responsive/inSPIRED-inTRONICS_Business-smb-responsive/en_US/documentation/QuotingFlow.png|/INTERSHOP/static/WFS/inSPIRED-Site/inTRONICS_Business-smb-responsive/inSPIRED-inTRONICS_Business-smb-responsive/en_US/documentation/QuotingFlow.png[/ismediaobject]&quot; alt=&quot;Quting Workflow&quot; width=&quot;440&quot; height=&quot;426&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;La mise en œuvre actuelle recommande que l’’utilisateur est connecté avant de faire quoique ce soit. Après la connexion l’’utilisateur peut :&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Créer les nouveaux devis&lt;br /&gt;/&gt;&lt;strong&gt;INFO :&lt;/strong&gt; Seulement un nouveau devis active sera autorisé à la fois, le devis se comporte comme un panier.&lt;/li&gt;
+&lt;li&gt;Soumettre / supprimer/ refuser un devis.&lt;/li&gt;
+&lt;li&gt;Afficher / Gérer la liste de devis dans la section &lt;em&gt;Mon compte&lt;/em&gt;.&lt;/li&gt;
+&lt;li&gt;Afficher les détails de la demande de devis dans la section &lt;em&gt;Mon compte&lt;/em&gt;.&lt;/li&gt;
+&lt;/ul&gt;</value>
+</configuration-parameter>
+</configuration-parameters>
+</pagelet-component>
+</enfinity>

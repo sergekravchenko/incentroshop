@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<enfinity xmlns:dt="http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt">
+<view-context id="vc_productList">
+<definition-name>app_sf_responsive:viewcontext.include.product.pagelet2-ViewContext</definition-name>
+<display-name xml:lang="de-DE">Produktliste</display-name>
+<display-name xml:lang="en-US">Product List</display-name>
+<display-name xml:lang="fr-FR">Liste de produits</display-name>
+<description xml:lang="de-DE">Produktlistenartikel</description>
+<description xml:lang="en-US">Product List Item</description>
+<description xml:lang="fr-FR">Article de la liste de produits</description>
+</view-context>
+</enfinity>

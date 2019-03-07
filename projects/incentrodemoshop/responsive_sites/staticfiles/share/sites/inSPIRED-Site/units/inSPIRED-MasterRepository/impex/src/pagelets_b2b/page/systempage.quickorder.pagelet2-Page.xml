@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<enfinity xmlns:dt="http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt">
+<pagelet-entry-point id="systempage.quickOrder.pagelet2-Page">
+<definition-name>app_sf_responsive_b2b:systempage.quickOrder.pagelet2-Page</definition-name>
+<page>true</page>
+<sorting>false</sorting>
+<display-name xml:lang="en-US">Quick Order</display-name>
+<display-name xml:lang="fr-FR">Commande rapide</display-name>
+</pagelet-entry-point>
+<pagelet-pagelet-entry-point-assignment>
+<pagelet-entry-point id="systempage.quickOrder.pagelet2-Page" domain="inSPIRED-MasterRepository" resource-set="app_sf_responsive_b2b"/>
+<pagelet id="pg_quickorder" domain="inSPIRED-MasterRepository"/>
+<position>1</position>
+<online>true</online>
+</pagelet-pagelet-entry-point-assignment>
+</enfinity>

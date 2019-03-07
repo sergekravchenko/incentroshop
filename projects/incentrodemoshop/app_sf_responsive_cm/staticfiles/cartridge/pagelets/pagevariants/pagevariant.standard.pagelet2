@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pagelet:PageletModel xmlns:pagelet="http://www.intershop.de/pagelet/2010" name="pagevariant.standard.pagelet2">
+  <pageletDefinitions name="Pagevariant" page="true" container="true">
+    <callParameterInterfaces referencedName="app_sf_responsive:interface.page.standard.pagelet2-Interface"/>
+    <configurationParameterDefinitions name="MetaInfo" optional="true" typeReference="sld_mcm:parametertype.pagevariationmeta.pagelet2-PageVariationMeta"/>
+    <configurationParameterDefinitions name="RobotsNoIndex" optional="true" localizable="false" typeReference="bc_pmc:types.pagelet2-Boolean"/>
+    <configurationParameterDefinitions name="RobotsNoFollow" optional="true" localizable="false" typeReference="bc_pmc:types.pagelet2-Boolean"/>
+    <configurationParameterDefinitions name="HTMLBodyID" optional="true" localizable="false" typeReference="bc_pmc:types.pagelet2-Text"/>
+    <configurationParameterDefinitions name="HTMLBodyClass" optional="true" localizable="false" typeReference="bc_pmc:types.pagelet2-Text"/>
+    <renderTemplate referencedName="pagevariant/Standard"/>
+    <slotInclusionDefinitions>
+      <slotDefinition referencedName="app_sf_responsive_cm:slot.pagevariant.header.pagelet2-Slot"/>
+    </slotInclusionDefinitions>
+    <slotInclusionDefinitions>
+      <slotDefinition referencedName="app_sf_responsive_cm:slot.pagevariant.content.pagelet2-Slot"/>
+    </slotInclusionDefinitions>
+    <slotInclusionDefinitions>
+      <slotDefinition referencedName="app_sf_responsive_cm:slot.pagevariant.footer.pagelet2-Slot"/>
+    </slotInclusionDefinitions>
+  </pageletDefinitions>
+</pagelet:PageletModel>

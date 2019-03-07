@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<components xmlns="http://www.intershop.de/component/2010">
+
+    <!-- ************************************************************************************ -->
+    <!-- *           Application Type "intershop.SimpleSMBResponsive"                       * -->
+    <!-- *           a copy of the intershop.SMBResponsive of as_responsive                 * -->
+    <!-- ************************************************************************************ -->
+    <instance name="intershop.SimpleSMBResponsive.Cartridges" with="CartridgeListProvider">
+        <fulfill requirement="selectedCartridge" value="bc_marketing_impex"/>
+        <fulfill requirement="selectedCartridge" value="app_sf_responsive_smb"/>
+        <fulfill requirement="selectedCartridge" value="app_sf_responsive_cm"/>
+        <fulfill requirement="selectedCartridge" value="app_sf_rest"/>
+        <fulfill requirement="selectedCartridge" value="sld_pdf"/>
+		<fulfill requirement="selectedCartridge" value="bc_urlrewrite"/>
+        <fulfill requirement="selectedCartridge" value="ac_pdf_flyingsaucer"/>
+        <fulfill requirement="selectedCartridge" value="ac_customer_segment_std" />
+		<fulfill requirement="selectedCartridge" value="pf_axis2"/>
+        <fulfill requirement="subProvider" with="intershop.DemoCartridges" />
+    </instance>
+
+    <instance name="intershop.SimpleSMBResponsive" with="ApplicationType">
+        <fulfill requirement="id" value="intershop.SimpleSMBResponsive" />
+        <fulfill requirement="urlIdentifier" value="ssmb-responsive" />
+        <fulfill requirement="cartridgeListProvider" with="intershop.SimpleSMBResponsive.Cartridges" />
+        <fulfill requirement="applicationLifecycleListener">
+        	<!-- listener hooks 'LocalizationApplicationLifecycleHook' and 'ServiceConfigurationApplicationLifecycleHook' are only required on migrated systems 
+        	     where these hooks have been used to create domains for their business features, this is now done via pipeline extension points -->
+            <instance name="localization.localizationApplicationLifecycleHookSMB" with="LocalizationApplicationLifecycleHook">
+                <fulfill requirement="deleteOnly" value="true"/>
+            </instance>
+            <instance name="service.serviceConfigurationApplicationLifecycleHookSMB" with="ServiceConfigurationApplicationLifecycleHook">
+                <fulfill requirement="deleteOnly" value="true"/>
+            </instance>
+            <instance name="marketing.exclusionGroupApplicationLifecycleHookSMB" with="ExclusionGroupApplicationLifecycleHook"/>
+        </fulfill>
+        <fulfill requirement="namedObject">
+            <instance with="NamedObject">
+                <fulfill requirement="name" value="PreviewConfigurationModel"/>
+                <fulfill requirement="object" with="intershop.B2CResponsive.PreviewConfigurationModel"/>
+            </instance>
+        </fulfill>
+        <fulfill requirement="namedObject">
+            <instance with="NamedObject">
+                <fulfill requirement="name" value="ApplicationCallInterface"/>
+                <fulfill requirement="object">
+                    <instance with="b2c.B2CApplicationCallInterface">
+                        <fulfill requirement="defaultCallTarget" value="Default-Start"/>
+                        <fulfill requirement="app" with="intershop.SimpleSMBResponsive"/>
+                    </instance>
+                </fulfill>
+            </instance>
+        </fulfill>
+        <fulfill requirement="namedObject">
+            <instance with="NamedObject">
+                <fulfill requirement="name" value="ParameterizedStringResolver"/>
+                <fulfill requirement="object">
+                    <instance with="StorefrontParameterizedStringResolver"/>
+                </fulfill>
+            </instance>
+         </fulfill>
+         <fulfill requirement="namedObject">
+            <instance with="NamedObject">
+                <fulfill requirement="name" value="MediaAssetsImageFile.isml/Image"/>
+                <fulfill requirement="object">
+                    <instance with="sld_pmc.MediaAssetMapperImpl">
+                        <fulfill requirement="pageletDefinition" value="app_sf_responsive_cm:component.common.imageEnhanced.pagelet2-Component" />
+                        <fulfill requirement="pageletConfiguration" value="{'PageletConfiguration_Image':'%1$s'}" />
+                        <fulfill requirement="pageletName" value="%s (Enhanced Image Teaser)" />
+                    </instance>
+                </fulfill>
+            </instance>
+         </fulfill>
+         <fulfill requirement="namedObject">
+            <instance with="NamedObject">
+                <fulfill requirement="name" value="MediaAssetsVideoFile.isml/Video"/>
+                <fulfill requirement="object">
+                    <instance with="sld_pmc.MediaAssetMapperImpl">
+                        <fulfill requirement="pageletDefinition" value="app_sf_responsive_cm:component.common.video.pagelet2-Component" />
+                        <fulfill requirement="pageletConfiguration" value="{'PageletConfiguration_Video':'%1$s'}" />
+                        <fulfill requirement="pageletName" value="%s (Video)" />
+                    </instance>
+                </fulfill>
+            </instance>
+         </fulfill>
+    </instance>
+
+    <fulfill requirement="namedObject" of="intershop.SimpleSMBResponsive" with="intershop.B2BWebShop.RESTAPI"/>
+
+    <fulfill requirement="app" with="intershop.SimpleSMBResponsive" of="AppEngine"/>
+    <fulfill requirement="app" with="intershop.SimpleSMBResponsive" of="intershop.B2CBackoffice.ApplicationTypes"/>
+
+</components>	

@@ -1,0 +1,240 @@
+<iscontent type="text/html" charset="UTF-8" compact="true">
+<iscache type="forbidden">
+
+<div class="breadcrumbs row">
+	<isAccountBreadcrumb wishlistBO="#OrderTemplate#">
+</div>
+
+<!--- Marketing slot --->
+<div class="marketing-area">
+	<ISMarketingSlot id="baseMarketing">
+</div>
+
+<div class="account-wrapper">
+	<div class="row account-main">
+		<!--- Left Navigation Panel --->
+		<div class="col-md-3 account-nav-box">
+			<isAccountNavigation selecteditem="WISHLISTS">
+		</div>
+		<div class="col-md-9">
+			<div class="marketing-area">
+				<ISMarketingSlot id="contentMarketing">
+			</div>
+			<h1>
+				<isprint value="#OrderTemplate:Name#">
+				<a class="btn btn-default" href="#URL(Action('ViewAjax-Start'), Parameter('TargetPipeline','ViewOrderTemplate-ShowEditOrderTemplatePropertiesDialog'), Parameter('OrderTemplateID', OrderTemplate:ID))#" data-dialog> 
+					<istext key="account.order_template.order_template.edit.rename">
+				</a>
+			</h1>
+			
+			<div class="wishlists">
+				
+				<isif condition="#isDefined(ERROR_Basket_Product) OR isDefined(ERROR_NoSelection)#">
+					<div class="alert alert-danger">
+						<isif condition="#ERROR_Basket_Product EQ 'MaxItemSizeReached'#">
+							<p><istext key="shopping_cart.max.item.count.error" /></p>
+						<iselseif condition="#ERROR_Basket_Product EQ 'ProductRepeatDisallowed'#">
+							<p><istext key="shopping_cart.repeat.disallowed.error" /></p>
+						<iselseif condition="#ERROR_Basket_Product EQ 'QUANTITY_FORMAT'#">
+							<p><istext key="shopping_cart.quantity.invalid.error.w.correction" /></p>
+						<iselseif condition="#ERROR_NoSelection EQ 'true'#">
+							<p><istext key="account.order_template.order_template.no_selection.error"/></p>
+						<iselseif condition="#ERROR_Basket_Product EQ 'NoProductsFound'#">
+							<p><istext key="shopping_cart.warning.NoProductsForAdding" /></p>
+						<iselse>
+							<!--- should not happen as every possible error should be caught --->
+							<p><istext key="shopping_cart.update.error" /></p>
+						</isif>
+					</div>
+				</isif>
+				
+				<isset name="OrderTemplateItems" value="#OrderTemplate:WishlistItemBOs#" scope="request" />
+				<isif condition="#hasElements(OrderTemplateItems)#">
+				
+					<isform action="#URL(Action('ViewOrderTemplate-Dispatch'))#" method="post" name="UpdateWishlist" class="bv-form" >
+						<input type="hidden" name="WishlistID" value="<isprint value="#OrderTemplate:ID#"/>" />
+						<input type="hidden" name="WishlistOwnerID" value="<isprint value="#OrderTemplate:UserBO:ID#"/>" />
+						
+						<div class="list-header hidden-xs">
+							<div class="col-sm-8 col-lg-6 list-header-item"><istext key="account.wishlist.table.header.item"></div>
+							<div class="hidden-sm hidden-md col-lg-2 list-header-item text-right"><istext key="account.orderdetails.items_table.quantity"/></div>
+							<div class="col-sm-2 list-header-item text-right"><istext key="account.wishlist.table.header.date_added"></div>
+							<div class="col-sm-2 list-header-item column-price"><istext key="account.wishlist.table.header.price"/></div>
+						</div>
+						
+						<div class="list-body">
+						<isloop iterator="OrderTemplateItems" alias="OrderTemplateItem">
+							<isset name="ProductBO" value="#OrderTemplateItem:ProductBO#" scope="request" />
+							<isset name="ProductListItem" value="#OrderTemplateItem:PersistentObject#" scope="request" />
+							<isset name="ColorAttributeName" value="Miscellaneous / Color" scope="request"/>
+							<div class="list-item-row list-item-row-big">
+								<div class="col-sm-8 col-lg-8 col-xs-9 list-item">
+									
+									<div class="col-sm-3 col-xs-1 list-item">
+										<div class="col-sm-2 list-item">
+											<isif condition="#NOT(isDefined(ProductBO)) OR NOT(ProductBO:Online)#">
+												<input type="checkbox" name="SelectedItem" value="<isprint value="#OrderTemplateItem:ID#">" class="" disabled="disabled">
+											<iselse>
+												<input type="checkbox" name="SelectedItem" value="<isprint value="#OrderTemplateItem:ID#">" class="" <isif condition="#NOT(isDefined(ProductBO:Attribute("NeedsQuotation"))) OR NOT(ProductBO:Attribute("NeedsQuotation"))#">checked="checked"<iselse>disabled="disabled"</isif> >
+											</isif>
+										</div>
+										<div class="col-sm-9 list-item hidden-xs">
+											<isif condition="#NOT(isDefined(ProductBO))#">
+												<img class="img-responsive"  width="110" height="110" alt="" src="#WebRoot()#/images/no_image_available.gif"/>
+											<iselseif condition="#ProductBO:Online#">
+												<a  href="#URL(Action('ViewProduct-Start'),Parameter('SKU',ProductBO:SKU))#">
+													<ISProductImage ProductBO="#ProductBO#" ImageType="S" Class="img-responsive">
+												</a>
+											<iselse>
+												<ISProductImage ProductBO="#ProductBO#" ImageType="S" Class="img-responsive">
+											</isif>
+										</div>
+									</div>
+									<div class="col-sm-9 col-xs-11 list-item">
+										<div class="col-lg-9 list-item">
+											<div class="pli-description">
+												<p>
+													<isif condition="#NOT(isDefined(ProductBO))#">
+														<isprint value="#ProductListItem:Name#">
+													<iselseif condition="#ProductBO:Online#">
+														<a class="product-title" href="#URL(Action('ViewProduct-Start'),Parameter('SKU',ProductBO:SKU))#">
+															<isprint value="#ProductBO:Name#">
+														</a>
+													<iselse>
+														<isprint value="#ProductBO:Name#">
+													</isif>
+												</p>
+												
+												<p class="product-id">
+													<isif condition="#NOT(isDefined(ProductBO))#">
+														<istext key="account.wishlist.table.item.item"/> <isprint value="#ProductListItem:ProductRef:ProductSKU#"/>
+													<iselse>
+														<istext key="account.wishlist.table.item.item"/> <isprint value="#ProductBO:SKU#">
+													</isif>
+												</p>
+												
+												<!--- Product Bundle Items --->
+												<isif condition="#ProductBO:BundleInformationBO:BundledProductBOs:Size > 0#">
+													<ul>
+														<isloop iterator="ProductBO:BundleInformationBO:BundledProductBOs" alias="BundledProductBO">
+															<li><isprint value="#BundledProductBO:Name#"></li>
+														</isloop>
+													</ul>
+												</isif>
+												
+												<isif condition="#isDefined(ProductBO:String(ColorAttributeName))#">
+													<istext key="account.wishlist.table.item.color"/> <isprint value="#ProductBO:String(ColorAttributeName)#" formatter="#"/> <br/>
+												</isif>
+												
+												<isset name="VariationInfo" value="#ProductBO:ProductVariationInformationBO#" scope="request"/>
+												<isif condition="#hasElements(VariationInfo:VariationAttributes)#">
+													<dl class="dl-horizontal">
+														<isloop iterator="VariationInfo:VariationAttributes" alias="VariationAttribute">
+															<dt><isprint value="#VariationAttribute:DisplayName#"/>:</dt>
+															<dd><isprint value="#VariationInfo:SelectedVariationValue(VariationAttribute)#"/></dd>
+														</isloop>
+													</dl>
+												</isif>
+												<p class="availability">
+													<isif condition="#NOT(isDefined(ProductBO)) OR NOT(ProductBO:Online)#">
+														<span class="text-danger"><istext key="account.wishlist.table.not_availableMessage" /></span><br/>
+													<iselseif condition="#NOT(ProductBO:Accessible)#">
+														<span class="product-out-of-stock"><istext key="account.wishlist.table.not_accessible" /></span>
+													<iselseif condition="#ProductBO:InventoryStatus:InStock#">
+														<span class="product-in-stock"><istext key="account.wishlist.table.in_stock"/></span>
+													<iselse>
+														<span class="product-out-of-stock"><istext key="account.wishlist.table.out_of_stock"/></span>
+													</isif>
+												</p>
+												
+												<isif condition="#isDefined(ProductBO) AND ProductBO:Online#">
+													<a 
+														class="btn-tool" 
+														data-dialog 
+														href="#URL(Action('ViewAjax-Start'), Parameter('TargetPipeline', 'ViewOrderTemplate-ShowMoveItemDialog'), Parameter('SourceOrderTemplateID', OrderTemplate:ID), Parameter('SourceOrderTemplateItemID', OrderTemplateItem:ID))#"
+														title="<istext key="account.wishlist.table.options.move_to_template"/>">
+														<span class="glyphicon glyphicon-transfer"></span>
+													</a>
+												</isif>
+						
+												<a 
+													class="btn-tool" 
+													data-dialog 
+													href="#URL(Action('ViewOrderTemplate-RemoveItem'), Parameter('OrderTemplateID', OrderTemplate:ID), Parameter('OrderTemplateItemID', OrderTemplateItem:ID))#"
+													title="<istext key="account.wishlist.table.options.remove"/>">
+													<span class="glyphicon glyphicon-trash"></span>
+												</a>
+											</div>
+										</div>
+										<div class="col-lg-3 list-item form-inline">
+											<label class="hidden-lg control-label"><istext key="shopping_cart.pli.qty.label"></label>
+											<isif condition="#NOT(isDefined(ProductBO)) OR NOT(ProductBO:Online)#">
+												<input type="number" value="<isprint value="#OrderTemplateItem:DesiredQuantity#" formatter="0">" class="form-control quantity" disabled="disabled" />
+												<!--- this hidden input is needed because the item will be deleted from the template otherwise --->
+												<input type="hidden" value="<isprint value="#OrderTemplateItem:DesiredQuantity#" formatter="0">" name="DesiredQuantity_<isprint value = "#OrderTemplateItem:ID#">" id="DesiredQuantity_<isprint value="#OrderTemplateItem:ID#">">
+											<iselse>
+												<input type="number" step="1"  value="<isprint value="#OrderTemplateItem:DesiredQuantity#" formatter="0">" name="DesiredQuantity_<isprint value = "#OrderTemplateItem:ID#">" id="DesiredQuantity_<isprint value="#OrderTemplateItem:ID#">"
+													class="form-control quantity"
+													min="0"
+													required data-bv-notempty-message="<istext key="shopping_cart.quantity.invalid.error"/>"
+													data-bv-greaterThan-message="<istext key="shopping_cart.quote.quantity.minimum.validation.message"/>"
+												/>
+											</isif>
+										</div>
+										
+									</div>
+								</div>
+								
+								<div class="col-sm-2 hidden-xs list-item text-right">
+									<isprint value="#OrderTemplateItem:CreationDate#" style="DATE_LONG">
+								</div>
+											
+								<div class="col-sm-2 col-xs-3 list-item column-price">
+									<isif condition="#ProductBO:Attribute("NeedsQuotation")#">
+										<istext key="account.wishlist.table.price_upon_request_1"><br/>
+										<istext key="account.wishlist.table.price_upon_request_2"><br/>
+										<istext key="account.wishlist.table.price_upon_request_3">
+									<iselse>
+										<!-- TODO: maybe multiply by the desired quantity? -->
+										<isif condition="#NOT(isDefined(ProductBO))#">
+											<istext key="product.price.na.text" />
+										<iselse>
+											<isset name="salePrice" value="#ProductBO:ProductPriceBO("SalePrice")#" scope="request"/>
+											<isif condition="#salePrice:Range#">
+												<isprint value="#getValue(salePrice:Minimum:Price)#"/>
+											<iselseif condition="#salePrice:Valid#">
+												<isprint value="#getValue(salePrice:Price)#"/>
+											<iselse>
+												<isprint value="#getValue(ProductBO:Price)#"/>
+											</isif>
+										</isif>
+									</isif>
+								</div>
+							</div>
+						</isloop>
+						</div>
+						
+						<button class="btn btn-primary pull-right" type="submit" name="AddToBasket">
+							<istext key="account.order_template.order_template.button.add_to_cart.label" />
+						</button>
+				
+						<button class="btn btn-default" type="submit" name="Update">
+							<istext key="account.order_template.order_template.button.update.label" />
+						</button>
+					
+					</isform>
+				</isif>
+				
+			</div>
+			<isif condition="#isDefined(ContinueShopping)#">
+				<ISContinueShoppingLink isDisplayed="#ContinueShopping#">
+			<iselse>
+				<div class="section">
+					<a href="<isprint value="#URL(action('ViewOrderTemplate-ViewAll'))#">" class="btn btn-link">
+						<istext key="account.order_template.list.link.back"/>
+					</a>
+				</div>
+			</isif> 
+		</div>
+	</div>
+</div>

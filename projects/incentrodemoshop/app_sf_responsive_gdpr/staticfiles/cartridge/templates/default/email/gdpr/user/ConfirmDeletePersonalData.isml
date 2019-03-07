@@ -1,0 +1,46 @@
+<iscontent type="text/html" session="false" charset="UTF-8" compact="true">
+<isinclude template="email/mailTemplate/MailConfig" />
+<SUBJECT><istext key="email.gdpr.confirm.delete.personal.data.subject" parameter0="#encodeValue(ChannelName)#" encoding="off" /></SUBJECT>
+
+<isinclude template="email/mailTemplate/Modules">
+
+<!-- Added the e-mail style-->
+<isinclude template="email/mailTemplate/MailStyle" />
+
+<isset name="DoubleOptInExtension" value="#PersonalDataRequestBO:Extension("PersonalDataRequestBODoubleOptInExtension")#" scope="request" />
+
+<isMailHeader ChannelName="#ChannelName#" >
+
+<p class="header">
+	<istext key="email.gdpr.confirm.delete.personal.data.header" parameter0="#ChannelName#" />
+</p>
+
+<div class="emailBody">
+	<p>
+		<istext key="email.gdpr.common.user.greeting" parameter0="#PersonalDataRequestBO:RequesterName#" />
+	</p>
+	<p>
+		<istext key="email.gdpr.confirm.delete.personal.data.statement" />
+	</p>
+	<p>
+		<a href="#URLEX('https', '', Action('ViewPersonalDataRequestHandling-Confirm'),
+									 Parameter('PersonalDataRequestID', PersonalDataRequestBO:ID), Parameter('Hash', DoubleOptInExtension:ConfirmationLinkHash))#">
+			<istext key="email.gdpr.confirm.request.personal.data.confirmation.link" />
+		</a><br />
+		<istext key="email.gdpr.confirm.request.personal.data.confirmation.link.expiration"
+				parameter0="#ApplicationBO:Configuration:Integer("PersonalDataConfirmationLinkExpirationPeriod", "(Integer)24")#" />
+	</p>
+	<p>
+		<istext key="email.gdpr.confirm.request.personal.data.warning" />
+	</p>
+	<p>
+		<istext key = "email.gdpr.confirm.request.personal.data.confirmation.contact" />
+	</p>
+	<p>
+		<istext key="email.gdpr.common.regards"
+				parameter0="#encodeValue(URL(Action('ViewHomepage-Start')))#"
+				parameter1="#encodeValue(ChannelName)#" encoding="off" />
+	</p>
+</div>
+
+<isinclude template="email/mailTemplate/MailFooter" />

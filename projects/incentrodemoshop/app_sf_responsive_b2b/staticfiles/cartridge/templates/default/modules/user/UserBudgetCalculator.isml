@@ -1,0 +1,8 @@
+<iscontent type="text/html" charset="UTF-8" compact="true">
+<%@page import="com.intershop.component.user.capi.UserBO,
+    com.intershop.component.b2b.capi.user.UserBudgetCalculator" %>
+<% 
+    PipelineDictionary dictionary = getPipelineDictionary();
+    UserBO user = dictionary.get("User");
+    dictionary.put("UserBudgetCalculator", UserBudgetCalculator.get(user));
+%>

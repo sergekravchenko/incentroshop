@@ -1,0 +1,85 @@
+<iscontent type="text/html" charset="UTF-8" compact="true">
+
+<isset name="UserApproval" value="#OrderBO:UserBO:Extension("UserBOOrderApprovalExtension")#" scope="request" >
+<isset name="OrderApproval" value="#OrderBO:Extension("OrderBOOrderApprovalExtension")#" scope="request" >
+<div class="col-sm-12">
+	<div class="infobox">
+		<h3><istext key="approval.order_details.approval_details.heading" /></h3>
+		<div class="row">
+			
+			<!---Purchaser --->
+			<div class="col-xs-6 col-sm-3">
+				<strong><istext key="approval.order_details.purchaser.label" /></strong>
+			</div>
+			<div class="col-xs-6 col-sm-9">
+					<isprint value="#OrderBO:BuyerFirstName#"> <isprint value="#OrderBO:BuyerLastName#"><br/>
+			</div>
+			<!--- Order Value --->
+			<div class="col-xs-6 col-sm-3">
+				<strong><istext key="approval.order_details.order_total.label" /></strong>
+			</div>
+			<div class="col-xs-6 col-sm-9">
+				<isprint value="#OrderBO:GrandTotalGross#"><br/>
+			</div>
+			<!--- Order spent limit --->
+			<div class="col-xs-6 col-sm-3">
+				<strong><istext key="approval.order_details.order_spend_limit.label" /></strong>
+			</div>
+			<isif condition="#UserApproval:SingleOrderThresholdAmount:Available#">
+				<div class="col-xs-6 col-sm-3">
+					<isprint value="#UserApproval:SingleOrderThresholdAmount#">
+			<iselse/>
+				<div class="col-xs-6 col-sm-9">
+					<strong><istext key="approval.details.threshold.unlimited"/></strong>
+			</isif><br/>
+				</div>
+			<isif condition="#UserApproval:Budget(UserApproval:BudgetType):Available#">
+				<div class="col-sm-6">
+						<ISUserBudgetCalculator User="#OrderBO:UserBO#" UserBudgetCalculator="UserBudgetCalculator">
+						
+						<div data-toggle="popover" data-html="true" data-placement="top" class="progress" data-content="
+							<div class='row'>
+								<div class='col-md-6'><label><istext key="#'orders.widget.'.lcase(UserApproval:BudgetType).'_budget_left.label'#" /></label></div>
+								<div class='col-md-6 text-nowrap text-right'><isprint value="#UserBudgetCalculator:RemainingBudget#"></div>
+							</div>
+							<div class='row'>
+								<div class='col-md-6'><label><istext key="#'orders.widget.'.lcase(UserApproval:BudgetType).'_spend_limit.label'#" /></label></div>
+								<div class='col-md-6 text-nowrap text-right'><isprint value="#UserBudgetCalculator:Budget#"></div>
+							</div>
+							<div class='row'>
+								<div class='col-md-6'><label><istext key="account.progress_bar.order_spend_limit.label" /></label></div>
+								<div class='col-md-6 text-nowrap text-right'><isprint value="#UserBudgetCalculator:OrderSpendLimit#"></div>
+							</div>
+						">
+							<div 
+								class="progress-bar<isif condition="#(UserBudgetCalculator:RemainingBudgetPercentage <= 30.0) and (UserBudgetCalculator:RemainingBudgetPercentage > 10.0)#"> progress-bar-warning<iselseif condition="#UserBudgetCalculator:RemainingBudgetPercentage <= 10.0#"> progress-bar-danger</isif>" 
+								role="progressbar" 
+								aria-valuenow="<isprint value="#(UserBudgetCalculator:SpentBudgetPercentage*100)#">"
+								aria-valuemin="0" 
+								aria-valuemax="100" 
+								style="width: <isprint value="#UserBudgetCalculator:SpentBudgetPercentage#" symbols="DecimalSeparator=.">%;"
+							>
+								<span class="progress-display"><isprint value="#UserBudgetCalculator:SpentBudgetPercentage#">%</span>
+							</div>
+						</div>
+				</div>
+			</isif>
+			<isif condition="#(OrderApproval:ApproverFirstName NE '') OR (OrderApproval:ApproverLastName NE '')#">
+				<div class="col-xs-6 col-sm-3">
+					<strong><istext key="approval.order_details.approver" /></strong>
+				</div>
+				<div class="col-xs-6 col-sm-9">
+					 <isprint value="#OrderApproval:ApproverFirstName#">&nbsp;<isprint value="#OrderApproval:ApproverLastName#">
+				</div>
+			</isif>
+			<isif condition="#isDefined(OrderApproval:ApprovalDate)#">
+				<div class="col-xs-6 col-sm-3">
+					<strong><istext key="approval.detailspage.approval_date.label" /></strong>
+				</div>
+				<div class="col-xs-6 col-sm-9">
+					 <isprint value="#getValue(OrderApproval:ApprovalDate, DATE_SHORT)#"/>
+				</div>
+			</isif>
+		</div>
+	</div>
+</div>	

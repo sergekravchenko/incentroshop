@@ -1,0 +1,64 @@
+<iscontent type="text/html" charset="UTF-8" compact="true">
+
+<div class="section">
+	<p><istext key="account.punchout.configuration.text"/></p>
+</div>
+
+<isif condition="#isDefined(ShowSuccessMessage)#">
+	<div class="alert alert-success alert-fade" data-testing-id="message-punchout-save-success">
+		<istext key="account.punchout.configuration.save_success.message" />
+	</div>
+</isif>
+
+<isset name="Configuration" value="#CustomerBO:Extension("PunchoutConfiguration"):ConfigurationData#" scope="request">
+
+<isform class="form-horizontal bv-form" action="#URLEX(SecureURL,'',Action('ViewOCIConfiguration-Dispatch'))#" method="post">
+	
+		<div class="list-header hidden-xs">
+			<div class="col-sm-4 list-header-item">
+				<istext key="account.punchout.configuration.table.attribute" encoding="off" />
+			</div>			
+			<div class="col-sm-4 list-header-item">
+				<istext key="account.punchout.configuration.table.transform" encoding="off" />
+				<isset name="PlaceholderIDs" value="" scope="request">
+				<isloop iterator="PunchoutPlaceholderFormatterProvider:PlaceholderIds" alias="PlaceholderID">
+					<isset name="PlaceholderIDs" value="#PlaceholderIDs.'{'.PlaceholderID.'}<br/>'#" scope="request">
+				</isloop>
+				<isTooltip contenttype="html" linkclass="details-tooltip" headline="#localizeText('account.punchout.configuration.table.available.placeholder')#" content="#PlaceholderIDs#" placement="bottom">
+			</div>			
+			<div class="col-sm-4 list-header-item">
+				<istext key="account.punchout.configuration.table.format" encoding="off" />
+			</div>			
+		</div>
+			
+		<div class="list-body">
+			<isloop iterator="Configuration:ConfigurationFieldsList" alias="Field">
+				<isset name="Entry" value="#Configuration:PunchoutConfigurationDataEntry(Field)#" scope="request"/>
+				<isif condition="#Entry:Configurable#">
+					<ISOCIConfigurationRow FieldName="#Entry:PunchoutCatalogAttributeName#" FieldTransform="#Entry:TransformerConfigurationString#" 
+						FieldFormat="#Entry:FormatterConfigurationString#" PunchoutPlaceholderFormatterProvider="#PunchoutPlaceholderFormatterProvider#">
+				</isif>
+			</isloop>
+		</div>
+
+		<div class="list-item-row">
+			<div class="col-sm-offset-4 col-sm-8">
+				<div class="row">
+					<button 
+						class="btn btn-primary" type="submit" 
+						name="save"
+						value="save" 
+						title="<istext key="account.punchout.configuration.button.save" />"
+						data-testing-class="button-oci-punchout-configuration-submit">
+						<istext key="account.punchout.configuration.button.save" />
+					</button>
+					<a 	class="btn btn-default" 
+						title="<istext key="account.punchout.configuration.button.cancel"/>"
+						href="<isprint value="#URLEX(SecureURL, '', Action('ViewOCISettings-Start'))#">" 
+						data-testing-class="button-oci-punchout-configuration-cancel">
+						<istext key="account.punchout.configuration.button.cancel"/>
+					</a>
+				</div>	
+			</div>
+		</div>
+</isform>

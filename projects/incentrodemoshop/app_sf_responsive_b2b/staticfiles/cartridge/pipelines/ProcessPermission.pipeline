@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Manages the permission checks needed to identify if a user is authorized to perform certain actions.
+@Group Security-->
+
+<pipeline:Pipeline xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pipeline="http://www.intershop.de/pipeline/2010"
+    name="ProcessPermission" overrideMode="Inherit" type="process">
+<!--@Location 1,0-->
+  <nodes xsi:type="pipeline:StartNode" nodeID="StartNode_OPQAELWcEeegXMBD324ZYw" strict="true"
+      name="CheckUserHasPermission" callMode="Private" secure="true">
+    <nodeSuccessors name="next" next="DecisionNode_OPR1QLWcEeegXMBD324ZYw"/>
+    <parameters name="UserBO" type="com.intershop.component.user.capi.UserBO"/>
+    <parameters name="PermissionID" type="java.lang.String"/>
+  </nodes>
+<!--@Location 1,1-->
+  <nodes xsi:type="pipeline:DecisionNode" nodeID="DecisionNode_OPR1QLWcEeegXMBD324ZYw"
+      conditionKey="UserBO:Extension(&quot;UserBORoleExtension&quot;):hasPermission(PermissionID)"
+      operator="str_eq" conditionValue="true">
+    <nodeSuccessors name="decision_yes" next="EndNode_OPTDYLWcEeegXMBD324ZYw"/>
+    <nodeSuccessors name="decision_no" next="JumpNode_OPTqcLWcEeegXMBD324ZYw"/>
+  </nodes>
+<!--@Location 1,2-->
+  <nodes xsi:type="pipeline:EndNode" nodeID="EndNode_OPTDYLWcEeegXMBD324ZYw" name="OK"
+      strict="true"/>
+<!--@Location 2,1-->
+  <nodes xsi:type="pipeline:JumpNode" nodeID="JumpNode_OPTqcLWcEeegXMBD324ZYw">
+    <startNode referencedName="Error-NotFound"/>
+  </nodes>
+</pipeline:Pipeline>

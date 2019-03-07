@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<enfinity xmlns:dt="http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt">
+<pagelet-page id="pg_checkoutReceipt">
+<definition-name>app_sf_responsive_cm:pagevariant.standard.pagelet2-Pagevariant</definition-name>
+<parent id="pg_tmp_checkoutPage" domain="inSPIRED-MasterRepository" />
+<display-name xml:lang="de-DE">Kasse Bestellbestätigung</display-name>
+<display-name xml:lang="en-US">Checkout Receipt</display-name>
+<display-name xml:lang="fr-FR">Ticket de caisse</display-name>
+<online>true</online>
+<author business-partner-no="admin" domain="inSPIRED"/>
+<configuration-parameters>
+<configuration-parameter name="MetaInfo">
+<definition-name>app_sf_responsive_cm:pagevariant.standard.pagelet2-Pagevariant-MetaInfo</definition-name>
+<value name="MetaInfo" xml:lang="de-DE">metaTitle=Bezahlvorgang Bestätigung;metaDescription=;metaKeywords=</value>
+<value name="MetaInfo" xml:lang="en-US">metaTitle=Checkout Receipt;metaDescription=;metaKeywords=</value>
+<value name="MetaInfo" xml:lang="fr-FR">metaTitle=Checkout Receipt;metaDescription=;metaKeywords=</value>
+</configuration-parameter>
+<configuration-parameter name="RobotsNoFollow">
+<definition-name>app_sf_responsive_cm:pagevariant.standard.pagelet2-Pagevariant-RobotsNoFollow</definition-name>
+<value name="RobotsNoFollow">false</value>
+</configuration-parameter>
+<configuration-parameter name="RobotsNoIndex">
+<definition-name>app_sf_responsive_cm:pagevariant.standard.pagelet2-Pagevariant-RobotsNoIndex</definition-name>
+<value name="RobotsNoIndex">false</value>
+</configuration-parameter>
+</configuration-parameters>
+<placeholder-configurations>
+<placeholder-configuration hide-target-content="false" place-target-content-on-top="false">
+<parent-placeholder placeholder-id="ph_checkoutPage_baseMarketing"/>
+</placeholder-configuration>
+</placeholder-configurations>
+</pagelet-page>
+</enfinity>

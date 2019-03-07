@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<enfinity xmlns:dt="http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt">
+<pagelet-component id="cmp_homepage_promotion_container">
+<definition-name>app_sf_responsive_cm:component.common.container.pagelet2-Component</definition-name>
+<display-name xml:lang="en-US">Homepage Promotion Container</display-name>
+<online>true</online>
+<author business-partner-no="admin" domain="inSPIRED"/>
+<configuration-parameters>
+<configuration-parameter name="CSSClass">
+<definition-name>app_sf_responsive_cm:component.common.container.pagelet2-Component-CSSClass</definition-name>
+<value name="CSSClass">container top-padding bottom-padding</value>
+</configuration-parameter>
+<configuration-parameter name="Grid">
+<definition-name>app_sf_responsive_cm:component.common.container.pagelet2-Component-Grid</definition-name>
+<value name="Grid">ExtraSmall:0,Small:0,Medium:0,Large:0</value>
+</configuration-parameter>
+</configuration-parameters>
+<slots>
+<slot>
+<definition-name>app_sf_responsive_cm:slot.container.content.pagelet2-Slot</definition-name>
+<optional>false</optional>
+<sorting>false</sorting>
+</slot>
+</slots>
+</pagelet-component>
+<pagelet-slot-assignment id="4nXAqGMBfjUAAAFlfjEHTCQl">
+<slot definition-name="app_sf_responsive_cm:slot.container.content.pagelet2-Slot" parent-pagelet-id="cmp_homepage_promotion_container" domain="inSPIRED-inTRONICS_Business-smb-responsive"/>
+<pagelet id="cmp_homepage_freeshipping_teaser" domain="inSPIRED-inTRONICS_Business-smb-responsive"/>
+<position>1</position>
+<online>true</online>
+</pagelet-slot-assignment>
+</enfinity>

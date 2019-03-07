@@ -1,0 +1,212 @@
+<%@page import="com.intershop.component.customer.capi.CustomerBO"%>
+<%@page import="com.intershop.beehive.core.capi.app.AppContextUtil"%>
+<%@page import="com.intershop.component.contract.capi.ContractBaseBO"%>
+<%@page import="com.intershop.component.application.capi.ApplicationBO"%>
+
+<iscontent type="text/html" charset="UTF-8" compact="true">
+<isinclude template="modules/B2BModules">
+
+<div class="breadcrumbs row">
+	<isAccountBreadcrumb trailtext="#ContractBaseBO:Name#" link="#URL(Action('ViewContracts-Start'))#" text="#localizeText('account.contract.contracts.breadcrumb.title')#">
+</div>
+
+<!--- Marketing slot --->
+<div class="marketing-area">
+	<ISMarketingSlot id="baseMarketing">
+</div>
+
+<div class="account-wrapper" data-testing-id="b2b-account-contract-details">
+	
+	<div class="row account-main">
+		
+		<!--- Left Navigation Panel --->
+		<div class="col-md-3 account-nav-box">
+			<isAccountNavigation selecteditem="CONTRACTS">
+		</div>
+		
+		<div class="col-md-9">
+		
+			<ISCreateMap mapname="PipelineParameters" key0="CustomerBO" value0="#CustomerBO#">
+			<ispipeline pipeline="ViewUsers-TemplateCallback" params="#PipelineParameters#" alias="Result">
+			<ISPopulateDictionary map="#Result#">
+			
+			<!--- Marketing slot --->
+			<div class="marketing-area">
+				<ISMarketingSlot id="contentMarketing">
+			</div>
+			
+			<h1><isprint value="#ContractBaseBO:Name#"/></h1>
+			
+			<isif condition="#isDefined(ContractBaseBO)#">
+				<div class="section section-separator-xs">
+					<dl class="dl-horizontal dl-horizontal-inline dl-separator">
+						<dt><istext key="account.contract.contractDetails.contractID"/></dt>
+						<dd>
+							<isprint value="#ContractBaseBO:ContractID#"/>
+						</dd>
+						<dt><istext key="account.contract.contractDetails.type"/></dt>
+						<dd>
+							<istext key="#'account.contract.type.'.ContractBaseBO:TypeCode#">
+						</dd>
+						<dt><istext key="account.contract.contractDetails.contractDescription" /></dt>
+						<dd>
+							<isprint value="#ContractBaseBO:Description#"/>
+						</dd>
+						<dt><istext key="account.contract.contractDetails.period"/></dt>
+						<dd>
+							<isprint value="#ContractBaseBO:StartDate#" style="DATE_SHORT"> - <isprint value="#ContractBaseBO:EndDate#" style="DATE_SHORT">
+						</dd>
+						<dt><istext key="account.contract.contractDetails.actualAmount"/></dt>
+						<dd data-testing-id="b2b-account-contract-details-current-revenue">
+							<isprint value="#ContractBaseBO:SalesTarget:Actual#">
+						</dd>
+						<isif condition="#isDefined(ContractBaseBO:SalesTarget:Target) AND (ContractBaseBO:SalesTarget:TargetAmount > 0)#">
+							<dt><istext key="account.contract.contractDetails.targetAmount"/></dt>
+							<dd>
+								<isprint value="#ContractBaseBO:SalesTarget:Target#">
+							</dd>
+							<isif condition="#isDefined(ContractBaseBO:SalesTarget) AND isDefined(ContractBaseBO:SalesTarget:Completeness)#">
+								<dd class="hidden-xs">
+									<isif condition="#(ContractBaseBO:SalesTarget:Completeness*100) > 100#">
+										<isset name="ContractProgress" value="#100#" scope="request">
+									<iselse>
+										<isset name="ContractProgress" value="#getValue((ContractBaseBO:SalesTarget:Completeness*100), '0')#" scope="request">
+									</isif>
+									<ISProgressBar value="#ContractProgress#">
+								</dd>
+							</isif>
+						</isif>
+					</dl>
+					<isif condition="#isDefined(ContractBaseBO:SalesTarget) AND isDefined(ContractBaseBO:SalesTarget:Completeness)#">
+						<div class="visible-xs">
+							<isif condition="#(ContractBaseBO:SalesTarget:Completeness*100) > 100#">
+								<isset name="ContractProgress" value="#100#" scope="request">
+							<iselse>
+								<isset name="ContractProgress" value="#getValue((ContractBaseBO:SalesTarget:Completeness*100), '0')#" scope="request">
+							</isif>
+							<ISProgressBar value="#ContractProgress#">
+						</div>
+					</isif>
+				</div>
+				
+				<!--- Contract Orders List --->
+				<h3><istext key="account.contract.contractDetails.orderHistory"/></h3>
+
+				<isif condition="#isDefined(ContractOrders) AND hasElements(ContractOrders)#">
+					<div class="table-responsive" data-testing-id="b2b-account-contract-details-orders">
+						<table class="table">
+							<thead>
+								<th>
+									<istext key="account.orderlist.table.date_of_order"/>
+								</th>
+								<th>
+									<istext key="account.orderlist.table.details_of_order"/>
+								</th>
+								<th>
+									<istext key="account.orderlist.table.order_status"/>
+								</th>
+								<th class="text-right">
+									<istext key="account.contract.contractDetails.orderHistory.table.contractRevenue"/>
+								</th>
+								<th class="text-right">
+									<istext key="account.orderlist.table.order_total"/>
+								</th>
+							</thead>
+							<tbody>
+								<isloop iterator="ContractOrders" alias="ContractOrder">
+									<isset name="OrderBO" value="#ContractOrder:OrderBO#" scope="request"/>
+									<tr>
+										<!--- Creation Date --->
+										<td>
+											<isif condition="#ContractOrder:OrderExists#">
+												<isprint value="#OrderBO:CreationDate#" style="DATE_LONG">
+											<iselse>
+												-
+											</isif>
+										</td>
+										
+										<!--- Order Details --->
+										<td>
+											<isif condition="#ContractOrder:OrderExists#">
+												<istext key="account.orderlist.orderDetails.orderNo.label"> <a href="#URLEX(SecureURL,'',Action('ViewOrders-Detail'), Parameter('OrderID', OrderBO:ID))#"><isprint value="#OrderBO:DocumentNo#"></a><br/>
+												<istext key="account.orderlist.orderDetails.line_items.label"> <isprint value="#OrderBO:TotalProductQuantity#" style="QUANTITY_SHORT"><br/>
+												<istext key="account.orderlist.orderDetails.purchaser.label"> <isprint value="#OrderBO:BuyerFirstName#"> <isprint value="#OrderBO:BuyerLastName#"><br/>
+												<isif condition="#OrderBO:ExtensibleObject:AttributeValue("orderReferenceID"):StringValue NE ''#">
+													<istext key="account.orderlist.orderDetails.orderReferenceID.label"> <isprint value="#OrderBO:ExtensibleObject:AttributeValue("orderReferenceID"):StringValue#"><br/>
+												</isif>
+											<iselse>
+												<istext key="account.orderlist.orderDetails.orderNo.label"> <isprint value="#ContractOrder:DocumentNo#">
+											</isif>
+										</td>
+		
+										<!--- Order Status --->
+										<td>
+											<isif condition="#ContractOrder:OrderExists#">
+												<isprint value="#OrderBO:StatusDisplayName#">
+											<iselse>
+												-
+											</isif>
+										</td>
+
+										<!--- Contract Reveneue --->
+										<td class="text-right">
+											<isprint value="#ContractOrder:Revenue#">
+										</td>
+
+										<!--- Order Total --->
+										<td class="text-right">
+											<isif condition="#ContractOrder:OrderExists#">
+												<isprint value="#OrderBO:BasketTotalPriceMinusLimitedTenderGross#">
+											<iselse>
+												-
+											</isif>
+										</td>
+										
+									</tr>
+								</isloop>
+							</tbody>
+						</table>
+					</div>
+				<iselse>
+					<p data-testing-id="No_Contract_Orders">
+						<istext key="account.contract.contractDetails.noOrdersFound"/>
+					</p>
+				</isif>
+				
+				<!---
+				<isif condition="#isDefined(ContractBaseBO:ContractPriceList:Items) AND hasElements(ContractBaseBO:ContractPriceList:Items)#">
+					<hr/>
+					<h4><istext key="contract.items.table.heading" /></h4>
+					
+					<isloop iterator="ContractBaseBO:ContractPriceList:Items" alias="ContractPriceListItemBO" counter="counter">
+						<isContractPriceListItem ContractPriceListItemBO="#ContractPriceListItemBO#" counter="#counter#" showProductImage="false">
+					</isloop>
+				</isif>
+				 --->
+				 
+				<!--- Note 
+				<div class="ish-formInfo">
+					<hr/>
+					<h4><istext key="account.order.questions.title"></h4>
+					<p>
+						<istext key="account.order.questions.note" 
+							parameter0="#url(action('ViewContent-Start'), Parameter('PageletEntryPointID','systempage.helpdesk.index.pagelet2-Page'))#" 
+							parameter1="#url(action('ViewContact-Start'))#"
+							encoding="off">
+					</p>
+				</div>
+				 --->
+			<iselse>
+				<p><istext key="account.contract.contractDetails.notFound" parameter0="#ContractID#" /></p>
+			</isif>
+			
+			<p>
+				<a href="#URL(Action('ViewContracts-Start'))#">
+					<istext key="account.contract.contractDetails.back.link"/>
+				</a>
+			</p>
+			
+		</div>
+			
+	</div>
+</div>

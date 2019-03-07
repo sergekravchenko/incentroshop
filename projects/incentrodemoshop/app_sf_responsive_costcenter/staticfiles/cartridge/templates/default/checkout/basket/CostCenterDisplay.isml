@@ -1,0 +1,13 @@
+<iscontent type="text/html" charset="UTF-8" compact="true" templatemarker="true">
+
+<!--- fall back to order --->
+<isif condition="#Not isDefined(AdditionalInformationExtension)#">
+	<isset name="AdditionalInformationExtension" value="#CurrentCartBO:Extension("BasketBOAdditionalInformationExtension")#" scope="request"/>
+</isif>
+<isif condition="#NOT isDefined(CostCenterExtension) AND (AdditionalInformationExtension:CostCenter NE '')#">
+	<isset name="CostCenterExtension" value="#CurrentCartBO:Extension("BasketBOCostCenterExtension")#" scope="request"/>
+</isif>
+
+<!---display cost center --->
+<isinclude template="checkout/common/CostCenterDisplay"/>
+

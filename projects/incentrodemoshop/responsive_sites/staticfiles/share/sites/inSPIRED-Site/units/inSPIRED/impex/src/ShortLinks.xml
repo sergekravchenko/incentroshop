@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<enfinity 
+	xsi:schemaLocation="http://www.intershop.com/xml/ns/enfinity/6.3/bc_foundation/impex bc_foundation.xsd"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns="http://www.intershop.com/xml/ns/enfinity/6.3/bc_foundation/impex" 
+	xmlns:xml="http://www.w3.org/XML/1998/namespace" 
+	xmlns:dt="http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt" 
+>
+	<link enabled="true" default="false" status-code="200">
+		<short-url>/inSPIREDBackoffice</short-url>
+		<target-url>${StandardPath}/WFS/inSPIRED-Site</target-url>
+	</link>
+</enfinity>

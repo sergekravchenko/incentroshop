@@ -1,0 +1,141 @@
+<iscontent type="text/html" charset="UTF-8" compact="true">
+<iscache type="forbidden">
+
+<div class="breadcrumbs row">
+	<isAccountBreadcrumb trailtext="#localizeText('account.profile.link')#">
+</div>
+
+<!--- Marketing slot --->
+<div class="marketing-area">
+	<ISMarketingSlot id="baseMarketing">
+</div>
+
+<div class="account-wrapper">
+	<div class="row account-main">
+		<!--- Left Navigation Panel --->
+		<div class="col-md-3 account-nav-box">
+			<isAccountNavigation selecteditem="PROFILE">
+		</div>
+		
+		<div class="col-md-9">
+			<div class="marketing-area">
+				<ISMarketingSlot id="contentMarketing">
+			</div>
+			
+			<h1><istext key="account.company_profile.heading" /></h1>
+			
+			<p><istext key="account.company_profile.heading.text" /></p>
+			
+			<!--- TODO: test and fix the concurrent modification warning --->
+			<isset name="errormarkup" value="#'true'#" scope="request">
+			<isif condition="#CurrentForm:CompanyName:isError("error.editedByAnother")
+							OR CurrentForm:CompanyName2:isError("error.editedByAnother")
+							OR CurrentForm:Industry:isError("error.editedByAnother")
+							OR CurrentForm:TaxationID:isError("error.editedByAnother")#">
+				
+				<!--- Concurrent modification is detected by the server. --->
+				<!--- In this cases we are not allowed to show error markup. --->
+				<isset name="errormarkup" value="#'false'#" scope="request">
+				
+				
+				<!--- ToDo Profile edited by another one --->
+				<a class="kor-warning-editedByAnother kor-open-as-dialog-without-ajax"></a><!--- empty link for remove item confirmation in case the quantity equals 0 --->
+				<!--- dialog box for a warning in case the company info is edited by another user --->
+				<div class="kor-dialog-content">
+					<div class="kor-content-contents">
+						<h2<istext key="account.company_profile.warning" /></h2>
+						<p><istext key="account.company_profile.warning.editedByAnother" /></p>
+						<div class="ish-field-buttonGroup">
+							<a class="ish-button" href="<isprint value="#URLEX(SecureURL,'',Action('ViewCompanyProfileSettings-ViewProfilePreferences'))#">"><istext key="account.reloadpage.button.label"/></a>
+						</div>
+					</div>
+				</div>
+				
+				<script type="text/javascript">
+					$(".kor-warning-editedByAnother").click();
+				</script>
+			</isif>
+			
+			<div>
+				<isform action="#URLEX(SecureURL,'',Action('ViewCompanyProfileSettings-UpdateProfile'))#" method="post" name="UpdateCompanyProfileForm" class="form-horizontal bv-form">
+				<p class="indicates-required"><span class="required">*</span><istext key="account.required_field.message" /></p>
+					<!--- Company name --->
+						<div class="form-group">
+							<label for="<isprint value="#CurrentForm:CompanyName:FormValue_CompanyName:QualifiedName#">" class="col-md-3 col-sm-3 control-label">
+								<istext key="account.address.company_name.label"/>
+								<span class="required">*</span>
+							</label>
+							<input type="hidden" name="<isprint value="#CurrentForm:CompanyName:Original_CompanyName:QualifiedName#">" value="<isprint value="#CompanyCustomer:CompanyName#"/>" />
+							<div class="col-md-4 col-sm-6">
+								<input type="text" class="form-control" maxlength="60"
+									id="<isprint value="#CurrentForm:CompanyName:FormValue_CompanyName:QualifiedName#">"
+									name="<isprint value="#CurrentForm:CompanyName:FormValue_CompanyName:QualifiedName#">"
+									value="<isprint value="#CurrentForm:CompanyName:FormValue_CompanyName:Value#"/>"
+									required
+									data-bv-notempty-message="<istext key="account.address.company_name.error.required"/>"
+								/>
+							</div>
+						</div>
+					<!--- EO: Company name --->
+					
+					<!--- Company name 2--->
+					<div class="form-group">
+						<label for="<isprint value="#CurrentForm:CompanyName2:FormValue_CompanyName2:QualifiedName#">" class="col-md-3 col-sm-3 control-label">
+							<istext key="account.address.company_name_2.label"/>
+						</label>
+						<input type="hidden" name="<isprint value="#CurrentForm:CompanyName2:Original_CompanyName2:QualifiedName#">" value="<isprint value="#CompanyCustomer:CompanyName2#"/>" />
+						<div class="col-md-4 col-sm-6">
+							<input type="text" class="form-control" maxlength="60"
+								id="<isprint value="#CurrentForm:CompanyName2:FormValue_CompanyName2:QualifiedName#">"
+								name="<isprint value="#CurrentForm:CompanyName2:FormValue_CompanyName2:QualifiedName#">"
+								value="<isprint value="#CurrentForm:CompanyName2:FormValue_CompanyName2:Value#"/>"
+							/>
+						</div>
+					</div>
+					<!--- EO: Company name 2--->
+					
+					<!--- Industry --->
+					<div class="form-group">
+						<label for="<isprint value="#CurrentForm:Industry:FormValue_Industry:QualifiedName#">" class="col-md-3 col-sm-3 control-label">
+							<istext key="account.companyprofile.industry.label"/>
+						</label>
+						<input type="hidden" name="<isprint value="#CurrentForm:Industry:Original_Industry:QualifiedName#">" value="<isprint value="#CompanyCustomer:Industry#"/>" />
+						<div class="col-md-4 col-sm-6">
+							<input type="text" class="form-control" maxlength="60"
+								id="<isprint value="#CurrentForm:Industry:FormValue_Industry:QualifiedName#">"
+								name="<isprint value="#CurrentForm:Industry:FormValue_Industry:QualifiedName#">"
+								value="<isprint value="#CurrentForm:Industry:FormValue_Industry:Value#"/>"
+							/>
+						</div>
+					</div>
+					<!--- EO: Industry --->
+					
+					<!--- Tax ID --->
+					<div class="form-group">
+						<label for="<isprint value="#CurrentForm:TaxationID:FormValue_TaxationID:QualifiedName#">" class="col-md-3 col-sm-3 control-label">
+							<istext key="account.companyprofile.taxationid.label"/>
+						</label>
+						<input type="hidden" name="<isprint value="#CurrentForm:TaxationID:Original_TaxationID:QualifiedName#">" value="<isprint value="#CompanyCustomer:TaxationID#"/>" />
+						<div class="col-md-4 col-sm-6">
+							<input type="text" class="form-control" maxlength="60"
+								id="<isprint value="#CurrentForm:TaxationID:FormValue_TaxationID:QualifiedName#">"
+								name="<isprint value="#CurrentForm:TaxationID:FormValue_TaxationID:QualifiedName#">"
+								value="<isprint value="#CurrentForm:TaxationID:FormValue_TaxationID:Value#"/>"
+							/>
+						</div>
+					</div>
+					<!--- EO: Tax ID --->
+					
+					<!--- The buttons at the bottom of the form --->
+					<div class="form-group">
+						<div class="col-sm-offset-3 col-sm-8">
+							<button class="btn btn-primary" type="submit" value="UpdateProfile" name="UpdateProfile" <isif condition="#errormarkup EQ 'false'#">disabled</isif>><istext key="account.update.button.label"/></button>
+							<a class="btn btn-default" href="<isprint value="#URLEX(SecureURL,'',Action('ViewProfileSettings-ViewProfile'))#">"><istext key="account.cancel.link"/></a>
+						</div>
+					</div>
+					<!--- EO: The buttons at the bottom of the form --->
+				</isform>
+			</div>
+		</div>
+	</div>
+</div>

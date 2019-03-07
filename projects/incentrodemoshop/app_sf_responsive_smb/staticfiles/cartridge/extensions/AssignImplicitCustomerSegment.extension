@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<extensionpoint:ExtensionPointModel xmlns:extensionpoint="http://www.intershop.de/extensionpoint/2011" name="AssignImplicitCustomerSegment">
+  <extensionBindings type="pipeline" extensionPoint="ProcessUserAccount-UserRegistered" extension="AssignImplicitCustomerSegment-Start"/> 
+</extensionpoint:ExtensionPointModel>

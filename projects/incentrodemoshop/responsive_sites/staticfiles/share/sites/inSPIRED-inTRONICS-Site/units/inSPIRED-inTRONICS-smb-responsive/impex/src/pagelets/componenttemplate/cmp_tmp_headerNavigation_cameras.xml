@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<enfinity xmlns:dt="http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt">
+<component-template id="cmp_tmp_headerNavigation_cameras">
+<definition-name>app_sf_responsive_cm:component.system.mainnavigation.category.pagelet2-Component</definition-name>
+<display-name xml:lang="de-DE">Header Navigation - Kameras</display-name>
+<display-name xml:lang="en-US">Header Navigation - Cameras</display-name>
+<active>true</active>
+<author business-partner-no="admin" domain="inSPIRED"/>
+<configuration-parameters>
+<configuration-parameter name="NavigationCategory">
+<definition-name>app_sf_responsive_cm:component.system.mainnavigation.category.pagelet2-Component-NavigationCategory</definition-name>
+<value name="NavigationCategory">Cameras-Camcorders@inSPIRED-inTRONICS-Cameras-Camcorders</value>
+</configuration-parameter>
+</configuration-parameters>
+</component-template>
+</enfinity>

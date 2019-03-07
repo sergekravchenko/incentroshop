@@ -1,0 +1,88 @@
+<iscontent type="text/html" charset="UTF-8" compact="true">
+<isinclude template="modules/common/Modules">
+
+<div class="form-group">
+	<div class="<isif condition="#isDefined(checkoutAddressType)#">col-sm-12<iselse>col-sm-8 col-sm-push-4</isif>">
+		<div class="checkbox">
+			<label class="control-label" for="<isprint value="#webform:UseAsBillingAddress:QualifiedName.idSuffix#">">
+				<input type="checkbox"
+					name="<isprint value="#webform:UseAsBillingAddress:QualifiedName#">"
+					data-dependent-checkbox="<isprint value="#webform:PreferredBillingAddress:QualifiedName.idSuffix#">"
+					<isif condition="#isDefined(webform:UseAsBillingAddress:Value)#">
+						<isif condition="#webform:UseAsBillingAddress:Value EQ 'true'#">checked="checked"</isif>
+					<iselseif condition="#isDefined(addressBO)#">
+						<isif condition="#addressBO:InvoiceToAddress#">checked="checked"</isif>
+					<iselse>
+						<isif condition="#checkoutAddressType EQ 'invoice'#">checked="checked"</isif>
+					</isif>
+					<isif condition="#checkoutAddressType EQ 'invoice'#">required data-bv-notempty-message="<istext key="account.address.preferred_billing.error.default"/>"</isif>
+				/>
+				
+				<istext key="account.address.use_as_billing.checkbox.label" />
+			</label>
+		</div>
+		<div class="checkbox checkbox-inline">
+			<p>
+				<label class="control-label" for="<isprint value="#webform:PreferredBillingAddress:QualifiedName.idSuffix#">">
+					<input type="checkbox"
+						name="<isprint value="#webform:PreferredBillingAddress:QualifiedName#">"
+						<isif condition="#isDefined(webform:PreferredBillingAddress:Value)#">
+							<isif condition="#webform:PreferredBillingAddress:Value EQ 'true'#">checked="checked"</isif>
+						<iselseif condition="#isDefined(addressBO)#">
+							<isif condition="#addressBO:ID EQ userBO:PreferredBillingAddressBO:ID#">checked="checked"</isif>
+						</isif>
+						<isif condition="#NOT hasElements(customerBO:AddressBOs)#">
+							title="<istext key="account.address.preferred_billing_first.checkbox.label" />"
+						</isif>
+						
+					/>
+					
+					<istext key="account.address.preferred_billing.checkbox.label" />
+				</label>
+			</p>
+		</div>
+	</div>
+</div>
+<div class="form-group">
+	<div class="<isif condition="#isDefined(checkoutAddressType)#">col-sm-12<iselse>col-sm-8 col-sm-push-4</isif>">
+		<div class="checkbox">
+			<label class="control-label" for="<isprint value="#webform:UseAsShippingAddress:QualifiedName.idSuffix#">">
+				<input type="checkbox"
+					name="<isprint value="#webform:UseAsShippingAddress:QualifiedName#">"
+					data-dependent-checkbox="<isprint value="#webform:PreferredShippingAddress:QualifiedName.idSuffix#">"
+					<isif condition="#isDefined(webform:UseAsShippingAddress:Value)#">
+						<isif condition="#webform:UseAsShippingAddress:Value EQ 'true'#">checked="checked"</isif>
+					<iselseif condition="#isDefined(addressBO)#">
+						<isif condition="#addressBO:ShipToAddress#">checked="checked"</isif>
+					<iselseif condition="#checkoutAddressType EQ 'shipping'#">checked="checked"
+					</isif>
+					<isif condition="#checkoutAddressType EQ 'shipping'#">required data-bv-notempty-message="<istext key="account.address.preferred_shipping.error.default"/>"</isif>
+				/>
+				
+				<istext key="account.address.use_as_shipping.checkbox.label" />
+			</label>
+		</div>
+		<div class="checkbox checkbox-inline">
+			<p>
+				<label class="control-label" for="<isprint value="#webform:PreferredShippingAddress:QualifiedName.idSuffix#">">
+					<input type="checkbox"
+						name="<isprint value="#webform:PreferredShippingAddress:QualifiedName#">"
+						<isif condition="#isDefined(webform:PreferredShippingAddress:Value)#">
+							<isif condition="#webform:PreferredShippingAddress:Value EQ 'true'#">checked="checked"</isif>
+						<iselseif condition="#isDefined(addressBO)#">
+							<isif condition="#addressBO:ID EQ userBO:PreferredShippingAddressBO:ID#">checked="checked"</isif>	
+						</isif>
+						<isif condition="#NOT hasElements(customerBO:AddressBOs)#">
+							title="<istext key="account.address.preferred_shipping_first.checkbox.label" />"
+						</isif>
+					/>	
+					<istext key="account.address.preferred_shipping.checkbox.label" />
+				</label>
+			</p>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">
+	$(".checkbox input[data-dependent-checkbox]").trigger('change');	
+</script>

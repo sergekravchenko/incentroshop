@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<extensionpoint:ExtensionPointModel
+	xmlns:extensionpoint="http://www.intershop.de/extensionpoint/2011"
+	name="StandardApprovalDetails">
+	<extensionBindings type="isml"
+		extensionPoint="checkout/common/ApprovalDetails-ApprovalConditions"
+		extension="checkout/common/CostCenterApprovalCondition" />
+
+
+	<extensionBindings type="isml"
+		extensionPoint="checkout/common/ApprovalDetails-Approvers" extension="checkout/common/CostCenterApprovers" />
+</extensionpoint:ExtensionPointModel>

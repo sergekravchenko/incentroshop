@@ -1,0 +1,198 @@
+<!---[Comment]--->
+<iscontent type="text/html" charset="UTF-8" compact="true">
+
+<isinclude template="modules/approval/Modules"/>
+
+<isset name="IsApprovedItemsList" value="#(ListCase EQ 'AllApproved') OR (ListCase EQ 'MyApproved')#" scope="request"/>
+<isset name="IsRejectedItemsList" value="#(ListCase EQ 'AllRejected') OR (ListCase EQ 'MyRejected')#" scope="request"/>
+
+<div class="table-responsive">
+	<table class="table" <isif condition="#isDefined(DataTestingID)#">data-testing-id="#DataTestingID#"</isif>>
+		<thead class="hidden-xs">
+			<th data-column-id="order-id">
+				<isif condition="#IsRecurring EQ 'true'#">
+					<isset name="ApprovalItemLabelKey" value="account.subscription.details.label.subscription_number" scope="request"/>
+				<iselseif condition="#IsApprovedItemsList EQ 'true'#">
+					<isset name="ApprovalItemLabelKey" value="account.approvallist.table.no_of_order" scope="request"/>
+				<iselse>
+					<isset name="ApprovalItemLabelKey" value="account.approvallist.table.id_of_order" scope="request"/>
+				</isif>
+				
+				<istext key="#ApprovalItemLabelKey#"/>
+			</th>
+			<th data-column-id="order-date">
+				<istext key="account.approvallist.table.date_of_order"/>
+			</th>
+			<!--- if not buyer and not My Requisitions etc.--->
+			<isif condition="#DisplayPurchaser EQ 'true'#">
+				<th data-column-id="order-buyer">
+					<istext key="account.approvallist.table.purchaser"/>
+				</th>
+			</isif>
+			<!--- if approved/rejected and ?  --->
+			<isif condition="#DisplayApprover EQ 'true'#">
+				<th>
+					<istext key="account.approvallist.table.approver"/>
+				</th>
+			</isif>
+			<isif condition="#DisplayApprovalDate EQ 'true'#">
+				<th>
+					<isif condition="#IsRejectedItemsList EQ 'true'#">
+						<isset name="ApprovalDateLabelKey" value="account.approvallist.table.reject_date" scope="request"/>
+					<iselse>
+						<isset name="ApprovalDateLabelKey" value="account.approvallist.table.approval_date" scope="request"/>
+					</isif>
+					<istext key="#ApprovalDateLabelKey#"/>
+				</th>
+			</isif>
+			<isif condition="#IsRecurring EQ 'true'#">
+				<th data-column-id="order-recurrence">
+					<istext key="account.subscription.details.label.recurrence"/>
+				</th>
+			</isif>
+			<th data-column-id="order-items">
+				<istext key="account.approvallist.table.line_items"/>
+			</th>
+			<th class="text-right" data-column-id="order-total">
+				<istext key="account.approvallist.table.line_item_total"/>
+			</th>
+			<th>
+				&nbsp;
+				<!--- Column with action buttons, no header --->
+			</th>
+		</thead>
+		<tbody>
+			
+			<!-- AllApproved displayes orders, not baskets -->
+			<isif condition="#(IsApprovedItemsList EQ 'true') AND (IsRecurring NE 'true')#">
+				<isloop iterator="Approvals" alias="OrderBO">
+					<!-- TODO this should be the creation date of the basket -->
+					<isset name="CreationDate" value="#OrderBO:CreationDate#" scope="request"/>
+					
+					<isif condition="#DisplayPurchaser EQ 'true'#">
+						<isset name="PurchaserFirstName" value="#OrderBO:User:Profile:DataSheet:FirstName#" scope="request"/>
+						<isset name="PurchaserLastName" value="#OrderBO:User:Profile:DataSheet:LastName#" scope="request"/>
+					</isif>
+					<isif condition="#DisplayApprover EQ 'true'#">
+						<isset name="OrderApproval" value="#OrderBO:Extension("OrderBOOrderApprovalExtension")#" scope="request" >
+						<isset name="ApproverFirstName" value="#OrderApproval:ApproverFirstName#" scope="request"/>
+						<isset name="ApproverLastName" value="#OrderApproval:ApproverLastName#" scope="request"/>
+					</isif>
+				
+				
+					<isApprovalListTableRow
+						DisplayPurchaser="#DisplayPurchaser#"
+						IsRecurring="#IsRecurring#"
+						DisplayApprover="#DisplayApprover#"
+						DisplayApprovalDate="#DisplayApprovalDate#"
+						DetailsHref="#URLEX(SecureURL, '', Action('ViewApprovals-DetailApproved'), Parameter ('OrderID', OrderBO:ID), Parameter('ListCase', ListCase))#"
+						ApprovalItemLabelKey="#ApprovalItemLabelKey#"
+						ApprovalItemNumber="#OrderBO:DocumentNo#"
+						CreationDate="#CreationDate#"
+						PurchaserFirstName="#PurchaserFirstName#"
+						PurchaserLastName="#PurchaserLastName#"
+						ApproverFirstName="#ApproverFirstName#"
+						ApproverLastName="#ApproverLastName#"
+						ApprovalDateLabelKey="#ApprovalDateLabelKey#"
+						ApprovalDate="#CreationDate#"
+						ItemCount="#OrderBO:AllProductLineItemBOs:Size#"
+						GrandTotal="#OrderBO:GrandTotalGross#"
+					>
+					
+					<!--- clean up (note isDefined will still return true after the clean up) --->
+					<isset name="CreationDate" value="#null#" scope="request"/>
+					<isset name="PurchaserFirstName" value="#null#" scope="request"/>
+					<isset name="PurchaserLastName" value="#null#" scope="request"/>
+					<isset name="OrderApproval" value="#null#" scope="request" >
+					<isset name="ApproverFirstName" value="#null#" scope="request"/>
+					<isset name="ApproverLastName" value="#null#" scope="request"/>
+					
+				</isloop>
+			<iselse>
+				<isloop iterator="Approvals" alias="BasketPO">
+					<isset name="BasketUUID" value="#BasketPO:UUID#" scope="request">
+					<isif condition="#BasketUUID EQ ''#">
+						<isset name="BasketUUID" value="#BasketPO:ID#" scope="request">
+					</isif>
+				
+					<!-- TODO this is replacing a proper BO mapping in the queries -->
+					<%@page import="com.intershop.component.basket.capi.BasketBORepository" %>
+					<%
+					String basketUUID = getPipelineDictionary().get("BasketUUID");
+					BasketBORepository basketBORepository = getPipelineDictionary().get("BasketBORepository");
+
+					getPipelineDictionary().put("BasketBO", basketBORepository.getBasketBO(basketUUID));
+					%>
+					
+					
+					<isif condition="#IsRecurring EQ 'true'#">
+						<isset name="ApprovalItemNumber" value="#BasketBO:RecurringOrderDocumentNo#" scope="request"/>
+					<iselse>
+						<isset name="ApprovalItemNumber" value="#BasketBO:RequisitionDocumentNo#" scope="request"/>
+					</isif>
+					
+					<isif condition="#DisplayPurchaser EQ 'true'#">
+						<isset name="PurchaserFirstName" value="#BasketPO:User:Profile:DataSheet:FirstName#" scope="request"/>
+						<isset name="PurchaserLastName" value="#BasketPO:User:Profile:DataSheet:LastName#" scope="request"/>
+					</isif>
+					
+					<isset name="OrderApproval" value="#BasketBO:Extension("BasketBOOrderApprovalExtension")#" scope="request" >
+					
+					<isif condition="#DisplayApprover EQ 'true'#">
+						<isset name="ApproverFirstName" value="#OrderApproval:ApproverFirstName#" scope="request"/>
+						<isset name="ApproverLastName" value="#OrderApproval:ApproverLastName#" scope="request"/>
+					</isif>
+					<isif condition="#DisplayApprovalDate EQ 'true'#">
+						<isset name="ApprovalDate" value="#OrderApproval:ApprovalDate#" scope="request"/>
+					</isif>
+					<isif condition="#IsRecurring EQ 'true'#">
+						<isset name="RecurringBasket" value="#BasketBO:Extension("RecurringBasket")#" scope="request">
+					</isif>
+					
+					<isApprovalListTableRow
+						DisplayPurchaser="#DisplayPurchaser#"
+						IsRecurring="#IsRecurring#"
+						DisplayApprover="#DisplayApprover#"
+						DisplayApprovalDate="#DisplayApprovalDate#"
+						DetailsHref="#URLEX(SecureURL, '', Action('ViewApprovals-Details'), Parameter ('BasketID', BasketUUID), Parameter('ListCase', ListCase))#"
+						ApprovalItemLabelKey="#ApprovalItemLabelKey#"
+						ApprovalItemNumber="#ApprovalItemNumber#"
+						CreationDate="#BasketBO:PersistentObject:LastModified#"
+						PurchaserFirstName="#PurchaserFirstName#"
+						PurchaserLastName="#PurchaserLastName#"
+						ApproverFirstName="#ApproverFirstName#"
+						ApproverLastName="#ApproverLastName#"
+						ApprovalDateLabelKey="#ApprovalDateLabelKey#"
+						ApprovalDate="#ApprovalDate#"
+						RecurrencePeriod="#RecurringBasket:RecurrenceInformation:Interval#"
+						ItemCount="#BasketBO:ProductLineItemsCount#"
+						GrandTotal="#BasketBO:GrandTotalGross#"
+					>
+					
+					<!--- clean up (note isDefined will still return true after the clean up) --->
+					<isset name="ApprovalItemNumber" value="#null#" scope="request"/>
+					<isset name="PurchaserFirstName" value="#null#" scope="request"/>
+					<isset name="PurchaserLastName" value="#null#" scope="request"/>
+					<isset name="OrderApproval" value="#null#" scope="request" >
+					<isset name="ApproverFirstName" value="#null#" scope="request"/>
+					<isset name="ApproverLastName" value="#null#" scope="request"/>
+					<isset name="ApprovalDate" value="#null#" scope="request"/>
+					<isset name="RecurringBasket" value="#null#" scope="request"/>
+				</isloop>
+			</isif>
+		</tbody>
+	</table>
+</div>
+<isif condition="#ListNavigationVO:PageCount > 1#">
+	<div class="row">
+		<div class="pagination clearfix col-xs-10">
+			<ismappagination 
+				pipeline="#ListNavigationVO:HandlerPipeline#" 
+			    itemcount="#ListNavigationVO:ElementCount#"
+			    currentpage="#ListNavigationVO:CurrentPage#"
+			    pagecount="#ListNavigationVO:PageCount#"
+			    params="#ListNavigationVO:GenericHandlerPipelineParams#"
+			>
+		</div>
+	</div>
+</isif>

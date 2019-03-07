@@ -1,0 +1,11 @@
+<iscontent type="text/html" charset="UTF-8" compact="true">
+
+<a rel="home" href="#URLEX(InsecureURL,'',Action('ViewHomepage-Start'))#" class="mobile-logo">
+	<!--- you can change the mobile logo by configuring a mobile logo at the component --->
+	<isif condition="#(isDefined(PageletConfigurationParameters:MobileLogo) AND (PageletConfigurationParameters:MobileLogo NE ""))#">
+		<img src="#ContentURL(PageletConfigurationParameters:MobileLogo)#" alt="Logo" width="41" height="41"/>
+	<!--- fallback to mobile logo of branding package or from cartridge --->
+	<iselse>
+		<img src="<isinclude url="#URL(Action('IncludeBranding-Resource'), Parameter('Resource_Name','/img/logo@2x.png'))#">" width="40" height="40" alt="Logo">
+	</isif>
+</a>

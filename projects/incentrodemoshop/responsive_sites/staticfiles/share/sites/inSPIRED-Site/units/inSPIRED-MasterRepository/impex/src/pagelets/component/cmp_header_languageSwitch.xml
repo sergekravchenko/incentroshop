@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<enfinity xmlns:dt="http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt">
+<pagelet-component id="cmp_header_languageSwitch">
+<definition-name>app_sf_responsive_cm:component.system.languageSwitch.pagelet2-Component</definition-name>
+<display-name xml:lang="en-US">Language Switch</display-name>
+<online>true</online>
+<author business-partner-no="admin" domain="inSPIRED"/>
+<configuration-parameters>
+<configuration-parameter name="Languages">
+<definition-name>app_sf_responsive_cm:component.system.languageSwitch.pagelet2-Component-Languages</definition-name>
+<value name="Languages">
+<value>en_US</value>
+<value>de_DE</value>
+<value>fr_FR</value>
+</value>
+</configuration-parameter>
+</configuration-parameters>
+</pagelet-component>
+</enfinity>

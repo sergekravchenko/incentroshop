@@ -1,0 +1,5 @@
+<iscontent personalized="true" type="text/html" charset="UTF-8" compact="true">
+<iscache type="relative" hour="24">
+<isinclude template="modules/Modules">
+
+<isslot slot="app_sf_responsive_cm:slot.landingPage.content.pagelet2-Slot">

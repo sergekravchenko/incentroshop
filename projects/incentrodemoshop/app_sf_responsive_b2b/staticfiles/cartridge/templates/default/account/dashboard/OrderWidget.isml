@@ -1,0 +1,81 @@
+<iscontent type="text/html" charset="UTF-8" compact="true">
+<isinclude template="modules/B2BModules">
+
+<ISCreateMap mapname="PipelineParameters"
+    key0="User" value0="#CurrentUser#"
+>
+<ispipeline pipeline="BusinessObjectUtils-GetUserBO"  params="#PipelineParameters#" alias="BusinessObjectDict" />
+<ISUserBudgetCalculator User="#BusinessObjectDict:UserBO#" UserBudgetCalculator="UserBudgetCalculator">
+<ISGetPreference preferencekey="EnableRecurringOrders" domainname="#CurrentDomain:DefaultApplication:Domain:DomainName#" type="String" return="EnableRecurringOrders">
+<isset scope="request" name="UserApproval" value="#BusinessObjectDict:UserBO:Extension("UserBOOrderApprovalExtension")#">
+<div class="section">
+	
+	<h2><istext key="orders.widget.my_orders.heading" /></h2>
+	
+	<div class="row account-dashboard bubble-section">
+		<div class="col-sm-6">
+			<div class="row">
+				<div class="col-xs-6 col-sm-6">
+					<a href="#URLEX(SecureURL, '', Action('ViewOrders-MyOrderSearch'))#" class="circle-icon show">
+						<span><isprint value="#UserApproval:MyApprovedOrdersCount#"></span>
+					</a>
+					<a href="#URLEX(SecureURL, '', Action('ViewOrders-MyOrderSearch'))#"><istext key="orders.widget.approved.link" /></a>
+					<p class="total"><istext key="orders.widget.total.text" /> <isprint value="#UserApproval:MyApprovedOrdersTotal#"></p>
+				</div>
+				<div class="col-xs-6 col-sm-6 item-details">
+					<div>
+						<a href="#URLEX(SecureURL, '', Action('ViewApprovals-MyOpen'))#"><isprint value="#UserApproval:MyOpenOrdersCount#"> <istext key="orders.widget.pending.link" /></a>
+						<p><istext key="orders.widget.total.text" /> <isprint value="#UserApproval:MyOpenOrdersTotal#"></p>
+					</div>
+					<div>
+						<a href="#URLEX(SecureURL, '', Action('ViewApprovals-MyRejected'))#"><isprint value="#UserApproval:MyRejectedOrdersCount#"> <istext key="orders.widget.rejected.link" /></a>
+						<p><istext key="orders.widget.total.text" /> <isprint value="#UserApproval:MyRejectedOrdersTotal#"></p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<isif condition="#isDefined(EnableRecurringOrders) AND (EnableRecurringOrders EQ "true")#">
+			<div class="col-sm-6">
+				<div class="row">
+					<div class="col-xs-6 col-sm-6">
+						<a href="#URLEX(SecureURL, '', Action('ViewSubscriptions-List'))#" class="circle-icon show">
+							<span><isprint value="#UserApproval:MyApprovedSubscriptionsCount#"></span>
+						</a>
+						<a href="#URLEX(SecureURL, '', Action('ViewSubscriptions-List'))#"><istext key="orders.widget.approved_subscriptions.link" /></a>
+					</div>
+						<div class="col-xs-6 col-sm-6 item-details">
+							<div>
+								<a href="#URLEX(SecureURL, '', Action('ViewApprovals-MyOpen'))#"><isprint value="#UserApproval:MyOpenSubscriptionsCount#"> <istext key="orders.widget.pending_subscriptions.link" /></a>
+							</div>
+							<div>
+								<a href="#URLEX(SecureURL, '', Action('ViewApprovals-MyRejected'))#"><isprint value="#UserApproval:MyRejectedSubscriptionsCount#"> <istext key="orders.widget.rejected_subscriptions.link" /></a>
+							</div>
+						</div>
+				</div>
+			</div>
+		</isif>
+	</div>
+	<div class="row budget-section">
+		<isif condition="#UserBudgetCalculator:BudgetAvailable#">
+			<div class="col-xs-12">
+				<div class="progress">
+					<div class="progress-bar<isif condition="#(UserBudgetCalculator:RemainingBudgetPercentage <= 30.0) and (UserBudgetCalculator:RemainingBudgetPercentage > 10.0)#"> progress-bar-warning<iselseif condition="#UserBudgetCalculator:RemainingBudgetPercentage <= 10.0#"> progress-bar-danger</isif>" role="progressbar" aria-valuenow="<isprint value="#UserBudgetCalculator:SpentBudgetPercentage#">" aria-valuemin="0" aria-valuemax="100" style="width:<isprint value="#UserBudgetCalculator:SpentBudgetPercentage#" symbols="DecimalSeparator=.">%"><isprint value="#UserBudgetCalculator:SpentBudgetPercentage#">%</div>
+				</div>
+			</div>
+			<div class="col-sm-4 col-xs-6 budget">
+				<p><istext key="#'orders.widget.'.lcase(UserApproval:BudgetType).'_budget_left.label'#" /></p>
+				<p class="label label-primary"><isprint value="#UserBudgetCalculator:RemainingBudget#"></p>
+			</div>
+			<div class="col-sm-4 col-xs-6 budget">
+				<p><istext key="#'orders.widget.'.lcase(UserApproval:BudgetType).'_spend_limit.label'#" /></p>
+				<p class="label label-primary"><isprint value="#UserBudgetCalculator:Budget#"></p>
+			</div>
+		</isif>
+		<isif condition="#UserBudgetCalculator:OrderSpendLimitAvailable#">
+			<div class="col-sm-4 col-xs-6 budget">
+				<p><istext key="orders.widget.order_spend_limit.label" /></p>
+				<p class="label label-primary"><isprint value="#UserBudgetCalculator:OrderSpendLimit#"></p>
+			</div>
+		</isif>
+	</div>
+</div>

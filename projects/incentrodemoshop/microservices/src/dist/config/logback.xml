@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+  <statusListener class="ch.qos.logback.core.status.OnConsoleStatusListener" />
+  <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+	<!-- encoders are assigned the type ch.qos.logback.classic.encoder.PatternLayoutEncoder 
+		by default -->
+	<encoder>
+		<pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n
+		</pattern>
+	</encoder>
+</appender>
+  <appender name="ERROR_LOG" class="ch.qos.logback.core.rolling.RollingFileAppender">
+	<file><@loggingDir@>/error.log</file>
+	<filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+		<level>WARN</level>
+	</filter>
+	<encoder>
+		<pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n
+		</pattern>
+	</encoder>
+	<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+		<FileNamePattern><@loggingDir@>/error-%d{yyyy-MM-dd}.log.zip</FileNamePattern>
+	</rollingPolicy>
+</appender>
+  <appender name="DEBUG_LOG" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <file><@loggingDir@>/debug.log</file>
+    <encoder>
+      <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+    </encoder>
+	<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+		<FileNamePattern><@loggingDir@>/debug-%d{yyyy-MM-dd}.log.zip</FileNamePattern>
+	</rollingPolicy>
+  </appender>
+  <appender name="SQL_LOG" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <file><@loggingDir@>/sql.log</file>
+    <encoder>
+      <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+    </encoder>
+	<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+		<FileNamePattern><@loggingDir@>/sql-%d{yyyy-MM-dd}.log.zip</FileNamePattern>
+	</rollingPolicy>
+  </appender>
+  <root level="WARN">
+    <appender-ref ref="ERROR_LOG" />
+  </root>
+  <logger name="com.intershop.common.webapp.capi.server" level="INFO">
+    <appender-ref ref="DEBUG_LOG" />
+    <appender-ref ref="STDOUT" />
+  </logger>
+  <appender name="SCHEDULES" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <file><@loggingDir@>/schedules.log</file>
+    <encoder>
+	    <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level - %msg%n</pattern>
+    </encoder>
+	<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+		<FileNamePattern><@loggingDir@>/schedules-%d{yyyy-MM-dd}.log.zip</FileNamePattern>
+	</rollingPolicy>
+  </appender>
+  <logger name="com.intershop.scheduling.internal.business.ScheduleBOImpl"
+          level="INFO,WARN,ERROR">
+    <appender-ref ref="SCHEDULES" />
+  </logger>  
+  <appender name="RECURRINGORDER" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <file><@loggingDir@>/recurringorder.log</file>
+    <encoder>
+	    <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level - %msg %ex{0}%n</pattern>
+    </encoder>
+	<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+		<FileNamePattern><@loggingDir@>/recurringorder-%d{yyyy-MM-dd}.log.zip</FileNamePattern>
+	</rollingPolicy>
+  </appender>
+  <logger name="com.intershop.recurringorder.internal.remote.service.RecurringOrderServiceImpl"
+          level="INFO,WARN,ERROR">
+     <appender-ref ref="RECURRINGORDER" />
+  </logger>  
+  <appender name="HTTP" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <file><@loggingDir@>/http.log</file>
+    <encoder>
+      <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+    </encoder>
+	<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+		<FileNamePattern><@loggingDir@>/http-%d{yyyy-MM-dd}.log.zip</FileNamePattern>
+	</rollingPolicy>
+  </appender>
+  <logger name="org.eclipse.jetty.server.HttpChannel"
+          level="DEBUG">
+    <appender-ref ref="HTTP" />
+  </logger>
+</configuration>

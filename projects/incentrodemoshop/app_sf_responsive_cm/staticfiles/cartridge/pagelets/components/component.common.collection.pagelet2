@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pagelet:PageletModel xmlns:pagelet="http://www.intershop.de/pagelet/2010" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="component.common.collection.pagelet2">
+  <pageletDefinitions name="Component" container="true">
+    <callParameterInterfaces referencedName="app_sf_responsive_cm:interface.common.content.advanced.pagelet2-Interface"/>
+    <callParameterInterfaces referencedName="app_sf_responsive_cm:interface.marketing.category.pagelet2-Interface"/>
+    <callParameterInterfaces referencedName="app_sf_responsive_cm:interface.marketing.product.pagelet2-Interface"/>
+    <configurationParameterDefinitions xsi:type="pagelet:ListParameterDefinition" name="CollectionType" localizable="false" typeReference="bc_pmc:types.pagelet2-DropDownBox">
+      <parameterDefinitions name="list" typeReference="bc_pmc:types.pagelet2-Text"/>
+      <parameterDefinitions name="toclist" typeReference="bc_pmc:types.pagelet2-Text"/>
+      <parameterDefinitions name="accordion" typeReference="bc_pmc:types.pagelet2-Text"/>
+      <parameterDefinitions name="tabset" typeReference="bc_pmc:types.pagelet2-Text"/>
+    </configurationParameterDefinitions>
+    <configurationParameterDefinitions optional="true" name="ActiveElementID" localizable="false" typeReference="bc_pmc:types.pagelet2-Text"/>
+    <configurationParameterDefinitions optional="true" name="CSSClass" localizable="false" typeReference="bc_pmc:types.pagelet2-Text"/>
+    <renderTemplate referencedName="component/common/Collection"/>
+    <slotInclusionDefinitions>
+      <slotDefinition referencedName="app_sf_responsive_cm:slot.collection.items.pagelet2-Slot"/>
+    </slotInclusionDefinitions>
+  </pageletDefinitions>
+</pagelet:PageletModel>

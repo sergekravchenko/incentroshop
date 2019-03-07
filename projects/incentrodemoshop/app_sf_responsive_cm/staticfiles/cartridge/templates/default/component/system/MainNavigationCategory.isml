@@ -1,0 +1,6 @@
+<iscontent type="text/html" charset="UTF-8" compact="true">
+<isinclude template="modules/category/Modules">
+<isCategoryNavigation
+	CategoryBO="#PageletConfigurationParameters:NavigationCategory#"
+	AlternateNavigationTitle="#PageletConfigurationParameters:AlternateNavigationTitle#"
+>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pagelet:PageletModel xmlns:pagelet="http://www.intershop.de/pagelet/2010" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="component.shopping.attributeIndex.pagelet2">
+  <pageletDefinitions name="Component">
+    <callParameterInterfaces referencedName="app_sf_responsive_cm:interface.pagevariant.content.pagelet2-Interface"/>
+    <configurationParameterDefinitions name="Title" typeReference="bc_pmc:types.pagelet2-Text"/>
+    <configurationParameterDefinitions name="IndexAttribute" localizable="false" typeReference="sld_mcm:parametertype.productindexattribute.pagelet2-ProductIndexAttribute"/>
+    <configurationParameterDefinitions name="IndexLetters" typeReference="bc_pmc:types.pagelet2-Text"/>
+    <configurationParameterDefinitions xsi:type="pagelet:ListParameterDefinition" name="IndexType" localizable="false" typeReference="bc_pmc:types.pagelet2-DropDownBox">
+      <parameterDefinitions name="List" typeReference="bc_pmc:types.pagelet2-Text"/>
+      <parameterDefinitions name="TabSet" typeReference="bc_pmc:types.pagelet2-Text"/>
+    </configurationParameterDefinitions>
+    <renderTemplate referencedName="component/shopping/AttributeIndex"/>
+    <renderPipeline referencedName="RenderPagelet-GetAttributeIndex"/>
+    <slotInclusionDefinitions>
+      <slotDefinition referencedName="app_sf_responsive_cm:slot.marketing.base.pagelet2-Slot"/>
+    </slotInclusionDefinitions>
+  </pageletDefinitions>
+</pagelet:PageletModel>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<enfinity xmlns:dt="http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt">
+<pagelet-component id="cmp_helpdesk_buyersinfo_pendingOrders">
+<definition-name>app_sf_responsive_cm:component.common.freeStyle.pagelet2-Component</definition-name>
+<display-name xml:lang="de-DE">Offene Bestellungen</display-name>
+<display-name xml:lang="en-US">Pending Orders</display-name>
+<display-name xml:lang="fr-FR">Commandes en attente</display-name>
+<online>true</online>
+<author business-partner-no="admin" domain="inSPIRED"/>
+<configuration-parameters>
+<configuration-parameter name="HTML">
+<definition-name>app_sf_responsive_cm:component.common.freeStyle.pagelet2-Component-HTML</definition-name>
+<value name="HTML" xml:lang="de-DE">&lt;h1&gt;Offene Bestellungen&lt;/h1&gt;
+&lt;h2&gt;Konzepte&lt;/h2&gt;
+&lt;p&gt;B2B-Kundenorganisationen können die Bestellgenehmigungsfunktionalität nutzen, um Bestellungen zu prüfen, bevor sie an Händler gesendet werden. Die Bestellgenehmigung umfasst zwei Prüfungen:&lt;/p&gt;
+&lt;p&gt;(1) Kostenstellengenehmigung&lt;br /&gt;Ist eine Bestellung einer Kostenstelle zugeordnet, muss sie zunächst vom Kostenstellenverwalter genehmigt werden, bevor er an die benutzerspezifische Bestellgenehmigung weitergeleitet wird.&lt;/p&gt;
+&lt;p&gt;(2) Nutzerspezifische Bestellgenehmigung&lt;br /&gt;Wenn für einen Benutzer ein Budget oder ein Ausgabelimit pro Bestellung definiert ist, muss die Bestellung die benutzerspezifische Bestellgenehmigung durchlaufen.&lt;/p&gt;
+&lt;p&gt;Wenn weder eine Kostenstelle noch ein Budget/Ausgabelimit pro Bestellung definiert ist, findet keine Bestellgenehmigung statt..&lt;/p&gt;
+&lt;h2&gt;Arbeitsablauf&lt;/h2&gt;
+&lt;p&gt;Wenn Sie mindestens einer Kostenstelle zugeordnet sind, muss jede Bestellung die Sie aufgeben, einer Kostenstelle zugeordnet sein. Jede Bestellung muss zuerst vom jeweiligen Kostenstellenverwalter genehmigt werden.&lt;/p&gt;
+&lt;p&gt;Wenn für Sie ein individuelles Benutzerbudget oder ein Ausgabelimit pro Bestellung definiert ist, muss Ihre Bestellung zusätzlich die benutzerspezifische Bestellgenehmigung bestehen. Zu diesem Zweck sendet das System eine E-Mail an alle Genehmiger und fordert sie auf, die Bestellung zu genehmigen.&lt;/p&gt;
+&lt;p&gt;Sobald Ihre Bestellung von allen beteiligten Rollen genehmigt wurde, wird sie schließlich an den Händler gesendet.&lt;/p&gt;
+&lt;p&gt;Sie können Ihre Bestellungen und deren Status (ausstehend, genehmigt, abgelehnt) im Bereich &lt;em&gt;Mein Konto&lt;/em&gt; sehen. Für abgelehnte Bestellungen geben Kostenstellenverwalter oder Genehmiger in der Regel einen Grund an.&lt;/p&gt;</value>
+<value name="HTML" xml:lang="en-US">&lt;h1&gt;Pending Orders&lt;/h1&gt;
+&lt;h2&gt;Concepts&lt;/h2&gt;
+&lt;p&gt;B2B customer organizations can use the order approval functionality to review orders before they are sent to merchants. The order approval includes two checks:&lt;/p&gt;
+&lt;p&gt;(1) Cost Center Approval&lt;br /&gt;If an order is assigned to a cost center, it must first be approved by the cost center manager, before being routed to the user-specific order approval.&lt;/p&gt;
+&lt;p&gt;(2) User-Specific Order Approval&lt;br /&gt;If there is a budget or an order spend limit defined for a user, the order must pass the user-specific order approval.&lt;/p&gt;
+&lt;p&gt;If there is neither a cost center nor a user budget/order spend limit involved, no order approval takes place.&lt;/p&gt;
+&lt;h2&gt;Workflow&lt;/h2&gt;
+&lt;p&gt;If you are assigned to at least one cost center, every order you place must be assigned to a cost center. Each order has to be approved by the according cost center manager first.&lt;/p&gt;
+&lt;p&gt;If there is an individual user budget or an order spend limit defined for you, your order must, in addition, pass the user-specific order approval. To this end, the system sends an e-mail to all approvers, prompting them to approve the order.&lt;/p&gt;
+&lt;p&gt;Once your order is approved by all involved roles, it is finally submitted to the merchant.&lt;/p&gt;
+&lt;p&gt;You can see your orders and their statuses (pending, approved, rejected) in the &lt;em&gt;My Account&lt;/em&gt; area. For rejected orders, cost center managers or approvers usually give a reason.&lt;/p&gt;</value>
+<value name="HTML" xml:lang="fr-FR">&lt;h1&gt;Commandes en attente&lt;/h1&gt;
+&lt;h2&gt;Concepts&lt;/h2&gt;
+&lt;p&gt;L&apos;organisation cliente B2B a la possibilité d&apos;utiliser la fonction Approbation de commande pour afficher les commandes avant qu&apos;elles soient envoyées aux marchands. L’’approbation de commandes comprend deux contrôles :&lt;/p&gt;
+&lt;p&gt;(1) Approbation du centre de coûts&lt;br /&gt;Si une commande est affectée à un centre de coûts, elle doit premièrement être approuvée par le responsable du centre de coûts avant qu’’elle est transférée à l’’approbation de commande spécifiques à l’’utilisateur.&lt;/p&gt;
+&lt;p&gt;(2) Approbation de commande spécifiques à l’’utilisateur&lt;br /&gt; Si un budget ou un plafond de dépense de commande est défini pour un utilisateur, la commande doit passer l’’approbation de commande spécifiques à l’’utilisateur.&lt;/p&gt;
+&lt;p&gt;Si ni un centre de coûts, ni un budget d’’utilisateur/ plafond de dépense de commande est impliqué, aucune approbation de commande ne peut être donnée.&lt;/p&gt;
+&lt;h2&gt;Workflow&lt;/h2&gt;
+&lt;p&gt;Si vous êtes affecté à au moins un centre de coûts, chaque commande que vous passez doit être affectée à un centre de coûts. Chaque commande doit premièrement être approuvée par le correspondant responsable du centre de coûts.&lt;/p&gt;
+&lt;p&gt;Si un budget utilisateur ou un plafond de dépense de commande individuel est défini pour vous, la commande doit passer en plus l’’approbation spécifiques à l’’utilisateur. À cette fin, un e-mail est envoyé par le système à tous les approbateurs en les demandant d’’approuver la commande.&lt;/p&gt;
+&lt;p&gt;Dès que la commande est approuvée par toutes les parties concernées, elle est finalement envoyée au marchand.&lt;/p&gt;
+&lt;p&gt;Vous pouvez afficher vos commandes et leurs statuts (en attente, approuvée, rejetées) dans la section &lt;em&gt;Mon compte&lt;/em&gt;. Les responsables du centre de coûts et les approbateurs se justifient habituellement pour les commandes rejetées.&lt;/p&gt;</value>
+</configuration-parameter>
+</configuration-parameters>
+</pagelet-component>
+</enfinity>

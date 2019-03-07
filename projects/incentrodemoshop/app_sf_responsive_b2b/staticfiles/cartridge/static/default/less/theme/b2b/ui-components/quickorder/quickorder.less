@@ -1,0 +1,53 @@
+
+//
+// Quickorder Links in Header
+
+.quick-order-links {
+	text-align: right;
+	line-height: 37px;
+
+	a {
+		color: @text-color-quarternary;
+
+		.glyphicon {
+			margin-right: (@space-default / 2); 
+		}
+
+		&:hover {
+			color: darken(@text-color-quarternary, 5%);
+		}
+
+	}
+
+	@media (max-width: @screen-xs-max) {
+		text-align: left !important;
+		padding: @space-default (@grid-gutter-width / 2);
+	}
+}
+
+.quick-order-rows-container {
+
+	.list-item-row {
+		.list-item {
+			&.search-container {
+				overflow: visible;
+				margin-bottom: @space-default/4;
+
+				.quickorder-search-container {
+					position: relative;
+					
+					ul.search-suggest-results{
+						position: absolute;
+						top: 33px;
+						width: 100%;
+						margin-bottom: 0;
+					}
+				}
+			}
+		}
+		&:last-child {
+			border-bottom: none;
+		}	
+	}
+}
+

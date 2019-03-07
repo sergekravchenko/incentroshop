@@ -1,0 +1,8 @@
+<iscontent type="text/html" charset="UTF-8" compact="true" templatemarker="true">
+
+<isset name="CompanyCustomer" value="#customer:Extension("CompanyCustomer")#" scope="request"/>
+<fieldset>
+	<isinclude template="modules/address/forms/inc/CompanyNameInput.isml">
+	<isinclude template="modules/address/forms/inc/CompanyName2Input.isml">
+</fieldset>
+<isinclude template="modules/address/forms/inc/ConcurrentModificationValidation.isml">

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<extensionpoint:ExtensionPointModel xmlns:extensionpoint="http://www.intershop.de/extensionpoint/2011" name="CheckoutAddresses">
+  <extensionBindings type="isml" extensionPoint="checkout/address/MultipleShippingPage-AddressForm" extension="modules/address/forms/AddressForm"/>
+  <extensionBindings type="isml" extensionPoint="checkout/address/AddressBookPage-AddressForm" extension="modules/address/forms/AddressForm"/>
+</extensionpoint:ExtensionPointModel>

@@ -1,0 +1,9 @@
+<iscontent type="text/html" charset="UTF-8" compact="true">
+
+<isif condition="#isDefined(Address:CompanyName1)#">
+	<isif condition="#isDefined(AddressSelectExtensionSeparator)#">
+		<isprint value="#Address:CompanyName1.AddressSelectExtensionSeparator#">
+	<iselse>
+		<isprint value="#Address:CompanyName1#">&nbsp;
+	</isif>
+</isif>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<enfinity xmlns:dt="http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt">
+<pagelet-component id="pwa_featured_products_dummy">
+<definition-name>app_sf_responsive_cm:component.common.freeStyle.pagelet2-Component</definition-name>
+<display-name xml:lang="en-US">PWA Featured Products Dummy</display-name>
+<online>true</online>
+<author business-partner-no="admin" domain="inSPIRED"/>
+<configuration-parameters>
+<configuration-parameter name="HTML">
+<definition-name>app_sf_responsive_cm:component.common.freeStyle.pagelet2-Component-HTML</definition-name>
+<value name="HTML" xml:lang="de-DE">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</value>
+<value name="HTML" xml:lang="en-US">&lt;h3 style=&quot;text-align: center;&quot;&gt;&lt;em&gt;Featured Products&lt;/em&gt; &lt;span style=&quot;text-decoration: underline;&quot;&gt;Dummy&lt;/span&gt;&lt;/h3&gt;
+&lt;p style=&quot;text-align: center;&quot;&gt;This is just a stand in for a featured products carousel that is expected to be shown here.&lt;span style=&quot;text-decoration: underline;&quot;&gt;&lt;br /&gt;&lt;/span&gt;&lt;/p&gt;</value>
+<value name="HTML" xml:lang="fr-FR">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</value>
+</configuration-parameter>
+</configuration-parameters>
+</pagelet-component>
+</enfinity>

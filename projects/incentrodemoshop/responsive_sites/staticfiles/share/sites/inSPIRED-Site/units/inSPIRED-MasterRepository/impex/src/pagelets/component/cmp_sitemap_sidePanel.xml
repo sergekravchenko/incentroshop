@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<enfinity xmlns:dt="http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt">
+<pagelet-component id="cmp_sitemap_sidePanel">
+<definition-name>app_sf_responsive_cm:component.common.freeStyle.pagelet2-Component</definition-name>
+<display-name xml:lang="de-DE">Sitemap - Seitenrand</display-name>
+<display-name xml:lang="en-US">Sitemap - Side Panel</display-name>
+<display-name xml:lang="fr-FR">Plan du site - Panneau latéral</display-name>
+<online>true</online>
+<author business-partner-no="admin" domain="inSPIRED"/>
+<configuration-parameters>
+<configuration-parameter name="HTML">
+<definition-name>app_sf_responsive_cm:component.common.freeStyle.pagelet2-Component-HTML</definition-name>
+<value name="HTML" xml:lang="de-DE">&lt;div class=&quot;page-navigation&quot;&gt;
+&lt;h2&gt;Hilfe&lt;/h2&gt;
+&lt;div class=&quot;page-navigation-contents&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;pipeline://ViewUserAccount-Start&quot; title=&quot;My Account&quot;&gt;Mein Konto&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;pipeline://ViewStoreFinder-Start&quot; title=&quot;Store Finder&quot;&gt;Filialfinder&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;page://page.returnpolicy&quot; title=&quot;Return Policy&quot;&gt;Rückgaberegelung&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;page://systempage.helpdesk.contactUs.pagelet2-Page&quot; title=&quot;Contact Us&quot;&gt;Kontaktieren Sie uns&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Über uns&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;page://page.aboutus&quot; title=&quot;About Us&quot;&gt;Über uns&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;</value>
+<value name="HTML" xml:lang="en-US">&lt;div class=&quot;page-navigation&quot;&gt;
+&lt;h3&gt;Help&lt;/h3&gt;
+&lt;div class=&quot;page-navigation-contents&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;pipeline://ViewUserAccount-Start&quot; title=&quot;My Account&quot;&gt;My Account&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;pipeline://ViewStoreFinder-Start&quot; title=&quot;Store Finder&quot;&gt;Store Finder&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;page://page.returnpolicy&quot; title=&quot;Return Policy&quot;&gt;Return Policy&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;page://systempage.helpdesk.contactUs.pagelet2-Page&quot; title=&quot;Contact Us&quot;&gt;Contact Us&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;About Us&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;page://page.aboutus&quot; title=&quot;About Us&quot;&gt;About Us&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;</value>
+<value name="HTML" xml:lang="fr-FR">&lt;div class=&quot;page-navigation&quot;&gt;
+&lt;h3&gt;Aide&lt;/h3&gt;
+&lt;div class=&quot;page-navigation-contents&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;pipeline://ViewUserAccount-Start&quot; title=&quot;My Account&quot;&gt;Mon compte&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;pipeline://ViewStoreFinder-Start&quot; title=&quot;Store Finder&quot;&gt;Recherche de magasins&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;page://page.returnpolicy&quot; title=&quot;Return Policy&quot;&gt;Politique de retour&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;page://systempage.helpdesk.contactUs.pagelet2-Page&quot; title=&quot;Contact Us&quot;&gt;Contact&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;À propos&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;page://page.aboutus&quot; title=&quot;About Us&quot;&gt;À propos&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;</value>
+</configuration-parameter>
+</configuration-parameters>
+</pagelet-component>
+</enfinity>

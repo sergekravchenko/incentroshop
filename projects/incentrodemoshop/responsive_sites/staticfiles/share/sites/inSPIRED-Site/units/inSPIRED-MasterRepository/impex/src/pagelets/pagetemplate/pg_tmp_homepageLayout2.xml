@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<enfinity xmlns:dt="http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt">
+<page-template id="pg_tmp_homepageLayout2">
+<definition-name>app_sf_responsive_cm:pagevariant.standard.pagelet2-Pagevariant</definition-name>
+<display-name xml:lang="de-DE">Startseite Template 2</display-name>
+<display-name xml:lang="en-US">Homepage Template 2</display-name>
+<display-name xml:lang="fr-FR">Modèle de page d&apos;accueil 2</display-name>
+<description xml:lang="de-DE">3 horizontale Single Slots in der oberen Reihe, 1 Single Slot in der Mitte, 1 Multiple Slot unten</description>
+<description xml:lang="en-US">1 single slot in the top row, 3 horizontal single slots in the middle, 1 multiple slot at the bottom</description>
+<description xml:lang="fr-FR">1 zone de page simple dans la rangée en haut, 3 zones de page horizontales au millieu, 1 zone de page multiple en bas</description>
+<active>true</active>
+<author business-partner-no="admin" domain="inSPIRED"/>
+<configuration-parameters>
+<configuration-parameter name="HTMLBodyClass">
+<definition-name>app_sf_responsive_cm:pagevariant.standard.pagelet2-Pagevariant-HTMLBodyClass</definition-name>
+<value name="HTMLBodyClass">homepage</value>
+</configuration-parameter>
+<configuration-parameter name="RobotsNoFollow">
+<definition-name>app_sf_responsive_cm:pagevariant.standard.pagelet2-Pagevariant-RobotsNoFollow</definition-name>
+<value name="RobotsNoFollow">false</value>
+</configuration-parameter>
+<configuration-parameter name="RobotsNoIndex">
+<definition-name>app_sf_responsive_cm:pagevariant.standard.pagelet2-Pagevariant-RobotsNoIndex</definition-name>
+<value name="RobotsNoIndex">false</value>
+</configuration-parameter>
+</configuration-parameters>
+<slots>
+<slot>
+<definition-name>app_sf_responsive_cm:slot.pagevariant.content.pagelet2-Slot</definition-name>
+<optional>false</optional>
+<sorting>false</sorting>
+</slot>
+<slot>
+<definition-name>app_sf_responsive_cm:slot.pagevariant.footer.pagelet2-Slot</definition-name>
+<optional>false</optional>
+<sorting>false</sorting>
+</slot>
+<slot>
+<definition-name>app_sf_responsive_cm:slot.pagevariant.header.pagelet2-Slot</definition-name>
+<optional>false</optional>
+<sorting>false</sorting>
+</slot>
+</slots>
+<placeholder-configurations>
+<placeholder-configuration hide-target-content="false" place-target-content-on-top="false">
+<pagelet-slot-assignment-placeholder placeholder-id="ph_landingPage_homepageLayout2_content_bottom" assignment-id="DU0KAM5hwKsAAAFCcURZoGsi"/>
+</placeholder-configuration>
+<placeholder-configuration hide-target-content="false" place-target-content-on-top="false">
+<pagelet-slot-assignment-placeholder placeholder-id="ph_landingPage_homepageLayout2_content_middleCenter" assignment-id="DU0KAM5hwKsAAAFCcURZoGsi"/>
+</placeholder-configuration>
+<placeholder-configuration hide-target-content="false" place-target-content-on-top="false">
+<pagelet-slot-assignment-placeholder placeholder-id="ph_landingPage_homepageLayout2_content_middleLeft" assignment-id="DU0KAM5hwKsAAAFCcURZoGsi"/>
+</placeholder-configuration>
+<placeholder-configuration hide-target-content="false" place-target-content-on-top="false">
+<pagelet-slot-assignment-placeholder placeholder-id="ph_landingPage_homepageLayout2_content_middleRight" assignment-id="DU0KAM5hwKsAAAFCcURZoGsi"/>
+</placeholder-configuration>
+<placeholder-configuration hide-target-content="false" place-target-content-on-top="false">
+<pagelet-slot-assignment-placeholder placeholder-id="ph_landingPage_homepageLayout2_content_top" assignment-id="DU0KAM5hwKsAAAFCcURZoGsi"/>
+</placeholder-configuration>
+</placeholder-configurations>
+<placeholder-definitions>
+<placeholder-definition id="ph_homepageLayout2_containerContent_bottom">
+<definition-name>app_sf_responsive_cm:slot.container.content.pagelet2-Slot</definition-name>
+<display-name xml:lang="de-DE">Content (unten)</display-name>
+<display-name xml:lang="en-US">Content (bottom)</display-name>
+<display-name xml:lang="fr-FR">Contenu (En bas)</display-name>
+<position>5</position>
+<pagelet-slot-assignment-placeholder placeholder-id="ph_landingPage_homepageLayout2_content_bottom" assignment-id="DU0KAM5hwKsAAAFCcURZoGsi"/>
+</placeholder-definition>
+<placeholder-definition id="ph_homepageLayout2_containerContent_middle">
+<definition-name>app_sf_responsive_cm:slot.container.content.pagelet2-Slot</definition-name>
+<display-name xml:lang="de-DE">Content (Mitte)</display-name>
+<display-name xml:lang="en-US">Content (top)</display-name>
+<display-name xml:lang="fr-FR">- Contenu (haut)</display-name>
+<position>1</position>
+<pagelet-slot-assignment-placeholder placeholder-id="ph_landingPage_homepageLayout2_content_top" assignment-id="DU0KAM5hwKsAAAFCcURZoGsi"/>
+</placeholder-definition>
+<placeholder-definition id="ph_homepageLayout2_containerContent_topCenter">
+<definition-name>app_sf_responsive_cm:slot.container.content.pagelet2-Slot</definition-name>
+<display-name xml:lang="de-DE">Content (oben - zentriert)</display-name>
+<display-name xml:lang="en-US">Content (middle - center)</display-name>
+<display-name xml:lang="fr-FR">Contenu (millieu - centre)</display-name>
+<position>3</position>
+<pagelet-slot-assignment-placeholder placeholder-id="ph_landingPage_homepageLayout2_content_middleCenter" assignment-id="DU0KAM5hwKsAAAFCcURZoGsi"/>
+</placeholder-definition>
+<placeholder-definition id="ph_homepageLayout2_containerContent_topLeft">
+<definition-name>app_sf_responsive_cm:slot.container.content.pagelet2-Slot</definition-name>
+<display-name xml:lang="de-DE">Content (oben - links)</display-name>
+<display-name xml:lang="en-US">Content (middle - left)</display-name>
+<display-name xml:lang="fr-FR">Contenu (millieu - gauche)</display-name>
+<position>2</position>
+<pagelet-slot-assignment-placeholder placeholder-id="ph_landingPage_homepageLayout2_content_middleLeft" assignment-id="DU0KAM5hwKsAAAFCcURZoGsi"/>
+</placeholder-definition>
+<placeholder-definition id="ph_homepageLayout2_containerContent_topRight">
+<definition-name>app_sf_responsive_cm:slot.container.content.pagelet2-Slot</definition-name>
+<display-name xml:lang="de-DE">Content (oben - rechts)</display-name>
+<display-name xml:lang="en-US">Content (middle - right)</display-name>
+<display-name xml:lang="fr-FR">Contenu (millieu - droite)</display-name>
+<position>4</position>
+<pagelet-slot-assignment-placeholder placeholder-id="ph_landingPage_homepageLayout2_content_middleRight" assignment-id="DU0KAM5hwKsAAAFCcURZoGsi"/>
+</placeholder-definition>
+</placeholder-definitions>
+</page-template>
+<pagelet-slot-assignment id="DU0KAM5hwKsAAAFCcURZoGsi">
+<slot definition-name="app_sf_responsive_cm:slot.pagevariant.content.pagelet2-Slot" parent-pagelet-id="pg_tmp_homepageLayout2" domain="inSPIRED-MasterRepository"/>
+<pagelet id="cmp_tmp_homepageLayout2" domain="inSPIRED-MasterRepository"/>
+<position>2</position>
+<online>true</online>
+</pagelet-slot-assignment>
+<pagelet-slot-assignment id="b9wKAM5hWUUAAAFCHPBZoGsI">
+<slot definition-name="app_sf_responsive_cm:slot.pagevariant.footer.pagelet2-Slot" parent-pagelet-id="pg_tmp_homepageLayout2" domain="inSPIRED-MasterRepository"/>
+<pagelet id="cmp_tmp_footer" domain="inSPIRED-MasterRepository"/>
+<position>1</position>
+<online>true</online>
+</pagelet-slot-assignment>
+<pagelet-slot-assignment id="e2sKAM5hH1YAAAFBce9ZzFTx">
+<slot definition-name="app_sf_responsive_cm:slot.pagevariant.header.pagelet2-Slot" parent-pagelet-id="pg_tmp_homepageLayout2" domain="inSPIRED-MasterRepository"/>
+<pagelet id="cmp_tmp_header" domain="inSPIRED-MasterRepository"/>
+<position>1</position>
+<online>true</online>
+</pagelet-slot-assignment>
+</enfinity>

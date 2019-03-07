@@ -1,0 +1,21 @@
+<iscontent type="text/html" charset="UTF-8" compact="true">
+<div class="form-group<isif condition="#webform:CompanyName:isInvalid#" > server-error</isif><isif condition="#webform:CompanyName:isInvalid#"> error</isif>">
+	<label class="col-sm-4" for="<isprint value = "#webform:CompanyName:QualifiedName.idSuffix#">">
+		<istext key="account.address.company_name.label" />
+		<span class="required">*</span>
+	</label>
+	<div class="col-sm-8">
+		<input class="form-control" maxlength="60" type="text" aria-required="true" required
+			<isif condition="#isDefined(webform:CompanyName:Value)#" >
+				value="<isprint value="#webform:CompanyName:Value#">"
+			<iselseif condition="#isDefined(address)#">
+				value="<isprint value="#address:CompanyName#">"
+			</isif>
+			name="<isprint value = "#webform:CompanyName:QualifiedName#">"
+			id="<isprint value = "#webform:CompanyName:QualifiedName.idSuffix#">"
+			data-validate-error-message="<istext key="account.address.company_name.error.required">"
+			data-flash-error-keys="fieldFailureMessageGlobal"
+			data-bv-notempty-message="<istext key="account.address.company_name.error.required"/>"
+		/>
+	</div>
+</div>

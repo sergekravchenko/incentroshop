@@ -1,0 +1,84 @@
+<iscontent type="text/html" charset="UTF-8" compact="true">
+<iscache type="forbidden">
+<isinclude template="modules/b2bUtils/Modules">
+<isinclude template="modules/account/Modules">
+<div class="breadcrumbs row">
+	<isAccountBreadcrumb trailtext="#localizeText('account.ordertemplates.link')#">
+</div>
+
+<!--- Marketing slot --->
+<div class="marketing-area">
+	<ISMarketingSlot id="baseMarketing">
+</div>
+
+<div class="account-wrapper">
+	<div class="row account-main">
+		<div class="col-md-3 account-nav-box">
+			<isAccountNavigation selecteditem="WISHLISTS">
+		</div>
+
+		<div class="col-md-9">
+			<div class="marketing-area">
+				<ISMarketingSlot id="contentMarketing">
+			</div>
+			<div class="wishlist">
+				<h1>
+					<istext key="account.ordertemplates.heading"/>
+					<a class="btn btn-default" data-dialog href="#URL(Action('ViewOrderTemplate-ShowNewOrderTemplateDialog'), Parameter('AjaxRequestMarker', 'true'))#"><istext key="account.order_template.list.button.add_template.label"/></a>
+				</h1>
+				<div class="section">
+					<isif condition="#hasElements(OrderTemplates)#">
+						<div class="list-header">
+							<div class="col-sm-5 col-xs-8 list-header-item">
+								<istext key="account.order_template.list.table.template" />
+							</div>
+							<div class="col-sm-2 hidden-xs list-header-item">
+								<istext key="account.order_template.list.table.created" />
+							</div>
+							<div class="col-sm-2 hidden-xs list-header-item">
+								<istext key="account.order_template.list.table.modified" />
+							</div>
+							<div class="col-sm-3 col-xs-4 list-header-item">
+								<istext key="account.order_template.list.table.item" />
+							</div>
+						</div>
+						<div class="list-body">
+							<isloop iterator="OrderTemplates" alias="OrderTemplate">
+								<div class="list-item-row">
+									<div class="col-sm-5 col-xs-6 list-item">
+										<a href="#URL(Action('ViewOrderTemplate-View'), Parameter('OrderTemplateID', OrderTemplate:ID))#"><isprint value="#OrderTemplate:Name#"></a>
+									</div>
+									<div class="col-sm-2 hidden-xs list-item">
+										<isprint value="#OrderTemplate:Extension("PersistentObjectBOExtension"):PersistentObject:CreationDate#" style="DATE_LONG">
+									</div>
+									<div class="col-sm-2 hidden-xs list-item">
+										<isprint value="#OrderTemplate:LastModifiedDate#" style="DATE_LONG">
+									</div>
+									<div class="col-sm-1 col-xs-2 list-item">
+										<isprint value="#OrderTemplate:WishlistItemBOsCount#"> <istext key="account.wishlists.items"/>
+									</div>
+									<div class="col-sm-2 col-xs-4 list-item text-right">
+										<a href="#URL(Action('ViewOrderTemplate-AddListToBasket'), Parameter('OrderTemplateID', OrderTemplate:ID))#" 
+											title="<istext key="account.order_template.list.link.add_to_cart" />"
+											class="btn-tool<isif condition="#OrderTemplate:WishlistItemBOsCount == 0#"> invisible</isif>">
+											<span class="glyphicon glyphicon-shopping-cart"></span>
+										</a>
+										<a class="btn-tool" href="#URL(Action('ViewOrderTemplate-View'), Parameter('OrderTemplateID', OrderTemplate:ID))#" title="<istext key="account.order_template.widget.link.edit">">
+											<span class="glyphicon glyphicon-pencil"></span>
+										</a>
+										<a class="btn-tool" data-dialog href="#URL(Action('ViewAjax-Start'), Parameter('TargetPipeline','ViewOrderTemplate-ShowDeleteOrderTemplateDialog'), Parameter('OrderTemplateID', OrderTemplate:ID))#" title="<istext key="account.order_template.list.link.remove" />">
+											<span class="glyphicon glyphicon-trash"></span>
+										</a>
+								</div>
+								</div>
+							</isloop>
+						</div>
+					<iselse>
+						<p class="flush"><istext key="account.order_template.list.no_templates.text"/></p>
+					</isif>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+

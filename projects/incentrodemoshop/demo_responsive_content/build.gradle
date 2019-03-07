@@ -1,0 +1,27 @@
+apply plugin: 'java-component'
+apply plugin: 'static-cartridge'
+
+intershop 
+{
+    displayName = 'Responsive Starter Store Demo - Content'
+    description = 'CMS demo content (including campaigns and promotions) for the Responsive Starter Store - inSPIRED'
+}
+
+dependencies 
+{
+    compile project(':as_responsive')
+    compile project(':app_sf_responsive')
+    compile project(':app_sf_responsive_cm')
+    compile project(':app_sf_responsive_smb')
+    compile project(':demo_responsive')
+    compile group: 'com.intershop.platform', name: 'core'
+}
+
+/*
+ * create a copy of the smb whitestore content for the simple smb storefront
+ */
+task copySimpleSMBWhiteStore(type: Copy) {
+    from "$projectDir/staticfiles/share/sites/inSPIRED-inTRONICS_Business-Site/units/inSPIRED-inTRONICS_Business-smb-responsive/impex/src/whitestore"
+    into "$projectDir/staticfiles/share/sites/inSPIRED-inTRONICS-Site/units/inSPIRED-inTRONICS-smb-responsive/impex/src/whitestore"
+}
+zipShare.dependsOn copySimpleSMBWhiteStore

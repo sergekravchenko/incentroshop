@@ -1,0 +1,45 @@
+<iscontent type="text/html" charset="UTF-8" compact="true" templatemarker="false">
+<isinclude template="modules/Modules">
+<!--- Meta Data Setup --->
+<ispipeline pipeline="DetermineRepositories-Channel" alias="dict">
+<isif condition="#(isDefined(PageletConfigurationParameters:MetaInfo)) AND (PageletConfigurationParameters:MetaInfo NE '')#">
+	<isset name="MetaInfo" value="#PageletConfigurationParameters:MetaInfo#" scope="request">
+<iselse>
+	<isset name="MetaInfo" value="" scope="request">
+</isif>
+
+<isif condition="#(trim (ConTitle) EQ '')#">
+	<isMetaDataSetup 
+		custommetadatamap="#MetaInfo#" 
+		defaulttitle="#dict:Repository:DisplayName#" 
+		defaultdescription="#dict:Repository:DisplayName#" 
+		defaultkeywords="#dict:Repository:DisplayName#"
+	>
+<iselse>
+	<isMetaDataSetup 
+		custommetadatamap="#MetaInfo#" 
+		defaulttitle="#ConTitle#" 
+		defaultdescription="#ConDescription#" 
+		defaultkeywords="#ConKeywords#"
+	>
+</isif>
+
+<isif condition="#(isDefined(PageletConfigurationParameters:RobotsNoIndex) AND PageletConfigurationParameters:RobotsNoIndex) 
+				OR (isDefined(PageletConfigurationParameters:RobotsNoFollow) AND PageletConfigurationParameters:RobotsNoFollow)#">
+	<isif condition="#PageletConfigurationParameters:RobotsNoIndex#">
+		<isset name="Robots" value="noindex" scope="request">
+	<iselse>
+		<isset name="Robots" value="index" scope="request">
+	</isif>
+	<isif condition="#PageletConfigurationParameters:RobotsNoFollow#">
+		<isset name="Robots" value="#Robots.',nofollow'#" scope="request">
+	<iselse>
+		<isset name="Robots" value="#Robots.',follow'#" scope="request">
+	</isif>
+	<ISCreateMap mapname="MetaTagsMap" mode="add" key0="ROBOTS" value0="#Robots#">
+</isif>
+
+<!--- Render Page Template --->
+<isDefaultPageStructure
+	bodyid="#PageletConfigurationParameters:HTMLBodyID#"
+	bodyclass="#PageletConfigurationParameters:HTMLBodyClass#">

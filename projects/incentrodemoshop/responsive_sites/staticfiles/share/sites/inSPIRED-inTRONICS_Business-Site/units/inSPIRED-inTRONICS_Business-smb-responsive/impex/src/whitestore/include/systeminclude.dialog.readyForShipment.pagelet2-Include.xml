@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<enfinity xmlns:dt="http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt">
+<pagelet-entry-point id="systeminclude.dialog.readyForShipment.pagelet2-Include">
+<definition-name>app_sf_responsive:systeminclude.dialog.readyForShipment.pagelet2-Include</definition-name>
+<page>false</page>
+<sorting>false</sorting>
+<display-name xml:lang="de-DE">Dialog - Versandfertig</display-name>
+<display-name xml:lang="en-US">Dialog - Ready For Shipment</display-name>
+</pagelet-entry-point>
+<pagelet-pagelet-entry-point-assignment>
+<pagelet-entry-point id="systeminclude.dialog.readyForShipment.pagelet2-Include" domain="inSPIRED-inTRONICS_Business-smb-responsive" resource-set="app_sf_responsive"/>
+<pagelet id="cmp_dialog_readyForShipment" domain="inSPIRED-inTRONICS_Business-smb-responsive"/>
+<position>1</position>
+<online>true</online>
+</pagelet-pagelet-entry-point-assignment>
+</enfinity>

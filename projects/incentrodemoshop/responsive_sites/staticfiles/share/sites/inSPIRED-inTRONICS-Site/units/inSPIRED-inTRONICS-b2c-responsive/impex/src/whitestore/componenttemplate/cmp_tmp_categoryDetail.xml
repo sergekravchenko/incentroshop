@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<enfinity xmlns:dt="http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt">
+<component-template id="cmp_tmp_categoryDetail">
+<definition-name>app_sf_responsive_cm:component.shopping.categoryPage.pagelet2-Component</definition-name>
+<display-name xml:lang="de-DE">Kategorie Detail</display-name>
+<display-name xml:lang="en-US">Category Detail</display-name>
+<active>true</active>
+<author business-partner-no="admin" domain="inSPIRED"/>
+<configuration-parameters>
+<configuration-parameter name="SubCategoryView">
+<definition-name>app_sf_responsive_cm:component.shopping.categoryPage.pagelet2-Component-SubCategoryView</definition-name>
+<value name="SubCategoryView">app_sf_responsive:vc_categoryTile@inSPIRED-inTRONICS-b2c-responsive</value>
+</configuration-parameter>
+</configuration-parameters>
+<slots>
+<slot>
+<definition-name>app_sf_responsive_cm:slot.marketing.base.pagelet2-Slot</definition-name>
+<optional>false</optional>
+<sorting>false</sorting>
+</slot>
+<slot>
+<definition-name>app_sf_responsive_cm:slot.marketing.category.pagelet2-Slot</definition-name>
+<optional>false</optional>
+<sorting>false</sorting>
+</slot>
+<slot>
+<definition-name>app_sf_responsive_cm:slot.marketing.content.pagelet2-Slot</definition-name>
+<optional>false</optional>
+<sorting>false</sorting>
+</slot>
+<slot>
+<definition-name>app_sf_responsive_cm:slot.marketing.sidePanel.pagelet2-Slot</definition-name>
+<optional>false</optional>
+<sorting>false</sorting>
+</slot>
+</slots>
+<placeholder-definitions>
+<placeholder-definition id="ph_categoryDetail_baseMarketing">
+<definition-name>app_sf_responsive_cm:slot.marketing.base.pagelet2-Slot</definition-name>
+<display-name xml:lang="de-DE">Standard-Marketing</display-name>
+<display-name xml:lang="en-US">Base Marketing</display-name>
+<position>1</position>
+<slot definition-name="app_sf_responsive_cm:slot.marketing.base.pagelet2-Slot"/>
+</placeholder-definition>
+<placeholder-definition id="ph_categoryDetail_contentMarketing">
+<definition-name>app_sf_responsive_cm:slot.marketing.content.pagelet2-Slot</definition-name>
+<display-name xml:lang="de-DE">Content-Marketing</display-name>
+<display-name xml:lang="en-US">Content Marketing</display-name>
+<position>2</position>
+<slot definition-name="app_sf_responsive_cm:slot.marketing.content.pagelet2-Slot"/>
+</placeholder-definition>
+</placeholder-definitions>
+</component-template>
+<pagelet-slot-assignment id="KysKAM4.Wo0AAAE._ztRFOgS">
+<slot definition-name="app_sf_responsive_cm:slot.marketing.category.pagelet2-Slot" parent-pagelet-id="cmp_tmp_categoryDetail" domain="inSPIRED-inTRONICS-b2c-responsive"/>
+<pagelet id="cmp_categoryEndcaps_collection" domain="inSPIRED-inTRONICS-b2c-responsive"/>
+<position>1</position>
+<online>true</online>
+</pagelet-slot-assignment>
+</enfinity>

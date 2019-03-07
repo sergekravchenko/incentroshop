@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<DDescriptionContainer dbo.type="com.intershop.beehive.core.rapi.common.DDescriptionContainer">
+<localeId>en_US</localeId>
+<descriptions>
+<DDescription dbo.type="com.intershop.beehive.core.rapi.pipeline.DPipeletDesc" id="Pipelet1"  localeId="en_US" >
+<group>PriceList</group>
+<description>Determines the price list from which the price of given product line items is determined. If the price is not taken from a price list, the error connector will be used.</description>
+</DDescription>
+<DDescription dbo.type="com.intershop.beehive.core.rapi.pipeline.DPipeletPropertyDesc" id="dictionary-in_User"  localeId="en_US" >
+<description>User which has added the line item to the basket.</description>
+</DDescription>
+<DDescription dbo.type="com.intershop.beehive.core.rapi.pipeline.DPipeletPropertyDesc" id="dictionary-in_BasketProductLineItemBO"  localeId="en_US" >
+<description>Product line item which has been added to the basket.</description>
+</DDescription>
+<DDescription dbo.type="com.intershop.beehive.core.rapi.pipeline.DPipeletPropertyDesc" id="dictionary-out_PriceList"  localeId="en_US" >
+<description>Price list which the price for the line item is taken from.</description>
+</DDescription>
+</descriptions>
+</DDescriptionContainer>

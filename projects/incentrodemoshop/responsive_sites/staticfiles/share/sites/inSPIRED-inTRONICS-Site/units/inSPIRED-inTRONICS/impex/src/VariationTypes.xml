@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<enfinity
+    xmlns     = "http://www.intershop.com/xml/ns/enfinity/7.1/xcs/impex"
+    xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:dt  = "http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt"
+    xsi:schemaLocation = "http://www.intershop.com/xml/ns/enfinity/7.1/xcs/impex catalog.xsd
+    http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt dt.xsd"
+    major="6" minor="1" family="enfinity" branch="enterprise" build=""
+>
+<variation-type refid="0K4KDgA0z3EAAAE0c4sshOwW" name="Hard_disk_drive_capacity_1">
+<name>Hard_disk_drive_capacity_1</name>
+<!-- Attribute name should be W3C compatible, because it is used in HTML attributes: [A-Za-z][0-9]-_:.  -->
+<attribute-name>Hard_disk_drive_capacity</attribute-name>
+<display-name xml:lang="en-US">Hard disk drive capacity</display-name>
+<display-name xml:lang="de-DE">Festplattenspeicher</display-name>
+<localizable>0</localizable>
+<type>string</type>
+<variation-type-values>
+<variation-type-value>
+<value xml:lang="en-US">500 GB</value>
+<value xml:lang="en-US">640 GB</value>
+<value xml:lang="en-US">750 GB</value>
+</variation-type-value>
+</variation-type-values>
+</variation-type>
+
+<variation-type refid="IVYKDgA0JtkAAAE0_n4ukOv0" name="Colour_of_product">
+<name>Colour_of_product</name>
+<!-- Attribute name should be W3C compatible, because it is used in HTML attributes: [A-Za-z][0-9]-_:.  -->
+<attribute-name>Colour_of_product</attribute-name>
+<display-name xml:lang="en-US">Color</display-name>
+<display-name xml:lang="de-DE">Farbe</display-name>
+<localizable>1</localizable>
+<type>string</type>
+<variation-type-values>
+<variation-type-value>
+<value xml:lang="en-US">Black</value>
+<value xml:lang="en-US">Blue</value>
+<value xml:lang="en-US">Pink</value>
+<value xml:lang="en-US">White</value>
+<value xml:lang="en-US">Yellow</value>
+</variation-type-value>
+<variation-type-value>
+<value xml:lang="de-DE">Black</value>
+<value xml:lang="de-DE">Blue</value>
+<value xml:lang="de-DE">Pink</value>
+<value xml:lang="de-DE">White</value>
+<value xml:lang="de-DE">Yellow</value>
+</variation-type-value>
+</variation-type-values>
+</variation-type>
+
+<variation-type refid="JZAKDgA0IKMAAAE0.H4ukOv0" name="Hard_disk_drive_capacity">
+<name>Hard_disk_drive_capacity_2</name>
+<!-- Attribute name should be W3C compatible, because it is used in HTML attributes: [A-Za-z][0-9]-_:.  -->
+<attribute-name>Hard_disk_drive_capacity</attribute-name>
+<display-name xml:lang="en-US">Hard disk drive capacity</display-name>
+<display-name xml:lang="de-DE">Festplattenspeicher</display-name>
+<localizable>0</localizable>
+<type>string</type>
+<variation-type-values>
+<variation-type-value>
+<value xml:lang="en-US">1024</value>
+<value xml:lang="en-US">2048</value>
+<value xml:lang="en-US">3072</value>
+</variation-type-value>
+</variation-type-values>
+</variation-type>
+</enfinity>

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<enfinity xmlns:dt="http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt">
+<pagelet-component id="cmp_aboutUs">
+<definition-name>app_sf_responsive_cm:component.common.freeStyle.pagelet2-Component</definition-name>
+<display-name xml:lang="de-DE">Über uns</display-name>
+<display-name xml:lang="en-US">About Us</display-name>
+<display-name xml:lang="fr-FR">À propos</display-name>
+<online>true</online>
+<author business-partner-no="admin" domain="inSPIRED"/>
+<configuration-parameters>
+<configuration-parameter name="HTML">
+<definition-name>app_sf_responsive_cm:component.common.freeStyle.pagelet2-Component-HTML</definition-name>
+<value name="HTML" xml:lang="de-DE">&lt;h1&gt;Intershop Commerce Suite&lt;/h1&gt;
+Intershop Commerce Suite ist die weltweit führende Lösung zur Abbildung von Vertriebsprozessen für beliebige Geschäftsmodelle und Organisationsstrukturen. Auf Basis einer zentralen Plattform können Sie Ihre Marken inszenieren, Produkte weltweit vertreiben und Wachstumsstrategien zum Erfolg führen. Wichtigste Inspirationsquelle für die stetige Weiterentwicklung der Intershop Commerce Suite ist die hohe Erwartung Ihrer Kunden und Geschäftspartner an einen nahtlosen Omni-Channel-Einkauf.&lt;br /&gt;
+&lt;h2&gt;Intershop Commerce Suite passt. Immer.&lt;/h2&gt;
+Ob schnell verfügbare Cloud-Lösung, wahlweise ergänzt um Full-Service-Leistungen, dynamische Managed-Service-Modelle für flexible Skalierbarkeit oder On-Premise-Lizenzen für höchstmögliche Unabhängigkeit: Intershop garantiert Ihnen eine wirtschaftliche Lösung, die perfekt den gegenwärtigen Erfordernissen Ihres Unternehmens entspricht und dennoch beliebige Entwicklungsmöglichkeiten offenlässt. &lt;br /&gt;
+&lt;h2&gt;Hochentwickeltes Commerce-Management für ein optimales Einkaufserlebnis&lt;/h2&gt;
+&lt;h3&gt;Omni-Channel Management&lt;/h3&gt;
+Handel ist vielfältig.&lt;br /&gt; Intershop erlaubt Ihnen, alle Ihre Geschäftsmodelle, Unternehmensbereiche, Marken und Kundensegmente über beliebige Kanäle und Vertriebsregionen auszuspielen.&lt;br /&gt;
+&lt;h3&gt;Experience Management&lt;/h3&gt;
+Ihre Kunden sind anspruchsvoll.&lt;br /&gt; Inspirierende Inhalte, attraktiv inszenierte Produkte und ein reibungsloser Kaufprozess verschaffen Ihnen wertvolle Wettbewerbsvorteile.&lt;br /&gt;
+&lt;h3&gt;Product Information&lt;/h3&gt;
+Produktdaten sind das Herzstück Ihres Geschäfts.&lt;br /&gt; Das Product Information Management der Intershop Commerce Suite stellt die Qualität und den gewinnbringenden Einsatz Ihrer Produktdaten sicher.
+&lt;h3&gt;Marketing &amp;amp; Merchandising&lt;/h3&gt;
+Kunden lieben Kaufanreize.&lt;br /&gt; Mit Intershop nehmen Sie Ihre Kunden vor Betreten des Shops an die Hand, begleiten sie während des Kaufprozesses und halten auch nach Kaufabschluss den Kontakt aufrecht.
+&lt;h3&gt;Transaction Management&lt;/h3&gt;
+Reibungslose Abläufe schaffen Kundenzufriedenheit.&lt;br /&gt; Ob klassischer Check-Out oder komplexe Szenarien im B2B-Handel: Die Intershop Commerce Suite wurde mit Blick auf kundenfreundliche Commerce-Abläufe entwickelt.
+&lt;h3&gt;Organization Management&lt;/h3&gt;
+Ihr Geschäft ist einzigartig.&lt;br /&gt; Intershop passt sich der Struktur Ihres Unternehmens an, nicht umgekehrt. Das mandantenfähige System erlaubt Ihnen, komplexe Vertriebsorganisationen effizient zu verwalten.
+&lt;h3&gt;Analytics &amp;amp; Reporting&lt;/h3&gt;
+Geschäftserfolg braucht Kontrolle.&lt;br /&gt; Leistungsfähige Instrumente zur Analyse von Geschäftsdaten und zur Überwachung der technischen Infrastruktur sind integraler Teil der Intershop Commerce Suite.
+&lt;h3&gt;Operational Excellence&lt;/h3&gt;
+Wachstum gelingt auf einem soliden Fundament.&lt;br /&gt; Die Intershop Commerce Suite wurde auf Leistung und Hochverfügbarkeit sowie auf Anpassungs- und Integrationsfähigkeit hin entwickelt.</value>
+<value name="HTML" xml:lang="en-US">&lt;h1&gt;Intershop Commerce Suite&lt;/h1&gt;
+Intershop Commerce Suite is the world’s leading &lt;strong&gt;e-commerce solution&lt;/strong&gt; for modeling sales processes to &lt;strong&gt;suit any business model or organizational structure&lt;/strong&gt;. Using this single platform, you can &lt;strong&gt;showcase your brands&lt;/strong&gt;, &lt;strong&gt;market your products worldwide&lt;/strong&gt;, and implement the strategies that will &lt;strong&gt;grow your business&lt;/strong&gt;. As we continue to develop the Intershop Commerce Suite, we’re inspired by the expectations of your customers and partners to create the &lt;strong&gt;perfect, seamless omni-channel shopping experience&lt;/strong&gt;.&lt;br /&gt;
+&lt;h2&gt;Intershop Commerce Suite. Tailored for Every Scenario.&lt;/h2&gt;
+Available as a fast-access &lt;strong&gt;cloud solution&lt;/strong&gt; with optional full-service add-ons, as a dynamic &lt;strong&gt;managed service&lt;/strong&gt; model for easy scalability, or an &lt;strong&gt;on-premise license&lt;/strong&gt; for maximum independence, Intershop Commerce Suite is a cost-efficient e-commerce solution that is perfectly tailored to your current needs yet flexible enough to grow with your business. &lt;br /&gt;
+&lt;h2&gt;Advanced Commerce Management for the Perfect Shopping Experience&lt;/h2&gt;
+&lt;h3&gt;Omni-Channel Management&lt;/h3&gt;
+Commerce is Increasingly Diverse.&lt;br /&gt;Using the Intershop Commerce Suite, you can roll out all your business models, business units, brands, and customer segments across all channels and sales territories.&lt;br /&gt;
+&lt;h3&gt;Experience Management&lt;/h3&gt;
+Your Customers Expect More.&lt;br /&gt;Create a rich, engaging, and intuitive shopping experience. Gain a competitive edge with exciting content, attractive product presentations, and a seamless purchase process.&lt;br /&gt;
+&lt;h3&gt;Product Information&lt;/h3&gt;
+Product Data is the Heart of Your Business.&lt;br /&gt;The Product Information Management system in the Intershop Commerce Suite ensures optimum quality and profitable deployment of your product data.&lt;br /&gt;
+&lt;h3&gt;Marketing &amp;amp; Merchandising&lt;/h3&gt;
+Customers Love Incentives.&lt;br /&gt;With Intershop, you can connect with your customers before they enter your store, accompany them throughout the purchase process, and then stay in touch during the post-sale phase.&lt;br /&gt;
+&lt;h3&gt;Transaction Management&lt;/h3&gt;
+Smooth Transactions Mean Satisfied Customers.&lt;br /&gt;Whether you require a traditional retail checkout or a more complex B2B commerce system, the Intershop Commerce Suite delivers smooth and customer-friendly transactions.&lt;br /&gt;
+&lt;h3&gt;Organization Management&lt;/h3&gt;
+Your Business is Unique.&lt;br /&gt;Intershop adapts to the specific characteristics of your business, not vice versa. The multi-client system gives you the power and flexibility to manage complex organizational structures.&lt;br /&gt;
+&lt;h3&gt;Analytics &amp;amp; Reporting&lt;/h3&gt;
+Control is Key to Business Performance.&lt;br /&gt;The Intershop Commerce Suite includes powerful tools for analyzing business data and monitoring the technical infrastructure.&lt;br /&gt;
+&lt;h3&gt;Operational Excellence&lt;/h3&gt;
+Growth Requires a Solid Foundation.&lt;br /&gt;The Intershop Commerce Suite is geared for high performance and high availability as well as easy adaptability and wide-reaching integration.</value>
+<value name="HTML" xml:lang="fr-FR">&lt;h1&gt;Intershop Commerce Suite&lt;/h1&gt;
+Intershop Commerce Suite is the world’s leading &lt;strong&gt;e-commerce solution&lt;/strong&gt; for modeling sales processes to &lt;strong&gt;suit any business model or organizational structure&lt;/strong&gt;. Using this single platform, you can &lt;strong&gt;showcase your brands&lt;/strong&gt;, &lt;strong&gt;market your products worldwide&lt;/strong&gt;, and implement the strategies that will &lt;strong&gt;grow your business&lt;/strong&gt;. As we continue to develop the Intershop Commerce Suite, we’re inspired by the expectations of your customers and partners to create the &lt;strong&gt;perfect, seamless omni-channel shopping experience&lt;/strong&gt;.&lt;br /&gt;
+&lt;h2&gt;Intershop Commerce Suite. Tailored for Every Scenario.&lt;/h2&gt;
+Available as a fast-access &lt;strong&gt;cloud solution&lt;/strong&gt; with optional full-service add-ons, as a dynamic &lt;strong&gt;managed service&lt;/strong&gt; model for easy scalability, or an &lt;strong&gt;on-premise license&lt;/strong&gt; for maximum independence, Intershop Commerce Suite is a cost-efficient e-commerce solution that is perfectly tailored to your current needs yet flexible enough to grow with your business. &lt;br /&gt;
+&lt;h2&gt;Advanced Commerce Management for the Perfect Shopping Experience&lt;/h2&gt;
+&lt;h3&gt;Omni-Channel Management&lt;/h3&gt;
+Commerce is Increasingly Diverse.&lt;br /&gt;Using the Intershop Commerce Suite, you can roll out all your business models, business units, brands, and customer segments across all channels and sales territories.&lt;br /&gt;
+&lt;h3&gt;Experience Management&lt;/h3&gt;
+Your Customers Expect More.&lt;br /&gt;Create a rich, engaging, and intuitive shopping experience. Gain a competitive edge with exciting content, attractive product presentations, and a seamless purchase process.&lt;br /&gt;
+&lt;h3&gt;Product Information&lt;/h3&gt;
+Product Data is the Heart of Your Business.&lt;br /&gt;The Product Information Management system in the Intershop Commerce Suite ensures optimum quality and profitable deployment of your product data.&lt;br /&gt;
+&lt;h3&gt;Marketing &amp;amp; Merchandising&lt;/h3&gt;
+Customers Love Incentives.&lt;br /&gt;With Intershop, you can connect with your customers before they enter your store, accompany them throughout the purchase process, and then stay in touch during the post-sale phase.&lt;br /&gt;
+&lt;h3&gt;Transaction Management&lt;/h3&gt;
+Smooth Transactions Mean Satisfied Customers.&lt;br /&gt;Whether you require a traditional retail checkout or a more complex B2B commerce system, the Intershop Commerce Suite delivers smooth and customer-friendly transactions.&lt;br /&gt;
+&lt;h3&gt;Organization Management&lt;/h3&gt;
+Your Business is Unique.&lt;br /&gt;Intershop adapts to the specific characteristics of your business, not vice versa. The multi-client system gives you the power and flexibility to manage complex organizational structures.&lt;br /&gt;
+&lt;h3&gt;Analytics &amp;amp; Reporting&lt;/h3&gt;
+Control is Key to Business Performance.&lt;br /&gt;The Intershop Commerce Suite includes powerful tools for analyzing business data and monitoring the technical infrastructure.&lt;br /&gt;
+&lt;h3&gt;Operational Excellence&lt;/h3&gt;
+Growth Requires a Solid Foundation.&lt;br /&gt;The Intershop Commerce Suite is geared for high performance and high availability as well as easy adaptability and wide-reaching integration.</value>
+</configuration-parameter>
+</configuration-parameters>
+</pagelet-component>
+</enfinity>

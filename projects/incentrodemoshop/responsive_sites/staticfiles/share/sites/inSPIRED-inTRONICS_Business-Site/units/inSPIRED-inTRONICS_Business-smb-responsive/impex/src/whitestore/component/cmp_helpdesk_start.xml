@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<enfinity xmlns:dt="http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt">
+<pagelet-component id="cmp_helpdesk_start">
+<definition-name>app_sf_responsive_cm:component.common.freeStyle.pagelet2-Component</definition-name>
+<display-name xml:lang="de-DE">Hilfe - Start</display-name>
+<display-name xml:lang="en-US">Helpdesk - Start</display-name>
+<online>true</online>
+<author business-partner-no="admin" domain="inSPIRED"/>
+<configuration-parameters>
+<configuration-parameter name="HTML">
+<definition-name>app_sf_responsive_cm:component.common.freeStyle.pagelet2-Component-HTML</definition-name>
+<value name="HTML" xml:lang="de-DE">&lt;div class=&quot;row equal&quot;&gt;
+&lt;div class=&quot;col-sm-4&quot;&gt;
+&lt;div class=&quot;helpdesk-info-box&quot;&gt;
+&lt;h2&gt;Fragen?&lt;/h2&gt;
+Hier finden Sie Informationen zu unseren Produkten, zur Bestellung und zu allen anderen Themen rund um Ihren Einkauf bei uns. Die meisten Fragen werden direkt hier beantwortet.
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;col-sm-4&quot;&gt;
+&lt;div class=&quot;helpdesk-info-box&quot;&gt;
+&lt;h2&gt;Brauchen Sie Hilfe?&lt;/h2&gt;
+Rufen Sie uns an - &lt;br /&gt; rund um die Uhr, jeden Tag:&lt;br /&gt;&amp;nbsp;&lt;b&gt;0-800-xxx-xxxx&lt;/b&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;col-sm-4&quot;&gt;
+&lt;div class=&quot;helpdesk-info-box&quot;&gt;
+&lt;h2&gt;Filiale finden&lt;/h2&gt;
+&lt;p&gt;Finden Sie eine Filiale in Ihrer Nähe.&lt;/p&gt;
+&lt;a href=&quot;pipeline://ViewStoreFinder-Start&quot;&gt;Jetzt suchen&lt;/a&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;</value>
+<value name="HTML" xml:lang="en-US">&lt;div class=&quot;row equal&quot;&gt;
+&lt;div class=&quot;col-sm-4&quot;&gt;
+&lt;div class=&quot;helpdesk-info-box&quot;&gt;
+&lt;h2&gt;Questions?&lt;/h2&gt;
+In this section you can find information about our products, order management and all other shop related topics. Most of your questions will be answered here.
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;col-sm-4&quot;&gt;
+&lt;div class=&quot;helpdesk-info-box&quot;&gt;
+&lt;h2&gt;Need Help?&lt;/h2&gt;
+Call us 24 hours a day,&lt;br /&gt; 7 days a week:&lt;br /&gt; &lt;b&gt;1-800-xxx-xxxx&lt;/b&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;col-sm-4&quot;&gt;
+&lt;div class=&quot;helpdesk-info-box&quot;&gt;
+&lt;h2&gt;Find a Store&lt;/h2&gt;
+&lt;p&gt;Find the store nearest you.&lt;/p&gt;
+&lt;a href=&quot;pipeline://ViewStoreFinder-Start&quot;&gt;Search Now&lt;/a&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;</value>
+</configuration-parameter>
+</configuration-parameters>
+</pagelet-component>
+</enfinity>

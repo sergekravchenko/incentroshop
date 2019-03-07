@@ -1,0 +1,17 @@
+<iscontent type="text/html" charset="UTF-8" compact="true">
+<isinclude template="modules/Modules">
+
+<isif condition="#isDefined(PageletConfigurationParameters:Link) AND (PageletConfigurationParameters:Link NE '')#">
+	<a class="teaser-link" <ishref link="#PageletConfigurationParameters:Link#"> <isif condition="#isDefined(PageletConfigurationParameters:LinkTitle) AND (PageletConfigurationParameters:LinkTitle NE '')#">title="<isprint value="#PageletConfigurationParameters:LinkTitle#">"</isif>>
+</isif>
+<isif condition="#isDefined(PageletConfigurationParameters:Picture) AND (PageletConfigurationParameters:Picture NE '')#">
+	<picture<isif condition="#isDefined(PageletConfigurationParameters:CSSClass) AND (PageletConfigurationParameters:CSSClass NE '')#"> class="<isprint value="#PageletConfigurationParameters:CSSClass#"/>"</isif>>
+		<islink link="#PageletConfigurationParameters:Picture#" encoding="off" >
+		<img src="#ContentURL(PageletConfigurationParameters:Image)#" alt="<isif condition="#isDefined(PageletConfigurationParameters:AlternateText) AND (PageletConfigurationParameters:AlternateText NE '')#"><isprint value="#PageletConfigurationParameters:AlternateText#"></isif>" <isif condition="#isDefined(PageletConfigurationParameters:CSSClass) AND (PageletConfigurationParameters:CSSClass NE '')#"> class="<isprint value="#PageletConfigurationParameters:CSSClass#"/>"</isif>>
+	</picture>
+<iselse>
+	<img src="#ContentURL(PageletConfigurationParameters:Image)#" alt="<isif condition="#isDefined(PageletConfigurationParameters:AlternateText) AND (PageletConfigurationParameters:AlternateText NE '')#"><isprint value="#PageletConfigurationParameters:AlternateText#"></isif>" <isif condition="#isDefined(PageletConfigurationParameters:CSSClass) AND (PageletConfigurationParameters:CSSClass NE '')#"> class="<isprint value="#PageletConfigurationParameters:CSSClass#"/>"</isif>>
+</isif>
+<isif condition="#isDefined(PageletConfigurationParameters:Link) AND (PageletConfigurationParameters:Link NE '')#">
+	</a>
+</isif>

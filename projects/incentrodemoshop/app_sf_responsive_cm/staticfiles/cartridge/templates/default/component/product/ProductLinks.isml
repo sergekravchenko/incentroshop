@@ -1,0 +1,64 @@
+<iscontent personalized="true" compact="true" charset="UTF-8">
+<iscachekey object="#ProductBO#">
+<isinclude template="modules/Modules">
+
+<isCurrentUserBO currentuserbo="UserBO">
+
+<isset name="ProductBOProductLinksExtension" value="#ProductBO:Extension("ProductLinks")#" scope="request">
+<isset name="LinkTypeProvider" value="#ProductBOProductLinksExtension:LinkTypeProvider#" scope="request">
+<isset name="LinkType" value="#LinkTypeProvider:LinkTypeByID(PageletConfigurationParameters:ProductLinkType:Name)#" scope="request">
+<isset name="ProductBOs" value="#ProductBOProductLinksExtension:AccessibleOutgoingLinksLinkedObjects(LinkType)#" scope="request">
+
+<isset name="ProductBOCategoryLinksExtension" value="#ProductBO:Extension("CategoryLinks")#" scope="request">
+<isset name="CategoryLinkTypeProvider" value="#ProductBOCategoryLinksExtension:LinkTypeProvider#" scope="request">
+<isset name="CategoryLinkType" value="#CategoryLinkTypeProvider:LinkTypeByID(PageletConfigurationParameters:ProductLinkType:Name)#" scope="request">
+<isset name="CategoryBOs" value="#ProductBOCategoryLinksExtension:AccessibleOutgoingLinksLinkedObjects(CategoryLinkType)#" scope="request">
+
+<isif condition="#hasElements(ProductBOs) OR hasElements(CategoryBOs)#">
+	
+	<isinclude template="component/common/inc/CollectionItemPrefix.isml">
+	
+	<div class="product-list-container <isprint value="#PageletConfigurationParameters:CSSClass#">">
+	
+		<isif condition="#NOT(RenderedInCollection EQ 'true') AND isDefined(PageletConfigurationParameters:Title) AND (PageletConfigurationParameters:Title NE '')#">
+			<h2><isprint value="#PageletConfigurationParameters:Title#"></h2>
+		</isif>
+		
+		<isif condition="#hasElements(ProductBOs)#">
+			<ispipeline pipeline="FireTrackingEvents-ViewProductList" alias="dict" params="#ParamMap(
+				ParamEntry('ProductList', ProductBOs:Iterator), 
+				ParamEntry('CurrentSession', CurrentSession), 
+				ParamEntry('CurrentUser', CurrentUser), 
+				ParamEntry('CurrentRequest', CurrentRequest), 
+				ParamEntry('PageName', '' . LinkType), 
+				ParamEntry('PageType', '' . LinkType))#" />
+		</isif>
+		
+		<ISProductList
+			ProductBOs="#ProductBOs:Iterator#"
+			viewContext="#PageletConfigurationParameters:ProductView#"
+			maxNumberOfProducts="#PageletConfigurationParameters:MaxNumberOfProducts#"
+			listBehavior="#PageletConfigurationParameters:ListStyle#"
+			numberOfProductsPerSlide="#PageletConfigurationParameters:SlideItems#"
+			listItemCssClass="#PageletConfigurationParameters:ListItemCSSClass#"
+			list_name="#LinkType#"
+		>
+		
+		<isif condition="#hasElements(CategoryBOs)#">
+			<div class="category-Links">
+				<h3><istext key="product.links.categories.title"/></h3>
+				<isloop iterator="CategoryBOs" alias="LinkedCategory">
+					<isif condition="#(isDefined(LinkedCategory:DisplayName)) AND (trim(LinkedCategory:DisplayName) NE '')#">
+						<a <ishref link="#"category://".LinkedCategory:Name."@".LinkedCategory:DomainName#"> title="#encodeValue(LinkedCategory:DisplayName)#">
+							<isprint value="#LinkedCategory:DisplayName#">
+						</a>
+					</isif>
+				</isloop>
+			</div>
+		</isif>
+	
+	</div>
+	
+	<isinclude template="component/common/inc/CollectionItemSuffix.isml">
+	
+</isif>

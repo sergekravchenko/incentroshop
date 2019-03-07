@@ -1,0 +1,9 @@
+<iscontent type="text/html" charset="UTF-8" compact="true">
+<isif condition="#isDefined(UserPermissionMap:get("APP_B2B_ORDER_APPROVAL"))#">
+
+	<isinclude template="modules/B2BModules">
+	
+	<!--- Display approval widgets --->
+	<isinclude template="account/dashboard/ApprovalWidgetInc">
+
+</isif>

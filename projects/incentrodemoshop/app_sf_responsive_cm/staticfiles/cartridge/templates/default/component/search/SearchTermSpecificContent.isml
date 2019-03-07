@@ -1,0 +1,25 @@
+<iscontent personalized="true" type="text/html" charset="UTF-8" compact="true">
+
+<isset name="ConditionMatch" value="#1==0#" scope="request"/>
+<isif condition="#trim(lcase(PageletConfigurationParameters:SearchTermCondition)) EQ trim(lcase(SearchTerm))#">
+	<isset name="ConditionMatch" value="#1==1#" scope="request"/>
+<iselse>
+	<isset name="ConditionSearchTerms" value="#split(PageletConfigurationParameters:SearchTermCondition, ' ')#" scope="request"/>
+	<isloop iterator="ConditionSearchTerms" alias="ConditionSearchTerm">
+		<isif condition="#trim(lcase(ConditionSearchTerm)) EQ trim(lcase(SearchTerm))#">
+			<isset name="ConditionMatch" value="#1==1#" scope="request"/>
+			<isbreak/>
+		</isif>
+	</isloop>
+</isif>
+
+<isif condition="#ConditionMatch#">
+	<isif condition="#isDefined(PageletConfigurationParameters:CSSClass)#"><div class="<isprint value="#PageletConfigurationParameters:CSSClass#">"></isif>
+		<isslot slot="app_sf_responsive_cm:slot.container.content.pagelet2-Slot">
+	<isif condition="#isDefined(PageletConfigurationParameters:CSSClass)#"></div></isif>
+<iselse>
+	<!--- generate handles for the Design View even if the slot is not rendered since the condition is not matched --->
+	<ISUUID name="RenderEntityID">
+	<ISRenderEntityRenderingStart RenderEntityRenderObject="#Pagelet:SubSlot("app_sf_responsive_cm:slot.container.content.pagelet2-Slot")#" RenderEntityID="#RenderEntityID#">
+	<ISRenderEntityRenderingEnd RenderEntityRenderObject="#Pagelet:SubSlot("app_sf_responsive_cm:slot.container.content.pagelet2-Slot")#" RenderEntityID="#RenderEntityID#">
+</isif>

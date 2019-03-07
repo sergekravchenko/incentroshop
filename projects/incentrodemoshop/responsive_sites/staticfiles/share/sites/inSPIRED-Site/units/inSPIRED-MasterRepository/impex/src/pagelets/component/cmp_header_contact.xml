@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<enfinity xmlns:dt="http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt">
+<pagelet-component id="cmp_header_contact">
+<definition-name>app_sf_responsive_cm:component.common.freeStyle.pagelet2-Component</definition-name>
+<display-name xml:lang="de-DE">Header Kontakt</display-name>
+<display-name xml:lang="en-US">Header Contact</display-name>
+<display-name xml:lang="fr-FR">Header Contact</display-name>
+<online>true</online>
+<author business-partner-no="admin" domain="inSPIRED"/>
+<configuration-parameters>
+<configuration-parameter name="HTML">
+<definition-name>app_sf_responsive_cm:component.common.freeStyle.pagelet2-Component-HTML</definition-name>
+<value name="HTML" xml:lang="de-DE">&lt;ul class=&quot;customer-info hidden-xs&quot;&gt;
+&lt;li&gt;
+&lt;span class=&quot;glyphicon-phone-alt glyphicon glyphicon-header-icon&quot;&gt;&lt;/span&gt;
+1300 032 032
+&lt;/li&gt;
+&lt;/ul&gt;</value>
+<value name="HTML" xml:lang="en-US">&lt;ul class=&quot;customer-info hidden-xs&quot;&gt;
+&lt;li&gt;
+&lt;span class=&quot;glyphicon-phone-alt glyphicon glyphicon-header-icon&quot;&gt;&lt;/span&gt;
+1300 032 032
+&lt;/li&gt;
+&lt;/ul&gt;</value>
+<value name="HTML" xml:lang="fr-FR">&lt;ul class=&quot;customer-info hidden-xs&quot;&gt;
+&lt;li&gt;
+&lt;span class=&quot;glyphicon-phone-alt glyphicon glyphicon-header-icon&quot;&gt;&lt;/span&gt;
+1300 032 032
+&lt;/li&gt;
+&lt;/ul&gt;</value>
+</configuration-parameter>
+</configuration-parameters>
+</pagelet-component>
+</enfinity>

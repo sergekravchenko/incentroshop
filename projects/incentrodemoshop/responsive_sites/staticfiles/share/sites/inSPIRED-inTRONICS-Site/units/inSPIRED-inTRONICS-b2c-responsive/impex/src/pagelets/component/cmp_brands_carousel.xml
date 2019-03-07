@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<enfinity xmlns:dt="http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt">
+<pagelet-component id="cmp_brands_carousel">
+<definition-name>app_sf_responsive_cm:component.common.carousel.pagelet2-Component</definition-name>
+<display-name xml:lang="de-DE">Markenkarussell</display-name>
+<display-name xml:lang="en-US">Brands Carousel</display-name>
+<display-name xml:lang="fr-FR">Carroussel de marques</display-name>
+<online>true</online>
+<author business-partner-no="admin" domain="inSPIRED"/>
+<configuration-parameters>
+<configuration-parameter name="CSSClass">
+<definition-name>app_sf_responsive_cm:component.common.carousel.pagelet2-Component-CSSClass</definition-name>
+<value name="CSSClass">brands-carousel hidden-xs d-none d-md-block</value>
+</configuration-parameter>
+<configuration-parameter name="CarouselCSSClass">
+<definition-name>app_sf_responsive_cm:component.common.carousel.pagelet2-Component-CarouselCSSClass</definition-name>
+<value name="CarouselCSSClass">container carousel-indent</value>
+</configuration-parameter>
+<configuration-parameter name="ShowIndicators">
+<definition-name>app_sf_responsive_cm:component.common.carousel.pagelet2-Component-ShowIndicators</definition-name>
+<value name="ShowIndicators">false</value>
+</configuration-parameter>
+<configuration-parameter name="StartCycling">
+<definition-name>app_sf_responsive_cm:component.common.carousel.pagelet2-Component-StartCycling</definition-name>
+<value name="StartCycling">false</value>
+</configuration-parameter>
+</configuration-parameters>
+<slots>
+<slot>
+<definition-name>app_sf_responsive_cm:slot.carousel.items.pagelet2-Slot</definition-name>
+<optional>false</optional>
+<sorting>false</sorting>
+</slot>
+</slots>
+</pagelet-component>
+<pagelet-slot-assignment id="FrsKAE8MZAgAAAFTFUQpbC1v">
+<slot definition-name="app_sf_responsive_cm:slot.carousel.items.pagelet2-Slot" parent-pagelet-id="cmp_brands_carousel" domain="inSPIRED-inTRONICS-b2c-responsive"/>
+<pagelet id="cmp_brandImage_1" domain="inSPIRED-inTRONICS-b2c-responsive"/>
+<position>1</position>
+<online>true</online>
+</pagelet-slot-assignment>
+<pagelet-slot-assignment id="55sKAE8MvE4AAAFTqyopbC1v">
+<slot definition-name="app_sf_responsive_cm:slot.carousel.items.pagelet2-Slot" parent-pagelet-id="cmp_brands_carousel" domain="inSPIRED-inTRONICS-b2c-responsive"/>
+<pagelet id="cmp_brandImage_2" domain="inSPIRED-inTRONICS-b2c-responsive"/>
+<position>2</position>
+<online>true</online>
+</pagelet-slot-assignment>
+<pagelet-slot-assignment id="YIEKAE8Mi5EAAAFT1g8pbC1v">
+<slot definition-name="app_sf_responsive_cm:slot.carousel.items.pagelet2-Slot" parent-pagelet-id="cmp_brands_carousel" domain="inSPIRED-inTRONICS-b2c-responsive"/>
+<pagelet id="cmp_brandImage_3" domain="inSPIRED-inTRONICS-b2c-responsive"/>
+<position>3</position>
+<online>true</online>
+</pagelet-slot-assignment>
+<pagelet-slot-assignment id="dfcKAE8M78UAAAFT1.8pbC1u">
+<slot definition-name="app_sf_responsive_cm:slot.carousel.items.pagelet2-Slot" parent-pagelet-id="cmp_brands_carousel" domain="inSPIRED-inTRONICS-b2c-responsive"/>
+<pagelet id="cmp_brandImage_4" domain="inSPIRED-inTRONICS-b2c-responsive"/>
+<position>4</position>
+<online>true</online>
+</pagelet-slot-assignment>
+<pagelet-slot-assignment id="MogKAE8MWzYAAAFTAtYpbC1u">
+<slot definition-name="app_sf_responsive_cm:slot.carousel.items.pagelet2-Slot" parent-pagelet-id="cmp_brands_carousel" domain="inSPIRED-inTRONICS-b2c-responsive"/>
+<pagelet id="cmp_brandImage_5" domain="inSPIRED-inTRONICS-b2c-responsive"/>
+<position>5</position>
+<online>true</online>
+</pagelet-slot-assignment>
+<pagelet-slot-assignment id="HlIKAE8MROsAAAFTKZspbC1u">
+<slot definition-name="app_sf_responsive_cm:slot.carousel.items.pagelet2-Slot" parent-pagelet-id="cmp_brands_carousel" domain="inSPIRED-inTRONICS-b2c-responsive"/>
+<pagelet id="cmp_brandImage_5" domain="inSPIRED-inTRONICS-b2c-responsive"/>
+<position>7</position>
+<online>true</online>
+</pagelet-slot-assignment>
+<pagelet-slot-assignment id="HCEKAE8M5jEAAAFTAIApbC1u">
+<slot definition-name="app_sf_responsive_cm:slot.carousel.items.pagelet2-Slot" parent-pagelet-id="cmp_brands_carousel" domain="inSPIRED-inTRONICS-b2c-responsive"/>
+<pagelet id="cmp_brandImage_5" domain="inSPIRED-inTRONICS-b2c-responsive"/>
+<position>8</position>
+<online>true</online>
+</pagelet-slot-assignment>
+<pagelet-slot-assignment id="2gQKAE8MKh4AAAFT.lgpbC1u">
+<slot definition-name="app_sf_responsive_cm:slot.carousel.items.pagelet2-Slot" parent-pagelet-id="cmp_brands_carousel" domain="inSPIRED-inTRONICS-b2c-responsive"/>
+<pagelet id="cmp_brandImage_5" domain="inSPIRED-inTRONICS-b2c-responsive"/>
+<position>9</position>
+<online>true</online>
+</pagelet-slot-assignment>
+<pagelet-slot-assignment id="xc4KAE8MQIQAAAFTaD0pbC1u">
+<slot definition-name="app_sf_responsive_cm:slot.carousel.items.pagelet2-Slot" parent-pagelet-id="cmp_brands_carousel" domain="inSPIRED-inTRONICS-b2c-responsive"/>
+<pagelet id="cmp_brandImage_5" domain="inSPIRED-inTRONICS-b2c-responsive"/>
+<position>10</position>
+<online>true</online>
+</pagelet-slot-assignment>
+<pagelet-slot-assignment id="KYQKAE8M94oAAAFTRBopbC1u">
+<slot definition-name="app_sf_responsive_cm:slot.carousel.items.pagelet2-Slot" parent-pagelet-id="cmp_brands_carousel" domain="inSPIRED-inTRONICS-b2c-responsive"/>
+<pagelet id="cmp_brandImage_5" domain="inSPIRED-inTRONICS-b2c-responsive"/>
+<position>11</position>
+<online>true</online>
+</pagelet-slot-assignment>
+<pagelet-slot-assignment id="rOgKAE8MV20AAAFT1_4pbC1t">
+<slot definition-name="app_sf_responsive_cm:slot.carousel.items.pagelet2-Slot" parent-pagelet-id="cmp_brands_carousel" domain="inSPIRED-inTRONICS-b2c-responsive"/>
+<pagelet id="cmp_brandImage_5" domain="inSPIRED-inTRONICS-b2c-responsive"/>
+<position>12</position>
+<online>true</online>
+</pagelet-slot-assignment>
+<pagelet-slot-assignment id=".qsKAE8MM64AAAFTIr0pbC1u">
+<slot definition-name="app_sf_responsive_cm:slot.carousel.items.pagelet2-Slot" parent-pagelet-id="cmp_brands_carousel" domain="inSPIRED-inTRONICS-b2c-responsive"/>
+<pagelet id="cmp_brandImage_6" domain="inSPIRED-inTRONICS-b2c-responsive"/>
+<position>6</position>
+<online>true</online>
+</pagelet-slot-assignment>
+</enfinity>

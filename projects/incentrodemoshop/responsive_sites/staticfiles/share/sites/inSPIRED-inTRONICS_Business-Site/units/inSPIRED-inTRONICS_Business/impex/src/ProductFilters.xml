@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<enfinity
+xsi:schemaLocation="http://www.intershop.com/xml/ns/enfinity/6.5/bc_search/impex searchquerydefinition.xsd"
+xmlns="http://www.intershop.com/xml/ns/enfinity/6.5/bc_search/impex"
+xmlns:xml="http://www.w3.org/XML/1998/namespace"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xmlns:dt="http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt">
+<searchquery-definitions>
+
+<searchquery-definition name="only_acer_tablets_filter">
+<custom-attributes>
+<custom-attribute name="displayName" dt:dt="string" xml:lang="en-US">Acer Tablet Products</custom-attribute>
+<custom-attribute name="description" dt:dt="string" xml:lang="en-US">This demo product filter selects tablet products of the manufacturer Acer</custom-attribute>
+</custom-attributes>
+<global-visible>false</global-visible>
+<type>product</type>
+<searchquery><contextcategoryid></contextcategoryid><range-conditions/><rankings/><sortings><sorting><attribute-name>name</attribute-name><direction>ASCENDING</direction></sorting></sortings><value-conditions><value-condition><attribute-name>ManufacturerName</attribute-name><attribute-value>Acer</attribute-value></value-condition><value-condition><attribute-name>IcecatCategoryID</attribute-name><attribute-value>897</attribute-value></value-condition></value-conditions></searchquery>
+</searchquery-definition>
+
+<searchquery-definition name="only_asus_tablets_filter">
+<custom-attributes>
+<custom-attribute name="displayName" dt:dt="string" xml:lang="en-US">Asus Tablet Products</custom-attribute>
+<custom-attribute name="description" dt:dt="string" xml:lang="en-US">This demo product filter selects tablet products of the manufacturer Asus</custom-attribute>
+</custom-attributes>
+<global-visible>false</global-visible>
+<type>product</type>
+<searchquery><contextcategoryid></contextcategoryid><range-conditions/><rankings/><sortings><sorting><attribute-name>name</attribute-name><direction>ASCENDING</direction></sorting></sortings><value-conditions><value-condition><attribute-name>ManufacturerName</attribute-name><attribute-value>Asus</attribute-value></value-condition><value-condition><attribute-name>IcecatCategoryID</attribute-name><attribute-value>897</attribute-value></value-condition></value-conditions></searchquery>
+</searchquery-definition>
+
+<searchquery-definition name="only_fujitsu_tablets_filter">
+<custom-attributes>
+<custom-attribute name="displayName" dt:dt="string" xml:lang="en-US">Fujitsu Tablet Products</custom-attribute>
+<custom-attribute name="description" dt:dt="string" xml:lang="en-US">This demo product filter selects tablet products of the manufacturer Fujitsu</custom-attribute>
+</custom-attributes>
+<global-visible>false</global-visible>
+<type>product</type>
+<searchquery><contextcategoryid></contextcategoryid><range-conditions/><rankings/><sortings><sorting><attribute-name>name</attribute-name><direction>ASCENDING</direction></sorting></sortings><value-conditions><value-condition><attribute-name>ManufacturerName</attribute-name><attribute-value>Fujitsu</attribute-value></value-condition><value-condition><attribute-name>IcecatCategoryID</attribute-name><attribute-value>897</attribute-value></value-condition></value-conditions></searchquery>
+</searchquery-definition>
+
+<searchquery-definition name="only_hanvon_tablets_filter">
+<custom-attributes>
+<custom-attribute name="displayName" dt:dt="string" xml:lang="en-US">Hanvon Tablet Products</custom-attribute>
+<custom-attribute name="description" dt:dt="string" xml:lang="en-US">This demo product filter selects tablet products of the manufacturer Hanvon</custom-attribute>
+</custom-attributes>
+<global-visible>false</global-visible>
+<type>product</type>
+<searchquery><contextcategoryid></contextcategoryid><range-conditions/><rankings/><sortings><sorting><attribute-name>name</attribute-name><direction>ASCENDING</direction></sorting></sortings><value-conditions><value-condition><attribute-name>ManufacturerName</attribute-name><attribute-value>Hanvon</attribute-value></value-condition><value-condition><attribute-name>IcecatCategoryID</attribute-name><attribute-value>897</attribute-value></value-condition></value-conditions></searchquery>
+</searchquery-definition>
+
+<searchquery-definition name="only_hp_tablets_filter">
+<custom-attributes>
+<custom-attribute name="displayName" dt:dt="string" xml:lang="en-US">HP Tablet Products</custom-attribute>
+<custom-attribute name="description" dt:dt="string" xml:lang="en-US">This demo product filter selects tablet products of the manufacturer HP</custom-attribute>
+</custom-attributes>
+<global-visible>false</global-visible>
+<type>product</type>
+<searchquery><contextcategoryid></contextcategoryid><range-conditions/><rankings/><sortings><sorting><attribute-name>name</attribute-name><direction>ASCENDING</direction></sorting></sortings><value-conditions><value-condition><attribute-name>ManufacturerName</attribute-name><attribute-value>HP</attribute-value></value-condition><value-condition><attribute-name>IcecatCategoryID</attribute-name><attribute-value>897</attribute-value></value-condition></value-conditions></searchquery>
+</searchquery-definition>
+
+<searchquery-definition name="only_lenovo_tablets_filter">
+<custom-attributes>
+<custom-attribute name="displayName" dt:dt="string" xml:lang="en-US">Lenovo Tablet Products</custom-attribute>
+<custom-attribute name="description" dt:dt="string" xml:lang="en-US">This demo product filter selects tablet products of the manufacturer Lenovo</custom-attribute>
+</custom-attributes>
+<global-visible>false</global-visible>
+<type>product</type>
+<searchquery><contextcategoryid></contextcategoryid><range-conditions/><rankings/><sortings><sorting><attribute-name>name</attribute-name><direction>ASCENDING</direction></sorting></sortings><value-conditions><value-condition><attribute-name>ManufacturerName</attribute-name><attribute-value>Lenovo</attribute-value></value-condition><value-condition><attribute-name>IcecatCategoryID</attribute-name><attribute-value>897</attribute-value></value-condition></value-conditions></searchquery>
+</searchquery-definition>
+
+<searchquery-definition name="only_msi_tablets_filter">
+<custom-attributes>
+<custom-attribute name="displayName" dt:dt="string" xml:lang="en-US">MSI Tablet Products</custom-attribute>
+<custom-attribute name="description" dt:dt="string" xml:lang="en-US">This demo product filter selects tablet products of the manufacturer MSI</custom-attribute>
+</custom-attributes>
+<global-visible>false</global-visible>
+<type>product</type>
+<searchquery><contextcategoryid></contextcategoryid><range-conditions/><rankings/><sortings><sorting><attribute-name>name</attribute-name><direction>ASCENDING</direction></sorting></sortings><value-conditions><value-condition><attribute-name>ManufacturerName</attribute-name><attribute-value>MSI</attribute-value></value-condition><value-condition><attribute-name>IcecatCategoryID</attribute-name><attribute-value>897</attribute-value></value-condition></value-conditions></searchquery>
+</searchquery-definition>
+
+<searchquery-definition name="only_samsung_tablets_filter">
+<custom-attributes>
+<custom-attribute name="displayName" dt:dt="string" xml:lang="en-US">Samsung Tablet Products</custom-attribute>
+<custom-attribute name="description" dt:dt="string" xml:lang="en-US">This demo product filter selects tablet products of the manufacturer Samsung</custom-attribute>
+</custom-attributes>
+<global-visible>false</global-visible>
+<type>product</type>
+<searchquery><contextcategoryid></contextcategoryid><range-conditions/><rankings/><sortings><sorting><attribute-name>name</attribute-name><direction>ASCENDING</direction></sorting></sortings><value-conditions><value-condition><attribute-name>ManufacturerName</attribute-name><attribute-value>Samsung</attribute-value></value-condition><value-condition><attribute-name>IcecatCategoryID</attribute-name><attribute-value>897</attribute-value></value-condition></value-conditions></searchquery>
+</searchquery-definition>
+
+<searchquery-definition name="only_acer_smartphones_filter">
+<custom-attributes>
+<custom-attribute name="displayName" dt:dt="string" xml:lang="en-US">Acer Smartphones Products</custom-attribute>
+<custom-attribute name="description" dt:dt="string" xml:lang="en-US">This demo product filter selects smartphone products of the manufacturer Acer</custom-attribute>
+</custom-attributes>
+<global-visible>false</global-visible>
+<type>product</type>
+<searchquery><contextcategoryid></contextcategoryid><range-conditions/><rankings/><sortings><sorting><attribute-name>name</attribute-name><direction>ASCENDING</direction></sorting></sortings><value-conditions><value-condition><attribute-name>ManufacturerName</attribute-name><attribute-value>Acer</attribute-value></value-condition><value-condition><attribute-name>IcecatCategoryID</attribute-name><attribute-value>1893</attribute-value></value-condition></value-conditions></searchquery>
+</searchquery-definition>
+
+<searchquery-definition name="only_lg_smartphones_filter">
+<custom-attributes>
+<custom-attribute name="displayName" dt:dt="string" xml:lang="en-US">LG Smartphones Products</custom-attribute>
+<custom-attribute name="description" dt:dt="string" xml:lang="en-US">This demo product filter selects smartphone products of the manufacturer LG</custom-attribute>
+</custom-attributes>
+<global-visible>false</global-visible>
+<type>product</type>
+<searchquery><contextcategoryid></contextcategoryid><range-conditions/><rankings/><sortings><sorting><attribute-name>name</attribute-name><direction>ASCENDING</direction></sorting></sortings><value-conditions><value-condition><attribute-name>ManufacturerName</attribute-name><attribute-value>LG</attribute-value></value-condition><value-condition><attribute-name>IcecatCategoryID</attribute-name><attribute-value>1893</attribute-value></value-condition></value-conditions></searchquery>
+</searchquery-definition>
+
+<searchquery-definition name="only_samsung_smartphones_filter">
+<custom-attributes>
+<custom-attribute name="displayName" dt:dt="string" xml:lang="en-US">Samsung Smartphones Products</custom-attribute>
+<custom-attribute name="description" dt:dt="string" xml:lang="en-US">This demo product filter selects smartphone products of the manufacturer Samsung</custom-attribute>
+</custom-attributes>
+<global-visible>false</global-visible>
+<type>product</type>
+<searchquery><contextcategoryid></contextcategoryid><range-conditions/><rankings/><sortings><sorting><attribute-name>name</attribute-name><direction>ASCENDING</direction></sorting></sortings><value-conditions><value-condition><attribute-name>ManufacturerName</attribute-name><attribute-value>Samsung</attribute-value></value-condition><value-condition><attribute-name>IcecatCategoryID</attribute-name><attribute-value>1893</attribute-value></value-condition></value-conditions></searchquery>
+</searchquery-definition>
+
+<searchquery-definition name="sort_by_price">
+<custom-attributes>
+<custom-attribute name="displayName" dt:dt="string" xml:lang="en-US">Sort by Price (ascending)</custom-attribute>
+<custom-attribute name="description" dt:dt="string" xml:lang="en-US">this demo filter sorts products by sales price</custom-attribute>
+</custom-attributes>
+<global-visible>true</global-visible>
+<type>product</type>
+<searchquery><contextcategoryid></contextcategoryid><range-conditions/><rankings/><sortings><sorting><attribute-name>ProductSalePriceNet</attribute-name><direction>ASCENDING</direction></sorting></sortings><value-conditions/></searchquery>
+</searchquery-definition>
+
+<searchquery-definition name="fallback_searchquerydefinition">
+<custom-attributes>
+<custom-attribute name="displayName" dt:dt="string" xml:lang="en-US">Fallback Product Filter with Default Sorting</custom-attribute>
+<custom-attribute name="description" dt:dt="string" xml:lang="en-US">This product filter will be used if no other was defined</custom-attribute>
+</custom-attributes>
+<global-visible>true</global-visible>
+<type>product</type>
+<searchquery><multi-value-conditions/><range-conditions/><rankings/><sortings/><value-conditions/></searchquery>
+</searchquery-definition>
+
+<searchquery-definition name="only_acer_filter">
+<custom-attributes>
+<custom-attribute name="displayName" dt:dt="string" xml:lang="en-US">ACER Products</custom-attribute>
+<custom-attribute name="description" dt:dt="string" xml:lang="en-US">This demo product filter selects products of the manufacturer ACER</custom-attribute>
+</custom-attributes>
+<global-visible>true</global-visible>
+<type>product</type>
+<searchquery><contextcategoryid></contextcategoryid><range-conditions/><rankings/><sortings><sorting><attribute-name>name</attribute-name><direction>ASCENDING</direction></sorting></sortings><value-conditions><value-condition><attribute-name>ManufacturerName</attribute-name><attribute-value>ACER</attribute-value></value-condition></value-conditions></searchquery>
+</searchquery-definition>
+
+<searchquery-definition name="manufacturer_ranking">
+<custom-attributes>
+<custom-attribute name="displayName" dt:dt="string" xml:lang="en-US">Manufacturer Ranking</custom-attribute>
+<custom-attribute name="description" dt:dt="string" xml:lang="en-US">this demo filter sorts notebooks by manufacturer rank, rankings for acer and fujitsu defined</custom-attribute>
+</custom-attributes>
+<global-visible>true</global-visible>
+<type>product</type>
+<searchquery><contextcategoryid></contextcategoryid><range-conditions/><rankings><ranking><attribute-name>ManufacturerName</attribute-name><percentage>10</percentage><attribute-value>fujitsu</attribute-value></ranking><ranking><attribute-name>ManufacturerName</attribute-name><percentage>5</percentage><attribute-value>acer</attribute-value></ranking></rankings><sortings/><value-conditions/></searchquery>
+</searchquery-definition>
+
+<searchquery-definition name="top_seller_products">
+<custom-attributes>
+<custom-attribute name="displayName" dt:dt="string" xml:lang="en-US">Top Seller Products</custom-attribute>
+<custom-attribute name="description" dt:dt="string" xml:lang="en-US">This demo filter selects products by their selling rate.</custom-attribute>
+</custom-attributes>
+<global-visible>true</global-visible>
+<type>product</type>
+<searchquery><contextcategoryid>TopSellers@inSPIRED-inTRONICS_Business-specials</contextcategoryid><range-conditions/><rankings/><sortings><sorting><attribute-name>name</attribute-name><direction>ASCENDING</direction></sorting></sortings><value-conditions/></searchquery>
+</searchquery-definition>
+
+<searchquery-definition name="top_rated_products">
+<custom-attributes>
+<custom-attribute name="displayName" dt:dt="string" xml:lang="en-US">Top Rated Products</custom-attribute>
+<custom-attribute name="description" dt:dt="string" xml:lang="en-US">This demo filter selects products by their rating.</custom-attribute>
+</custom-attributes>
+<global-visible>true</global-visible>
+<type>product</type>
+<searchquery><contextcategoryid></contextcategoryid> 
+	<range-conditions>
+        <range-condition>
+            <attribute-name>AverageRating</attribute-name>
+            <attribute-lower-value>4</attribute-lower-value>
+            <attribute-upper-value>*</attribute-upper-value>
+        </range-condition>
+    </range-conditions><rankings/><sortings><sorting><attribute-name>AverageRating</attribute-name><direction>DESCENDING</direction></sorting></sortings><value-conditions/>
+</searchquery>
+</searchquery-definition>
+
+<searchquery-definition name="new_arrival_products">
+<custom-attributes>
+<custom-attribute name="displayName" dt:dt="string" xml:lang="en-US">New Arrival Products</custom-attribute>
+<custom-attribute name="description" dt:dt="string" xml:lang="en-US">This demo filter selects products by their arrival date.</custom-attribute>
+</custom-attributes>
+<global-visible>true</global-visible>
+<type>product</type>
+<searchquery><contextcategoryid></contextcategoryid> 
+	<range-conditions>
+        <range-condition>
+            <attribute-name>ArrivalDate</attribute-name>
+            <attribute-lower-value>2015-01-04T00:00:00Z</attribute-lower-value>
+            <attribute-upper-value>*</attribute-upper-value>
+        </range-condition>
+    </range-conditions><rankings/><sortings><sorting><attribute-name>ArrivalDate</attribute-name><direction>DESCENDING</direction></sorting></sortings><value-conditions/>
+</searchquery>
+</searchquery-definition>
+
+<searchquery-definition name="new_products">
+<custom-attributes>
+<custom-attribute name="displayName" dt:dt="string" xml:lang="en-US">New Products</custom-attribute>
+<custom-attribute name="description" dt:dt="string" xml:lang="en-US">This demo filter gets products based on arrival date.</custom-attribute>
+</custom-attributes>
+<global-visible>false</global-visible>
+<type>product</type>
+<searchquery><contextcategoryid></contextcategoryid> 
+	<range-conditions>
+        <range-condition>
+            <attribute-name>ArrivalDate</attribute-name>
+            <attribute-lower-value>2015-01-04T00:00:00Z</attribute-lower-value>
+            <attribute-upper-value>*</attribute-upper-value>
+        </range-condition>
+    </range-conditions><rankings/><sortings><sorting><attribute-name>ArrivalDate</attribute-name><direction>DESCENDING</direction></sorting></sortings><value-conditions/>
+</searchquery>
+</searchquery-definition>
+
+</searchquery-definitions>
+</enfinity>

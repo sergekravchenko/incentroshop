@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<enfinity xmlns:dt="http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt">
+<pagelet-component id="cmp_helpdesk_contactUs">
+<definition-name>app_sf_responsive_cm:component.system.contactUsForm.pagelet2-Component</definition-name>
+<display-name xml:lang="de-DE">Hilfe - Kontaktformular</display-name>
+<display-name xml:lang="en-US">Helpdesk - Contact Us Form</display-name>
+<online>true</online>
+<author business-partner-no="admin" domain="inSPIRED"/>
+</pagelet-component>
+</enfinity>

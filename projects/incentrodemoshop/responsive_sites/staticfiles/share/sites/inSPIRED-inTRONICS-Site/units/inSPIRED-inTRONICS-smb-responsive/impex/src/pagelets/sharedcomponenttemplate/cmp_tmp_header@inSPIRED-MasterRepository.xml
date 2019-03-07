@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<enfinity xmlns:dt="http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt">
+<shared-component-template id="cmp_tmp_header" domain="inSPIRED-MasterRepository">
+<definition-name>app_sf_responsive_cm:component.system.header.pagelet2-Component</definition-name>
+<configuration-parameters>
+<configuration-parameter name="Logo">
+<definition-name>app_sf_responsive_cm:component.system.header.pagelet2-Component-Logo</definition-name>
+<value name="Logo" xml:lang="en-US">inSPIRED-inTRONICS-smb-responsive:/logo.png</value>
+</configuration-parameter>
+<configuration-parameter name="MobileLogo">
+<definition-name>app_sf_responsive_cm:component.system.header.pagelet2-Component-MobileLogo</definition-name>
+<value name="MobileLogo" xml:lang="en-US">inSPIRED-inTRONICS-smb-responsive:/logo@2x.png</value>
+</configuration-parameter>
+</configuration-parameters>
+<placeholder-configurations>
+<placeholder-configuration hide-target-content="true" place-target-content-on-top="false">
+<pagelet-overriding-placeholder placeholder-id="slot.header.navigation.pagelet2-Slot@cmp_tmp_header" />
+</placeholder-configuration>
+</placeholder-configurations>
+<placeholder-definitions>
+<placeholder-definition id="slot.header.navigation.pagelet2-Slot@cmp_tmp_header" external="false">
+<definition-name>app_sf_responsive_cm:slot.header.navigation.pagelet2-Slot</definition-name>
+<slot definition-name="app_sf_responsive_cm:slot.header.navigation.pagelet2-Slot"/>
+</placeholder-definition>
+</placeholder-definitions>
+</shared-component-template>
+<pagelet-placeholder-assignment id="8M3AqDgBqVEAAAFVaIdkqE33">
+<placeholder pagelet-domain="inSPIRED-MasterRepository" pagelet-id="cmp_tmp_header">
+<pagelet-overriding-placeholder placeholder-id="slot.header.navigation.pagelet2-Slot@cmp_tmp_header"/>
+</placeholder>
+<pagelet id="cmp_tmp_headerNavigation_cameras" domain="inSPIRED-inTRONICS-smb-responsive"/>
+<position>4</position>
+<online>true</online>
+</pagelet-placeholder-assignment>
+<pagelet-placeholder-assignment id="EdjAqDgBYjsAAAFVg1ZkqE35">
+<placeholder pagelet-domain="inSPIRED-MasterRepository" pagelet-id="cmp_tmp_header">
+<pagelet-overriding-placeholder placeholder-id="slot.header.navigation.pagelet2-Slot@cmp_tmp_header"/>
+</placeholder>
+<pagelet id="cmp_tmp_headerNavigation_entertainment" domain="inSPIRED-inTRONICS-smb-responsive"/>
+<position>2</position>
+<online>true</online>
+</pagelet-placeholder-assignment>
+<pagelet-placeholder-assignment id="GQXAqDgBUGQAAAFVDKdkqE4P">
+<placeholder pagelet-domain="inSPIRED-MasterRepository" pagelet-id="cmp_tmp_header">
+<pagelet-overriding-placeholder placeholder-id="slot.header.navigation.pagelet2-Slot@cmp_tmp_header"/>
+</placeholder>
+<pagelet id="cmp_tmp_headerNavigation_computers" domain="inSPIRED-inTRONICS-smb-responsive"/>
+<position>5</position>
+<online>true</online>
+</pagelet-placeholder-assignment>
+<pagelet-placeholder-assignment id="MzPAqDgBwTkAAAFVklpkqE3o">
+<placeholder pagelet-domain="inSPIRED-MasterRepository" pagelet-id="cmp_tmp_header">
+<pagelet-overriding-placeholder placeholder-id="slot.header.navigation.pagelet2-Slot@cmp_tmp_header"/>
+</placeholder>
+<pagelet id="cmp_tmp_headerNavigation_brands" domain="inSPIRED-MasterRepository"/>
+<position>3</position>
+<online>true</online>
+</pagelet-placeholder-assignment>
+</enfinity>

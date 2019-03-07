@@ -1,0 +1,7 @@
+<iscontent type="text/html" charset="UTF-8" compact="true">
+<isif condition="#isDefined(UserPermissionMap:get("APP_B2B_PURCHASE"))#">
+	<li class="<isif condition="#(selecteditem EQ 'MYAPPROVEDORDERS') OR (selecteditem EQ 'ORDERS')#">active</isif>">
+		<a href="#URL(Action('ViewOrders-SimpleOrderSearch'))#"><istext key="account.order_history.link"/></a>
+	</li>
+</isif>
+

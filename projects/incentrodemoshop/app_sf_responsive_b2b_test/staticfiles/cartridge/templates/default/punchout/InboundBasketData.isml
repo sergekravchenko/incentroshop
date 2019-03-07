@@ -1,0 +1,35 @@
+<!---[Comment]--->
+<iscontent type="text/html" charset="UTF-8" compact="true">
+<html>
+<head>
+	<title>Punch Out - Form Values from Redirect</title>
+
+	<style type="text/css">
+	  table {width:600px; }
+	  table.title {margin-bottom:5px; }
+	  td { font-size:100%; text-align:left;}
+	  td.datafields { font-size:90%; }
+	  td.tabletitle { text-align:center; font-weight:bold;}
+	  td.tabletitle2 { font-size:110%; text-align:left; font-weight:bold;}
+	  td.tabledescription { text-align:center; align:center;}
+	</style>
+</head>
+<body>
+<table border="1" bordercolor="#ffffff" cellpadding="2">
+<tr><td class="tabledescription datafields"><a href="TestPunchoutInboundData-Tests">back to tests page</a></td><td class="tabletitle2"><b>Punch Out - form values from redirect</b></td></tr>
+<isif condition="#isDefined(InboundBasketDataMap)#">
+<tr><td class="tabletitle datafields" width="40%">form key</td><td class="tabletitle2 datafields" width="60%">value</td></tr>
+<isloop iterator="InboundBasketDataKeysSorted" alias="key">
+<isif condition="#NOT (key EQ 'submit')#">
+<tr>
+    <td class="datafields" nowrap="nowrap"><isprint value="#key#"></td>
+    <td class="datafields" nowrap="nowrap"><isprint value="#InboundBasketDataMap:get(key)#"></td>
+</tr>
+</isif>
+</isloop>
+<iselse>
+<tr><td  align="center" colspan="2">No - Punch Out Inbound Basket Data - found!</td></tr>
+</isif>
+</table>
+</body>
+</html>

@@ -1,0 +1,109 @@
+<iscontent type="text/html" charset="UTF-8" compact="true">
+
+<isinclude template="modules/Modules">
+
+<isinclude template="email/mailTemplate/MailConfig"/>
+
+<subject><istext key="email.quote.update.heading" parameter0="#encodeValue(ChannelName)#" encoding="off"/></subject>
+
+<isinclude template="email/mailTemplate/MailHeader"/>
+ 
+<p><istext key="email.hello.label.firstname_lastname" parameter0="#QuoteBO:UserBO:FirstName#" parameter1="#QuoteBO:UserBO:LastName#" /></p>
+<p><istext key="email.quote.update.info" parameter0="#encodeValue(URL(Action('ViewUserAccount-Start')))#" encoding="off"/></p>
+
+<table cellpadding="0" cellspacing="0" class="pattern">
+	<tr class="mobileTable">
+		<td width="600">
+			<table cellpadding="0" cellspacing="0" width="100%" class="dataList">
+				<tr>
+					<td width="30%">
+						<istext key="email.quote.details.label.id" />
+					</td>
+					<td>
+						<isprint value="#QuoteBO:Number#">
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<istext key="email.quote.details.label.username" />
+					</td>
+					<td>
+						<isprint value="#QuoteBO:UserBO:FirstName#"> <isprint value="#QuoteBO:UserBO:LastName#">
+					</td>
+				</tr>
+				<isif condition="#QuoteBO:SellerComment NE ''#">
+					<tr>
+						<td valign="top">
+							<istext key="email.quote.details.label.comment" />
+						</td>
+						<td valign="top">
+							<isprint value="#replace(QuoteBO:SellerComment, '\n', '<br/>')#" encoding="off">
+						</td>
+					</tr>
+				</isif>
+			 </table>
+		</td>
+	</tr>
+</table>
+
+</br>
+
+<table cellpadding="0" cellspacing="0" class="pattern">
+	<tr class="mobileTable">
+		<td width="600">
+			<table cellpadding="0" cellspacing="0" width="100%" class="dataList">
+				<tr class="listHeader">
+					<td><istext key="email.quote.update.items.header.description"></td>
+					<td><istext key="email.quote.update.items.header.quantity"></td>
+					<td align="right"><istext key="email.quote.update.items.header.price"></td>
+					<td align="right"><istext key="email.quote.update.items.header.total"></td>					
+				</tr>
+				<isset name="QuoteLineItemBOs" value="#QuoteBO:QuoteLineItemBOs#" scope="request"/>		
+				<isif condition="#hasLoopElements(QuoteLineItemBOs)#">
+					<isloop  iterator="QuoteLineItemBOs" alias="LineItem">
+					<isset name="ProductBO" value="#LineItem:ProductBO#" scope="request"/>
+						<tr class="item">				
+							<td>
+								<img alt="<isprint value="#ProductBO:Name#"/>" src="<isprint value="#ContentUrlEx('', '', '', '', '', ProductBO:Extension("Image"):ImageContainerBO:PrimaryImageBO("S"):ContentRef)#"/>">
+								<a href="#URL(Action('ViewProduct-Start'),Parameter('SKU',LineItem:SKU))#">
+									<isprint value="#ProductBO:Name#">
+								</a></br>
+								<istext key="email.quote.update.item.sku" parameter0="#LineItem:SKU#">
+							</td>
+							<td><isprint value="#LineItem:OriginQuantity#"></td>
+							<td align="right">
+								<span class="text-nowrap"><istext key="email.quote.update.item.price.original"></span> <span class="text-nowrap"><isprint value="#LineItem:OriginSinglePrice#"></span></br>
+								<span class="text-nowrap"><istext key="email.quote.update.item.price.suggested"></span> <span class="text-nowrap"><isprint value="#LineItem:SinglePrice#"></span>
+							</td>
+							<td align="right">
+								<span class="text-nowrap"><isprint value="#LineItem:OriginTotalPrice#"></span></br>
+								<span class="text-nowrap"><isprint value="#LineItem:TotalPrice#"></span>
+							</td>							
+						</tr>
+					</isloop>
+				</isif>
+				<tr>
+					<td align="right" colspan="4">
+						<span class="text-nowrap"><istext key="email.quote.update.items.total"></span> <span class="text-nowrap"><isprint value="#QuoteBO:Total#"></span>
+					</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+</table>
+
+<p>
+	<istext key="email.questions" 
+		parameter0="#URL(Action('ViewHomepage-Start'))#" 
+		parameter1="#encodeValue(ChannelName)#" 
+		parameter2="#URL(Action('ViewContent-Start'), Parameter('PageletEntryPointID','systempage.helpdesk.index.pagelet2-Page'))#" 
+		encoding="off" 
+	/>
+</p>
+
+<p>
+	<istext key="email.best_regards.label"/><br />
+	<istext key="email.user_services.label" parameter0="#encodeValue(URL(Action('ViewHomepage-Start')))#" parameter1="#encodeValue(ChannelName)#" encoding="off" />
+</p>
+
+<isinclude template="email/mailTemplate/MailFooter"/>

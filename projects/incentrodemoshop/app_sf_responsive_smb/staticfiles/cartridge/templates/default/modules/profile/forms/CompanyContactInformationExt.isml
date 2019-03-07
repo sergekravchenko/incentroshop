@@ -1,0 +1,38 @@
+<iscontent type="text/html" charset="UTF-8" compact="true">
+<isset name="CompanyInformationFormKeyPrefix" value="account.address" scope="request">
+
+<h2><istext key="account.register.company_information.heading" /></h2>
+
+<p class="indicates-required"><span class="required">*</span><istext key="account.required_field.message" /></p>
+
+<isif condition="#webform:isInvalid#">
+	<div class="alert alert-danger">
+		<istext key="account.register.company_information_error.message" />
+	</div>
+</isif>
+
+<isset name="webform" value="#CompanyInformationForm#" scope="request">
+<isset name="locale" value="#CurrentSession:Locale#" scope="request">
+<isset name="salutation_enumeration_provider" value="#SalutationEnumerationKeyProvider#" scope="request">
+
+<fieldset>
+	<isinclude template="modules/profile/forms/inc/CompanyNameInput.isml">
+	<isinclude template="modules/profile/forms/inc/CompanyName2Input.isml">
+	<isinclude template="modules/profile/forms/inc/IndustryInput.isml">
+	<isinclude template="modules/profile/forms/inc/TaxationIDInput.isml">
+</fieldset>
+<fieldset>
+	<isinclude template="modules/address/forms/inc/TitleSelect.isml">
+	<isinclude template="modules/address/forms/inc/FirstNameInput.isml">
+	<isinclude template="modules/address/forms/inc/LastNameInput.isml">
+	<isinclude template="modules/profile/forms/inc/DepartmentInput.isml">
+	<isinclude template="modules/profile/forms/inc/PhoneBusinessInput.isml">
+	<isinclude template="modules/profile/forms/inc/FaxInput.isml">
+	<isinclude template="modules/address/forms/inc/BirthdayInput.isml">
+</fieldset>
+
+<isinclude template="modules/address/forms/inc/LanguageInput.isml">
+
+<!--- Prevent addressform validation errors because of missing input fields --->
+<input type="hidden" name="#AddressForm:FirstName:QualifiedName#" value="DummyFirstName">
+<input type="hidden" name="#AddressForm:LastName:QualifiedName#" value="DummyLastName">

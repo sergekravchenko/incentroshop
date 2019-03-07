@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pagelet:PageletModel xmlns:pagelet="http://www.intershop.de/pagelet/2010" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://www.intershop.de/core/2010" name="component.common.container.pagelet2">
+  <pageletDefinitions name="Component" container="true">
+    <callParameterInterfaces referencedName="app_sf_responsive_cm:interface.common.content.advanced.pagelet2-Interface"/>
+    <callParameterInterfaces referencedName="app_sf_responsive_cm:interface.carousel.items.pagelet2-Interface"/>
+    <callParameterInterfaces referencedName="app_sf_responsive_cm:interface.marketing.category.pagelet2-Interface"/>
+    <callParameterInterfaces referencedName="app_sf_responsive_cm:interface.marketing.product.pagelet2-Interface"/>
+    <callParameterInterfaces referencedName="app_sf_responsive_cm:interface.footer.content.pagelet2-Interface"/>
+    <callParameterInterfaces referencedName="app_sf_responsive:interface.include.category.standard.pagelet2-Interface"/>
+    <callParameterInterfaces referencedName="app_sf_responsive:interface.include.product.standard.pagelet2-Interface"/>
+    <callParameterInterfaces referencedName="app_sf_responsive:interface.include.dialog.pagelet2-Interface"/>
+    <configurationParameterDefinitions name="Grid" optional="true" localizable="false"
+        typeReference="sld_mcm:parametertype.bootstrap.grid.pagelet2-Grid"/>
+    <configurationParameterDefinitions name="CSSClass" optional="true" localizable="false"
+        typeReference="bc_pmc:types.pagelet2-Text"/>
+    <configurationParameterDefinitions name="TrackingCode" optional="true" localizable="false"
+        typeReference="bc_pmc:types.pagelet2-Text"/>
+    <configurationParameterDefinitions name="UpperBound" optional="true" localizable="false"
+        typeReference="bc_pmc:types.pagelet2-Integer"/>
+    <configurationParameterDefinitions name="TrackingScript" optional="true" typeReference="bc_pmc:types.pagelet2-Text">
+      <parameterBindings xsi:type="core:ParameterValueBinding" name="Rows" value="10"/>
+    </configurationParameterDefinitions>
+    <renderTemplate referencedName="component/common/Container"/>
+    <slotInclusionDefinitions>
+      <slotDefinition referencedName="app_sf_responsive_cm:slot.container.content.pagelet2-Slot"/>
+    </slotInclusionDefinitions>
+  </pageletDefinitions>
+</pagelet:PageletModel>

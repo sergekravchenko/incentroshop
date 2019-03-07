@@ -1,0 +1,123 @@
+<%@page import="com.intershop.beehive.core.capi.pipeline.PipelineDictionary"%>
+<iscontent type="text/html" charset="UTF-8" compact="true">
+
+<ismodule template="quote/QuoteState"
+	name="QuoteState"
+	attribute="quote"
+	attribute="displaymode">
+
+<isinclude template="modules/B2BModules">
+
+<isinclude template="inc/CSRFGuardJSToken"/>
+
+<div class="breadcrumbs row">
+	<isAccountBreadcrumb trailtext="#localizeText('quote.quotes.link')#">
+</div>
+
+<!--- Marketing slot --->
+<div class="marketing-area">
+	<ISMarketingSlot id="baseMarketing">
+</div>
+
+<div class="account-wrapper">
+	<div class="row account-main">
+		<!--- Left Navigation Panel --->
+		<div class="col-md-3 account-nav-box">
+			<isAccountNavigation selecteditem="QUOTES">
+		</div>
+		<div class="col-md-9">
+			<!--- Marketing slot --->
+			<div class="marketing-area">
+				<ISMarketingSlot id="contentMarketing">
+			</div>
+			
+			<h1><istext key="quote.list.heading" /></h1>
+			
+			<isif condition="#hasElements(Quotes)#">
+				<div class="table-responsive">
+					<table class="table">
+						<thead>
+							<tr>
+								<th><istext key="quote.list.table.quote_no" /></th>
+								<th><istext key="quote.list.table.name" /></th>
+								<th><istext key="quote.list.table.line_items" /></th>
+								<th><istext key="quote.list.table.creation_date" /></th>
+								<th><istext key="quote.list.table.expiration_date" /></th>
+								<th><istext key="quote.list.table.status" /></th>
+								<th></th>
+							</tr>
+						</thead>
+						<isloop iterator="Quotes" alias="Quote">
+							<tr>
+								<td>
+									<a href="#URL(Action("ViewQuote-Edit"), Parameter("QuoteUUID",Quote:UUID), Parameter("PageNumber", Quotes:Page))#" ><isprint value="#Quote:DocumentNo#"></a>
+								</td>
+								<td>
+									<a href="#URL(Action("ViewQuote-Edit"), Parameter("QuoteUUID",Quote:UUID), Parameter("PageNumber", Quotes:Page))#" ><isprint value="#Quote:DisplayName#"></a>
+								</td>
+								<td>
+									<isprint value="#Quote:IndependentItemsCount#">
+								</td>
+								<td>
+									<isprint value="#Quote:ProductListEventByType("CreatedByBuyer"):EventDate#">
+								</td>
+								<td>
+									<isif condition="#Quote:State < 4#">
+										-
+									<iselse>
+										
+										<isif condition="#(Quote:ValidTo:Time) < (CurrentDate:Time)#">
+											<span class="text-danger">
+												<istext key="quote.edit.submitted.your_quote_expired.text" parameter0="#getValue(Quote:ValidTo, DATE_INPUT)#" parameter1="#getValue(Quote:ValidTo, DATE_TIME)#" parameter2="#QuoteLifeTime#" />
+											</span>
+										<iselse>
+											<isprint value="#Quote:ValidTo#">
+										</isif>
+										
+									</isif>
+								</td>
+								<td align="left" nowrap="nowrap">
+									
+									<ISQuoteState quote="#Quote#" currentdate="#CurrentDate#" displaymode="quoter">
+
+								</td>
+								<td class="text-right">
+									<a class="btn-tool" data-toggle="modal" href="#replace('#basicModal_'.Quote:UUID,'\\.','')#" <!---TODO: should probably use a different pipeline instead of template overloading ---> title="<istext key="quote.list.delete.button.delete.label" />"><span class="glyphicon glyphicon-trash"></span></a>
+								</td>
+							</tr>
+							
+							<div class="modal fade" id="#replace('basicModal_'.Quote:UUID,'\\.','')#" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+								<div class="modal-dialog">
+									<div class="modal-content">
+										<div class="modal-header">
+										<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only"><istext key="modal.close" /></span></button>
+										<h2 class="modal-title" id="myModalLabel"><istext key="quote.list.modaldialog.title" /></h2>
+										</div>
+										<div class="modal-body">
+											<p><istext key="quote.list.delete.heading" parameter0="#Quote:DisplayName#" /></p>
+											<p><istext key="quote.list.delete.do_you_really_want_to_delete.text" /></p>
+										</div>
+										<div class="modal-footer">
+											<a data-csrf-guarded class='btn btn-primary' href='<isprint value="#URL(Action("ViewQuote-Delete"), Parameter("QuoteUUID",Quote:UUID))#" encoding="javascript">'><istext key="quote.list.delete.button.yes.label" /></a>
+											<a href="#'#'#" class='btn btn-default' data-dismiss='modal'><istext key="quote.list.delete.button.no.label" /></a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</isloop>
+	
+					</table>
+				</div>
+				<ismappagination 
+					pipeline="#"ViewQuoteList-Paging"#" 
+					itemcount="#Quotes:ElementCount#"
+					currentpage="#Quotes:Page#"
+					pagecount="#Quotes:PageCount#"
+					params="#""#"
+			 	>
+			<iselse>
+				<istext key="quote.list.empty" />
+			</isif>
+		</div>
+	</div>
+</div>

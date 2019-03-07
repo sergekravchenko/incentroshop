@@ -1,0 +1,189 @@
+<iscontent type="text/html" charset="UTF-8" compact="true">
+
+<!--- SET FORM ACTION FOR COST CENTER FORM --->
+<isif condition="#isDefined(FormType) AND (FormType EQ 'create')#">
+	<isset scope="request" name="FormAction" value="#URLEX(SecureURL,'',Action('ViewCostCenter-Create'))#">
+<iselse>
+	<isset scope="request" name="FormAction" value="#URLEX(SecureURL,'',Action('ViewCostCenter-Update'))#">
+</isif>
+
+<isform 
+	method="post" 
+	action="#FormAction#" 
+	name="#getValue(CostCenterForm:Alias)#"
+	class="form-horizontal bv-form"
+	data-bv-message="This value is not valid"
+	data-bv-feedbackicons-valid="glyphicon glyphicon-ok"
+	data-bv-feedbackicons-invalid="glyphicon glyphicon-remove"
+	data-bv-feedbackicons-validating="glyphicon glyphicon-refresh"
+>
+	<input type="hidden" name="<isprint value="#CostCenterForm:CustomerID:QualifiedName#">" value="<isprint value="#CustomerBO:ID#">"/>
+	<isif condition="#isDefined(CostCenterBO)#">
+		<input type="hidden" name="<isprint value="#CostCenterForm:CostCenterID:QualifiedName#">" value="<isprint value="#CostCenterBO:ID#">"/>
+	</isif>
+	
+	<!--- ID --->
+	<div class="form-group">
+		<label class="control-label col-sm-3 col-xs-4" for="<isprint value="#CostCenterForm:Number:QualifiedName#">"><istext key="account.costcenter.form.field.no.label" /></label>
+		<div class="col-sm-9 col-xs-8">	
+			<input type="text"
+				class="form-control" 
+				name="<isprint value="#CostCenterForm:Number:QualifiedName#">" 
+				id="<isprint value="#CostCenterForm:Number:QualifiedName#">" 
+				value="<isprint value="#CostCenterForm:Number:Value#">" 
+				class="form-control<isif condition="#CostCenterForm:Number:isInvalid#"> error</isif>" 
+				data-bv-notempty="true" required data-bv-notempty-message="<istext key="account.costcenter.create.no.required.validation" />"  
+			/>
+	    </div>
+	</div>
+	
+	<!--- NAME --->
+	<div class="form-group">
+		<label class="control-label col-sm-3 col-xs-4" for="<isprint value="#CostCenterForm:Name:QualifiedName#">"><istext key="account.costcenter.form.field.name.label" /></label>
+		<div class="col-sm-9 col-xs-8">	
+			<input type="text" 
+				class="form-control<isif condition="#CostCenterForm:Name:isInvalid#"> error</isif>" 
+				name="<isprint value="#CostCenterForm:Name:QualifiedName#">"
+				id="<isprint value="#CostCenterForm:Name:QualifiedName#">" 
+				value="<isprint value="#CostCenterForm:Name:Value#">" 
+				data-bv-notempty="true" required data-bv-notempty-message="<istext key="account.costcenter.create.name.required.validation" />"  
+			/>
+	    </div>
+	</div>
+	
+	<!--- BUDGET + BUDGET PERIOD --->
+	<div class="form-group">
+		<label class="control-label col-sm-3 col-xs-4" for="<isprint value="#CostCenterForm:BudgetType:QualifiedName#">"><istext key="account.costcenter.form.field.budget.label" /></label>
+		<div class="col-sm-9 col-xs-8">
+			
+			<div class="row">
+				
+				<div class="col-sm-6 form-vertical-space">
+					
+					<div class="input-group"> 
+						<span class="input-group-addon">
+							<isprint value="#CurrentRequest:CurrencyCode#">
+						</span>
+						<input type="text" 
+							class="form-control<isif condition="#CostCenterForm:Budget:isInvalid#"> error</isif>" 
+							name="<isprint value="#CostCenterForm:Budget:QualifiedName#">" 
+							id="<isprint value="#CostCenterForm:Budget:QualifiedName#">" 
+							value="<isprint value="#CostCenterForm:Budget:Value:Value#">" 
+							data-bv-notempty="true" required data-bv-notempty-message="<istext key="account.costcenter.create.budget.required.validation" />"  
+						/>
+					</div> 
+    
+				</div>
+				
+				<div class="col-sm-6">
+					<select
+						class="form-control" 
+						name="<isprint value="#CostCenterForm:BudgetPeriod:QualifiedName#">"
+					>
+						<option value="fixed" <isif condition="#(CostCenterForm:BudgetPeriod:Value EQ 'fixed') OR (CostCenterForm:BudgetPeriod:Value EQ '')#">selected="selected"</isif>><istext key="account.costcenter.label.budget.period.fixed"></option>
+						<option value="weekly" <isif condition="#CostCenterForm:BudgetPeriod:Value EQ 'weekly'#">selected="selected"</isif>><istext key="account.costcenter.form.field.budget.period.value.weekly"></option>
+						<option value="monthly" <isif condition="#CostCenterForm:BudgetPeriod:Value EQ 'monthly'#">selected="selected"</isif>><istext key="account.costcenter.form.field.budget.period.value.monthly"></option>
+						<option value="quarterly" <isif condition="#CostCenterForm:BudgetPeriod:Value EQ 'quarterly'#">selected="selected"</isif>><istext key="account.costcenter.form.field.budget.period.value.quarterly"></option>
+					</select>
+				</div>
+				
+			</div>
+			
+	    </div>
+	</div>
+	
+	<!--- NAME --->
+	<div class="form-group">
+		<label class="control-label col-sm-3 col-xs-4" for="<isprint value="#CostCenterForm:Manager:QualifiedName#">"><istext key="account.costcenter.form.field.manager.label" /></label>
+		<div class="col-sm-9 col-xs-8">	
+			<select class="form-control" name="<isprint value="#CostCenterForm:Manager:QualifiedName#">"
+				data-bv-notempty="true" required data-bv-notempty-message="<istext key="account.costcenter.create.manager.required.validation" />">
+				<isloop iterator="UserBOs" alias="UserBO">
+					<option value="<isprint value="#UserBO:ID#">" <isif condition="#CostCenterForm:Manager:Value EQ UserBO:ID#">selected="selected"</isif>>
+						<isif condition="#(UserBO:FirstName EQ '') AND (UserBO:LastName EQ '')#">
+							<isprint value="#UserBO:Login#">
+						<iselse>
+							<isprint value="#UserBO:FirstName#"> <isprint value="#UserBO:LastName#">
+						</isif>
+					</option>
+					
+				</isloop>
+			</select>
+	    </div>
+	</div>
+<div class="row">	
+	<div class="modal-footer">
+		<div class="pull-right">
+			<!--- The second button is intentionally copied for both conditions because ISIF deletes the new line between the buttons which matters when html is 
+				  rendered in browser in order to have a space between the buttons --->
+			<isif condition="#isDefined(FormType) AND (FormType EQ 'create')#">
+				<button id="create-costcenter-submit" class="btn btn-primary" type="submit" name="create"><istext key="account.costcenter.form.button.create.text"></button>
+				<button type="button" class="btn btn-default" data-dismiss="modal" name="cancel"><istext key="account.costcenter.form.button.cancel.text"></button>
+			<iselse>
+				<button class="btn btn-primary" type="submit" name="edit"><istext key="account.costcenter.details.action.save"></button>
+				<button type="button" class="btn btn-default" data-dismiss="modal" name="cancel"><istext key="account.costcenter.form.button.cancel.text"></button>
+			</isif>
+		</div>
+	</div>
+</div>
+	
+</isform>
+
+<script type="text/javascript">
+
+$(document).on('click', '#'#'#create-costcenter-submit', function(event) {
+    var modal = $('#'#'#general-costcenter-modal');
+    var form = $(modal).find('form');
+    var button = $(this);
+    
+    event.preventDefault();
+    
+    $('#'#'#' + 'create-costcenter-submit').attr("disabled", true);
+    
+    $.ajax({
+        url : '<isprint value="#URL(Action('ViewCostCenter-ValidateCreate'))#" encoding="javascript"/>',
+        type: "POST",
+        dataType: 'json',
+        data : form.serializeArray(),
+        success : function(data) {
+            var costCenterNumberID = '<isprint value="#CostCenterForm:Number:QualifiedName#">';
+            var costCenterNumberDiv = $('#'#'#' + costCenterNumberID).parent();
+            var numberDuplicateMessage = document.getElementById('NumberDuplicateMessage');
+            var costCenterBudgetID = '<isprint value="#CostCenterForm:Budget:QualifiedName#">';
+            var costCenterBudgetDiv = $('#'#'#' + costCenterBudgetID).parent().parent();
+            var budgetInvalidMessage = document.getElementById('BudgetInvalidMessage');
+            
+            if (data.CostCenterIDExists) {
+                costCenterNumberDiv.addClass('has-error');
+                if (!numberDuplicateMessage) {
+                    costCenterNumberDiv.append($('<small id="NumberDuplicateMessage" style="display: block;" class="help-block" data-bv-for="' + costCenterNumberID + '"><istext key="account.costcenter.create.no.duplicate.validation" /></small>'));
+                }
+            } else {
+                costCenterNumberDiv.removeClass('has-error');
+                if (numberDuplicateMessage) {
+                    $('#'#'#' + 'NumberDuplicateMessage').remove();
+                }
+            }
+            if (data.InvalidBudgetValue) {
+                costCenterBudgetDiv.addClass('has-error');
+                if (!budgetInvalidMessage) {
+                    costCenterBudgetDiv.append($('<small id="BudgetInvalidMessage" style="display: block;" class="help-block" data-bv-for="' + costCenterBudgetID + '"><istext key="account.costcenter.create.budget.invalid.validation" /></small>'));
+                }
+            } else {
+                costCenterBudgetDiv.removeClass('has-error');
+                if (budgetInvalidMessage) {
+                    $('#'#'#' + 'BudgetInvalidMessage').remove();
+                }
+            }
+            
+            $('#'#'#' + 'create-costcenter-submit').attr("disabled", false);
+            
+            if (!(data.CostCenterIDExists || data.InvalidBudgetValue)) {
+                // all valid - go to create new cost center
+                form.submit();
+            }
+        }
+    });
+});
+
+</script>

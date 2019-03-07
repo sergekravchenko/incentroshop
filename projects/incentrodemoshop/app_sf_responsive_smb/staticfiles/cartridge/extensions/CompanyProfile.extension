@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<extensionpoint:ExtensionPointModel xmlns:extensionpoint="http://www.intershop.de/extensionpoint/2011" name="CompanyProfile">
+  <extensionBindings type="isml" extensionPoint="account/ProfileSettings-AccountProfileDepartmentExtensions" extension="account/profile/CompanyProfile"/>
+  <extensionBindings type="isml" extensionPoint="account/profile/Profile-AccountProfileDepartmentExtensions" extension="account/profile/Department"/>
+  <extensionBindings type="isml" extensionPoint="account/profile/ProfileEdit-AccountProfileDepartmentExtensions" extension="account/profile/department/Edit"/>
+</extensionpoint:ExtensionPointModel>

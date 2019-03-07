@@ -1,0 +1,9 @@
+<iscontent type="text/html" charset="UTF-8" compact="true" templatemarker="true">
+
+<!--- Has to be included in another template where CostCenterExtension is defined. --->
+
+<!---display cost center --->
+<isif condition="#isDefined (CostCenterExtension:CostCenterBO)#">
+	<div><istext key="checkout.payment.costcenter.label"/>: <span data-testing-id="order-cost-center"><isprint value="#CostCenterExtension:CostCenterBO:Name#" /> <isprint value="#CostCenterExtension:CostCenterBO:DisplayName#" /></span></div>
+</isif>
+

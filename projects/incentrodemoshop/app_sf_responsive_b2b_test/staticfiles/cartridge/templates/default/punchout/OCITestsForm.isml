@@ -1,0 +1,135 @@
+<!---[Comment]--->
+<iscontent type="text/html" charset="UTF-8" compact="true">
+<html>
+<head>
+	<title>Punch Out - Tests Form</title>
+	
+	<style type="text/css">
+	  table {width:600px; }
+	  table.title {margin-bottom:5px; }
+	  form {margin-bottom:5px; }
+	  td { font-size:100%; text-align:left;}
+	  td.datafields { font-size:90%; }
+	  td.tabletitle { text-align:center; font-weight:bold;}
+	  td.tabledescription { text-align:center; align:center;}
+	</style>
+</head>
+<body>
+<table class="title" cellpadding="2">
+<tr><td class="tabletitle">OCI Punch Out - Tests Form</td></tr>
+<tr><td class="tabledescription">Allows to trigger OCI Tests(basket inbound, validate, search, detail)</td></tr>
+</table>
+
+<form action="#URL(Action('ViewOCICatalog-Start'))#" method="post" name="BasketInboundForm">
+<table border="1" bordercolor="#ffffff" cellpadding="2">
+<tr><td class="tabletitle" colspan="2">OCI Punch Out - login to prepare Basket for procurement inbound</td></tr>
+<tr><td align="left" width="25%" nowrap="nowrap">from parameter</td><td align="left" width="75%">parameter values</td></tr>
+<tr>
+    <td class="datafields">USERNAME:</td>
+    <td class="datafields"><input type="text" name="USERNAME" value="ociuser@test.intershop.de" size="65"></td>
+</tr>
+<tr>
+    <td class="datafields">PASSWORD:</td>
+    <td class="datafields"><input type="text" name="PASSWORD" value="!InterShop00!" size="65"></td>
+</tr>
+<tr>
+    <td class="datafields">HOOK_URL:</td>
+    <td class="datafields"><input type="text" name="HOOK_URL" value="TestPunchoutInboundData-Start" size="65"></td>
+</tr>
+<tr><td class="tabledescription" colspan="2"><input type="submit" name="submit" value="submit - to prepare Basket"></td></tr>
+</table>
+</form>
+
+<form action="#URL(Action('ViewOCICatalog-Start'))#" method="post" name="BasketInboundForm">
+<table border="1" bordercolor="#ffffff" cellpadding="2">
+<tr><td class="tabletitle" colspan="2">OCI Punch Out - login to validate a product from Basket</td></tr>
+<tr><td align="left" width="25%" nowrap="nowrap">from parameter</td><td align="left" width="75%">parameter values</td></tr>
+<tr>
+    <td class="datafields">USERNAME:</td>
+    <td class="datafields"><input type="text" name="USERNAME" value="ociuser@test.intershop.de" size="65"></td>
+</tr>
+<tr>
+    <td class="datafields">PASSWORD:</td>
+    <td class="datafields"><input type="text" name="PASSWORD" value="!InterShop00!" size="65"></td>
+</tr>
+<tr>
+    <td class="datafields">HOOK_URL:</td>
+    <td class="datafields"><input type="text" name="HOOK_URL" value="TestPunchoutInboundData-Start" size="65"></td>
+</tr>
+<tr>
+    <td class="datafields">FUNCTION:</td>
+    <td class="datafields">VALIDATE<input type="hidden" name="FUNCTION" value="VALIDATE"></td>
+</tr>
+<tr>
+    <td class="datafields">PRODUCTID:</td>
+    <td class="datafields"><input type="text" name="PRODUCTID" value="0027242869158" size="65"></td>
+</tr>
+<tr>
+    <td class="datafields">QUANTITY:</td>
+    <td class="datafields"><input type="text" name="QUANTITY" value="3" size="65"></td>
+</tr>
+<tr><td class="tabledescription" colspan="2"><input type="submit" name="submit" value="submit - to validate a product"></td></tr>
+</table>
+</form>
+
+<form action="#URL(Action('ViewOCICatalog-Start'))#" method="post" name="BasketInboundForm">
+<table border="1" bordercolor="#ffffff" cellpadding="2">
+<tr><td class="tabletitle" colspan="2">OCI Punch Out - login to search for products</td></tr>
+<tr><td align="left" width="25%" nowrap="nowrap">from parameter</td><td align="left" width="75%">parameter values</td></tr>
+<tr>
+    <td class="datafields">USERNAME:</td>
+    <td class="datafields"><input type="text" name="USERNAME" value="ociuser@test.intershop.de" size="65"></td>
+</tr>
+<tr>
+    <td class="datafields">PASSWORD:</td>
+    <td class="datafields"><input type="text" name="PASSWORD" value="!InterShop00!" size="65"></td>
+</tr>
+<tr>
+    <td class="datafields">HOOK_URL:</td>
+    <td class="datafields"><input type="text" name="HOOK_URL" value="TestPunchoutInboundData-Start" size="65"></td>
+</tr>
+<tr>
+    <td class="datafields">FUNCTION:</td>
+    <td class="datafields">BACKGROUND_SEARCH<input type="hidden" name="FUNCTION" value="BACKGROUND_SEARCH"></td>
+</tr>
+<tr>
+    <td class="datafields">SEARCHSTRING:</td>
+    <td class="datafields"><input type="text" name="SEARCHSTRING" value="Sony" size="65"></td>
+</tr>
+<tr>
+    <td class="datafields" title="Always submit form to hook url to display test results during testing.">AlwaysSubmit:<input type="checkbox" name="AUTOSUBMIT" value="true"></td>
+	<td class="datafileds"><input type="submit" name="submit" value="submit - to search for products"></td>
+</tr>
+</table>
+</form>
+
+<form action="#URL(Action('ViewOCICatalog-Start'))#" method="post" name="BasketInboundForm">
+<table border="1" bordercolor="#ffffff" cellpadding="2">
+<tr><td class="tabletitle" colspan="2">OCI Punch Out - login to get product details</td></tr>
+<tr><td align="left" width="25%" nowrap="nowrap">from parameter</td><td align="left" width="75%">parameter values</td></tr>
+<tr>
+    <td class="datafields">USERNAME:</td>
+    <td class="datafields"><input type="text" name="USERNAME" value="ociuser@test.intershop.de" size="65"></td>
+</tr>
+<tr>
+    <td class="datafields">PASSWORD:</td>
+    <td class="datafields"><input type="text" name="PASSWORD" value="!InterShop00!" size="65"></td>
+</tr>
+<tr>
+    <td class="datafields">HOOK_URL:</td>
+    <td class="datafields"><input type="text" name="HOOK_URL" value="TestPunchoutInboundData-Start" size="65"></td>
+</tr>
+<tr>
+    <td class="datafields">FUNCTION:</td>
+    <td class="datafields">DETAIL<input type="hidden" name="FUNCTION" value="DETAIL"></td>
+</tr>
+<tr>
+    <td class="datafields">PRODUCTID:</td>
+    <td class="datafields"><input type="text" name="PRODUCTID" value="0027242869158" size="65"></td>
+</tr>
+<tr><td class="tabledescription" colspan="2"><input type="submit" name="submit" value="submit - to get product details"></td></tr>
+</table>
+</form>
+
+</body>
+</html>

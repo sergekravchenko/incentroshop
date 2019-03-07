@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<enfinity xmlns:dt="http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt">
+<pagelet-component id="cmp_productLinks_collection">
+<definition-name>app_sf_responsive_cm:component.common.collection.pagelet2-Component</definition-name>
+<display-name xml:lang="de-DE">Produktverweise Sammlung</display-name>
+<display-name xml:lang="en-US">Product Links Collection</display-name>
+<display-name xml:lang="fr-FR">Liens produits Collection</display-name>
+<online>true</online>
+<author business-partner-no="admin" domain="inSPIRED"/>
+<configuration-parameters>
+<configuration-parameter name="CollectionType">
+<definition-name>app_sf_responsive_cm:component.common.collection.pagelet2-Component-CollectionType</definition-name>
+<value name="CollectionType">list</value>
+</configuration-parameter>
+</configuration-parameters>
+<slots>
+<slot>
+<definition-name>app_sf_responsive_cm:slot.collection.items.pagelet2-Slot</definition-name>
+<optional>false</optional>
+<sorting>false</sorting>
+</slot>
+</slots>
+</pagelet-component>
+<pagelet-slot-assignment id="9XwKAM4.IWoAAAE.pNBNsOz1">
+<slot definition-name="app_sf_responsive_cm:slot.collection.items.pagelet2-Slot" parent-pagelet-id="cmp_productLinks_collection" domain="inSPIRED-MasterRepository"/>
+<pagelet id="cmp_productLinks_accessories" domain="inSPIRED-MasterRepository"/>
+<position>4</position>
+<online>true</online>
+</pagelet-slot-assignment>
+<pagelet-slot-assignment id="MuUKAM4.1.AAAAE.ulFNsOz0">
+<slot definition-name="app_sf_responsive_cm:slot.collection.items.pagelet2-Slot" parent-pagelet-id="cmp_productLinks_collection" domain="inSPIRED-MasterRepository"/>
+<pagelet id="cmp_productLinks_crossSelling" domain="inSPIRED-MasterRepository"/>
+<position>3</position>
+<online>true</online>
+</pagelet-slot-assignment>
+<pagelet-slot-assignment id="F_4KAM4.CaUAAAE.k8NNsOz6">
+<slot definition-name="app_sf_responsive_cm:slot.collection.items.pagelet2-Slot" parent-pagelet-id="cmp_productLinks_collection" domain="inSPIRED-MasterRepository"/>
+<pagelet id="cmp_productLinks_differentOrderUnit" domain="inSPIRED-MasterRepository"/>
+<position>7</position>
+<online>true</online>
+</pagelet-slot-assignment>
+<pagelet-slot-assignment id="3BEKAM4.pCUAAAE.mrFNsOz4">
+<slot definition-name="app_sf_responsive_cm:slot.collection.items.pagelet2-Slot" parent-pagelet-id="cmp_productLinks_collection" domain="inSPIRED-MasterRepository"/>
+<pagelet id="cmp_productLinks_followUp" domain="inSPIRED-MasterRepository"/>
+<position>6</position>
+<online>true</online>
+</pagelet-slot-assignment>
+<pagelet-slot-assignment id="JD8KAM4.2yEAAAE.KQBNsOz8">
+<slot definition-name="app_sf_responsive_cm:slot.collection.items.pagelet2-Slot" parent-pagelet-id="cmp_productLinks_collection" domain="inSPIRED-MasterRepository"/>
+<pagelet id="cmp_productLinks_other" domain="inSPIRED-MasterRepository"/>
+<position>8</position>
+<online>true</online>
+</pagelet-slot-assignment>
+<pagelet-slot-assignment id="7pMKAM4.4MwAAAE.SQBNsOzw">
+<slot definition-name="app_sf_responsive_cm:slot.collection.items.pagelet2-Slot" parent-pagelet-id="cmp_productLinks_collection" domain="inSPIRED-MasterRepository"/>
+<pagelet id="cmp_productLinks_replacement" domain="inSPIRED-MasterRepository"/>
+<position>1</position>
+<online>true</online>
+</pagelet-slot-assignment>
+<pagelet-slot-assignment id="kHkKAM4.ga8AAAE.JENNsOz3">
+<slot definition-name="app_sf_responsive_cm:slot.collection.items.pagelet2-Slot" parent-pagelet-id="cmp_productLinks_collection" domain="inSPIRED-MasterRepository"/>
+<pagelet id="cmp_productLinks_spareParts" domain="inSPIRED-MasterRepository"/>
+<position>5</position>
+<online>true</online>
+</pagelet-slot-assignment>
+<pagelet-slot-assignment id="UAAKAM4.lXcAAAE.A8xNsOzy">
+<slot definition-name="app_sf_responsive_cm:slot.collection.items.pagelet2-Slot" parent-pagelet-id="cmp_productLinks_collection" domain="inSPIRED-MasterRepository"/>
+<pagelet id="cmp_productLinks_upSelling" domain="inSPIRED-MasterRepository"/>
+<position>2</position>
+<online>true</online>
+</pagelet-slot-assignment>
+</enfinity>

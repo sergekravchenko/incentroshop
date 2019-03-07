@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<enfinity xmlns:dt="http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt">
+<pagelet-component id="cmp_homepage_teaser1">
+<definition-name>app_sf_responsive_cm:component.common.image.pagelet2-Component</definition-name>
+<display-name xml:lang="de-DE">Homepage Teaser 1</display-name>
+<display-name xml:lang="en-US">Homepage Teaser 1</display-name>
+<display-name xml:lang="fr-FR">Accroche 1 sur la page d&apos;accueil</display-name>
+<online>true</online>
+<author business-partner-no="admin" domain="inSPIRED"/>
+<configuration-parameters>
+<configuration-parameter name="Image">
+<definition-name>app_sf_responsive_cm:component.common.image.pagelet2-Component-Image</definition-name>
+<value name="Image" xml:lang="de-DE">inSPIRED-inTRONICS-b2c-responsive:/teaser/home_cat_teaser_1_de.jpg</value>
+<value name="Image" xml:lang="en-US">inSPIRED-inTRONICS-b2c-responsive:/teaser/home_cat_teaser_1.jpg</value>
+<value name="Image" xml:lang="fr-FR">inSPIRED-inTRONICS-b2c-responsive:/teaser/home_cat_teaser_1_fr.jpg</value>
+</configuration-parameter>
+<configuration-parameter name="Link">
+<definition-name>app_sf_responsive_cm:component.common.image.pagelet2-Component-Link</definition-name>
+<value name="Link" xml:lang="de-DE">category://Computers@inSPIRED-Computers</value>
+<value name="Link" xml:lang="en-US">category://Computers@inSPIRED-Computers</value>
+<value name="Link" xml:lang="fr-FR">category://Computers@inSPIRED-Computers</value>
+</configuration-parameter>
+</configuration-parameters>
+</pagelet-component>
+</enfinity>

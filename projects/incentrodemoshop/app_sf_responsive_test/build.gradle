@@ -1,0 +1,48 @@
+apply plugin: 'test-cartridge'
+
+intershop 
+{
+	displayName = 'Test cartridge for Storefront'
+}
+
+
+dependencies 
+{
+   compile project(':app_sf_responsive')
+    
+   
+   compile group: 'com.intershop.platform', name: 'etest'
+   compile group: 'com.intershop.platform', name: 'orm'
+   compile group: 'com.intershop.platform', name: 'businessobject'
+   compile group: 'com.intershop.platform', name: 'bc_address'
+   compile group: 'com.intershop.platform', name: 'bc_user'
+   compile group: 'com.intershop.platform', name: 'configuration'
+   compile group: 'com.intershop.platform', name: 'bc_organization'
+   
+   compile group: 'com.intershop.business', name: 'bc_basket'
+   compile group: 'com.intershop.business', name: 'bc_product'
+   compile group: 'com.intershop.business', name: 'bc_catalog'
+   compile group: 'com.intershop.business', name: 'bts'
+   compile group: 'com.intershop.platform', name: 'core'
+   compile group: 'com.intershop.platform', name: 'app'
+   compile group: 'com.intershop.platform', name: 'servletengine'
+   compile group: 'com.intershop.platform', name: 'isml'
+   compile group: 'com.intershop.platform', name: 'pf_core_test'
+   compile group: 'com.intershop.platform', name: 'emf'
+   compile group: 'com.intershop.business', name: 'xcs'
+   compile group: 'com.intershop.business', name: 'bc_search'
+   compile group: 'com.intershop.business', name: 'bc_image'
+   compile group: 'com.intershop.platform', name: 'dev_query'
+   compile group: 'com.intershop.platform', name: 'bc_foundation'
+
+   compile 'org.mockito:mockito-core'
+   compile 'com.google.guava:guava'
+   compile 'org.hamcrest:hamcrest-core'
+   compile 'org.hamcrest:hamcrest-library'
+   compile 'junit:junit'
+   
+   compile 'org.eclipse.emf:org.eclipse.emf.common'
+   compile 'org.eclipse.emf:org.eclipse.emf.ecore'
+    
+   compile group: 'com.intershop.business', name: 'bc_product_orm_test'
+}

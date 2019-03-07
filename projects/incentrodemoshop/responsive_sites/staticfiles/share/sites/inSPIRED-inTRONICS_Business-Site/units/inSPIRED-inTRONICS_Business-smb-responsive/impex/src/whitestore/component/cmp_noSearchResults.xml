@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<enfinity xmlns:dt="http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt">
+<pagelet-component id="cmp_noSearchResults">
+<definition-name>app_sf_responsive_cm:component.shopping.noSearchResult.pagelet2-Component</definition-name>
+<display-name xml:lang="de-DE">Ihre Suche ergab keine Treffer</display-name>
+<display-name xml:lang="en-US">No Search Results</display-name>
+<online>true</online>
+<author business-partner-no="admin" domain="inSPIRED"/>
+<configuration-parameters>
+<configuration-parameter name="HTML">
+<definition-name>app_sf_responsive_cm:component.shopping.noSearchResult.pagelet2-Component-HTML</definition-name>
+<value name="HTML" xml:lang="de-DE">&lt;h4 class=&quot;cms-search-tips-header&quot;&gt;Search Tips &amp; Guidelines&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;Double check the spelling. Try varying the spelling or browse our lists of product categories that appear on our homepage.&lt;/li&gt;
+&lt;li&gt;Limit the search to one or two terms.&lt;/li&gt;
+&lt;li&gt;Be less specific in your terminology. Using a more general term(s) is likely to lead you to similiar and related products.&lt;/li&gt;
+&lt;/ol&gt;</value>
+<value name="HTML" xml:lang="en-US">&lt;h4 class=&quot;cms-search-tips-header&quot;&gt;Search Tips &amp; Guidelines&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;Double check the spelling. Try varying the spelling or browse our lists of product categories that appear on our homepage.&lt;/li&gt;
+&lt;li&gt;Limit the search to one or two terms.&lt;/li&gt;
+&lt;li&gt;Be less specific in your terminology. Using a more general term(s) is likely to lead you to similiar and related products.&lt;/li&gt;
+&lt;/ol&gt;</value>
+</configuration-parameter>
+<configuration-parameter name="ProductView">
+<definition-name>app_sf_responsive_cm:component.shopping.noSearchResult.pagelet2-Component-ProductView</definition-name>
+<value name="ProductView">app_sf_responsive:vc_productTile@inSPIRED-inTRONICS_Business-smb-responsive</value>
+</configuration-parameter>
+</configuration-parameters>
+<slots>
+<slot>
+<definition-name>app_sf_responsive_cm:slot.marketing.base.pagelet2-Slot</definition-name>
+<optional>false</optional>
+<sorting>false</sorting>
+</slot>
+</slots>
+</pagelet-component>
+</enfinity>

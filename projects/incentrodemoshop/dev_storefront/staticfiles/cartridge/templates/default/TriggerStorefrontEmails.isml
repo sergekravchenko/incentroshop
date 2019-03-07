@@ -1,0 +1,84 @@
+<iscontent type="text/html" charset="UTF-8" compact="true" templatemarker="false">
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="icon" type="image/png" href="#WebRoot()#/img/logo_is7.ico">
+		
+		<title><istext key="TestEmails.title.text"/></title>
+		
+		<link rel="STYLESHEET" type="text/css" href="#WebRoot()#/css/theme.css"/>
+		<link rel="STYLESHEET" type="text/css" href="#WebRoot()#/css/devstorefront.css"/>
+		
+		<script language="javascript" type="text/javascript" src="#WebRoot()#/js/vendor/jquery-1.11.3.js"></script>
+		<script language="javascript" type="text/javascript" src="#WebRoot()#/js/vendor/jquery-1.11.3.js"></script>
+		<script language="javascript" type="text/javascript" src="#WebRoot()#/js/vendor/bootstrap-3.3.5.js"></script>
+		<script language="javascript" type="text/javascript" src="#WebRoot()#/js/vendor/bootstrapValidator-0.5.0.js"></script>
+		<script language="javascript" type="text/javascript" src="#WebRoot()#/js/validation.js"></script>
+		<script language="javascript" type="text/javascript" src="#WebRoot()#/js/devstorefront.js"></script>	
+	</head>
+	<body>
+		<div class="wrapper"><isprint value="#Order:NotificationEmail#"/>
+			<div class="test-email-container container main-container" role="main">
+				<h1><istext key="TestEmails.title.text"/></h1>
+				<isform action="#URLEX(SecureURL,'',Action('TriggerStorefrontEmails-SendOrderConfirmation'))#" 
+						method="post"
+						name="TestEmailForm"
+						class="form-horizontal bv-form">
+					<!--- input section --->
+					<div class="section">
+						<div class="form-group">
+							<label for="EmailAddress" class="col-sm-3 control-label">
+								<istext key="TestEmails.EmailAddress.label"/>
+							</label>
+							<div class="col-sm-4">
+								<input class="form-control has-feedback has-error" maxlength="256" autocomplete="off" 
+									type="email" required
+									id="EmailAddress"
+									name="EmailAddress"
+									value=""
+									data-bv-emailaddress-message="Provide a valid email address"
+									data-bv-notempty-message="Email is required" />
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="EmailAddress" class="col-sm-3 control-label">
+								<istext key="TestEmails.OrderNumber.label"/>
+							</label>
+							<div class="col-sm-4">
+								<input class="form-control has-feedback has-error" maxlength="256" autocomplete="off" 
+									type="text" required
+									id="OrderNumber"
+									name="OrderNumber"
+									value=""
+									data-bv-notempty-message="Order number is required" />
+							</div>
+						</div>
+					</div>
+					
+					<!--- button section --->
+					<div class="section">
+						<div class="form-group">
+							<label for="SendRegistrationEmail" class="col-sm-3 control-label">
+								<istext key="TestEmails.SendOrderEmailNotification.label"/>
+							</label>
+							<div class="col-sm-4">
+								<button data-sendmail-type="SendRegistrationEmail" name="SendRegistrationEmail" value="sendRegistrationEmail" type="submit" class="btn btn-primary"><istext key="TestEmails.SendButton.text"/></button>
+								<!--- success marker --->
+								<isif condition="#isDefined(MailResult)#">
+									<isif condition="#MailResult EQ 'OK'#">
+										<span class="glyphicon glyphicon-thumbs-up"></span>
+									<iselse>
+										<span class="glyphicon glyphicon-thumbs-down"></span>
+									</isif>
+								</isif>
+							</div>
+						</div>
+					</div>
+					
+				</isform>
+			</div>
+		</div>
+	</body>
+</html>

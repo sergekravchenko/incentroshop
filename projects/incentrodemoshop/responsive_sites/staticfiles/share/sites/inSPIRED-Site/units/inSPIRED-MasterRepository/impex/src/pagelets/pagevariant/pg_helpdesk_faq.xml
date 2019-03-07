@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<enfinity xmlns:dt="http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt">
+<pagelet-page id="pg_helpdesk_faq">
+<definition-name>app_sf_responsive_cm:pagevariant.standard.pagelet2-Pagevariant</definition-name>
+<parent id="pg_tmp_helpDeskPage" domain="inSPIRED-MasterRepository" />
+<display-name xml:lang="de-DE">Häufige Fragen</display-name>
+<display-name xml:lang="en-US">Frequently Asked Questions</display-name>
+<display-name xml:lang="fr-FR">Foire aux questions</display-name>
+<online>true</online>
+<author business-partner-no="admin" domain="inSPIRED"/>
+<configuration-parameters>
+<configuration-parameter name="MetaInfo">
+<definition-name>app_sf_responsive_cm:pagevariant.standard.pagelet2-Pagevariant-MetaInfo</definition-name>
+<value name="MetaInfo" xml:lang="de-DE">metaTitle=Häufige Fragen;metaDescription=;metaKeywords=</value>
+<value name="MetaInfo" xml:lang="en-US">metaTitle=Frequently Asked Questions;metaDescription=;metaKeywords=</value>
+<value name="MetaInfo" xml:lang="fr-FR">metaTitle=Frequently Asked Questions;metaDescription=;metaKeywords=</value>
+</configuration-parameter>
+<configuration-parameter name="RobotsNoFollow">
+<definition-name>app_sf_responsive_cm:pagevariant.standard.pagelet2-Pagevariant-RobotsNoFollow</definition-name>
+<value name="RobotsNoFollow">false</value>
+</configuration-parameter>
+<configuration-parameter name="RobotsNoIndex">
+<definition-name>app_sf_responsive_cm:pagevariant.standard.pagelet2-Pagevariant-RobotsNoIndex</definition-name>
+<value name="RobotsNoIndex">false</value>
+</configuration-parameter>
+</configuration-parameters>
+<placeholder-configurations>
+<placeholder-configuration hide-target-content="false" place-target-content-on-top="false">
+<parent-placeholder placeholder-id="ph_helpDeskPage_BaseMarketing"/>
+</placeholder-configuration>
+<placeholder-configuration hide-target-content="false" place-target-content-on-top="false">
+<parent-placeholder placeholder-id="ph_helpDeskPage_Content"/>
+</placeholder-configuration>
+<placeholder-configuration hide-target-content="false" place-target-content-on-top="false">
+<parent-placeholder placeholder-id="ph_helpDeskPage_sidePanelMarketing"/>
+</placeholder-configuration>
+</placeholder-configurations>
+</pagelet-page>
+<pagelet-placeholder-assignment id="FB4KAM4.o.kAAAE_1GkYNOxs">
+<placeholder pagelet-domain="inSPIRED-MasterRepository" pagelet-id="pg_helpdesk_faq">
+<parent-placeholder placeholder-id="ph_helpDeskPage_Content"/>
+</placeholder>
+<pagelet id="cmp_helpdesk_faq_questions" domain="inSPIRED-MasterRepository"/>
+<position>2</position>
+<online>true</online>
+</pagelet-placeholder-assignment>
+<pagelet-placeholder-assignment id="R5EKAM4.g1IAAAE_6msYNOxm">
+<placeholder pagelet-domain="inSPIRED-MasterRepository" pagelet-id="pg_helpdesk_faq">
+<parent-placeholder placeholder-id="ph_helpDeskPage_Content"/>
+</placeholder>
+<pagelet id="cmp_helpdesk_faq_title" domain="inSPIRED-MasterRepository"/>
+<position>1</position>
+<online>true</online>
+</pagelet-placeholder-assignment>
+<pagelet-placeholder-assignment id="bqQKAM4.srYAAAE_imAYNOyD">
+<placeholder pagelet-domain="inSPIRED-MasterRepository" pagelet-id="pg_helpdesk_faq">
+<parent-placeholder placeholder-id="ph_helpDeskPage_Content"/>
+</placeholder>
+<pagelet id="cmp_helpdesk_faq_footer" domain="inSPIRED-MasterRepository"/>
+<position>3</position>
+<online>true</online>
+</pagelet-placeholder-assignment>
+</enfinity>

@@ -1,0 +1,648 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pipeline:Pipeline xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pipeline="http://www.intershop.de/pipeline/2010"
+    name="ViewQuickorder" type="view">
+<!--@Location 12,0-->
+  <nodes xsi:type="pipeline:StartNode" nodeID="StartNode5" name="AddSingleProduct">
+    <nodeSuccessors name="next" next="TrimString0"/>
+  </nodes>
+<!--@Location 12,1-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="TrimString0">
+    <pipelet href="enfinity:/core/pipelets/TrimString.xml"/>
+    <nodeSuccessors name="next" next="RemoveDictionaryValue0"/>
+    <parameterBindings name="String" objectPath="SKU"/>
+    <returnValueBindings name="TrimmedString" objectPath="SKU"/>
+  </nodes>
+<!--@Location 12,2-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="RemoveDictionaryValue0">
+    <configurationValues name="Key" value="SKU"/>
+    <configurationValues name="RemoveFormValues" value="true"/>
+    <pipelet href="enfinity:/core/pipelets/RemoveDictionaryValue.xml"/>
+    <nodeSuccessors name="next" next="DecisionNode5"/>
+  </nodes>
+<!--@Location 12,4-->
+  <nodes xsi:type="pipeline:DecisionNode" nodeID="DecisionNode5" conditionKey="Quantity"
+      operator="str_empty">
+    <nodeSuccessors name="decision_yes" next="SetDictionaryValue6"/>
+    <nodeSuccessors name="decision_no" next="VerifyQuantity0"/>
+  </nodes>
+<!--@Location 13,4-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="SetDictionaryValue6">
+    <configurationValues name="Name" value="ERROR_NoQuantity"/>
+    <configurationValues name="Value" value="true"/>
+    <pipelet href="enfinity:/core/pipelets/SetDictionaryValue.xml"/>
+    <nodeSuccessors name="next" next="JoinNode7"/>
+  </nodes>
+<!--@Location 14,4-->
+  <nodes xsi:type="pipeline:JoinNode" nodeID="JoinNode7">
+    <nodeSuccessors name="next" next="DecisionNode7"/>
+  </nodes>
+<!--@Location 15,4-->
+  <nodes xsi:type="pipeline:DecisionNode" nodeID="DecisionNode7" conditionKey="SKU"
+      operator="str_empty">
+<!--@BendPoints 33,9-->
+    <nodeSuccessors name="decision_yes" next="JoinNode5"/>
+    <nodeSuccessors name="decision_no" next="CallNode_pcySYDY6EeeHWqp-Rp9o2w"/>
+  </nodes>
+<!--@Location 16,6-->
+  <nodes xsi:type="pipeline:JoinNode" nodeID="JoinNode5">
+    <nodeSuccessors name="next" next="SetDictionaryValue7"/>
+  </nodes>
+<!--@Location 16,9-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="SetDictionaryValue7">
+    <configurationValues name="Name" value="ERROR_NoSKU"/>
+    <configurationValues name="Value" value="true"/>
+    <pipelet href="enfinity:/core/pipelets/SetDictionaryValue.xml"/>
+<!--@BendPoints 33,20 33,21-->
+    <nodeSuccessors name="next" next="JoinNode1"/>
+  </nodes>
+<!--@Location 15,10-->
+  <nodes xsi:type="pipeline:JoinNode" nodeID="JoinNode1">
+    <nodeSuccessors name="next" next="SetDictionaryValue5"/>
+  </nodes>
+<!--@Location 15,11-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="SetDictionaryValue5">
+    <configurationValues name="Name" value="ERROR_DirectOrderInput"/>
+    <configurationValues name="Value" value="true"/>
+    <pipelet href="enfinity:/core/pipelets/SetDictionaryValue.xml"/>
+    <nodeSuccessors name="next" next="JumpNode3"/>
+  </nodes>
+<!--@Location 15,12-->
+  <nodes xsi:type="pipeline:JumpNode" nodeID="JumpNode3">
+    <startNode referencedName="ViewCart-View"/>
+  </nodes>
+<!--@Location 15,7-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode_pcySYDY6EeeHWqp-Rp9o2w">
+    <nodeSuccessors name="next" next="CallNode8"/>
+    <startNode referencedName="ProcessUser-GetCurrentUserBOAndCustomerBO"/>
+  </nodes>
+<!--@Location 15,8-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode8">
+    <nodeSuccessors name="AVAILABLE" next="JoinNode1"/>
+    <nodeSuccessors name="NOT_AVAILABLE" next="JoinNode9"/>
+    <parameterBindings name="Currency" objectPath="CurrentRequest:Currency"/>
+    <parameterBindings name="Organization" objectPath="CurrentOrganization"/>
+    <startNode referencedName="ProcessQuickorder-CheckProductAvailable"/>
+  </nodes>
+<!--@Location 13,9-->
+  <nodes xsi:type="pipeline:JoinNode" nodeID="JoinNode9">
+    <nodeSuccessors name="next" next="SetDictionaryValue3"/>
+  </nodes>
+<!--@Location 13,10-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="SetDictionaryValue3">
+    <configurationValues name="Name" value="ERROR_ProductNotFound"/>
+    <configurationValues name="Value" value="true"/>
+    <pipelet href="enfinity:/core/pipelets/SetDictionaryValue.xml"/>
+    <nodeSuccessors name="next" next="JoinNode1"/>
+  </nodes>
+<!--@Location 12,5-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="VerifyQuantity0">
+    <configurationValues name="MaxValue" value="999999999999999999999999999999"/>
+    <configurationValues name="MinValue" value="0"/>
+    <pipelet href="enfinity:/bc_foundation/pipelets/VerifyQuantity.xml"/>
+    <nodeSuccessors name="next" next="DecisionNode6"/>
+    <nodeSuccessors name="pipelet_error" next="SetDictionaryValue8"/>
+    <parameterBindings name="LocalizedString" objectPath="Quantity"/>
+  </nodes>
+<!--@Location 12,6-->
+  <nodes xsi:type="pipeline:DecisionNode" nodeID="DecisionNode6" conditionKey="SKU"
+      operator="str_empty">
+    <nodeSuccessors name="decision_yes" next="JoinNode5"/>
+    <nodeSuccessors name="decision_no" next="CallNode_otFTwDY6EeeHWqp-Rp9o2w"/>
+  </nodes>
+<!--@Location 12,7-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode_otFTwDY6EeeHWqp-Rp9o2w">
+    <nodeSuccessors name="next" next="CallNode7"/>
+    <startNode referencedName="ProcessUser-GetCurrentUserBOAndCustomerBO"/>
+  </nodes>
+<!--@Location 12,8-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode7">
+    <nodeSuccessors name="AVAILABLE" next="ConcatenateStrings0"/>
+    <nodeSuccessors name="NOT_AVAILABLE" next="JoinNode9"/>
+    <parameterBindings name="Currency" objectPath="CurrentRequest:Currency"/>
+    <parameterBindings name="Organization" objectPath="CurrentOrganization"/>
+    <startNode referencedName="ProcessQuickorder-CheckProductAvailable"/>
+  </nodes>
+<!--@Location 12,10-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="ConcatenateStrings0">
+    <configurationValues name="DefaultString0" value="Quantity_"/>
+    <pipelet href="enfinity:/core/pipelets/ConcatenateStrings.xml"/>
+    <nodeSuccessors name="next" next="SetIndirectDictValue0"/>
+    <parameterBindings name="String0" nullBinding="true"/>
+    <parameterBindings name="String1" objectPath="SKU"/>
+    <parameterBindings name="String2" nullBinding="true"/>
+    <parameterBindings name="String3" nullBinding="true"/>
+    <parameterBindings name="String4" nullBinding="true"/>
+    <parameterBindings name="String5" nullBinding="true"/>
+    <parameterBindings name="String6" nullBinding="true"/>
+    <parameterBindings name="String7" nullBinding="true"/>
+    <parameterBindings name="String8" nullBinding="true"/>
+    <parameterBindings name="String9" nullBinding="true"/>
+    <returnValueBindings name="Concatenated" objectPath="KeyNameHolder"/>
+  </nodes>
+<!--@Location 12,11-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="SetIndirectDictValue0">
+    <pipelet href="enfinity:/core/pipelets/SetIndirectDictValue.xml"/>
+    <nodeSuccessors name="next" next="JumpNode2"/>
+    <parameterBindings name="MappedEntry" objectPath="Quantity"/>
+  </nodes>
+<!--@Location 12,12-->
+  <nodes xsi:type="pipeline:JumpNode" nodeID="JumpNode2">
+    <startNode referencedName="ViewCart-AddProduct"/>
+  </nodes>
+<!--@Location 13,5-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="SetDictionaryValue8">
+    <configurationValues name="Name" value="ERROR_InvalidQuantity"/>
+    <configurationValues name="Value" value="true"/>
+    <pipelet href="enfinity:/core/pipelets/SetDictionaryValue.xml"/>
+<!--@BendPoints 29,11-->
+    <nodeSuccessors name="next" next="JoinNode7"/>
+  </nodes>
+<!--@Location 5,0-->
+  <nodes xsi:type="pipeline:StartNode" nodeID="StartNode0" name="AddToBag">
+    <nodeSuccessors name="next" next="CallNode12"/>
+  </nodes>
+<!--@Location 5,1-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode12">
+    <nodeSuccessors name="next" next="CallNode4"/>
+    <parameterBindings name="BasketBORepository" objectPath="ApplicationBO:Repository(&quot;BasketBORepository&quot;)"/>
+    <parameterBindings name="Organization" objectPath="CurrentOrganization"/>
+    <startNode referencedName="ViewCart-GetCurrentCartBO"/>
+    <returnValueBindings name="BasketBO" objectPath="CurrentCartBO"/>
+  </nodes>
+<!--@Location 5,2-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode4">
+    <nodeSuccessors name="next" next="JoinNode2"/>
+    <startNode referencedName="ProcessQuickorder-GetFormValues"/>
+  </nodes>
+<!--@Location 5,3-->
+  <nodes xsi:type="pipeline:JoinNode" nodeID="JoinNode2">
+    <nodeSuccessors name="next" next="CallNode5"/>
+  </nodes>
+<!--@Location 5,4-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode5">
+<!--@BendPoints 11,12-->
+    <nodeSuccessors name="next" next="DecisionNode0"/>
+<!--@BendPoints 12,11-->
+    <nodeSuccessors name="EmptyForm" next="SetDictionaryValue0"/>
+    <startNode referencedName="ProcessQuickorder-CheckProducts"/>
+  </nodes>
+<!--@Location 5,6-->
+  <nodes xsi:type="pipeline:DecisionNode" nodeID="DecisionNode0" conditionKey="Errors">
+    <nodeSuccessors name="decision_yes" next="DecisionNode1"/>
+    <nodeSuccessors name="decision_no" next="StartSafeChangesBlock0"/>
+  </nodes>
+<!--@Location 6,6-->
+  <nodes xsi:type="pipeline:DecisionNode" nodeID="DecisionNode1" conditionKey="IsCSVUpload">
+    <nodeSuccessors name="decision_yes" next="KeyMapper1"/>
+    <nodeSuccessors name="decision_no" next="JoinNode4"/>
+  </nodes>
+<!--@Location 6,7-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="KeyMapper1">
+    <pipelet href="enfinity:/core/pipelets/KeyMapper.xml"/>
+    <nodeSuccessors name="next" next="RemoveDictionaryValues0"/>
+    <parameterBindings name="InValue_1" objectPath="Errors"/>
+    <returnValueBindings name="OutValue_1" objectPath="CSVErrors"/>
+  </nodes>
+<!--@Location 6,8-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="RemoveDictionaryValues0">
+    <configurationValues name="Keys" value="SKUsMap, Quantities, Errors"/>
+    <pipelet href="enfinity:/core/pipelets/RemoveDictionaryValues.xml"/>
+    <nodeSuccessors name="next" next="JoinNode0"/>
+  </nodes>
+<!--@Location 7,10-->
+  <nodes xsi:type="pipeline:JoinNode" nodeID="JoinNode0">
+    <nodeSuccessors name="next" next="JumpNode0"/>
+  </nodes>
+<!--@Location 7,11-->
+  <nodes xsi:type="pipeline:JumpNode" nodeID="JumpNode0">
+    <startNode referencedName="ViewQuickorder-Start"/>
+  </nodes>
+<!--@Location 7,6-->
+  <nodes xsi:type="pipeline:JoinNode" nodeID="JoinNode4">
+    <nodeSuccessors name="next" next="JoinNode0"/>
+  </nodes>
+<!--@Location 5,9-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="StartSafeChangesBlock0">
+    <pipelet href="enfinity:/core/pipelets/StartSafeChangesBlock.xml"/>
+    <nodeSuccessors name="next" next="CallNode0"/>
+  </nodes>
+<!--@Location 5,10-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode0">
+    <nodeSuccessors name="next" next="EndSafeChangesBlock1"/>
+    <nodeSuccessors name="Error" next="EndSafeChangesBlock3"/>
+    <parameterBindings name="Basket" objectPath="CurrentCartBO"/>
+    <parameterBindings name="Calculate" constant="(Boolean)true"/>
+    <startNode referencedName="ProcessBasket-AddProducts"/>
+  </nodes>
+<!--@Location 5,11-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="EndSafeChangesBlock1">
+    <pipelet href="enfinity:/core/pipelets/EndSafeChangesBlock.xml"/>
+    <nodeSuccessors name="next" next="JumpNode1"/>
+  </nodes>
+<!--@Location 5,12-->
+  <nodes xsi:type="pipeline:JumpNode" nodeID="JumpNode1">
+    <startNode referencedName="ViewCart-View"/>
+  </nodes>
+<!--@Location 6,10-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="EndSafeChangesBlock3">
+    <pipelet href="enfinity:/core/pipelets/EndSafeChangesBlock.xml"/>
+    <nodeSuccessors name="next" next="JoinNode0"/>
+  </nodes>
+<!--@Location 6,5-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="SetDictionaryValue0">
+    <configurationValues name="Name" value="ERROR_FormEmpty"/>
+    <configurationValues name="Value" value="true"/>
+    <configurationValues name="ValueType" value="Dictionary Value"/>
+    <pipelet href="enfinity:/bc_foundation/pipelets/SetDictionaryValue.xml"/>
+    <nodeSuccessors name="next" next="JoinNode4"/>
+  </nodes>
+<!--@Location 7,0-->
+  <nodes xsi:type="pipeline:StartNode" nodeID="StartNode3" name="AddToBagCSV" callMode="Private">
+    <nodeSuccessors name="next" next="CallNode3"/>
+  </nodes>
+<!--@Location 7,1-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode3">
+    <nodeSuccessors name="next" next="SetDictionaryValue1"/>
+    <parameterBindings name="BasketBORepository" objectPath="ApplicationBO:Repository(&quot;BasketBORepository&quot;)"/>
+    <parameterBindings name="Organization" objectPath="CurrentOrganization"/>
+    <startNode referencedName="ViewCart-GetCurrentCartBO"/>
+    <returnValueBindings name="BasketBO" objectPath="CurrentCartBO"/>
+  </nodes>
+<!--@Location 7,3-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="SetDictionaryValue1">
+    <configurationValues name="Name" value="IsCSVUpload"/>
+    <configurationValues name="Value" value="true"/>
+    <configurationValues name="ValueType" value="Dictionary Value"/>
+    <pipelet href="enfinity:/bc_foundation/pipelets/SetDictionaryValue.xml"/>
+    <nodeSuccessors name="next" next="JoinNode2"/>
+  </nodes>
+<!--@Location 18,0-->
+  <nodes xsi:type="pipeline:StartNode" nodeID="StartNode7" name="AddToQuote" secure="true">
+    <nodeSuccessors name="next" next="CallNode10"/>
+  </nodes>
+<!--@Location 18,2-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode10">
+    <nodeSuccessors name="next" next="JoinNode11"/>
+    <startNode referencedName="ProcessQuickorder-GetFormValues"/>
+  </nodes>
+<!--@Location 18,3-->
+  <nodes xsi:type="pipeline:JoinNode" nodeID="JoinNode11">
+    <nodeSuccessors name="next" next="CallNode6"/>
+  </nodes>
+<!--@Location 18,4-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode6">
+    <nodeSuccessors name="next" next="DecisionNode11"/>
+<!--@BendPoints 41,11-->
+    <nodeSuccessors name="EmptyForm" next="SetDictionaryValue10"/>
+    <parameterBindings name="Cart" objectPath="CurrentCart"/>
+    <startNode referencedName="ProcessQuickorder-CheckProducts"/>
+  </nodes>
+<!--@Location 18,6-->
+  <nodes xsi:type="pipeline:DecisionNode" nodeID="DecisionNode11" conditionKey="Errors">
+    <nodeSuccessors name="decision_yes" next="DecisionNode2"/>
+    <nodeSuccessors name="decision_no" next="LoopNode1"/>
+  </nodes>
+<!--@Location 19,6-->
+  <nodes xsi:type="pipeline:DecisionNode" nodeID="DecisionNode2" conditionKey="IsCSVUpload">
+    <nodeSuccessors name="decision_yes" next="KeyMapper0"/>
+    <nodeSuccessors name="decision_no" next="JoinNode10"/>
+  </nodes>
+<!--@Location 19,7-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="KeyMapper0">
+    <pipelet href="enfinity:/core/pipelets/KeyMapper.xml"/>
+    <nodeSuccessors name="next" next="RemoveDictionaryValues1"/>
+    <parameterBindings name="InValue_1" objectPath="Errors"/>
+    <returnValueBindings name="OutValue_1" objectPath="CSVErrors"/>
+  </nodes>
+<!--@Location 19,8-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="RemoveDictionaryValues1">
+    <configurationValues name="Keys" value="SKUsMap, Quantities, Errors"/>
+    <pipelet href="enfinity:/core/pipelets/RemoveDictionaryValues.xml"/>
+    <nodeSuccessors name="next" next="JoinNode10"/>
+  </nodes>
+<!--@Location 20,8-->
+  <nodes xsi:type="pipeline:JoinNode" nodeID="JoinNode10">
+    <nodeSuccessors name="next" next="JumpNode9"/>
+  </nodes>
+<!--@Location 20,9-->
+  <nodes xsi:type="pipeline:JumpNode" nodeID="JumpNode9">
+    <startNode referencedName="ViewQuickorder-Start"/>
+  </nodes>
+<!--@Location 18,9-->
+  <nodes xsi:type="pipeline:LoopNode" nodeID="LoopNode1" loop="SKUs">
+<!--@BendPoints 39,19-->
+    <nodeSuccessors name="next" next="JumpNode5"/>
+    <entry key="SKU">
+      <nodeSuccessors name="loop_entry_next" next="GetProductBOBySKU0"/>
+    </entry>
+  </nodes>
+<!--@Location 18,10-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="GetProductBOBySKU0">
+    <pipelet href="enfinity:/bc_product/pipelets/GetProductBOBySKU.xml"/>
+    <nodeSuccessors name="next" next="ConcatenateStrings1"/>
+<!--@BendPoints 38,21 38,27 38,29-->
+    <nodeSuccessors name="pipelet_error" next="JoinNode14"/>
+    <parameterBindings name="ProductBORepository" objectPath="ApplicationBO:Repository(&quot;ProductBORepository&quot;)"/>
+  </nodes>
+<!--@Location 18,11-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="ConcatenateStrings1">
+    <pipelet href="enfinity:/core/pipelets/ConcatenateStrings.xml"/>
+    <nodeSuccessors name="next" next="ToString0"/>
+    <parameterBindings name="String0" constant="Quantity_"/>
+    <parameterBindings name="String1" objectPath="SKU"/>
+    <returnValueBindings name="Concatenated" objectPath="QuantityString"/>
+  </nodes>
+<!--@Location 18,12-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="ToString0">
+    <pipelet href="enfinity:/core/pipelets/ToString.xml"/>
+    <nodeSuccessors name="next" next="SetIndirectDictValue1"/>
+    <parameterBindings name="Object1" objectPath="QuantityMap:get(ProductBO):Value"/>
+    <returnValueBindings name="String1" objectPath="QuantityValue"/>
+  </nodes>
+<!--@Location 18,13-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="SetIndirectDictValue1">
+    <pipelet href="enfinity:/core/pipelets/SetIndirectDictValue.xml"/>
+<!--@BendPoints 37,27-->
+    <nodeSuccessors name="next" next="JoinNode14"/>
+    <parameterBindings name="KeyNameHolder" objectPath="QuantityString"/>
+    <parameterBindings name="MappedEntry" objectPath="QuantityValue"/>
+  </nodes>
+<!--@Location 18,14-->
+  <nodes xsi:type="pipeline:JoinNode" nodeID="JoinNode14">
+<!--@BendPoints 35,29 35,27 35,22 35,20-->
+    <nodeSuccessors name="next" next="LoopNode1_Entry"/>
+  </nodes>
+<!--@Location 19,11-->
+  <nodes xsi:type="pipeline:JumpNode" nodeID="JumpNode5">
+    <startNode referencedName="ViewQuote-AddProductToQuote"/>
+  </nodes>
+<!--@Location 20,6-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="SetDictionaryValue10">
+    <configurationValues name="Name" value="ERROR_FormEmpty"/>
+    <configurationValues name="Value" value="true"/>
+    <configurationValues name="ValueType" value="Dictionary Value"/>
+    <pipelet href="enfinity:/bc_foundation/pipelets/SetDictionaryValue.xml"/>
+    <nodeSuccessors name="next" next="JoinNode10"/>
+  </nodes>
+<!--@Location 20,0-->
+  <nodes xsi:type="pipeline:StartNode" nodeID="StartNode6" name="AddToQuoteCSV" callMode="Private">
+    <nodeSuccessors name="next" next="SetDictionaryValue9"/>
+  </nodes>
+<!--@Location 20,2-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="SetDictionaryValue9">
+    <configurationValues name="Name" value="IsCSVUpload"/>
+    <configurationValues name="Value" value="true"/>
+    <configurationValues name="ValueType" value="Dictionary Value"/>
+    <pipelet href="enfinity:/bc_foundation/pipelets/SetDictionaryValue.xml"/>
+<!--@BendPoints 41,7-->
+    <nodeSuccessors name="next" next="JoinNode11"/>
+  </nodes>
+<!--@Location 0,0-->
+  <nodes xsi:type="pipeline:StartNode" nodeID="StartNode2" name="Dispatch">
+<!--@BendPoints 1,2-->
+    <nodeSuccessors name="next" next="DispatchFormAction3"/>
+  </nodes>
+<!--@Location 0,1-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="DispatchFormAction3">
+    <configurationValues name="OutValue_0" value="ViewQuickorder-AddToBag"/>
+    <configurationValues name="OutValue_1" value="ViewQuickorder-AddToQuote"/>
+    <pipelet href="enfinity:/bc_foundation/pipelets/DispatchFormAction.xml"/>
+<!--@BendPoints 1,4-->
+    <nodeSuccessors name="next" next="Jump2"/>
+<!--@BendPoints 3,3 3,4-->
+    <nodeSuccessors name="pipelet_error" next="JumpNode4"/>
+    <parameterBindings name="Key_0" objectPath="addToCart"/>
+    <parameterBindings name="Key_1" objectPath="addToQuote"/>
+    <returnValueBindings name="SelectionKey" objectPath="JumpTarget"/>
+  </nodes>
+<!--@Location 0,2-->
+  <nodes xsi:type="pipeline:JumpNode" nodeID="Jump2">
+    <startNode objectPath="JumpTarget"/>
+  </nodes>
+<!--@Location 1,2-->
+  <nodes xsi:type="pipeline:JumpNode" nodeID="JumpNode4">
+    <startNode referencedName="ViewQuickorder-Start"/>
+  </nodes>
+<!--@Location 2,0-->
+  <nodes xsi:type="pipeline:StartNode" nodeID="StartNode8" name="DispatchUpload">
+    <nodeSuccessors name="next" next="StartSafeChangesBlock1"/>
+  </nodes>
+<!--@Location 2,1-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="StartSafeChangesBlock1">
+    <pipelet href="enfinity:/core/pipelets/StartSafeChangesBlock.xml"/>
+    <nodeSuccessors name="next" next="CallNode11"/>
+  </nodes>
+<!--@Location 2,2-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode11">
+    <nodeSuccessors name="next" next="EndSafeChangesBlock0"/>
+    <nodeSuccessors name="ERROR" next="EndSafeChangesBlock2"/>
+    <startNode referencedName="ProcessQuickorder-ExtractDataFromCSV"/>
+  </nodes>
+<!--@Location 2,3-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="EndSafeChangesBlock0">
+    <pipelet href="enfinity:/core/pipelets/EndSafeChangesBlock.xml"/>
+    <nodeSuccessors name="next" next="DecisionNode9"/>
+  </nodes>
+<!--@Location 2,4-->
+  <nodes xsi:type="pipeline:DecisionNode" nodeID="DecisionNode9" conditionKey="addToCartCSV">
+    <nodeSuccessors name="decision_yes" next="JumpNode6"/>
+    <nodeSuccessors name="decision_no" next="DecisionNode10"/>
+  </nodes>
+<!--@Location 2,5-->
+  <nodes xsi:type="pipeline:JumpNode" nodeID="JumpNode6">
+    <startNode referencedName="ViewQuickorder-AddToBagCSV"/>
+  </nodes>
+<!--@Location 3,4-->
+  <nodes xsi:type="pipeline:DecisionNode" nodeID="DecisionNode10" conditionKey="addToQuoteCSV">
+    <nodeSuccessors name="decision_yes" next="JumpNode8"/>
+    <nodeSuccessors name="decision_no" next="JoinNode12"/>
+  </nodes>
+<!--@Location 3,5-->
+  <nodes xsi:type="pipeline:JumpNode" nodeID="JumpNode8">
+    <startNode referencedName="ViewQuickorder-AddToQuoteCSV"/>
+  </nodes>
+<!--@Location 4,4-->
+  <nodes xsi:type="pipeline:JoinNode" nodeID="JoinNode12">
+    <nodeSuccessors name="next" next="JumpNode7"/>
+  </nodes>
+<!--@Location 4,5-->
+  <nodes xsi:type="pipeline:JumpNode" nodeID="JumpNode7">
+    <startNode referencedName="ViewQuickorder-Start"/>
+  </nodes>
+<!--@Location 4,2-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="EndSafeChangesBlock2">
+    <pipelet href="enfinity:/core/pipelets/EndSafeChangesBlock.xml"/>
+    <nodeSuccessors name="next" next="JoinNode12"/>
+  </nodes>
+<!--@Location 0,4-->
+  <nodes xsi:type="pipeline:StartNode" nodeID="StartNode4" strict="true" name="ForceNotAvailableProductBOs"
+      callMode="Private">
+    <nodeSuccessors name="next" next="GetProductBySKU0"/>
+    <parameters name="ProductDomain" type="com.intershop.beehive.core.capi.domain.Domain"/>
+    <parameters name="ProductBORepository" type="com.intershop.component.product.capi.ProductBORepository"/>
+  </nodes>
+<!--@Location 0,5-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="GetProductBySKU0">
+    <pipelet href="enfinity:/bc_mvc/pipelets/GetProductBySKU.xml"/>
+    <nodeSuccessors name="next" next="GetProductBOByID0"/>
+    <parameterBindings name="Domain" objectPath="ProductDomain"/>
+    <parameterBindings name="SKU" constant="7972533"/>
+    <returnValueBindings name="Product" objectPath="Product1"/>
+  </nodes>
+<!--@Location 0,6-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="GetProductBOByID0">
+    <pipelet href="enfinity:/bc_product/pipelets/GetProductBOByID.xml"/>
+    <nodeSuccessors name="next" next="GetProductBySKU1"/>
+    <parameterBindings name="ID" objectPath="Product1:UUID"/>
+    <returnValueBindings name="ProductBO" objectPath="ProductBO1"/>
+  </nodes>
+<!--@Location 0,7-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="GetProductBySKU1">
+    <pipelet href="enfinity:/bc_mvc/pipelets/GetProductBySKU.xml"/>
+    <nodeSuccessors name="next" next="GetProductBOByID1"/>
+    <parameterBindings name="Domain" objectPath="ProductDomain"/>
+    <parameterBindings name="SKU" constant="3950792"/>
+    <returnValueBindings name="Product" objectPath="Product2"/>
+  </nodes>
+<!--@Location 0,8-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="GetProductBOByID1">
+    <pipelet href="enfinity:/bc_product/pipelets/GetProductBOByID.xml"/>
+    <nodeSuccessors name="next" next="AddObjectToCollection0"/>
+    <parameterBindings name="ID" objectPath="Product2:UUID"/>
+    <returnValueBindings name="ProductBO" objectPath="ProductBO2"/>
+  </nodes>
+<!--@Location 0,9-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="AddObjectToCollection0">
+    <pipelet href="enfinity:/core/pipelets/AddObjectToCollection.xml"/>
+    <nodeSuccessors name="next" next="AddObjectToCollection1"/>
+    <parameterBindings name="InCollection" nullBinding="true"/>
+    <parameterBindings name="InObject" objectPath="ProductBO1"/>
+    <returnValueBindings name="OutCollection" objectPath="ProductBOsCollection"/>
+    <returnValueBindings name="OutIterator" nullBinding="true"/>
+  </nodes>
+<!--@Location 0,10-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="AddObjectToCollection1">
+    <pipelet href="enfinity:/core/pipelets/AddObjectToCollection.xml"/>
+    <nodeSuccessors name="next" next="EndNode0"/>
+    <parameterBindings name="InCollection" objectPath="ProductBOsCollection"/>
+    <parameterBindings name="InObject" objectPath="ProductBO2"/>
+    <returnValueBindings name="OutCollection" objectPath="ProductBOsCollection"/>
+    <returnValueBindings name="OutIterator" objectPath="NotAvailableProductBOs"/>
+  </nodes>
+<!--@Location 0,11-->
+  <nodes xsi:type="pipeline:EndNode" nodeID="EndNode0" strict="true">
+    <returnValues name="NotAvailableProductBOs" objectPath="NotAvailableProductBOs"
+        type="java.util.Iterator"/>
+  </nodes>
+<!--@Location 22,0-->
+  <nodes xsi:type="pipeline:StartNode" nodeID="StartNode9" name="GetProductAvailabilityStatus">
+    <nodeSuccessors name="next" next="SplitString0"/>
+  </nodes>
+<!--@Location 22,1-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="SplitString0">
+    <pipelet href="enfinity:/bc_foundation/pipelets/SplitString.xml"/>
+    <nodeSuccessors name="next" next="LoopNode2"/>
+    <parameterBindings name="Delimeter" constant=";"/>
+    <parameterBindings name="ValuesString" objectPath="SKU"/>
+    <returnValueBindings name="ValuesIterator" objectPath="ProductSkus"/>
+  </nodes>
+<!--@Location 22,2-->
+  <nodes xsi:type="pipeline:LoopNode" nodeID="LoopNode2" loop="ProductSkus">
+<!--@BendPoints 51,5-->
+    <nodeSuccessors name="next" next="LoopNode3"/>
+    <entry key="ProductSku">
+      <nodeSuccessors name="loop_entry_next" next="SplitString1"/>
+    </entry>
+  </nodes>
+<!--@Location 22,3-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="SplitString1">
+    <pipelet href="enfinity:/bc_foundation/pipelets/SplitString.xml"/>
+    <nodeSuccessors name="next" next="GetElementOfIterator1"/>
+    <parameterBindings name="Delimeter" constant=","/>
+    <parameterBindings name="ValuesString" objectPath="ProductSku"/>
+    <returnValueBindings name="ValuesIterator" objectPath="SkuErrorPlaceHolder"/>
+  </nodes>
+<!--@Location 22,4-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="GetElementOfIterator1">
+    <pipelet href="enfinity:/bc_foundation/pipelets/GetElementOfIterator.xml"/>
+    <nodeSuccessors name="next" next="GetElementOfIterator0"/>
+    <parameterBindings name="Index" constant="(Integer)0"/>
+    <parameterBindings name="Iterator" objectPath="SkuErrorPlaceHolder"/>
+    <returnValueBindings name="Element" objectPath="pvalue"/>
+  </nodes>
+<!--@Location 22,5-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="GetElementOfIterator0">
+    <pipelet href="enfinity:/bc_foundation/pipelets/GetElementOfIterator.xml"/>
+    <nodeSuccessors name="next" next="AddEntryToMap0"/>
+    <parameterBindings name="Index" constant="(Integer)1"/>
+    <parameterBindings name="Iterator" objectPath="SkuErrorPlaceHolder"/>
+    <returnValueBindings name="Element" objectPath="pkey"/>
+  </nodes>
+<!--@Location 22,6-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="AddEntryToMap0">
+    <pipelet href="enfinity:/bc_foundation/pipelets/AddEntryToMap.xml"/>
+<!--@BendPoints 44,5-->
+    <nodeSuccessors name="next" next="LoopNode2_Entry"/>
+    <parameterBindings name="InMap" objectPath="ProductsSkuMap"/>
+    <parameterBindings name="Key" objectPath="pkey"/>
+    <parameterBindings name="Value" objectPath="pvalue"/>
+    <returnValueBindings name="Keys" objectPath="SkuIterator"/>
+    <returnValueBindings name="OutMap" objectPath="ProductsSkuMap"/>
+  </nodes>
+<!--@Location 25,4-->
+  <nodes xsi:type="pipeline:LoopNode" nodeID="LoopNode3" loop="SkuIterator">
+<!--@BendPoints 52,9-->
+    <nodeSuccessors name="next" next="InteractionNode0"/>
+    <entry key="SKU">
+      <nodeSuccessors name="loop_entry_next" next="GetProductBySKU2"/>
+    </entry>
+  </nodes>
+<!--@Location 25,5-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="GetProductBySKU2">
+    <pipelet href="enfinity:/bc_mvc/pipelets/GetProductBySKU.xml"/>
+    <nodeSuccessors name="next" next="AddObjectToVector1"/>
+    <nodeSuccessors name="pipelet_error" next="AddObjectToVector0"/>
+    <parameterBindings name="Domain" objectPath="CurrentProductRepository:Domain"/>
+  </nodes>
+<!--@Location 25,6-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="AddObjectToVector1">
+    <pipelet href="enfinity:/bc_foundation/pipelets/AddObjectToVector.xml"/>
+<!--@BendPoints 47,13-->
+    <nodeSuccessors name="next" next="JoinNode13"/>
+    <parameterBindings name="InVector" objectPath="ProductsVector"/>
+    <parameterBindings name="Object" objectPath="Product"/>
+    <returnValueBindings name="Iterator" objectPath="Products"/>
+    <returnValueBindings name="OutVector" objectPath="ProductsVector"/>
+  </nodes>
+<!--@Location 23,5-->
+  <nodes xsi:type="pipeline:JoinNode" nodeID="JoinNode13">
+<!--@BendPoints 47,9-->
+    <nodeSuccessors name="next" next="LoopNode3_Entry"/>
+  </nodes>
+<!--@Location 24,5-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="AddObjectToVector0">
+    <pipelet href="enfinity:/bc_foundation/pipelets/AddObjectToVector.xml"/>
+    <nodeSuccessors name="next" next="JoinNode13"/>
+    <parameterBindings name="InVector" objectPath="ProductNotExistSkusVector"/>
+    <parameterBindings name="Object" objectPath="SKU"/>
+    <returnValueBindings name="Iterator" objectPath="ProductNotExistSkus"/>
+    <returnValueBindings name="OutVector" objectPath="ProductNotExistSkusVector"/>
+  </nodes>
+<!--@Location 27,4-->
+  <nodes xsi:type="pipeline:InteractionNode" nodeID="InteractionNode0">
+    <template referencedName="quickorder/ProductAvailabilityStatus.isml"/>
+  </nodes>
+<!--@Location 10,0-->
+  <nodes xsi:type="pipeline:StartNode" nodeID="StartNode1" name="Start">
+    <nodeSuccessors name="next" next="RenderSystemPageWithTemplate0_Input"/>
+  </nodes>
+<!--@Location 10,1-->
+  <nodes xsi:type="pipeline:PipelineNodeNode" nodeID="RenderSystemPageWithTemplate0">
+    <configurationValues name="PageEntryPointDefinitionReference" value="app_sf_responsive_b2b:systempage.quickOrder.pagelet2-Page"/>
+    <configurationValues name="WorkingTemplate" value="quickorder/Quickorder.isml"/>
+    <pipelet href="enfinity:/sld_ch_sf_base/pipelets/com.intershop.sellside.storefront.base.capi.pipeline.RenderSystemPageWithTemplate.pipelinenode"/>
+    <inConnectors name="Input">
+      <parameterBindings name="Dictionary" objectPath="CurrentRequest:PipelineDictionary"/>
+    </inConnectors>
+  </nodes>
+</pipeline:Pipeline>

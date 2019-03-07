@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<DDescriptionContainer dbo.type="com.intershop.beehive.core.rapi.common.DDescriptionContainer">
+<localeId>en_US</localeId>
+<descriptions>
+<DDescription dbo.type="com.intershop.beehive.core.rapi.pipeline.DPipeletDesc" id="Pipelet1"  localeId="en_US" >
+<description>Sets the approver information to the given basket. the information isn&apos;t explicitly provided it will be taken from the latest approval step that has passed through the approval process (is either approved or rejected).</description>
+</DDescription>
+</descriptions>
+</DDescriptionContainer>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<enfinity
+xmlns="http://www.intershop.com/xml/ns/enfinity/6.5/bc_pmc/impex"
+xmlns:dt="http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.intershop.com/xml/ns/enfinity/6.5/bc_pmc/impex bc_pmc.xsd
+http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt dt.xsd">
+</enfinity>

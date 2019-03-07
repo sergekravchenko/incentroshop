@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<enfinity xmlns:dt="http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt">
+<pagelet-entry-point id="page.account">
+<definition-name>app_sf_responsive:page.content.pagelet2-Page</definition-name>
+<page>true</page>
+<sorting>false</sorting>
+<display-name xml:lang="de-DE">Benutzerkonto-Seiten</display-name>
+<display-name xml:lang="en-US">Account Pages</display-name>
+<display-name xml:lang="fr-FR">Pages de compte</display-name>
+<description xml:lang="de-DE">Das ist die Stammseite für alle Benutzerkonten-Seiten.</description>
+<description xml:lang="en-US">This is the parent page for all our account pages.</description>
+<description xml:lang="fr-FR">C&apos;est la page mère de tous nos pages de compte.</description>
+</pagelet-entry-point>
+</enfinity>

@@ -1,0 +1,59 @@
+<iscontent type="text/html" charset="UTF-8" compact="true">
+
+<ISCreateMap mapname="PipelineParameters"  key0="User" value0="#CurrentUser#">
+<ispipeline pipeline="BusinessObjectUtils-GetUserBO"  params="#PipelineParameters#" alias="BusinessObjectDict" />
+<isset scope="request" name="UserBO" value="#BusinessObjectDict:UserBO#">
+
+<isif condition="#isDefined(UserPermissionMap:get("APP_B2B_MANAGE_OWN_QUOTES"))#">
+
+	<ispipeline pipeline="ProcessQuote-GetQuoteStatesCount" alias="dict">
+
+	<div class="section section-seperator">
+		
+		<h2><istext key="account.quotes.widget.my_quotes.heading" /></h2>
+		
+		<div class="row">
+			
+			<div class="col-xs-6"><istext key="account.quotes.widget.new.label" /></div>
+			<div class="col-xs-6 text-right">
+				<isif condition="#isDefined(dict:NewCount)#">			
+					<isprint value="#dict:NewCount+0#" formatter="##">
+				<iselse/>
+					0
+				</isif>
+			</div>
+			
+			<div class="col-xs-6"><istext key="account.quotes.widget.submitted.label" /></div>
+			<div class="col-xs-6 text-right">
+				<isif condition="#isDefined(dict:SubmittedCount)#">			
+					<isprint value="#dict:SubmittedCount+0#" formatter="##">
+				<iselse/>
+					0
+				</isif>
+			</div>
+			
+			<div class="col-xs-6"><istext key="account.quotes.widget.accepted.label" /></div>
+			<div class="col-xs-6 text-right">
+				<isif condition="#isDefined(dict:AcceptedCount)#">			
+					<isprint value="#dict:AcceptedCount+0#" formatter="##">
+				<iselse/>
+					0
+				</isif>
+			</div>
+			
+			<div class="col-xs-6"><p><istext key="account.quotes.widget.rejected.label" /></p></div>
+			<div class="col-xs-6 text-right"><p>
+				<isif condition="#isDefined(dict:RejectedCount)#">			
+					<isprint value="#dict:RejectedCount+0#" formatter="##">
+				<iselse/>
+					0
+				</isif>
+			</p></div>
+						
+		</div>
+		
+		<a href="#URL(Action('ViewQuoteList-List'))#"><istext key="account.quotes.widget.view_all_quotes.link" /></a>
+		
+	</div>
+
+</isif>

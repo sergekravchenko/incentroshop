@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<enfinity xmlns:dt="http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt">
+<pagelet-component id="cmp_helpdesk_faq_title">
+<definition-name>app_sf_responsive_cm:component.common.freeStyle.pagelet2-Component</definition-name>
+<display-name xml:lang="de-DE">Hilfe - FAQ - Titel</display-name>
+<display-name xml:lang="en-US">Helpdesk - FAQ - Title</display-name>
+<display-name xml:lang="fr-FR">Assistance technique - FAQ - Titre</display-name>
+<online>true</online>
+<author business-partner-no="admin" domain="inSPIRED"/>
+<configuration-parameters>
+<configuration-parameter name="HTML">
+<definition-name>app_sf_responsive_cm:component.common.freeStyle.pagelet2-Component-HTML</definition-name>
+<value name="HTML" xml:lang="de-DE">&lt;h1&gt;Häufige Fragen&lt;/h1&gt;</value>
+<value name="HTML" xml:lang="en-US">&lt;h1&gt;Frequently Asked Questions&lt;/h1&gt;</value>
+<value name="HTML" xml:lang="fr-FR">&lt;h1&gt;Foire aux questions&lt;/h1&gt;</value>
+</configuration-parameter>
+</configuration-parameters>
+</pagelet-component>
+</enfinity>

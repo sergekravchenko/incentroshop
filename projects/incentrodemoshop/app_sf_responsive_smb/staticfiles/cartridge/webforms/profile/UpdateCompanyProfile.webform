@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<webform:WebForm xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://www.intershop.de/core/2010" xmlns:webform="http://www.intershop.de/webform/2010" name="UpdateCompanyProfile">
+  <forms name="UpdateCompanyProfileForm">
+    <parameters xsi:type="webform:FormParameter" name="CompanyName" type="java.lang.String">
+      <validatorBindings validator="GlobalValidators-maxlength">
+        <parameterBindings xsi:type="core:ParameterValueBinding" name="maxLength" value="60"/>
+      </validatorBindings>
+      <validatorBindings validator="FieldNotChangedValidatorWebform-FieldNotChangedValidator"/>
+      <fields name="Original_CompanyName"/>
+      <fields name="FormValue_CompanyName"/>
+      <fields name="Actual_CompanyName"/>
+    </parameters>
+    <parameters xsi:type="webform:FormParameter" optional="true" name="CompanyName2" type="java.lang.String">
+      <validatorBindings validator="GlobalValidators-maxlength">
+        <parameterBindings xsi:type="core:ParameterValueBinding" name="maxLength" value="60"/>
+      </validatorBindings>.
+      <validatorBindings validator="FieldNotChangedValidatorWebform-FieldNotChangedValidator"/>
+      <fields name="Original_CompanyName2"/>
+      <fields name="FormValue_CompanyName2"/>
+      <fields name="Actual_CompanyName2"/>
+    </parameters>
+    <parameters xsi:type="webform:FormParameter" optional="true" name="Industry" type="java.lang.String">
+      <validatorBindings validator="GlobalValidators-maxlength">
+        <parameterBindings xsi:type="core:ParameterValueBinding" name="maxLength" value="60"/>
+      </validatorBindings>
+      <validatorBindings validator="FieldNotChangedValidatorWebform-FieldNotChangedValidator"/>
+      <fields  name="Original_Industry"/>
+      <fields name="FormValue_Industry"/>
+      <fields name="Actual_Industry"/>
+    </parameters>
+    <parameters xsi:type="webform:FormParameter" optional="true" name="TaxationID" type="java.lang.String">
+      <validatorBindings validator="GlobalValidators-maxlength">
+        <parameterBindings xsi:type="core:ParameterValueBinding" name="maxLength" value="60"/>
+      </validatorBindings>
+      <validatorBindings validator="FieldNotChangedValidatorWebform-FieldNotChangedValidator"/>
+      <fields name="Original_TaxationID"/>
+      <fields name="FormValue_TaxationID"/>
+      <fields name="Actual_TaxationID"/>
+    </parameters>
+  </forms>
+</webform:WebForm>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pipeline:Pipeline xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pipeline="http://www.intershop.de/pipeline/2010"
+    name="ViewOrders" overrideMode="Inherit" type="view">
+<!--Restrict the orders to be returned based on the permissions of currently logged user.
+@Location 0,0-->
+  <nodes xsi:type="pipeline:StartNode" nodeID="StartNode_9GrIcNcWEeaT4Jq1OZMMUw" strict="true"
+      name="SetSecurityRestriction" callMode="Private">
+    <nodeSuccessors name="next" next="DecisionNode_PJAsgNcXEeaT4Jq1OZMMUw"/>
+    <parameters name="UserBO" type="com.intershop.component.user.capi.UserBO"/>
+    <parameters name="CustomerBO" type="com.intershop.component.customer.capi.CustomerBO"/>
+    <parameters name="MyOrderSearch" type="java.lang.String" optional="true"/>
+<!--The parameters for orders search query.-->
+    <parameters name="Parameters" type="java.util.Map&lt;K,V>" optional="true"/>
+  </nodes>
+<!--@Location 0,1-->
+  <nodes xsi:type="pipeline:DecisionNode" nodeID="DecisionNode_PJAsgNcXEeaT4Jq1OZMMUw"
+      conditionKey="MyOrderSearch" operator="str_eq" conditionValue="true">
+    <nodeSuccessors name="decision_yes" next="JoinNode_4WWXkNcXEeaT4Jq1OZMMUw"/>
+<!--@BendPoints 5,3-->
+    <nodeSuccessors name="decision_no" next="DecisionNode_tF7MMNcXEeaT4Jq1OZMMUw"/>
+  </nodes>
+<!--@Location 0,2-->
+  <nodes xsi:type="pipeline:JoinNode" nodeID="JoinNode_4WWXkNcXEeaT4Jq1OZMMUw">
+    <nodeSuccessors name="next" next="SetDictionaryValue_PabqUNcwEeaT4Jq1OZMMUw"/>
+  </nodes>
+<!--@Location 0,3-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="SetDictionaryValue_PabqUNcwEeaT4Jq1OZMMUw">
+    <configurationValues name="Name" value="MyOrderSearch"/>
+    <configurationValues name="Value" value="true"/>
+    <configurationValues name="ValueType" value="Dictionary Value"/>
+    <pipelet href="enfinity:/core/pipelets/SetDictionaryValue.xml"/>
+    <nodeSuccessors name="next" next="AddEntryToMap_9GsWkNcWEeaT4Jq1OZMMUw"/>
+  </nodes>
+<!--@Location 0,4-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="AddEntryToMap_9GsWkNcWEeaT4Jq1OZMMUw">
+    <pipelet href="enfinity:/core/pipelets/AddEntryToMap.xml"/>
+    <nodeSuccessors name="next" next="JoinNode__LwwMNcXEeaT4Jq1OZMMUw"/>
+    <parameterBindings name="InMap" objectPath="Parameters"/>
+    <parameterBindings name="Key" constant="Buyer"/>
+    <parameterBindings name="Value" objectPath="CurrentUser"/>
+    <returnValueBindings name="OutMap" objectPath="Parameters"/>
+  </nodes>
+<!--@Location 0,5-->
+  <nodes xsi:type="pipeline:JoinNode" nodeID="JoinNode__LwwMNcXEeaT4Jq1OZMMUw">
+    <nodeSuccessors name="next" next="EndNode_9Gs9oNcWEeaT4Jq1OZMMUw"/>
+  </nodes>
+<!--@Location 0,6-->
+  <nodes xsi:type="pipeline:EndNode" nodeID="EndNode_9Gs9oNcWEeaT4Jq1OZMMUw" strict="true">
+    <returnValues name="Parameters" type="java.util.Map&lt;K,V>" optional="true"/>
+    <returnValues name="Keys" type="java.util.Iterator&lt;E>" optional="true"/>
+    <returnValues name="MyOrderSearch" type="java.lang.String" optional="true"/>
+  </nodes>
+<!--Account Admin should be able to see all orders of the customer.
+@Location 2,2-->
+  <nodes xsi:type="pipeline:DecisionNode" nodeID="DecisionNode_tF7MMNcXEeaT4Jq1OZMMUw"
+      conditionKey="UserBO:Extension(&quot;UserBORoleExtension&quot;):hasPermission(&quot;APP_B2B_MANAGE_USERS&quot;)"
+      operator="str_eq" conditionValue="true">
+    <nodeSuccessors name="decision_yes" next="AddEntryToMap_i6vKkNcXEeaT4Jq1OZMMUw"/>
+    <nodeSuccessors name="decision_no" next="JoinNode_4WWXkNcXEeaT4Jq1OZMMUw"/>
+  </nodes>
+<!--@Location 2,4-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="AddEntryToMap_i6vKkNcXEeaT4Jq1OZMMUw">
+    <pipelet href="enfinity:/core/pipelets/AddEntryToMap.xml"/>
+<!--@BendPoints 5,11-->
+    <nodeSuccessors name="next" next="JoinNode__LwwMNcXEeaT4Jq1OZMMUw"/>
+    <parameterBindings name="InMap" objectPath="Parameters"/>
+    <parameterBindings name="Key" constant="Customer"/>
+    <parameterBindings name="Value" objectPath="CustomerBO"/>
+    <returnValueBindings name="OutMap" objectPath="Parameters"/>
+  </nodes>
+</pipeline:Pipeline>

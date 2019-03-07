@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<enfinity xmlns:dt="http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt">
+<pagelet-component id="cmp_brands_carousel_container">
+<definition-name>app_sf_responsive_cm:component.common.container.pagelet2-Component</definition-name>
+<parent id="cmp_tmp_container_fullWidthSingleSlot" domain="inSPIRED-MasterRepository" />
+<display-name xml:lang="de-DE">Markenkarussellcontainer</display-name>
+<display-name xml:lang="en-US">Brands Carousel Container</display-name>
+<display-name xml:lang="fr-FR">Carroussel de marques Container</display-name>
+<online>true</online>
+<author business-partner-no="admin" domain="inSPIRED"/>
+<placeholder-configurations>
+<placeholder-configuration hide-target-content="false" place-target-content-on-top="false">
+<parent-placeholder placeholder-id="ph_containerFullWidthSingleSlot_containerContent"/>
+</placeholder-configuration>
+</placeholder-configurations>
+</pagelet-component>
+<pagelet-placeholder-assignment id="exPAqDgB0B0AAAFWpHUEyCf4">
+<placeholder pagelet-domain="inSPIRED-inTRONICS-b2c-responsive" pagelet-id="cmp_brands_carousel_container">
+<parent-placeholder placeholder-id="ph_containerFullWidthSingleSlot_containerContent"/>
+</placeholder>
+<pagelet id="cmp_brands_carousel" domain="inSPIRED-inTRONICS-b2c-responsive"/>
+<position>1</position>
+<online>true</online>
+</pagelet-placeholder-assignment>
+</enfinity>

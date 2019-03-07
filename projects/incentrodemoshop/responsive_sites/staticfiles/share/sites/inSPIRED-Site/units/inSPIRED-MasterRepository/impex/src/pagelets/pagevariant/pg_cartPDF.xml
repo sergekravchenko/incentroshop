@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<enfinity xmlns:dt="http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt">
+<pagelet-page id="pg_cartPDF">
+<definition-name>app_sf_responsive_cm:pagevariant.print.pagelet2-Pagevariant</definition-name>
+<display-name xml:lang="de-DE">Pdf/Drucke Warenkorb</display-name>
+<display-name xml:lang="en-US">Cart PDF/Print</display-name>
+<display-name xml:lang="fr-FR">PDF/version imprimée de panier</display-name>
+<online>true</online>
+<author business-partner-no="admin" domain="inSPIRED"/>
+<configuration-parameters>
+<configuration-parameter name="DefaultFileName">
+<definition-name>app_sf_responsive_cm:pagevariant.print.pagelet2-Pagevariant-DefaultFileName</definition-name>
+<value name="DefaultFileName">Shopping_Cart.pdf</value>
+</configuration-parameter>
+<configuration-parameter name="Message1">
+<definition-name>app_sf_responsive_cm:pagevariant.print.pagelet2-Pagevariant-Message1</definition-name>
+<value name="Message1" xml:lang="de-DE">&lt;p&gt;Die folgende Liste zeigt alle Artikel in Ihrem Warenkorb ({0}).&lt;/p&gt;</value>
+<value name="Message1" xml:lang="en-US">&lt;p&gt;The following list displays all items in your shopping cart at {0}.&lt;/p&gt;</value>
+<value name="Message1" xml:lang="fr-FR">&lt;p&gt;La liste suivante affiche tous les articles dans votre panier d&apos;achat chez {0}.&lt;/p&gt;</value>
+</configuration-parameter>
+<configuration-parameter name="Message2">
+<definition-name>app_sf_responsive_cm:pagevariant.print.pagelet2-Pagevariant-Message2</definition-name>
+<value name="Message2" xml:lang="de-DE">&lt;p&gt;Please note that prices and availability of products are subject to change.&lt;br /&gt;&amp;copy;&amp;nbsp;2018 INTERSHOP Communications AG. All rights reserved.&lt;/p&gt;</value>
+<value name="Message2" xml:lang="en-US">&lt;p&gt;Please note that prices and availability of products are subject to change.&lt;br /&gt;&amp;copy;&amp;nbsp;2018 INTERSHOP Communications AG. All rights reserved.&lt;/p&gt;</value>
+<value name="Message2" xml:lang="fr-FR">&lt;p&gt;Veuillez noter que le prix et la disponibilité des produits sont susceptibles d&apos;être modifiés.&lt;br /&gt;&amp;copy;&amp;nbsp;2018 INTERSHOP Communications SARL. Tous droits réservés.&lt;/p&gt;</value>
+</configuration-parameter>
+</configuration-parameters>
+<slots>
+<slot>
+<definition-name>app_sf_responsive_cm:slot.marketing.print.pagelet2-Slot</definition-name>
+<optional>false</optional>
+<sorting>false</sorting>
+</slot>
+</slots>
+</pagelet-page>
+</enfinity>

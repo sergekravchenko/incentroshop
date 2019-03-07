@@ -1,0 +1,16 @@
+<iscontent compact="true" charset="UTF-8">
+<iscachekey object="#ProductBO#">
+<isinclude template="modules/B2BModules">
+
+<isCurrentUserBO currentuserbo="UserBO">
+<isif condition="#UserBO:Extension("UserBORoleExtension"):hasRole("APP_B2B_OCI_USER")#">
+	<isset name="USER_HAS_ROLE_APP_B2B_OCI_USER" value="true" scope="request"/>
+<iselse>
+	<isset name="USER_HAS_ROLE_APP_B2B_OCI_USER" value="false" scope="request"/>
+</isif>
+
+<isif condition="#USER_HAS_ROLE_APP_B2B_OCI_USER EQ 'false'#">
+	<isif condition="#isDefined(ProductBO) AND (NOT (ProductBO:isEndOfLife))#">
+		<ISAddToQuoteRequest ProductBO="#ProductBO#">
+	</isif>
+</isif>

@@ -1,0 +1,54 @@
+<iscontent personalized="true" type="text/html" charset="UTF-8" compact="true">
+
+<isif condition="#not isDefined(CustomerBO)#">
+	<isset name="CustomerBO" value="#CurrentCartBO:CustomerBO#" scope="request"> 
+</isif>
+<isif condition="#not isDefined(UserBO)#">
+	<isset name="UserBO" value="#CurrentCartBO:UserBO#" scope="request"> 
+</isif>
+
+<isif condition="#(isDefined(CustomerBO)) OR ((CurrentCartBO:ExtensibleObject:AttributeValue("orderReferenceID"):StringValue NE '') OR (CurrentCartBO:ExtensibleObject:AttributeValue("TaxationID"):StringValue NE '') OR (CurrentCartBO:ExtensibleObject:AttributeValue("Department"):StringValue NE ''))#">
+	<div class="col-sm-6">
+		<div class="infobox">
+			<isif condition="#isDefined(CustomerBO)#">
+				<h3><istext key="checkout.widget.purchaser.heading" /></h3>
+				<isif condition="#CurrentCartBO:InvoiceToAddressBO:CompanyName NE 'none'#">
+					<div><isprint value="#CurrentCartBO:InvoiceToAddressBO:CompanyName#"> <isprint value="#CurrentCartBO:InvoiceToAddressBO:CompanyName2#"></div>
+				</isif>
+				<div><isprint value="#CurrentCartBO:UserBO:FirstName#">&nbsp;<isprint value="#CurrentCartBO:UserBO:LastName#"></div>
+				<div><isprint value="#CurrentCartBO:UserBO:Email#"></div>
+				<isif condition="#CurrentCartBO:UserBO:Department NE ''#"><div><isprint value="#CurrentCartBO:UserBO:Department#"></div></isif>
+				<isif condition ="#CustomerBO:Extension("CompanyCustomer"):TaxationID NE ''#">
+					<div><istext key="checkout.widget.purchaser.TaxationID"/>: <isprint value="#CustomerBO:Extension("CompanyCustomer"):TaxationID#"></div>
+				</isif>	
+
+				<!--- b2b: additional info like Cost Center, etc. --->
+				<isinclude extensionpoint="PurchaserAdditionalInfo"/>
+
+				<isif condition="#CurrentCartBO:ExtensibleObject:AttributeValue("orderReferenceID"):StringValue NE ''#"><br />
+					<isif condition="#isDefined(CurrentStep) AND (CurrentStep EQ '4')#">
+						<a href="#URL(Action('ViewCheckoutShipping-Review'))#" class="pull-right btn-tool" title="<istext key="checkout.widget.purchaser.link.edit" />"><span class="glyphicon glyphicon-pencil"></a>
+					</isif>
+					<strong><istext key="checkout.widget.purchaser.orderReferenceID" /></strong>
+					<div><isprint value="#CurrentCartBO:ExtensibleObject:AttributeValue("orderReferenceID"):StringValue#"></div>
+				</isif>
+					
+			<iselse>
+				<h3><istext key="checkout.widget.purchaser.heading" /></h3>
+				
+				<!--- fix for unregistered B2B customers --->
+				<address>
+					<isif condition="#CurrentCartBO:ExtensibleObject:AttributeValue("Department"):StringValue NE ''#"><div><isprint value="#CurrentCartBO:ExtensibleObject:AttributeValue("Department"):StringValue#"></div></isif>
+					<isif condition="#CurrentCartBO:ExtensibleObject:AttributeValue("TaxationID"):StringValue NE ''#"><div><istext key="checkout.widget.purchaser.TaxationID"/>: <isprint value="#CurrentCartBO:ExtensibleObject:AttributeValue("TaxationID"):StringValue#"></div></isif>
+				</address>
+				<isif condition="#CurrentCartBO:ExtensibleObject:AttributeValue("orderReferenceID"):StringValue NE ''#">
+					<p>
+						<istext key="checkout.widget.purchaser.orderReferenceID"/>: 
+						<isprint value="#CurrentCartBO:ExtensibleObject:AttributeValue("orderReferenceID"):StringValue#">
+					</p>
+				</isif>
+			</isif>
+
+		</div>
+	</div>
+</isif>

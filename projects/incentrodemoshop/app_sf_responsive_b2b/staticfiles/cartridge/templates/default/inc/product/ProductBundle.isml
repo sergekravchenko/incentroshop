@@ -1,0 +1,37 @@
+<iscontent personalized="true" type="text/html" charset="UTF-8" compact="true">
+<iscache type="relative" hour="24">
+<iscachekey object="#ProductBO#">
+<isinclude template="modules/Modules">
+
+<isif condition="#ProductBO:isProductBundle#">
+	<isset name="BundledProductBOs" value="#ProductBO:BundleInformationBO:BundledProductBOs#" scope="request" />
+	
+	<div class="col-xs-12 bundled-product-list">
+		<h3><istext key="product.productBundle.products.heading" /></h3>
+		<ul class="product-list row">
+			<isloop iterator="BundledProductBOs" alias="BundledProductBO">
+				<isif condition="#BundledProductBO:Online#">
+					<iscachekey object="#BundledProductBO#">
+					<li class="col-md-12 list-view bundled-product-list-item">
+						<isinclude template="inc/product/BundledProduct">
+					</li>
+				</isif>
+			</isloop>
+		</ul>
+	</div>
+	
+	<div class="col-xs-12 bundled-product-list-actions">
+		<isform class="product-form bv-form" name="#'productBundleForm_'.ProductBO:SKU#" action="#URLEX(SecureURL,'',Action('ViewCart-Dispatch'))#" method="post">
+			<input type="hidden" name="SKU" value="<isprint value="#ProductBO:SKU#">"/>
+			
+			<ISAddToCart ProductBO="#ProductBO#" Currency="#CurrentRequest:Currency#" DataAttributes="data-click-source=ProductBundleAddToCart">
+			
+			<ISAddToWishlist ProductBO="#ProductBO#" Currency="#CurrentRequest:Currency#" DataAttributes="#'data-dialog-form=productDetailForm_'.ProductBO:SKU#">
+			
+			<iscomment>TODO this check must use a permission (not a role) when ready</iscomment>
+			<isif condition="#NOT(isDefined(USER_HAS_ROLE_APP_B2B_OCI_USER)) OR (USER_HAS_ROLE_APP_B2B_OCI_USER EQ 'false')#">
+				<ISAddToProductNotification ProductBO="#ProductBO#" CurrentSession="#CurrentSession#">
+			</isif>
+		</isform>
+	</div>
+</isif>

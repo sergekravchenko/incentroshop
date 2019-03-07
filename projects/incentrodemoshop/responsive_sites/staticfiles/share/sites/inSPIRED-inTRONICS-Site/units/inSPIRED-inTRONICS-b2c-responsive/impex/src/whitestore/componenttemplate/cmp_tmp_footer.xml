@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<enfinity xmlns:dt="http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt">
+<component-template id="cmp_tmp_footer">
+<definition-name>app_sf_responsive_cm:component.system.footer.pagelet2-Component</definition-name>
+<display-name xml:lang="de-DE">Footer</display-name>
+<display-name xml:lang="en-US">Footer</display-name>
+<active>true</active>
+<author business-partner-no="admin" domain="inSPIRED"/>
+<slots>
+<slot>
+<definition-name>app_sf_responsive_cm:slot.footer.content.pagelet2-Slot</definition-name>
+<optional>false</optional>
+<sorting>false</sorting>
+</slot>
+</slots>
+</component-template>
+<pagelet-slot-assignment id="Xv0KAM5h2foAAAFCa1dZoGsF">
+<slot definition-name="app_sf_responsive_cm:slot.footer.content.pagelet2-Slot" parent-pagelet-id="cmp_tmp_footer" domain="inSPIRED-inTRONICS-b2c-responsive"/>
+<pagelet id="cmp_tmp_footer_content" domain="inSPIRED-inTRONICS-b2c-responsive"/>
+<position>3</position>
+<online>true</online>
+</pagelet-slot-assignment>
+<pagelet-slot-assignment id="DuIKAE8FhIYAAAFOCIkA9Gdd">
+<slot definition-name="app_sf_responsive_cm:slot.footer.content.pagelet2-Slot" parent-pagelet-id="cmp_tmp_footer" domain="inSPIRED-inTRONICS-b2c-responsive"/>
+<pagelet id="cmp_tmp_footer_content_top" domain="inSPIRED-inTRONICS-b2c-responsive"/>
+<position>2</position>
+<online>true</online>
+</pagelet-slot-assignment>
+</enfinity>

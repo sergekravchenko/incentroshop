@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<enfinity xmlns:dt="http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt">
+<pagelet-entry-point id="systeminclude.dialog.privacyPolicy.pagelet2-Include">
+<definition-name>app_sf_responsive:systeminclude.dialog.privacyPolicy.pagelet2-Include</definition-name>
+<page>false</page>
+<sorting>false</sorting>
+<display-name xml:lang="de-DE">Dialog - Datenschutzbestimmungen</display-name>
+<display-name xml:lang="en-US">Dialog - Privacy Policy</display-name>
+<display-name xml:lang="fr-FR">Dialogue - Protection de données</display-name>
+<description xml:lang="de-DE">Dieses Include ermöglicht die Definition der allgemeinen Datenschutzbestimmungen.</description>
+<description xml:lang="en-US">This include allows to define the privacy policy.</description>
+<description xml:lang="fr-FR">Cette inclusion permet de définir les protection de données qui sont affichées sur la page récapitulative de la caisse.</description>
+</pagelet-entry-point>
+<pagelet-pagelet-entry-point-assignment>
+<pagelet-entry-point id="systeminclude.dialog.privacyPolicy.pagelet2-Include" domain="inSPIRED-MasterRepository" resource-set="app_sf_responsive"/>
+<pagelet id="cmp_dialog_privacyPolicy" domain="inSPIRED-MasterRepository"/>
+<position>1</position>
+<online>true</online>
+</pagelet-pagelet-entry-point-assignment>
+</enfinity>

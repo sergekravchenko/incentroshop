@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pagelet:PageletModel xmlns:pagelet="http://www.intershop.de/pagelet/2010" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://www.intershop.de/core/2010" name="pagevariant.print.pagelet2">
+  <pageletDefinitions name="Pagevariant" page="true">
+    <callParameterInterfaces referencedName="app_sf_responsive:interface.page.print.pagelet2-Interface"/>
+    <configurationParameterDefinitions name="DefaultFileName" localizable="false" typeReference="bc_pmc:types.pagelet2-Text"/>
+    <configurationParameterDefinitions name="Message1" optional="true" typeReference="bc_pmc:types.pagelet2-Html">
+      <parameterBindings xsi:type="core:ParameterValueBinding" name="Key0" value="Date"/>
+    </configurationParameterDefinitions>
+    <configurationParameterDefinitions name="Message2" optional="true" typeReference="bc_pmc:types.pagelet2-Html">
+      <parameterBindings xsi:type="core:ParameterValueBinding" name="Key0" value="Date"/>
+    </configurationParameterDefinitions>
+    <renderTemplate referencedName="pagevariant/Print.isml"/>
+    <slotInclusionDefinitions>
+      <slotDefinition referencedName="app_sf_responsive_cm:slot.marketing.print.pagelet2-Slot"/>
+    </slotInclusionDefinitions>
+  </pageletDefinitions>
+</pagelet:PageletModel>

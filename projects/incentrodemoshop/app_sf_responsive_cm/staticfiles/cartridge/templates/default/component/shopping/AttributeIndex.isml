@@ -1,0 +1,68 @@
+<iscontent personalized="true" type="text/html" charset="UTF-8" compact="true">
+<iscache type="relative" hour="24">
+<isinclude template="modules/Modules">
+
+<div class="breadcrumbs row">
+	<ISBreadcrumb showhomelink="true" trailtext0="#PageletConfigurationParameters:Title#">
+</div>
+
+<div class="marketing-area">
+	<isslot slot="app_sf_responsive_cm:slot.marketing.base.pagelet2-Slot">
+</div>
+
+
+<h1><isprint value="#PageletConfigurationParameters:Title#"></h1>
+<isset name="IndexMapKeySet" value="#AttributeIndexMap:KeySet#" scope="request"/>
+<isif condition="#(PageletConfigurationParameters:IndexType EQ "TabSet")#">
+	<isif condition="#hasElements(IndexMapKeySet)#">
+		<!-- Nav tabs -->
+		<ul class="nav nav-tabs" role="tablist">
+			<isloop iterator="IndexMapKeySet" alias="letter" counter="count">
+				<li role="presentation" class="<isif condition="#(count == 1)#">active</isif>"><a href="#'#'#<isprint value="#ucase(letter)#">" aria-controls="<isprint value="#ucase(letter)#">" role="tab" data-toggle="tab"><isprint value="#ucase(letter)#"></a></li>
+			</isloop>
+		</ul>
+		
+		<!-- Tab panes -->
+		<div class="tab-content">
+			<isloop iterator="IndexMapKeySet" alias="letter" counter="count">
+				<div role="tabpanel" class="tab-pane <isif condition="#(count == 1)#">active</isif>" id="<isprint value="#ucase(letter)#">">
+					
+					<div class="col-xs-1"><h1><isprint value="#ucase(letter)#"></h1></div>
+					<div class="col-xs-4 text-left brand-list-container">
+						<isloop iterator="AttributeIndexMap:get(letter)" alias="IndexValue" counter="count">
+							<ul class="brand-list">
+								<li><a href="#URL(Action('ViewParametricSearch-SimpleOfferSearch'), Parameter('SearchTerm', IndexValue:Value), Parameter('SearchParameter', '&@QueryTerm="' . IndexValue:Value . '"&@QueryAttribute='.PageletConfigurationParameters:IndexAttribute))#"><isprint value="#IndexValue:Value#"/></a></li>
+							</ul>
+						</isloop>
+					</div>
+					
+				</div>
+			</isloop>
+		</div>
+	</isif>
+<iselse>
+	<isif condition="#hasElements(IndexMapKeySet)#">
+		<div>
+			<ul class="brand-index row equal">
+				<isloop iterator="IndexMapKeySet" alias="letter" counter="count">
+					<li id="<isprint value="#lcase(letter).'-section'#">" class="brand-index-section col-xs-4">
+						<h1><isprint value="#ucase(letter)#"></h1>
+						<ul class="brand-list">
+							<isloop iterator="AttributeIndexMap:get(letter)" alias="IndexValue">
+								<li class="brands-list-item">
+									<a href="#URL(Action('ViewParametricSearch-SimpleOfferSearch'), Parameter('SearchTerm', IndexValue:Value), Parameter('SearchParameter', '&@QueryTerm="' . IndexValue:Value . '"&@QueryAttribute='.PageletConfigurationParameters:IndexAttribute))#"><isprint value="#IndexValue:Value#"/></a>
+								</li>
+							</isloop>
+						</ul>
+					</li>
+					<isif condition="#(count % 3) == 0#">
+						</ul>
+					</div>
+					<div>
+						<ul class="brand-index row equal">
+					</isif>
+				</isloop>
+			</ul>
+		</div>
+	</isif>
+</isif>

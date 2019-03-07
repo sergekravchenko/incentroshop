@@ -1,0 +1,6 @@
+<isif condition="#(isDefined(address:CompanyName1)) AND (address:CompanyName1 NE '')#">
+	<isprint value="#address:CompanyName1#"><br/>
+</isif>
+<isif condition="#(isDefined(address:CompanyName2)) AND (address:CompanyName2 NE '')#">
+	<isprint value="#address:CompanyName2#"><br/>
+</isif>

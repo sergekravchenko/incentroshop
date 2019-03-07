@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<webform:WebForm xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:webform="http://www.intershop.de/webform/2010"
+    name="OCIConfiguration">
+  <forms name="OCIConfigurationForm">
+    <parameters xsi:type="webform:FormParameter" name="OCI.NEW_ITEM-MATGROUP.VALUE"  type="java.lang.String" optional="true"/>
+    <parameters xsi:type="webform:FormParameter" name="OCI.NEW_ITEM-MATGROUP.FORMAT" type="java.lang.String" optional="true"/>
+    <parameters xsi:type="webform:FormParameter" name="OCI.NEW_ITEM-UNIT.VALUE"  type="java.lang.String" optional="true"/>
+    <parameters xsi:type="webform:FormParameter" name="OCI.NEW_ITEM-UNIT.FORMAT" type="java.lang.String" optional="true"/>
+    <parameters xsi:type="webform:FormParameter" name="OCI.NEW_ITEM-VENDOR.VALUE"  type="java.lang.String" optional="true"/>
+    <parameters xsi:type="webform:FormParameter" name="OCI.NEW_ITEM-VENDOR.FORMAT" type="java.lang.String" optional="true"/>
+    <parameters xsi:type="webform:FormParameter" name="OCI.NEW_ITEM-CONTRACT.VALUE"  type="java.lang.String" optional="true"/>
+    <parameters xsi:type="webform:FormParameter" name="OCI.NEW_ITEM-CONTRACT.FORMAT" type="java.lang.String" optional="true"/>
+    <parameters xsi:type="webform:FormParameter" name="OCI.NEW_ITEM-CONTRACT_ITEM.VALUE"  type="java.lang.String" optional="true"/>
+    <parameters xsi:type="webform:FormParameter" name="OCI.NEW_ITEM-CONTRACT_ITEM.FORMAT" type="java.lang.String" optional="true"/>
+    <parameters xsi:type="webform:FormParameter" name="OCI.NEW_ITEM-CUST_FIELD1.VALUE"  type="java.lang.String" optional="true"/>
+    <parameters xsi:type="webform:FormParameter" name="OCI.NEW_ITEM-CUST_FIELD1.FORMAT" type="java.lang.String" optional="true"/>
+    <parameters xsi:type="webform:FormParameter" name="OCI.NEW_ITEM-CUST_FIELD2.VALUE"  type="java.lang.String" optional="true"/>
+    <parameters xsi:type="webform:FormParameter" name="OCI.NEW_ITEM-CUST_FIELD2.FORMAT" type="java.lang.String" optional="true"/>
+    <parameters xsi:type="webform:FormParameter" name="OCI.NEW_ITEM-CUST_FIELD3.VALUE"  type="java.lang.String" optional="true"/>
+    <parameters xsi:type="webform:FormParameter" name="OCI.NEW_ITEM-CUST_FIELD3.FORMAT" type="java.lang.String" optional="true"/>
+    <parameters xsi:type="webform:FormParameter" name="OCI.NEW_ITEM-CUST_FIELD4.VALUE"  type="java.lang.String" optional="true"/>
+    <parameters xsi:type="webform:FormParameter" name="OCI.NEW_ITEM-CUST_FIELD4.FORMAT" type="java.lang.String" optional="true"/>
+    <parameters xsi:type="webform:FormParameter" name="OCI.NEW_ITEM-CUST_FIELD5.VALUE"  type="java.lang.String" optional="true"/>
+    <parameters xsi:type="webform:FormParameter" name="OCI.NEW_ITEM-CUST_FIELD5.FORMAT" type="java.lang.String" optional="true"/>
+  </forms>
+</webform:WebForm>

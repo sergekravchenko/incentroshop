@@ -1,0 +1,388 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<enfinity xmlns="http://www.intershop.com/xml/ns/enfinity/6.3.1/core/impex" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dt="http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt" xsi:schemaLocation="http://www.intershop.com/xml/ns/enfinity/6.3.1/core/impex user.xsd http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt dt.xsd" major="6" minor="1" family="enfinity" branch="enterprise" build="">
+	<user business-partner-no="admin" import-mode="UPDATE">
+		<profile/>
+		<user-groups>
+			<user-group id="SLD_AR_20_SHOP_MANAGER" domain="inSPIRED"/>
+			<user-group id="SLD_AR_32_SHOP_MANAGER" domain="inSPIRED-ResellerChannel"/>
+			<user-group id="SLD_AR_52_SHOP_MANAGER" domain="inSPIRED-inTRONICS"/>
+			<user-group id="SLD_AR_52_SHOP_MANAGER" domain="inSPIRED-inTRONICS_Business"/>
+			<user-group id="SLD_AR_20_CATALOG_AND_PRODUCT_MANAGER" domain="inSPIRED"/>
+			<user-group id="SLD_AR_32_CATALOG_AND_PRODUCT_MANAGER" domain="inSPIRED-ResellerChannel"/>
+			<user-group id="SLD_AR_52_CATALOG_AND_PRODUCT_MANAGER" domain="inSPIRED-inTRONICS"/>
+			<user-group id="SLD_AR_52_CATALOG_AND_PRODUCT_MANAGER" domain="inSPIRED-inTRONICS_Business"/>
+			<user-group id="SLD_AR_20_CONTENT_MANAGER" domain="inSPIRED"/>
+			<user-group id="SLD_AR_32_CONTENT_MANAGER" domain="inSPIRED-ResellerChannel"/>
+			<user-group id="SLD_AR_52_CONTENT_MANAGER" domain="inSPIRED-inTRONICS"/>
+			<user-group id="SLD_AR_52_CONTENT_MANAGER" domain="inSPIRED-inTRONICS_Business"/>
+			<user-group id="SLD_AR_20_ORDER_MANAGER" domain="inSPIRED"/>
+			<user-group id="SLD_AR_52_ORDER_MANAGER" domain="inSPIRED-inTRONICS"/>
+			<user-group id="SLD_AR_52_ORDER_MANAGER" domain="inSPIRED-inTRONICS_Business"/>
+			<user-group id="SLD_AR_52_MARKETING_MANAGER" domain="inSPIRED-inTRONICS"/>
+			<user-group id="SLD_AR_52_MARKETING_MANAGER" domain="inSPIRED-inTRONICS_Business"/>
+			<user-group id="SLD_AR_52_CONSUMER_MANAGER" domain="inSPIRED-inTRONICS"/>
+			<user-group id="SLD_AR_52_CONSUMER_MANAGER" domain="inSPIRED-inTRONICS_Business"/>
+			<user-group id="SLD_AR_52_SHIPPING_MANAGER" domain="inSPIRED-inTRONICS"/>
+			<user-group id="SLD_AR_52_SHIPPING_MANAGER" domain="inSPIRED-inTRONICS_Business"/>
+			<user-group id="SLD_AR_32_PAYMENT_MANAGER" domain="inSPIRED-ResellerChannel"/>
+			<user-group id="SLD_AR_52_PAYMENT_MANAGER" domain="inSPIRED-inTRONICS"/>
+			<user-group id="SLD_AR_52_PAYMENT_MANAGER" domain="inSPIRED-inTRONICS_Business"/>
+			<user-group id="SLD_AR_20_ADMINISTRATOR" domain="inSPIRED"/>
+			<user-group id="SLD_AR_32_ADMINISTRATOR" domain="inSPIRED-ResellerChannel"/>
+			<user-group id="SLD_AR_52_ADMINISTRATOR" domain="inSPIRED-inTRONICS"/>
+			<user-group id="SLD_AR_52_ADMINISTRATOR" domain="inSPIRED-inTRONICS_Business"/>
+			<user-group id="SLD_AR_20_SYSTEM_MANAGER" domain="inSPIRED"/>
+			<user-group id="SLD_AR_32_SYSTEM_MANAGER" domain="inSPIRED-ResellerChannel"/>
+			<user-group id="SLD_AR_52_SYSTEM_MANAGER" domain="inSPIRED-inTRONICS"/>
+			<user-group id="SLD_AR_52_SYSTEM_MANAGER" domain="inSPIRED-inTRONICS_Business"/>
+			<user-group id="SLD_AR_20_SYSTEM_PREFERENCE_MANAGER" domain="inSPIRED"/>
+			<user-group id="SLD_AR_52_SYSTEM_PREFERENCE_MANAGER" domain="inSPIRED-inTRONICS"/>
+			<user-group id="SLD_AR_52_SYSTEM_PREFERENCE_MANAGER" domain="inSPIRED-inTRONICS_Business"/>
+			<user-group id="SLD_AR_20_CATALOG_AND_PRODUCT_PREFERENCE_MANAGER" domain="inSPIRED"/>
+			<user-group id="SLD_AR_32_CATALOG_AND_PRODUCT_PREFERENCE_MANAGER" domain="inSPIRED-ResellerChannel"/>
+			<user-group id="SLD_AR_52_CATALOG_AND_PRODUCT_PREFERENCE_MANAGER" domain="inSPIRED-inTRONICS"/>
+			<user-group id="SLD_AR_52_CATALOG_AND_PRODUCT_PREFERENCE_MANAGER" domain="inSPIRED-inTRONICS_Business"/>
+			<user-group id="SLD_AR_20_CONTENT_PREFERENCE_MANAGER" domain="inSPIRED"/>
+			<user-group id="SLD_AR_52_CONTENT_PREFERENCE_MANAGER" domain="inSPIRED-inTRONICS"/>
+			<user-group id="SLD_AR_52_CONTENT_PREFERENCE_MANAGER" domain="inSPIRED-inTRONICS_Business"/>
+			<user-group id="SLD_AR_52_ORDER_PREFERENCE_MANAGER" domain="inSPIRED-inTRONICS"/>
+			<user-group id="SLD_AR_52_ORDER_PREFERENCE_MANAGER" domain="inSPIRED-inTRONICS_Business"/>
+			<user-group id="SLD_AR_52_MARKETING_PREFERENCE_MANAGER" domain="inSPIRED-inTRONICS"/>
+			<user-group id="SLD_AR_52_MARKETING_PREFERENCE_MANAGER" domain="inSPIRED-inTRONICS_Business"/>
+			<user-group id="SLD_AR_20_LOCALIZATION_MANAGER" domain="inSPIRED"/>
+			<user-group id="SLD_AR_52_LOCALIZATION_MANAGER" domain="inSPIRED-inTRONICS"/>
+			<user-group id="SLD_AR_52_LOCALIZATION_MANAGER" domain="inSPIRED-inTRONICS_Business"/>
+			<user-group id="SLD_AR_53_CONTENT_MANAGER" domain="inSPIRED-inTRONICS-b2c-responsive"/>
+			<user-group id="SLD_AR_53_SYSTEM_MANAGER" domain="inSPIRED-inTRONICS-b2c-responsive"/>
+			<user-group id="SLD_AR_53_AUDITOR" domain="inSPIRED-inTRONICS-b2c-responsive"/>
+			<user-group id="SLD_AR_53_CONTENT_PREFERENCE_MANAGER" domain="inSPIRED-inTRONICS-b2c-responsive"/>
+			<user-group id="SLD_AR_53_MARKETING_MANAGER" domain="inSPIRED-inTRONICS-b2c-responsive"/>
+			<user-group id="SLD_AR_53_CONTENT_MANAGER" domain="inSPIRED-inTRONICS-smb-responsive"/>
+			<user-group id="SLD_AR_53_SYSTEM_MANAGER" domain="inSPIRED-inTRONICS-smb-responsive"/>
+			<user-group id="SLD_AR_53_AUDITOR" domain="inSPIRED-inTRONICS-smb-responsive"/>
+			<user-group id="SLD_AR_53_CONTENT_PREFERENCE_MANAGER" domain="inSPIRED-inTRONICS-smb-responsive"/>
+			<user-group id="SLD_AR_53_MARKETING_MANAGER" domain="inSPIRED-inTRONICS-smb-responsive"/>
+			<user-group id="SLD_AR_53_CONTENT_MANAGER" domain="inSPIRED-inTRONICS_Business-smb-responsive"/>
+			<user-group id="SLD_AR_53_SYSTEM_MANAGER" domain="inSPIRED-inTRONICS_Business-smb-responsive"/>
+			<user-group id="SLD_AR_53_AUDITOR" domain="inSPIRED-inTRONICS_Business-smb-responsive"/>
+			<user-group id="SLD_AR_53_CONTENT_PREFERENCE_MANAGER" domain="inSPIRED-inTRONICS_Business-smb-responsive"/>
+			<user-group id="SLD_AR_53_MARKETING_MANAGER" domain="inSPIRED-inTRONICS_Business-smb-responsive"/>
+			<user-group id="SLD_AR_20_PROCESS_CHAIN_MANAGER" domain="inSPIRED"/>
+			<user-group id="SLD_AR_20_PROCESS_CHAIN_VIEWER" domain="inSPIRED"/>
+		</user-groups>
+	</user>
+	<!-- the user import file for the organization inSPIRED-->
+	<user business-partner-no="Manufactorer_inSPIRED">
+		<business-partner-no>Manufactorer_inSPIRED</business-partner-no>
+		<profile>
+			<credentials>
+				<login>michael</login>
+				<password>!InterShop00!</password>
+				<enabled>1</enabled>
+			</credentials>
+			<description>Responsible for product management in manufacturing department.</description>
+			<first-name>Michael</first-name>
+			<last-name>Manufactor</last-name>
+			<email>Manufactorer_inSPIRED@test.intershop.de</email>
+			<addresses>
+				<address name="Contact Address">
+					<company-name>inSPIRED</company-name>
+					<address-name>Contact Address</address-name>
+					<first-name>Michael</first-name>
+					<last-name>Manufactor</last-name>
+					<title>Mr.</title>
+					<city>inSPIRED City</city>
+					<postal-code>143456</postal-code>
+					<street>Main Street</street>
+					<street2>10th Floor</street2>
+					<state/>
+					<country-code>DE</country-code>
+					<email>Manufactorer_inSPIRED@test.intershop.de</email>
+					<default-address>1</default-address>
+					<ship-to-address>1</ship-to-address>
+					<invoice-to-address>1</invoice-to-address>
+					<custom-attributes>
+						<custom-attribute name="Field1"/>
+						<custom-attribute name="Field2">10th Floor</custom-attribute>
+						<custom-attribute name="Field3"/>
+					</custom-attributes>
+				</address>
+			</addresses>
+		</profile>
+		<user-groups>
+			<user-group id="SLD_AR_20_CATALOG_AND_PRODUCT_MANAGER" domain="inSPIRED"/>
+			<user-group id="SLD_AR_20_CATALOG_AND_PRODUCT_PREFERENCE_MANAGER" domain="inSPIRED"/>
+		</user-groups>
+	</user>
+	<user business-partner-no="Masterapprover_inSPIRED">
+		<business-partner-no>Masterapprover_inSPIRED</business-partner-no>
+		<profile>
+			<credentials>
+				<login>miriam</login>
+				<password>!InterShop00!</password>
+				<enabled>1</enabled>
+			</credentials>
+			<description>Master approver. Responsible for all channels and the administration of master products.</description>
+			<first-name>Miriam</first-name>
+			<last-name>Masterapprover</last-name>
+			<email>Masterapprover_inSPIRED@test.intershop.de</email>
+			<addresses>
+				<address name="Contact Address">
+					<company-name>inSPIRED</company-name>
+					<address-name>Contact Address</address-name>
+					<first-name>Miriam</first-name>
+					<last-name>Masterapprover</last-name>
+					<title>Ms.</title>
+					<city>inSPIRED City</city>
+					<postal-code>143456</postal-code>
+					<street>Main Street</street>
+					<street2>10th Floor</street2>
+					<state/>
+					<country-code>DE</country-code>
+					<email>Masterapprover_inSPIRED@test.intershop.de</email>
+					<default-address>1</default-address>
+					<ship-to-address>1</ship-to-address>
+					<invoice-to-address>1</invoice-to-address>
+					<custom-attributes>
+						<custom-attribute name="Field1"/>
+						<custom-attribute name="Field2">10th Floor</custom-attribute>
+						<custom-attribute name="Field3"/>
+					</custom-attributes>
+				</address>
+			</addresses>
+		</profile>
+		<user-groups>
+			<user-group id="SLD_AR_20_CATALOG_AND_PRODUCT_MANAGER" domain="inSPIRED"/>
+			<user-group id="SLD_AR_20_CATALOG_AND_PRODUCT_PREFERENCE_MANAGER" domain="inSPIRED"/>
+		</user-groups>
+	</user>
+	<user business-partner-no="Directsales_inSPIRED">
+		<business-partner-no>Directsales_inSPIRED</business-partner-no>
+		<profile>
+			<credentials>
+				<login>dorothy</login>
+				<password>!InterShop00!</password>
+				<enabled>1</enabled>
+			</credentials>
+			<description>Direct Sales Manager. Responsoble for all aspects of the direct channel.</description>
+			<first-name>Dorothy</first-name>
+			<last-name>Directsales</last-name>
+			<email>Directsales_inSPIRED@test.intershop.de</email>
+			<addresses>
+				<address name="Contact Address">
+					<company-name>inSPIRED</company-name>
+					<address-name>Contact Address</address-name>
+					<first-name>Dorothy</first-name>
+					<last-name>Directsales</last-name>
+					<title>Ms.</title>
+					<city>inSPIRED City</city>
+					<postal-code>143456</postal-code>
+					<street>Main Street</street>
+					<street2>10th Floor</street2>
+					<state/>
+					<country-code>DE</country-code>
+					<email>Directsales_inSPIRED@test.intershop.de</email>
+					<default-address>1</default-address>
+					<ship-to-address>1</ship-to-address>
+					<invoice-to-address>1</invoice-to-address>
+					<custom-attributes>
+						<custom-attribute name="Field1"/>
+						<custom-attribute name="Field2">10th Floor</custom-attribute>
+						<custom-attribute name="Field3"/>
+					</custom-attributes>
+				</address>
+			</addresses>
+		</profile>
+	</user>
+	<user business-partner-no="Distributorsales_inSPIRED">
+		<business-partner-no>Distributorsales_inSPIRED</business-partner-no>
+		<profile>
+			<credentials>
+				<login>dagobert</login>
+				<password>!InterShop00!</password>
+				<enabled>1</enabled>
+			</credentials>
+			<description>Distributor Sales Manager. Responsoble for all aspects of the partner channel.</description>
+			<first-name>Dagobert</first-name>
+			<last-name>Distributorsales</last-name>
+			<email>Distributorsales_inSPIRED@test.intershop.de</email>
+			<addresses>
+				<address name="Contact Address">
+					<company-name>inSPIRED</company-name>
+					<address-name>Contact Address</address-name>
+					<first-name>Dagobert</first-name>
+					<last-name>Distributorsales</last-name>
+					<title>Mr.</title>
+					<city>inSPIRED City</city>
+					<postal-code>143456</postal-code>
+					<street>Main Street</street>
+					<street2>10th Floor</street2>
+					<state/>
+					<country-code>DE</country-code>
+					<email>Distributorsales_inSPIRED@test.intershop.de</email>
+					<default-address>1</default-address>
+					<ship-to-address>1</ship-to-address>
+					<invoice-to-address>1</invoice-to-address>
+					<custom-attributes>
+						<custom-attribute name="Field1"/>
+						<custom-attribute name="Field2">10th Floor</custom-attribute>
+						<custom-attribute name="Field3"/>
+					</custom-attributes>
+				</address>
+			</addresses>
+		</profile>
+		<user-groups>
+		</user-groups>
+	</user>
+	<user business-partner-no="Administrator_inSPIRED">
+		<business-partner-no>Administrator_inSPIRED</business-partner-no>
+		<profile>
+			<credentials>
+				<login>angela</login>
+				<password>!InterShop00!</password>
+				<enabled>1</enabled>
+			</credentials>
+			<description>Business administrator. Permissions for all defined organization and channel roles.</description>
+			<first-name>Angela</first-name>
+			<last-name>Administrator</last-name>
+			<email>Administrator_inSPIRED@test.intershop.de</email>
+			<addresses>
+				<address name="Contact Address">
+					<company-name>inSPIRED</company-name>
+					<address-name>Contact Address</address-name>
+					<first-name>Angela</first-name>
+					<last-name>Administrator</last-name>
+					<title>Mrs.</title>
+					<city>inSPIRED City</city>
+					<postal-code>143456</postal-code>
+					<street>Main Street</street>
+					<street2>10th Floor</street2>
+					<state/>
+					<country-code>DE</country-code>
+					<email>Administrator_inSPIRED@test.intershop.de</email>
+					<default-address>1</default-address>
+					<ship-to-address>1</ship-to-address>
+					<invoice-to-address>1</invoice-to-address>
+					<custom-attributes>
+						<custom-attribute name="Field1"/>
+						<custom-attribute name="Field2">10th Floor</custom-attribute>
+						<custom-attribute name="Field3"/>
+					</custom-attributes>
+				</address>
+			</addresses>
+		</profile>
+		<user-groups>
+			<user-group id="SLD_AR_20_SHOP_MANAGER" domain="inSPIRED"/>
+			<user-group id="SLD_AR_32_SHOP_MANAGER" domain="inSPIRED-ResellerChannel"/>
+			<user-group id="SLD_AR_52_SHOP_MANAGER" domain="inSPIRED-inTRONICS"/>
+			<user-group id="SLD_AR_20_CATALOG_AND_PRODUCT_MANAGER" domain="inSPIRED"/>
+			<user-group id="SLD_AR_32_CATALOG_AND_PRODUCT_MANAGER" domain="inSPIRED-ResellerChannel"/>
+			<user-group id="SLD_AR_52_CATALOG_AND_PRODUCT_MANAGER" domain="inSPIRED-inTRONICS"/>
+			<user-group id="SLD_AR_20_CONTENT_MANAGER" domain="inSPIRED"/>
+			<user-group id="SLD_AR_32_CONTENT_MANAGER" domain="inSPIRED-ResellerChannel"/>
+			<user-group id="SLD_AR_52_CONTENT_MANAGER" domain="inSPIRED-inTRONICS"/>
+			<user-group id="SLD_AR_20_ORDER_MANAGER" domain="inSPIRED"/>
+			<user-group id="SLD_AR_52_ORDER_MANAGER" domain="inSPIRED-inTRONICS"/>
+			<user-group id="SLD_AR_52_MARKETING_MANAGER" domain="inSPIRED-inTRONICS"/>
+			<user-group id="SLD_AR_52_CONSUMER_MANAGER" domain="inSPIRED-inTRONICS"/>
+			<user-group id="SLD_AR_52_SHIPPING_MANAGER" domain="inSPIRED-inTRONICS"/>
+			<user-group id="SLD_AR_32_PAYMENT_MANAGER" domain="inSPIRED-ResellerChannel"/>
+			<user-group id="SLD_AR_52_PAYMENT_MANAGER" domain="inSPIRED-inTRONICS"/>
+			<user-group id="SLD_AR_20_ADMINISTRATOR" domain="inSPIRED"/>
+			<user-group id="SLD_AR_32_ADMINISTRATOR" domain="inSPIRED-ResellerChannel"/>
+			<user-group id="SLD_AR_52_ADMINISTRATOR" domain="inSPIRED-inTRONICS"/>
+			<user-group id="SLD_AR_20_SYSTEM_MANAGER" domain="inSPIRED"/>
+			<user-group id="SLD_AR_32_SYSTEM_MANAGER" domain="inSPIRED-ResellerChannel"/>
+			<user-group id="SLD_AR_52_SYSTEM_MANAGER" domain="inSPIRED-inTRONICS"/>
+			<user-group id="SLD_AR_20_SYSTEM_PREFERENCE_MANAGER" domain="inSPIRED"/>
+			<user-group id="SLD_AR_52_SYSTEM_PREFERENCE_MANAGER" domain="inSPIRED-inTRONICS"/>
+			<user-group id="SLD_AR_20_CATALOG_AND_PRODUCT_PREFERENCE_MANAGER" domain="inSPIRED"/>
+			<user-group id="SLD_AR_32_CATALOG_AND_PRODUCT_PREFERENCE_MANAGER" domain="inSPIRED-ResellerChannel"/>
+			<user-group id="SLD_AR_52_CATALOG_AND_PRODUCT_PREFERENCE_MANAGER" domain="inSPIRED-inTRONICS"/>
+			<user-group id="SLD_AR_20_CONTENT_PREFERENCE_MANAGER" domain="inSPIRED"/>
+			<user-group id="SLD_AR_52_CONTENT_PREFERENCE_MANAGER" domain="inSPIRED-inTRONICS"/>
+			<user-group id="SLD_AR_52_ORDER_PREFERENCE_MANAGER" domain="inSPIRED-inTRONICS"/>
+			<user-group id="SLD_AR_52_MARKETING_PREFERENCE_MANAGER" domain="inSPIRED-inTRONICS"/>
+			<user-group id="SLD_AR_20_LOCALIZATION_MANAGER" domain="inSPIRED"/>
+			<user-group id="SLD_AR_52_LOCALIZATION_MANAGER" domain="inSPIRED-inTRONICS"/>
+		</user-groups>
+	</user>
+	<user business-partner-no="Orderoperator_inSPIRED">
+		<business-partner-no>Orderoperator_inSPIRED</business-partner-no>
+		<profile>
+			<credentials>
+				<login>oscar</login>
+				<password>!InterShop00!</password>
+				<enabled>1</enabled>
+			</credentials>
+			<description>Channel organization manager. Responsible for managing channel organizations.</description>
+			<first-name>Oscar</first-name>
+			<last-name>Orderoperator</last-name>
+			<email>Orderoperator_inSPIRED@test.intershop.de</email>
+			<addresses>
+				<address name="Contact Address">
+					<company-name>inSPIRED</company-name>
+					<address-name>Contact Address</address-name>
+					<first-name>Oscar</first-name>
+					<last-name>Orderoperator</last-name>
+					<title>Mr.</title>
+					<city>inSPIRED City</city>
+					<postal-code>143456</postal-code>
+					<street>Main Street</street>
+					<street2>10th Floor</street2>
+					<state/>
+					<country-code>DE</country-code>
+					<email>Orderoperator_inSPIRED@test.intershop.de</email>
+					<default-address>1</default-address>
+					<ship-to-address>1</ship-to-address>
+					<invoice-to-address>1</invoice-to-address>
+					<custom-attributes>
+						<custom-attribute name="Field1"/>
+						<custom-attribute name="Field2">10th Floor</custom-attribute>
+						<custom-attribute name="Field3"/>
+					</custom-attributes>
+				</address>
+			</addresses>
+		</profile>
+		<user-groups>			
+		</user-groups>
+	</user>
+	<user business-partner-no="Resellersales_inSPIRED">
+		<business-partner-no>Resellersales_inSPIRED</business-partner-no>
+		<profile>
+			<credentials>
+				<login>robert</login>
+				<password>!InterShop00!</password>
+				<enabled>1</enabled>
+			</credentials>
+			<description>Partner channel order and product manager. Responsible for order and product managment.</description>
+			<first-name>Robert</first-name>
+			<last-name>Resellersales</last-name>
+			<email>Resellersales_inSPIRED@test.intershop.de</email>
+			<addresses>
+				<address name="Contact Address">
+					<company-name>inSPIRED</company-name>
+					<address-name>Contact Address</address-name>
+					<first-name>Robert</first-name>
+					<last-name>Resellersales</last-name>
+					<title>Mr.</title>
+					<city>inSPIRED City</city>
+					<postal-code>143456</postal-code>
+					<street>Main Street</street>
+					<street2>10th Floor</street2>
+					<state/>
+					<country-code>DE</country-code>
+					<email>Resellersales_inSPIRED@test.intershop.de</email>
+					<default-address>1</default-address>
+					<ship-to-address>1</ship-to-address>
+					<invoice-to-address>1</invoice-to-address>
+					<custom-attributes>
+						<custom-attribute name="Field1"/>
+						<custom-attribute name="Field2">10th Floor</custom-attribute>
+						<custom-attribute name="Field3"/>
+					</custom-attributes>
+				</address>
+			</addresses>
+		</profile>
+	</user>
+</enfinity>

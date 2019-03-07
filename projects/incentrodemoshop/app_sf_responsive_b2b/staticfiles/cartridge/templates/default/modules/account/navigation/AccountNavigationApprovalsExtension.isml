@@ -1,0 +1,13 @@
+<iscontent type="text/html" charset="UTF-8" compact="true">
+<isif condition="#NOT CurrentUserBO:Extension("UserBORoleExtension"):hasRole("APP_B2B_OCI_USER")#">
+	<isif condition="#OrderApprovalManagementServiceExtension:Enabled AND isDefined(UserPermissionMap:get("APP_B2B_ORDER_APPROVAL"))#">
+		<li class="account-nav-header" data-toggle="collapse" data-target="#'#'#collapseApprovals">
+			<p class="account-nav-heading"><span class="glyphicon glyphicon-ok"></span> <istext key="account.navigation.approvals.subtitle"/></p>
+		</li>
+		<li id="collapseApprovals" class="collapse">
+			<ul class="account-navigation list-unstyled">
+				<isinclude extensionpoint="AccountNavigationExtension"/>
+			</ul>
+		</li>
+	</isif>
+</isif>

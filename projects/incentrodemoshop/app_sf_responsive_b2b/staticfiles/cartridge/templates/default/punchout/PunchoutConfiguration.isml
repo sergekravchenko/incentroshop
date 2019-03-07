@@ -1,0 +1,35 @@
+<iscontent type="text/html" charset="UTF-8" compact="true">
+<iscache type="forbidden">
+<isinclude template="modules/B2BModules">
+
+<div class="breadcrumbs row">
+	<isAccountBreadcrumb 
+			trailtext="#localizeText('account.punchout.configuration.link')#" 
+			link="#URL(Action('ViewOCISettings-Start'))#" 
+			text="#localizeText('account.punchout.link')#">	
+</div>
+
+<!--- Marketing slot --->
+<div class="marketing-area">
+	<ISMarketingSlot id="baseMarketing">
+</div>
+
+<div class="account-wrapper" data-testing-id="page-oci-punchout-configuration">
+	<div class="row account-main">
+		<!--- Left Navigation Panel --->
+		<div class="col-md-3 account-nav-box">
+			<isAccountNavigation selecteditem="PUNCHOUT">
+		</div>
+		
+		<div class="col-md-9">
+			<div class="marketing-area">
+				<ISMarketingSlot id="contentMarketing">
+			</div>
+			
+			<h1><istext key="account.punchout.configuration.heading"/></h1>
+			
+			<isinclude template="punchout/inc/OCIConfiguration">
+			
+		</div>
+	</div>
+</div>

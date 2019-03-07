@@ -1,0 +1,51 @@
+<iscontent type="text/html" session="false" charset="UTF-8" compact="true">
+<isinclude template="modules/Modules">
+
+<isinclude template="email/mailTemplate/MailConfig"/>
+
+<isinclude template="email/order/RequisitionTypeInc"/>
+
+<subject><istext key="#'email.reject_' . BasketType . '.heading'#" parameter0="#encodeValue(ChannelName)#" encoding="off"/></subject>
+
+<isinclude template="email/order/Modules"/>
+
+<isset name="RequisitionApproval" value="#BasketBO:Extension("BasketBOOrderApprovalExtension")#" scope="request"/>
+
+<isset name="RejectedPurchaseStatementKey" value="#'email.reject_' . BasketType . '.rejected.text'#" scope="request"/>
+
+<isinclude template="email/mailTemplate/MailHeader"/>
+
+<p>
+	<istext key="email.hello.label.firstname_lastname" parameter0="#ApprovalUserBO:FirstName#" parameter1="#ApprovalUserBO:LastName#" />
+</p>
+
+<p>
+	<isif condition="#isDefined(PurchaseApprover)#">
+		<istext key="#RejectedPurchaseStatementKey#"
+				parameter0="#BasketBO:User:Profile:DataSheet:FirstName#"
+				parameter1="#BasketBO:User:Profile:DataSheet:LastName#"
+				parameter2="#PurchaseApprover:FirstName#"
+				parameter3="#PurchaseApprover:LastName#" />
+	<iselse />
+		<istext key="#RejectedPurchaseStatementKey#"
+				parameter0="#BasketBO:User:Profile:DataSheet:FirstName#"
+				parameter1="#BasketBO:User:Profile:DataSheet:LastName#"
+				parameter2="#RequisitionApproval:ApproverFirstName#"
+				parameter3="#RequisitionApproval:ApproverLastName#" />
+	</isif>
+</p>
+
+<isPurchaseInfo BasketBO="#BasketBO#" ShowBuyer="false">
+
+<isif condition="#isDefined(RequisitionApproval:ApprovalComment)#">
+	<p>
+		<istext key="email.reject_order.approver.comment.label" parameter0="#RequisitionApproval:ApproverFirstName#" parameter1="#RequisitionApproval:ApproverLastName#"> <isprint value="#RequisitionApproval:ApprovalComment#">
+	</p>
+</isif>
+
+<p>
+	<istext key="email.kind_regards.label"/><br />
+	<istext key="email.notification.service" parameter0="#ChannelName#"/>
+</p>
+
+<isinclude template="email/mailTemplate/MailFooter"/>

@@ -1,0 +1,10 @@
+<iscontent type="text/html" charset="UTF-8" compact="true">
+<isif condition="#(isDefined(UserPermissionMap:get("APP_B2B_ORDER_APPROVAL"))) OR 
+(isDefined(UserPermissionMap:get("APP_B2B_MANAGE_COSTCENTER")) AND hasElements(BusinessObjectDict:UserBO:Extension("CostCenter"):ManagedCostCenterBOs))#">
+
+	<isinclude template="modules/B2BModulesCostCenter">
+
+	<!--- Display approval widgets --->
+	<isinclude template="account/dashboard/ApprovalWidgetInc">
+
+</isif>

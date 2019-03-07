@@ -1,0 +1,8 @@
+<iscontent type="text/html" charset="UTF-8" compact="true">
+
+<isif condition="#isDefined(webform:OldAddressHash:Value) AND (webform:OldAddressHash:Value NE "")#" >
+	<input type="hidden" name="<isprint value="#webform:OldAddressHash:QualifiedName#">" value="#encodeValue(webform:OldAddressHash:Value)#" />
+<iselse>
+	<input type="hidden" name="<isprint value="#webform:OldAddressHash:QualifiedName#">" value="" />
+	<input type="hidden" name="<isprint value="#webform:ActualAddressHash:QualifiedName#">" value="" />
+</isif>

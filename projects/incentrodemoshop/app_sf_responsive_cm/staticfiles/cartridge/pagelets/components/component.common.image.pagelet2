@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pagelet:PageletModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://www.intershop.de/core/2010"
+    xmlns:pagelet="http://www.intershop.de/pagelet/2010" name="component.common.image.pagelet2">
+  <pageletDefinitions name="Component">
+    <callParameterInterfaces referencedName="app_sf_responsive_cm:interface.common.content.pagelet2-Interface"/>
+    <callParameterInterfaces referencedName="app_sf_responsive_cm:interface.carousel.items.pagelet2-Interface"/>
+    <callParameterInterfaces referencedName="app_sf_responsive:interface.include.dialog.pagelet2-Interface"/>
+    <configurationParameterDefinitions name="Image" typeReference="bc_pmc:types.pagelet2-ImageFileRef"/>
+    <configurationParameterDefinitions name="Picture" optional="true" typeReference="bc_pmc:types.pagelet2-Text">
+      <parameterBindings xsi:type="core:ParameterValueBinding" name="Columns" value="58"/>
+      <parameterBindings xsi:type="core:ParameterValueBinding" name="Rows" value="7"/>
+    </configurationParameterDefinitions>
+    <configurationParameterDefinitions name="AlternateText" optional="true" typeReference="bc_pmc:types.pagelet2-Text"/>
+    <configurationParameterDefinitions name="Link" optional="true" typeReference="sld_mcm:parametertype.link.pagelet2-Link"/>
+    <configurationParameterDefinitions name="LinkTitle" optional="true" typeReference="bc_pmc:types.pagelet2-Text"/>
+    <configurationParameterDefinitions name="CSSClass" optional="true" localizable="false" typeReference="bc_pmc:types.pagelet2-Text"/>
+    <renderTemplate referencedName="component/common/Image"/>
+  </pageletDefinitions>
+</pagelet:PageletModel>

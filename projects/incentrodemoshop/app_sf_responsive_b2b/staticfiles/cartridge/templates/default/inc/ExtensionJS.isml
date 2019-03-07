@@ -1,0 +1,21 @@
+<iscontent type="text/html" charset="UTF-8" compact="true">
+<!--- 
+	Extension JavaScript Includes
+	This file provides an extension point for development outside of the core cartridge(s). 
+	Override this file to add custom JavaScript includes.
+	IMPORTANT: Other cartridges might override this file as well which can lead to overriding conflicts. Always make sure that you are not overriding required code.
+--->
+
+<isfilebundle name="/js/extension_b2b.min.js" processors="JSCompressor">
+	<isrender><script src="#webRoot().'/'.File:Name.'?lastModified='#<ISPRINT value="#File:LastModified#" formatter="0">"></script></isrender>
+	
+	<!--- Table plug-in for jQuery --->
+	<isfile name="/js/vendor/jquery.dataTables-1.10.18.js"/>
+	
+	<!--- CUSTOM JAVASCRIPT --->
+	<isfile name="/js/account_b2b.js"/>
+	<isfile name="/js/order_b2b.js" />
+	<isfile name="/js/quickorder_b2b.js"/>
+	<!--- extensions_b2b.js is an easy way to add an additional Javascript e.g. for cost center (if more cartridges need to add Javascript a different concept is needed) --->
+	<isfile name="/js/extensions_b2b.js"/>
+</isfilebundle>

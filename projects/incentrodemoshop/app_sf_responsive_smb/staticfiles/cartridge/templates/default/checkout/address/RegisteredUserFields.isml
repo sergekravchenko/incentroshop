@@ -1,0 +1,11 @@
+<address>
+	<isif condition="#isDefined(UserBO:Email) AND (UserBO:Email NE '')#">
+		<istext key="checkout.addresses.email.label"/>:&nbsp;<isprint value="#UserBO:Email#"/><br/>
+	</isif>
+	<isif condition="#isDefined(UserBO:Department) AND (UserBO:Department NE '')#">
+		<istext key="checkout.addresses.department.label"/>:&nbsp;<isprint value="#UserBO:Department#"/><br/>
+	</isif>
+	<isif condition="#isDefined(CustomerBO:Extension("CompanyCustomer")) AND (CustomerBO:Extension("CompanyCustomer"):TaxationID NE '')#">
+		<istext key="checkout.addresses.taxation.label"/>:&nbsp;<isprint value="#CustomerBO:Extension("CompanyCustomer"):TaxationID#"/><br/>
+	</isif>
+</address>

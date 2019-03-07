@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<enfinity xmlns:dt="http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt">
+<pagelet-component id="cmp_homepage_featuredProducts">
+<definition-name>app_sf_responsive_cm:component.common.productListManual.pagelet2-Component</definition-name>
+<display-name xml:lang="en-US">Featured Products Carousel</display-name>
+<display-name xml:lang="fr-FR">Caroussel des produits mis en vedette</display-name>
+<online>true</online>
+<author business-partner-no="admin" domain="inSPIRED"/>
+<configuration-parameters>
+<configuration-parameter name="CSSClass">
+<definition-name>app_sf_responsive_cm:component.common.productListManual.pagelet2-Component-CSSClass</definition-name>
+<value name="CSSClass">container</value>
+</configuration-parameter>
+<configuration-parameter name="ListStyle">
+<definition-name>app_sf_responsive_cm:component.common.productListManual.pagelet2-Component-ListStyle</definition-name>
+<value name="ListStyle">carousel</value>
+</configuration-parameter>
+<configuration-parameter name="ProductView">
+<definition-name>app_sf_responsive_cm:component.common.productListManual.pagelet2-Component-ProductView</definition-name>
+<value name="ProductView">app_sf_responsive:vc_productTile@inSPIRED-MasterRepository</value>
+</configuration-parameter>
+<configuration-parameter name="Products">
+<definition-name>app_sf_responsive_cm:component.common.productListManual.pagelet2-Component-Products</definition-name>
+<value name="Products">
+<value>201807181@inSPIRED-inTRONICS_Business</value>
+<value>201807231-01@inSPIRED-inTRONICS_Business</value>
+<value>201807198@inSPIRED-inTRONICS_Business</value>
+<value>5012786031524@inSPIRED-inTRONICS_Business</value>
+<value>M1599925@inSPIRED-inTRONICS_Business</value>
+<value>M8540840@inSPIRED-inTRONICS_Business</value>
+<value>0027242869158@inSPIRED-inTRONICS_Business</value>
+<value>11168790@inSPIRED-inTRONICS_Business</value>
+</value>
+</configuration-parameter>
+<configuration-parameter name="SlideItems">
+<definition-name>app_sf_responsive_cm:component.common.productListManual.pagelet2-Component-SlideItems</definition-name>
+<value name="SlideItems">3</value>
+</configuration-parameter>
+<configuration-parameter name="Title">
+<definition-name>app_sf_responsive_cm:component.common.productListManual.pagelet2-Component-Title</definition-name>
+<value name="Title" xml:lang="en-US">Featured Products</value>
+<value name="Title" xml:lang="fr-FR">Produits mis en vedette</value>
+</configuration-parameter>
+</configuration-parameters>
+</pagelet-component>
+</enfinity>

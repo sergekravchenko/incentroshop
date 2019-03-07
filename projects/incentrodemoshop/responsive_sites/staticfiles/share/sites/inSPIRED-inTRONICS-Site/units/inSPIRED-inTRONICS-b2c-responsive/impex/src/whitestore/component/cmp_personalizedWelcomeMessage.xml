@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<enfinity xmlns:dt="http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt">
+<pagelet-component id="cmp_personalizedWelcomeMessage">
+<definition-name>app_sf_responsive_cm:component.common.personalizedMessage.pagelet2-Component</definition-name>
+<display-name xml:lang="de-DE">Persönliche Begrüßungsnachricht</display-name>
+<display-name xml:lang="en-US">Personalized Welcome Message</display-name>
+<online>true</online>
+<author business-partner-no="admin" domain="inSPIRED"/>
+<configuration-parameters>
+<configuration-parameter name="PersonalizedMessage">
+<definition-name>app_sf_responsive_cm:component.common.personalizedMessage.pagelet2-Component-PersonalizedMessage</definition-name>
+<value name="PersonalizedMessage" xml:lang="de-DE">&lt;div class=&quot;welcomeMessage&quot;&gt;
+&lt;p&gt;Hallo, &lt;span class=&quot;welcomeMessage-user&quot;&gt;{0} {1}&lt;/span&gt;&lt;/p&gt;
+&lt;a href=&quot;pipeline://ViewUserAccount-Start?ssl=true&quot; class=&quot;linkSeparator&quot;&gt;Mein Benutzerkonto anzeigen&lt;/a&gt;
+&lt;a href=&quot;pipeline://ViewUserAccount-LogoutUser?ssl=true&quot;&gt;Abmelden&lt;/a&gt;
+&lt;/div&gt;</value>
+<value name="PersonalizedMessage" xml:lang="en-US">&lt;div class=&quot;container row welcome-message&quot;&gt;
+&lt;p&gt;Welcome, &lt;span class=&quot;welcome-message-user&quot;&gt;{0} {1}&lt;/span&gt;&lt;/p&gt;
+&lt;a href=&quot;pipeline://ViewUserAccount-Start?ssl=true&quot;&gt;View My Account&lt;/a&gt;
+&lt;a href=&quot;pipeline://ViewUserAccount-LogoutUser?ssl=true&quot;&gt;Logout&lt;/a&gt;
+&lt;/div&gt;</value>
+</configuration-parameter>
+</configuration-parameters>
+</pagelet-component>
+</enfinity>

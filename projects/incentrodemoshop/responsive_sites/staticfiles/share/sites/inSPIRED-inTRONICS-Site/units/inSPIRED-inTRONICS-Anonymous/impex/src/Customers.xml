@@ -1,0 +1,1536 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<enfinity
+    xmlns     = "http://www.intershop.com/xml/ns/intershop/customer/impex/7.3"
+    xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:dt  = "http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt"
+    xsi:schemaLocation = "http://www.intershop.com/xml/ns/intershop/customer/impex/7.3 bc_customer.xsd
+    http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt dt.xsd"
+    major="6" minor="1" family="enfinity" branch="enterprise" build=""
+>
+	<customer id="RedirectBeforeTester1">
+		<customer-type>PRIVATE</customer-type>
+		<users>
+			<user business-partner-no="RedirectBeforeTester1">
+				<business-partner-no>RedirectBeforeTester1</business-partner-no>
+				<profile>
+					<credentials>
+						<login>RedirectBeforeTester1@test.intershop.de</login>
+						<password>!InterShop00!</password>
+						<enabled>1</enabled>
+						<password-reminder>intershop</password-reminder>
+						<reminder-email>RedirectBeforeTester1@test.intershop.de</reminder-email>
+						<security-question>Who was your first employer?</security-question>
+					</credentials>
+					<description>Customer only for redirect before payment testing</description>
+					<first-name>Daniel</first-name>
+					<last-name>Ocean (Tester)</last-name>
+					<email>RedirectBeforeTester1@test.intershop.de</email>
+					<preferred-locale>en_US</preferred-locale>
+					<mail-confirmation>1</mail-confirmation>
+				</profile>
+				<user-groups>
+					<user-group id="IG_PrivateCustomers" domain="inSPIRED-inTRONICS-Anonymous"/>
+				</user-groups>
+			</user>
+		</users>
+		<preferred-invoice-to-address name="customeraddr-ABCD123456uMCscyXgSRVU">
+			<address-name>customeraddr-ABCD123456uMCscyXgSRVU</address-name>
+			<first-name>Daniel</first-name>
+			<last-name>Ocean (Tester)</last-name>
+			<city>Las Vegas</city>
+			<postal-code>89109</postal-code>
+			<address-line1>3600 S Las Vegas Blvd</address-line1>
+			<main-division>NV</main-division>
+			<country-code>US</country-code>
+			<phone-home>049364112677</phone-home>
+			<ship-to-address>1</ship-to-address>
+			<invoice-to-address>1</invoice-to-address>
+		</preferred-invoice-to-address>
+		<preferred-ship-to-address name="customeraddr-ABCD623456uMCscyXgSRVU">
+			<address-name>customeraddr-ABCD123456uMCscyXgSRVU</address-name>
+			<first-name>Daniel</first-name>
+			<last-name>Ocean (Tester)</last-name>
+			<city>Las Vegas</city>
+			<postal-code>89109</postal-code>
+			<address-line1>3600 S Las Vegas Blvd</address-line1>
+			<main-division>NV</main-division>
+			<country-code>US</country-code>
+			<phone-home>049364112677</phone-home>
+			<ship-to-address>1</ship-to-address>
+			<invoice-to-address>1</invoice-to-address>
+		</preferred-ship-to-address>
+	</customer>
+	<customer id="RedirectBeforeTester2">
+		<customer-type>PRIVATE</customer-type>
+		<users>
+			<user business-partner-no="RedirectBeforeTester2">
+				<business-partner-no>RedirectBeforeTester2</business-partner-no>
+				<profile>
+					<credentials>
+						<login>RedirectBeforeTester2@test.intershop.de</login>
+						<password>!InterShop00!</password>
+						<enabled>1</enabled>
+						<password-reminder>intershop</password-reminder>
+						<reminder-email>RedirectBeforeTester2@test.intershop.de</reminder-email>
+						<security-question>Who was your first employer?</security-question>
+					</credentials>
+					<description>Customer only for redirect before payment testing</description>
+					<first-name>Livingston</first-name>
+					<last-name>Dell (Tester)</last-name>
+					<email>RedirectBeforeTester2@test.intershop.de</email>
+					<preferred-locale>en_US</preferred-locale>
+					<mail-confirmation>1</mail-confirmation>
+				</profile>
+				<user-groups>
+					<user-group id="IG_PrivateCustomers" domain="inSPIRED-inTRONICS-Anonymous"/>
+				</user-groups>
+			</user>
+		</users>
+		<preferred-invoice-to-address name="customeraddr-ABCD423456uMCscyXgSRVU">
+			<address-name>customeraddr-ABCD423456uMCscyXgSRVU</address-name>
+			<first-name>Livingston</first-name>
+			<last-name>Dell (Tester)</last-name>
+			<city>Las Vegas</city>
+			<postal-code>89109</postal-code>
+			<address-line1>3600 S Las Vegas Blvd</address-line1>
+			<main-division>NV</main-division>
+			<country-code>US</country-code>
+			<phone-home>049364112677</phone-home>
+			<ship-to-address>1</ship-to-address>
+			<invoice-to-address>1</invoice-to-address>
+		</preferred-invoice-to-address>
+		<preferred-ship-to-address name="customeraddr-ABCD523456uMCscyXgSRVU">
+			<address-name>customeraddr-ABCD423456uMCscyXgSRVU</address-name>
+			<first-name>Livingston</first-name>
+			<last-name>Dell (Tester)</last-name>
+			<city>Las Vegas</city>
+			<postal-code>89109</postal-code>
+			<address-line1>3600 S Las Vegas Blvd</address-line1>
+			<main-division>NV</main-division>
+			<country-code>US</country-code>
+			<phone-home>049364112677</phone-home>
+			<ship-to-address>1</ship-to-address>
+			<invoice-to-address>1</invoice-to-address>
+		</preferred-ship-to-address>
+	</customer>
+	<customer id="RedirectBeforeTester3">
+		<customer-type>PRIVATE</customer-type>
+		<users>
+			<user business-partner-no="RedirectBeforeTester3">
+				<business-partner-no>RedirectBeforeTester3</business-partner-no>
+				<profile>
+					<credentials>
+						<login>RedirectBeforeTester3@test.intershop.de</login>
+						<password>!InterShop00!</password>
+						<enabled>1</enabled>
+						<password-reminder>intershop</password-reminder>
+						<reminder-email>RedirectBeforeTester3@test.intershop.de</reminder-email>
+						<security-question>Who was your first employer?</security-question>
+					</credentials>
+					<description>Customer only for redirect before payment testing</description>
+					<first-name>Robert</first-name>
+					<last-name>Ryan (Tester)</last-name>
+					<email>RedirectBeforeTester3@test.intershop.de</email>
+					<preferred-locale>en_US</preferred-locale>
+					<mail-confirmation>1</mail-confirmation>
+				</profile>
+				<user-groups>
+					<user-group id="IG_PrivateCustomers" domain="inSPIRED-inTRONICS-Anonymous"/>
+				</user-groups>
+			</user>
+		</users>
+		<preferred-invoice-to-address name="customeraddr-ABCD223456uMCscyXgSRVU">
+			<address-name>customeraddr-ABCD223456uMCscyXgSRVU</address-name>
+			<first-name>Robert</first-name>
+			<last-name>Ryan (Tester)</last-name>
+			<city>Las Vegas</city>
+			<postal-code>89109</postal-code>
+			<address-line1>3600 S Las Vegas Blvd</address-line1>
+			<main-division>NV</main-division>
+			<country-code>US</country-code>
+			<phone-home>049364112677</phone-home>
+			<ship-to-address>1</ship-to-address>
+			<invoice-to-address>1</invoice-to-address>
+		</preferred-invoice-to-address>
+		<preferred-ship-to-address name="customeraddr-ABCD323456uMCscyXgSRVU">
+			<address-name>customeraddr-ABCD223456uMCscyXgSRVU</address-name>
+			<first-name>Robert</first-name>
+			<last-name>Ryan (Tester)</last-name>
+			<city>Las Vegas</city>
+			<postal-code>89109</postal-code>
+			<address-line1>3600 S Las Vegas Blvd</address-line1>
+			<main-division>NV</main-division>
+			<country-code>US</country-code>
+			<phone-home>049364112677</phone-home>
+			<ship-to-address>1</ship-to-address>
+			<invoice-to-address>1</invoice-to-address>
+		</preferred-ship-to-address>
+	</customer>
+	<customer id="RedirectAfterTester1">
+		<customer-type>PRIVATE</customer-type>
+		<users>
+			<user business-partner-no="RedirectAfterTester1">
+				<business-partner-no>RedirectAfterTester1</business-partner-no>
+				<profile>
+					<credentials>
+						<login>RedirectAfterTester1@test.intershop.de</login>
+						<password>!InterShop00!</password>
+						<enabled>1</enabled>
+						<password-reminder>intershop</password-reminder>
+						<reminder-email>RedirectAfterTester1@test.intershop.de</reminder-email>
+						<security-question>Who was your first employer?</security-question>
+					</credentials>
+					<description>Customer only for redirect after payment testing</description>
+					<first-name>Terry</first-name>
+					<last-name>Benedict (Tester)</last-name>
+					<email>RedirectAfterTester1@test.intershop.de</email>
+					<preferred-locale>en_US</preferred-locale>
+					<mail-confirmation>1</mail-confirmation>
+				</profile>
+				<user-groups>
+					<user-group id="IG_PrivateCustomers" domain="inSPIRED-inTRONICS-Anonymous"/>
+				</user-groups>
+			</user>
+		</users>
+		<preferred-invoice-to-address name="customeraddr-ABCD133456uMCscyXgSRVU">
+			<address-name>customeraddr-ABCD133456uMCscyXgSRVU</address-name>
+			<first-name>Terry</first-name>
+			<last-name>Benedict (Tester)</last-name>
+			<city>Las Vegas</city>
+			<postal-code>89109</postal-code>
+			<address-line1>3600 S Las Vegas Blvd</address-line1>
+			<main-division>NV</main-division>
+			<country-code>US</country-code>
+			<phone-home>049364112677</phone-home>
+			<ship-to-address>1</ship-to-address>
+			<invoice-to-address>1</invoice-to-address>
+		</preferred-invoice-to-address>
+		<preferred-ship-to-address name="customeraddr-ABCD233456uMCscyXgSRVU">
+			<address-name>customeraddr-ABCD133456uMCscyXgSRVU</address-name>
+			<first-name>Terry</first-name>
+			<last-name>Benedict (Tester)</last-name>
+			<city>Las Vegas</city>
+			<postal-code>89109</postal-code>
+			<address-line1>3600 S Las Vegas Blvd</address-line1>
+			<main-division>NV</main-division>
+			<country-code>US</country-code>
+			<phone-home>049364112677</phone-home>
+			<ship-to-address>1</ship-to-address>
+			<invoice-to-address>1</invoice-to-address>
+		</preferred-ship-to-address>
+	</customer>
+	<customer id="RedirectAfterTester2">
+		<customer-type>PRIVATE</customer-type>
+		<users>
+			<user business-partner-no="RedirectAfterTester2">
+				<business-partner-no>RedirectAfterTester2</business-partner-no>
+				<profile>
+					<credentials>
+						<login>RedirectAfterTester2@test.intershop.de</login>
+						<password>!InterShop00!</password>
+						<enabled>1</enabled>
+						<password-reminder>intershop</password-reminder>
+						<reminder-email>RedirectAfterTester2@test.intershop.de</reminder-email>
+						<security-question>Who was your first employer?</security-question>
+					</credentials>
+					<description>Customer only for redirect after payment testing</description>
+					<first-name>Basher</first-name>
+					<last-name>Tarr (Tester)</last-name>
+					<email>RedirectAfterTester2@test.intershop.de</email>
+					<preferred-locale>en_US</preferred-locale>
+					<mail-confirmation>1</mail-confirmation>
+				</profile>
+				<user-groups>
+					<user-group id="IG_PrivateCustomers" domain="inSPIRED-inTRONICS-Anonymous"/>
+				</user-groups>
+			</user>
+		</users>
+		<preferred-invoice-to-address name="customeraddr-ABCD143456uMCscyXgSRVU">
+			<address-name>customeraddr-ABCD143456uMCscyXgSRVU</address-name>
+			<first-name>Basher</first-name>
+			<last-name>Tarr (Tester)</last-name>
+			<city>Las Vegas</city>
+			<postal-code>89109</postal-code>
+			<address-line1>3600 S Las Vegas Blvd</address-line1>
+			<main-division>NV</main-division>
+			<country-code>US</country-code>
+			<phone-home>049364112677</phone-home>
+			<ship-to-address>1</ship-to-address>
+			<invoice-to-address>1</invoice-to-address>
+		</preferred-invoice-to-address>
+		<preferred-ship-to-address name="customeraddr-ABCD243456uMCscyXgSRVU">
+			<address-name>customeraddr-ABCD143456uMCscyXgSRVU</address-name>
+			<first-name>Basher</first-name>
+			<last-name>Tarr (Tester)</last-name>
+			<city>Las Vegas</city>
+			<postal-code>89109</postal-code>
+			<address-line1>3600 S Las Vegas Blvd</address-line1>
+			<main-division>NV</main-division>
+			<country-code>US</country-code>
+			<phone-home>049364112677</phone-home>
+			<ship-to-address>1</ship-to-address>
+			<invoice-to-address>1</invoice-to-address>
+		</preferred-ship-to-address>
+	</customer>
+	<customer id="FastPayTester">
+		<customer-type>PRIVATE</customer-type>
+		<users>
+			<user business-partner-no="FastPayTester">
+				<business-partner-no>FastPayTester</business-partner-no>
+				<profile>
+					<credentials>
+						<login>FastPayTester@test.intershop.de</login>
+						<password>!InterShop00!</password>
+						<enabled>1</enabled>
+						<password-reminder>intershop</password-reminder>
+						<reminder-email>FastPayTester@test.intershop.de</reminder-email>
+						<security-question>Who was your first employer?</security-question>
+					</credentials>
+					<description>Customer only for fast pay testing</description>
+					<first-name>Frank</first-name>
+					<last-name>Catton (Tester)</last-name>
+					<email>FastPayTester@test.intershop.de</email>
+					<preferred-locale>en_US</preferred-locale>
+					<mail-confirmation>1</mail-confirmation>
+				</profile>
+				<user-groups>
+					<user-group id="IG_PrivateCustomers" domain="inSPIRED-inTRONICS-Anonymous"/>
+				</user-groups>
+			</user>
+		</users>
+		<preferred-invoice-to-address name="customeraddr-ABCD153456uMCscyXgSRVU">
+			<address-name>customeraddr-ABCD153456uMCscyXgSRVU</address-name>
+			<first-name>Frank</first-name>
+			<last-name>Catton (Tester)</last-name>
+			<city>Las Vegas</city>
+			<postal-code>89109</postal-code>
+			<address-line1>3600 S Las Vegas Blvd</address-line1>
+			<main-division>NV</main-division>
+			<country-code>US</country-code>
+			<phone-home>049364112677</phone-home>
+			<ship-to-address>1</ship-to-address>
+			<invoice-to-address>1</invoice-to-address>
+		</preferred-invoice-to-address>
+		<preferred-ship-to-address name="customeraddr-ABCD253456uMCscyXgSRVU">
+			<address-name>customeraddr-ABCD153456uMCscyXgSRVU</address-name>
+			<first-name>Frank</first-name>
+			<last-name>Catton (Tester)</last-name>
+			<city>Las Vegas</city>
+			<postal-code>89109</postal-code>
+			<address-line1>3600 S Las Vegas Blvd</address-line1>
+			<main-division>NV</main-division>
+			<country-code>US</country-code>
+			<phone-home>049364112677</phone-home>
+			<ship-to-address>1</ship-to-address>
+			<invoice-to-address>1</invoice-to-address>
+		</preferred-ship-to-address>
+	</customer>
+	<customer id="Michael">
+		<customer-type>PRIVATE</customer-type>
+		<users>
+			<user business-partner-no="Michael">
+				<business-partner-no>Michael</business-partner-no>
+				<profile>
+					<credentials>
+						<login>mlehmann@test.intershop.de</login>
+						<password>!InterShop00!</password>
+						<enabled>1</enabled>
+						<password-reminder>intershop</password-reminder>
+						<reminder-email>mlehmann@test.intershop.de</reminder-email>
+						<security-question>Who was your first employer?</security-question>
+					</credentials>
+					<description>Consumer Channel Demo Buyer</description>
+					<first-name>Michael</first-name>
+					<last-name>Lehmann</last-name>
+					<email>mlehmann@test.intershop.de</email>
+					<preferred-locale>en_US</preferred-locale>
+					<mail-confirmation>1</mail-confirmation>
+				</profile>
+				<user-groups>
+					<user-group id="IG_PrivateCustomers" domain="inSPIRED-inTRONICS-Anonymous"/>
+				</user-groups>
+			</user>
+		</users>
+		<preferred-invoice-to-address name="customeraddr-CMsKGZBxIEmYElDmrDAUftUddH">
+			<address-name>customeraddr-CMsKGZBxIEmYElDmrDAUftUddH</address-name>
+			<first-name>Michael</first-name>
+			<last-name>Lehmann</last-name>
+			<title>Mr.</title>
+			<city>Potsdam</city>
+			<postal-code>14482</postal-code>
+			<address-line1>Marlene-Dietrich-Allee 20</address-line1>
+			<country-code>DE</country-code>
+			<phone-home>49364565457</phone-home>
+			<default-address>1</default-address>
+			<ship-to-address>1</ship-to-address>
+			<invoice-to-address>1</invoice-to-address>
+		</preferred-invoice-to-address>
+		<preferred-ship-to-address>
+			<address-name>customeraddr-CMsKGZBxIEmYElDmrDAUftUddH</address-name>
+			<first-name>Michael</first-name>
+			<last-name>Lehmann</last-name>
+			<title>Mr.</title>
+			<city>Potsdam</city>
+			<postal-code>14482</postal-code>
+			<address-line1>Marlene-Dietrich-Allee 20</address-line1>
+			<country-code>DE</country-code>
+			<phone-home>49364565457</phone-home>
+			<default-address>1</default-address>
+			<ship-to-address>1</ship-to-address>
+			<invoice-to-address>1</invoice-to-address>
+		</preferred-ship-to-address>
+		<addresses>
+			<address name="customeraddr-CMsKGZBxIEmYElDmrDAUftUddH">
+				<address-name>customeraddr-CMsKGZBxIEmYElDmrDAUftUddH</address-name>
+				<first-name>Michael</first-name>
+				<last-name>Lehmann</last-name>
+				<title>Mr.</title>
+				<city>Potsdam</city>
+				<postal-code>14482</postal-code>
+				<address-line1>Marlene-Dietrich-Allee 20</address-line1>
+				<country-code>DE</country-code>
+				<phone-home>49364565457</phone-home>
+				<default-address>1</default-address>
+				<ship-to-address>1</ship-to-address>
+				<invoice-to-address>1</invoice-to-address>
+			</address>
+		</addresses>
+	</customer>
+	<customer id="Patricia">
+		<customer-type>PRIVATE</customer-type>
+		<users>
+			<user business-partner-no="Patricia">
+				<business-partner-no>Patricia</business-partner-no>
+				<profile>
+					<credentials>
+						<login>patricia@test.intershop.de</login>
+						<password>!InterShop00!</password>
+						<enabled>1</enabled>
+						<password-reminder>intershop</password-reminder>
+						<reminder-email>patricia@test.intershop.de</reminder-email>
+						<security-question>Who was your first employer?</security-question>
+					</credentials>
+					<description>Consumer Channel Consumer</description>
+					<first-name>Patricia</first-name>
+					<last-name>Miller</last-name>
+					<email>patricia@test.intershop.de</email>
+					<preferred-locale>en_US</preferred-locale>
+					<mail-confirmation>1</mail-confirmation>
+				</profile>
+				<user-groups>
+					<user-group id="IG_PrivateCustomers" domain="inSPIRED-inTRONICS-Anonymous"/>
+				</user-groups>
+			</user>
+		</users>
+		<preferred-invoice-to-address name="customeraddr-ABCDEFGPRMuMCscyXgSRVU">
+			<address-name>customeraddr-ABCDEFGPRMuMCscyXgSRVU</address-name>
+			<first-name>Patricia</first-name>
+			<last-name>Miller</last-name>
+			<title>Ms.</title>
+			<city>Berlin</city>
+			<postal-code>14483</postal-code>
+			<address-line1>Potsdamer Str. 20</address-line1>
+			<country-code>DE</country-code>
+			<phone-home>049364112677</phone-home>
+			<ship-to-address>1</ship-to-address>
+			<invoice-to-address>1</invoice-to-address>
+		</preferred-invoice-to-address>
+		<preferred-ship-to-address name="customeraddr-YXEwLKSprCWPRMuMCscyXgSRVU">
+			<address-name>customeraddr-YXEwLKSprCWPRMuMCscyXgSRVU</address-name>
+			<first-name>Patricia</first-name>
+			<last-name>Miller</last-name>
+			<title>Ms.</title>
+			<city>Potsdam</city>
+			<postal-code>14482</postal-code>
+			<address-line1>Berliner Str. 20</address-line1>
+			<country-code>DE</country-code>
+			<phone-home>049364112677</phone-home>
+			<default-address>1</default-address>
+			<ship-to-address>1</ship-to-address>
+			<invoice-to-address>1</invoice-to-address>
+		</preferred-ship-to-address>
+		<addresses>
+			<address name="customeraddr-YXEwLKSprCWPRMuMCscyXgSRVU">
+				<address-name>customeraddr-YXEwLKSprCWPRMuMCscyXgSRVU</address-name>
+				<first-name>Patricia</first-name>
+				<last-name>Miller</last-name>
+				<title>Ms.</title>
+				<city>Potsdam</city>
+				<postal-code>14482</postal-code>
+				<address-line1>Berliner Str. 20</address-line1>
+				<country-code>DE</country-code>
+				<phone-home>049364112677</phone-home>
+				<default-address>1</default-address>
+				<ship-to-address>1</ship-to-address>
+				<invoice-to-address>1</invoice-to-address>
+			</address>
+		</addresses>
+	</customer>
+	<customer id="Thomas">
+		<customer-type>PRIVATE</customer-type>
+		<users>
+			<user business-partner-no="Thomas">
+				<business-partner-no>Thomas</business-partner-no>
+				<profile>
+					<credentials>
+						<login>tmeyer@test.intershop.de</login>
+						<password>!InterShop00!</password>
+						<enabled>1</enabled>
+						<password-reminder>intershop</password-reminder>
+						<reminder-email>tmeyer@test.intershop.de</reminder-email>
+						<security-question>Who was your first employer?</security-question>
+					</credentials>
+					<description>Consumer Channel Consumer</description>
+					<first-name>Thomas</first-name>
+					<last-name>Meyer</last-name>
+					<email>tmeyer@test.intershop.de</email>
+					<preferred-locale>en_US</preferred-locale>
+					<mail-confirmation>1</mail-confirmation>
+				</profile>
+				<user-groups>
+					<user-group id="IG_PrivateCustomers" domain="inSPIRED-inTRONICS-Anonymous"/>
+				</user-groups>
+			</user>
+		</users>
+		<addresses>
+			<address name="customeraddr-agLtrUiTcTbaeqLYWrBootRXwZ">
+				<address-name>customeraddr-agLtrUiTcTbaeqLYWrBootRXwZ</address-name>
+				<first-name>Thomas</first-name>
+				<last-name>Meyer</last-name>
+				<title>Dr.</title>
+				<city>Jena</city>
+				<postal-code>07740</postal-code>
+				<address-line1>Frankesstrasse 22</address-line1>
+				<country-code>DE</country-code>
+				<phone-home>05685790438</phone-home>
+				<default-address>1</default-address>
+				<ship-to-address>1</ship-to-address>
+				<invoice-to-address>1</invoice-to-address>
+			</address>
+		</addresses>
+	</customer>
+	<customer id="Scheer">
+		<customer-type>PRIVATE</customer-type>
+		<users>
+			<user business-partner-no="Scheer">
+				<business-partner-no>Scheer</business-partner-no>
+				<profile>
+					<credentials>
+						<login>mscheer@test.intershop.de</login>
+						<password>!InterShop00!</password>
+						<enabled>1</enabled>
+						<password-reminder>intershop</password-reminder>
+						<reminder-email>mscheer@test.intershop.de</reminder-email>
+						<security-question>Who was your first employer?</security-question>
+					</credentials>
+					<birthday-date>1950-02-13</birthday-date>
+					<description>Consumer Channel Consumer</description>
+					<first-name>Marcel</first-name>
+					<last-name>Scheer</last-name>
+					<email>mscheer@test.intershop.de</email>
+					<preferred-locale>en_US</preferred-locale>
+					<mail-confirmation>1</mail-confirmation>
+				</profile>
+				<user-groups>
+					<user-group id = "CG_GroupOrderers" domain = "inSPIRED-inTRONICS-Anonymous"/>
+					<user-group id="IG_PrivateCustomers" domain="inSPIRED-inTRONICS-Anonymous"/>
+				</user-groups>
+			</user>
+		</users>
+		<addresses>
+			<address name="customeraddr-HuaBmiyLfawCPidYPQncrWGHeN">
+				<address-name>customeraddr-HuaBmiyLfawCPidYPQncrWGHeN</address-name>
+				<first-name>Marcel</first-name>
+				<last-name>Scheer</last-name>
+				<title>Dr.</title>
+				<city>Jena</city>
+				<postal-code>07745</postal-code>
+				<address-line1>Otto-Wagner Str. 64</address-line1>
+				<country-code>DE</country-code>
+				<phone-home>49364112457</phone-home>
+				<default-address>1</default-address>
+				<ship-to-address>1</ship-to-address>
+				<invoice-to-address>1</invoice-to-address>
+			</address>
+		</addresses>
+	</customer>
+	<customer id="Palm_1">
+		<customer-type>PRIVATE</customer-type>
+		<users>
+			<user business-partner-no="Palm_1">
+				<business-partner-no>Palm_1</business-partner-no>
+				<profile>
+					<credentials>
+						<login>fred_palm@test.intershop.de</login>
+						<password>!InterShop00!</password>
+						<enabled>1</enabled>
+						<password-reminder>intershop</password-reminder>
+						<reminder-email>fred_palm@test.intershop.de</reminder-email>
+						<security-question>Who was your first employer?</security-question>
+					</credentials>
+					<birthday-date>1965-11-08</birthday-date>
+					<description>Consumer Channel Consumer</description>
+					<first-name>Frederik</first-name>
+					<last-name>Palm</last-name>
+					<email>fred_palm@test.intershop.de</email>
+					<preferred-locale>en_US</preferred-locale>
+					<mail-confirmation>1</mail-confirmation>
+				</profile>
+				<user-groups>
+					<user-group id = "CG_GroupOrderers" domain = "inSPIRED-inTRONICS-Anonymous"/>
+					<user-group id="IG_PrivateCustomers" domain="inSPIRED-inTRONICS-Anonymous"/>
+				</user-groups>
+			</user>
+		</users>
+		<addresses>
+			<address name="customeraddr-yCXWFSnSVUCaeGBataHAPQEbWI">
+				<address-name>customeraddr-yCXWFSnSVUCaeGBataHAPQEbWI</address-name>
+				<first-name>Frederik</first-name>
+				<last-name>Palm</last-name>
+				<title>Dr.</title>
+				<city>Berlin</city>
+				<postal-code>10117</postal-code>
+				<address-line1>Neuhauser 213</address-line1>
+				<country-code>DE</country-code>
+				<phone-home>4930677899</phone-home>
+				<default-address>1</default-address>
+				<ship-to-address>0</ship-to-address>
+				<invoice-to-address>1</invoice-to-address>
+			</address>
+			<address name="customeraddr-YoFmZUsvhsIXuHKWjJCmXYIkQB">
+				<address-name>customeraddr-YoFmZUsvhsIXuHKWjJCmXYIkQB</address-name>
+				<first-name>Frederik</first-name>
+				<last-name>Palm</last-name>
+				<title>Dr.</title>
+				<city>Berlin</city>
+				<postal-code>10119</postal-code>
+				<address-line1>Neugasse 23</address-line1>
+				<country-code>DE</country-code>
+				<phone-home>4930677899</phone-home>
+				<default-address>1</default-address>
+				<ship-to-address>1</ship-to-address>
+				<invoice-to-address>0</invoice-to-address>
+			</address>
+		</addresses>
+	</customer>
+	<customer id="Schenke">
+		<customer-type>PRIVATE</customer-type>
+		<users>
+			<user business-partner-no="Schenke">
+				<business-partner-no>Schenke</business-partner-no>
+				<profile>
+					<credentials>
+						<login>t.schenke@test.intershop.de</login>
+						<password>!InterShop00!</password>
+						<enabled>1</enabled>
+						<password-reminder>intershop</password-reminder>
+						<reminder-email>t.schenke@test.intershop.de</reminder-email>
+						<security-question>Who was your first employer?</security-question>
+					</credentials>
+					<birthday-date>1978-02-10</birthday-date>
+					<description>Consumer Channel Consumer</description>
+					<first-name>Thomas</first-name>
+					<last-name>Schenke</last-name>
+					<email>t.schenke@test.intershop.de</email>
+					<preferred-locale>en_US</preferred-locale>
+					<mail-confirmation>1</mail-confirmation>
+				</profile>
+				<user-groups>
+					<user-group id = "CG_GroupOrderers" domain = "inSPIRED-inTRONICS-Anonymous"/>
+					<user-group id="IG_PrivateCustomers" domain="inSPIRED-inTRONICS-Anonymous"/>
+				</user-groups>
+			</user>
+		</users>
+		<addresses>
+			<address name="customeraddr-uDhlHYEKFEeSsRXRJIfQqgCyXW">
+				<address-name>customeraddr-uDhlHYEKFEeSsRXRJIfQqgCyXW</address-name>
+				<first-name>Thomas</first-name>
+				<last-name>Schenke</last-name>
+				<city>Erfurt</city>
+				<postal-code>99043</postal-code>
+				<address-line1>Heidelbeerweg 66</address-line1>
+				<country-code>DE</country-code>
+				<phone-home>4936412587</phone-home>
+				<default-address>1</default-address>
+				<ship-to-address>1</ship-to-address>
+				<invoice-to-address>1</invoice-to-address>
+			</address>
+		</addresses>
+	</customer>
+	<customer id="Weise">
+		<customer-type>PRIVATE</customer-type>
+		<users>
+			<user business-partner-no="Weise">
+				<business-partner-no>Weise</business-partner-no>
+				<profile>
+					<credentials>
+						<login>weise_f@test.intershop.de</login>
+						<password>!InterShop00!</password>
+						<enabled>1</enabled>
+						<password-reminder>intershop</password-reminder>
+						<reminder-email>weise_f@test.intershop.de</reminder-email>
+						<security-question>Who was your first employer?</security-question>
+					</credentials>
+					<birthday-date>1983-04-12</birthday-date>
+					<description>Consumer Channel Consumer</description>
+					<first-name>Frank</first-name>
+					<last-name>Weise</last-name>
+					<email>weise_f@test.intershop.de</email>
+					<preferred-locale>en_US</preferred-locale>
+					<mail-confirmation>1</mail-confirmation>
+				</profile>
+				<user-groups>
+					<user-group id="IG_PrivateCustomers" domain="inSPIRED-inTRONICS-Anonymous"/>
+				</user-groups>
+			</user>
+		</users>
+		<addresses>
+			<address name="customeraddr-HZGRZFUvtPcfriNjrCYoRFKjxu">
+				<address-name>customeraddr-HZGRZFUvtPcfriNjrCYoRFKjxu</address-name>
+				<first-name>Frank</first-name>
+				<last-name>Weise</last-name>
+				<city>Leipzig</city>
+				<postal-code>04103</postal-code>
+				<address-line1>Lindenstr. 15</address-line1>
+				<country-code>DE</country-code>
+				<phone-home>49656564587</phone-home>
+				<phone-mobile>01775684478</phone-mobile>
+				<default-address>1</default-address>
+				<ship-to-address>1</ship-to-address>
+				<invoice-to-address>1</invoice-to-address>
+			</address>
+		</addresses>
+	</customer>
+	<customer id="Franke">
+		<customer-type>PRIVATE</customer-type>
+		<users>
+			<user business-partner-no="Franke">
+				<business-partner-no>Franke</business-partner-no>
+				<profile>
+					<credentials>
+						<login>susi23@test.intershop.de</login>
+						<password>!InterShop00!</password>
+						<enabled>1</enabled>
+						<password-reminder>intershop</password-reminder>
+						<reminder-email>susi23@test.intershop.de</reminder-email>
+						<security-question>Who was your first employer?</security-question>
+					</credentials>
+					<birthday-date>1963-12-12</birthday-date>
+					<description>Consumer Channel Consumer</description>
+					<first-name>Susanne</first-name>
+					<last-name>Franke</last-name>
+					<email>susi23@test.intershop.de</email>
+					<preferred-locale>en_US</preferred-locale>
+					<mail-confirmation>1</mail-confirmation>
+				</profile>
+				<user-groups>
+					<user-group id="IG_PrivateCustomers" domain="inSPIRED-inTRONICS-Anonymous"/>
+				</user-groups>
+			</user>
+		</users>
+		<addresses>
+			<address name="customeraddr-PfRFewtSjztZrkpHmVrndkTQFZ">
+				<address-name>customeraddr-PfRFewtSjztZrkpHmVrndkTQFZ</address-name>
+				<first-name>Susanne</first-name>
+				<last-name>Franke</last-name>
+				<city>Weimar</city>
+				<postal-code>35096</postal-code>
+				<address-line1>Philosophenstr. 94</address-line1>
+				<country-code>DE</country-code>
+				<phone-home>49334467587</phone-home>
+				<phone-mobile>01635587723</phone-mobile>
+				<default-address>1</default-address>
+				<ship-to-address>1</ship-to-address>
+				<invoice-to-address>1</invoice-to-address>
+			</address>
+		</addresses>
+	</customer>
+	<customer id="Heimroth">
+		<customer-type>PRIVATE</customer-type>
+		<users>
+			<user business-partner-no="Heimroth">
+				<business-partner-no>Heimroth</business-partner-no>
+				<profile>
+					<credentials>
+						<login>alexandra@test.intershop.de</login>
+						<password>!InterShop00!</password>
+						<enabled>1</enabled>
+						<password-reminder>intershop</password-reminder>
+						<reminder-email>alexandra@test.intershop.de</reminder-email>
+						<security-question>Who was your first employer?</security-question>
+					</credentials>
+					<birthday-date>1973-09-13</birthday-date>
+					<description>Consumer Channel Consumer</description>
+					<first-name>Alexandra</first-name>
+					<last-name>Heimroth</last-name>
+					<email>alexandra@test.intershop.de</email>
+					<preferred-locale>en_US</preferred-locale>
+					<mail-confirmation>1</mail-confirmation>
+				</profile>
+				<user-groups>
+					<user-group id="IG_PrivateCustomers" domain="inSPIRED-inTRONICS-Anonymous"/>
+				</user-groups>
+			</user>
+		</users>
+		<addresses>
+			<address name="customeraddr-AreETWxrLysniLekIEUhKLKJso">
+				<address-name>customeraddr-AreETWxrLysniLekIEUhKLKJso</address-name>
+				<first-name>Alexandra</first-name>
+				<last-name>Heimroth</last-name>
+				<city>Potsdam</city>
+				<postal-code>14434</postal-code>
+				<address-line1>Rentnerstieg 12</address-line1>
+				<country-code>DE</country-code>
+				<phone-home>4936412587</phone-home>
+				<default-address>1</default-address>
+				<ship-to-address>0</ship-to-address>
+				<invoice-to-address>1</invoice-to-address>
+			</address>
+			<address name="customeraddr-AKhpqjoiDGmmhnRIiqeCBunDLo">
+				<address-name>customeraddr-AKhpqjoiDGmmhnRIiqeCBunDLo</address-name>
+				<first-name>Alexandra</first-name>
+				<last-name>Heimroth</last-name>
+				<city>Potsdam</city>
+				<postal-code>14439</postal-code>
+				<address-line1>Weiergasse 19</address-line1>
+				<country-code>DE</country-code>
+				<phone-home>4936412587</phone-home>
+				<default-address>1</default-address>
+				<ship-to-address>1</ship-to-address>
+				<invoice-to-address>0</invoice-to-address>
+			</address>
+		</addresses>
+	</customer>
+	<customer id="Lehmann">
+		<customer-type>PRIVATE</customer-type>
+		<users>
+			<user business-partner-no="Lehmann">
+				<business-partner-no>Lehmann</business-partner-no>
+				<profile>
+					<credentials>
+						<login>M.lehmann@test.intershop.de</login>
+						<password>!InterShop00!</password>
+						<enabled>1</enabled>
+						<password-reminder>intershop</password-reminder>
+						<reminder-email>M.lehmann@test.intershop.de</reminder-email>
+						<security-question>Who was your first employer?</security-question>
+					</credentials>
+					<birthday-date>1980-12-04</birthday-date>
+					<description>Consumer Channel Consumer</description>
+					<first-name>Michael</first-name>
+					<last-name>Lehmann</last-name>
+					<email>M.lehmann@test.intershop.de</email>
+					<preferred-locale>en_US</preferred-locale>
+					<mail-confirmation>1</mail-confirmation>
+				</profile>
+				<user-groups>
+					<user-group id = "CG_PremiumConsumers" domain = "inSPIRED-inTRONICS-Anonymous"/>
+					<user-group id="IG_PrivateCustomers" domain="inSPIRED-inTRONICS-Anonymous"/>
+				</user-groups>
+			</user>
+		</users>
+		<addresses>
+			<address name="customeraddr-TQKUFSwIBNogqEXjXYSRFAsxSd">
+				<address-name>customeraddr-TQKUFSwIBNogqEXjXYSRFAsxSd</address-name>
+				<first-name>Michael</first-name>
+				<last-name>Lehmann</last-name>
+				<city>Berlin</city>
+				<postal-code>10119</postal-code>
+				<address-line1>Am Lieges 154</address-line1>
+				<country-code>DE</country-code>
+				<phone-home>4930663214</phone-home>
+				<phone-mobile>0163552369</phone-mobile>
+				<default-address>1</default-address>
+				<ship-to-address>1</ship-to-address>
+				<invoice-to-address>1</invoice-to-address>
+			</address>
+		</addresses>
+	</customer>
+	<customer id="Weiers">
+		<customer-type>PRIVATE</customer-type>
+		<users>
+			<user business-partner-no="Weiers">
+				<business-partner-no>Weiers</business-partner-no>
+				<profile>
+					<credentials>
+						<login>d.weiers@test.intershop.de</login>
+						<password>!InterShop00!</password>
+						<enabled>1</enabled>
+						<password-reminder>intershop</password-reminder>
+						<reminder-email>d.weiers@test.intershop.de</reminder-email>
+						<security-question>Who was your first employer?</security-question>
+					</credentials>
+					<birthday-date>1984-07-05</birthday-date>
+					<description>Consumer Channel Consumer</description>
+					<first-name>Daniela</first-name>
+					<last-name>Weiers</last-name>
+					<email>d.weiers@test.intershop.de</email>
+					<preferred-locale>en_US</preferred-locale>
+					<mail-confirmation>1</mail-confirmation>
+				</profile>
+				<user-groups>
+					<user-group id = "CG_PremiumConsumers" domain = "inSPIRED-inTRONICS-Anonymous"/>
+					<user-group id="IG_PrivateCustomers" domain="inSPIRED-inTRONICS-Anonymous"/>
+				</user-groups>
+			</user>
+		</users>
+		<addresses>
+			<address name="customeraddr-bPisfxVdqCJHGtAXrVofosGccP">
+				<address-name>customeraddr-bPisfxVdqCJHGtAXrVofosGccP</address-name>
+				<first-name>Daniela</first-name>
+				<last-name>Weiers</last-name>
+				<city>Kiel</city>
+				<postal-code>24103</postal-code>
+				<address-line1>Bothenweg 42</address-line1>
+				<country-code>DE</country-code>
+				<phone-home>046540663214</phone-home>
+				<phone-mobile>01741177362</phone-mobile>
+				<default-address>1</default-address>
+				<ship-to-address>1</ship-to-address>
+				<invoice-to-address>1</invoice-to-address>
+			</address>
+		</addresses>
+	</customer>
+	<customer id="Oczum">
+		<customer-type>PRIVATE</customer-type>
+		<users>
+			<user business-partner-no="Oczum">
+				<business-partner-no>Oczum</business-partner-no>
+				<profile>
+					<credentials>
+						<login>Tarnim@test.intershop.de</login>
+						<password>!InterShop00!</password>
+						<enabled>1</enabled>
+						<password-reminder>intershop</password-reminder>
+						<reminder-email>Tarnim@test.intershop.de</reminder-email>
+						<security-question>Who was your first employer?</security-question>
+					</credentials>
+					<birthday-date>1958-07-30</birthday-date>
+					<description>Consumer Channel Consumer</description>
+					<first-name>Tarnim</first-name>
+					<last-name>Oczum</last-name>
+					<email>Tarnim@test.intershop.de</email>
+					<preferred-locale>en_US</preferred-locale>
+					<mail-confirmation>1</mail-confirmation>
+				</profile>
+				<user-groups>
+					<user-group id = "CG_PremiumConsumers" domain = "inSPIRED-inTRONICS-Anonymous"/>
+					<user-group id="IG_PrivateCustomers" domain="inSPIRED-inTRONICS-Anonymous"/>
+				</user-groups>
+			</user>
+		</users>
+		<addresses>
+			<address name="customeraddr-JllltljoKbGWqfiAMecYvKmugg">
+				<address-name>customeraddr-JllltljoKbGWqfiAMecYvKmugg</address-name>
+				<first-name>Tarnim</first-name>
+				<last-name>Oczum</last-name>
+				<city>Würzburg</city>
+				<postal-code>97040</postal-code>
+				<address-line1>Kirchengasse 3</address-line1>
+				<country-code>DE</country-code>
+				<phone-home>046576663214</phone-home>
+				<phone-mobile>01711764280</phone-mobile>
+				<default-address>1</default-address>
+				<ship-to-address>1</ship-to-address>
+				<invoice-to-address>1</invoice-to-address>
+			</address>
+		</addresses>
+	</customer>
+	<customer id="Müller">
+		<customer-type>PRIVATE</customer-type>
+		<users>
+			<user business-partner-no="Müller">
+				<business-partner-no>Müller</business-partner-no>
+				<profile>
+					<credentials>
+						<login>josef_mueller@test.intershop.de</login>
+						<password>!InterShop00!</password>
+						<enabled>1</enabled>
+						<password-reminder>intershop</password-reminder>
+						<reminder-email>josef_mueller@test.intershop.de</reminder-email>
+						<security-question>Who was your first employer?</security-question>
+					</credentials>
+					<birthday-date>1969-11-12</birthday-date>
+					<description>Consumer Channel Consumer</description>
+					<first-name>Josef</first-name>
+					<last-name>Müller</last-name>
+					<email>josef_mueller@test.intershop.de</email>
+					<preferred-locale>en_US</preferred-locale>
+					<mail-confirmation>1</mail-confirmation>
+				</profile>
+				<user-groups>
+					<user-group id="IG_PrivateCustomers" domain="inSPIRED-inTRONICS-Anonymous"/>
+				</user-groups>
+			</user>
+		</users>
+		<addresses>
+			<address name="customeraddr-pYGEfreQjPPaqUjNPrCaWAKQQB">
+				<address-name>customeraddr-pYGEfreQjPPaqUjNPrCaWAKQQB</address-name>
+				<first-name>Josef</first-name>
+				<last-name>Müller</last-name>
+				<city>Stuttgart</city>
+				<postal-code>70173</postal-code>
+				<address-line1>Fasanenstr. 32</address-line1>
+				<country-code>DE</country-code>
+				<phone-home>04657985214</phone-home>
+				<phone-mobile>01751026903</phone-mobile>
+				<default-address>1</default-address>
+				<ship-to-address>1</ship-to-address>
+				<invoice-to-address>1</invoice-to-address>
+			</address>
+		</addresses>
+	</customer>
+	<customer id="Frohhofen">
+		<customer-type>PRIVATE</customer-type>
+		<users>
+			<user business-partner-no="Frohhofen">
+				<business-partner-no>Frohhofen</business-partner-no>
+				<profile>
+					<credentials>
+						<login>jufro@test.intershop.de</login>
+						<password>!InterShop00!</password>
+						<enabled>1</enabled>
+						<password-reminder>intershop</password-reminder>
+						<reminder-email>jufro@test.intershop.de</reminder-email>
+						<security-question>Who was your first employer?</security-question>
+					</credentials>
+					<birthday-date>1945-01-12</birthday-date>
+					<description>Consumer Channel Consumer</description>
+					<first-name>Justus</first-name>
+					<last-name>Frohhofen</last-name>
+					<email>jufro@test.intershop.de</email>
+					<preferred-locale>en_US</preferred-locale>
+					<mail-confirmation>1</mail-confirmation>
+				</profile>
+				<user-groups>
+					<user-group id="IG_PrivateCustomers" domain="inSPIRED-inTRONICS-Anonymous"/>
+				</user-groups>
+			</user>
+		</users>
+		<addresses>
+			<address name="customeraddr-nPKpRbJAqPgosplGGZVvrsPykI">
+				<address-name>customeraddr-nPKpRbJAqPgosplGGZVvrsPykI</address-name>
+				<first-name>Justus</first-name>
+				<last-name>Frohhofen</last-name>
+				<city>München</city>
+				<postal-code>80333</postal-code>
+				<address-line1>Augustenstr. 16</address-line1>
+				<country-code>DE</country-code>
+				<phone-business>4989529782</phone-business>
+				<phone-home>4989225536</phone-home>
+				<phone-mobile>01786689955</phone-mobile>
+				<fax>4989365892</fax>
+				<default-address>1</default-address>
+				<ship-to-address>0</ship-to-address>
+				<invoice-to-address>1</invoice-to-address>
+			</address>
+			<address name="customeraddr-jBpGXJuwguXScRhRuAeJIOdKBm">
+				<address-name>customeraddr-jBpGXJuwguXScRhRuAeJIOdKBm</address-name>
+				<first-name>Justus</first-name>
+				<last-name>Frohhofen</last-name>
+				<city>München</city>
+				<postal-code>80333</postal-code>
+				<address-line1>Platanenweg 26</address-line1>
+				<country-code>DE</country-code>
+				<phone-home>4989225536</phone-home>
+				<default-address>1</default-address>
+				<ship-to-address>1</ship-to-address>
+				<invoice-to-address>0</invoice-to-address>
+			</address>
+		</addresses>
+	</customer>
+	<customer id="Guth_1">
+		<customer-type>PRIVATE</customer-type>
+		<users>
+			<user business-partner-no="Guth_1">
+				<business-partner-no>Guth_1</business-partner-no>
+				<profile>
+					<credentials>
+						<login>nguth@test.intershop.de</login>
+						<password>!InterShop00!</password>
+						<enabled>1</enabled>
+						<password-reminder>intershop</password-reminder>
+						<reminder-email>nguth@test.intershop.de</reminder-email>
+						<security-question>Who was your first employer?</security-question>
+					</credentials>
+					<birthday-date>1985-10-25</birthday-date>
+					<description>Consumer Channel Consumer</description>
+					<first-name>Nathan</first-name>
+					<last-name>Guth</last-name>
+					<email>nguth@test.intershop.de</email>
+					<preferred-locale>en_US</preferred-locale>
+					<mail-confirmation>1</mail-confirmation>
+				</profile>
+				<user-groups>
+					<user-group id="IG_PrivateCustomers" domain="inSPIRED-inTRONICS-Anonymous"/>
+				</user-groups>
+			</user>
+		</users>
+		<addresses>
+			<address name="customeraddr-uqxGatTphvssPFpWJcCAxIzrwC">
+				<address-name>customeraddr-uqxGatTphvssPFpWJcCAxIzrwC</address-name>
+				<first-name>Nathan</first-name>
+				<last-name>Guth</last-name>
+				<city>Salzburg</city>
+				<postal-code>5023</postal-code>
+				<address-line1>Westendstr. 23</address-line1>
+				<country-code>AT</country-code>
+				<phone-home>436655882</phone-home>
+				<default-address>1</default-address>
+				<ship-to-address>1</ship-to-address>
+				<invoice-to-address>1</invoice-to-address>
+			</address>
+		</addresses>
+	</customer>
+	<customer id="Weidel">
+		<customer-type>PRIVATE</customer-type>
+		<users>
+			<user business-partner-no="Weidel">
+				<business-partner-no>Weidel</business-partner-no>
+				<profile>
+					<credentials>
+						<login>ina.weidel@test.intershop.de</login>
+						<password>!InterShop00!</password>
+						<enabled>1</enabled>
+						<password-reminder>intershop</password-reminder>
+						<reminder-email>ina.weidel@test.intershop.de</reminder-email>
+						<security-question>Who was your first employer?</security-question>
+					</credentials>
+					<birthday-date>1978-01-12</birthday-date>
+					<description>Consumer Channel Consumer</description>
+					<first-name>Ina</first-name>
+					<last-name>Weidel</last-name>
+					<email>ina.weidel@test.intershop.de</email>
+					<preferred-locale>en_US</preferred-locale>
+					<mail-confirmation>1</mail-confirmation>
+				</profile>
+				<user-groups>
+					<user-group id="IG_PrivateCustomers" domain="inSPIRED-inTRONICS-Anonymous"/>
+				</user-groups>
+			</user>
+		</users>
+		<addresses>
+			<address name="customeraddr-IgAXXFgPiktJENkliAMvweXutN">
+				<address-name>customeraddr-IgAXXFgPiktJENkliAMvweXutN</address-name>
+				<first-name>Ina</first-name>
+				<last-name>Weidel</last-name>
+				<city>Innsbruck</city>
+				<postal-code>36022</postal-code>
+				<address-line1>Mühlenweg 18</address-line1>
+				<country-code>AT</country-code>
+				<phone-home>436620526</phone-home>
+				<default-address>1</default-address>
+				<ship-to-address>1</ship-to-address>
+				<invoice-to-address>1</invoice-to-address>
+			</address>
+		</addresses>
+	</customer>
+	<customer id="Grauhof">
+		<customer-type>PRIVATE</customer-type>
+		<users>
+			<user business-partner-no="Grauhof">
+				<business-partner-no>Grauhof</business-partner-no>
+				<profile>
+					<credentials>
+						<login>g_grau@test.intershop.de</login>
+						<password>!InterShop00!</password>
+						<enabled>1</enabled>
+						<password-reminder>intershop</password-reminder>
+						<reminder-email>g_grau@test.intershop.de</reminder-email>
+						<security-question>Who was your first employer?</security-question>
+					</credentials>
+					<birthday-date>1972-04-04</birthday-date>
+					<description>Consumer Channel Consumer</description>
+					<first-name>Gertrud</first-name>
+					<last-name>Grauhof</last-name>
+					<email>g_grau@test.intershop.de</email>
+					<preferred-locale>en_US</preferred-locale>
+					<mail-confirmation>1</mail-confirmation>
+				</profile>
+				<user-groups>
+					<user-group id="IG_PrivateCustomers" domain="inSPIRED-inTRONICS-Anonymous"/>
+				</user-groups>
+			</user>
+		</users>
+		<addresses>
+			<address name="customeraddr-HkzrtGmaRquNLacIOukuNkBJEv">
+				<address-name>customeraddr-HkzrtGmaRquNLacIOukuNkBJEv</address-name>
+				<first-name>Gertrud</first-name>
+				<last-name>Grauhof</last-name>
+				<city>Garz</city>
+				<postal-code>8010</postal-code>
+				<address-line1>Dorfstr. 7</address-line1>
+				<country-code>AT</country-code>
+				<phone-home>43655890</phone-home>
+				<default-address>1</default-address>
+				<ship-to-address>1</ship-to-address>
+				<invoice-to-address>1</invoice-to-address>
+			</address>
+		</addresses>
+	</customer>
+	<customer id="McVaughn">
+		<customer-type>PRIVATE</customer-type>
+		<users>
+			<user business-partner-no="McVaughn">
+				<business-partner-no>McVaughn</business-partner-no>
+				<profile>
+					<credentials>
+						<login>s_vaughn@test.intershop.de</login>
+						<password>!InterShop00!</password>
+						<enabled>1</enabled>
+						<password-reminder>intershop</password-reminder>
+						<reminder-email>s_vaughn@test.intershop.de</reminder-email>
+						<security-question>Who was your first employer?</security-question>
+					</credentials>
+					<birthday-date>1976-08-05</birthday-date>
+					<description>Consumer Channel Consumer</description>
+					<first-name>Sally</first-name>
+					<last-name>McVaughn</last-name>
+					<email>s_vaughn@test.intershop.de</email>
+					<preferred-locale>en_US</preferred-locale>
+					<mail-confirmation>1</mail-confirmation>
+				</profile>
+				<user-groups>
+					<user-group id="IG_PrivateCustomers" domain="inSPIRED-inTRONICS-Anonymous"/>
+				</user-groups>
+			</user>
+		</users>
+		<preferred-invoice-to-address name="customeraddr-VUwBuHIXwZVUKKzyawMKJapgYl">
+			<address-name>customeraddr-VUwBuHIXwZVUKKzyawMKJapgYl</address-name>
+			<first-name>Sally</first-name>
+			<last-name>McVaughn</last-name>
+			<city>New York</city>
+			<postal-code>13302</postal-code>
+			<address-line1>Fairground 32a</address-line1>
+			<main-division>NY</main-division>
+			<country-code>US</country-code>
+			<phone-home>13158896669</phone-home>
+			<ship-to-address>1</ship-to-address>
+			<invoice-to-address>1</invoice-to-address>
+		</preferred-invoice-to-address>
+		<preferred-ship-to-address name="customeraddr-VUwBuHIXwZVUKKzyawMKJapgYl">
+			<address-name>customeraddr-VUwBuHIXwZVUKKzyawMKJapgYl</address-name>
+			<first-name>Sally</first-name>
+			<last-name>McVaughn</last-name>
+			<city>New York</city>
+			<postal-code>13302</postal-code>
+			<address-line1>Fairground 32a</address-line1>
+			<main-division>NY</main-division>
+			<country-code>US</country-code>
+			<phone-home>13158896669</phone-home>
+			<ship-to-address>1</ship-to-address>
+			<invoice-to-address>1</invoice-to-address>
+		</preferred-ship-to-address>
+		<addresses>
+			<address name="customeraddr-VUwBuHIXwZVUKKzyawMKJapgYl">
+				<address-name>customeraddr-VUwBuHIXwZVUKKzyawMKJapgYl</address-name>
+				<first-name>Sally</first-name>
+				<last-name>McVaughn</last-name>
+				<city>New York</city>
+				<postal-code>13302</postal-code>
+				<address-line1>Fairground 32a</address-line1>
+				<main-division>NY</main-division>
+				<country-code>US</country-code>
+				<phone-home>13158896669</phone-home>
+				<default-address>1</default-address>
+				<ship-to-address>1</ship-to-address>
+				<invoice-to-address>1</invoice-to-address>
+			</address>
+		</addresses>
+	</customer>
+	<customer id="Schneider">
+		<customer-type>PRIVATE</customer-type>
+		<users>
+			<user business-partner-no="Schneider">
+				<business-partner-no>Schneider</business-partner-no>
+				<profile>
+					<credentials>
+						<login>fschneider@test.intershop.de</login>
+						<password>!InterShop00!</password>
+						<enabled>1</enabled>
+						<password-reminder>intershop</password-reminder>
+						<reminder-email>fschneider@test.intershop.de</reminder-email>
+						<security-question>Who was your first employer?</security-question>
+					</credentials>
+					<birthday-date>1968-10-21</birthday-date>
+					<description>Consumer Channel Consumer</description>
+					<first-name>Francis</first-name>
+					<last-name>Schneider</last-name>
+					<email>fschneider@test.intershop.de</email>
+					<preferred-locale>en_US</preferred-locale>
+					<mail-confirmation>1</mail-confirmation>
+				</profile>
+				<user-groups>
+					<user-group id="IG_PrivateCustomers" domain="inSPIRED-inTRONICS-Anonymous"/>
+				</user-groups>
+			</user>
+		</users>
+		<preferred-invoice-to-address name="customeraddr-euXLfVMqHgiZNrmgvnTOtKqZvK">
+			<address-name>customeraddr-euXLfVMqHgiZNrmgvnTOtKqZvK</address-name>
+			<first-name>Francis</first-name>
+			<last-name>Schneider</last-name>
+			<city>New York</city>
+			<postal-code>13588</postal-code>
+			<address-line1>CityLane 432</address-line1>
+			<main-division>NY</main-division>
+			<country-code>US</country-code>
+			<phone-home>1318660225</phone-home>
+			<ship-to-address>1</ship-to-address>
+			<invoice-to-address>1</invoice-to-address>
+		</preferred-invoice-to-address>
+		<preferred-ship-to-address name="customeraddr-euXLfVMqHgiZNrmgvnTOtKqZvK">
+			<address-name>customeraddr-euXLfVMqHgiZNrmgvnTOtKqZvK</address-name>
+			<first-name>Francis</first-name>
+			<last-name>Schneider</last-name>
+			<city>New York</city>
+			<postal-code>13588</postal-code>
+			<address-line1>CityLane 432</address-line1>
+			<main-division>NY</main-division>
+			<country-code>US</country-code>
+			<phone-home>1318660225</phone-home>
+			<ship-to-address>1</ship-to-address>
+			<invoice-to-address>1</invoice-to-address>
+		</preferred-ship-to-address>
+		<addresses>
+			<address name="customeraddr-euXLfVMqHgiZNrmgvnTOtKqZvK">
+				<address-name>customeraddr-euXLfVMqHgiZNrmgvnTOtKqZvK</address-name>
+				<first-name>Francis</first-name>
+				<last-name>Schneider</last-name>
+				<city>New York</city>
+				<postal-code>13588</postal-code>
+				<address-line1>CityLane 432</address-line1>
+				<main-division>NY</main-division>
+				<country-code>US</country-code>
+				<phone-home>1318660225</phone-home>
+				<default-address>1</default-address>
+				<ship-to-address>1</ship-to-address>
+				<invoice-to-address>1</invoice-to-address>
+			</address>
+		</addresses>
+	</customer>
+	<customer id="Williams">
+		<customer-type>PRIVATE</customer-type>
+		<users>
+			<user business-partner-no="Williams">
+				<business-partner-no>Williams</business-partner-no>
+				<profile>
+					<credentials>
+						<login>e.williams@test.intershop.de</login>
+						<password>!InterShop00!</password>
+						<enabled>1</enabled>
+						<password-reminder>intershop</password-reminder>
+						<reminder-email>e.williams@test.intershop.de</reminder-email>
+						<security-question>Who was your first employer?</security-question>
+					</credentials>
+					<birthday-date>1980-09-19</birthday-date>
+					<description>Consumer Channel Consumer</description>
+					<first-name>Ethan</first-name>
+					<last-name>Williams</last-name>
+					<email>e.williams@test.intershop.de</email>
+					<preferred-locale>en_US</preferred-locale>
+					<mail-confirmation>1</mail-confirmation>
+				</profile>
+				<user-groups>
+					<user-group id="IG_PrivateCustomers" domain="inSPIRED-inTRONICS-Anonymous"/>
+				</user-groups>
+			</user>
+		</users>
+		<preferred-invoice-to-address name="customeraddr-kubuFbwRTosIPdBtkNpNcHycpi">
+			<address-name>customeraddr-kubuFbwRTosIPdBtkNpNcHycpi</address-name>
+			<first-name>Ethan</first-name>
+			<last-name>Williams</last-name>
+			<city>Boston</city>
+			<postal-code>2266</postal-code>
+			<address-line1>53rd Carol Street 61</address-line1>
+			<main-division>MA</main-division>
+			<country-code>US</country-code>
+			<phone-home>122588863</phone-home>
+			<ship-to-address>1</ship-to-address>
+			<invoice-to-address>1</invoice-to-address>
+		</preferred-invoice-to-address>
+		<preferred-ship-to-address name="customeraddr-kubuFbwRTosIPdBtkNpNcHycpi">
+			<address-name>customeraddr-kubuFbwRTosIPdBtkNpNcHycpi</address-name>
+			<first-name>Sophie</first-name>
+			<last-name>Williams</last-name>
+			<city>Boston</city>
+			<postal-code>2266</postal-code>
+			<address-line1>53rd Carol Street 61</address-line1>
+			<main-division>MA</main-division>
+			<country-code>US</country-code>
+			<phone-home>122588863</phone-home>
+			<ship-to-address>1</ship-to-address>
+			<invoice-to-address>1</invoice-to-address>
+		</preferred-ship-to-address>
+		<addresses>
+			<address name="customeraddr-kubuFbwRTosIPdBtkNpNcHycpi">
+				<address-name>customeraddr-kubuFbwRTosIPdBtkNpNcHycpi</address-name>
+				<first-name>Ethan</first-name>
+				<last-name>Williams</last-name>
+				<city>Boston</city>
+				<postal-code>2266</postal-code>
+				<address-line1>53rd Carol Street 61</address-line1>
+				<main-division>MA</main-division>
+				<country-code>US</country-code>
+				<phone-home>122588863</phone-home>
+				<default-address>1</default-address>
+				<ship-to-address>1</ship-to-address>
+				<invoice-to-address>1</invoice-to-address>
+			</address>
+		</addresses>
+	</customer>
+	<customer id="Fender">
+		<customer-type>PRIVATE</customer-type>
+		<users>
+			<user business-partner-no="Fender">
+				<business-partner-no>Fender</business-partner-no>
+				<profile>
+					<credentials>
+						<login>j.fender@test.intershop.de</login>
+						<password>!InterShop00!</password>
+						<enabled>1</enabled>
+						<password-reminder>intershop</password-reminder>
+						<reminder-email>j.fender@test.intershop.de</reminder-email>
+						<security-question>Who was your first employer?</security-question>
+					</credentials>
+					<birthday-date>1984-07-05</birthday-date>
+					<description>Consumer Channel Consumer</description>
+					<first-name>Joe</first-name>
+					<last-name>Fender</last-name>
+					<email>j.fender@test.intershop.de</email>
+					<preferred-locale>en_US</preferred-locale>
+					<mail-confirmation>1</mail-confirmation>
+				</profile>
+				<user-groups>
+					<user-group id="IG_PrivateCustomers" domain="inSPIRED-inTRONICS-Anonymous"/>
+				</user-groups>
+			</user>
+		</users>
+		<preferred-invoice-to-address name="customeraddr-qPKaFIGHQSSDyCNGzCJxgEciYT">
+			<address-name>customeraddr-qPKaFIGHQSSDyCNGzCJxgEciYT</address-name>
+			<first-name>Joe</first-name>
+			<last-name>Fender</last-name>
+			<city>London</city>
+			<postal-code>6320860</postal-code>
+			<address-line1>Northstreet 4</address-line1>
+			<country-code>GB</country-code>
+			<phone-home>4468503658</phone-home>
+			<default-address>1</default-address>
+			<ship-to-address>1</ship-to-address>
+			<invoice-to-address>1</invoice-to-address>
+		</preferred-invoice-to-address>
+		<preferred-ship-to-address name="customeraddr-qPKaFIGHQSSDyCNGzCJxgEciYT">
+			<address-name>customeraddr-qPKaFIGHQSSDyCNGzCJxgEciYT</address-name>
+			<first-name>Joe</first-name>
+			<last-name>Fender</last-name>
+			<city>London</city>
+			<postal-code>6320860</postal-code>
+			<address-line1>Northstreet 4</address-line1>
+			<country-code>GB</country-code>
+			<phone-home>4468503658</phone-home>
+			<default-address>1</default-address>
+			<ship-to-address>1</ship-to-address>
+			<invoice-to-address>1</invoice-to-address>
+		</preferred-ship-to-address>
+		<addresses>
+			<address name="customeraddr-qPKaFIGHQSSDyCNGzCJxgEciYT">
+				<address-name>customeraddr-qPKaFIGHQSSDyCNGzCJxgEciYT</address-name>
+				<first-name>Joe</first-name>
+				<last-name>Fender</last-name>
+				<city>London</city>
+				<postal-code>6320860</postal-code>
+				<address-line1>Northstreet 4</address-line1>
+				<country-code>GB</country-code>
+				<phone-home>4468503658</phone-home>
+				<default-address>1</default-address>
+				<ship-to-address>1</ship-to-address>
+				<invoice-to-address>1</invoice-to-address>
+			</address>
+		</addresses>
+	</customer>
+	<customer id="Weird">
+		<customer-type>PRIVATE</customer-type>
+		<users>
+			<user business-partner-no="Weird">
+				<business-partner-no>Weird</business-partner-no>
+				<profile>
+					<credentials>
+						<login>r.weird@test.intershop.de</login>
+						<password>!InterShop00!</password>
+						<enabled>1</enabled>
+						<password-reminder>intershop</password-reminder>
+						<reminder-email>r.weird@test.intershop.de</reminder-email>
+						<security-question>Who was your first employer?</security-question>
+					</credentials>
+					<birthday-date>1972-09-03</birthday-date>
+					<description>Consumer Channel Consumer</description>
+					<first-name>Richard</first-name>
+					<last-name>Weird</last-name>
+					<email>r.weird@test.intershop.de</email>
+					<preferred-locale>en_US</preferred-locale>
+					<mail-confirmation>1</mail-confirmation>
+				</profile>
+				<user-groups>
+					<user-group id="IG_PrivateCustomers" domain="inSPIRED-inTRONICS-Anonymous"/>
+				</user-groups>
+			</user>
+		</users>
+		<addresses>
+			<address name="customeraddr-hunadSKQCBZavIaihzvyUpQmFf">
+				<address-name>customeraddr-hunadSKQCBZavIaihzvyUpQmFf</address-name>
+				<first-name>Richard</first-name>
+				<last-name>Weird</last-name>
+				<city>Dover</city>
+				<postal-code>19903</postal-code>
+				<address-line1>HillChapel 26</address-line1>
+				<country-code>GB</country-code>
+				<phone-home>442104562</phone-home>
+				<default-address>1</default-address>
+				<ship-to-address>1</ship-to-address>
+				<invoice-to-address>1</invoice-to-address>
+			</address>
+		</addresses>
+	</customer>
+	<customer id="Clarkson">
+		<customer-type>PRIVATE</customer-type>
+		<users>
+			<user business-partner-no="Clarkson">
+				<business-partner-no>Clarkson</business-partner-no>
+				<profile>
+					<credentials>
+						<login>charls_c@test.intershop.de</login>
+						<password>!InterShop00!</password>
+						<enabled>1</enabled>
+						<password-reminder>intershop</password-reminder>
+						<reminder-email>charls_c@test.intershop.de</reminder-email>
+						<security-question>Who was your first employer?</security-question>
+					</credentials>
+					<birthday-date>1965-12-11</birthday-date>
+					<description>Consumer Channel Consumer</description>
+					<first-name>Charles</first-name>
+					<last-name>Clarkson</last-name>
+					<email>charls_c@test.intershop.de</email>
+					<preferred-locale>en_US</preferred-locale>
+					<mail-confirmation>1</mail-confirmation>
+				</profile>
+				<user-groups>
+					<user-group id="IG_PrivateCustomers" domain="inSPIRED-inTRONICS-Anonymous"/>
+				</user-groups>
+			</user>
+		</users>
+		<addresses>
+			<address name="customeraddr-gRRPisUtikaaiUFXcJPalqxcCw">
+				<address-name>customeraddr-gRRPisUtikaaiUFXcJPalqxcCw</address-name>
+				<first-name>Charles</first-name>
+				<last-name>clarkson</last-name>
+				<city>Birmingham</city>
+				<postal-code>35201</postal-code>
+				<address-line1>WestAve 65</address-line1>
+				<country-code>GB</country-code>
+				<phone-home>44903624</phone-home>
+				<default-address>1</default-address>
+				<ship-to-address>1</ship-to-address>
+				<invoice-to-address>1</invoice-to-address>
+			</address>
+		</addresses>
+	</customer>
+</enfinity>

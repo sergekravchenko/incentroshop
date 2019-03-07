@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<enfinity xmlns:dt="http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt">
+<component-template id="cmp_tmp_footer_content_top">
+<definition-name>app_sf_responsive_cm:component.common.freeStyle.pagelet2-Component</definition-name>
+<display-name xml:lang="en-US">Footer Content Top</display-name>
+<active>true</active>
+<author business-partner-no="admin" domain="inSPIRED"/>
+<configuration-parameters>
+<configuration-parameter name="HTML">
+<definition-name>app_sf_responsive_cm:component.common.freeStyle.pagelet2-Component-HTML</definition-name>
+<value name="HTML" xml:lang="de-DE">&lt;div class=&quot;footer-top&quot;&gt;
+&lt;div class=&quot;container&quot;&gt;
+&lt;div class=&quot;row&quot;&gt;
+&lt;div class=&quot;col-md-4 storefinder clearfix&quot;&gt;
+&lt;span class=&quot;glyphicon glyphicon-map-marker&quot;&gt;&lt;/span&gt;
+&lt;h4&gt;FILIALEN&lt;/h4&gt;
+&lt;a href=&quot;pipeline://ViewStoreFinder-Start&quot;&gt;Finden Sie eine Filiale in Ihrer N&amp;auml;he&lt;/a&gt;
+&lt;/div&gt;
+&lt;div class=&quot;col-md-4 newsletter clearfix&quot;&gt;
+&lt;h4&gt;NEWSLETTER ABONNIEREN&lt;/h4&gt;
+&lt;form class=&quot;newsletter-form&quot; name=&quot;EmailSignupForm&quot; action=&quot;pipeline://ViewEmailSignup-Dispatch&quot; method=&quot;post&quot;&gt;
+&lt;input type=&quot;text&quot; class=&quot;newsletter-email-field&quot; placeholder=&quot;Geben Sie Ihre E-Mail-Adresse an&quot; value=&quot;&quot; id=&quot;newsletter_email&quot; name=&quot;EmailSignupForm_Email&quot;&gt;
+&lt;button title=&quot;Sign up&quot; id=&quot;signup_button&quot; name=&quot;signup&quot; type=&quot;submit&quot;&gt;ABONNIEREN&lt;/button&gt;
+&lt;p&gt;Die &lt;a data-dialog href=&quot;pipeline://ViewContent-Start?PageletEntryPointID=systeminclude.dialog.privacyPolicy.pagelet2-Include&quot;&gt;Datenschutzbestimmungen&lt;/a&gt; habe ich zur Kenntnis genommen.&lt;/p&gt;
+&lt;/form&gt;
+&lt;/div&gt;
+&lt;div class=&quot;social-links clearfix&quot;&gt;
+&lt;h4&gt;IN &lt;strong&gt;VERBINDUNG&lt;/strong&gt; BLEIBEN&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class=&quot;icon-svg icon-facebook&quot; title=&quot;Facebook&quot; target=&quot;_blank&quot; href=&quot;http://www.facebook.com&quot;&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&quot;icon-svg icon-twitter&quot; title=&quot;twitter&quot; target=&quot;_blank&quot; href=&quot;http://www.twitter.com&quot;&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&quot;icon-svg icon-youtube&quot; title=&quot;Youtube&quot; target=&quot;_blank&quot; href=&quot;http://www.youtube.com&quot;&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&quot;icon-svg icon-vimeo&quot; title=&quot;Vimeo&quot; target=&quot;_blank&quot; href=&quot;http://www.vimeo.com&quot;&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&quot;icon-svg icon-pinterest&quot; title=&quot;Pinterest&quot; target=&quot;_blank&quot; href=&quot;http://www.pinterest.com/&quot;&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&quot;icon-svg icon-googleplus&quot; title=&quot;Google plus&quot; target=&quot;_blank&quot; href=&quot;http://plus.google.com/&quot;&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&quot;icon-svg icon-instagram&quot; title=&quot;Instagram&quot; target=&quot;_blank&quot; href=&quot;http://instagram.com//&quot;&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;</value>
+<value name="HTML" xml:lang="en-US">&lt;div class=&quot;footer-top&quot;&gt;
+&lt;div class=&quot;container&quot;&gt;
+&lt;div class=&quot;row&quot;&gt;
+&lt;div class=&quot;col-md-4 storefinder clearfix&quot;&gt;
+&lt;span class=&quot;glyphicon glyphicon-map-marker&quot;&gt;&lt;/span&gt;
+&lt;h4&gt;Stores&lt;/h4&gt;
+&lt;a href=&quot;pipeline://ViewStoreFinder-Start&quot;&gt;Find a nearby Store&lt;/a&gt;
+&lt;/div&gt;
+&lt;div class=&quot;col-md-4 newsletter clearfix&quot;&gt;
+&lt;h4&gt;SIGN UP FOR OUR NEWSLETTER&lt;/h4&gt;
+&lt;form class=&quot;newsletter-form&quot; name=&quot;EmailSignupForm&quot; action=&quot;pipeline://ViewEmailSignup-Dispatch&quot; method=&quot;post&quot;&gt;
+&lt;input type=&quot;text&quot; class=&quot;newsletter-email-field&quot; placeholder=&quot;Enter your email&quot; value=&quot;&quot; id=&quot;newsletter_email&quot; name=&quot;EmailSignupForm_Email&quot;&gt;
+&lt;button title=&quot;Sign up&quot; id=&quot;signup_button&quot; name=&quot;signup&quot; type=&quot;submit&quot;&gt;SIGN UP&lt;/button&gt;
+&lt;p&gt;I have read the &lt;a data-dialog href=&quot;pipeline://ViewContent-Start?PageletEntryPointID=systeminclude.dialog.privacyPolicy.pagelet2-Include&quot;&gt;Privacy Policy&lt;/a&gt;.&lt;/p&gt;
+&lt;/form&gt;
+&lt;/div&gt;
+&lt;div class=&quot;social-links clearfix&quot;&gt;
+&lt;h4&gt;&lt;strong&gt;CONNECT&lt;/strong&gt; WITH US&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class=&quot;icon-svg icon-facebook&quot; title=&quot;Facebook&quot; target=&quot;_blank&quot; href=&quot;http://www.facebook.com&quot;&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&quot;icon-svg icon-twitter&quot; title=&quot;twitter&quot; target=&quot;_blank&quot; href=&quot;http://www.twitter.com&quot;&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&quot;icon-svg icon-youtube&quot; title=&quot;Youtube&quot; target=&quot;_blank&quot; href=&quot;http://www.youtube.com&quot;&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&quot;icon-svg icon-vimeo&quot; title=&quot;Vimeo&quot; target=&quot;_blank&quot; href=&quot;http://www.vimeo.com&quot;&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&quot;icon-svg icon-pinterest&quot; title=&quot;Pinterest&quot; target=&quot;_blank&quot; href=&quot;http://www.pinterest.com/&quot;&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&quot;icon-svg icon-googleplus&quot; title=&quot;Google plus&quot; target=&quot;_blank&quot; href=&quot;http://plus.google.com/&quot;&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&quot;icon-svg icon-instagram&quot; title=&quot;Instagram&quot; target=&quot;_blank&quot; href=&quot;http://instagram.com//&quot;&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;</value>
+</configuration-parameter>
+</configuration-parameters>
+</component-template>
+</enfinity>

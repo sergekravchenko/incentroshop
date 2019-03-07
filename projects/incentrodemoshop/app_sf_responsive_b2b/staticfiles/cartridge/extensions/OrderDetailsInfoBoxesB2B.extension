@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<extensionpoint:ExtensionPointModel xmlns:extensionpoint="http://www.intershop.de/extensionpoint/2011" name="OrderDetailsInfoBoxesB2B">
+	<extensionBindings type="isml" extensionPoint="account/orders/OrderDetails-OrderDetailsInfoBoxes" extension="account/orders/ApprovalDetailsBox" priority="80"/>
+	<extensionBindings type="isml" extensionPoint="account/orders/OrderDetails-OrderDetailsInfoBoxes" extension="checkout/receipt/MessageToMerchant" priority="40"/>
+</extensionpoint:ExtensionPointModel>

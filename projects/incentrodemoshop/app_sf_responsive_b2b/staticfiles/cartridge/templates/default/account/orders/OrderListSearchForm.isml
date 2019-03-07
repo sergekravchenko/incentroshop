@@ -1,0 +1,39 @@
+<iscontent charset="UTF-8" compact="true" templatemarker="true">
+
+<isform name="SortOrdersByForm" action="#URLEX(SecureURL, '', Action('ViewOrders-SimpleOrderSearch'))#" method="post" class="form-inline">
+	<isif condition="#isDefined(MyOrderSearch)#">
+		<input type="hidden" name="MyOrderSearch" value="<isprint value="#MyOrderSearch#">">
+	</isif>	
+	
+	<div class="col-sm-6">
+		<div class="form-group">
+			<label class="control-label" for="SortOrdersBy">
+				<istext key="account.orderlist.sortBy.label">
+			</label>
+			<select name="SortingAttribute" data-submit-form-handler="change" id="SortOrdersBy" class="form-control">
+				<option value="CreationDate_asc" <isif condition="#SortingAttribute EQ 'CreationDate_asc'#">selected="selected"</isif>><istext key="account.orderlist.sortAttribute.creation_date">&nbsp;<istext key="account.orderlist.sortDirection.ascending"></option>
+				<option value="CreationDate_desc" <isif condition="#NOT isDefined(SortingAttribute) OR (SortingAttribute EQ 'CreationDate_desc')#">selected="selected"</isif>><istext key="account.orderlist.sortAttribute.creation_date">&nbsp;<istext key="account.orderlist.sortDirection.descending"></option>
+				<option value="OrderTotal_asc" <isif condition="#SortingAttribute EQ 'OrderTotal_asc'#">selected="selected"</isif>><istext key="account.orderlist.sortAttribute.order_total">&nbsp;<istext key="account.orderlist.sortDirection.ascending"></option>
+				<option value="OrderTotal_desc" <isif condition="#SortingAttribute EQ 'OrderTotal_desc'#">selected="selected"</isif>><istext key="account.orderlist.sortAttribute.order_total">&nbsp;<istext key="account.orderlist.sortDirection.descending"></option>									
+			</select>
+		</div>
+	</div>
+	
+	<div class="col-sm-6 order-search-form text-right">
+		<div class="form-group">
+			<!--- TODO permissions? --->
+			<div class="input-group">
+				<isif condition="#NOT isDefined(MyOrderSearch)#">
+					<input type="text" class="form-control" name="SearchTerm" id="OrderSearchTerm" value="<isprint value="#SearchTerm#">" placeholder="<istext key="account.orderlist.search.label">" size="35" />
+				<iselse>
+					<input type="text" class="form-control" name="SearchTerm" id="OrderSearchTerm" value="<isprint value="#SearchTerm#">" placeholder="<istext key="account.orderlist.search.number.label">" size="35" />
+				</isif>
+				<div class="input-group-btn">
+					<button class="btn btn-primary" type="submit" name="search" title="Start search."><span class="glyphicon glyphicon-search"></span></button>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+</isform>
+	

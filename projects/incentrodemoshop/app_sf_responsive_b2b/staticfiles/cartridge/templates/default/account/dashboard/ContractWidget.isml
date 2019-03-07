@@ -1,0 +1,61 @@
+<iscontent type="text/html" charset="UTF-8" compact="true">
+
+<ISCreateMap mapname="PipelineParameters"
+    key0="CustomerBO" value0="#CustomerBO#"
+    key1="ContractBaseBORepository" value1="#ApplicationBO:Repository("ContractBaseBORepository")#"
+>
+<ispipeline pipeline="ProcessContract-GetContractsByCustomer" alias="dict" params="#PipelineParameters#">
+
+<div class="section">
+	
+	<h2><istext key="account.contract.widget.my_contracts.heading" /></h2>
+
+	<isif condition="#isDefined(dict:CustomerContracts) and hasElements(dict:CustomerContracts)#">
+	
+		<div class="list-header">
+			<div class="col-xs-12 col-sm-3 list-header-item">
+				<istext key="account.contract.contracts.name" />
+			</div>
+			<div class="col-xs-12 col-sm-3 list-header-item text-right">
+				<istext key="account.contract.contracts.actualAmount" />
+			</div>
+			<div class="col-xs-12 col-sm-3 list-header-item text-right">
+				<istext key="account.contract.contracts.targetAmount" />
+			</div>
+			<div class="col-xs-12 col-sm-3 list-header-item">
+				<istext key="account.contract.contracts.progress" />
+			</div>			
+		</div>
+	
+		<div class="list-body">
+			<isloop iterator="dict:CustomerContracts" alias="Contract" counter="contractsCounter">
+				<isif condition="#contractsCounter >= 5#"><isbreak></isif>
+				
+				<div class="list-item-row">
+					<div class="col-xs-12 col-sm-3 list-item">
+						<a href="#url(Action('ViewContracts-Show'), Parameter('ContractID', Contract:ID))#"><isprint value="#Contract:Name#"></a>
+					</div>
+					<div class="col-xs-12 col-sm-3 list-item text-right hidden-xs"><isprint value="#Contract:SalesTarget:Actual#"></div>			
+					<div class="col-xs-12 col-sm-3 list-item text-right hidden-xs"><isprint value="#Contract:SalesTarget:Target#"></div>			
+					<div class="col-xs-12 col-sm-3 list-item">
+						<isset name="ContractProgress" value="0" scope="request"/>
+						<isif condition="#isDefined(Contract:SalesTarget) AND isDefined(Contract:SalesTarget:Actual)#">
+							<isif condition="#(Contract:SalesTarget:Actual:Value/Contract:SalesTarget:TargetAmount*100) < 100#">
+								
+								<isset name="ContractProgress" value="#getValue((Contract:SalesTarget:Actual:Value/Contract:SalesTarget:TargetAmount*100), '0')#" scope="request"/>
+							<iselse>
+								<isset name="ContractProgress" value="100" scope="request"/>
+							</isif>
+						</isif>
+						<ISProgressBar value="#ContractProgress#">
+					</div>		
+				</div>
+			</isloop>
+		</div>
+	
+		<a href="#URL(Action('ViewContracts-Start'))#" data-testing-linkid="account_contracts_viewall"><istext key="account.contract.widget.view_all.link" /></a>
+	
+	<iselse>
+		<p><istext key="account.contract.contracts.noItems.text" /></p>
+	</isif>		
+</div>

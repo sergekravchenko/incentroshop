@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<enfinity xmlns:dt="http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt">
+<pagelet-component id="cmp_brandIndex">
+<definition-name>app_sf_responsive_cm:component.shopping.attributeIndex.pagelet2-Component</definition-name>
+<display-name xml:lang="de-DE">Markenindex</display-name>
+<display-name xml:lang="en-US">Brand Index</display-name>
+<online>true</online>
+<author business-partner-no="admin" domain="inSPIRED"/>
+<configuration-parameters>
+<configuration-parameter name="IndexAttribute">
+<definition-name>app_sf_responsive_cm:component.shopping.attributeIndex.pagelet2-Component-IndexAttribute</definition-name>
+<value name="IndexAttribute">ManufacturerName</value>
+</configuration-parameter>
+<configuration-parameter name="IndexLetters">
+<definition-name>app_sf_responsive_cm:component.shopping.attributeIndex.pagelet2-Component-IndexLetters</definition-name>
+<value name="IndexLetters" xml:lang="de-DE">A|B|C|D|E|F|G|H|I|J|K|L|M|N|O|P|Q|R|S|T|U|V|W|X|Y|Z</value>
+<value name="IndexLetters" xml:lang="en-US">A|B|C|D|E|F|G|H|I|J|K|L|M|N|O|P|Q|R|S|T|U|V|W|X|Y|Z</value>
+</configuration-parameter>
+<configuration-parameter name="IndexType">
+<definition-name>app_sf_responsive_cm:component.shopping.attributeIndex.pagelet2-Component-IndexType</definition-name>
+<value name="IndexType">List</value>
+</configuration-parameter>
+<configuration-parameter name="Title">
+<definition-name>app_sf_responsive_cm:component.shopping.attributeIndex.pagelet2-Component-Title</definition-name>
+<value name="Title" xml:lang="de-DE">Alle Marken</value>
+<value name="Title" xml:lang="en-US">All Brands</value>
+</configuration-parameter>
+</configuration-parameters>
+<slots>
+<slot>
+<definition-name>app_sf_responsive_cm:slot.marketing.base.pagelet2-Slot</definition-name>
+<optional>false</optional>
+<sorting>false</sorting>
+</slot>
+</slots>
+</pagelet-component>
+</enfinity>

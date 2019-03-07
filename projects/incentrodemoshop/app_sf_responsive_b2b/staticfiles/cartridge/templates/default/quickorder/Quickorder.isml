@@ -1,0 +1,183 @@
+<iscontent personalized="true" type="text/html" charset="UTF-8" compact="true">
+<!--- the included quick order items are not cached --->
+<iscache type="relative" hour="24">
+<isinclude template="modules/B2BModules">
+
+<ismodule template="quickorder/QuickorderItem" name="QuickorderItem" attribute="key" attribute="Quantities" attribute="SKUs" attribute="errors" attribute="maxItemQuantity" strict="true"/>
+
+<!--- get the UserBO 
+this is required to determine OCI functionality to hide, page caching issues will be solved by own user group for OCI user role in B2B 
+--->
+<ISCreateMap mapname="PipelineParameters"  key0="User" value0="#CurrentUser#">
+<ispipeline pipeline="BusinessObjectUtils-GetUserBO"  params="#PipelineParameters#" alias="BusinessObjectDict" />
+<isset scope="request" name="UserBO" value="#BusinessObjectDict:UserBO#">
+
+<!--- get max item quantity preference --->
+<ispipeline pipeline="ViewCart-GetApplicationBasketMaxItemQuantity" alias="dict">
+<isif condition="#(isDefined(dict:BasketMaxItemQuantity)) AND (dict:BasketMaxItemQuantity > 0)#">
+	<isset name="maxQuantity" value="#dict:BasketMaxItemQuantity#" scope="request" />
+<iselse>
+	<isset name="maxQuantity" value="9999999999" scope="request" />
+</isif>
+
+<div class="breadcrumbs row">
+	<ISBreadcrumb showhomelink="true" trailtext0="#localizeText('quickorder.breadcrumb')#">
+</div>
+
+<div class="clearfix" data-testing-id="page-quickorder">
+	<div class="row">
+		<div class="col-md-12">
+			<h1><istext key="quickorder.heading" /></h1>
+		</div>
+	</div>
+	<div class="row">
+		
+		<div class="col-md-8 section">
+			<div class="alert alert-danger alert-formempty hide">
+				<istext key="quickorder.error.formempty" encoding="off" />
+			</div>
+		
+			<isif condition="#isDefined(ERROR_FormEmpty)#">
+				<div class="alert alert-danger">
+					<istext key="quickorder.error.formempty" encoding="off" />
+				</div>
+			<iselseif condition="#isDefined(Errors) OR isDefined(CSVErrors)#">
+				<div class="alert alert-danger">
+					<istext key="quickorder.error.form_error" encoding="off" />
+				</div>	
+			</isif>
+			<h3><istext key="quickorder.orderbyproductid.heading"></h3>
+			<p><istext key="quickorder.orderbyproductid.note" encoding="off" /></p>
+			
+			<isform action="#URLEX(SecureURL,'',Action('ViewQuickorder-Dispatch'))#" method="post" name="quickorderForm">
+				
+				<input type="hidden" id="Key"/>
+				<input type="hidden" id="remove"/>
+				
+				<div class="list-header hidden-xs">
+					<div class="col-sm-6 list-header-item no-seperator"><istext key="quickorder.productid.label" /></div>
+					<div class="col-sm-2 list-header-item no-seperator"><istext key="quickorder.quantity.label" /></div>
+				</div>
+				
+				<div class="list-body section">
+					<isif condition="#isDefined(Errors) AND isDefined(SKUsMap) AND (SKUsMap:Size>5) AND isDefined(QuickorderProducts)#">
+						<div class="quick-order-rows-container" data-row-count="<isprint value="#SKUsMap:Size#">"><!--- css class "quick-order-rows-container" will be needed for JS --->
+							<isloop iterator="QuickorderProducts" counter="SKUCounter">
+								<div class="list-item-row">
+									<ISQuickorderItem key="#trim(SKUCounter)#"  Quantities="#Quantities#" SKUs="#SKUsMap#" errors="#Errors#" maxItemQuantity="#maxQuantity#"><!---trim is necessary to transform an integer into a string --->
+								</div>
+							</isloop>
+						</div>
+					<iselse>
+						<div class="quick-order-rows-container" data-row-count="5"><!--- css class "quick-order-rows-container" will be needed for JS --->
+							<div class="list-item-row">
+								<ISQuickorderItem key="1"  Quantities="#Quantities#" SKUs="#SKUsMap#" errors="#Errors#" maxItemQuantity="#maxQuantity#">
+							</div>
+							<div class="list-item-row">
+								<ISQuickorderItem key="2"  Quantities="#Quantities#" SKUs="#SKUsMap#" errors="#Errors#" maxItemQuantity="#maxQuantity#">
+							</div>
+							<div class="list-item-row">
+								<ISQuickorderItem key="3"  Quantities="#Quantities#" SKUs="#SKUsMap#" errors="#Errors#" maxItemQuantity="#maxQuantity#">
+							</div>
+							<div class="list-item-row">
+								<ISQuickorderItem key="4"  Quantities="#Quantities#" SKUs="#SKUsMap#" errors="#Errors#" maxItemQuantity="#maxQuantity#">
+							</div>
+							<div class="list-item-row">
+								<ISQuickorderItem key="5"  Quantities="#Quantities#" SKUs="#SKUsMap#" errors="#Errors#" maxItemQuantity="#maxQuantity#">
+							</div>
+						</div>
+					</isif>
+					
+					<!--- css class "add-more-rows" will be needed for JS --->
+					<div class="add-more-rows section list-item-row section-seperator">
+						<p><a href="javascript:void(0);"><istext key="quickorder.link.text" /></a></p>
+					</div>
+				</div>
+				
+				<div>
+					<button type="submit" class="btn btn-primary js-quickorder-productvalidation" name="addToCart"><istext key="quickorder.button.addtocart.label" /></button>
+					<isif condition="#UserBO:Extension("UserBORoleExtension"):hasPermission("APP_B2B_MANAGE_ALL_QUOTES")#">					
+						<button type="submit" class="btn btn-default js-quickorder-productvalidation" name="addToQuote"><istext key="quickorder.button.addtoquoterequest.label" /></button>
+					</isif>
+					
+					
+					<button type="reset" class="btn btn-link" name="reset"><istext key="quickorder.button.reset.label" /></button>
+				</div>
+			</isform>
+		</div>
+	
+		<div class="col-md-4 section">
+		
+			<h3><istext key="quickorder.uploadcsv.heading"></h3>
+			<p><istext key="quickorder.uploadcsv.note" encoding="off" /></p>
+			<isif condition="#isDefined(Error)#">
+				<p class="alert alert-danger">
+					<istext key="quickorder.error.WrongInput" encoding="off" />
+					<br /><istext key ="#'quickorder.error.'.Error#" />
+				</p>
+			</isif>
+			<isif condition="#isDefined(CSVErrors)#">
+				<p class="alert alert-danger">
+					<istext key="quickorder.error.WrongInput" encoding="off" />
+					<isloop iterator="CSVErrors:EntrySet" alias="CSVError">
+						<br /><istext key="quickorder.error.line"> <isprint value="#CSVError:Key#"> - <istext key="#'quickorder.error.'.CSVError:Value#">
+					</isloop>
+				</p>
+			</isif>			
+			
+			<script type="text/javascript">
+				function beforeSubmit() {
+					var fname=document.getElementById("CSVFile").value;
+					// check if fname has the desired extension
+					var extn=fname.split('.').pop();
+					if (extn == "csv") {
+						return true;
+					} else {
+						alert("Please select a valid CSV file!");
+						return false;
+					}
+				}
+			</script>
+			
+			<isform action="#URLEX(SecureURL,'',Action('ViewQuickorder-DispatchUpload'))#"  onsubmit="return beforeSubmit();" method="post" name="quickorderFormCSV" enctype="multipart/form-data">
+				<div class="form-group section section-seperator">
+					<input type="file" name="CSVFile" id="CSVFile" size="35" class="form-control" />
+				</div>
+				
+				<div>
+					<button type="submit" class="btn btn-primary" name="addToCartCSV"><istext key="quickorder.button.addtocart.label" /></button>
+					<isif condition="#UserBO:Extension("UserBORoleExtension"):hasPermission("APP_B2B_MANAGE_ALL_QUOTES")#">					
+						<button type="submit" class="btn btn-default" name="addToQuoteCSV"><istext key="quickorder.button.addtoquoterequest.label" /></button>
+					</isif>
+					
+					
+					<button type="reset" class="btn btn-link" name="reset"><istext key="quickorder.byfile.button.reset.label" /></button>
+				</div>
+				
+			</isform>
+		</div>
+	
+	</div>
+</div>
+
+<!--- for js add rows functionality needed  --->
+<div class="blank-quick-order-rows" style="display: none;">
+	<div class="list-item-row">
+		<ISQuickorderItem key="1"  Quantities="#Quantities#" SKUs="#SKUsMap#" maxItemQuantity="#maxQuantity#">
+	</div>
+	<div class="list-item-row">
+		<ISQuickorderItem key="2"  Quantities="#Quantities#" SKUs="#SKUsMap#" maxItemQuantity="#maxQuantity#">
+	</div>
+	<div class="list-item-row">
+		<ISQuickorderItem key="3"  Quantities="#Quantities#" SKUs="#SKUsMap#" maxItemQuantity="#maxQuantity#">
+	</div>
+	<div class="list-item-row">
+		<ISQuickorderItem key="4"  Quantities="#Quantities#" SKUs="#SKUsMap#" maxItemQuantity="#maxQuantity#">
+	</div>
+	<div class="list-item-row">
+		<ISQuickorderItem key="5"  Quantities="#Quantities#" SKUs="#SKUsMap#" maxItemQuantity="#maxQuantity#">
+	</div>
+</div>
+
+<input type="hidden" id="data-checkSKU-URL" target-url="#URL(Action('ViewQuickorder-GetProductAvailabilityStatus'))#" /><!--- ajax call for availability check --->
+

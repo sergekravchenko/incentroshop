@@ -1,0 +1,29 @@
+<iscontent type="text/html" charset="UTF-8" compact="true" templatemarker="false">
+
+<!--- Modules from the parent assembly 'inspired' --->
+<isinclude template="modules/Modules">
+
+<!--- Modules from this assembly --->
+<isinclude template="modules/b2bUtils/Modules">
+<isinclude template="modules/user/Modules">
+<isinclude template="modules/account/Modules">
+<isinclude template="modules/punchout/Modules">
+<isinclude template="modules/hbs/Modules">
+
+<ismodule template = "modules/product/AddToQuote"
+	name="AddToQuote"
+	strict="true"
+	attribute="ProductBO"
+	attribute="class"
+	attribute="DisplayType"
+	attribute="DataAttributes"
+>
+
+<ismodule template = "modules/product/AddToQuoteRequest"
+	name="AddToQuoteRequest"
+	strict="true"
+	attribute="ProductBO"
+	attribute="class"
+	attribute="DisplayType"
+	attribute="DataAttributes"
+>

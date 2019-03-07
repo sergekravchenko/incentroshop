@@ -1,0 +1,113 @@
+<iscontent personalized="true" type="text/html" charset="UTF-8" compact="true">
+
+<!--- get max item quantity preference --->
+<ispipeline pipeline="ViewCart-GetApplicationBasketMaxItemQuantity" alias="dict">
+<isif condition="#(isDefined(dict:BasketMaxItemQuantity)) AND (dict:BasketMaxItemQuantity > 0)#">
+	<isset name="maxQuantity" value="#dict:BasketMaxItemQuantity#" scope="request" />
+<iselse>
+	<isset name="maxQuantity" value="9999999999" scope="request" />
+</isif>
+<input type="hidden"  id="data-checkSKU-URL" target-url="#URL(Action('ViewQuickorder-GetProductAvailabilityStatus'))#" /><!--- ajax call for availability check --->
+
+<div class="section list-body quick-order-rows-container">
+	<h3><istext key="shopping_cart.direct_order.heading" /></h3>
+
+	<!--- BEGIN ERROR MESSAGE --->
+
+	<isif condition="#isDefined(ERROR_DirectOrderInput)#">
+		<div class="alert alert-danger">
+	</isif>
+
+	<isif condition="#NOT isDefined(ERROR_NoQuantity) AND isDefined(ERROR_NoSKU)#">
+		<istext key="shopping_cart.direct_order.error.quantitywithoutsku" />
+		<isset name="UseNewLine" value="true" scope="request" />
+	<iselseif condition="#NOT isDefined(ERROR_NoSKU) AND isDefined(ERROR_NoQuantity)#" />
+		<istext key="shopping_cart.direct_order.error.skuwithoutquantity" />
+		<isset name="UseNewLine" value="true" scope="request" />
+	<iselseif condition="#isDefined(ERROR_NoQuantity) AND isDefined(ERROR_NoSKU)#" />
+		<istext key="shopping_cart.direct_order.error.noquantitynosku" />
+	</isif>
+
+	<isif condition="#isDefined(ERROR_InvalidQuantity)#">
+		<isif condition="#isDefined(UseNewLine)#"><br /></isif>
+		<istext key="shopping_cart.direct_order.error.invalidquantity" />
+		<isset name="UseNewLine" value="true" scope="request" />
+	</isif>
+	<isif condition="#isDefined(ERROR_ProductNotFound)#">
+		<isif condition="#isDefined(UseNewLine)#"><br /></isif>
+		<istext key="shopping_cart.direct_order.error.productnotfound" />
+	<iselseif condition="#isDefined(ERROR_NeeedsQuotation)#" />
+		<isif condition="#isDefined(UseNewLine)#"><br /></isif>
+		<istext key="shopping_cart.direct_order.error.needsquotation" />
+	</isif>
+
+	<isif condition="#isDefined(ERROR_DirectOrderInput)#">
+		</div>
+	</isif>
+
+	<!--- END ERROR MESSAGE --->
+	
+	<div class="list-item-row">
+		<div class="col-sm-6 search-container list-item">
+			<div class="form-group">
+				<label class="sr-only" for="productSKU">!!!!</label>
+				<div class="quickorder-search-container">
+					<input id="productSKU" 
+						class="form-control search-productId" 
+						autocomplete="off" 
+						type="text" 
+						maxlength="128" 
+						name="SKU"
+						size="30"
+						placeholder="<istext key="shopping_cart.direct_order.item_placeholder"/>"  
+						<isif condition="#isDefined(SKU) AND (isDefined(ERROR_NoQuantity) OR isDefined(ERROR_InvalidQuantity) OR isDefined(ERROR_NoSKU) OR isDefined(ERROR_ProductNotFound) OR isDefined(ERROR_NeeedsQuotation))#">value="<isprint value="#SKU#">"</isif> 
+						data-suggestURL="#URL(Action('ViewSuggestSearch-SuggestSKU'), Parameter('MaxAutoSuggestResults', '10'))#"
+					/>
+					<ul class="search-suggest-results"></ul>
+					<small class="help-block" id="availability-SKU"> </small>
+				</div>	
+			</div>
+		</div>
+		<div class="col-sm-3 list-item">
+			<div class="form-group">
+				<label class="sr-only" for="itemQuantity">!!!!</label>
+				<input id="itemQuantity" 
+					class="form-control quantity"
+					type="number"
+					min="1"
+					max="<isprint value="#maxQuantity#" formatter="0">"
+					step="1" 
+					name="Quantity"
+					placeholder="<istext key="product.quantity.label" />"
+					value="<isif condition="#isDefined(ERROR_NoQuantity)#"><iselseif condition="#isDefined(ERROR_InvalidQuantity) OR isDefined(ERROR_NoSKU) OR isDefined(ERROR_ProductNotFound) OR isDefined(ERROR_NeeedsQuotation)#"><isprint value="#Quantity#"><iselse>1</isif>"	
+				/>
+			</div>
+		</div>
+		<div class="col-sm-3 list-item">
+			<button type="submit" class="btn btn-default js-quickorder-productvalidation" name="directOrderAddProduct"><istext key="shopping_cart.direct_order.apply.button.label" /></button>
+		</div>
+	</div>
+	<a class="btn btn-link" name="quickOrderAddButton" href="#URL(Action('ViewQuickorder-Start'))#"><istext key="shopping_cart.direct_order.link.multipleItems" /></a>
+</div>
+
+<!---set has-error class after formvalidation events passed --->
+<isif condition="#isDefined(ERROR_NoSKU) OR isDefined(ERROR_ProductNotFound) OR isDefined(ERROR_NeeedsQuotation)#">
+	<script type="text/javascript">
+		setTimeout(function(){
+			$('.search-productId').closest('.form-group').addClass('has-error');
+		}, 100);
+		
+	</script>
+</isif>
+<isif condition="#isDefined(ERROR_NoQuantity) OR isDefined(ERROR_InvalidQuantity)#">
+	<script type="text/javascript">
+		setTimeout(function(){
+			$("#'#'#itemQuantity").closest('.form-group').addClass('has-error');
+		}, 100);
+	</script>
+</isif>
+
+<!--- END Cart Utilities --->
+
+
+

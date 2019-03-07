@@ -1,0 +1,7 @@
+<iscontent type="text/html" charset="UTF-8" compact="true">
+<iscomment>TODO this check must use a permission (not a role) when ready</iscomment>
+<isif condition="#NOT CurrentUserBO:Extension("UserBORoleExtension"):hasRole("APP_B2B_OCI_USER")#">
+	<li class="<isif condition="#selecteditem EQ 'PAYMENT'#">active</isif>">
+		<a href="#URL(Action('ViewPaymentInstrumentInfo-Edit'))#"><istext key="account.payment.link"/></a>
+	</li>
+</isif>

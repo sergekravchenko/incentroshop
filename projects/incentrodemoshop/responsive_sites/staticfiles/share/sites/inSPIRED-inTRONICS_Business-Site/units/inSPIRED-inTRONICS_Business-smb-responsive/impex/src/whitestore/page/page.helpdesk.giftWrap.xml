@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<enfinity xmlns:dt="http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt">
+<pagelet-entry-point id="page.helpdesk.giftWrap">
+<definition-name>app_sf_responsive:page.content.pagelet2-Page</definition-name>
+<page>true</page>
+<sorting>false</sorting>
+<parent id="page.helpdesk.giftWrappingMessaging" domain="inSPIRED-inTRONICS_Business-smb-responsive" position="1.0" resource-set="app_sf_responsive">
+</parent>
+<display-name xml:lang="de-DE">Geschenkverpackung</display-name>
+<display-name xml:lang="en-US">Gift Wrap</display-name>
+</pagelet-entry-point>
+<pagelet-pagelet-entry-point-assignment>
+<pagelet-entry-point id="page.helpdesk.giftWrap" domain="inSPIRED-inTRONICS_Business-smb-responsive" resource-set="app_sf_responsive"/>
+<pagelet id="pg_helpdesk_giftWrap" domain="inSPIRED-inTRONICS_Business-smb-responsive"/>
+<position>1</position>
+<online>true</online>
+</pagelet-pagelet-entry-point-assignment>
+</enfinity>

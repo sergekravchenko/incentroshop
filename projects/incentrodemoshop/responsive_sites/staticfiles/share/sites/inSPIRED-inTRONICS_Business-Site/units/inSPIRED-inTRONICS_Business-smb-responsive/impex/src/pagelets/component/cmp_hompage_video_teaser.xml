@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<enfinity xmlns:dt="http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt">
+<pagelet-component id="cmp_hompage_video_teaser">
+<definition-name>app_sf_responsive_cm:component.common.video.pagelet2-Component</definition-name>
+<display-name xml:lang="en-US">Homepage Video Teaser</display-name>
+<online>true</online>
+<author business-partner-no="admin" domain="inSPIRED"/>
+<configuration-parameters>
+<configuration-parameter name="Autoplay">
+<definition-name>app_sf_responsive_cm:component.common.video.pagelet2-Component-Autoplay</definition-name>
+<value name="Autoplay">false</value>
+</configuration-parameter>
+<configuration-parameter name="CSSClass">
+<definition-name>app_sf_responsive_cm:component.common.video.pagelet2-Component-CSSClass</definition-name>
+<value name="CSSClass">container</value>
+</configuration-parameter>
+<configuration-parameter name="Mute">
+<definition-name>app_sf_responsive_cm:component.common.video.pagelet2-Component-Mute</definition-name>
+<value name="Mute">false</value>
+</configuration-parameter>
+<configuration-parameter name="Video">
+<definition-name>app_sf_responsive_cm:component.common.video.pagelet2-Component-Video</definition-name>
+<value name="Video" xml:lang="en-US">https://www.youtube.com/watch?v=7DbslbKsQSk</value>
+</configuration-parameter>
+<configuration-parameter name="VideoSizePreset">
+<definition-name>app_sf_responsive_cm:component.common.video.pagelet2-Component-VideoSizePreset</definition-name>
+<value name="VideoSizePreset">auto</value>
+</configuration-parameter>
+</configuration-parameters>
+</pagelet-component>
+</enfinity>

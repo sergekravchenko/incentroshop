@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<extensionpoint:ExtensionPointModel xmlns:extensionpoint="http://www.intershop.de/extensionpoint/2011" name="CartModuleDirectOrderInput">
+  <extensionBindings type="isml" extensionPoint="cart/ShoppingCart-CartNavigationLinksExtensions" extension="cart/additionalmodules/DirectOrderInput.isml" priority="10"/>
+</extensionpoint:ExtensionPointModel>

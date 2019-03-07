@@ -1,0 +1,373 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Pipeline for email and password settings of OCI user. It reuses logic of ViewProfileSettings pipeline
+@Group Punchout-->
+
+<pipeline:Pipeline xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pipeline="http://www.intershop.de/pipeline/2010"
+    name="ViewOCIProfileSettings" overrideMode="Inherit" type="view">
+<!--@Location 12,0-->
+  <nodes xsi:type="pipeline:StartNode" nodeID="StartNode5" strict="true" name="GetEmailForm"
+      callMode="Private">
+    <nodeSuccessors name="next" next="CreateForm0"/>
+  </nodes>
+<!--@Location 12,1-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="CreateForm0">
+    <configurationValues name="FormName" value="Email-email"/>
+    <configurationValues name="FormResource" value="Email"/>
+    <pipelet href="enfinity:/core/pipelets/CreateForm.xml"/>
+    <nodeSuccessors name="next" next="EndNode0"/>
+    <returnValueBindings name="Form" objectPath="EmailForm"/>
+  </nodes>
+<!--@Location 12,2-->
+  <nodes xsi:type="pipeline:EndNode" nodeID="EndNode0" strict="true">
+    <returnValues name="EmailForm" type="com.intershop.beehive.core.capi.webform.Form"/>
+  </nodes>
+<!--@Location 13,0-->
+  <nodes xsi:type="pipeline:StartNode" nodeID="StartNode6" strict="true" name="GetOCIUpdatePasswordForm"
+      callMode="Private">
+    <nodeSuccessors name="next" next="CreateForm1"/>
+  </nodes>
+<!--@Location 13,1-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="CreateForm1">
+    <configurationValues name="FormName" value="OCIUpdatePassword-OCIUpdatePasswordForm"/>
+    <configurationValues name="FormResource" value="OCIUpdatePassword"/>
+    <pipelet href="enfinity:/core/pipelets/CreateForm.xml"/>
+    <nodeSuccessors name="next" next="EndNode1"/>
+    <returnValueBindings name="Form" objectPath="OCIUpdatePasswordForm"/>
+  </nodes>
+<!--@Location 13,2-->
+  <nodes xsi:type="pipeline:EndNode" nodeID="EndNode1" strict="true">
+    <returnValues name="OCIUpdatePasswordForm" type="com.intershop.beehive.core.capi.webform.Form"
+        optional="true"/>
+  </nodes>
+<!--@Location 1,6-->
+  <nodes xsi:type="pipeline:StartNode" nodeID="StartNode_fb_IgMHeEeaouZQ8nXb8eg" name="Prefix"
+      callMode="Private">
+    <nodeSuccessors name="next" next="CheckUserLoggedIn_fb5o8MHeEeaouZQ8nXb8eg"/>
+  </nodes>
+<!--@Location 1,7-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="CheckUserLoggedIn_fb5o8MHeEeaouZQ8nXb8eg">
+    <pipelet href="enfinity:/core/pipelets/CheckUserLoggedIn.xml"/>
+    <nodeSuccessors name="next" next="KeyMapper_fb8sQMHeEeaouZQ8nXb8eg"/>
+    <nodeSuccessors name="pipelet_error" next="EndNode_jVAogMHeEeaouZQ8nXb8eg"/>
+  </nodes>
+<!--@Location 1,8-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="KeyMapper_fb8sQMHeEeaouZQ8nXb8eg">
+    <pipelet href="enfinity:/bc_foundation/pipelets/KeyMapper.xml"/>
+    <nodeSuccessors name="next" next="GetUserBO_fcCy4MHeEeaouZQ8nXb8eg"/>
+    <parameterBindings name="InValue_1" objectPath="ApplicationBO:Repository(&quot;UserBORepository&quot;)"/>
+    <returnValueBindings name="OutValue_1" objectPath="UserBORepository"/>
+  </nodes>
+<!--@Location 1,9-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="GetUserBO_fcCy4MHeEeaouZQ8nXb8eg">
+    <pipelet href="enfinity:/bc_user/pipelets/GetUserBO.xml"/>
+    <nodeSuccessors name="next" next="GetCustomerBO_fb_vkMHeEeaouZQ8nXb8eg"/>
+    <parameterBindings name="UserID" objectPath="CurrentUser:ID"/>
+  </nodes>
+<!--@Location 1,10-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="GetCustomerBO_fb_vkMHeEeaouZQ8nXb8eg">
+    <pipelet href="enfinity:/bc_customer/pipelets/GetCustomerBO.xml"/>
+    <nodeSuccessors name="next" next="EndNode_fcBkwMHeEeaouZQ8nXb8eg"/>
+    <parameterBindings name="CustomerBORepository" objectPath="ApplicationBO:Repository(&quot;CustomerBORepository&quot;)"/>
+  </nodes>
+<!--@Location 1,11-->
+  <nodes xsi:type="pipeline:EndNode" nodeID="EndNode_fcBkwMHeEeaouZQ8nXb8eg">
+    <returnValues name="UserBO" type="com.intershop.component.user.capi.UserBO"/>
+  </nodes>
+<!--@Location 2,7-->
+  <nodes xsi:type="pipeline:EndNode" nodeID="EndNode_jVAogMHeEeaouZQ8nXb8eg" name="NOT_LOGGED_IN"/>
+<!--@Location 3,0-->
+  <nodes xsi:type="pipeline:StartNode" nodeID="StartNode_FZRYEMHfEeaouZQ8nXb8eg" name="ShowLogin"
+      callMode="Private">
+    <nodeSuccessors name="next" next="RemoveDictionaryValue_fb0JYMHeEeaouZQ8nXb8eg"/>
+  </nodes>
+<!--@Location 3,1-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="RemoveDictionaryValue_fb0JYMHeEeaouZQ8nXb8eg">
+    <configurationValues name="Key" value="TargetURL"/>
+    <configurationValues name="RemoveFormValues" value="true"/>
+    <pipelet href="enfinity:/bc_foundation/pipelets/RemoveDictionaryValue.xml"/>
+    <nodeSuccessors name="next" next="KeyMapper_fb2loMHeEeaouZQ8nXb8eg"/>
+  </nodes>
+<!--@Location 3,2-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="KeyMapper_fb2loMHeEeaouZQ8nXb8eg">
+    <pipelet href="enfinity:/bc_foundation/pipelets/KeyMapper.xml"/>
+    <nodeSuccessors name="next" next="InteractionNode_fb7eIMHeEeaouZQ8nXb8eg"/>
+    <parameterBindings name="InValue_1" constant="ViewUserAccount-ShowLogin"/>
+    <parameterBindings name="InValue_2" constant="https"/>
+    <parameterBindings name="InValue_4" constant="TargetPipeline"/>
+    <parameterBindings name="InValue_5" constant="ViewOCISettings-Start"/>
+    <parameterBindings name="InValue_6" constant="LoginToUse"/>
+    <parameterBindings name="InValue_7" constant="punchout"/>
+    <parameterBindings name="InValue_8" constant=""/>
+    <parameterBindings name="InValue_9" constant=""/>
+    <returnValueBindings name="OutValue_1" objectPath="TargetPipeline"/>
+    <returnValueBindings name="OutValue_2" objectPath="Protocol"/>
+    <returnValueBindings name="OutValue_3" objectPath="TargetSite"/>
+    <returnValueBindings name="OutValue_4" objectPath="Parameter1_Name"/>
+    <returnValueBindings name="OutValue_5" objectPath="Parameter1_Value"/>
+    <returnValueBindings name="OutValue_6" objectPath="Parameter2_Name"/>
+    <returnValueBindings name="OutValue_7" objectPath="Parameter2_Value"/>
+  </nodes>
+<!--@Location 3,3-->
+  <nodes xsi:type="pipeline:InteractionNode" nodeID="InteractionNode_fb7eIMHeEeaouZQ8nXb8eg">
+    <template referencedName="application/Redirect"/>
+  </nodes>
+<!--@Location 6,0-->
+  <nodes xsi:type="pipeline:StartNode" nodeID="StartNode1" name="UpdateEmail">
+    <nodeSuccessors name="next" next="CallNode1"/>
+  </nodes>
+<!--@Location 6,1-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode1">
+<!--@BendPoints 13,4-->
+    <nodeSuccessors name="next" next="GetUserBO0"/>
+    <nodeSuccessors name="NOT_LOGGED_IN" next="JumpNode_LpsNQMHfEeaouZQ8nXb8eg"/>
+    <startNode referencedName="ViewOCIProfileSettings-Prefix"/>
+  </nodes>
+<!--@Location 6,3-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="GetUserBO0">
+    <pipelet href="enfinity:/bc_user/pipelets/GetUserBO.xml"/>
+    <nodeSuccessors name="next" next="CallNode6"/>
+    <parameterBindings name="UserID" objectPath="UserID"/>
+    <returnValueBindings name="UserBO" objectPath="SelectedUserBO"/>
+  </nodes>
+<!--@Location 6,4-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode6">
+    <nodeSuccessors name="next" next="ValidateForm0"/>
+    <startNode referencedName="ViewOCIProfileSettings-GetEmailForm"/>
+    <returnValueBindings name="EmailForm" objectPath="CurrentForm"/>
+  </nodes>
+<!--@Location 6,5-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="ValidateForm0">
+    <pipelet href="enfinity:/core/pipelets/ValidateForm.xml"/>
+    <nodeSuccessors name="next" next="UpdateUserBO0"/>
+    <nodeSuccessors name="pipelet_error" next="JoinNode2"/>
+    <parameterBindings name="Form" objectPath="CurrentForm"/>
+  </nodes>
+<!--@Location 6,6-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="UpdateUserBO0">
+    <pipelet href="enfinity:/bc_user/pipelets/UpdateUserBO.xml"/>
+    <nodeSuccessors name="next" next="KeyMapper0"/>
+    <nodeSuccessors name="pipelet_error" next="JoinNode0"/>
+    <parameterBindings name="Active" nullBinding="true"/>
+    <parameterBindings name="Birthday" nullBinding="true"/>
+    <parameterBindings name="Department" nullBinding="true"/>
+    <parameterBindings name="Email" objectPath="CurrentForm:Email:Value"/>
+    <parameterBindings name="Fax" nullBinding="true"/>
+    <parameterBindings name="FirstName" nullBinding="true"/>
+    <parameterBindings name="Gender" nullBinding="true"/>
+    <parameterBindings name="Honorific" nullBinding="true"/>
+    <parameterBindings name="LastName" nullBinding="true"/>
+    <parameterBindings name="Mobile" nullBinding="true"/>
+    <parameterBindings name="PhoneBusiness" nullBinding="true"/>
+    <parameterBindings name="PhoneHome" nullBinding="true"/>
+    <parameterBindings name="PreferedLanguage" nullBinding="true"/>
+    <parameterBindings name="Title" nullBinding="true"/>
+    <parameterBindings name="UserBO" objectPath="SelectedUserBO"/>
+    <parameterBindings name="UserID" nullBinding="true"/>
+  </nodes>
+<!--@displayNearNode@ViewOCIProfileSettings\-ViewProfile
+@Location 6,7-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="KeyMapper0">
+    <configurationValues name="ValueType" value="Dictionary Value"/>
+    <pipelet href="enfinity:/bc_foundation/pipelets/KeyMapper.xml"/>
+    <nodeSuccessors name="next" next="CallNode9"/>
+    <parameterBindings name="InValue_1" constant="ViewOCIProfileSettings-ViewProfile"/>
+    <parameterBindings name="InValue_2" constant="UpdateEmail"/>
+    <returnValueBindings name="OutValue_1" objectPath="JumpTarget"/>
+    <returnValueBindings name="OutValue_2" objectPath="ShowSuccessMessage"/>
+  </nodes>
+<!--@Location 6,8-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode9">
+    <nodeSuccessors name="next" next="JumpNode0"/>
+    <startNode referencedName="ViewData-SecureForBrowserBack"/>
+  </nodes>
+<!--@Location 6,9-->
+  <nodes xsi:type="pipeline:JumpNode" nodeID="JumpNode0">
+    <startNode referencedName="ViewOCIProfileSettings-ViewProfile"/>
+  </nodes>
+<!--@Location 8,6-->
+  <nodes xsi:type="pipeline:JoinNode" nodeID="JoinNode0">
+    <nodeSuccessors name="next" next="RenderSystemPageWithTemplate1_Input"/>
+  </nodes>
+<!--@Location 8,8-->
+  <nodes xsi:type="pipeline:PipelineNodeNode" nodeID="RenderSystemPageWithTemplate1">
+    <configurationValues name="PageEntryPointDefinitionReference" value="app_sf_responsive_b2b:systempage.account.ociSettings.pagelet2-Page"/>
+    <configurationValues name="WorkingTemplate" value="punchout/OCIEmailEdit"/>
+    <pipelet href="enfinity:/sld_ch_sf_base/pipelets/com.intershop.sellside.storefront.base.capi.pipeline.RenderSystemPageWithTemplate.pipelinenode"/>
+    <inConnectors name="Input">
+      <parameterBindings name="Dictionary" objectPath="CurrentRequest:PipelineDictionary"/>
+    </inConnectors>
+  </nodes>
+<!--@Location 8,5-->
+  <nodes xsi:type="pipeline:JoinNode" nodeID="JoinNode2">
+    <nodeSuccessors name="next" next="JoinNode0"/>
+  </nodes>
+<!--@Location 7,2-->
+  <nodes xsi:type="pipeline:JumpNode" nodeID="JumpNode_LpsNQMHfEeaouZQ8nXb8eg">
+    <startNode referencedName="ViewOCIProfileSettings-ShowLogin"/>
+  </nodes>
+<!--@Location 9,0-->
+  <nodes xsi:type="pipeline:StartNode" nodeID="StartNode3" name="UpdatePassword">
+    <nodeSuccessors name="next" next="CallNode3"/>
+  </nodes>
+<!--@Location 9,1-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode3">
+<!--@BendPoints 19,6-->
+    <nodeSuccessors name="next" next="GetUserBO1"/>
+    <nodeSuccessors name="NOT_LOGGED_IN" next="JumpNode_g0bawMHhEeaouZQ8nXb8eg"/>
+    <startNode referencedName="ViewOCIProfileSettings-Prefix"/>
+  </nodes>
+<!--@Location 9,3-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="GetUserBO1">
+    <pipelet href="enfinity:/bc_user/pipelets/GetUserBO.xml"/>
+    <nodeSuccessors name="next" next="CallNode11"/>
+    <returnValueBindings name="UserBO" objectPath="SelectedUserBO"/>
+  </nodes>
+<!--@Location 9,4-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode11">
+    <nodeSuccessors name="next" next="ValidateForm1"/>
+    <startNode referencedName="ViewOCIProfileSettings-GetOCIUpdatePasswordForm"/>
+    <returnValueBindings name="OCIUpdatePasswordForm" objectPath="CurrentForm"/>
+  </nodes>
+<!--@Location 9,5-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="ValidateForm1">
+    <pipelet href="enfinity:/core/pipelets/ValidateForm.xml"/>
+    <nodeSuccessors name="next" next="CallNode7"/>
+    <nodeSuccessors name="pipelet_error" next="JoinNode4"/>
+    <parameterBindings name="Form" objectPath="CurrentForm"/>
+  </nodes>
+<!--@Location 9,6-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode7">
+    <nodeSuccessors name="INVALID" next="SetFormError0"/>
+    <nodeSuccessors name="VALID" next="UpdateUserBOCredentials0"/>
+    <parameterBindings name="Password" objectPath="CurrentForm:VerifyPassword:Value"/>
+    <startNode referencedName="ProcessUserProfileSettings-CheckPassword"/>
+  </nodes>
+<!--@Location 10,7-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="SetFormError0">
+    <pipelet href="enfinity:/core/pipelets/SetFormError.xml"/>
+    <nodeSuccessors name="next" next="JoinNode3"/>
+    <parameterBindings name="ErrorMsg" constant="error.incorrect"/>
+    <parameterBindings name="TargetObject" objectPath="CurrentForm:VerifyPassword"/>
+  </nodes>
+<!--@Location 11,7-->
+  <nodes xsi:type="pipeline:JoinNode" nodeID="JoinNode3">
+    <nodeSuccessors name="next" next="JoinNode5"/>
+  </nodes>
+<!--@Location 11,8-->
+  <nodes xsi:type="pipeline:JoinNode" nodeID="JoinNode5">
+    <nodeSuccessors name="next" next="JoinNode1"/>
+  </nodes>
+<!--@Location 11,10-->
+  <nodes xsi:type="pipeline:JoinNode" nodeID="JoinNode1">
+    <nodeSuccessors name="next" next="RenderSystemPageWithTemplate2_Input"/>
+  </nodes>
+<!--@Location 11,11-->
+  <nodes xsi:type="pipeline:PipelineNodeNode" nodeID="RenderSystemPageWithTemplate2">
+    <configurationValues name="PageEntryPointDefinitionReference" value="app_sf_responsive_b2b:systempage.account.ociSettings.pagelet2-Page"/>
+    <configurationValues name="WorkingTemplate" value="punchout/OCIPasswordEdit"/>
+    <pipelet href="enfinity:/sld_ch_sf_base/pipelets/com.intershop.sellside.storefront.base.capi.pipeline.RenderSystemPageWithTemplate.pipelinenode"/>
+    <inConnectors name="Input">
+      <parameterBindings name="Dictionary" objectPath="CurrentRequest:PipelineDictionary"/>
+    </inConnectors>
+  </nodes>
+<!--@Location 9,8-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="UpdateUserBOCredentials0">
+    <pipelet href="enfinity:/bc_user/pipelets/UpdateUserBOCredentials.xml"/>
+    <nodeSuccessors name="next" next="KeyMapper2"/>
+    <nodeSuccessors name="pipelet_error" next="JoinNode5"/>
+    <parameterBindings name="Answer" nullBinding="true"/>
+    <parameterBindings name="IPRange" nullBinding="true"/>
+    <parameterBindings name="IsActive" nullBinding="true"/>
+    <parameterBindings name="LastLoggedInDate" nullBinding="true"/>
+    <parameterBindings name="Login" nullBinding="true"/>
+    <parameterBindings name="NewPasswordExpiry" nullBinding="true"/>
+    <parameterBindings name="Password" objectPath="CurrentForm:NewPassword:Value"/>
+    <parameterBindings name="ReminderEmail" nullBinding="true"/>
+    <parameterBindings name="SecureCode" nullBinding="true"/>
+    <parameterBindings name="SecurityQuestion" nullBinding="true"/>
+    <parameterBindings name="UserBO" objectPath="SelectedUserBO"/>
+  </nodes>
+<!--@displayNearNode@ViewOCIProfileSettings\-ViewProfile
+@Location 9,9-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="KeyMapper2">
+    <pipelet href="enfinity:/core/pipelets/KeyMapper.xml"/>
+    <nodeSuccessors name="next" next="CallNode8"/>
+    <parameterBindings name="InValue_1" constant="ViewOCIProfileSettings-ViewProfile"/>
+    <parameterBindings name="InValue_2" constant="UpdatePassword"/>
+    <parameterBindings name="InValue_3" objectPath=""/>
+    <returnValueBindings name="OutValue_1" objectPath="JumpTarget"/>
+    <returnValueBindings name="OutValue_2" objectPath="ShowSuccessMessage"/>
+  </nodes>
+<!--@Location 9,10-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode8">
+    <nodeSuccessors name="next" next="JumpNode1"/>
+    <startNode referencedName="ViewData-SecureForBrowserBack"/>
+  </nodes>
+<!--@Location 9,11-->
+  <nodes xsi:type="pipeline:JumpNode" nodeID="JumpNode1">
+    <startNode referencedName="ViewOCIProfileSettings-ViewProfile"/>
+  </nodes>
+<!--@Location 11,5-->
+  <nodes xsi:type="pipeline:JoinNode" nodeID="JoinNode4">
+    <nodeSuccessors name="next" next="JoinNode3"/>
+  </nodes>
+<!--@Location 10,3-->
+  <nodes xsi:type="pipeline:JumpNode" nodeID="JumpNode_g0bawMHhEeaouZQ8nXb8eg">
+    <startNode referencedName="ViewOCIProfileSettings-ShowLogin"/>
+  </nodes>
+<!--@Location 8,0-->
+  <nodes xsi:type="pipeline:StartNode" nodeID="StartNode0" name="ViewEmail">
+    <nodeSuccessors name="next" next="CallNode2"/>
+  </nodes>
+<!--@Location 8,1-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode2">
+    <nodeSuccessors name="next" next="CallNode5"/>
+    <nodeSuccessors name="NOT_LOGGED_IN" next="JumpNode_LpsNQMHfEeaouZQ8nXb8eg"/>
+    <startNode referencedName="ViewOCIProfileSettings-Prefix"/>
+  </nodes>
+<!--@Location 8,4-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode5">
+    <nodeSuccessors name="next" next="JoinNode2"/>
+    <startNode referencedName="ViewOCIProfileSettings-GetEmailForm"/>
+    <returnValueBindings name="EmailForm" objectPath="CurrentForm"/>
+  </nodes>
+<!--@Location 11,0-->
+  <nodes xsi:type="pipeline:StartNode" nodeID="StartNode4" name="ViewPassword">
+    <nodeSuccessors name="next" next="CallNode4"/>
+  </nodes>
+<!--@Location 11,1-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode4">
+    <nodeSuccessors name="next" next="CallNode10"/>
+    <nodeSuccessors name="NOT_LOGGED_IN" next="JumpNode_g0bawMHhEeaouZQ8nXb8eg"/>
+    <startNode referencedName="ViewOCIProfileSettings-Prefix"/>
+  </nodes>
+<!--@Location 11,4-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode10">
+    <nodeSuccessors name="next" next="JoinNode4"/>
+    <startNode referencedName="ViewOCIProfileSettings-GetOCIUpdatePasswordForm"/>
+    <returnValueBindings name="OCIUpdatePasswordForm" objectPath="CurrentForm"/>
+  </nodes>
+<!--@Location 1,0-->
+  <nodes xsi:type="pipeline:StartNode" nodeID="StartNode2" name="ViewProfile">
+    <nodeSuccessors name="next" next="CallNode0"/>
+  </nodes>
+<!--@Location 1,1-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode0">
+    <nodeSuccessors name="next" next="RenderSystemPageWithTemplate0_Input"/>
+    <nodeSuccessors name="NOT_LOGGED_IN" next="JumpNode_In9hoMHfEeaouZQ8nXb8eg"/>
+    <startNode referencedName="ViewOCIProfileSettings-Prefix"/>
+  </nodes>
+<!--@Location 1,4-->
+  <nodes xsi:type="pipeline:PipelineNodeNode" nodeID="RenderSystemPageWithTemplate0">
+    <configurationValues name="PageEntryPointDefinitionReference" value="app_sf_responsive_b2b:systempage.account.ociSettings.pagelet2-Page"/>
+    <configurationValues name="WorkingTemplate" value="punchout/ProfileSettings"/>
+    <pipelet href="enfinity:/sld_ch_sf_base/pipelets/com.intershop.sellside.storefront.base.capi.pipeline.RenderSystemPageWithTemplate.pipelinenode"/>
+    <inConnectors name="Input">
+      <parameterBindings name="Dictionary" objectPath="CurrentRequest:PipelineDictionary"/>
+    </inConnectors>
+  </nodes>
+<!--@Location 2,3-->
+  <nodes xsi:type="pipeline:JumpNode" nodeID="JumpNode_In9hoMHfEeaouZQ8nXb8eg">
+    <startNode referencedName="ViewOCIProfileSettings-ShowLogin"/>
+  </nodes>
+</pipeline:Pipeline>

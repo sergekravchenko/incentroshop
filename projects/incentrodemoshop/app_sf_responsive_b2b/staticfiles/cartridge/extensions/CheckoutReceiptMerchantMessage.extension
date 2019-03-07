@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<extensionpoint:ExtensionPointModel xmlns:extensionpoint="http://www.intershop.de/extensionpoint/2011" name="CheckoutReceiptMerchantMessage">
+	<extensionBindings type="isml" extensionPoint="checkout/receipt/CheckoutReceipt-CheckoutReceiptStart" extension="checkout/receipt/MessageToMerchant" priority="30"/>
+	<extensionBindings type="isml" extensionPoint="checkout/receipt/CheckoutReceiptSubscription-CheckoutReceiptStart" extension="checkout/receipt/MessageToMerchant" priority="30"/>
+</extensionpoint:ExtensionPointModel>

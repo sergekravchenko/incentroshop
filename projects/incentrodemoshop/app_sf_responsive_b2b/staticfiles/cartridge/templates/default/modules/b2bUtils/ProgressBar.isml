@@ -1,0 +1,12 @@
+<iscontent type="text/html" charset="UTF-8" compact="true">
+
+
+<isif condition="#value > 100#">
+	<isset name="value" value="100" scope="request"/>
+</isif>
+
+<div class="progress">
+	<div class="progress-bar<isif condition="#(value >= 100)#"> progress-bar-success</isif>" role="progressbar" aria-valuenow="<isprint value="#value#">" aria-valuemin="0" aria-valuemax="100" style="width: <isprint value="#value#" symbols="DecimalSeparator=.">%;">
+		<span class="progress-display"><isprint value="#value#">%</span>
+	</div>
+</div>

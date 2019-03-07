@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<enfinity
+    xmlns     = "http://www.intershop.com/xml/ns/enfinity/7.1/xcs/impex"
+    xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:dt  = "http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt"
+    xsi:schemaLocation = "http://www.intershop.com/xml/ns/enfinity/7.1/xcs/impex catalog.xsd
+    http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt dt.xsd"
+    major="6" minor="1" family="enfinity" branch="enterprise" build=""
+>
+<variation-type refid="V.wKABwPRYcAAAD74nxOlk7B" name="Size for Rings">
+<name>Size for Rings</name>
+<attribute-name>Attr_Size</attribute-name>
+<display-name xml:lang="en-US">Size</display-name>
+<display-name xml:lang="de-DE">Größe (mm)</display-name>
+<localizable>1</localizable>
+<type>integer</type>
+<variation-type-values>
+<variation-type-value>
+<value xml:lang="en-US">9</value>
+<value xml:lang="en-US">10</value>
+<value xml:lang="en-US">11</value>
+</variation-type-value>
+<variation-type-value>
+<value xml:lang="de-DE">16</value>
+<value xml:lang="de-DE">18</value>
+<value xml:lang="de-DE">20</value>
+</variation-type-value>
+</variation-type-values>
+</variation-type>
+<variation-type refid="hzUKABwPppYAAAD7IzJOlk62" name="Color for Shirts (red, green, blue)">
+<name>Color for Shirts (red, green, blue)</name>
+<attribute-name>Attr_Color</attribute-name>
+<display-name xml:lang="en-US">Color</display-name>
+<display-name xml:lang="de-DE">Farbe</display-name>
+<localizable>1</localizable>
+<type>string</type>
+<variation-type-values>
+<variation-type-value>
+<value xml:lang="en-US">red</value>
+<value xml:lang="en-US">green</value>
+<value xml:lang="en-US">blue</value>
+</variation-type-value>
+<variation-type-value>
+<value xml:lang="de-DE">rot</value>
+<value xml:lang="de-DE">grün</value>
+<value xml:lang="de-DE">blau</value>
+</variation-type-value>
+</variation-type-values>
+</variation-type>
+<variation-type refid="JAgKABwPeqcAAAD7QcxOlk7D" name="Color for Shirts (white, yellow, red, blue, black)">
+<name>Color for Shirts (white, yellow, red, blue, black)</name>
+<attribute-name>Attr_Color</attribute-name>
+<display-name xml:lang="en-US">Color</display-name>
+<display-name xml:lang="de-DE">Farbe</display-name>
+<localizable>1</localizable>
+<type>string</type>
+<variation-type-values>
+<variation-type-value>
+<value xml:lang="en-US">white</value>
+<value xml:lang="en-US">yellow</value>
+<value xml:lang="en-US">red</value>
+<value xml:lang="en-US">blue</value>
+<value xml:lang="en-US">black</value>
+</variation-type-value>
+<variation-type-value>
+<value xml:lang="de-DE">weiß</value>
+<value xml:lang="de-DE">gelb</value>
+<value xml:lang="de-DE">rot</value>
+<value xml:lang="de-DE">blau</value>
+<value xml:lang="de-DE">schwarz</value>
+</variation-type-value>
+</variation-type-values>
+</variation-type>
+<variation-type refid="ct4KABwPAbYAAAD7GYBOlk7C" name="Size for Shirts (XS-XXL)">
+<name>Size for Shirts (XS-XXL)</name>
+<attribute-name>Attr_Size</attribute-name>
+<display-name xml:lang="en-US">Size</display-name>
+<display-name xml:lang="de-DE">Größe</display-name>
+<localizable>0</localizable>
+<type>string</type>
+<variation-type-values>
+<variation-type-value>
+<value xml:lang="en-US">XS</value>
+<value xml:lang="en-US">S</value>
+<value xml:lang="en-US">M</value>
+<value xml:lang="en-US">L</value>
+<value xml:lang="en-US">XL</value>
+<value xml:lang="en-US">XXL</value>
+</variation-type-value>
+</variation-type-values>
+</variation-type>
+<variation-type refid="fOMKABwP4QsAAAD7TVlOlk63" name="Size for Shirts (S-XL)">
+<name>Size for Shirts (S-XL)</name>
+<attribute-name>Attr_Size</attribute-name>
+<display-name xml:lang="en-US">Size</display-name>
+<display-name xml:lang="de-DE">Größe</display-name>
+<localizable>0</localizable>
+<type>string</type>
+<variation-type-values>
+<variation-type-value>
+<value xml:lang="en-US">S</value>
+<value xml:lang="en-US">M</value>
+<value xml:lang="en-US">L</value>
+<value xml:lang="en-US">XL</value>
+</variation-type-value>
+</variation-type-values>
+</variation-type>
+</enfinity>

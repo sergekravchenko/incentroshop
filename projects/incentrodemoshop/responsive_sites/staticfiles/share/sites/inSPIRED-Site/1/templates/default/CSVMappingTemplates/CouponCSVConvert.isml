@@ -1,0 +1,23 @@
+<iscontent type="text/xml" charset="UTF-8" compact="false" session="false" templatemarker="false">
+
+<enfinity 
+	xsi:schemaLocation="http://www.intershop.com/xml/ns/enfinity/6.2.2/bc_marketing/impex bc_marketing.xsd http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt dt.xsd"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns="http://www.intershop.com/xml/ns/enfinity/6.2.2/bc_marketing/impex" 
+	xmlns:xml="http://www.w3.org/XML/1998/namespace" 
+	xmlns:dt="http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt" 
+	>	
+<isif condition="#isDefined(data)#">
+		<isloop iterator="data" alias="elt">	
+			<unique-coupon-list>
+				<coupon-code><isprint value="#elt:get("coupon-code")#"/></coupon-code>
+				<isif condition="#isDefined(elt:get("expiration-date"))#"><valid-to><isprint value="#elt:get("expiration-date")#"/></valid-to></isif>
+				<isif condition="#isDefined(elt:get("business-partner-no"))#"><business-partner-no><isprint value="#elt:get("business-partner-no")#"/></business-partner-no></isif>
+				<isif condition="#isDefined(elt:status)#"><status><isprint value="#elt:status#"/></status></isif>
+				<isif condition="#isDefined(elt:get("user-email-address"))#"><e-mail><isprint value="#elt:get("user-email-address")#"/></e-mail></isif>
+				<isif condition="#isDefined(elt:get("last-name"))#"><last-name><isprint value="#elt:get("last-name")#"/></last-name></isif>
+				<isif condition="#isDefined(elt:get("first-name"))#"><first-name><isprint value="#elt:get("first-name")#"/></first-name></isif>
+			</unique-coupon-list>
+		</isloop>
+</isif>	
+</enfinity>

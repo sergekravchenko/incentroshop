@@ -1,0 +1,30 @@
+<iscontent type="text/html" charset="UTF-8" compact="true">
+<isinclude template="modules/Modules">
+
+<isif condition="#hasElements(ProductBOs)#">
+	
+	<isinclude template="component/common/inc/CollectionItemPrefix.isml">
+	
+	<div class="product-list-container <isprint value="#PageletConfigurationParameters:CSSClass#">">
+		<isif condition="#NOT(RenderedInCollection EQ 'true') AND isDefined(PageletConfigurationParameters:Title) AND (PageletConfigurationParameters:Title NE '')#">
+			<h2><isprint value="#PageletConfigurationParameters:Title#"></h2>
+		</isif>
+		<ISProductList
+			ProductBOs="#ProductBOs#"
+			CategoryBO="#PageletConfigurationParameters:Category#"
+			viewContext="#PageletConfigurationParameters:ProductView#"
+			maxNumberOfProducts="#PageletConfigurationParameters:MaxNumberOfProducts#"
+			listBehavior="#PageletConfigurationParameters:ListStyle#"
+			numberOfProductsPerSlide="#PageletConfigurationParameters:SlideItems#"
+			listItemCssClass="#PageletConfigurationParameters:ListItemCSSClass#"
+		>
+		<isif condition="#PageletConfigurationParameters:ShowViewAll EQ 'true'#">
+			<a class="ish-button" href="#URL(Action('ViewStandardCatalog-Browse'), Parameter('CategoryName', PageletConfigurationParameters:Category:Name), Parameter('CatalogID', PageletConfigurationParameters:Category:CatalogBO:Name))#">
+				<istext key="common.view_all.link" />
+			</a>
+		</isif>
+	</div>
+	
+	<isinclude template="component/common/inc/CollectionItemSuffix.isml">
+	
+</isif>

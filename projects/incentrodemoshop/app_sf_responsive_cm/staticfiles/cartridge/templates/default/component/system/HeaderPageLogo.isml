@@ -1,0 +1,11 @@
+<iscontent type="text/html" charset="UTF-8" compact="true">
+
+<a rel="home" href="#URLEX(InsecureURL,'',Action('ViewHomepage-Start'))#">
+	<!--- you can change the logo by configuring a page logo at the component --->
+	<isif condition="#(isDefined(PageletConfigurationParameters:Logo) AND (PageletConfigurationParameters:Logo NE ""))#">
+		<img src="#ContentURL(PageletConfigurationParameters:Logo)#" alt="Logo">
+	<!--- fallback to logo of branding package or from cartridge --->
+	<iselse>
+		<img src="<isinclude url="#URL(Action('IncludeBranding-Resource'), Parameter('Resource_Name','/img/logo.png'))#">" alt="Logo">
+	</isif>
+</a>

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<extensionpoint:ExtensionPointModel xmlns:extensionpoint="http://www.intershop.de/extensionpoint/2011" name="PurchaserBox">
+  <extensionBindings type="isml" extensionPoint="checkout/review/MultipleBuckets-CheckoutReviewAdditionalInfoBox" extension="checkout/review/Purchaser" priority="30"/>
+</extensionpoint:ExtensionPointModel>

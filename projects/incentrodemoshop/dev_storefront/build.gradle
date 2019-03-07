@@ -1,0 +1,27 @@
+apply plugin: 'static-cartridge'
+apply plugin: 'com.intershop.gradle.isml'
+
+intershop
+{
+    displayName = 'Development - Storefront'
+    description = 'Support development of storefront features (e.g. email) by adding code useful artifacts to test or generate test data.'
+
+    //add output of the plugin the cartridge package
+    packages {
+        cartridge {
+            srcDir(isml2classMain)
+        }
+    }
+}
+
+dependencies
+{
+    compile project(':app_sf_responsive')
+    compile group: 'com.intershop.platform', name: 'isml'
+    compile group: 'com.intershop.platform', name: 'servletengine'
+    compile group: 'com.intershop.platform', name: 'core'
+    compile group: 'com.intershop.platform', name: 'pipeline'
+    compile group: 'com.intershop.platform', name: 'bc_application'
+    compile group: 'com.intershop.business', name: 'bc_mvc'
+    compile group: 'com.intershop.business', name: 'bc_orderprocess'
+}

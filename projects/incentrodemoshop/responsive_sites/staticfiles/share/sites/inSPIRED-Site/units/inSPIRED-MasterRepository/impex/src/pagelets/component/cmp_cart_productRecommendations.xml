@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<enfinity xmlns:dt="http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt">
+<pagelet-component id="cmp_cart_productRecommendations">
+<definition-name>app_sf_responsive_cm:component.common.productListCartRecommendation.pagelet2-Component</definition-name>
+<display-name xml:lang="de-DE">Warenkorb-Produktempfehlungen</display-name>
+<display-name xml:lang="en-US">Cart Product Recommendations</display-name>
+<display-name xml:lang="fr-FR">Recommandations de produits du panier</display-name>
+<online>true</online>
+<author business-partner-no="admin" domain="inSPIRED"/>
+<configuration-parameters>
+<configuration-parameter name="ListItemCSSClass">
+<definition-name>app_sf_responsive_cm:component.common.productListCartRecommendation.pagelet2-Component-ListItemCSSClass</definition-name>
+<value name="ListItemCSSClass">col-xs-6 col-md-3</value>
+</configuration-parameter>
+<configuration-parameter name="ListStyle">
+<definition-name>app_sf_responsive_cm:component.common.productListCartRecommendation.pagelet2-Component-ListStyle</definition-name>
+<value name="ListStyle">carousel</value>
+</configuration-parameter>
+<configuration-parameter name="MaxNumberOfProducts">
+<definition-name>app_sf_responsive_cm:component.common.productListCartRecommendation.pagelet2-Component-MaxNumberOfProducts</definition-name>
+<value name="MaxNumberOfProducts">12</value>
+</configuration-parameter>
+<configuration-parameter name="ProductView">
+<definition-name>app_sf_responsive_cm:component.common.productListCartRecommendation.pagelet2-Component-ProductView</definition-name>
+<value name="ProductView">app_sf_responsive:vc_productTile@inSPIRED-MasterRepository</value>
+</configuration-parameter>
+<configuration-parameter name="SlideItems">
+<definition-name>app_sf_responsive_cm:component.common.productListCartRecommendation.pagelet2-Component-SlideItems</definition-name>
+<value name="SlideItems">4</value>
+</configuration-parameter>
+<configuration-parameter name="Title">
+<definition-name>app_sf_responsive_cm:component.common.productListCartRecommendation.pagelet2-Component-Title</definition-name>
+<value name="Title" xml:lang="de-DE">Das könnte Sie auch interessieren</value>
+<value name="Title" xml:lang="en-US">You May Also Like</value>
+<value name="Title" xml:lang="fr-FR">Vous pouvez également aimer</value>
+</configuration-parameter>
+</configuration-parameters>
+</pagelet-component>
+</enfinity>

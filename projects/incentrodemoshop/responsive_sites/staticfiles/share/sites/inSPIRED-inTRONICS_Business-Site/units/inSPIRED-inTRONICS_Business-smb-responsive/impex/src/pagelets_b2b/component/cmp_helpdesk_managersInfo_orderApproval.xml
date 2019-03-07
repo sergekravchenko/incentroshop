@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<enfinity xmlns:dt="http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt">
+<pagelet-component id="cmp_helpdesk_managersInfo_orderApproval">
+<definition-name>app_sf_responsive_cm:component.common.freeStyle.pagelet2-Component</definition-name>
+<display-name xml:lang="de-DE">Bestellgenehmigung</display-name>
+<display-name xml:lang="en-US">Order Approval</display-name>
+<display-name xml:lang="fr-FR">Approbation de commande</display-name>
+<online>true</online>
+<author business-partner-no="admin" domain="inSPIRED"/>
+<configuration-parameters>
+<configuration-parameter name="HTML">
+<definition-name>app_sf_responsive_cm:component.common.freeStyle.pagelet2-Component-HTML</definition-name>
+<value name="HTML" xml:lang="de-DE">&lt;h1&gt;Bestellgenehmigung&lt;/h1&gt;
+&lt;p&gt;Geschäftskundenorganisationen können in einer B2B-Umgebung die Funktionen der Bestellgenehmigung nutzen, um Bestellungen vor der Übermittlung an Händler zu prüfen und freizugeben. Die Bestellgenehmigung beinhaltet zwei Prüfungen:&lt;/p&gt;
+&lt;p&gt;(1) Kostenstellengenehmigung&lt;br /&gt;Wenn eine Bestellung einer Kostenstelle zugeordnet ist, muss sie zunächst vom Kostenstellenverwalter genehmigt werden, bevor sie an die benutzerspezifische Bestellgenehmigung weitergeleitet werden kann.&lt;/p&gt;
+&lt;p&gt;(2) Benutzerspezifische Bestellgenehmigung&lt;br /&gt;Wenn für einen Benutzer ein Budget oder ein Ausgabelimit pro Bestellung definiert ist, muss die Bestellung die benutzerspezifische Bestellgenehmigung bestehen.&lt;/p&gt;
+&lt;p&gt;Ist weder eine Kostenstelle noch ein Benutzerbudget/Ausgabelimit pro Bestellung beteiligt, findet keine Bestellgenehmigung statt.
+&lt;h2&gt;Arbeitsablauf&lt;/h2&gt;
+&lt;p&gt;Wenn eine Bestellung aufgegeben wird, die aufgrund einer Kostenstellenzuordnung genehmigungspflichtig ist, sendet das System eine E-Mail an den Kostenstellenverwalter mit der Aufforderung zur Genehmigung. Der Kostenstellenverwalter genehmigt oder lehnt die Bestellung ab.&lt;/p&gt;
+&lt;p&gt;Wenn die Bestellung zusätzlich eine benutzerspezifische Bestellgenehmigung erfordert, sendet das System eine E-Mail an alle Benutzer mit der Rolle Genehmiger und fordert sie auf, die Bestellung zu genehmigen oder abzulehnen. Jeder Genehmiger kann dies tun.&lt;/p&gt;
+&lt;p&gt;Wenn die Bestellung von allen beteiligten Rollen genehmigt wurde, wird sie schließlich an den Händler weitergeleitet.&lt;/p&gt; &lt;p&gt;Kostenstellenverwalter und Genehmiger sehen alle genehmigungspflichtigen Bestellungen in ihrem Dashboard und im Bereich Genehmigungen unter Mein Konto. Von dort können sie die Bestellungen öffnen und genehmigen bzw. ablehnen. Beim Ablehnen einer Bestellung werden Kostenstellenverwalter und Genehmiger aufgefordert, einen Grund anzugeben.&lt;/p&gt;
+&lt;h2&gt;&lt;span id=&quot;result_box&quot; class=&quot;short_text&quot;&gt;&lt;span class=&quot;&quot;&gt;Besonderheiten für die Abonnementsabwicklung&lt;br /&gt;&lt;/span&gt;&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt; Allgemein ist ein Abonnement ein einmalig ausgelöster, aber periodisch ausgeführter Kauf bestimmter Produkte oder Dienstleistungen. In abonnementbasierten Geschäftsmodellen zahlen die Kunden daher regelmäßig für die Nutzung oder den Erhalt eines definierten Produktpakets.&lt;/p&gt;
+&lt;p&gt;Die B2X-Edition von Intershop Commerce Management unterstützt Abonnementmodelle über wiederkehrende Bestellungen.&lt;/p&gt;
+&lt;p&gt;Abonnements haben andere Genehmigungsregeln als Einmalkäufe.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Die benutzerspezifische Bestellgenehmigung ist immer erforderlich, unabhängig vom konfigurierten Budget.&lt;/li&gt;
+&lt;li&gt;Die Genehmigungsseite für den Genehmiger zeigt die Wiederholungsinformationen an, so dass er weiß, dass es sich um ein Abonnement (Wiederholungsauftrag) handelt.&lt;/li&gt;
+&lt;li&gt;Der zuständige Kostenstellenverwalter muss das Abonnement ebenfalls genehmigen.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Hinweis:&lt;/strong&gt;Ein Abonnement, das einmal durch alle Instanzen genehmigt wurde, benötigt nie eine zusätzliche Genehmigung, auch wenn das Abonnement deaktiviert und wieder aktiviert wurde.&lt;/p&gt;</value>
+<value name="HTML" xml:lang="en-US">&lt;h1&gt;Order Approval&lt;/h1&gt;
+&lt;p&gt;B2B customer organizations can use the order approval functionality to review orders before they are sent to merchants. The order approval includes two checks:&lt;/p&gt;
+&lt;p&gt;(1) Cost Center Approval&lt;br /&gt;If an order is assigned to a cost center, it must first be approved by the cost center manager, before being routed to the user-specific order approval.&lt;/p&gt;
+&lt;p&gt;(2) User-Specific Order Approval&lt;br /&gt;If there is a budget or an order spend limit defined for a user, the order must pass the user-specific order approval.&lt;/p&gt;
+&lt;p&gt;If there is neither a cost center nor a user budget/order spend limit involved, no order approval takes place.&lt;/p&gt;
+&lt;h2&gt;Workflow&lt;/h2&gt;
+&lt;p&gt;When an order is placed that requires approval due to a cost center assignment, the system sends an e-mail to the cost center manager prompting for approval. The cost center manager then approves or rejects the order.&lt;/p&gt;
+&lt;p&gt;If the order additionally requires a user-specific order approval, the system sends an e-mail to all users with the Approver role, prompting them to approve or reject the order. Any approver can then do so.&lt;/p&gt;
+&lt;p&gt;Once the order is approved by all involved roles, it is finally submitted to the merchant.&lt;/p&gt;
+&lt;p&gt;Cost center managers and approvers see all orders that are subject to approval in their Dashboard and in the Approvals section of the My Account area. From there, they access the order and approve or reject it. When rejecting an order, cost center managers and approvers are prompted to give a reason.&lt;/p&gt;
+&lt;h2&gt;&lt;span id=&quot;result_box&quot; class=&quot;short_text&quot;&gt;&lt;span class=&quot;&quot;&gt;Particularities for the Subscriptions Handling&lt;br /&gt;&lt;/span&gt;&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;Generally, a subscription is an one-time triggered, but periodically executed purchase of certain products or services. In subscription-based business models, consequently, customers pay periodically to use or receive a defined set of products at a regular base.&lt;/p&gt;
+&lt;p&gt;The B2X edition of Intershop Commerce Management supports subscription models via recurring orders.&lt;/p&gt;
+&lt;p&gt;Subscriptions have different approval rules compared to one-time purchases.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The user-specific order approval is always required irrespective of the configured budget.&lt;/li&gt;
+&lt;li&gt;The approval page for the approver shows the recurrence information, so that the approver is aware to approve a subscription (recurring order).&lt;/li&gt;
+&lt;li&gt;The responsible cost center manager must also approve the subscription.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;NOTE:&lt;/strong&gt; A subscription, which was once approved through all instances, never needs an additional approval, even if the subscription was deactivated and reactivated later on.&lt;/p&gt;</value>
+<value name="HTML" xml:lang="fr-FR">&lt;h1&gt;Approbation de commande&lt;/h1&gt;
+&lt;p&gt;L&apos;organisation cliente B2B a la possibilité d&apos;utiliser la fonction Approbation de commande pour afficher les commandes avant qu&apos;elles soient envoyées aux marchands. L’’approbation de commandes comprend deux contrôles :&lt;/p&gt;
+&lt;p&gt;(1) Approbation du centre de coûts&lt;br /&gt;Si une commande est affectée à un centre de coûts, elle doit premièrement être approuvée par le responsable du centre de coûts avant qu’’elle est transférée à l’’approbation de commandes spécifiques à l’’utilisateur.&lt;/p&gt;
+&lt;p&gt;(2) Approbation de commande spécifiques à l’’utilisateur&lt;br /&gt; Si un budget ou un plafond de dépense de commande est défini pour un utilisateur, la commande doit passer l’’approbation de commande spécifiques à l’’utilisateur.&lt;/p&gt;
+&lt;p&gt;Si ni un centre de coûts, ni un budget d’’utilisateur/ plafond de dépense de commande est impliqué, aucune approbation de commande ne peut être donnée.&lt;/p&gt;
+&lt;h2&gt;Workflow&lt;/h2&gt;
+&lt;p&gt;Si une commande est passée qui nécessite une approbation à cause d’’une affectation du centre de coûts, le système enverra un e-mail au responsable du centre de coûts en le demandant d’’approuver la commande. Ensuite, le responsable du centre de coûts approuve ou rejette la commande.&lt;/p&gt;
+&lt;p&gt;Après l’’approbation de la commande par le responsable du centre de coûts et si la commande exige également une approbation de commande spécifique à l’’utilisateur, le système envoie un e-mail à tous les utilisateurs avec le rôle de l’approbateur en les demandant d’’approuver ou rejeter la commande. N’’importe quel approbateur sera autorisé de le faire.&lt;/p&gt;
+&lt;p&gt;Une fois la commande a été approuvée par toutes les parties concernées, elle est finalement soumise au marchand.&lt;/p&gt;
+&lt;p&gt;Toutes les commandes qui sont soumises à l‘&apos;approbation seront afficher aux  responsables du centre de coûts et aux approbateurs dans la section de tableau de bord et de l’’approbation dans la section de Mon compte. À partir de là, ils accèdent à la commande pour la approuver ou la rejeter. Les responsables du centre de coûts et les approbateurs doivent être capable de donner une raison, s&apos;ils rejettent une commande.&lt;/p&gt;</value>
+</configuration-parameter>
+</configuration-parameters>
+</pagelet-component>
+</enfinity>

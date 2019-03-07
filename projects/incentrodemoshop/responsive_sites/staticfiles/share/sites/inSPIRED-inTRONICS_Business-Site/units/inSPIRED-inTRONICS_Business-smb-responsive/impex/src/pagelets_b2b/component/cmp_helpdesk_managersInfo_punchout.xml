@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<enfinity xmlns:dt="http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt">
+<pagelet-component id="cmp_helpdesk_managersInfo_punchout">
+<definition-name>app_sf_responsive_cm:component.common.freeStyle.pagelet2-Component</definition-name>
+<display-name xml:lang="de-DE">OCI Punchout</display-name>
+<display-name xml:lang="en-US">OCI Punchout</display-name>
+<display-name xml:lang="fr-FR">Punch-Out OCI</display-name>
+<online>true</online>
+<author business-partner-no="admin" domain="inSPIRED"/>
+<configuration-parameters>
+<configuration-parameter name="HTML">
+<definition-name>app_sf_responsive_cm:component.common.freeStyle.pagelet2-Component-HTML</definition-name>
+<value name="HTML" xml:lang="de-DE">&lt;h1&gt;OCI Punchout&lt;/h1&gt; &lt;p&gt;OCI Punchout ist ein Open Catalog Interface-basierter Mechanismus, der den Austausch zwischen dem Beschaffungssystem eines Kunden und dem Webshop eines Händlers ermöglicht. Einkäufer verlassen das Beschaffungssystem (&quot;punch out&quot;) und greifen innerhalb einer Sitzung auf den Webshop des Händlers zu. Einkäufer durchsuchen den Webshop und fügen Artikel zu den Warenkörben hinzu, während beide Systeme ihre Verbindungen aufrecht erhalten. Wenn Käufer aus dem Webshop des Händlers auschecken, werden keine Bestellungen an den Händler gesendet. Stattdessen werden die Warenkörbe mit den ausgewählten Artikeln in das Einkaufssystem zurückgebracht, das dann die festgelegten Arbeitsschritte durchläuft.&lt;/p&gt;
+&lt;h2&gt;Aktivierung von OCI Punchout&lt;/h2&gt;
+&lt;p&gt;Um die OCI-Punchout-Funktionalität nutzen zu können, muss es mindestens einen Benutzer mit der Rolle OCI Punchout User in der Kundenorganisation geben. Dieser Benutzer ist in der Regel nicht mit einem bestehenden Storefront-Benutzer verwandt. Um einen Punchout-Benutzer zu erstellen:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Als Administrator öffnen Sie &lt;em&gt;Mein Konto&lt;/em&gt; | &lt;em&gt;Punchout&lt;/em&gt;.&lt;/li&gt;
+&lt;li&gt;Geben Sie einen Login-Namen und ein Passwort für den Punchout-Benutzer ein.&lt;/li&gt;
+&lt;li&gt;Geben Sie Ihr Passwort ein, um den Vorgang zu bestätigen, und klicken Sie auf &lt;em&gt;OCI-Benutzer erstellen&gt;.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;Punchout URL erhalten&lt;/h2&gt;
+&lt;p&gt;Um das Einkaufssystem zu konfigurieren, benötigen Sie die URL für den Zugriff auf den Webshop. Um diese URL zu finden:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Öffnen Sie &lt;em&gt;Mein Konto&lt;/em&gt; | &lt;em&gt;Punchout&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Mit mindestens einem erstellten Punchout-Benutzer zeigt diese Seite die entsprechende URL an.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;Kopieren Sie die URL und ersetzen Sie die Platzhalter Your_Login, Your_Password, Your_Hook_URL durch die tatsächlichen Punchout-Benutzer-Anmeldeinformationen und der Hook-URL.&lt;/li&gt;
+&lt;/ol&gt;</value>
+<value name="HTML" xml:lang="en-US">&lt;h1&gt;OCI Punchout&lt;/h1&gt;
+&lt;p&gt;OCI punchout is an Open Catalog Interface-based mechanism that integrates a customer&apos;s purchasing system with a merchant&apos;s web shop. Buyers leave (&quot;punch out&quot;) the purchasing system and access the merchant&apos;s web shop within one session. Buyers browse the web shop and add items to the shopping carts while both systems maintain their connections. When buyers check out from the merchant’s web shop, no orders are sent to the merchant. Instead, the shopping carts with the selected items are brought back to the purchasing system, which then proceeds through the established workflow steps.&lt;/p&gt;
+&lt;h2&gt;Enabling OCI Punchout&lt;/h2&gt;
+&lt;p&gt;To use the OCI punchout functionality, there must be at least one user with the role OCI Punchout User in the customer organization. This user is usually not related to an existing storefront user. To create a punchout user:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;As an Administrator, open &lt;em&gt;My Account&lt;/em&gt; | &lt;em&gt;Punchout&lt;/em&gt;.&lt;/li&gt;
+&lt;li&gt;Specify a login name and a password for the punchout user.&lt;/li&gt;
+&lt;li&gt;Enter your password to confirm the operation, and click &lt;em&gt;Create OCI User&lt;/em&gt;.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;Getting OCI Punchout URL&lt;/h2&gt;
+&lt;p&gt;To configure the purchasing system, you need the URL to be used to access the web shop. To find this URL:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Open &lt;em&gt;My Account&lt;/em&gt; | &lt;em&gt;Punchout&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;With at least one punchout user created, this page displays the corresponding URL.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;Copy the URL, replacing the placeholders Your_Login, Your_Password, Your_Hook_URL with the actual punchout user&apos;s credentials and hook URL.&lt;/li&gt;
+&lt;/ol&gt;</value>
+<value name="HTML" xml:lang="fr-FR">&lt;h1&gt;Punch-Out OCI&lt;/h1&gt;
+&lt;p&gt;Le Punch-Out OCI est un mécanisme basé sur le format Open Catalog Interface qui intègre un système d&apos;&apos;achat d&apos;un client avec un magasin en ligne d&apos;un marchand. Les acheteurs quittent (punch out) le système d&apos;achat et accèdent le magasin en ligne du marchand tout dans une même session. Les acheteurs recherchent sur le magasin en ligne et ajoutent des articles aux les paniers, tandis que les deux systèmes maintiennent leurs connexions. Lorsque les acheteurs passent la commande dans le magasin en ligne du marchand, aucune commandes ne sont envoyées au marchand. Au lieu de cela, les paniers d’’achat avec les articles sélectionnés sont redirigés au système d’’achat, ce qui passe ensuite par les étapes workflow définies.&lt;/p&gt;
+&lt;h2&gt;Activer le Punch-Out OCI&lt;/h2&gt;
+&lt;p&gt;Afin d’’utiliser la fonction Punch-Out OCI, il faut qu’’il y ait au moins un utilisateur qui a été accordé le rôle d’’utilisateur Punch-Out OCI dans l’’organisation cliente. Cet utilisateur n&apos;est normalement pas lié à un utilisateur de la vitrine existant. Créer un utilisateur Punch-Out :&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;En tant qu’’administrator, veuillez ouvir &lt;em&gt;Mon compte&lt;/em&gt; | &lt;em&gt;Punch-Out&lt;/em&gt;.&lt;/li&gt;
+&lt;li&gt;Spécifiez un nom d’’utilisateur et un mot de passe pour l’’utilisateur Punch-Out.&lt;/li&gt;
+&lt;li&gt;Entrez votre mot de passe pour confirmer l’’opération et cliquez &lt;em&gt;Créer un utilisateur OCI&lt;/em&gt;.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;Recevoir l’’URL de Punch-Out OCI&lt;/h2&gt;
+&lt;p&gt;Afin de configurer le système d’’achat vous avez besoin de l’’URL pour accéder le magasin en ligne. Trouver l’’URL :&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Ouvrez &lt;em&gt;Mon compte&lt;/em&gt; | &lt;em&gt;Punch-Out&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;S’’il au moins un utilisateur Punch-Out a été créé, cette page affichera l’’URL correspondant.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt; Copiez l‘‘URL, remplacez le texte à paramètres fictifs Votre_Nom d’’utilisateur, Votre_mot de passe, Votre_Hook_URL avec les identifiants d&apos;utilisateur de Punch-Out réel et accrochez l’’URL.&lt;/li&gt;
+&lt;/ol&gt;</value>
+</configuration-parameter>
+</configuration-parameters>
+</pagelet-component>
+</enfinity>

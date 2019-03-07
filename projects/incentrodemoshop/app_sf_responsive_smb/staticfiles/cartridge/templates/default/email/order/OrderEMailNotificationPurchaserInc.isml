@@ -1,0 +1,38 @@
+<iscontent type="text/html" charset="UTF-8" compact="true">
+<isinclude template="modules/Modules">
+
+<isset name="CompanyCustomer" value="#OrderBO:Extension("CompanyCustomer")#" scope="request"/>
+
+<isif condition="#isDefined(OrderBO:CustomerBO) AND ((isDefined(OrderBO:InvoiceToAddressBO:CompanyName1)) AND (OrderBO:InvoiceToAddressBO:CompanyName1 NE 'none'))#"> <!--- only registered customers --->
+	<h4><istext key="checkout.widget.purchaser.heading" /></h4>
+	<p>
+		<isif condition="#OrderBO:InvoiceToAddressBO:CompanyName1 NE 'none'#">
+			<isprint value="#OrderBO:InvoiceToAddressBO:CompanyName1#"> <isprint value="#OrderBO:InvoiceToAddressBO:CompanyName2#"><br />
+		</isif>
+		<isprint value="#OrderBO:UserBO:FirstName#">&nbsp;<isprint value="#OrderBO:UserBO:LastName#"><br />
+		<isif condition="#OrderBO:UserBO:Login NE ''#"><isprint value="#OrderBO:UserBO:Login#"><br /></isif>
+		<isif condition="#CompanyCustomer:Department NE ''#"><isprint value="#CompanyCustomer:Department#"><br /></isif><br />
+		<isif condition="#CompanyCustomer:TaxationID NE ''#">
+			<p><istext key="checkout.widget.purchaser.TaxationID"/>: <isprint value="#CompanyCustomer:TaxationID#"></p>
+		</isif>	
+		<isif condition="#OrderBO:ExtensibleObject:AttributeValue("orderReferenceID"):StringValue NE ''#">
+			<p>
+				<istext key="checkout.widget.purchaser.orderReferenceID" />:
+				<isprint value="#OrderBO:ExtensibleObject:AttributeValue("orderReferenceID"):StringValue#">
+			</p>
+		</isif><br />
+	</p>
+<!--- fix for unregistered B2B customers --->
+<iselseif condition="#(OrderBO:ExtensibleObject:AttributeValue("orderReferenceID"):StringValue NE '') OR (OrderBO:ExtensibleObject:AttributeValue("TaxationID"):StringValue NE '') OR (OrderBO:ExtensibleObject:AttributeValue("Department"):StringValue NE '')#"/>
+	<h4><istext key="checkout.widget.purchaser.heading" /></h4>
+	<p>
+		<isif condition="#OrderBO:ExtensibleObject:AttributeValue("Department"):StringValue NE ''#"><isprint value="#OrderBO:ExtensibleObject:AttributeValue("Department"):StringValue#"><br /></isif>
+		<isif condition="#OrderBO:ExtensibleObject:AttributeValue("TaxationID"):StringValue NE ''#"><istext key="checkout.widget.purchaser.TaxationID"/>: <isprint value="#OrderBO:ExtensibleObject:AttributeValue("TaxationID"):StringValue#"><br /></isif>
+	</p>
+	<isif condition="#(OrderBO:ExtensibleObject:AttributeValue("orderReferenceID"):StringValue NE '')#">
+	<p>
+		<istext key="checkout.widget.purchaser.orderReferenceID"/>: 
+		<isprint value="#OrderBO:ExtensibleObject:AttributeValue("orderReferenceID"):StringValue#">
+	</p>
+	</isif>
+</isif>

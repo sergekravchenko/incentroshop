@@ -1,0 +1,5 @@
+<iscontent charset="UTF-8" compact="true">
+<isinclude template="modules/Modules">
+<isWishlistPropertiesForm CurrentForm="#NewWishlistForm#" TargetPipeline="ViewOrderTemplate-CreateOrderTemplate" SubmitButtonName="CreateWishlist" SubmitButtonText="Create">
+	
+

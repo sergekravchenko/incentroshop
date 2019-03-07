@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<webform:WebForm xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://www.intershop.de/core/2010"
+    xmlns:webform="http://www.intershop.de/webform/2010" name="UserRole">
+  <forms name="UpdateUserRoleForm">
+    <parameters xsi:type="webform:FormParameter" name="OrderLimit" type="com.intershop.beehive.foundation.quantity.Money"
+        optional="true">
+      <validatorBindings validator="GlobalValidators-minmoney">
+        <parameterBindings xsi:type="core:ParameterValueBinding" name="value" value="MoneyValue"/>
+        <parameterBindings xsi:type="core:ParameterValueBinding" name="currency" value="Currency"/>
+        <parameterBindings xsi:type="core:ParameterValueBinding" name="min" value="0.01"/>
+      </validatorBindings>
+      <fields name="MoneyValue"/>
+      <fields name="Currency"/>
+    </parameters>
+    <parameters xsi:type="webform:FormParameter" name="Budget" type="com.intershop.beehive.foundation.quantity.Money"
+        optional="true">
+      <validatorBindings validator="GlobalValidators-minmoney">
+        <parameterBindings xsi:type="core:ParameterValueBinding" name="value" value="MoneyValue"/>
+        <parameterBindings xsi:type="core:ParameterValueBinding" name="currency" value="Currency"/>
+        <parameterBindings xsi:type="core:ParameterValueBinding" name="min" value="0.01"/>
+      </validatorBindings>
+      <fields name="MoneyValue"/>
+      <fields name="Currency"/>
+    </parameters>
+    <parameters xsi:type="webform:FormParameter" name="Period" type="java.lang.String"/>
+  </forms>
+</webform:WebForm>

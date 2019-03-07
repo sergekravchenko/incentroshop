@@ -1,0 +1,31 @@
+<iscontent personalized="true" compact="true" charset="UTF-8">
+<iscache type="forbidden">
+<isinclude template="modules/Modules">
+
+<isif condition = "#(ErrorCode EQ 'ProductNotFound') OR (ErrorCode EQ 'CategoryNotFound')#">
+	<% response.setHeader("X-IS-HTTPResponseStatus", "404"); %>
+<iselseif condition = "#ErrorCode EQ 'UserHasNotPermission'#">
+	<% response.setHeader("X-IS-HTTPResponseStatus", "403"); %>
+<iselseif condition = "#ErrorCode EQ 'PipelineNotFound'#">
+	<% response.setHeader("X-IS-HTTPResponseStatus", "501"); %>
+<iselse>
+	<% response.setHeader("X-IS-HTTPResponseStatus", "500"); %>
+</isif>
+
+<div class="marketing-area">
+	<isslot slot="app_sf_responsive_cm:slot.marketing.base.pagelet2-Slot">
+</div>
+
+<div class="errorpage-content col-md-6 col-md-offset-3">
+	<isHtmlPrint value="#PageletConfigurationParameters:HTML#" mode="storefront">
+	
+	<div class="search-container error-search-container">
+		<ISSearchBox 
+				id="ErrorPage"
+				useAutoSuggest="true"
+				maxAutoSuggestResults="10"
+				searchButtonText="#localizeText("search.searchbox.label")#"
+				instructionalText="#localizeText("search.searchbox.instructional_text")#"
+		>
+	</div>
+</div>

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<enfinity xmlns:dt="http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt">
+<pagelet-component id="cmp_helpdesk_buyersinfo_quickOrder">
+<definition-name>app_sf_responsive_cm:component.common.freeStyle.pagelet2-Component</definition-name>
+<display-name xml:lang="de-DE">Schnellbestellung</display-name>
+<display-name xml:lang="en-US">Quick Order</display-name>
+<display-name xml:lang="fr-FR">Commande rapide</display-name>
+<online>true</online>
+<author business-partner-no="admin" domain="inSPIRED"/>
+<configuration-parameters>
+<configuration-parameter name="HTML">
+<definition-name>app_sf_responsive_cm:component.common.freeStyle.pagelet2-Component-HTML</definition-name>
+<value name="HTML" xml:lang="de-DE">&lt;h1&gt;Schnellbestellung&lt;/h1&gt;
+&lt;h2&gt;Schnellbestellungsformular&lt;/h2&gt;
+&lt;p&gt;Es ist möglich, mehrere Produkte gleichzeitig in den Warenkorb zu legen, indem Sie die Produkt-ID und die Menge über die Funktion &lt;em&gt;Schnellbestellung&lt;/em&gt; eingeben.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://./?[ismediaobject]isfile://inSPIRED-Site/inTRONICS_Business-smb-responsive/inSPIRED-inTRONICS_Business-smb-responsive/en_US/documentation/quick_order_link.png|/INTERSHOP/static/WFS/inSPIRED-Site/inTRONICS_Business-smb-responsive/inSPIRED-inTRONICS_Business-smb-responsive/en_US/documentation/quick_order_link.png[/ismediaobject]&quot; alt=&quot;Schnellbestellungslink&quot; width=&quot;583&quot; height=&quot;38&quot; /&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Klicken Sie auf den Link Schnellbestellung.&lt;br /&gt;Das Formular Schnellbestellung und Bestellung per Datei öffnet sich.&lt;/li&gt;
+&lt;li&gt;Geben Sie die Produkt-ID und die gewünschte Anzahl ein.&lt;br /&gt;Standardmäßig kann der Benutzer bis zu fünf Produkte hinzufügen.&lt;/li&gt;
+&lt;li&gt;Klicken Sie &lt;em&gt;5 weitere Zeilen&lt;/em&gt;, um das Formular um fünf weitere Zeilen zu erweitern.&lt;/li&gt;
+&lt;li&gt;Klicken Sie im Bereich Schnellbestellung auf &lt;em&gt;In den Warenkorb.&lt;/em&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;Bestellung per Datei&lt;/h2&gt;
+&lt;p&gt;Mit dem CSV-Import können Sie eine anpassbare Anzahl von Produkten in einem einzigen Schritt importieren, indem Sie einfach eine CSV-Datei bereitstellen.&lt;/p&gt;
+&lt;p&gt;Die CSV-Datei muss die folgende Syntax verwenden: &lt;code&gt;&lt;ProductID;QuatityInteger&gt;&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Beispiel:&lt;/p&gt;
+&lt;pre&gt;&lt;span&gt;5910874;1
+3923636;2
+8004558;1
+7972533;&lt;/span&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Suchen Sie nach der vorbereiteten CSV-Datei.&lt;/li&gt;
+&lt;li&gt;Klicken Sie im Abschnitt CSV-Datei auf In den Warenkorb.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;strong&gt;INFO:&lt;/strong&gt; Die Schnellbestellfunktionalität wurde auch auf der Warenkorbseite mit der Einschränkung auf jeweils nur ein Produkt implementiert.&lt;br /&gt;
+&lt;p&gt; &lt;/p&gt;</value>
+<value name="HTML" xml:lang="en-US">&lt;h1&gt;Quick Order&lt;/h1&gt;
+&lt;h2&gt;Quick Order Form&lt;/h2&gt;
+&lt;p&gt;It is possible to add multiple products to the cart at once by entering product ID and quantity via the &lt;em&gt;Quick Order&lt;/em&gt; functionality.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://./?[ismediaobject]isfile://inSPIRED-Site/inTRONICS_Business-smb-responsive/inSPIRED-inTRONICS_Business-smb-responsive/en_US/documentation/quick_order_link.png|/INTERSHOP/static/WFS/inSPIRED-Site/inTRONICS_Business-smb-responsive/inSPIRED-inTRONICS_Business-smb-responsive/en_US/documentation/quick_order_link.png[/ismediaobject]&quot; alt=&quot;Quick Order link&quot; width=&quot;583&quot; height=&quot;38&quot; /&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Click the Quick Order link.&lt;br /&gt;The Quick Order &amp; Order by File form is opened.&lt;/li&gt;
+&lt;li&gt;Enter the product ID and the desired quantity.&lt;br /&gt;By default, the user can add five products.&lt;/li&gt;
+&lt;li&gt;Click &lt;em&gt;Add 5 Lines&lt;/em&gt; to extend the form with five additional lines.&lt;/li&gt;
+&lt;li&gt;Click Add To Cart in the Quick Order form section.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;Order by File&lt;/h2&gt;
+&lt;p&gt;Using the CSV import, you can import a customizable number of products in a single step, just by providing a CSV file.&lt;/p&gt;
+&lt;p&gt;The CSV file must use the syntax &lt;code&gt;&lt;ProductID;QuatityInteger&gt;&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Example:&lt;/p&gt;
+&lt;pre&gt;&lt;span&gt;5910874;1
+3923636;2
+8004558;1
+7972533;&lt;/span&gt;&lt;/pre&gt;
+&lt;p&gt; &lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Browse for the prepared CSV file.&lt;/li&gt;
+&lt;li&gt;Click Add to Cart in the CSV File section.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;strong&gt;INFO:&lt;/strong&gt; The quick order functionality was also implemented at the cart page with the restriction of only one product at the time.&lt;br /&gt;
+&lt;p&gt; &lt;/p&gt;
+&lt;span&gt;&lt;/span&gt;</value>
+<value name="HTML" xml:lang="fr-FR">&lt;h1&gt;Quick Order&lt;/h1&gt;
+&lt;h2&gt;Quick Order Form&lt;/h2&gt;
+&lt;p&gt;It is possible to add multiple products to the cart at once by entering product ID and quantity via the &lt;em&gt;Quick Order&lt;/em&gt; functionality.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://./?[ismediaobject]isfile://inSPIRED-Site/inTRONICS_Business-smb-responsive/inSPIRED-inTRONICS_Business-smb-responsive/en_US/documentation/quick_order_link.png|/INTERSHOP/static/WFS/inSPIRED-Site/inTRONICS_Business-smb-responsive/inSPIRED-inTRONICS_Business-smb-responsive/en_US/documentation/quick_order_link.png[/ismediaobject]&quot; alt=&quot;Quick Order link&quot; width=&quot;583&quot; height=&quot;38&quot; /&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Click the Quick Order link.&lt;br /&gt;The Quick Order &amp; Order by File form is opened.&lt;/li&gt;
+&lt;li&gt;Enter the product ID and the desired quantity.&lt;br /&gt;By default, the user can add five products.&lt;/li&gt;
+&lt;li&gt;Click &lt;em&gt;Add 5 Lines&lt;/em&gt; to extend the form with five additional lines.&lt;/li&gt;
+&lt;li&gt;Click Add To Cart in the Quick Order form section.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;Order by File&lt;/h2&gt;
+&lt;p&gt;Using the CSV import, you can import a customizable number of products in a single step, just by providing a CSV file.&lt;/p&gt;
+&lt;p&gt;The CSV file must use the syntax &lt;code&gt;&lt;ProductID;QuatityInteger&gt;&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Example:&lt;/p&gt;
+&lt;pre&gt;&lt;span&gt;5910874;1
+3923636;2
+8004558;1
+7972533;&lt;/span&gt;&lt;/pre&gt;
+&lt;p&gt; &lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Browse for the prepared CSV file.&lt;/li&gt;
+&lt;li&gt;Click Add to Cart in the CSV File section.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;strong&gt;INFO:&lt;/strong&gt; The quick order functionality was also implemented at the cart page with the restriction of only one product at the time.&lt;br /&gt;
+&lt;p&gt; &lt;/p&gt;
+&lt;span&gt;&lt;/span&gt;</value>
+</configuration-parameter>
+</configuration-parameters>
+</pagelet-component>
+</enfinity>

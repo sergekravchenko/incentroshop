@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<enfinity xmlns:dt="http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt">
+<page-template id="pg_tmp_productDetail">
+<definition-name>app_sf_responsive_cm:pagevariant.standard.pagelet2-Pagevariant</definition-name>
+<display-name xml:lang="de-DE">Produktseite</display-name>
+<display-name xml:lang="en-US">Product Page</display-name>
+<display-name xml:lang="fr-FR">Page produit</display-name>
+<description xml:lang="de-DE">Produkt-Detail-Seiten-Layout, das einen Marketing-Slot enthält.</description>
+<description xml:lang="en-US">Product detail page layout that exposes one marketing slot.</description>
+<description xml:lang="fr-FR">Mise en page de détails produit exposant une zone marketing.</description>
+<active>true</active>
+<author business-partner-no="admin" domain="inSPIRED"/>
+<configuration-parameters>
+<configuration-parameter name="RobotsNoFollow">
+<definition-name>app_sf_responsive_cm:pagevariant.standard.pagelet2-Pagevariant-RobotsNoFollow</definition-name>
+<value name="RobotsNoFollow">false</value>
+</configuration-parameter>
+<configuration-parameter name="RobotsNoIndex">
+<definition-name>app_sf_responsive_cm:pagevariant.standard.pagelet2-Pagevariant-RobotsNoIndex</definition-name>
+<value name="RobotsNoIndex">false</value>
+</configuration-parameter>
+</configuration-parameters>
+<slots>
+<slot>
+<definition-name>app_sf_responsive_cm:slot.pagevariant.content.pagelet2-Slot</definition-name>
+<optional>false</optional>
+<sorting>false</sorting>
+</slot>
+<slot>
+<definition-name>app_sf_responsive_cm:slot.pagevariant.footer.pagelet2-Slot</definition-name>
+<optional>false</optional>
+<sorting>false</sorting>
+</slot>
+<slot>
+<definition-name>app_sf_responsive_cm:slot.pagevariant.header.pagelet2-Slot</definition-name>
+<optional>false</optional>
+<sorting>false</sorting>
+</slot>
+</slots>
+<placeholder-configurations>
+<placeholder-configuration hide-target-content="false" place-target-content-on-top="false">
+<pagelet-slot-assignment-placeholder placeholder-id="ph_productDetail_baseMarketing" assignment-id="TPMKAM4.6GEAAAE.zTxNsOzl"/>
+</placeholder-configuration>
+</placeholder-configurations>
+<placeholder-definitions>
+<placeholder-definition id="ph_productPage_baseMarketing">
+<definition-name>app_sf_responsive_cm:slot.marketing.base.pagelet2-Slot</definition-name>
+<display-name xml:lang="de-DE">Standard-Marketing</display-name>
+<display-name xml:lang="en-US">Base Marketing</display-name>
+<display-name xml:lang="fr-FR">Base Marketing</display-name>
+<position>1</position>
+<pagelet-slot-assignment-placeholder placeholder-id="ph_productDetail_baseMarketing" assignment-id="TPMKAM4.6GEAAAE.zTxNsOzl"/>
+</placeholder-definition>
+</placeholder-definitions>
+</page-template>
+<pagelet-slot-assignment id="XPPAqAB2mjYAAAE9ZOIgSIwb">
+<slot definition-name="app_sf_responsive_cm:slot.pagevariant.content.pagelet2-Slot" parent-pagelet-id="pg_tmp_productDetail" domain="inSPIRED-MasterRepository"/>
+<pagelet id="cmp_recentlyViewedList" domain="inSPIRED-MasterRepository"/>
+<position>3</position>
+<online>true</online>
+</pagelet-slot-assignment>
+<pagelet-slot-assignment id="TPMKAM4.6GEAAAE.zTxNsOzl">
+<slot definition-name="app_sf_responsive_cm:slot.pagevariant.content.pagelet2-Slot" parent-pagelet-id="pg_tmp_productDetail" domain="inSPIRED-MasterRepository"/>
+<pagelet id="cmp_tmp_productDetail" domain="inSPIRED-MasterRepository"/>
+<position>2</position>
+<online>true</online>
+</pagelet-slot-assignment>
+<pagelet-slot-assignment id="RL8KAM5h3ZgAAAFCoDpZoGsJ">
+<slot definition-name="app_sf_responsive_cm:slot.pagevariant.footer.pagelet2-Slot" parent-pagelet-id="pg_tmp_productDetail" domain="inSPIRED-MasterRepository"/>
+<pagelet id="cmp_tmp_footer" domain="inSPIRED-MasterRepository"/>
+<position>1</position>
+<online>true</online>
+</pagelet-slot-assignment>
+<pagelet-slot-assignment id="ZiMKAM7fnroAAAE8oe5AHLoE">
+<slot definition-name="app_sf_responsive_cm:slot.pagevariant.header.pagelet2-Slot" parent-pagelet-id="pg_tmp_productDetail" domain="inSPIRED-MasterRepository"/>
+<pagelet id="cmp_tmp_header" domain="inSPIRED-MasterRepository"/>
+<position>1</position>
+<online>true</online>
+</pagelet-slot-assignment>
+</enfinity>

@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--View Contracts and Contract details.
+@Group Contract-->
+
+<pipeline:Pipeline xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pipeline="http://www.intershop.de/pipeline/2010"
+    name="ViewContracts" overrideMode="Inherit" type="view">
+<!--@Location 3,0-->
+  <nodes xsi:type="pipeline:StartNode" nodeID="StartNode2" name="Paging">
+    <nodeSuccessors name="next" next="CallNode4"/>
+  </nodes>
+<!--@Location 3,1-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode4">
+    <nodeSuccessors name="next" next="CallNode6"/>
+    <startNode referencedName="ViewOrders-Prefix"/>
+  </nodes>
+<!--@Location 3,2-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode6">
+    <nodeSuccessors name="next" next="JoinNode0"/>
+    <nodeSuccessors name="ERROR" next="JoinNode2"/>
+    <startNode referencedName="Paging-GetPageableByID"/>
+    <returnValueBindings name="Pageable" objectPath="ContractBaseBOsPageable"/>
+  </nodes>
+<!--@Location 1,6-->
+  <nodes xsi:type="pipeline:JoinNode" nodeID="JoinNode0">
+    <nodeSuccessors name="next" next="CallNode7"/>
+  </nodes>
+<!--@Location 1,7-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode7">
+    <nodeSuccessors name="next" next="KeyMapper5"/>
+    <parameterBindings name="Pageable" objectPath="ContractBaseBOsPageable"/>
+    <startNode referencedName="Paging-SetPageNumber"/>
+  </nodes>
+<!--@Location 1,8-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="KeyMapper5">
+    <pipelet href="enfinity:/bc_foundation/pipelets/KeyMapper.xml"/>
+    <nodeSuccessors name="next" next="AddMultipleEntriesToMap0"/>
+    <parameterBindings name="InValue_1" constant="ViewContracts"/>
+    <returnValueBindings name="OutValue_1" objectPath="HandlerPipeline"/>
+  </nodes>
+<!--@Location 1,9-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="AddMultipleEntriesToMap0">
+    <configurationValues name="Mode" value="OverwriteValue"/>
+    <pipelet href="enfinity:/bc_foundation/pipelets/AddMultipleEntriesToMap.xml"/>
+    <nodeSuccessors name="next" next="CreateNavigationList0"/>
+    <parameterBindings name="Key1" constant="Dummy"/>
+    <parameterBindings name="Value1" constant="Dummy"/>
+    <returnValueBindings name="OutMap" objectPath="GenericHandlerPipelineParams"/>
+  </nodes>
+<!--@Location 1,10-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="CreateNavigationList0">
+    <pipelet href="enfinity:/sld_ch_sf_base/pipelets/CreateNavigationList.xml"/>
+    <nodeSuccessors name="next" next="KeyMapper2"/>
+    <parameterBindings name="CurrentPage" objectPath="ContractBaseBOsPageable:Page"/>
+    <parameterBindings name="ElementCount" objectPath="ContractBaseBOsPageable:ElementCount"/>
+    <parameterBindings name="Iterator" objectPath="ContractBaseBOsPageable"/>
+    <parameterBindings name="PageCount" objectPath="ContractBaseBOsPageable:PageCount"/>
+    <parameterBindings name="PageSize" objectPath="ContractBaseBOsPageable:PageSize"/>
+    <parameterBindings name="PageableID" objectPath="ContractBaseBOsPageable:ID"/>
+  </nodes>
+<!--@Location 1,11-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="KeyMapper2">
+    <pipelet href="enfinity:/core/pipelets/KeyMapper.xml"/>
+    <nodeSuccessors name="next" next="RenderSystemPageWithTemplate2_Input"/>
+    <parameterBindings name="InValue_1" objectPath="CurrentRequest:PipelineDictionary"/>
+    <returnValueBindings name="OutValue_1" objectPath="Dictionary"/>
+  </nodes>
+<!--@Location 1,12-->
+  <nodes xsi:type="pipeline:PipelineNodeNode" nodeID="RenderSystemPageWithTemplate2">
+    <configurationValues name="PageEntryPointDefinitionReference" value="app_sf_responsive_b2b:systempage.account.contracts.pagelet2-Page"/>
+    <configurationValues name="WorkingTemplate" value="account/Contracts.isml"/>
+    <pipelet href="enfinity:/sld_ch_sf_base/pipelets/com.intershop.sellside.storefront.base.capi.pipeline.RenderSystemPageWithTemplate.pipelinenode"/>
+    <inConnectors name="Input"/>
+  </nodes>
+<!--@Location 1,2-->
+  <nodes xsi:type="pipeline:JoinNode" nodeID="JoinNode2">
+    <nodeSuccessors name="next" next="KeyMapper1"/>
+  </nodes>
+<!--@Location 1,3-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="KeyMapper1">
+    <pipelet href="enfinity:/core/pipelets/KeyMapper.xml"/>
+    <nodeSuccessors name="next" next="CallNode2"/>
+    <parameterBindings name="InValue_1" objectPath="ApplicationBO:Repository(&quot;ContractBaseBORepository&quot;)"/>
+    <returnValueBindings name="OutValue_1" objectPath="ContractBaseBORepository"/>
+  </nodes>
+<!--@Location 1,4-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode2">
+    <nodeSuccessors name="next" next="CreatePageableFromCollection0"/>
+    <startNode referencedName="ProcessContract-GetContractsByCustomer"/>
+    <returnValueBindings name="CustomerContracts" objectPath="ContractBaseBOs"/>
+  </nodes>
+<!--@Location 1,5-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="CreatePageableFromCollection0">
+    <configurationValues name="Pagesize" value="15"/>
+    <pipelet href="enfinity:/bc_foundation/pipelets/CreatePageableFromCollection.xml"/>
+    <nodeSuccessors name="next" next="JoinNode0"/>
+    <parameterBindings name="Collection" objectPath="ContractBaseBOs"/>
+    <returnValueBindings name="Pageable" objectPath="ContractBaseBOsPageable"/>
+  </nodes>
+<!--@Location 5,0-->
+  <nodes xsi:type="pipeline:StartNode" nodeID="StartNode1" name="Show">
+    <nodeSuccessors name="next" next="CallNode1"/>
+    <parameters name="ContractID" type="java.lang.String" optional="true"/>
+  </nodes>
+<!--@Location 5,1-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode1">
+    <nodeSuccessors name="next" next="DecisionNode0"/>
+    <startNode referencedName="ViewOrders-Prefix"/>
+  </nodes>
+<!--@Location 5,2-->
+  <nodes xsi:type="pipeline:DecisionNode" nodeID="DecisionNode0" conditionKey="ContractID">
+    <nodeSuccessors name="decision_yes" next="CallNode3"/>
+    <nodeSuccessors name="decision_no" next="JoinNode1"/>
+  </nodes>
+<!--@Location 5,3-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode3">
+    <nodeSuccessors name="next" next="ExecutePageableQuery_0SOg8DdOEeiYGPWp4ILhMw"/>
+<!--@BendPoints 13,7-->
+    <nodeSuccessors name="ERROR" next="JoinNode1"/>
+    <parameterBindings name="ContractBaseBORepository" objectPath="ApplicationBO:Repository(&quot;ContractBaseBORepository&quot;)"/>
+    <startNode referencedName="ProcessContract-GetContract"/>
+    <returnValueBindings name="Contract" objectPath="ContractBaseBO"/>
+  </nodes>
+<!--@Location 5,4-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="ExecutePageableQuery_0SOg8DdOEeiYGPWp4ILhMw">
+    <configurationValues name="DefaultPageSize" value="15"/>
+    <configurationValues name="ParameterName_01" value="ContractUUID"/>
+    <configurationValues name="QueryName" value="contract/GetContractOrders"/>
+    <pipelet href="enfinity:/core/pipelets/ExecutePageableQuery.xml"/>
+    <nodeSuccessors name="next" next="KeyMapper4"/>
+    <parameterBindings name="ParameterValue_01" objectPath="ContractID"/>
+    <returnValueBindings name="SearchResult" objectPath="ContractOrders"/>
+  </nodes>
+<!--@Location 5,5-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="KeyMapper4">
+    <pipelet href="enfinity:/core/pipelets/KeyMapper.xml"/>
+    <nodeSuccessors name="next" next="RenderSystemPageWithTemplate1_Input"/>
+    <parameterBindings name="InValue_1" objectPath="CurrentRequest:PipelineDictionary"/>
+    <returnValueBindings name="OutValue_1" objectPath="Dictionary"/>
+  </nodes>
+<!--@Location 5,6-->
+  <nodes xsi:type="pipeline:PipelineNodeNode" nodeID="RenderSystemPageWithTemplate1">
+    <configurationValues name="PageEntryPointDefinitionReference" value="app_sf_responsive_b2b:systempage.account.contractDetails.pagelet2-Page"/>
+    <configurationValues name="WorkingTemplate" value="account/ContractDetails.isml"/>
+    <pipelet href="enfinity:/sld_ch_sf_base/pipelets/com.intershop.sellside.storefront.base.capi.pipeline.RenderSystemPageWithTemplate.pipelinenode"/>
+    <inConnectors name="Input"/>
+  </nodes>
+<!--@Location 6,2-->
+  <nodes xsi:type="pipeline:JoinNode" nodeID="JoinNode1">
+<!--@BendPoints 15,5-->
+    <nodeSuccessors name="next" next="JumpNode0"/>
+  </nodes>
+<!--@Location 7,3-->
+  <nodes xsi:type="pipeline:JumpNode" nodeID="JumpNode0">
+    <startNode referencedName="ViewContracts-Start"/>
+  </nodes>
+<!--@Location 1,0-->
+  <nodes xsi:type="pipeline:StartNode" nodeID="StartNode0" name="Start">
+    <nodeSuccessors name="next" next="CallNode0"/>
+  </nodes>
+<!--@Location 1,1-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode0">
+    <nodeSuccessors name="next" next="JoinNode2"/>
+    <startNode referencedName="ViewOrders-Prefix"/>
+  </nodes>
+</pipeline:Pipeline>

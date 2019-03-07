@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<components xmlns="http://www.intershop.de/component/2010">
+
+	<fulfill requirement="selectedCartridge" value="app_sf_responsive_costcenter" of="intershop.SMBResponsive.Cartridges" />
+	<fulfill requirement="selectedCartridge" value="app_sf_responsive_b2b" of="intershop.SMBResponsive.Cartridges" />
+	<fulfill requirement="selectedCartridge" value="bc_order_approval_orm" of="intershop.SMBResponsive.Cartridges" />
+	<fulfill requirement="selectedCartridge" value="bc_b2b_role_orm" of="intershop.SMBResponsive.Cartridges" />
+	<fulfill requirement="selectedCartridge" value="bc_contract" of="intershop.SMBResponsive.Cartridges"/>
+	<fulfill requirement="selectedCartridge" value="bc_contract_orm" of="intershop.SMBResponsive.Cartridges"/>
+	<fulfill requirement="selectedCartridge" value="app_sf_rest_b2b" of="intershop.SMBResponsive.Cartridges" />
+	<fulfill requirement="selectedCartridge" value="ac_order_approval" of="intershop.SMBResponsive.Cartridges"/>
+    <fulfill requirement="selectedCartridge" value="bc_quote" of="intershop.SMBResponsive.Cartridges"/>
+    <fulfill requirement="selectedCartridge" value="bc_quote_orm" of="intershop.SMBResponsive.Cartridges"/>
+    <fulfill requirement="selectedCartridge" value="bc_punchout" of="intershop.SMBResponsive.Cartridges"/>
+    <fulfill requirement="selectedCartridge" value="bc_punchout_orm" of="intershop.SMBResponsive.Cartridges"/>
+    <fulfill requirement="selectedCartridge" value="bc_costobject_orm" of="intershop.SMBResponsive.Cartridges"/>
+    <fulfill requirement="selectedCartridge" value="bc_order_costobject_orm" of="intershop.SMBResponsive.Cartridges"/>
+		
+	<fulfill requirement="namedObject" with="intershop.B2BWebShop.RESTAPI" of="intershop.SMBResponsive" />
+
+</components>

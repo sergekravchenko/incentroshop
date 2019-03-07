@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<extensionpoint:ExtensionPointModel xmlns:extensionpoint="http://www.intershop.de/extensionpoint/2011"
+    name="CartAdditionalDataExtensionsCostCenter">
+  <extensionBindings type="isml" extensionPoint="cart/ShoppingCart-CartAdditionalDataExtensions"
+      extension="checkout/payment/CostCenterSelection"/>
+</extensionpoint:ExtensionPointModel>

@@ -1,0 +1,71 @@
+<iscontent type="text/html" charset="UTF-8" compact="true">
+<isinclude template="modules/Modules">
+
+<ISUUID name="RenderEntityID">
+<ISRenderEntityRenderingStart RenderEntityRenderObject="#Pagelet:SubSlot("app_sf_responsive_cm:slot.carousel.items.pagelet2-Slot")#" RenderEntityID="#RenderEntityID#">
+
+<isslotiterator Slot="#Pagelet:SubSlot("app_sf_responsive_cm:slot.carousel.items.pagelet2-Slot")#" AssignmentsAlias="CarouselPageletAssignments">
+<isif condition="#hasLoopElements(CarouselPageletAssignments)#">
+	
+	<isset name="CarouselItems" value="#0#" scope="request"/>
+	<isset name="Slides" value="#0#" scope="request"/>
+	<isset name="SlideItems" value="#6#" scope="request"/>
+	<isif condition="#isDefined(PageletConfigurationParameters:SlideItems)#">
+		<isset name="SlideItems" value="#PageletConfigurationParameters:SlideItems#" scope="request"/>
+	</isif>
+	<isset name="ItemGridSize" value="#(12-(12%SlideItems))/SlideItems#" scope="request"/>
+	
+	<div <isif condition="#isDefined(PageletConfigurationParameters:CSSClass) AND (PageletConfigurationParameters:CSSClass NE '')#"> class="<isprint value="#PageletConfigurationParameters:CSSClass#"/>"</isif>>
+		<div id="<isprint value="#RenderEntityID#"/>" 
+			class="carousel slide <isif condition="#isDefined(PageletConfigurationParameters:CarouselCSSClass) AND (PageletConfigurationParameters:CarouselCSSClass NE '')#"><isprint value="#PageletConfigurationParameters:CarouselCSSClass#"/></isif>"
+			<isif condition="#PageletConfigurationParameters:StartCycling EQ 'true'#"> data-ride="carousel"</isif>
+			<isif condition="#isDefined(PageletConfigurationParameters:SlideInterval)#"> data-interval="<isprint value="#PageletConfigurationParameters:SlideInterval#" formatter="0"/>"<iselse> data-interval="false"</isif>
+		>
+			<!--- Wrapper for slides --->
+			<div class="carousel-inner">
+				<ISCreatePlaceholderRenderEvents RenderContextID="#RenderEntityID#" Slot="#Pagelet:SubSlot("app_sf_responsive_cm:slot.carousel.items.pagelet2-Slot")#" ComponentHierarchyKey="#ComponentHierarchyKey#">
+				<isloop iterator="CarouselPageletAssignments" alias="CarouselPageletAssignment" counter="i">
+					<ISCreatePlaceholderRenderEvents RenderContextID="#RenderEntityID#" PageletAssignment="#CarouselPageletAssignment#">
+					<isif condition="#((i%SlideItems) == 1) OR (SlideItems == 1)#">
+						<isset name="Slides" value="#Slides+1#" scope="request"/>
+						<div class="item <isif condition="#i == 1#">active</isif>">
+							<div class="row">
+					</isif>
+						<div class="col-sm-<isprint value="#ItemGridSize#" formatter="0"/>">
+							<ispageletassignment PageletAssignment="#CarouselPageletAssignment#">
+						</div>
+					<isif condition="#((i%SlideItems) == 0) OR NOT(hasNext(CarouselPageletAssignment))#">
+							</div>
+						</div>
+					</isif>
+					<isset name="CarouselItems" value="#i#" scope="request"/>
+				</isloop>
+				<ISCreatePlaceholderRenderEvents RenderContextID="#RenderEntityID#">
+			</div>
+			
+			<!--- Controls --->
+			<isif condition="#CarouselItems > SlideItems#">
+				<a class="left carousel-control" data-slide="prev" href="#'#'#<isprint value="#RenderEntityID#"/>"><span class="glyphicon glyphicon-chevron-left"></span></a>
+				<a class="right carousel-control" data-slide="next" href="#'#'#<isprint value="#RenderEntityID#"/>"><span class="glyphicon glyphicon-chevron-right"></span></a>
+			</isif>
+			
+			<!--- Indicators --->
+			<isif condition="#(PageletConfigurationParameters:ShowIndicators EQ 'true') AND (CarouselItems > SlideItems)#">
+				<ol class="carousel-indicators">
+					<%
+						int slides = ((Double)getObject("Slides")).intValue();
+						for (int i=0; i<slides; i++)
+						{
+							getPipelineDictionary().put("SlideIndex", i);
+					%>
+						<li data-target="#'#'#<isprint value="#RenderEntityID#"/>" data-slide-to="<isprint value="#SlideIndex#"/>" <isif condition="#SlideIndex == 0#">class="active"</isif>></li>
+					<%
+						}
+					%>
+				</ol>
+			</isif>
+		</div>
+	</div>
+</isif>
+
+<ISRenderEntityRenderingEnd RenderEntityRenderObject="#Pagelet:SubSlot("app_sf_responsive_cm:slot.carousel.items.pagelet2-Slot")#" RenderEntityID="#RenderEntityID#">

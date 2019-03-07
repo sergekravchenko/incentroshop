@@ -1,0 +1,37 @@
+<iscontent type="text/html" charset="UTF-8" compact="true">
+<div><!--- 
+	<a class="kor-open-as-product-notification-dialog kor-product-link ish-button" href="#URL(Action('ViewAjax-Start'), Parameter('TargetPipeline', 'ViewProductNotification-ViewAlertForm'), Parameter('SKU', ProductBO:SKU), Parameter('Type', 'stock'))#">
+		<istext key="account.productnotification.add_notif_list.notify_when_available">
+	</a>--->
+	
+	<isform class="kor-product" name="#'productForm_'.ProductBO:SKU#" method="post" action="#URLEX(SecureURL,'',Action('ViewCart-Dispatch'))#">	
+		<input type="hidden" name="SKU" value="<isprint value="#ProductBO:SKU#"/>" />
+		<input type="hidden" name="ProductSKU" value="<isprint value="#ProductBO:SKU#"/>" />
+		<input type="hidden" name="TargetPipeline" value="ViewCart-Dispatch" />
+<!---		
+		<button type="submit" name="addToWishlistProduct" 
+			data-wishlist-action="#URL(Action('ViewAjax-Start'))#" 
+			class="ish-button kor-add-to-wishlist-submit">
+			<istext key="product.add_to_wishlist.link" />
+		</button>
+--->		
+	</isform>
+</div><!--- TODO 
+<a href="#URL(Action('ViewAjax-Start'), Parameter('TargetPipeline', 'ViewProductNotification-ViewAlertForm'), Parameter('SKU', ProductBO:SKU), Parameter('Type', 'stock'))#" class="btn btn-lg btn-success"
+   data-toggle="modal"
+   data-target="#basicModal"><istext key="account.productnotification.add_notif_list.notify_when_available"></a>
+   --->
+ <div class="modal fade" id="basicModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&amp;times;</button>
+            <h4 class="modal-title" id="myModalLabel">Notify Inventory</h4>
+            </div>
+            <div class="modal-body">
+                <h3>Please Wait..</h3>
+            </div>
+            
+    </div>
+  </div>
+</div>

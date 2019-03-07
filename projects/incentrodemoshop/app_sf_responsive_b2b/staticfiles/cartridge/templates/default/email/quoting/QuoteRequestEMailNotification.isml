@@ -1,0 +1,69 @@
+<iscontent type="text/html" charset="UTF-8" compact="true">
+<isinclude template="modules/Modules">
+
+<isinclude template="email/mailTemplate/MailConfig"/>
+
+<subject><istext key="email.quoterequest.heading" parameter0="#encodeValue(ChannelName)#" encoding="off"/></subject>
+
+<isinclude template="email/mailTemplate/MailHeader"/>
+
+<p class="header">
+	<istext key="email.quoterequest.heading" parameter0="#ChannelName#" encoding="javascript"/>
+</p>
+
+<p><istext key="email.hello.label.firstname_lastname" parameter0="#QuoteRequestBO:UserBO:FirstName#" parameter1="#QuoteRequestBO:UserBO:LastName#" /></p>
+<p><istext key="email.quoterequest.thanks" parameter0="#encodeValue(URL(Action('ViewUserAccount-Start')))#" encoding="off"/></p>
+
+<!--- Quote Details --->
+<p><istext key="email.quoterequest.details.header" encoding="off"/></p>
+
+<table cellpadding="0" cellspacing="0" class="pattern">
+	<tr class="mobileTable">
+		<td width="600">
+			<table cellpadding="0" cellspacing="0" width="100%" class="dataList">
+				<tr>
+					<td width="30%">
+						<istext key="email.quoterequest.details.label.id" />
+					</td>
+					<td>
+						<isprint value="#QuoteRequestBO:Number#">
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<istext key="email.quoterequest.details.label.username" />
+					</td>
+					<td>
+						<isprint value="#QuoteRequestBO:UserBO:FirstName#"> <isprint value="#QuoteRequestBO:UserBO:LastName#">
+					</td>
+				</tr>
+				<isif condition="#QuoteRequestBO:Description NE ''#">
+					<tr>
+						<td valign="top">
+							<istext key="email.quoterequest.details.label.comment" />
+						</td>
+						<td valign="top">
+							<isprint value="#replace(QuoteRequestBO:Description, '\n', '<br/>')#" encoding="off">
+						</td>
+					</tr>
+				</isif>
+			 </table>
+		</td>
+	</tr>
+</table>
+
+<p>
+	<istext key="email.questions" 
+		parameter0="#URL(Action('ViewHomepage-Start'))#" 
+		parameter1="#encodeValue(ChannelName)#" 
+		parameter2="#URL(Action('ViewContent-Start'), Parameter('PageletEntryPointID','systempage.helpdesk.index.pagelet2-Page'))#" 
+		encoding="off" 
+	/>
+</p>
+
+<p>
+	<istext key="email.best_regards.label"/><br />
+	<istext key="email.user_services.label" parameter0="#encodeValue(URL(Action('ViewHomepage-Start')))#" parameter1="#encodeValue(ChannelName)#" encoding="off" />
+</p>
+
+<isinclude template="email/mailTemplate/MailFooter"/>

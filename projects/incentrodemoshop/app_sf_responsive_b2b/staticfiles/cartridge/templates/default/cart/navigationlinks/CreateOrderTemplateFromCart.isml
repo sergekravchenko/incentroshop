@@ -1,0 +1,9 @@
+<iscontent type="text/html" charset="UTF-8" compact="false">
+<!--- do not compact this template to keep line breaks after the buttons that result in some space when rendering --->
+<isif condition="#CurrentSession:LoggedIn#">
+	<a data-dialog class="btn btn-default" href="#URL(Action('ViewAjax-Start'), Parameter('TargetPipeline', 'ViewOrderTemplate-ShowCreateFromBasketDialog'))#" id="cart-to-wishlist">
+<iselse>
+	<a data-dialog class="btn btn-default" href="#URLEX(SecureURL, '', Action('ViewUserAccount-ShowLogin'), Parameter('TargetPipeline','ViewCart-View'), Parameter('TargetURLFragment', 'cart-to-wishlist'), Parameter('LoginToUse', 'wishlists'))#" id="cart-to-wishlist">
+</isif>
+	<istext key="shopping_cart.order_template.create.button" />
+</a>

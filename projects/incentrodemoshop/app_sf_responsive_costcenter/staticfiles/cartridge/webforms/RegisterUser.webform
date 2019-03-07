@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<webform:WebForm xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://www.intershop.de/core/2010" xmlns:webform="http://www.intershop.de/webform/2010" name="RegisterUser">
+  <forms name="RegisterUserUsernameForm">
+  	<parameters xsi:type="webform:FormParameter" name="CompanyName" type="java.lang.String"/>
+  	<parameters xsi:type="webform:FormParameter" optional="false" name="Email" type="java.lang.String">
+      <validatorBindings validator="GlobalValidators-email"/>
+    </parameters>
+  	<parameters xsi:type="webform:FormParameter" name="Password" type="java.lang.String">
+      <validatorBindings validator="PasswordValidators-PasswordPreferenceValidator"></validatorBindings>
+    </parameters>
+    <parameters xsi:type="webform:FormParameter" name="RetypedPassword" type="java.lang.String">
+      <validatorBindings validator="GlobalValidators-stringcompare">
+        <parameterBindings xsi:type="core:ParameterValueBinding" name="StringToCompare" value="Password"/>
+      </validatorBindings>
+    </parameters>
+  </forms>
+</webform:WebForm>

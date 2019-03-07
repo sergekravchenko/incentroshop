@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--@Group Checkout-->
+
+<pipeline:Pipeline xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pipeline="http://www.intershop.de/pipeline/2010"
+    name="ViewCheckoutConfirmationsForPendingOrders" overrideMode="Inherit"
+    type="">
+<!--@Location 1,1-->
+  <nodes xsi:type="pipeline:StartNode" nodeID="StartNode0" name="Start">
+    <nodeSuccessors name="next" next="DecisionNode0"/>
+  </nodes>
+<!--@Location 1,2-->
+  <nodes xsi:type="pipeline:DecisionNode" nodeID="DecisionNode0" conditionKey="BasketBO"
+      operator="undef">
+    <nodeSuccessors name="decision_yes" next="KeyMapper2"/>
+<!--@BendPoints 7,5-->
+    <nodeSuccessors name="decision_no" next="KeyMapper0"/>
+  </nodes>
+<!--@Location 1,3-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="KeyMapper2">
+    <pipelet href="enfinity:/bc_foundation/pipelets/KeyMapper.xml"/>
+    <nodeSuccessors name="next" next="GetBasketByID1"/>
+    <parameterBindings name="InValue_1" constant="ViewCheckoutConfirmationsForPendingOrders-Start"/>
+    <parameterBindings name="InValue_2" constant="BasketID"/>
+    <parameterBindings name="InValue_3" objectPath="BasketID"/>
+    <returnValueBindings name="OutValue_1" objectPath="JumpTarget"/>
+    <returnValueBindings name="OutValue_2" objectPath="AdditionalParameterName1"/>
+    <returnValueBindings name="OutValue_3" objectPath="AdditionalParameterValue1"/>
+  </nodes>
+<!--@Location 1,4-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="GetBasketByID1">
+    <configurationValues name="CurrentUserOnly" value="true"/>
+    <pipelet href="enfinity:/bts/pipelets/GetBasketByID.xml"/>
+    <nodeSuccessors name="next" next="DecisionNode1"/>
+<!--@BendPoints 5,9-->
+    <nodeSuccessors name="pipelet_error" next="JumpNode1"/>
+  </nodes>
+<!--@Location 1,5-->
+  <nodes xsi:type="pipeline:DecisionNode" nodeID="DecisionNode1" conditionKey="Basket">
+    <nodeSuccessors name="decision_yes" next="CallNode1"/>
+    <nodeSuccessors name="decision_no" next="JumpNode1"/>
+  </nodes>
+<!--@Location 1,6-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode1">
+    <nodeSuccessors name="next" next="JoinNode0"/>
+    <startNode referencedName="BusinessObjectUtils-GetBasketBO"/>
+  </nodes>
+<!--@Location 1,7-->
+  <nodes xsi:type="pipeline:JoinNode" nodeID="JoinNode0">
+    <nodeSuccessors name="next" next="CallNode_XgGaUJlWEee6-Kuzp-4e5Q"/>
+  </nodes>
+<!--@Location 1,8-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode_XgGaUJlWEee6-Kuzp-4e5Q">
+    <nodeSuccessors name="next" next="CallNode0"/>
+    <parameterBindings name="Application" objectPath="ApplicationBO:PersistentObject"/>
+    <parameterBindings name="DomainPreference" objectPath="CurrentOrganization:OwningDomain"/>
+    <startNode referencedName="ProcessGiftingPreferences-GetGiftingPreferences"/>
+  </nodes>
+<!--@Location 1,9-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode0">
+    <nodeSuccessors name="next" next="RenderSystemPageWithTemplate0_Input"/>
+    <startNode referencedName="ViewData-SecureForBrowserBack"/>
+  </nodes>
+<!--@Location 1,10-->
+  <nodes xsi:type="pipeline:PipelineNodeNode" nodeID="RenderSystemPageWithTemplate0">
+    <configurationValues name="PageEntryPointDefinitionReference" value="app_sf_responsive:systempage.checkout.receipt.pagelet2-Page"/>
+    <configurationValues name="WorkingTemplate" value="checkout/receipt/CartForApproval.isml"/>
+    <pipelet href="enfinity:/sld_ch_sf_base/pipelets/com.intershop.sellside.storefront.base.capi.pipeline.RenderSystemPageWithTemplate.pipelinenode"/>
+    <inConnectors name="Input">
+      <parameterBindings name="Dictionary" objectPath="CurrentRequest:PipelineDictionary"/>
+    </inConnectors>
+  </nodes>
+<!--@Location 2,5-->
+  <nodes xsi:type="pipeline:JumpNode" nodeID="JumpNode1">
+    <startNode referencedName="Error-Page"/>
+  </nodes>
+<!--@Location 3,3-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="KeyMapper0">
+    <pipelet href="enfinity:/bc_foundation/pipelets/KeyMapper.xml"/>
+<!--@BendPoints 7,15-->
+    <nodeSuccessors name="next" next="JoinNode0"/>
+    <parameterBindings name="InValue_1" constant="ViewCheckoutConfirmationsForPendingOrders-Start"/>
+    <parameterBindings name="InValue_2" constant="BasketID"/>
+    <parameterBindings name="InValue_3" objectPath="BasketBO:ID"/>
+    <returnValueBindings name="OutValue_1" objectPath="JumpTarget"/>
+    <returnValueBindings name="OutValue_2" objectPath="AdditionalParameterName1"/>
+    <returnValueBindings name="OutValue_3" objectPath="AdditionalParameterValue1"/>
+  </nodes>
+</pipeline:Pipeline>

@@ -1,0 +1,31 @@
+<iscontent type="text/html" charset="UTF-8" compact="true">
+
+<%@page import="com.intershop.component.user.capi.UserBO"%>
+<%@page import="com.intershop.beehive.core.capi.app.AppContextUtil"%>
+<%@page import = "com.intershop.component.application.capi.ApplicationBO"%>
+<%@page import = "com.intershop.component.customer.capi.CustomerBORepository"%>
+<%@page import = "com.intershop.component.customer.capi.CustomerBO"%>
+
+<ispipeline pipeline="BusinessObjectUtils-GetUserBO" alias="dict" params="#ParamMap(ParamEntry('User', CurrentUser))#" />
+<isset scope="request" name="UserBO" value="#dict:UserBO#">
+<%
+	UserBO userBO = (UserBO) getObject("UserBO");
+	ApplicationBO applicationBO = AppContextUtil.getCurrentAppContext().getVariable(ApplicationBO.CURRENT);
+	CustomerBORepository repository = applicationBO.getRepository("CustomerBORepository");
+	CustomerBO customer = repository.getCustomerBO(userBO);
+	getPipelineDictionary().put("CustomerBO", customer);
+%>
+<isset name="Branding" value="#CustomerBO:Extension("CustomerBOBrandingExtension")#" scope="request"/>
+
+<a rel="home" href="#URLEX(InsecureURL,'',Action('ViewHomepage-Start'))#">
+	<!--- use the customer specific branding logo by configured in the My Account section --->
+	<isif condition="#isDefined(Branding:BrandingImage) AND (Branding:BrandingImage NE '')#">
+		<img src="<isinclude url="#URL(Action('IncludeCustomerBrandingImage-GetBrandingImage'))#">" alt="Logo">
+	<!--- you can change the logo by configuring a page logo at the component --->
+	<iselseif condition="#(isDefined(PageletConfigurationParameters:Logo) AND (PageletConfigurationParameters:Logo NE ""))#">
+		<img src="#ContentURL(PageletConfigurationParameters:Logo)#" alt="Logo">
+	<!--- fallback to logo of branding package or from cartridge --->
+	<iselse>
+		<img src="<isinclude url="#URL(Action('IncludeBranding-Resource'), Parameter('Resource_Name','/img/logo.png'))#">" alt="Logo">
+	</isif>
+</a>

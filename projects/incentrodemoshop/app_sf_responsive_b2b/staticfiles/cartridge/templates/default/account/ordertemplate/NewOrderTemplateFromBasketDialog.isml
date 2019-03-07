@@ -1,0 +1,9 @@
+<iscontent charset="UTF-8" compact="true" templatemarker="true">
+<isinclude template="modules/Modules">
+<isWishlistPropertiesForm 
+	CurrentForm="#NewWishlistForm#" 
+	TargetPipeline="ViewOrderTemplate-CreateFromBasket" 
+	SubmitButtonName="CreateWishlist" 
+	SubmitButtonText="#localizeText('account.order_template.new_from_basket.button.create.label')#"
+	TitleText="#localizeText("account.order_template.new_from_basket.heading")#"
+>

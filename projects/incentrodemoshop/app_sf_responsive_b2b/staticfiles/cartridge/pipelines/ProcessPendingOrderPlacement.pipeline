@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--@Group Order-->
+
+<pipeline:Pipeline xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pipeline="http://www.intershop.de/pipeline/2010"
+    name="ProcessPendingOrderPlacement" overrideMode="Inherit" type="Process">
+<!--@Location 3,1-->
+  <nodes xsi:type="pipeline:StartNode" nodeID="StartNode1" strict="true" name="IsPendingOrder"
+      callMode="Private">
+    <nodeSuccessors name="next" next="DecisionNode1"/>
+    <parameters name="BasketBO" type="com.intershop.component.basket.capi.BasketBO"/>
+  </nodes>
+<!--@Location 3,2-->
+  <nodes xsi:type="pipeline:DecisionNode" nodeID="DecisionNode1" conditionKey="BasketBO:PersistentObject:Status"
+      operator="eq" conditionValue="11">
+    <nodeSuccessors name="decision_yes" next="EndNode1"/>
+<!--@BendPoints 9,6-->
+    <nodeSuccessors name="decision_no" next="EndNode2"/>
+  </nodes>
+<!--@Location 3,3-->
+  <nodes xsi:type="pipeline:EndNode" nodeID="EndNode1" name="true"/>
+<!--@Location 4,3-->
+  <nodes xsi:type="pipeline:EndNode" nodeID="EndNode2" name="false"/>
+<!--@Location 1,1-->
+  <nodes xsi:type="pipeline:StartNode" nodeID="StartNode0" strict="true" name="SetPendingOrderDocumentNoAtOrder"
+      callMode="Private">
+    <nodeSuccessors name="next" next="KeyMapper0"/>
+    <parameters name="CurrentOrder" type="com.intershop.beehive.bts.capi.orderprocess.fulfillment.Order"/>
+    <parameters name="CurrentSession" type="com.intershop.beehive.core.capi.request.Session"/>
+    <parameters name="CurrentUser" type="com.intershop.beehive.core.capi.user.User"/>
+  </nodes>
+<!--@Location 1,2-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="KeyMapper0">
+    <pipelet href="enfinity:/bc_foundation/pipelets/KeyMapper.xml"/>
+    <nodeSuccessors name="next" next="DecisionNode0"/>
+    <parameterBindings name="InValue_1" objectPath="CurrentOrder"/>
+    <parameterBindings name="InValue_10" objectPath="CurrentOrder:Basket"/>
+    <returnValueBindings name="OutValue_1" objectPath="Order"/>
+    <returnValueBindings name="OutValue_10" objectPath="Basket"/>
+  </nodes>
+<!--@Location 1,3-->
+  <nodes xsi:type="pipeline:DecisionNode" nodeID="DecisionNode0" conditionKey="Basket">
+    <nodeSuccessors name="decision_yes" next="CallNode0"/>
+<!--@BendPoints 5,8-->
+    <nodeSuccessors name="decision_no" next="JoinNode1"/>
+  </nodes>
+<!--@Location 1,4-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode0">
+    <nodeSuccessors name="next" next="CallNode2"/>
+    <startNode referencedName="BusinessObjectUtils-GetBasketBO"/>
+  </nodes>
+<!--@Location 1,5-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode2">
+    <nodeSuccessors name="false" next="JoinNode1"/>
+    <nodeSuccessors name="true" next="CallNode1"/>
+    <startNode referencedName="This:IsPendingOrder"/>
+  </nodes>
+<!--@Location 2,6-->
+  <nodes xsi:type="pipeline:JoinNode" nodeID="JoinNode1">
+<!--@BendPoints 5,21-->
+    <nodeSuccessors name="next" next="JoinNode0"/>
+  </nodes>
+<!--@Location 1,10-->
+  <nodes xsi:type="pipeline:JoinNode" nodeID="JoinNode0">
+    <nodeSuccessors name="next" next="EndNode0"/>
+  </nodes>
+<!--@Location 1,11-->
+  <nodes xsi:type="pipeline:EndNode" nodeID="EndNode0"/>
+<!--@Location 1,6-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode1">
+    <nodeSuccessors name="next" next="KeyMapper1"/>
+    <startNode referencedName="BusinessObjectUtils-GetOrderBO"/>
+  </nodes>
+<!--@Location 1,7-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="KeyMapper1">
+    <pipelet href="enfinity:/bc_foundation/pipelets/KeyMapper.xml"/>
+    <nodeSuccessors name="next" next="SetOrderPendingOrderDocumentNo0"/>
+    <parameterBindings name="InValue_1" objectPath="BasketBO:DocumentNo"/>
+    <parameterBindings name="InValue_2" objectPath="BasketBO:Extension(&quot;BasketBOOrderApprovalExtension&quot;):ApproverFirstName"/>
+    <parameterBindings name="InValue_3" objectPath="BasketBO:Extension(&quot;BasketBOOrderApprovalExtension&quot;):ApproverLastName"/>
+    <parameterBindings name="InValue_4" objectPath="BasketBO:Extension(&quot;BasketBOOrderApprovalExtension&quot;):ApprovalDate"/>
+    <parameterBindings name="InValue_5" objectPath="BasketBO:BasketBOOrderApprovalExtension:ApprovalComment"/>
+    <returnValueBindings name="OutValue_1" objectPath="PendingOrderDocumentNo"/>
+    <returnValueBindings name="OutValue_2" objectPath="ApproverFirstName"/>
+    <returnValueBindings name="OutValue_3" objectPath="ApproverLastName"/>
+    <returnValueBindings name="OutValue_4" objectPath="ApprovalDate"/>
+    <returnValueBindings name="OutValue_5" objectPath="ApprovalComment"/>
+  </nodes>
+<!--@Location 1,8-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="SetOrderPendingOrderDocumentNo0">
+    <pipelet href="enfinity:/app_sf_responsive_b2b/pipelets/SetOrderPendingOrderDocumentNo.xml"/>
+    <nodeSuccessors name="next" next="SetOrderApproverInformation0"/>
+  </nodes>
+<!--@Location 1,9-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="SetOrderApproverInformation0">
+    <pipelet href="enfinity:/app_sf_responsive_b2b/pipelets/SetOrderApproverInformation.xml"/>
+    <nodeSuccessors name="next" next="JoinNode0"/>
+  </nodes>
+</pipeline:Pipeline>

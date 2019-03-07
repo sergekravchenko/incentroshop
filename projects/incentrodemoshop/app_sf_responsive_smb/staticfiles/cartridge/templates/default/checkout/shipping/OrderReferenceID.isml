@@ -1,0 +1,17 @@
+<iscontent personalized="true" type="text/html" charset="UTF-8" compact="true">
+
+<div class="section">
+	<h3><istext key="checkout.shipping.orderReferenceId.title" /></h3>
+	
+	<isif condition="#isDefined(Error_OrderReferenceId)#">
+		<div class="alert alert-danger"><isprint value="#Error_OrderReferenceId#"/></div>
+	</isif>
+
+	<div class="form-group<isif condition="#isDefined(Error_OrderReferenceId)#"> has-error</isif>">
+		<label class="control-label col-sm-3" for="orderReferenceId"><istext key="checkout.shipping.orderReferenceId.label" /></label>
+		<div class="col-sm-9">
+			<input class="form-control" id="orderReferenceId" type="text" maxlength="35" name="orderReferenceId" value="<isprint value="#CurrentCartBO:ExtensibleObject:AttributeValue("orderReferenceID"):StringValue#"/>">
+			<small class="input-help"><istext key="checkout.shipping.orderReferenceId.note" /></small>
+		</div>
+	</div>	
+</div>

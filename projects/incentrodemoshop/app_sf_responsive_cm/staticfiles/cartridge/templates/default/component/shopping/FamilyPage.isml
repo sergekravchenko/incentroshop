@@ -1,0 +1,106 @@
+<%@page import="com.intershop.sellside.storefront.base.capi.common.ListNavigationVO"%>
+<iscontent personalized="true" type="text/html" charset="UTF-8" compact="true">
+<isif condition="#(isDefined(ListNavigationVO)) AND (NOT ListNavigationVO:PageCacheAllowed)#">
+	<iscache type="forbidden">
+<iselse>
+	<iscache type="relative" hour="24">
+	<iscachekey object="#CategoryBO#">
+</isif>
+
+<isinclude template="modules/Modules">
+<isinclude template="modules/search/index/Modules">
+ 
+<div class="breadcrumbs row">
+	<ISBreadcrumb showhomelink="true" categorybo="#CategoryBO#">
+</div>
+
+<issetcanonicallink
+		scope="request"
+		name="CanonicalLink"
+		action="ViewStandardCatalog-Browse"
+		parameters="#ParameterList(Parameter('CategoryName', CategoryBO:Name), Parameter('CatalogID', CategoryBO:CatalogBO:Name))#">
+<!--- Please note that XSS vulnerabilities are handled since we will override any user supplied input --->
+<ISPLACEMENT placeholderid="CANONICAL"><link rel="canonical" href="<isprint encoding="off" value="#CanonicalLink#">" /></ISPLACEMENT>
+
+<div class="marketing-area">
+	<isslot slot="app_sf_responsive_cm:slot.marketing.base.pagelet2-Slot">
+</div>
+
+<div id="family-page" class="product-search-result" data-testing-id="family-page-<isprint value="#CategoryBO:Name#"/>">
+	<div class="row">
+		<div class="col-sm-3">
+			<h1>
+				<isprint value="#CategoryBO:DisplayName#">
+			</h1>
+			
+			<isif condition="#hasParametricNavigation#">
+				<ISFilterList
+					ListNavigationVO="#ListNavigationVO#"
+					showCount="true"
+					showSelected="true"
+					CategoryBO="#CategoryBO#"
+				>
+			<iselse>
+				<ISListSubCategories
+					categorybo="#CategoryBO:RootCatalogCategoryBO#"
+					categorypath="#CategoryBO:CatalogCategoryPath#"
+					activecategorybo="#CategoryBO#"
+					recursive="true"
+				>
+			</isif>
+			
+			<isif condition="#NOT isdefined(ListNavigationVO) OR NOT ListNavigationVO:NonCategoryFilterSelected#">
+				<div class="ish-pageNavigation-productLink">
+					<isslot slot="app_sf_responsive_cm:slot.marketing.sidePanel.pagelet2-Slot">
+				</div>
+			</isif>
+		</div>
+		
+		<div class="col-sm-9">
+			<div class="marketing-area">
+				<isslot slot="app_sf_responsive_cm:slot.marketing.content.pagelet2-Slot">
+			</div>
+			
+			<isif condition="#isDefined(ListNavigationVO)#">
+				<%
+					ListNavigationVO lnVO = (ListNavigationVO) getPipelineDictionary().get("ListNavigationVO");
+					lnVO.getGenericHandlerPipelineParams().remove("PageableID");
+					getPipelineDictionary().put("ListNavigationVO", lnVO);
+				%>
+				<ISProductListFilters
+					ListNavigationVO="#ListNavigationVO#"
+					ViewType="#ViewType#"
+					sortings="#PageletConfigurationParameters:Sortings#"
+				>
+			</isif>
+			
+			<isif condition="#isDefined(ViewType) AND (ViewType EQ '2')#">
+				<ISProductList 
+					ProductBOs="#ProductBOs#"
+					CategoryBO="#CategoryBO#"
+					ListNavigationVO="#ListNavigationVO#"
+					viewContext="#PageletConfigurationParameters:ProductView2#"
+					listItemCssClass="col-md-12 list-view"
+					list_name="Category"
+				>
+			<iselse>
+				<ISProductList 
+					ProductBOs="#ProductBOs#"
+					CategoryBO="#CategoryBO#"
+					ListNavigationVO="#ListNavigationVO#"
+					viewContext="#PageletConfigurationParameters:ProductView1#"
+					listItemCssClass="col-md-4 col-xs-6 grid-view"
+					list_name="Category"
+				>
+			</isif>
+			
+			<isslot slot="app_sf_responsive_cm:slot.marketing.category.pagelet2-Slot">
+
+			<div data-testing-id="category-rich-content">
+				<isHtmlPrint value="#CategoryBO:RichContent#">
+			</div>
+		</div>
+		
+		<isinclude url="#URL(Action('IncludeRecentlyViewedItems-AddRecentlyViewedCategory'),Parameter('CategoryName',CategoryBO:Name),Parameter('CategoryDomainName',CategoryBO:DomainName))#">
+	</div>
+</div>

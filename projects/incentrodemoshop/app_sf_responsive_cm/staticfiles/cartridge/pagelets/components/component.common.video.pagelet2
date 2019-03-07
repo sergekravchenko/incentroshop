@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pagelet:PageletModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pagelet="http://www.intershop.de/pagelet/2010"
+    name="component.common.video.pagelet2">
+  <pageletDefinitions name="Component">
+    <callParameterInterfaces referencedName="app_sf_responsive_cm:interface.common.content.pagelet2-Interface"/>
+    <callParameterInterfaces referencedName="app_sf_responsive_cm:interface.carousel.items.pagelet2-Interface"/>
+    <callParameterInterfaces referencedName="app_sf_responsive:interface.include.dialog.pagelet2-Interface"/>
+    <configurationParameterDefinitions name="Video" typeReference="bc_pmc:types.pagelet2-ImageFileRef"/>
+    <configurationParameterDefinitions xsi:type="pagelet:ListParameterDefinition"
+        name="VideoSizePreset" optional="true" localizable="false" typeReference="bc_pmc:types.pagelet2-DropDownBox">
+      <parameterDefinitions name="auto" optional="true" typeReference="bc_pmc:types.pagelet2-Text"/>
+      <parameterDefinitions name="custom" optional="true" typeReference="bc_pmc:types.pagelet2-Text"/>
+      <parameterDefinitions name="560x315" optional="true" typeReference="bc_pmc:types.pagelet2-Text"/>
+      <parameterDefinitions name="640x360" optional="true" typeReference="bc_pmc:types.pagelet2-Text"/>
+      <parameterDefinitions name="853x480" optional="true" typeReference="bc_pmc:types.pagelet2-Text"/>
+      <parameterDefinitions name="1280x720" optional="true" typeReference="bc_pmc:types.pagelet2-Text"/>
+    </configurationParameterDefinitions>
+    <configurationParameterDefinitions name="VideoWidth" optional="true" localizable="false" typeReference="bc_pmc:types.pagelet2-Text"/>
+    <configurationParameterDefinitions name="VideoHeight" optional="true" localizable="false" typeReference="bc_pmc:types.pagelet2-Text"/>
+    <configurationParameterDefinitions name="Image" optional="true" typeReference="bc_pmc:types.pagelet2-ImageFileRef"/>
+    <configurationParameterDefinitions name="Heading" optional="true" typeReference="bc_pmc:types.pagelet2-Text"/>
+    <configurationParameterDefinitions name="Autoplay" optional="true" localizable="false" typeReference="bc_pmc:types.pagelet2-Boolean"/>
+    <configurationParameterDefinitions name="Mute" optional="true" localizable="false" typeReference="bc_pmc:types.pagelet2-Boolean"/>
+    <configurationParameterDefinitions name="CSSClass" optional="true" localizable="false" typeReference="bc_pmc:types.pagelet2-Text"/>
+    <renderTemplate referencedName="component/common/Video"/>
+  </pageletDefinitions>
+</pagelet:PageletModel>

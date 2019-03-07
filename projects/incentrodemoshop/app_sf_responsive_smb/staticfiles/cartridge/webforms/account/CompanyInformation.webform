@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<webform:WebForm xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://www.intershop.de/core/2010" xmlns:webform="http://www.intershop.de/webform/2010" name="CompanyInformation">
+	<forms name="CompanyInformationForm">
+		<parameters xsi:type="webform:FormParameter" name="CompanyName" type="java.lang.String" optional="false" message="account.company_profile.name.label">
+			<validatorBindings validator="GlobalValidators-maxlength">
+				<parameterBindings xsi:type="core:ParameterValueBinding" name="maxLength" value="60"/>
+			</validatorBindings>
+		</parameters>
+		<parameters xsi:type="webform:FormParameter" optional="true" name="CompanyName2" type="java.lang.String">
+			<validatorBindings validator="GlobalValidators-maxlength">
+				<parameterBindings xsi:type="core:ParameterValueBinding" name="maxLength" value="60"/>
+			</validatorBindings>
+		</parameters>
+		<parameters xsi:type="webform:FormParameter" optional="true" name="Industry" type="java.lang.String">
+			<validatorBindings validator="GlobalValidators-maxlength">
+				<parameterBindings xsi:type="core:ParameterValueBinding" name="maxLength" value="60"/>
+			</validatorBindings>
+		</parameters>
+		<parameters xsi:type="webform:FormParameter" optional="true" name="TaxationID" type="java.lang.String">
+			<validatorBindings validator="GlobalValidators-maxlength">
+				<parameterBindings xsi:type="core:ParameterValueBinding" name="maxLength" value="60"/>
+			</validatorBindings>
+		</parameters>
+		<parameters xsi:type="webform:FormParameter" name="Title" optional="true" type="java.lang.String">
+			<validatorBindings validator="Enumeration-LocalizedValidatorEnumeration">
+				<parameterBindings xsi:type="core:ParameterValueBinding" name="EnumerationKeyProviderCtnrName" value="salutationEnumerationKeyProviderCtnr"/>
+				<parameterBindings xsi:type="core:ParameterValueBinding" name="countryParamName" value="CountryCode"/>
+			</validatorBindings>
+		</parameters>
+	  <parameters xsi:type="webform:FormParameter" name="FirstName" type="java.lang.String" optional="false" message="account.firstname">
+       <validatorBindings validator="GlobalValidators-maxlength">
+        <parameterBindings xsi:type="core:ParameterValueBinding" name="maxLength" value="35"/>
+       </validatorBindings>
+       <validatorBindings validator="UserValidators-forbiddensymbols" >
+       	<parameterBindings xsi:type="core:ParameterValueBinding" name="LocalizedErrorMessage" value="error.forbiddensymbols"/>
+       </validatorBindings>
+    </parameters>
+    <parameters xsi:type="webform:FormParameter" name="LastName" type="java.lang.String" optional="false" message="account.lastname">
+      <validatorBindings validator="GlobalValidators-maxlength">
+        <parameterBindings xsi:type="core:ParameterValueBinding" name="maxLength" value="35"/>
+      </validatorBindings>
+      <validatorBindings validator="UserValidators-forbiddensymbols" >
+       	<parameterBindings xsi:type="core:ParameterValueBinding" name="LocalizedErrorMessage" value="error.forbiddensymbols"/>
+       </validatorBindings>
+    </parameters>
+		<parameters xsi:type="webform:FormParameter" optional="true" name="Department" type="java.lang.String">
+			<validatorBindings validator="GlobalValidators-maxlength">
+				<parameterBindings xsi:type="core:ParameterValueBinding" name="maxLength" value="60"/>
+			</validatorBindings>
+		</parameters>
+		<parameters xsi:type="webform:FormParameter" optional="true" name="PhoneBusiness" type="java.lang.String">
+			<validatorBindings validator="GlobalValidators-maxlength">
+				<parameterBindings xsi:type="core:ParameterValueBinding" name="maxLength" value="35"/>
+			</validatorBindings>
+		</parameters>
+		<parameters xsi:type="webform:FormParameter" optional="true" name="Fax" type="java.lang.String">
+			<validatorBindings validator="GlobalValidators-maxlength">
+				<parameterBindings xsi:type="core:ParameterValueBinding" name="maxLength" value="35"/>
+			</validatorBindings>
+		</parameters>
+		<parameters xsi:type="webform:FormParameter" optional="true" name="Birthday" type="java.util.Date">
+			<validatorBindings validator="GlobalValidators-date">
+				<parameterBindings xsi:type="core:ParameterValueBinding" name="datePattern" value="MM/dd/yyyy"/>
+				<parameterBindings xsi:type="core:ParameterValueBinding" name="MM" value="Month"/>
+				<parameterBindings xsi:type="core:ParameterValueBinding" name="dd" value="Day"/>
+				<parameterBindings xsi:type="core:ParameterValueBinding" name="yyyy" value="Year"/>
+				<parameterBindings xsi:type="core:ParameterValueBinding" name="ignoreTimeZonePreference" value="true"/>
+			</validatorBindings>
+			<validatorBindings validator="GlobalValidators-datemin">
+				<parameterBindings xsi:type="core:ParameterValueBinding" name="minDate" value="01/01/1900"/>
+				<parameterBindings xsi:type="core:ParameterValueBinding" name="datePattern" value="MM/dd/yyyy"/>
+			</validatorBindings>
+			<validatorBindings validator="GlobalValidators-daterange">
+				<parameterBindings xsi:type="core:ParameterValueBinding" name="minYear" value="-1000"/>
+				<parameterBindings xsi:type="core:ParameterValueBinding" name="maxYear" value="-16"/>
+			</validatorBindings>
+			<fields name="Month"/>
+			<fields name="Day"/>
+			<fields name="Year"/>
+		</parameters>
+		<parameters xsi:type="webform:FormParameter" name="LocaleID" type="java.lang.String">
+			<validatorBindings validator="Locale-LocaleValidator"/>
+		</parameters>
+	</forms>
+</webform:WebForm>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<enfinity xmlns:dt="http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt">
+<pagelet-page id="pg_helpdesk_returnpolicy">
+<definition-name>app_sf_responsive_cm:pagevariant.standard.pagelet2-Pagevariant</definition-name>
+<parent id="pg_tmp_helpDeskPage" domain="inSPIRED-MasterRepository" />
+<display-name xml:lang="de-DE">Hilfe - Rückgaberegelung</display-name>
+<display-name xml:lang="en-US">Helpdesk - Return Policy</display-name>
+<display-name xml:lang="fr-FR">Assistance technique - Politique de retour</display-name>
+<online>true</online>
+<author business-partner-no="admin" domain="inSPIRED"/>
+<configuration-parameters>
+<configuration-parameter name="RobotsNoFollow">
+<definition-name>app_sf_responsive_cm:pagevariant.standard.pagelet2-Pagevariant-RobotsNoFollow</definition-name>
+<value name="RobotsNoFollow">false</value>
+</configuration-parameter>
+<configuration-parameter name="RobotsNoIndex">
+<definition-name>app_sf_responsive_cm:pagevariant.standard.pagelet2-Pagevariant-RobotsNoIndex</definition-name>
+<value name="RobotsNoIndex">false</value>
+</configuration-parameter>
+</configuration-parameters>
+<placeholder-configurations>
+<placeholder-configuration hide-target-content="false" place-target-content-on-top="false">
+<parent-placeholder placeholder-id="ph_helpDeskPage_BaseMarketing"/>
+</placeholder-configuration>
+<placeholder-configuration hide-target-content="false" place-target-content-on-top="false">
+<parent-placeholder placeholder-id="ph_helpDeskPage_Content"/>
+</placeholder-configuration>
+<placeholder-configuration hide-target-content="false" place-target-content-on-top="false">
+<parent-placeholder placeholder-id="ph_helpDeskPage_sidePanelMarketing"/>
+</placeholder-configuration>
+</placeholder-configurations>
+</pagelet-page>
+<pagelet-placeholder-assignment id="d08KDgAblCMAAAE_15uSFMiP">
+<placeholder pagelet-domain="inSPIRED-MasterRepository" pagelet-id="pg_helpdesk_returnpolicy">
+<parent-placeholder placeholder-id="ph_helpDeskPage_Content"/>
+</placeholder>
+<pagelet id="cmp_returnpolicy" domain="inSPIRED-MasterRepository"/>
+<position>2</position>
+<online>true</online>
+</pagelet-placeholder-assignment>
+</enfinity>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<enfinity xmlns:dt="http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt">
+<pagelet-component id="cmp_categoryEndcaps_topSellers">
+<definition-name>app_sf_responsive_cm:component.common.productListFilter.pagelet2-Component</definition-name>
+<display-name xml:lang="de-DE">Kategorie Endcaps Topseller</display-name>
+<display-name xml:lang="en-US">Category Endcaps Top Sellers</display-name>
+<online>true</online>
+<author business-partner-no="admin" domain="inSPIRED"/>
+<configuration-parameters>
+<configuration-parameter name="Filter">
+<definition-name>app_sf_responsive_cm:component.common.productListFilter.pagelet2-Component-Filter</definition-name>
+<value name="Filter">top_seller_products</value>
+</configuration-parameter>
+<configuration-parameter name="ListStyle">
+<definition-name>app_sf_responsive_cm:component.common.productListFilter.pagelet2-Component-ListStyle</definition-name>
+<value name="ListStyle">carousel</value>
+</configuration-parameter>
+<configuration-parameter name="MaxNumberOfProducts">
+<definition-name>app_sf_responsive_cm:component.common.productListFilter.pagelet2-Component-MaxNumberOfProducts</definition-name>
+<value name="MaxNumberOfProducts">9</value>
+</configuration-parameter>
+<configuration-parameter name="ProductView">
+<definition-name>app_sf_responsive_cm:component.common.productListFilter.pagelet2-Component-ProductView</definition-name>
+<value name="ProductView">app_sf_responsive:vc_productTile@inSPIRED-inTRONICS-b2c-responsive</value>
+</configuration-parameter>
+<configuration-parameter name="Scope">
+<definition-name>app_sf_responsive_cm:component.common.productListFilter.pagelet2-Component-Scope</definition-name>
+<value name="Scope">CurrentCategoryScope</value>
+</configuration-parameter>
+<configuration-parameter name="ShowViewAll">
+<definition-name>app_sf_responsive_cm:component.common.productListFilter.pagelet2-Component-ShowViewAll</definition-name>
+<value name="ShowViewAll">true</value>
+</configuration-parameter>
+<configuration-parameter name="SlideItems">
+<definition-name>app_sf_responsive_cm:component.common.productListFilter.pagelet2-Component-SlideItems</definition-name>
+<value name="SlideItems">3</value>
+</configuration-parameter>
+<configuration-parameter name="Title">
+<definition-name>app_sf_responsive_cm:component.common.productListFilter.pagelet2-Component-Title</definition-name>
+<value name="Title" xml:lang="de-DE">Topseller</value>
+<value name="Title" xml:lang="en-US">Top Sellers</value>
+</configuration-parameter>
+</configuration-parameters>
+</pagelet-component>
+</enfinity>

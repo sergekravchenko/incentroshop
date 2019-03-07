@@ -1,0 +1,150 @@
+<iscontent type="text/html" charset="UTF-8" compact="true">
+<isinclude template="modules/B2BModules">
+
+<isset name="BasketTotal" value="#BasketBO:GrandTotalGross#" scope="request" />
+ <isset name="BasketApprovalExtension" value="#BasketBO:Extension("Approval")#" scope="request"/>
+ 
+<div class="section infobox">
+	<h3><istext key="approval.detailspage.buyer_budget.heading" /></h3>
+	
+	<div class="row">
+		<div class="col-sm-6">
+			<p class="row">
+				<strong class="col-xs-6">
+					<istext key="approval.detailspage.purchaser.label" />:
+				</strong>
+				<span class="col-xs-6">
+					<isprint value="#BasketBO:User:Profile:DataSheet:FirstName#"/> <isprint value="#BasketBO:User:Profile:DataSheet:LastName#"/>
+				</span>
+			</p>
+		</div>
+	</div>
+	
+	<div class="row section">
+		<div class="col-sm-6">
+			<p class="row">
+				<strong class="col-xs-6">
+					<istext key="approval.detailspage.order_spend_limit.label" />
+				</strong>
+				<span class="col-xs-6">
+					<isif condition="#UserApproval:SingleOrderThresholdAmount:Available#">
+						<isprint value="#UserApproval:SingleOrderThresholdAmount#" />
+					<iselse/>
+						<istext key="approval.details.threshold.unlimited"/>
+					</isif>
+				</span>
+			</p>
+		</div>
+		<isif condition="#UserApproval:SingleOrderThresholdAmount:Available#">
+			<div class="col-sm-6">
+				<isIndicatorBar 
+					Comparison="#BasketTotal#"
+					Limit="#UserApproval:SingleOrderThresholdAmount#"
+				>
+			</div>
+		</isif>
+	</div>
+	
+	<isset name="UserApprovalBudgetType" value="#UserApproval:BudgetType#" scope="request"/>
+	<isset name="UserApprovalBudgetLimit" value="#UserApproval:Budget(UserApproval:BudgetType)#" scope="request"/>
+	
+	<div class="row">
+		<div class="col-sm-6">
+			<isif condition="#NOT(lcase(UserApprovalBudgetType) EQ 'none')#">
+				<p class="row">
+					<strong class="col-xs-6">
+						<istext key="#'approval.detailspage.budget.type.'.lcase(UserApprovalBudgetType).'.label'#" />
+					</strong>
+					<span class="col-xs-6">
+						<isif condition="#UserApprovalBudgetLimit:Available#">
+							<isprint value="#UserApprovalBudgetLimit#" />
+						<iselse/>
+							<istext key="approval.details.threshold.unlimited"/>
+						</isif>
+					</span>
+				</p>
+			</isif>
+			
+			<isif condition="#UserApprovalBudgetLimit:Available#">
+				<p class="row">
+					<strong class="col-xs-6">
+						<istext key="approval.detailspage.budget.already_spent.label" />
+					</strong>
+					<span class="col-xs-6">
+					
+						<isset name="UserApprovalBudgetSpent" value="#UserApproval:BudgetSpent(UserApprovalBudgetType)#" scope="request"/>
+					
+						<isif condition="#UserApprovalBudgetSpent:Available#">
+							<isprint value="#UserApprovalBudgetSpent#" />
+							<isset name="UserApprovalBudgetSpentPercentage" value="#UserApprovalBudgetSpent:Value / UserApprovalBudgetLimit:Value * 100#" scope="request"/>
+							<isif condition="#UserApprovalBudgetSpentPercentage > 100#">
+								<span class="label label-danger pull-right">
+							<iselse/>
+								<span class="label label-default pull-right">
+							</isif>
+								(<isprint value="#UserApprovalBudgetSpentPercentage#" formatter="#.#"/> %)
+							</span>
+							
+						<iselse/>
+							<ISMoneyCalculator method="subtract"
+								operand1="#BasketTotal#"
+								operand2="#BasketTotal#"
+								result="ZeroAmount">
+							<isprint value="#ZeroAmount#" /> 
+							<span class="label label-default pull-right">
+								(0.00 %)
+							</span>
+						</isif>
+					</span>
+				</p>
+				<isif condition="#BasketApprovalExtension:OverallApprovalStatus:ID EQ 'pending'#">
+					<isif condition="#NOT(RecurringBasket:Recurring)#">
+						<p class="row">
+							<strong class="col-xs-6">
+								<istext key="approval.detailspage.budget.including_order.label" />
+							</strong>
+							<span class="col-xs-6">
+								<isif condition="#UserApprovalBudgetSpent:Available#">
+									<ISMoneyCalculator method="add"
+										operand1="#UserApprovalBudgetSpent#"
+										operand2="#BasketTotal#"
+										result="UserApprovalBudgetSpentEstimation">
+								<iselse/>
+									<isset name="UserApprovalBudgetSpentEstimation" value="#BasketTotal#" scope="request" />
+								</isif>
+						
+								<isprint value="#UserApprovalBudgetSpentEstimation#" />
+								<isset name="UserApprovalBudgetSpentEstimationPercentage" value="#UserApprovalBudgetSpentEstimation:Value / UserApprovalBudgetLimit:Value * 100#" scope="request"/>
+								<isif condition="#UserApprovalBudgetSpentEstimationPercentage > 100#">
+									<span class="label label-danger pull-right">
+								<iselse/>
+									<span class="label label-default pull-right">
+								</isif>
+									(<isprint value="#UserApprovalBudgetSpentEstimationPercentage#" formatter="#.#"/> %)
+								</span>
+							</span>
+						</p>
+					</isif>
+				</isif>
+			</isif>
+		</div>
+		<isif condition="#UserApproval:Budget(UserApproval:BudgetType):Available#">
+			<isif condition="#(BasketApprovalExtension:OverallApprovalStatus:ID EQ 'pending') AND (NOT RecurringBasket:Recurring)#">
+				<div class="col-sm-6">
+					<isIndicatorBar 
+						Comparison="#UserApprovalBudgetSpent#"
+						Limit="#UserApprovalBudgetLimit#"
+						Addition="#BasketTotal#"
+					>
+				</div>
+			<iselse/>
+				<div class="col-sm-6">
+					<isIndicatorBar 
+						Comparison="#UserApprovalBudgetSpent#"
+						Limit="#UserApprovalBudgetLimit#"
+					>
+				</div>
+			</isif>
+		</isif>
+	</div>	
+</div>

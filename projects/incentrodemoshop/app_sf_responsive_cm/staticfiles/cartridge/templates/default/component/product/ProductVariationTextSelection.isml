@@ -1,0 +1,24 @@
+<iscontent type="text/html" charset="UTF-8" compact="true">
+
+<isset name="VariationInfo" value="#ProductBO:ProductVariationInformationBO#" scope="request"/>
+
+<isif condition="#hasElements(VariationInfo:VariationAttributes)#">
+
+	<div class="">
+		<isif condition="#ProductBO:isMastered#">
+			<isloop iterator="VariationInfo:VariationAttributes" alias="VariationAttribute">
+				<div class="product-variation">			
+					<isif condition="#((VariationAttribute:PresentationOption EQ '') OR (VariationAttribute:PresentationOption EQ 'default') OR (VariationAttribute:PresentationOption EQ 'defaultAndSwatchImage') OR (VariationAttribute:PresentationOption EQ 'defaultAndColorCode') OR (VariationAttribute:PresentationOption EQ 'swatchImage'))#">
+						<div>
+							<label class="control-label" for="ID_<isprint value="#VariationAttribute:Name#"/>_<isprint value="#ProductBO:ID#"/>">
+								<isprint value="#VariationAttribute:DisplayName#"/>:&nbsp;
+							</label>
+							<isinclude template="inc/product/variation/PresentationTextDefault">
+						</div>
+					</isif>
+				</div>
+			</isloop>
+		</isif>
+	</div>
+	
+</isif>

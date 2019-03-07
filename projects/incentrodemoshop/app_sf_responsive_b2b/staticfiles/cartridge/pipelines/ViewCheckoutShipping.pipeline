@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--This pipeline adds the date format conversion to the existing checkout shipping functionality.-->
+
+<pipeline:Pipeline xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pipeline="http://www.intershop.de/pipeline/2010"
+    name="ViewCheckoutShipping" overrideMode="Inherit" type="view">
+<!--@Location 1,1-->
+  <nodes xsi:type="pipeline:StartNode" nodeID="StartNode0" name="Prefix" callMode="Private">
+    <nodeSuccessors name="next" next="CallNode0"/>
+  </nodes>
+<!--@Location 1,2-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode0">
+    <nodeSuccessors name="next" next="VerifyInteger0"/>
+    <startNode referencedName="ViewCheckout-Prefix"/>
+  </nodes>
+<!--@Location 1,3-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="VerifyInteger0">
+    <pipelet href="enfinity:/bc_foundation/pipelets/VerifyInteger.xml"/>
+    <nodeSuccessors name="next" next="JoinNode0"/>
+<!--@BendPoints 4,7 4,9-->
+    <nodeSuccessors name="pipelet_error" next="JoinNode0"/>
+    <parameterBindings name="LocalizedString" constant="2"/>
+    <returnValueBindings name="IntegerObject" objectPath="CurrentStep"/>
+  </nodes>
+<!--@Location 1,4-->
+  <nodes xsi:type="pipeline:JoinNode" nodeID="JoinNode0">
+    <nodeSuccessors name="next" next="CallNode1"/>
+  </nodes>
+<!--@Location 1,5-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode1">
+    <nodeSuccessors name="next" next="ConvertDateFormat1"/>
+    <parameterBindings name="Application" objectPath="ApplicationBO:PersistentObject"/>
+    <parameterBindings name="DomainPreference" objectPath="Repository:Domain"/>
+    <startNode referencedName="ProcessGiftingPreferences-GetGiftingPreferences"/>
+  </nodes>
+<!--@Location 1,6-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="ConvertDateFormat1">
+    <pipelet href="enfinity:/bc_b2b/pipelets/ConvertDateFormat.xml"/>
+    <nodeSuccessors name="next" next="EndNode0"/>
+    <parameterBindings name="SimpleDateFormat" objectPath="CurrentRequest:Locale:DefaultRegionalSettings:inputDatePattern"/>
+    <returnValueBindings name="JQueryUIDateFormat" objectPath="DateFormat"/>
+  </nodes>
+<!--@Location 1,7-->
+  <nodes xsi:type="pipeline:EndNode" nodeID="EndNode0"/>
+</pipeline:Pipeline>

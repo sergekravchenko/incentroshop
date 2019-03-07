@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pagelet:PageletModel xmlns:pagelet="http://www.intershop.de/pagelet/2010" name="slot.marketing.sidePanel.pagelet2">
+  <slotDefinitions multiplicity="ZERO_MANY" name="Slot">
+    <callParameterDefinitions optional="true" name="SearchTerm" type="java.lang.String"/>
+    <callParameterDefinitions optional="true" name="Dictionary" type="com.intershop.beehive.core.capi.pipeline.PipelineDictionary"/>
+    <callParameterInterfaces referencedName="app_sf_responsive_cm:interface.marketing.sidePanel.pagelet2-Interface"/>
+    <callParameterInterfaces referencedName="app_sf_responsive_cm:interface.common.content.pagelet2-Interface"/>
+    <callParameterInterfaces referencedName="app_sf_responsive_cm:interface.common.content.advanced.pagelet2-Interface"/>
+    <callParameterInterfaces referencedName="app_sf_responsive_cm:interface.common.productList.pagelet2-Interface"/>
+    <callParameterInterfaces referencedName="app_sf_responsive_cm:interface.common.productLinks.pagelet2-Interface"/>
+  </slotDefinitions>
+</pagelet:PageletModel>

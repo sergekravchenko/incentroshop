@@ -1,0 +1,51 @@
+<iscontent type="text/html" charset="UTF-8" compact="true">
+
+<!---
+	Prints out the BasketBO data required by OCI Punchout Catalog.
+
+	Parameters:
+		- PLI (required)
+			the product line item retrieved from the Baskets PLI iterator
+		- useRelatedWarrantyFlag (optional)
+			Indicates that the given PLI is a warranty related to another product.
+		- ociFieldIndex (required)
+			the current index used for the OCI catalog field names
+		- ConfigurationData (required)
+			A customer's OCI configuration.
+
+	Usage:
+		<isOCIFieldsBasketPLI PLI="#PLI#" ociFieldIndex="#index#" ConfigurationData="#ConfigurationData#">
+--->
+<ismodule template="modules/punchout/OCIFieldsBasketPLI.isml"
+	strict="true"
+	name="OCIFieldsBasketPLI"
+	attribute="PLI"
+	attribute="useRelatedWarrantyFlag"
+	attribute="ociFieldIndex"
+	attribute="ConfigurationData"
+>
+
+<!---
+	prints a line for the configurable parameters
+	
+	Parameters:
+		- FieldName (required)
+			the name of the field to configure
+		- FieldName
+			the value of the field transformation
+		- FieldFormat
+			the formatter of the field
+		- PunchoutPlaceholderFormatterProvider (required)
+			Provides placeholder and formatters for configuring a Punchout attribute.
+			
+	Usage:
+		<ISOCIConfigurationRow FieldName="NEW_ITEM-MATGROUP" FieldTransform="AA_{sku}" FieldFormat="UpperCase" PunchoutPlaceholderFormatterProvider="PunchoutPlaceholderFormatterProvider">
+--->	
+<ismodule template="modules/punchout/OCIConfigurationRow.isml"
+	strict="true"
+	name="OCIConfigurationRow"
+	attribute="FieldName"
+	attribute="FieldTransform"
+	attribute="FieldFormat"
+	attribute="PunchoutPlaceholderFormatterProvider"
+>

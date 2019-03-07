@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<enfinity
+    xmlns     = "http://www.intershop.com/xml/ns/intershop/customer/impex/7.3"
+    xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:dt  = "http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt"
+    xsi:schemaLocation = "http://www.intershop.com/xml/ns/intershop/customer/impex/7.3 bc_customer.xsd
+    http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt dt.xsd"
+    major="6" minor="1" family="enfinity" branch="enterprise" build=""
+>
+	<customer id="Michael">
+		<customer-type>PRIVATE</customer-type>
+		<users>
+			<user business-partner-no="Michael">
+				<business-partner-no>Michael</business-partner-no>
+				<profile>
+					<credentials>
+						<login>mlehmann@test.intershop.de</login>
+						<password>!InterShop00!</password>
+						<enabled>1</enabled>
+					</credentials>
+					<description>Consumer Channel Demo Buyer</description>
+					<first-name>Michael</first-name>
+					<last-name>Lehmann</last-name>
+					<email>mlehmann@test.intershop.de</email>
+					<preferred-locale>en_US</preferred-locale>
+				</profile>
+				<user-groups>
+					<user-group id="IG_PrivateCustomers" domain="Myers-ShoppingLive-Anonymous"/>
+				</user-groups>
+			</user>
+		</users>
+		<addresses>
+			<address name="customeraddr-CMsKGZBxIEmYElDmrDAUftUddH">
+				<address-name>customeraddr-CMsKGZBxIEmYElDmrDAUftUddH</address-name>
+				<first-name>Michael</first-name>
+				<last-name>Lehmann</last-name>
+				<title>Mr.</title>
+				<city>Potsdam</city>
+				<postal-code>14482</postal-code>
+				<address-line1>Marlene-Dietrich-Allee 20</address-line1>
+				<country-code>DE</country-code>
+				<default-address>1</default-address>
+				<ship-to-address>1</ship-to-address>
+				<invoice-to-address>1</invoice-to-address>
+				<custom-attributes>
+					<custom-attribute name="Field1"/>
+					<custom-attribute name="Field2">10th Floor</custom-attribute>
+					<custom-attribute name="Field3"/>
+				</custom-attributes>
+			</address>
+		</addresses>
+	</customer>
+	<customer id="Patricia">
+		<customer-type>PRIVATE</customer-type>
+		<users>
+			<user business-partner-no="Patricia">
+				<business-partner-no>Patricia</business-partner-no>
+				<profile>
+					<credentials>
+						<login>patricia@test.intershop.de</login>
+						<password>!InterShop00!</password>
+						<enabled>1</enabled>
+					</credentials>
+					<description>Consumer Channel Consumer</description>
+					<first-name>Patricia</first-name>
+					<last-name>Miller</last-name>
+					<email>patricia@test.intershop.de</email>
+					<preferred-locale>en_US</preferred-locale>					
+				</profile>
+				<user-groups>
+					<user-group id="IG_PrivateCustomers" domain="Myers-ShoppingLive-Anonymous"/>
+				</user-groups>
+			</user>
+		</users>
+		<addresses>
+			<address name="customeraddr-YXEwLKSprCWPRMuMCscyXgSRVU">
+				<address-name>customeraddr-YXEwLKSprCWPRMuMCscyXgSRVU</address-name>
+				<first-name>Patricia</first-name>
+				<last-name>Miller</last-name>
+				<title>Ms.</title>
+				<city>Potsdam</city>
+				<postal-code>14482</postal-code>
+				<address-line1>Berliner Str. 20</address-line1>
+				<country-code>DE</country-code>
+				<default-address>1</default-address>
+				<ship-to-address>1</ship-to-address>
+				<invoice-to-address>1</invoice-to-address>
+				<custom-attributes>
+					<custom-attribute name="Field1"/>
+					<custom-attribute name="Field2">10th Floor</custom-attribute>
+					<custom-attribute name="Field3"/>
+				</custom-attributes>
+			</address>
+		</addresses>
+	</customer>
+	<customer id="Thomas">
+		<customer-type>PRIVATE</customer-type>
+		<users>
+			<user business-partner-no="Thomas">
+				<business-partner-no>Thomas</business-partner-no>
+				<profile>
+					<credentials>
+						<login>tmeyer@test.intershop.de</login>
+						<password>!InterShop00!</password>
+						<enabled>1</enabled>
+					</credentials>
+					<description>Consumer Channel Consumer</description>
+					<first-name>Thomas</first-name>
+					<last-name>Meyer</last-name>
+					<email>tmeyer@test.intershop.de</email>
+					<preferred-locale>en_US</preferred-locale>
+				</profile>
+				<user-groups>
+					<user-group id="IG_PrivateCustomers" domain="Myers-ShoppingLive-Anonymous"/>
+				</user-groups>
+			</user>
+		</users>
+		<addresses>
+			<address name="customeraddr-PmISAlibTvGKwplwRSzPGpYFlA">
+				<address-name>customeraddr-PmISAlibTvGKwplwRSzPGpYFlA</address-name>
+				<first-name>Thomas</first-name>
+				<last-name>Meyer</last-name>
+				<title>Dr.</title>
+				<city>Jena</city>
+				<postal-code>07740</postal-code>
+				<address-line1>Frankesstrasse 22</address-line1>
+				<country-code>DE</country-code>
+				<default-address>1</default-address>
+				<ship-to-address>1</ship-to-address>
+				<invoice-to-address>1</invoice-to-address>
+				<custom-attributes>
+					<custom-attribute name="Field1"/>
+					<custom-attribute name="Field2">10th Floor</custom-attribute>
+					<custom-attribute name="Field3"/>
+				</custom-attributes>
+			</address>
+		</addresses>
+	</customer>
+</enfinity>

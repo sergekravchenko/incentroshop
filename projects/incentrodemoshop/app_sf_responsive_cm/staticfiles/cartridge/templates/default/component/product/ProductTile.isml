@@ -1,0 +1,273 @@
+<iscontent personalized="true" compact="true" charset="UTF-8">
+<iscache type="relative" hour="24">
+<iscachekey object="#ProductBO#">
+<isinclude template="modules/Modules">
+
+<ispipeline pipeline="ProcessOrganization-GetOrganization" alias="dict" params="#ParamMap(ParamEntry('Domain', CurrentDomain), ParamEntry('Request', CurrentRequest))#" />
+<isset name="RichSnippetsEnabled" value="#dict:Organization:OwningDomain:Configuration:String("RichSnippetsEnabled")#" scope="request"/>
+
+<ispipeline pipeline="ProcessProductVariationPreference-GetPreference" alias="dict" params="#ParamMap(ParamEntry('Domain', dict:Organization:OwningDomain))#" />
+<isset name="EnableAdvancedVariationHandlingPreference" value="#dict:EnableAdvancedVariationHandling#" scope="request"/>
+
+<!--- use the Default Variation instead of the Product Master --->
+<isif condition="#ProductBO:ProductMaster#">
+	<isif condition="#(isDefined(EnableAdvancedVariationHandlingPreference)) AND (EnableAdvancedVariationHandlingPreference EQ 'true')#">	
+		<isset name="DisplayMasterProduct" value="true" scope="request"/>	
+	<iselse>
+		<isset name="ProductBO" value="#ProductBO:DefaultVariationProductBO#" scope="request"/>		
+		<isset name="DisplayMasterProduct" value="false" scope="request"/>
+	</isif>
+<iselse>
+	<isif condition="#(isDefined(EnableAdvancedVariationHandlingPreference)) AND (EnableAdvancedVariationHandlingPreference EQ 'true')#">	
+		<isif condition="#isDefined(FilteredVariationsCount) AND (FilteredVariationsCount > 0)#">
+			<!--- a variation and some other variations qualify --->
+			<isset name="DisplayMasterProduct" value="true" scope="request"/>
+			<!--- EnableAdvancedVariationHandlingPreference=true uses always the master for display instead of the variation --->
+			<isset name="ProductBO" value="#ProductBO:ProductBOMaster#" scope="request">
+		</isif>
+	</isif>	
+</isif>
+
+<isif condition="#NOT isDefined(CategoryBO)#">
+	<isset name="CategoryBO" value="#ProductBO:DefaultCatalogCategoryBO#" scope="request"/>
+	<isif condition="#isDefined(CategoryBO) AND (NOT CategoryBO:Accessible)#">
+		<ispipeline pipeline="ViewProduct-GetFirstAccessibleCatalogCategoryBO" alias="dict" params="#ParamMap(ParamEntry('ProductBO', ProductBO))#" />
+		<isset name="CategoryBO" value="#dict:CategoryBO#" scope="request"/>
+	</isif>
+</isif>
+
+<!--- ----------------------------- Type: List ------------------------------ --->
+<isif condition="#(PageletConfigurationParameters:Type EQ 'List')#">
+
+	<div class="product-tile-list row" 
+		data-dynamic-block
+		data-dynamic-block-call-parameters="CID=<isprint value="#Pagelet:UUID#">"
+		data-dynamic-block-product-sku="<isif condition="#ProductBO:isMastered#"><isprint value="#ProductBO:ProductBOMaster:SKU#"><iselse><isprint value="#ProductBOr:SKU#"></isif>"
+		<isif condition="#RichSnippetsEnabled EQ 'true'#">itemscope itemtype="http://schema.org/Product"</isif>
+	>
+		<div class="col-sm-2 col-xs-3">
+			<div class="product-image-container">
+				<isif condition="#NOT (isDefined(EnableAdvancedVariationHandlingPreference)) OR (EnableAdvancedVariationHandlingPreference EQ 'false')#">
+					<isif condition="#PageletConfigurationParameters:EnableExpressShop EQ 'true'#">
+						<ISExpressShopTrigger ProductBO="#ProductBO#">
+					</isif>
+				</isif>
+				<a href="#URLEX(InsecureURL,'',Action('ViewProduct-Start'), Parameter('SKU', ProductBO:SKU), Parameter('CategoryName', CategoryBO:Name), Parameter('CatalogID', CategoryBO:CatalogBO:Name))#" <isif condition="#RichSnippetsEnabled EQ 'true'#">itemprop="url"</isif>>
+					<ISProductImage
+						ProductBO="#ProductBO#"
+						ImageType="S"
+						Class="product-image"
+						RichSnippetsEnabled="#RichSnippetsEnabled#"
+					>
+				</a>
+				<ISProductLabel ProductBO="#ProductBO#">
+			</div>
+		</div>
+		<div class="col-sm-10 col-xs-9">
+			<div class="row">
+				<div class="col-xs-10 col-sm-5 col-lg-5 text-left">
+					<a class="product-title" href="#URLEX(InsecureURL,'',Action('ViewProduct-Start'), Parameter('SKU', ProductBO:SKU), Parameter('CategoryName', CategoryBO:Name), Parameter('CatalogID', CategoryBO:CatalogBO:Name))#" <isif condition="#RichSnippetsEnabled EQ 'true'#">itemprop="url"</isif>>
+						<isprint value="#ProductBO:Name#">
+					</a>
+					<isif condition="#PageletConfigurationParameters:ShowProductRating EQ 'true'#">
+						<ISProductRating
+							ProductBO="#ProductBO#"
+							User="#CurrentUser#"
+							SimpleRatingView="true"
+							RichSnippetsEnabled="#RichSnippetsEnabled#"
+						>
+					</isif>
+					<div class="product-description">
+						<isHtmlPrint value="#ProductBO:ShortDescription#">
+					</div>
+					<div class="product-number">
+						<span class="product-number-label"><istext key="product.itemNumber.label"/></span>
+						<span <isif condition="#RichSnippetsEnabled EQ 'true'#">itemprop="sku"</isif>><isprint value="#ProductBO:SKU#"></span>
+					</div>
+					
+					<ISPromotionList
+						ProductBO="#ProductBO#"
+						DisplayType="simple"
+						MaxNumber="3"
+						Locale="#Locale#"
+					>
+					<isif condition="#(NOT isDefined(DisplayMasterProduct) OR (DisplayMasterProduct EQ 'false'))#">
+						<div class="product-tile-actions btn-group" style="position: relative!important;">						
+							<ISAddToWishlist ProductBO="#ProductBO#" Currency="#CurrentRequest:Currency#" DisplayType="glyphicon">
+							<ISAddToProductCompare ProductBO="#ProductBO#" DisplayType="glyphicon">
+							<isinclude extensionpoint="ProductTileActions">
+						</div>
+					</isif>
+				</div>
+				<isif condition="#(isDefined(EnableAdvancedVariationHandlingPreference) AND (EnableAdvancedVariationHandlingPreference EQ 'true'))#">
+					<div class="col-xs-10 col-sm-2 col-lg-3 text-left">
+						<isinclude template="component/product/ProductVariationTextSelection"/>
+					</div>
+				</isif>
+				<div class="col-sm-5 col-xs-12 col-lg-4 pull-right text-right text-left-xs">
+					<ISProductPrice
+						ProductBO="#ProductBO#"
+						Currency="#CurrentRequest:Currency#"
+						ShowInformationalPrice="true"
+						RichSnippetsEnabled="#RichSnippetsEnabled#"
+					>
+					<ISProductLifecycleStatus ProductBO="#ProductBO#">
+					
+					<isif condition="#(NOT isDefined(DisplayMasterProduct) OR (DisplayMasterProduct EQ 'false'))#">
+						<ISProductAvailability ProductBO="#ProductBO#" RichSnippetsEnabled="#RichSnippetsEnabled#">
+					</isif>
+					
+					<isif condition="#isDefined(DisplayMasterProduct) AND (DisplayMasterProduct EQ 'true')#">
+						<div class="product-number fieldset">
+						<isif condition="#isDefined(FilteredVariationsCount) AND (FilteredVariationsCount > 0)#">
+							<isset name="DisplayVariationCount" value="#FilteredVariationsCount#" scope="request">
+						<iselse>
+							<isset name="DisplayVariationCount" value="#ProductBO:ProductVariationInformationBO:VariationProductBOs:Size#" scope="request">
+						</isif>
+							<istext key="product.variations.text" parameter0="#DisplayVariationCount#"/>
+						</div>
+					</isif>
+					
+					<ISUUID name="FormID">
+					<isform name="#'productForm_'.ProductBO:SKU.'_'.FormID#" action="#URLEX(SecureURL,'',Action('ViewCart-Dispatch'))#" method="post"
+						class="product-form bv-form form-horizontal"
+					>
+						<isif condition="#NOT(ProductBO:isRetailSet)#">
+							<input type="hidden" name="SKU" value="<isprint value="#ProductBO:SKU#">"/>
+						<iselse>
+							<isloop iterator="ProductBO:BundleInformation:BundledProductBOs" alias="RetailSetProduct">
+								<isif condition="#RetailSetProduct:Online#">
+									<input type="hidden" name="SKU" value="<isprint value="#RetailSetProduct:SKU#">"/>
+								</isif>
+							</isloop>
+						</isif>
+						
+						<isif condition="#isDefined(FilteredVariationsCount) AND (FilteredVariationsCount > 0) AND (DisplayMasterProduct EQ 'true') OR (isDefined(DisplayMasterProduct) AND (DisplayMasterProduct EQ 'true') AND NOT(isDefined(FilteredVariationsCount)))#">
+							<div class="product-info">
+								<ISChooseVariation ProductBO="#ProductBO#">
+							</div>
+						<iselse>
+							<isif condition="#NOT (isDefined(EnableAdvancedVariationHandlingPreference)) OR (EnableAdvancedVariationHandlingPreference EQ 'false')#">
+								<ISProductVariationSelect ProductBO="#ProductBO#">
+							</isif>
+							<isif condition="#PageletConfigurationParameters:ShowAddToCart EQ 'true'#">
+								<div class="product-list-actions-container">
+									<div class="product-quantity">
+										<ISProductQuantity ProductBO="#ProductBO#" Currency="#CurrentRequest:Currency#" customStyle="custom-pull-right">
+									</div>
+									<div class="addtocart-container">
+										<ISAddToCart ProductBO="#ProductBO#" Currency="#CurrentRequest:Currency#">
+									</div>
+								</div>
+							</isif>
+						</isif>
+					</isform>
+				</div>
+			</div>
+		</div>
+	</div>
+
+<!--- ----------------------------- Type: Tile ------------------------------ --->
+<iselseif condition="#(PageletConfigurationParameters:Type NE '')#">
+
+	<div class="product-tile"
+		data-dynamic-block
+		data-dynamic-block-call-parameters="CID=<isprint value="#Pagelet:UUID#">"
+		data-dynamic-block-product-sku="<isif condition="#ProductBO:isMastered#"><isprint value="#ProductBO:ProductBOMaster:SKU#"><iselse><isprint value="#ProductBOr:SKU#"></isif>"
+		<isif condition="#RichSnippetsEnabled EQ 'true'#">itemscope itemtype="http://schema.org/Product"</isif>
+	>
+		<div class="product-image-container">
+			<isif condition="#NOT (isDefined(EnableAdvancedVariationHandlingPreference)) OR (EnableAdvancedVariationHandlingPreference EQ 'false')#">
+				<isif condition="#PageletConfigurationParameters:EnableExpressShop EQ 'true'#">
+					<ISExpressShopTrigger ProductBO="#ProductBO#">
+				</isif>
+			</isif>
+			<a href="#URLEX(InsecureURL,'',Action('ViewProduct-Start'), Parameter('SKU', ProductBO:SKU), Parameter('CategoryName', CategoryBO:Name), Parameter('CatalogID', CategoryBO:CatalogBO:Name))#" <isif condition="#RichSnippetsEnabled EQ 'true'#">itemprop="url"</isif>>
+				<ISProductImage
+					ProductBO="#ProductBO#"
+					ImageType="M"
+					Class="product-image"
+					RichSnippetsEnabled="#RichSnippetsEnabled#"
+				>
+			</a>
+			<ISProductLabel ProductBO="#ProductBO#">
+		</div>
+		<a class="product-title" href="#URLEX(InsecureURL,'',Action('ViewProduct-Start'), Parameter('SKU', ProductBO:SKU), Parameter('CategoryName', CategoryBO:Name), Parameter('CatalogID', CategoryBO:CatalogBO:Name))#" <isif condition="#RichSnippetsEnabled EQ 'true'#">itemprop="url"</isif>>
+			<span <isif condition="#RichSnippetsEnabled EQ 'true'#">itemprop="name"</isif>>
+				<isprint value="#ProductBO:Name#">
+			</span>
+		</a>
+		<isif condition="#PageletConfigurationParameters:ShowProductRating EQ 'true'#">
+			<ISProductRating
+				ProductBO="#ProductBO#"
+				User="#CurrentUser#"
+				SimpleRatingView="true"
+				RichSnippetsEnabled="#RichSnippetsEnabled#"
+			>
+		</isif>
+		<div class="price-container" <isif condition="#RichSnippetsEnabled EQ 'true'#">itemprop="offers" itemscope itemtype="http://schema.org/Offer"</isif>>
+			<ISProductPrice
+				ProductBO="#ProductBO#"
+				Currency="#CurrentRequest:Currency#"
+				ShowInformationalPrice="true"
+				RichSnippetsEnabled="#RichSnippetsEnabled#"
+			>
+		</div>
+		
+		<isif condition="#((NOT isDefined(DisplayMasterProduct) OR (DisplayMasterProduct EQ 'false'))
+							AND ((isDefined(EnableAdvancedVariationHandlingPreference))
+							AND (EnableAdvancedVariationHandlingPreference EQ 'true'))
+							AND isDefined(ProductBO:ProductVariationInformationBO))#">
+			<div class="product-number fieldset ">	
+				<isloop iterator="ProductBO:ProductVariationInformationBO:VariationAttributes" alias="VariationAttribute">												
+					<isprint value="#VariationAttribute:DisplayName#"/>:&nbsp;<isprint value="#ProductBO:Attribute(VariationAttribute:Name)#"/><br>						
+				</isloop>
+			</div>	
+		</isif>
+		
+		<isif condition="#isDefined(DisplayMasterProduct) AND (DisplayMasterProduct EQ 'true')#">
+			<div class="product-number fieldset">
+			<isif condition="#isDefined(FilteredVariationsCount) AND (FilteredVariationsCount > 0)#">
+				<isset name="DisplayVariationCount" value="#FilteredVariationsCount#" scope="request">
+			<iselse>
+				<isset name="DisplayVariationCount" value="#ProductBO:ProductVariationInformationBO:VariationProductBOs:Size#" scope="request">
+			</isif>
+				<istext key="product.variations.text" parameter0="#DisplayVariationCount#"/>
+			</div>
+		</isif>
+		<isif condition="#PageletConfigurationParameters:ShowAddToCart EQ 'true'#">
+			<ISUUID name="FormID">
+			<isform name="#'productForm_'.ProductBO:SKU.'_'.FormID#" action="#URLEX(SecureURL,'',Action('ViewCart-Dispatch'))#" method="post">
+				<isif condition="#NOT(ProductBO:isRetailSet)#">
+					<input type="hidden" name="SKU" value="<isprint value="#ProductBO:SKU#">"/>
+				<iselse>
+					<isloop iterator="ProductBO:BundleInformation:BundledProductBOs" alias="RetailSetProduct">
+						<isif condition="#RetailSetProduct:Online#">
+							<input type="hidden" name="SKU" value="<isprint value="#RetailSetProduct:SKU#">"/>
+						</isif>
+					</isloop>
+				</isif>
+				<!---
+				<isif condition="#(NOT isDefined(DisplayMasterProduct) OR (DisplayMasterProduct EQ 'false'))#">
+					<div class="col-xs-2 col-sm-6 col-lg-12">
+						<isinclude template="component/product/ProductVariationTextSelection"/>
+					</div>
+				</isif> --->
+				<isif condition="#(NOT isDefined(EnableAdvancedVariationHandlingPreference) OR (EnableAdvancedVariationHandlingPreference EQ 'false'))#">
+					<ISProductVariationSelect ProductBO="#ProductBO#">
+				</isif>
+				<div class="product-tile-actions btn-group">
+				
+					<isif condition="#(NOT isDefined(DisplayMasterProduct) OR (DisplayMasterProduct EQ 'false'))#">
+						<ISAddToCart ProductBO="#ProductBO#" Currency="#CurrentRequest:Currency#" InventoryStatus="#InventoryStatus#" class="btn-link" DisplayType="glyphicon">
+						<ISAddToWishlist ProductBO="#ProductBO#" Currency="#CurrentRequest:Currency#" DisplayType="glyphicon">
+						<ISAddToProductCompare ProductBO="#ProductBO#" DisplayType="glyphicon">
+						<isinclude extensionpoint="ProductTileActions">
+					</isif>
+				</div>
+				
+			</isform>
+		</isif>
+	</div>
+
+</isif>

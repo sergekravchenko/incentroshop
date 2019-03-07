@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<enfinity xmlns:dt="http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt">
+<component-template id="cmp_tmp_headerNavigation_entertainment">
+<definition-name>app_sf_responsive_cm:component.system.mainnavigation.category.pagelet2-Component</definition-name>
+<display-name xml:lang="de-DE">Header Navigation - Entertainment</display-name>
+<display-name xml:lang="en-US">Header Navigation - Entertainment</display-name>
+<active>true</active>
+<author business-partner-no="admin" domain="inSPIRED"/>
+<configuration-parameters>
+<configuration-parameter name="NavigationCategory">
+<definition-name>app_sf_responsive_cm:component.system.mainnavigation.category.pagelet2-Component-NavigationCategory</definition-name>
+<value name="NavigationCategory">Home-Entertainment@inSPIRED-Home-Entertainment</value>
+</configuration-parameter>
+</configuration-parameters>
+</component-template>
+</enfinity>

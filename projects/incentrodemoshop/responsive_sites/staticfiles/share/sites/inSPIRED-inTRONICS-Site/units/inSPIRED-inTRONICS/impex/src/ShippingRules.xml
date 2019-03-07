@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<enfinity
+xmlns="http://www.intershop.com/xml/ns/enfinity/6.5/bc_shipping/rule/impex"
+xmlns:dt="http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt"
+xmlns:xml="http://www.w3.org/XML/1998/namespace"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.intershop.com/xml/ns/enfinity/6.5/bc_shipping/rule/impex staticfiles/definition/bc_shippingrule.xsd ">
+<shipping-rule>
+<id>BATTERY_DEPOSIT</id>
+<active>true</active>
+<custom-attributes>
+<custom-attribute name="displayName" dt:dt="string" xml:lang="en-US">Battery Deposit Surcharge</custom-attribute>
+<custom-attribute name="description" dt:dt="string" xml:lang="en-US">Surcharge for battery deposit</custom-attribute>
+</custom-attributes>
+<shipping-condition>
+<condition-descriptor-id>ProductAttributeInclusionCondition</condition-descriptor-id>
+<operator>false</operator>
+<grouping>false</grouping>
+<custom-attributes>
+<custom-attribute name="AttributeType" dt:dt="string">string</custom-attribute>
+<custom-attribute name="AttributeName" dt:dt="string">Battery technology</custom-attribute>
+<custom-attribute name="AttributeValue" dt:dt="string">Lithium-Ion</custom-attribute>
+<custom-attribute name="AttributeValueOperator" dt:dt="string">equalto</custom-attribute>
+</custom-attributes>
+</shipping-condition>
+<shipping-action>
+<type>Surcharge</type>
+<custom-attributes>
+<custom-attribute name="Surcharge_USD" dt:dt="money">5 USD</custom-attribute>
+<custom-attribute name="CombineSurcharge" dt:dt="string">AddAll</custom-attribute>
+<custom-attribute name="SurchargeType" dt:dt="string">absolute</custom-attribute>
+</custom-attributes>
+</shipping-action>
+</shipping-rule>
+<shipping-rule>
+<id>HAZMAT_HANDLING</id>
+<active>true</active>
+<custom-attributes>
+<custom-attribute name="displayName" dt:dt="string" xml:lang="en-US">Hazardous Material Handling</custom-attribute>
+<custom-attribute name="description" dt:dt="string" xml:lang="en-US">Surcharge for hazardous material handling</custom-attribute>
+</custom-attributes>
+<shipping-condition>
+<condition-descriptor-id>ProductAttributeInclusionCondition</condition-descriptor-id>
+<operator>false</operator>
+<grouping>false</grouping>
+<custom-attributes>
+<custom-attribute name="AttributeValue" dt:dt="string">01</custom-attribute>
+<custom-attribute name="AttributeName" dt:dt="string">hazMat</custom-attribute>
+<custom-attribute name="AttributeType" dt:dt="string">string</custom-attribute>
+<custom-attribute name="AttributeValueOperator" dt:dt="string">equalto</custom-attribute>
+</custom-attributes>
+</shipping-condition>
+<shipping-action>
+<type>BucketSurcharge</type>
+<custom-attributes>
+<custom-attribute name="CombineSurcharge" dt:dt="string">AddAll</custom-attribute>
+<custom-attribute name="BucketSurcharge_USD" dt:dt="money">50 USD</custom-attribute>
+<custom-attribute name="SurchargeType" dt:dt="string">absolute</custom-attribute>
+</custom-attributes>
+</shipping-action>
+</shipping-rule>
+<shipping-rule>
+<id>LARGEPACK</id>
+<active>true</active>
+<custom-attributes>
+<custom-attribute name="description" dt:dt="string" xml:lang="en-US">Surcharge for handling of large packages</custom-attribute>
+<custom-attribute name="displayName" dt:dt="string" xml:lang="en-US">Large Packages</custom-attribute>
+</custom-attributes>
+<shipping-condition>
+<condition-descriptor-id>SizeCondition</condition-descriptor-id>
+<operator>false</operator>
+<grouping>false</grouping>
+<custom-attributes>
+<custom-attribute name="packageSizeConditionThreshold" dt:dt="double">500.0</custom-attribute>
+<custom-attribute name="packageSizeConditionUnit" dt:dt="string">centimeter</custom-attribute>
+</custom-attributes>
+</shipping-condition>
+<shipping-action>
+<type>Surcharge</type>
+<custom-attributes>
+<custom-attribute name="CombineSurcharge" dt:dt="string">AddAll</custom-attribute>
+<custom-attribute name="Surcharge_USD" dt:dt="money">5 USD</custom-attribute>
+<custom-attribute name="SurchargeType" dt:dt="string">absolute</custom-attribute>
+</custom-attributes>
+</shipping-action>
+</shipping-rule>
+<shipping-rule>
+<id>LCD_FRANCE</id>
+<active>true</active>
+<custom-attributes>
+<custom-attribute name="description" dt:dt="string" xml:lang="en-US">LCD monitor fee under WEEE regulations when it is being shipped to a destination in France</custom-attribute>
+<custom-attribute name="displayName" dt:dt="string" xml:lang="en-US">LCD Shipping Fee-France</custom-attribute>
+</custom-attributes>
+<shipping-condition>
+<condition-descriptor-id>OperatorAndCondition</condition-descriptor-id>
+<operator>true</operator>
+<grouping>false</grouping>
+<shipping-condition>
+<position>0</position>
+<condition-descriptor-id>CategoryInclusionsCondition</condition-descriptor-id>
+<operator>false</operator>
+<grouping>false</grouping>
+<custom-attributes>
+<custom-attribute name="Categories" dt:dt="string">
+<value>3001@inSPIRED-Computers</value>
+</custom-attribute>
+</custom-attributes>
+</shipping-condition>
+<shipping-condition>
+<position>1</position>
+<condition-descriptor-id>ShipToShippingRegionCondition</condition-descriptor-id>
+<operator>false</operator>
+<grouping>false</grouping>
+<custom-attributes>
+<custom-attribute name="ShippingRegions" dt:dt="string">
+<value>France</value>
+</custom-attribute>
+</custom-attributes>
+</shipping-condition>
+</shipping-condition>
+<shipping-action>
+<type>Surcharge</type>
+<custom-attributes>
+<custom-attribute name="SurchargeType" dt:dt="string">absolute</custom-attribute>
+<custom-attribute name="Surcharge_USD" dt:dt="money">10 USD</custom-attribute>
+<custom-attribute name="CombineSurcharge" dt:dt="string">AddAll</custom-attribute>
+</custom-attributes>
+</shipping-action>
+</shipping-rule>
+<shipping-rule>
+<id>RESTRICT_STD_GROUND</id>
+<active>true</active>
+<custom-attributes>
+<custom-attribute name="description" dt:dt="string" xml:lang="en-US">A client’s drop shipper may not be set up to ship via Standard Ground. A filter can be created to restrict that drop shipper from shipping via Standard Ground.</custom-attribute>
+<custom-attribute name="displayName" dt:dt="string" xml:lang="en-US">Restrict Drop Shipper-Standard Ground</custom-attribute>
+</custom-attributes>
+<shipping-condition>
+<condition-descriptor-id>OperatorAndCondition</condition-descriptor-id>
+<operator>true</operator>
+<grouping>false</grouping>
+<shipping-condition>
+<position>0</position>
+<condition-descriptor-id>ShippingMethodCondition</condition-descriptor-id>
+<operator>false</operator>
+<grouping>false</grouping>
+<custom-attributes>
+<custom-attribute name="ShippingMethods" dt:dt="string">
+<value>STD_GROUND</value>
+</custom-attribute>
+</custom-attributes>
+</shipping-condition>
+<shipping-condition>
+<position>1</position>
+<condition-descriptor-id>ProductAttributeInclusionCondition</condition-descriptor-id>
+<operator>false</operator>
+<grouping>false</grouping>
+<custom-attributes>
+<custom-attribute name="AttributeValue" dt:dt="string">ABC</custom-attribute>
+<custom-attribute name="AttributeType" dt:dt="string">string</custom-attribute>
+<custom-attribute name="AttributeValueOperator" dt:dt="string">equalto</custom-attribute>
+<custom-attribute name="AttributeName" dt:dt="string">Fullfiller</custom-attribute>
+</custom-attributes>
+</shipping-condition>
+</shipping-condition>
+<shipping-action>
+<type>ExcludeShipping</type>
+</shipping-action>
+</shipping-rule>
+<shipping-rule>
+<id>US_EXCEPTION</id>
+<active>true</active>
+<custom-attributes>
+<custom-attribute name="description" dt:dt="string" xml:lang="en-US">A client does not want to ship to US Territories except Puerto Rico and US Virgin Islands</custom-attribute>
+<custom-attribute name="displayName" dt:dt="string" xml:lang="en-US">US Territories Exception</custom-attribute>
+</custom-attributes>
+<shipping-condition>
+<condition-descriptor-id>ShipToStateCondition</condition-descriptor-id>
+<operator>false</operator>
+<grouping>false</grouping>
+<custom-attributes>
+<custom-attribute name="States" dt:dt="string">
+<value>GU_US</value>
+<value>MH_US</value>
+<value>MP_US</value>
+<value>GU_US</value>
+<value>MH_US</value>
+<value>AS_US</value>
+</custom-attribute>
+</custom-attributes>
+</shipping-condition>
+<shipping-action>
+<type>ExcludeShipping</type>
+</shipping-action>
+</shipping-rule>
+</enfinity>

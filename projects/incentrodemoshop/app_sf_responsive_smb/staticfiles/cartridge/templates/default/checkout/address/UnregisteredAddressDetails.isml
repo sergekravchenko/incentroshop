@@ -1,0 +1,11 @@
+<isif condition="#NOT(CurrentSession:LoggedIn)#">
+	<isset name="BasketBOCompanyCustomerExtension" value="#CurrentCartBO:Extension("CompanyCustomer")#" scope="request"/>
+	<address>
+		<isif condition="#isDefined(BasketBOCompanyCustomerExtension:Department) AND (BasketBOCompanyCustomerExtension:Department NE '')#">
+			<istext key="checkout.addresses.department.label"/>:&nbsp;<isprint value="#BasketBOCompanyCustomerExtension:Department#"><br/>
+		</isif>
+		<isif condition="#isDefined(BasketBOCompanyCustomerExtension:TaxationID) AND (BasketBOCompanyCustomerExtension:TaxationID NE '')#">
+			<istext key="checkout.addresses.taxation.label"/>:&nbsp;<isprint value="#BasketBOCompanyCustomerExtension:TaxationID#"><br/>
+		</isif>
+	</address>
+</isif>

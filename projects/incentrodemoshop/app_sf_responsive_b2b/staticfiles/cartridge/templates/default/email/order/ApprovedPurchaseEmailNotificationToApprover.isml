@@ -1,0 +1,624 @@
+<iscontent type="text/html" charset="UTF-8" compact="true">
+
+<isinclude template="modules/Modules">
+
+<isinclude template="email/mailTemplate/MailConfig"/>
+
+<isinclude template="email/order/RequisitionTypeInc"/>
+
+<subject><istext key="#'email.pending_' . BasketType . '_confirmation.heading'#" parameter0="#encodeValue(ChannelName)#" encoding="off" /></subject>
+
+<isinclude template="email/mailTemplate/MailHeader"/>
+
+<isinclude template="email/order/Modules"/>
+
+<isset name="RequisitionApproval" value="#BasketBO:Extension("BasketBOOrderApprovalExtension")#" scope="request"/>
+
+<isinclude template="email/order/Modules"/>
+
+<isset name="ApprovedPurchaseStatementKey" value="#'email.approve_' . BasketType . '.approved.text'#" scope="request"/>
+
+<isset name="CartAppliedRebate" value="#BasketBO:Extension("AppliedRebate")#" scope="request"/>
+<isset name="CartGifting" value="#BasketBO:Extension("Gifting")#" scope="request"/>
+<isset name="CartPayment" value="#BasketBO:Extension("Payment")#" scope="request"/>
+<isset name="ShippingBucket" value="#BasketBO:Extension("ShippingBucket")#" scope="request"/>
+<isset name="PriceDisplayTypeName" value="#BasketBO:PriceDisplayTypeName#" scope="request">
+
+<p>
+	<istext key="email.hello.label.firstname_lastname" parameter0="#ApprovalUserBO:FirstName#" parameter1="#ApprovalUserBO:LastName#" />
+</p>
+
+<p>
+	<isif condition="#isDefined(PurchaseApprover)#">
+		<istext key="#ApprovedPurchaseStatementKey#"
+				parameter0="#BasketBO:User:Profile:DataSheet:FirstName#"
+				parameter1="#BasketBO:User:Profile:DataSheet:LastName#"
+				parameter2="#PurchaseApprover:FirstName#"
+				parameter3="#PurchaseApprover:LastName#" />
+	<iselse />
+		<istext key="#ApprovedPurchaseStatementKey#"
+				parameter0="#BasketBO:User:Profile:DataSheet:FirstName#"
+				parameter1="#BasketBO:User:Profile:DataSheet:LastName#"
+				parameter2="#RequisitionApproval:ApproverFirstName#"
+				parameter3="#RequisitionApproval:ApproverLastName#" />
+	</isif>
+</p>
+
+<isPurchaseInfo BasketBO="#BasketBO#" ShowBuyer="true">
+
+<!--- Requisition Items --->
+<isset name="BucketNo" value="#0#" scope="request">
+<isloop iterator="ShippingBucket:ShippingBucketBOs" alias="Bucket">
+	<isset name="BucketNo" value="#BucketNo + 1#" scope="request">
+
+	<isif condition="#(NOT (ShippingBucket:ShippingBucketBOs:Size > 1))#">
+		<!--- Invoice Address and shipping address for single bucket --->
+		<table cellpadding="10" cellspacing="0" class="pattern">
+			<tr class="mobileTable">
+				<td width="600" class="orderConfirmationBucketInfo">
+					<table cellpadding="0" cellspacing="0" width="100%" class="dataList">
+						<tr>
+							<td valign="top">
+								<h4><istext key="checkout.address.billing.label" /></h4>
+								<p><isaddress address="#BasketBO:InvoiceToAddressBO#"></p>
+							</td>
+							<td valign="top">
+								<h4><istext key="checkout.address.shipping.label" /></h4>
+								<p><isaddress address="#Bucket:ShipToAddress#"></p>
+							</td>
+						</tr>
+					</table>
+					
+				</td>
+			</tr>
+		</table>
+	</isif>
+
+	<isloop iterator="Bucket:ProductLineItemBOs" alias="PLI">
+		<isset name="DigitalGiftCard" value="#PLI:ProductBO:ServiceTypeBO:DigitalGiftCard#" scope="request">
+		<isbreak>
+	</isloop>
+	
+	<br /> 
+	<!--- Shipping Bucket --->
+	<table cellpadding="10" cellspacing="0" border="0" width="100%">
+		<tr>
+			<td class="orderConfirmationShippingInfo">
+	
+				<span class="orderConfirmationShippingInfoAddress">
+					<istext key="checkout.order.items_shipping_to.text" /> 
+					<isif condition="#DigitalGiftCard#">
+						<isif condition="# isDefined(Bucket:ShipToAddress:FirstName) AND (Bucket:ShipToAddress:FirstName NE '')#"><isprint value="#Bucket:ShipToAddress:FirstName#"> - </isif> <isprint value="#Bucket:ShipToAddress:EMail#">
+					<iselse>
+						<isif condition="#(Bucket:ShipToAddress:CompanyName NE '') AND (Bucket:ShipToAddress:CompanyName NE 'none')#">
+							<isprint value="#Bucket:ShipToAddress:CompanyName#"><isif condition="#Bucket:ShipToAddress:CompanyName2 NE ''#"> <isprint value="#Bucket:ShipToAddress:CompanyName2#"></isif>, 
+						</isif>
+						<isif condition="#(Bucket:ShipToAddress:Field("AddressName") NE '') AND (isDefined (Bucket:ShipToAddress:Extension("Store")))#"><isprint value="#Bucket:ShipToAddress:Field("AddressName")#"></isif>
+						<isprint value="#Bucket:ShipToAddress:FirstName#"> <isprint value="#Bucket:ShipToAddress:LastName#"> - <isprint value="#Bucket:ShipToAddress:Street#">
+					</isif>
+				</span>
+				<isif condition="#isDefined(Bucket:DeliveryTimeMin) AND isDefined(Bucket:DeliveryTimeMax)#">
+					<br /><istext key="checkout.receipt.delivery_time.description" /> 
+					<isif condition="#Bucket:DeliveryTimeMin EQ '0'#">
+						<isif condition="#Bucket:DeliveryTimeMax EQ '1'#">
+							<istext key="checkout.receipt.shipping_time.within24" />
+						<iselse>
+							<istext key="checkout.receipt.shipping_time.within" parameter0="#Bucket:DeliveryTimeMax#" />
+						</isif>
+					<iselse>
+						<istext key="checkout.receipt.delivery_time" parameter0="#Bucket:DeliveryTimeMin#" parameter1="#Bucket:DeliveryTimeMax#" />
+					</isif>
+				</isif>
+			</td>
+		</tr>
+	</table>
+
+	<!--- Shipping Address and shipping method --->
+	<table cellpadding="10" cellspacing="0" class="pattern">
+		<tr class="mobileTable">
+			<td width="600" class="orderConfirmationBucketInfo">
+			
+				<isif condition="#ShippingBucket:ShippingBucketBOs:Size > 1#">
+					<table cellpadding="0" cellspacing="0" width="100%" class="dataList">
+						<tr>
+							<td valign="top">
+								<h4><istext key="checkout.address.shipping.label" /></h4>
+								<p><isaddress address="#Bucket:ShipToAddress#"></p>
+							</td>
+							<td valign="top">
+								<h4><istext key="checkout.shipping.method.heading" /></h4>
+								
+								<isif condition="#Bucket:SelectedShippingMethod:ExtensibleObject:shortName NE ''#">
+									<p><isprint value="#Bucket:SelectedShippingMethod:ExtensibleObject:shortName#"></p>
+								<iselse>
+									<p><isprint value="#Bucket:SelectedShippingMethod:DisplayName#"></p>
+								</isif>
+								
+								<isif condition="#PriceDisplayTypeName EQ 'net'#">
+									<p>(<isprint value="#Bucket:PriceNet#"/>)</p>
+								<iselse/>
+									<p>(<isprint value="#Bucket:PriceGross#"/>)</p>
+								</isif>
+								
+								<isif condition="#isDefined(Bucket:ShippingInstructions) AND (Bucket:ShippingInstructions NE '')#">
+									<p><istext key="checkout.shipping_method.instructions.heading" /></p>
+									<p><isprint value="#Bucket:ShippingInstructions#" encoding="nl2br,html"></p>
+								</isif>
+							</td>
+						</tr>
+					</table>
+				<iselse>
+					<table cellpadding="0" cellspacing="0" width="100%" class="dataList">
+						<tr>
+							<td valign="top">
+								<h4><istext key="checkout.shipping.method.heading" /></h4>
+								
+								<isif condition="#Bucket:SelectedShippingMethod:ExtensibleObject:shortName NE ''#">
+									<p><isprint value="#Bucket:SelectedShippingMethod:ExtensibleObject:shortName#"></p>
+								<iselse>
+									<p><isprint value="#Bucket:SelectedShippingMethod:DisplayName#"></p>
+								</isif>
+								
+								<isif condition="#PriceDisplayTypeName EQ 'net'#">
+									<p>(<isprint value="#Bucket:PriceNet#"/>)</p>
+								<iselse/>
+									<p>(<isprint value="#Bucket:PriceGross#"/>)</p>
+								</isif>
+								
+								<isif condition="#isDefined(Bucket:ShippingInstructions) AND (Bucket:ShippingInstructions NE '')#">
+									<p><istext key="checkout.shipping_method.instructions.heading" /></p>
+									<p><isprint value="#Bucket:ShippingInstructions#" encoding="nl2br,html"></p>
+								</isif>
+							</td>
+							<td valign="top">
+								<h4><istext key="checkout.payment.method.heading" /></h4>
+								<p>
+									<isif condition="#BasketBO:GrandTotalGross:Value != 0.00#">
+										<isPaymentMethodDisplay paymentBOs="#CartPayment:PaymentBOs#">
+									<iselse>
+										<istext key="email.order_confirmation.no_payment_method.text" />
+									</isif>
+								</p>
+							</td>
+						</tr>
+					</table>
+				</isif>
+			</td>
+		</tr>
+	</table>
+	
+	<table cellpadding="0" cellspacing="0" border="0" width="100%">
+					
+		<!--- table header --->
+		<isset name="GiftColCount" value="#0#" scope="request">
+		
+		<!--- Product Row --->
+		<isloop iterator="Bucket:ProductLineItemBOs" alias="Pli">
+			
+			<isset name="PLIWarranty" value="#Pli:Extension("Warranty")#" scope="request"/>
+			<isset name="PLIGifting" value="#Pli:Extension("Gifting")#" scope="request"/>
+			
+			<tr>
+				<td colspan="2">
+				
+					<table class="emailCartProductDetails" cellpadding="0" cellspacing="0" border="0" width="100%">
+						<tr>
+							<td width="33%">
+								<!---Product Image --->
+								<a href="#URLEX(InsecureURL,'',Action('ViewProduct-Start'), Parameter('SKU', Pli:ProductSKU))#">
+									<img alt="<isprint value="#Pli:ProductSKU#"/>" src="<isprint value="#ContentUrlEx('', '', '', '', '', Pli:ProductBO:Extension("Image"):ImageContainerBO:PrimaryImage("S"):ContentRef)#"/>">
+								</a>
+							</td>
+							<td width="66%">
+								<!--- Product Description and Details --->
+								<a href="#URL(Action('ViewProduct-Start'),Parameter('SKU', Pli:OfferProductRef:ProductSKU))#"><isprint value="#Pli:ProductName#"></a>
+								<br /><istext key="email.order_confirmation.item.text" /> <isprint value="#Pli:OfferProductRef:ProductSKU#">
+								<isif condition="#isDefined(Pli:VariationInformationBO)#">
+									<isloop iterator="Pli:VariationInformationBO:VariationAttributes" alias="VariationAttribute">
+										<br /><isprint value="#VariationAttribute:DisplayName#">: <isprint value="#Pli:ProductBO:Attribute(VariationAttribute:Name)#">
+									</isloop>
+								</isif>
+								
+								<!--- Gifting Option --->
+								<isif condition="#(isDefined(GiftWrap_Switch) AND (GiftWrap_Switch EQ 'true')) OR (isDefined(GiftMessage_Switch) AND (GiftMessage_Switch EQ 'true'))#">
+									<isif condition="#(isDefined(PLIGifting:GiftOptionMarked) AND (PLIGifting:GiftOptionMarked EQ 'true'))#">
+										<br /><istext key="checkout.gifting.pli.selected.text" />
+									</isif>
+								</isif>
+								
+								<isif condition="#Pli:ProductBO:Available EQ 'true'#">
+									<br /><br /><istext key="checkout.pli.instock.text" />
+								<iselse>
+									<br /><br /><istext key="checkout.pli.out_of_stock.text" />
+								</isif>
+								
+								<isif condition="#isDefined(Pli:DesiredDeliveryDate)#">
+									<br /><istext key="checkout.shipping.pli.dddate.short.text" /><br/>
+									<isprint value="#Pli:DesiredDeliveryDate#" style="DATE_LONG"/>
+								</isif>
+								
+								<!--- pli promotion --->
+								<isset name="PLIAppliedRebate" value="#Pli:Extension("AppliedRebate")#" scope="request"/>
+								<isloop iterator="PLIAppliedRebate:AppliedRebates" alias="AppliedRebate">
+									<isif condition="#NOT(AppliedRebate:RebateBO:PromotionBO:DisableMessages)#">
+										<isset name="PromoLongTitle" value="#AppliedRebate:RebateBO:PromotionBO:LongTitle(CurrentSession:Locale)#" scope="request"/>
+								
+										<isif condition="#isDefined(PromoLongTitle)#">
+											<p><isHtmlPrint value="#PromoLongTitle#" mode="storefront"></p>
+										<iselse>
+											<p><isHtmlPrint value="#AppliedRebate:RebateBO:PromotionBO:DisplayName(CurrentSession:Locale)#" mode="storefront"></p>
+										</isif>
+									</isif>
+								</isloop>
+								
+							</td>
+						</tr>
+					</table>
+				
+				</td>
+			</tr>	
+			<tr>
+				<td colspan="2">
+					
+					<table class="emailCartPrice" cellpadding="0" cellspacing="0" border="0" width="100%">
+						<tr>
+							<th width="33%"><istext key="email.order_confirmation.quantity.text" /></th>
+							<th width="33%"><istext key="email.order_confirmation.price.text" /></th>
+							<th class="emailPriceColumn" width="33%"><istext key="email.order_confirmation.total.text" /></th>
+						</tr>
+						<tr>
+							<td align="center"><isprint value="#Pli:Quantity#"></td>
+							<td align="center">
+								<!--- Product Single Price --->
+								<isif condition="#PriceDisplayTypeName EQ 'net'#">
+									<isprint value="#Pli:SingleBasePriceNet#">
+								<iselse>
+									<isprint value="#Pli:SingleBasePriceGross#">
+								</isif>
+							</td>
+							<td class="emailPriceColumn">
+								<!--- Product Total Price --->
+								<isif condition="#PriceDisplayTypeName EQ 'net'#">
+									<isprint value="#Pli:DiscountedPriceNet#">
+								<iselse>
+									<isprint value="#Pli:DiscountedPriceGross#">
+								</isif>
+								
+								<isset name="PLIAppliedRebate" value="#Pli:Extension("AppliedRebate")#" scope="request"/>
+								<isif condition="#PLIAppliedRebate:ItemValueRebatesTotal:Available#">
+									<div class="old-price">
+										<isif condition="#PriceDisplayType EQ 'net'#">
+											<isprint value="#Pli:PriceNet#">
+										<iselse>
+											<isprint value="#Pli:PriceGross#">
+										</isif>
+									</div>
+								</isif>
+							</td>
+							
+					
+						</tr>
+					</table>
+					
+				</td>
+			</tr>
+			
+			<!--- Surcharge information --->
+			<isif condition="#isDefined(Pli:AllItemSurchargeBOs)#">
+				<isloop iterator="Pli:AllItemSurchargeBOs" alias="Surcharge">
+					<tr>
+						<td colspan="2">
+						
+							<table class="emailCartProductDetails" cellpadding="0" cellspacing="0" border="0" width="100%">
+								<tr>
+									<td width="33%">&nbsp;</td>
+									<td width="66%"><isif condition="#isDefined(Surcharge:DisplayName)#">
+														<isprint value="#Surcharge:DisplayName#"/>
+													<iselse>
+														<istext key="checkout.pli.surcharge.text" />
+													</isif>
+									</td>
+								</tr>
+							</table>
+							<table class="emailCartPrice" cellpadding="0" cellspacing="0" border="0" width="100%">
+								<tr>
+									<th width="33%">&nbsp;</th>
+									<th width="33%">&nbsp;</th>
+									<th class="emailPriceColumn" width="33%"><istext key="email.order_confirmation.total.text" /></th>
+								</tr>
+								<tr>
+									<!--- Qty --->
+									<td align="center">&nbsp;</td>
+									<td align="center">&nbsp;</td>
+									<td class="emailPriceColumn">
+										<isif condition="#PriceDisplayTypeName EQ 'net'#">
+											<isprint value="#Surcharge:AmountNet#">
+										<iselse>
+											<isprint value="#Surcharge:AmountGross#">
+										</isif>
+									</td>
+								</tr>
+							</table>
+							
+						</td>
+					</tr>
+				</isloop>
+			</isif>
+			
+			<!--- Warranty information --->
+			<isif condition="#PLIWarranty:Warranty:Warranty:DisplayName NE ''#">
+				<tr>
+					<td colspan="2">
+					
+						<table class="emailCartProductDetails" cellpadding="0" cellspacing="0" border="0" width="100%">
+							<tr>
+								<td width="33%">&nbsp;</td>
+								<td width="66%"><isprint value="#PLIWarranty:Warranty:Warranty:DisplayName#"></td>
+							</tr>
+						</table>
+						<table class="emailCartPrice" cellpadding="0" cellspacing="0" border="0" width="100%">
+							<tr>
+								<th width="33%">&nbsp;</th>
+								<th width="33%">&nbsp;</th>
+								<th class="emailPriceColumn" width="33%"><istext key="email.order_confirmation.total.text" /></th>
+							</tr>
+							<tr>
+								<!--- Qty --->
+								<td align="center">&nbsp;</td>
+								<td align="center">&nbsp;</td>
+								<td class="emailPriceColumn">
+									<isif condition="#PriceDisplayTypeName EQ 'net'#">
+										<isprint value="#PLIWarranty:Warranty:PriceNet#">
+									<iselse>
+										<isprint value="#PLIWarranty:Warranty:PriceGross#">
+									</isif>
+								</td>
+							</tr>
+						</table>
+						
+					</td>
+				</tr>
+			</isif>
+		</isloop>
+
+	</table>
+
+	<!--- Pack Slip Message --->
+	<isif condition="#isDefined(Bucket:PackSlipMessage) AND (PackSlipMessage_Switch EQ 'true')#">
+		<table cellpadding="10" cellspacing="0" class="pattern">
+			<tr class="mobileTable">
+				<td width="600" class="orderConfirmationBucketInfo">
+					<h4><istext key="checkout.pack_slip.header" /></h4>
+					
+					<table cellpadding="0" cellspacing="0" width="100%" class="dataList">
+						<tr>
+							<td width="33%" valign="top">
+								<istext key="checkout.pack_slip.to" />
+							</td>
+							<td width="66%" valign="top">
+								<isprint value="#Bucket:PackSlipMessage:Message:To#" />
+							</td>
+						</tr>
+						<tr>
+							<td valign="top">
+								<istext key="checkout.pack_slip.from" />
+							</td>
+							<td valign="top">
+								<isprint value="#Bucket:PackSlipMessage:Message:From#" />
+							</td>
+						</tr>
+						<tr>
+							<td valign="top">
+								<istext key="checkout.pack_slip.message" />
+							</td>
+							<td valign="top">
+								<isprint value="#Bucket:PackSlipMessage:Message:Message#" encoding="nl2br,html"/>
+							</td>
+						</tr>
+					</table>
+					
+				</td>
+			</tr>
+		</table>
+	</isif>
+</isloop>
+<!--- Order Details --->
+<h2 class="emailOrderSummary"><istext key="email.order_confirmation.billing_details.text" /></h2>
+
+<table class="emailCostSummary" cellpadding="0" cellspacing="0" border="0" width="100%">
+	<tr>
+		<td>
+			<table cellpadding="0" cellspacing="0" border="0" align="right">
+			
+				<!--- Order Subtotal --->
+				<tr>
+					<td><istext key="email.order_confirmation.subtotal.text" /></td>
+					<td align="right">
+						<isif condition="#PriceDisplayTypeName EQ 'net'#">
+							<isprint value="#BasketBO:DiscountedItemSubtotalNet#">
+						<iselse>
+							<isprint value="#BasketBO:DiscountedItemSubtotalGross#">
+						</isif>
+					</td>
+				</tr>
+				
+				<!--- Promotions --->
+				<isloop iterator="CartAppliedRebate:AppliedBasketValueRebates" alias="AppliedRebate">
+					<tr>
+						<td>
+							<isif condition="#NOT(AppliedRebate:RebateBO:PromotionBO:DisableMessages)#">
+								<isset name="PromoLongTitle" value="#AppliedRebate:RebateBO:PromotionBO:LongTitle(CurrentSession:Locale)#" scope="request"/>
+								<isif condition="#isDefined(PromoLongTitle)#">
+									<isHtmlPrint value="#PromoLongTitle#" mode="storefront">
+								<iselse>
+									<isHtmlPrint value="#AppliedRebate:RebateBO:PromotionBO:DisplayName(CurrentSession:Locale)#" mode="storefront">
+									</isif>
+							<iselse>-<isif condition="#PriceDisplayTypeName EQ 'net'#"><isprint value="#CartAppliedRebate:ShippingRebatesTotalNet#"><iselse><isprint value="#CartAppliedRebate:ShippingRebatesTotalGross#"></isif>
+							</isif>
+						</td>
+						<td align="right">
+							<isif condition="#PriceDisplayTypeName EQ 'net'#">
+								<isprint value="#AppliedRebate:AmountNet:Negated#">
+							<iselse/>
+								<isprint value="#AppliedRebate:AmountGross:Negated#">
+							</isif>
+						</td>
+					</tr>
+				</isloop>
+				
+				<!--- Shipping --->
+				<tr>
+					<td><istext key="email.order_confirmation.shipping.text" /></td>
+					<td align="right">
+						<isif condition="#PriceDisplayTypeName EQ 'net'#">
+							<isif condition="#BasketBO:ShippingTotalNet:Available#">
+								<isprint value="#BasketBO:ShippingTotalNet#">
+							<iselse>
+								<isprint value="#BasketBO:ItemSubtotal:ZeroMoney(BasketBO:ItemSubtotal:CurrencyMnemonic)#">
+							</isif>	
+						<iselse/>
+							<isif condition="#BasketBO:ShippingTotalGross:Available#">
+								<isprint value="#BasketBO:ShippingTotalGross#">
+							<iselse>
+								<isprint value="#BasketBO:ItemSubtotal:ZeroMoney(BasketBO:ItemSubtotal:CurrencyMnemonic)#">
+							</isif>	
+						</isif>
+					</td>
+				</tr>
+				
+				<!--- Shipping Promotions--->
+				<isif condition="#isDefined(CartAppliedRebate:ShippingRebatesTotal) AND NOT(CartAppliedRebate:ShippingRebatesTotal EQ CartAppliedRebate:ShippingRebatesTotal:ZeroMoney(CartAppliedRebate:ShippingRebatesTotal:CurrencyMnemonic))#">
+					<isloop iterator="CartAppliedRebate:AppliedShippingRebates" alias="AppliedRebate">
+						<td>
+							<isif condition="#NOT(AppliedRebate:RebateBO:PromotionBO:DisableMessages)#">
+								<isset name="PromoLongTitle" value="#AppliedRebate:RebateBO:PromotionBO:LongTitle(CurrentSession:Locale)#" scope="request"/>
+								<isif condition="#isDefined(PromoLongTitle)#">
+									<isHtmlPrint value="#PromoLongTitle#" mode="storefront">
+								<iselse>
+									<isHtmlPrint value="#AppliedRebate:RebateBO:PromotionBO:DisplayName(CurrentSession:Locale)#" mode="storefront">
+									</isif>
+							<iselse>-<isif condition="#PriceDisplayTypeName EQ 'net'#"><isprint value="#CartAppliedRebate:ShippingRebatesTotalNet#"><iselse/><isprint value="#CartAppliedRebate:ShippingRebatesTotalGross#"></isif>
+							</isif>
+						</td>
+						<td align="right">
+							<isif condition="#PriceDisplayTypeName EQ 'net'#"><isprint value="#AppliedRebate:AmountNet:Negated#"><iselse/><isprint value="#AppliedRebate:AmountGross:Negated#"></isif>
+						</td>
+					</isloop>
+				</isif>
+				
+				<!--- Bucket Surcharges --->
+				<!-- show item surcharges grouped (add up) by rules  -->
+				<isif condition="#hasLoopElements(BasketBO:ItemSurchargeTotalsByType)#">
+					<isloop iterator="BasketBO:ItemSurchargeTotalsByType" alias="GIS">
+						<tr>
+							<td><isprint value="#GIS:DisplayName#"></td>
+							<td align="right">
+								<isif condition="#PriceDisplayTypeName EQ 'net'#">
+									<isprint value="#GIS:AmountNet#">
+								<iselse>
+									<isprint value="#GIS:AmountGross#">
+								</isif>
+							</td>
+						</tr>
+					</isloop>
+				</isif>
+				
+				<!--- -show surcharges of bucket grouped (add up) by rules  --->
+				<isif condition="#hasLoopElements(BasketBO:BucketSurchargeTotalsByType)#">
+					<isloop iterator="BasketBO:BucketSurchargeTotalsByType" alias="GBS">
+						<tr>
+							<td><isprint value="#GBS:DisplayName#"></td>
+							<td align="right">
+								<isif condition="#PriceDisplayTypeName EQ 'net'#">
+									<isprint value="#GBS:AmountNet#">
+								<iselse>
+									<isprint value="#GBS:AmountGross#">
+								</isif>
+							</td>
+						</tr>
+					</isloop>
+				</isif>
+			
+				<!--- Gift Card --->
+				<isif condition = "#(isDefined(BasketBO:LimitedTenderTotal)) AND (BasketBO:LimitedTenderTotal:Value != 0.00)#">
+					<tr>
+						<td><istext key="checkout.payment.gift.heading"/></td>
+						<td align="right">-<isprint value="#BasketBO:LimitedTenderTotal#"></td>
+					</tr>
+				</isif>
+				
+				<!--- Gifting Cost --->
+				<isif condition = "#(CartGifting:hasGiftingCosts)#">
+					<tr>
+						<td><istext key="email.order_confirmation.gifting_cost.text" /></td>
+						<td align="right">
+							<isif condition="#PriceDisplayTypeName EQ 'net'#">
+								<isprint value="#CartGifting:GiftingTotalNet#">
+							<iselse>
+								<isprint value="#CartGifting:GiftingTotalGross#">
+							</isif>
+						</td>
+					</tr>
+				</isif>
+			
+				<!--- Payment Cost --->
+				<tr>
+					<td><istext key="email.order_confirmation.payment_cost.text" /></td>
+					<td align="right">
+						<isif condition="#PriceDisplayTypeName EQ 'net'#">
+							<isprint value="#CartPayment:PaymentCostsTotalNet#">
+						<iselse>
+							<isprint value="#CartPayment:PaymentCostsTotalGross#">
+						</isif>
+					</td>
+				</tr>
+				
+				<!--- Tax --->
+				<tr>
+					<td>
+						<isif condition="#PriceDisplayTypeName EQ 'net'#">
+							<istext key="email.order_confirmation.tax.text" />
+						</isif>
+						<isif condition="#PriceDisplayTypeName EQ 'gross'#">
+							<istext key="email.order_confirmation.tax_included.text" />
+						</isif>
+					</td>
+					<td align="right">
+						<isif condition="#PriceDisplayTypeName EQ 'net'#">
+							<isprint value="#BasketBO:TaxTotal#">
+						<iselseif condition="#PriceDisplayTypeName EQ 'gross'#">
+							<isprint value="#BasketBO:TaxTotal#">
+						<iselse>
+							<istext key="email.order_confirmation.space.text" />
+						</isif>
+					</td>
+				</tr>
+				
+				<!--- total --->
+				<tr>
+					<td class="total-price"><istext key="email.order_confirmation.total.text" /></td>
+					<td class="total-price" align="right">
+						<isprint value="#BasketBO:BasketTotalPriceMinusLimitedTenderGross#">
+					</td>
+				</tr>
+			</table>
+			
+		</td>
+	</tr>
+</table>
+
+<p>
+	<istext key="email.order_confirmation.questions" 
+		parameter0="#URL(Action('ViewHomepage-Start'))#" 
+		parameter1="#encodeValue(ChannelName)#" 
+		parameter2="#URL(Action('ViewContent-Start'), Parameter('PageletEntryPointID','systempage.helpdesk.index.pagelet2-Page'))#" 
+		encoding="off" 
+	/> 
+</p>
+
+<p>
+	<istext key="email.kind_regards.label"/><br />
+	<istext key="email.notification.service" parameter0="#ChannelName#"/>
+</p>
+
+<isinclude template="email/mailTemplate/MailFooter"/>

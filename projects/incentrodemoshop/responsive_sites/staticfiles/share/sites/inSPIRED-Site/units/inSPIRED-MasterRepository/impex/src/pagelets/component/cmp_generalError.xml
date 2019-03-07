@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<enfinity xmlns:dt="http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt">
+<pagelet-component id="cmp_generalError">
+<definition-name>app_sf_responsive_cm:component.system.error.pagelet2-Component</definition-name>
+<display-name xml:lang="de-DE">Allgemeiner Fehler.</display-name>
+<display-name xml:lang="en-US">General Error</display-name>
+<display-name xml:lang="fr-FR">Erreur générale</display-name>
+<online>true</online>
+<author business-partner-no="admin" domain="inSPIRED"/>
+<configuration-parameters>
+<configuration-parameter name="HTML">
+<definition-name>app_sf_responsive_cm:component.system.error.pagelet2-Component-HTML</definition-name>
+<value name="HTML" xml:lang="de-DE">&lt;h1&gt;Seite nicht gefunden!&lt;/h1&gt;
+&lt;div class=&quot;error-text&quot;&gt;
+&lt;h3&gt;Es tut uns leid ...&lt;/h3&gt;
+&lt;p&gt;Die gesuchte Seite ist derzeit nicht verfügbar. Mögliche Fehler sind veraltete Links, Tippfehler oder Verschieben, Umbenennen oder Löschen einer Datei. Der Webmaster wurde über das Problem informiert.&lt;/p&gt;
+&lt;h4&gt;Führen Sie inzwischen einen der folgenden Schritte aus:&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Überprüfen Sie die Adresse der Seite (in der Adresszeile des Browsers) auf Schreibfehler&lt;/li&gt;
+&lt;li&gt;Gehen Sie zurück zur &lt;a href=&quot;javascript:history.back()&quot;&gt;vorherigen Seite&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Gehen Sie zurück zur &lt;a href=&quot;pipeline://ViewHomepage-Start&quot;&gt;Startseite&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Oder benutzen Sie unsere Suche:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;</value>
+<value name="HTML" xml:lang="en-US">&lt;h1&gt;Page Not Found!&lt;/h1&gt;
+&lt;div class=&quot;error-text&quot;&gt;
+&lt;h3&gt;We are sorry ...&lt;/h3&gt;
+&lt;p&gt;The page you are looking for is currently not available. This could be caused by out-of-date links, a typing error, or moving, renaming or deleting a file. We&apos;ve informed our webmaster of this problem.&lt;/p&gt;
+&lt;h4&gt;Please try one of the following:&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Check the page address in the Address Bar for typing errors&lt;/li&gt;
+&lt;li&gt;Go back to the &lt;a href=&quot;javascript:history.back()&quot;&gt;Previous Page&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Go back to the &lt;a href=&quot;pipeline://ViewHomepage-Start&quot;&gt;Home Page&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Or use our site search:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;</value>
+<value name="HTML" xml:lang="fr-FR">&lt;h1&gt;Page introuvable !&lt;/h1&gt;
+&lt;div class=&quot;error-text&quot;&gt;
+&lt;h3&gt;Nous sommes désolé...&lt;/h3&gt;
+&lt;p&gt;La page souhaitée est actuellement indisponible. Cela peut être dû aux liens périmés, à une faute de frappe, ou à déplacer, renommer ou supprimer un fichier. Nous avons tenu l&apos;administrateur du site web au courant de ce problème.&lt;/p&gt;
+&lt;h4&gt;Veuillez essayer les options suivantes :&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Vérifier les fautes de frappes de l’’adresse de page dans la barre d’’adresse.&lt;/li&gt;
+&lt;li&gt;Retourner à la &lt;a href=&quot;javascript:history.back()&quot;&gt;Page précédante&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Retourner à la &lt;a href=&quot;pipeline://ViewHomepage-Start&quot;&gt;Page d’’accueil&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;ou bien utiliser le recherche de notre site :&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;</value>
+</configuration-parameter>
+</configuration-parameters>
+<slots>
+<slot>
+<definition-name>app_sf_responsive_cm:slot.marketing.base.pagelet2-Slot</definition-name>
+<optional>false</optional>
+<sorting>false</sorting>
+</slot>
+</slots>
+</pagelet-component>
+</enfinity>

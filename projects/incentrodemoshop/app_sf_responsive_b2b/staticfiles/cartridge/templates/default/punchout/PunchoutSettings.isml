@@ -1,0 +1,43 @@
+<iscontent type="text/html" charset="UTF-8" compact="true">
+<iscache type="forbidden">
+
+<isset name="PunchoutExtension" value="#CustomerBO:Extension("Punchout")#" scope="request">
+
+<div class="breadcrumbs row">
+	<isAccountBreadcrumb 
+		trailtext="#localizeText('account.punchout.link')#">
+</div>
+
+<!--- Marketing slot --->
+<div class="marketing-area">
+	<ISMarketingSlot id="baseMarketing">
+</div>
+
+<div class="account-wrapper" data-testing-id="account-punchout-page">
+	<div class="row account-main">
+		<!--- Left Navigation Panel --->
+		<div class="col-md-3 account-nav-box">
+			<isAccountNavigation selecteditem="PUNCHOUT">
+		</div>
+		
+		<div class="col-md-9">
+			<div class="marketing-area">
+				<ISMarketingSlot id="contentMarketing">
+			</div>
+		
+		
+			<isset name="PunchoutType" value="oci" scope="request"/>	
+			<h1>
+				<istext key="account.punchout.heading"/>
+				<isif condition="#hasElements(PunchoutExtension:PunchoutUserBOs(PunchoutType))#">
+					<a href="#URL(Action('ViewOCIConfiguration-Start'))#" 
+						data-testing-class="link-oci-punchout-configuration"
+						class="btn btn-default"><istext key="account.punchout.button.configure" /></a>
+				</isif>
+			</h1>
+			
+			<isinclude template="punchout/inc/OCI">
+			
+		</div>
+	</div>
+</div>

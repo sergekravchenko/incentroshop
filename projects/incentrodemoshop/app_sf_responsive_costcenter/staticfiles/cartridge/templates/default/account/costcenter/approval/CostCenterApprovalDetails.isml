@@ -1,0 +1,229 @@
+<iscontent type="text/html" charset="UTF-8" compact="true">
+
+<isset name="CostCenterBO" value="#BasketBO:Extension("BasketBOCostCenterExtension"):CostCenterBO#" scope="request"/>
+<isset name="CostCenterOrderBOOrderExtension" value="#CostCenterBO:Extension("CostCenterBOOrderExtension")#" scope="request"/>
+<isset name="BasketTotal" value="#BasketBO:GrandTotalGross#" scope="request" />
+<isset name="BasketApprovalExtension" value="#BasketBO:Extension("Approval")#" scope="request"/> 
+ 
+<isif condition="#isDefined(CostCenterBO) AND CostCenterBO:isApprover(UserBO)#">
+	<div class="section infobox">
+		<h3><istext key="approval.detailspage.costcenter.approval.heading" /></h3>
+		
+		<div class="row">
+			<div class="col-sm-6">
+				<p class="row">
+					<strong class="col-xs-6">
+						<istext key="approval.detailspage.cost_center.label" />
+					</strong>
+					<span class="col-xs-6">
+						<isprint value="#BasketBO:Extension("BasketBOCostCenterExtension"):CostCenterBO:DisplayName#">
+					</span>
+				</p>
+			</div>
+		</div>
+		
+		<isset name="CostCenterLimit" value="#CostCenterBO:Budget#" scope="request"/>
+		<isset name="CostCenterLimitPediod" value="#CostCenterBO:BudgetPeriod#" scope="request"/>
+		<isset name="CostCenterOrdersTotal" value="#CostCenterOrderBOOrderExtension:OrdersTotal#" scope="request"/>
+		
+		<div class="row section">
+			<div class="col-sm-6">
+				<p class="row">
+					<strong class="col-xs-6">
+						<istext key="#'approval.detailspage.costcenter.budget.type.'.lcase(CostCenterLimitPediod).'.label'#" />
+					</strong>
+					<span class="col-xs-6">
+						<isif condition="#CostCenterLimit:Available#">
+							<isprint value="#CostCenterLimit#" />
+						<iselse/>
+							<istext key="approval.details.threshold.unlimited"/>
+						</isif>
+					</span>
+				</p>
+				
+				
+				<isif condition="#CostCenterLimit:Available#">
+					
+					<p class="row">
+						<strong class="col-xs-6">
+							<istext key="approval.detailspage.budget.already_spent.label" />
+						</strong>
+						<span class="col-xs-6">
+							<isif condition="#CostCenterOrdersTotal:Available#">
+								<isprint value="#CostCenterOrdersTotal#" />
+								<isset name="CostCenterOrdersTotalPercentage" value="#CostCenterOrdersTotal:Value / CostCenterLimit:Value * 100#" scope="request"/>
+								<isif condition="#CostCenterOrdersTotalPercentage > 100#">
+									<span class="label label-danger pull-right">
+								<iselse/>
+									<span class="label label-default pull-right">
+								</isif>
+									(<isprint value="#CostCenterOrdersTotalPercentage#" formatter="#.#"/> %)
+								</span>
+							<iselse/>
+								<ISMoneyCalculator method="subtract"
+									operand1="#BasketTotal#"
+									operand2="#BasketTotal#"
+									result="ZeroAmount">
+								<isprint value="#ZeroAmount#" /> 
+								<span class="label label-default pull-right">
+									(0.00 %)
+								</span>
+							</isif>
+						</span>
+					</p>
+				<isif condition="#BasketApprovalExtension:OverallApprovalStatus:ID EQ 'pending'#">
+					<isif condition="#NOT(RecurringBasket:Recurring)#">
+						<p class="row">
+							<strong class="col-xs-6">
+								<istext key="approval.detailspage.budget.including_order.label" />
+							</strong>
+							<span class="col-xs-6">
+								<isif condition="#CostCenterOrdersTotal:Available#">
+									<ISMoneyCalculator method="add"
+										operand1="#CostCenterOrdersTotal#"
+										operand2="#BasketTotal#"
+										result="CostCenterOrdersTotalEstimation">
+								<iselse/>
+									<isset name="CostCenterOrdersTotalEstimation" value="#BasketTotal#" scope="request" />
+								</isif>
+						
+								<isprint value="#CostCenterOrdersTotalEstimation#" />
+								<isset name="CostCenterOrdersTotalEstimationPercentage" value="#CostCenterOrdersTotalEstimation:Value / CostCenterLimit:Value * 100#" scope="request"/>
+								<isif condition="#CostCenterOrdersTotalEstimationPercentage> 100#">
+									<span class="label label-danger pull-right">
+								<iselse/>
+									<span class="label label-default pull-right">
+								</isif>
+									(<isprint value="#CostCenterOrdersTotalEstimationPercentage#" formatter="#.#"/> %)
+								</span>
+							</span>
+						</p>
+					</isif>
+				</isif>
+			</div>
+			
+			<isif condition="#CostCenterLimit:Available#">
+				<isif condition="#(BasketApprovalExtension:OverallApprovalStatus:ID EQ 'pending') AND (NOT RecurringBasket:Recurring)#">
+					<div class="col-sm-6">
+						<isIndicatorBar 
+							Addition="#BasketTotal#"
+							Comparison="#CostCenterOrdersTotal#"
+							Limit="#CostCenterLimit#"
+						>
+					</div>
+				<iselse/>
+					<div class="col-sm-6">
+						<isIndicatorBar 
+							Comparison="#CostCenterOrdersTotal#"
+							Limit="#CostCenterLimit#"
+						>
+					</div>	
+				</isif>
+			</isif>
+		</isif>
+		</div>
+		
+		<isset name="UserBOCostCenterBudgetExtension" value="#BasketBO:UserBO:Extension("UserBOCostCenterBudgetExtension")#" scope="request">
+		<isset name="BuyerCostCenterLimit" value="#UserBOCostCenterBudgetExtension:Budget(CostCenterBO:ID)#" scope="request"/>
+		<isset name="BuyerCostCenterLimitPediod" value="#UserBOCostCenterBudgetExtension:BudgetPeriod(CostCenterBO:ID)#" scope="request"/>
+		<isset name="BuyerCostCenterOrdersTotal" value="#CostCenterOrderBOOrderExtension:BuyerOrdersTotal(BasketBO:UserBO)#" scope="request"/>
+        
+		<div class="row">
+			<div class="col-sm-6">
+			
+				<p class="row">
+					<strong class="col-xs-6">
+						<istext key="#'approval.detailspage.costcenter.buyer.budget.type.'.lcase(BuyerCostCenterLimitPediod).'.label'#" />
+					</strong>
+					<span class="col-xs-6">
+						<isif condition="#BuyerCostCenterLimit:Available#">
+							<isprint value="#BuyerCostCenterLimit#" />
+						<iselse/>
+							<istext key="approval.details.threshold.unlimited"/>
+						</isif>
+					</span>
+				</p>
+				
+				<isif condition="#BuyerCostCenterLimit:Available#">
+					<p class="row">
+						<strong class="col-xs-6">
+							<istext key="approval.detailspage.budget.already_spent.label" />
+						</strong>
+						<span class="col-xs-6">
+							<isif condition="#BuyerCostCenterOrdersTotal:Available#">
+								<isprint value="#BuyerCostCenterOrdersTotal#" />
+								<isset name="BuyerCostCenterOrdersTotalPercentage" value="#BuyerCostCenterOrdersTotal:Value / BuyerCostCenterLimit:Value * 100#" scope="request"/>
+								<isif condition="#BuyerCostCenterOrdersTotalPercentage > 100#">
+									<span class="label label-danger pull-right">
+								<iselse/>
+									<span class="label label-default pull-right">
+								</isif>
+									(<isprint value="#BuyerCostCenterOrdersTotalPercentage#" formatter="#.#"/> %)
+								</span>
+								
+							<iselse/>
+								<ISMoneyCalculator method="subtract"
+									operand1="#BasketTotal#"
+									operand2="#BasketTotal#"
+									result="ZeroAmount">
+								<isprint value="#ZeroAmount#" /> 
+								<span class="label label-default pull-right">
+									(0.00 %)
+								</span>
+							</isif>
+						</span>
+					</p>
+				<isif condition="#BasketApprovalExtension:OverallApprovalStatus:ID EQ 'pending'#">
+					<isif condition="#NOT(RecurringBasket:Recurring)#">
+					<p class="row">
+						<strong class="col-xs-6">
+							<istext key="approval.detailspage.budget.including_order.label" />
+						</strong>
+						<span class="col-xs-6">
+							<isif condition="#BuyerCostCenterOrdersTotal:Available#">
+								<ISMoneyCalculator method="add"
+									operand1="#BuyerCostCenterOrdersTotal#"
+									operand2="#BasketTotal#"
+									result="BuyerCostCenterOrdersTotalEstimation">
+							<iselse/>
+								<isset name="BuyerCostCenterOrdersTotalEstimation" value="#BasketTotal#" scope="request" />
+							</isif>
+						
+							<isprint value="#BuyerCostCenterOrdersTotalEstimation#" />
+							<isset name="BuyerCostCenterOrdersTotalPercentage" value="#BuyerCostCenterOrdersTotalEstimation:Value / BuyerCostCenterLimit:Value * 100#" scope="request"/>
+							<isif condition="#BuyerCostCenterOrdersTotalPercentage> 100#">
+								<span class="label label-danger pull-right">
+							<iselse/>
+								<span class="label label-default pull-right">
+							</isif>
+								(<isprint value="#BuyerCostCenterOrdersTotalPercentage#" formatter="#.#"/> %)
+							</span>
+						</span>
+					</p>
+					</isif>
+				</isif>
+							
+			</div>
+			
+			<isif condition="#CostCenterLimit:Available#">
+				<isif condition="#(BasketApprovalExtension:OverallApprovalStatus:ID EQ 'pending') AND (NOT RecurringBasket:Recurring)#">
+					<div class="col-sm-6">
+						<isIndicatorBar 
+							Addition="#BasketTotal#"
+							Comparison="#BuyerCostCenterOrdersTotal#"
+							Limit="#BuyerCostCenterLimit#"
+						>
+					</div>
+					<iselse/>
+					<div class="col-sm-6">
+						<isIndicatorBar 
+							Comparison="#BuyerCostCenterOrdersTotal#"
+							Limit="#BuyerCostCenterLimit#"
+						>
+					</div>
+				</isif>
+			</isif>
+		</isif>	
+		</div>
+	</div>
+</isif>

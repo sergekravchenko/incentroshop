@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<enfinity
+	xmlns="http://www.intershop.com/xml/ns/enfinity/6.3.1/core/impex"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:dt="http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt"
+	xsi:schemaLocation="http://www.intershop.com/xml/ns/enfinity/6.3.1/core/impex Store.xsd
+    http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt dt.xsd"
+	>
+
+	<store storeid="Store Berlin">
+			<storename>Store Berlin</storename>
+			<activeflag>1</activeflag>
+			<city>Potsdam</city>
+			<postal-code>14482</postal-code>
+			<address1>Marlene-Dietrich-Allee 44</address1>
+			<state></state>
+			<country-code>DE</country-code>
+			<email>mlehmann@test.intershop.de</email>
+			<phone-business>035187703</phone-business>
+			<fax>035187756</fax>
+			<custom-attributes>
+				<custom-attribute name="Latitude">52.39063</custom-attribute>
+				<custom-attribute name="Longitude">13.12117</custom-attribute>
+				<custom-attribute name="Field1" />
+				<custom-attribute name="Field2">10th Floor</custom-attribute>
+				<custom-attribute name="Field3" />				
+			</custom-attributes>
+			
+			
+		
+	</store>
+	<store storeid="Oceanside Paradies Store">
+			<storename>Oceanside Paradies Store</storename>
+			<activeflag>1</activeflag>
+			<city>Mirow</city>
+			<postal-code>17252</postal-code>
+			<address1>Wesenberger Chaussee 22</address1>
+			<state></state>
+			<country-code>DE</country-code>
+			<email>brandt@test.intershop.de</email>
+			<phone-business>039829 1257</phone-business>
+			<fax>039829 1258</fax>
+			<custom-attributes>
+				<custom-attribute name="Latitude">53.273047</custom-attribute>
+				<custom-attribute name="Longitude">12.823875</custom-attribute>
+				<custom-attribute name="Field1" />
+				<custom-attribute name="Field2">Pier 9</custom-attribute>
+				<custom-attribute name="Field3" />
+			</custom-attributes>
+			
+			
+		
+	</store>
+
+	<store storeid="inSPIRED Superstore">
+			<storename>inSPIRED Superstore</storename>
+			<activeflag>1</activeflag>
+			<city>Leipzig</city>
+			<postal-code>04105</postal-code>
+			<address1>Gneisenaustraße 8</address1>
+			<state></state>
+			<country-code>DE</country-code>
+			<email>inSPIREDLE@test.intershop.de</email>
+			<phone-business>+49 341 1234 456</phone-business>
+			<fax>+49 341 1234 457</fax>
+			<custom-attributes>
+				<custom-attribute name="Latitude">51.3504790</custom-attribute>
+				<custom-attribute name="Longitude">12.3752500</custom-attribute>
+				<custom-attribute name="CI_Slogan">One Family!</custom-attribute>
+			</custom-attributes>
+			
+			
+		
+	</store>
+	<store storeid="Factory Outlet B5">
+			<storename>Factory Outlet B5</storename>
+			<activeflag>1</activeflag>
+			<city>Wustermark</city>
+			<postal-code>14641</postal-code>
+			<address1>Alter Spandauer Weg 1</address1>
+			<state></state>
+			<country-code>DE</country-code>
+			<email>b5@test.intershop.de</email>
+			<phone-business>+49 (0) 33 234 - 90 40</phone-business>
+			<fax>+49 (0) 33 234 - 90 420</fax>
+			<custom-attributes>
+				<custom-attribute name="Latitude">52.540978</custom-attribute>
+				<custom-attribute name="Longitude">12.9781760</custom-attribute>
+				<custom-attribute name="Field1" />
+				<custom-attribute name="Field2">Bieraussschank</custom-attribute>
+				<custom-attribute name="Field3" />
+			</custom-attributes>
+			
+			
+		
+	</store>
+	<store storeid="inSPIRED Village">
+			<storename>inSPIRED Village</storename>
+			<activeflag>1</activeflag>
+			<city>Seedorf</city>
+			<postal-code>23823</postal-code>
+			<address1>Potsdamer Platz 7</address1>
+			<state></state>
+			<country-code>DE</country-code>
+			<email>lederhose@test.intershop.de</email>
+			<phone-business>+49 (0)9342-91 99-111</phone-business>
+			<fax>+49 (0)9342-91 99-112</fax>
+			<custom-attributes>
+				<custom-attribute name="Latitude">54.034550</custom-attribute>
+				<custom-attribute name="Longitude">10.448190</custom-attribute>
+				<custom-attribute name="Field1" />
+				<custom-attribute name="Field2">Keller</custom-attribute>
+				<custom-attribute name="Field3" />
+			</custom-attributes>
+			
+			
+		
+	</store>
+	<store storeid="inSPIRED Retail Center1">
+			<storename>inSPIRED Retail Center1</storename>
+			<activeflag>1</activeflag>
+			<city>London</city>
+			<postal-code>14482</postal-code>
+			<address1>Cricklewood Lane 221b</address1>
+			<state></state>
+			<country-code>GB</country-code>
+			<email>ptuk@test.intershop.de</email>
+			<phone-business>020 8450 3030</phone-business>
+			<fax>020 8450 3031</fax>
+			<custom-attributes>
+				<custom-attribute name="Field1" />
+				<custom-attribute name="Field2">Garage</custom-attribute>
+				<custom-attribute name="Field3" />
+			</custom-attributes>
+			
+			
+		
+	</store>
+	<store storeid="inSPIREDOutlet France">
+			<storename>inSPIREDOutlet France</storename>
+			<activeflag>1</activeflag>
+			<city>Paris</city>
+			<postal-code>75001</postal-code>
+			<address1>Rue Rivoli 12</address1>
+			<state></state>
+			<country-code>FR</country-code>
+			<email>jaques@test.intershop.de</email>
+			<phone-business>01 44 50 03 10</phone-business>
+			<fax>01 44 50 03 11</fax>
+			<custom-attributes>
+				<custom-attribute name="Field1" />
+				<custom-attribute name="Field2">Baguette!</custom-attribute>
+				<custom-attribute name="Field3" />
+			</custom-attributes>
+			
+			
+		
+	</store>
+	<store storeid="inSPIRED Espagnol">
+			<storename>inSPIRED Espagnol</storename>
+			<activeflag>1</activeflag>
+			<city>Madrid</city>
+			<postal-code>28039</postal-code>
+			<address1>Santa Juliana 13S</address1>
+			<state></state>
+			<country-code>ES</country-code>
+			<email>hola@test.intershop.de</email>
+			<phone-business>914 597 946</phone-business>
+			<fax>914 597 947</fax>
+			<custom-attributes>
+				<custom-attribute name="Field1" />
+				<custom-attribute name="Field2">Tapas!</custom-attribute>
+				<custom-attribute name="Field3" />
+			</custom-attributes>
+			
+			
+		
+	</store>
+
+	<store storeid="inSPIRED Italia">
+			<storename>inSPIRED Italia</storename>
+			<activeflag>1</activeflag>
+			<city>Roma</city>
+			<postal-code>00176</postal-code>
+			<address1>Via Del Pigneto 050</address1>
+			<state></state>
+			<country-code>IT</country-code>
+			<email>ferrari@test.intershop.de</email>
+			<phone-business>914 597 946</phone-business>
+			<fax>914 597 947</fax>
+			<custom-attributes>
+				<custom-attribute name="Field1" />
+				<custom-attribute name="Field2">Pizza!</custom-attribute>
+				<custom-attribute name="Field3" />
+			</custom-attributes>
+			
+			
+		
+	</store>
+
+	<store storeid="inSPIRED Jena-Paradies">
+			<storename>inSPIRED Jena-Paradies</storename>
+			<activeflag>1</activeflag>
+			<city>Jena</city>
+			<postal-code>07745</postal-code>
+			<address1>Burgauer Weg 1</address1>
+			<state></state>
+			<country-code>DE</country-code>
+			<email>jena@test.intershop.de</email>
+			<phone-business>123 456 789</phone-business>
+			<fax>123 456 788</fax>
+			<custom-attributes>
+				<custom-attribute name="Latitude">50.9194160</custom-attribute>
+				<custom-attribute name="Longitude">11.5824940</custom-attribute>
+				<custom-attribute name="Field1" />
+				<custom-attribute name="Field2">FCC!</custom-attribute>
+				<custom-attribute name="Field3" />
+			</custom-attributes>
+			
+			
+		
+	</store>
+</enfinity>

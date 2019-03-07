@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<enfinity xmlns:dt="http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt">
+<pagelet-entry-point id="page.helpdesk.packslipMessage">
+<definition-name>app_sf_responsive:page.content.pagelet2-Page</definition-name>
+<page>true</page>
+<sorting>false</sorting>
+<parent id="page.helpdesk.orderingShippingPayment" domain="inSPIRED-inTRONICS-b2c-responsive" position="3.0" resource-set="app_sf_responsive">
+</parent>
+<display-name xml:lang="de-DE">Nachricht auf Packzettel:</display-name>
+<display-name xml:lang="en-US">Packslip Message</display-name>
+</pagelet-entry-point>
+<pagelet-pagelet-entry-point-assignment>
+<pagelet-entry-point id="page.helpdesk.packslipMessage" domain="inSPIRED-inTRONICS-b2c-responsive" resource-set="app_sf_responsive"/>
+<pagelet id="pg_helpdesk_packslipMessage" domain="inSPIRED-inTRONICS-b2c-responsive"/>
+<position>1</position>
+<online>true</online>
+</pagelet-pagelet-entry-point-assignment>
+</enfinity>

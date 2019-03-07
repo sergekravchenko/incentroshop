@@ -1,0 +1,37 @@
+<iscontent type="text/html" charset="UTF-8" compact="true" templatemarker="false" session="false">
+<isinclude template="modules/Modules">
+<isinclude template="email/mailTemplate/MailConfig">
+
+<subject><isprint value="#PageletConfigurationParameters:Subject#"></subject>
+
+<isinclude template="email/mailTemplate/MailHeader"/>
+
+
+<base href="#url(action())#">
+	
+	<div>
+		<isslot slot="app_sf_responsive_cm:slot.marketing.email.pagelet2-Slot">
+	</div>
+	
+	<p class="header"><isprint value="#PageletConfigurationParameters:Subject#"></p>
+	
+	<isif condition="#(isDefined(PageletConfigurationParameters:Message1)) AND (PageletConfigurationParameters:Message1 NE '')#">
+		<p>
+			<isHtmlPrint value="#PageletConfigurationParameters:Message1#" mode="storefront">
+		</p>
+	</isif>
+	
+	<!--- Render - Shopping Cart --->
+	<isinclude template="cart/email/ShoppingCart" dictionary="Dictionary">
+
+	<isif condition="#(isDefined(PageletConfigurationParameters:Message2)) AND (PageletConfigurationParameters:Message2 NE '')#">
+		<p>
+			<isHtmlPrint value="#PageletConfigurationParameters:Message2#" mode="storefront">
+		</p>
+	</isif>
+	<p>
+		<istext key="email.shopping_cart.happy_shopping.text" parameter0="#encodeValue(URLEX('http','',Action('ViewHomepage-Start')))#" parameter1="#encodeValue(ChannelName)#" encoding="off" />
+	</p>
+	
+
+<isinclude template="email/mailTemplate/MailFooter"/>

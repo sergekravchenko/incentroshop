@@ -1,0 +1,194 @@
+<iscontent type="text/xml" charset="UTF-8" compact="false" session="false" templatemarker="false">
+<enfinity
+	xsi:schemaLocation="http://www.intershop.com/xml/ns/enfinity/7.1/bc_pricing/impex bc_pricing.xsd"
+	xmlns="http://www.intershop.com/xml/ns/enfinity/7.1/bc_pricing/impex"
+	xmlns:xml="http://www.w3.org/XML/1998/namespace"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:dt="http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt"
+	major="6" minor="1" family="enfinity" build="build">
+
+	<isset name="LastPriceListID" value="" scope="request"/>
+	<isset name="LastProductSKU" value="" scope="request"/>
+	
+	<isif condition="#isDefined(data)#">
+    <isloop iterator="data">
+		<isif condition="#NOT(LastPriceListID EQ data:PriceList_ID)#">
+			<isif condition="#NOT(LastPriceListID EQ '')#">
+				</product-price-list>
+			</isif>
+			<isset name="LastPriceListID" value="#data:PriceList_ID#" scope="request"/>
+		<product-price-list id="<isprint value="#data:PriceList_ID#">" priceType="<isprint value="#data:PriceList_PriceType#">">
+			<display-name xml:lang="en-US"><isprint value="#data:PriceList_Name#"></display-name>
+			<description xml:lang="en-US"><isif condition="#isDefined(data:PriceList_Description)#"><isprint value="#data:PriceList_Description#"></isif></description>
+			<enabled><isprint value="#data:PriceList_Enabled#"></enabled>
+			<priority><isprint value="#data:PriceList_Priority#"></priority>
+			<isif condition="#isDefined(data:PriceList_ValidFrom)#">
+				<valid-from><isprint value="#data:PriceList_ValidFrom#"></valid-from>
+			</isif>
+			<isif condition="#isDefined(data:PriceList_ValidTo)#">
+				<valid-to><isprint value="#data:PriceList_ValidTo#"></valid-to>
+			</isif>
+			<target-groups>
+			<isif condition="#isDefined(data:PriceList_CustomerSegment_ID1) OR isDefined(data:PriceList_CustomerSegment_ID2) OR isDefined(data:PriceList_CustomerSegment_ID3) OR isDefined(data:PriceList_CustomerSegment_ID4) OR isDefined(data:PriceList_CustomerSegment_ID5)#">
+			<customer-segments>
+				<isif condition="#isDefined(data:PriceList_CustomerSegment_ID1)#">
+					<customer-segment id="<isprint value="#data:PriceList_CustomerSegment_ID1#">" repository-id="<isprint value="#data:PriceList_CustomerSegment_Repository_ID1#">" />
+				</isif>
+				<isif condition="#isDefined(data:PriceList_CustomerSegment_ID2)#">
+					<customer-segment id="<isprint value="#data:PriceList_CustomerSegment_ID2#">" repository-id="<isprint value="#data:PriceList_CustomerSegment_Repository_ID2#">" />
+				</isif>
+				<isif condition="#isDefined(data:PriceList_CustomerSegment_ID3)#">
+					<customer-segment id="<isprint value="#data:PriceList_CustomerSegment_ID3#">" repository-id="<isprint value="#data:PriceList_CustomerSegment_Repository_ID3#">" />
+				</isif>
+				<isif condition="#isDefined(data:PriceList_CustomerSegment_ID4)#">
+					<customer-segment id="<isprint value="#data:PriceList_CustomerSegment_ID4#">" repository-id="<isprint value="#data:PriceList_CustomerSegment_Repository_ID4#">" />
+				</isif>
+				<isif condition="#isDefined(data:PriceList_CustomerSegment_ID5)#">
+					<customer-segment id="<isprint value="#data:PriceList_CustomerSegment_ID5#">" repository-id="<isprint value="#data:PriceList_CustomerSegment_Repository_ID5#">" />
+				</isif>
+			</customer-segments>
+			</isif>
+			<isif condition="#isDefined(data:PriceList_Customer_ID1) OR isDefined(data:PriceList_Customer_ID2) OR isDefined(data:PriceList_Customer_ID3) OR isDefined(data:PriceList_Customer_ID4) OR isDefined(data:PriceList_Customer_ID5)#">
+			<customers>
+				<isif condition="#isDefined(data:PriceList_Customer_ID1)#">
+					<customer id="<isprint value="#data:PriceList_Customer_ID1#">"/>
+				</isif>
+				<isif condition="#isDefined(data:PriceList_Customer_ID2)#">
+					<customer id="<isprint value="#data:PriceList_Customer_ID2#">"/>
+				</isif>
+				<isif condition="#isDefined(data:PriceList_Customer_ID3)#">
+					<customer id="<isprint value="#data:PriceList_Customer_ID3#">"/>
+				</isif>
+				<isif condition="#isDefined(data:PriceList_Customer_ID4)#">
+					<customer id="<isprint value="#data:PriceList_Customer_ID4#">"/>
+				</isif>
+				<isif condition="#isDefined(data:PriceList_Customer_ID5)#">
+					<customer id="<isprint value="#data:PriceList_Customer_ID5#">"/>
+				</isif>
+			</customers>
+			</isif>
+			</target-groups>
+		</isif>
+
+			<isif condition="#NOT(LastProductSKU EQ data:Product_SKU)#">
+				<isif condition="#NOT(LastProductSKU EQ '')#">
+			</product-price-list-entry>
+				</isif>
+				<isset name="LastProductSKU" value="#data:Product_SKU#" scope="request"/>
+			<product-price-list-entry sku="<isprint value="#data:Product_SKU#">">
+			</isif>
+				<price-scale-table currency="<isprint value="#data:PriceScale_Currency#">" type-code="<isprint value="#data:PriceScale_Type#">">
+					<isif condition="#isDefined(data:PriceScale_ValidFrom)#">
+						<valid-from><isprint value="#data:PriceScale_ValidFrom#"></valid-from>
+					</isif>
+					<isif condition="#isDefined(data:PriceScale_ValidTo)#">
+						<valid-to><isprint value="#data:PriceScale_ValidTo#"></valid-to>
+					</isif>
+					<price-scale-entries>
+						<isif condition="#isDefined(data:FixedPriceScale_Price1)#">
+							<fixed-price-entry quantity="<isprint value="#data:FixedPriceScale_Quantity1#">" unit="" <isif condition="#isDefined(data:PriceList_Net-Price)#">net-price="<isprint value="#data:PriceList_Net-Price#">"</isif>>
+								<value><isprint value="#data:FixedPriceScale_Price1#"></value>
+							</fixed-price-entry>
+						</isif>
+						<isif condition="#isDefined(data:FixedPriceScale_Price2)#">
+							<fixed-price-entry quantity="<isprint value="#data:FixedPriceScale_Quantity2#">" <isif condition="#isDefined(data:FixedPriceScale_Unit2)#">unit="<isprint value="#data:FixedPriceScale_Unit2#">"</isif> <isif condition="#isDefined(data:PriceList_Net-Price)#">net-price="<isprint value="#data:PriceList_Net-Price#">"</isif>>
+								<value><isprint value="#data:FixedPriceScale_Price2#"></value>
+							</fixed-price-entry>
+						</isif>
+						<isif condition="#isDefined(data:FixedPriceScale_Price3)#">
+							<fixed-price-entry quantity="<isprint value="#data:FixedPriceScale_Quantity3#">" <isif condition="#isDefined(data:FixedPriceScale_Unit3)#">unit="<isprint value="#data:FixedPriceScale_Unit3#">"</isif> <isif condition="#isDefined(data:PriceList_Net-Price)#">net-price="<isprint value="#data:PriceList_Net-Price#">"</isif>>
+								<value><isprint value="#data:FixedPriceScale_Price3#"></value>
+							</fixed-price-entry>
+						</isif>
+						<isif condition="#isDefined(data:FixedPriceScale_Price4)#">
+							<fixed-price-entry quantity="<isprint value="#data:FixedPriceScale_Quantity4#">" <isif condition="#isDefined(data:FixedPriceScale_Unit4)#">unit="<isprint value="#data:FixedPriceScale_Unit4#">"</isif> <isif condition="#isDefined(data:PriceList_Net-Price)#">net-price="<isprint value="#data:PriceList_Net-Price#">"</isif>>
+								<value><isprint value="#data:FixedPriceScale_Price4#"></value>
+							</fixed-price-entry>
+						</isif>
+						<isif condition="#isDefined(data:FixedPriceScale_Price5)#">
+							<fixed-price-entry quantity="<isprint value="#data:FixedPriceScale_Quantity5#">" <isif condition="#isDefined(data:FixedPriceScale_Unit5)#">unit="<isprint value="#data:FixedPriceScale_Unit5#">"</isif> <isif condition="#isDefined(data:PriceList_Net-Price)#">net-price="<isprint value="#data:PriceList_Net-Price#">"</isif>>
+								<value><isprint value="#data:FixedPriceScale_Price5#"></value>
+							</fixed-price-entry>
+						</isif>
+						<isif condition="#isDefined(data:FixedPriceScale_Price6)#">
+							<fixed-price-entry quantity="<isprint value="#data:FixedPriceScale_Quantity6#">" <isif condition="#isDefined(data:FixedPriceScale_Unit6)#">unit="<isprint value="#data:FixedPriceScale_Unit6#">"</isif> <isif condition="#isDefined(data:PriceList_Net-Price)#">net-price="<isprint value="#data:PriceList_Net-Price#">"</isif>>
+								<value><isprint value="#data:FixedPriceScale_Price6#"></value>
+							</fixed-price-entry>
+						</isif>
+						<isif condition="#isDefined(data:FixedPriceScale_Price7)#">
+							<fixed-price-entry quantity="<isprint value="#data:FixedPriceScale_Quantity7#">" <isif condition="#isDefined(data:FixedPriceScale_Unit7)#">unit="<isprint value="#data:FixedPriceScale_Unit7#">"</isif> <isif condition="#isDefined(data:PriceList_Net-Price)#">net-price="<isprint value="#data:PriceList_Net-Price#">"</isif>>
+								<value><isprint value="#data:FixedPriceScale_Price7#"></value>
+							</fixed-price-entry>
+						</isif>
+						<isif condition="#isDefined(data:FixedPriceScale_Price8)#">
+							<fixed-price-entry quantity="<isprint value="#data:FixedPriceScale_Quantity8#">" <isif condition="#isDefined(data:FixedPriceScale_Unit8)#">unit="<isprint value="#data:FixedPriceScale_Unit8#">"</isif> <isif condition="#isDefined(data:PriceList_Net-Price)#">net-price="<isprint value="#data:PriceList_Net-Price#">"</isif>>
+								<value><isprint value="#data:FixedPriceScale_Price8#"></value>
+							</fixed-price-entry>
+						</isif>
+						<isif condition="#isDefined(data:FixedPriceScale_Price9)#">
+							<fixed-price-entry quantity="<isprint value="#data:FixedPriceScale_Quantity9#">" <isif condition="#isDefined(data:FixedPriceScale_Unit9)#">unit="<isprint value="#data:FixedPriceScale_Unit9#">"</isif> <isif condition="#isDefined(data:PriceList_Net-Price)#">net-price="<isprint value="#data:PriceList_Net-Price#">"</isif>>
+								<value><isprint value="#data:FixedPriceScale_Price9#"></value>
+							</fixed-price-entry>
+						</isif>
+						<isif condition="#isDefined(data:FixedPriceScale_Price10)#">
+							<fixed-price-entry quantity="<isprint value="#data:FixedPriceScale_Quantity10#">" <isif condition="#isDefined(data:FixedPriceScale_Unit10)#">unit="<isprint value="#data:FixedPriceScale_Unit10#">"</isif> <isif condition="#isDefined(data:PriceList_Net-Price)#">net-price="<isprint value="#data:PriceList_Net-Price#">"</isif>>
+								<value><isprint value="#data:FixedPriceScale_Price10#"></value>
+							</fixed-price-entry>
+						</isif>
+						<isif condition="#isDefined(data:RelativePriceScale_Price1)#">
+							<relative-price-entry quantity="<isprint value="#data:RelativePriceScale_Quantity1#">" <isif condition="#isDefined(data:RelativePriceScale_Unit1)#">unit="<isprint value="#data:RelativePriceScale_Unit1#">"</isif> <isif condition="#isDefined(data:PriceList_Net-Price)#">net-price="<isprint value="#data:PriceList_Net-Price#">"</isif>>
+								<value><isprint value="#data:RelativePriceScale_Price1#"></value>
+							</relative-price-entry>
+						</isif>
+						<isif condition="#isDefined(data:RelativePriceScale_Price2)#">
+							<relative-price-entry quantity="<isprint value="#data:RelativePriceScale_Quantity2#">" <isif condition="#isDefined(data:RelativePriceScale_Unit2)#">unit="<isprint value="#data:RelativePriceScale_Unit2#">"</isif> <isif condition="#isDefined(data:PriceList_Net-Price)#">net-price="<isprint value="#data:PriceList_Net-Price#">"</isif>>
+								<value><isprint value="#data:RelativePriceScale_Price2#"></value>
+							</relative-price-entry>
+						</isif>
+						<isif condition="#isDefined(data:RelativePriceScale_Price3)#">
+							<relative-price-entry quantity="<isprint value="#data:RelativePriceScale_Quantity3#">" <isif condition="#isDefined(data:RelativePriceScale_Unit3)#">unit="<isprint value="#data:RelativePriceScale_Unit3#">"</isif> <isif condition="#isDefined(data:PriceList_Net-Price)#">net-price="<isprint value="#data:PriceList_Net-Price#">"</isif>>
+								<value><isprint value="#data:RelativePriceScale_Price3#"></value>
+							</relative-price-entry>
+						</isif>
+						<isif condition="#isDefined(data:RelativePriceScale_Price4)#">
+							<relative-price-entry quantity="<isprint value="#data:RelativePriceScale_Quantity4#">" <isif condition="#isDefined(data:RelativePriceScale_Unit4)#">unit="<isprint value="#data:RelativePriceScale_Unit4#">"</isif> <isif condition="#isDefined(data:PriceList_Net-Price)#">net-price="<isprint value="#data:PriceList_Net-Price#">"</isif>>
+								<value><isprint value="#data:RelativePriceScale_Price4#"></value>
+							</relative-price-entry>
+						</isif>
+						<isif condition="#isDefined(data:RelativePriceScale_Price5)#">
+							<relative-price-entry quantity="<isprint value="#data:RelativePriceScale_Quantity5#">" <isif condition="#isDefined(data:RelativePriceScale_Unit5)#">unit="<isprint value="#data:RelativePriceScale_Unit5#">"</isif> <isif condition="#isDefined(data:PriceList_Net-Price)#">net-price="<isprint value="#data:PriceList_Net-Price#">"</isif>>
+								<value><isprint value="#data:RelativePriceScale_Price5#"></value>
+							</relative-price-entry>
+						</isif>
+						<isif condition="#isDefined(data:RelativePriceScale_Price6)#">
+							<relative-price-entry quantity="<isprint value="#data:RelativePriceScale_Quantity6#">" <isif condition="#isDefined(data:RelativePriceScale_Unit6)#">unit="<isprint value="#data:RelativePriceScale_Unit6#">"</isif> <isif condition="#isDefined(data:PriceList_Net-Price)#">net-price="<isprint value="#data:PriceList_Net-Price#">"</isif>>
+								<value><isprint value="#data:RelativePriceScale_Price6#"></value>
+							</relative-price-entry>
+						</isif>
+						<isif condition="#isDefined(data:RelativePriceScale_Price7)#">
+							<relative-price-entry quantity="<isprint value="#data:RelativePriceScale_Quantity7#">" <isif condition="#isDefined(data:RelativePriceScale_Unit7)#">unit="<isprint value="#data:RelativePriceScale_Unit7#">"</isif> <isif condition="#isDefined(data:PriceList_Net-Price)#">net-price="<isprint value="#data:PriceList_Net-Price#">"</isif>>
+								<value><isprint value="#data:RelativePriceScale_Price7#"></value>
+							</relative-price-entry>
+						</isif>
+						<isif condition="#isDefined(data:RelativePriceScale_Price8)#">
+							<relative-price-entry quantity="<isprint value="#data:RelativePriceScale_Quantity8#">" <isif condition="#isDefined(data:RelativePriceScale_Unit8)#">unit="<isprint value="#data:RelativePriceScale_Unit8#">"</isif> <isif condition="#isDefined(data:PriceList_Net-Price)#">net-price="<isprint value="#data:PriceList_Net-Price#">"</isif>>
+								<value><isprint value="#data:RelativePriceScale_Price8#"></value>
+							</relative-price-entry>
+						</isif>
+						<isif condition="#isDefined(data:RelativePriceScale_Price9)#">
+							<relative-price-entry quantity="<isprint value="#data:RelativePriceScale_Quantity9#">" <isif condition="#isDefined(data:RelativePriceScale_Unit9)#">unit="<isprint value="#data:RelativePriceScale_Unit9#">"</isif> <isif condition="#isDefined(data:PriceList_Net-Price)#">net-price="<isprint value="#data:PriceList_Net-Price#">"</isif>>
+								<value><isprint value="#data:RelativePriceScale_Price9#"></value>
+							</relative-price-entry>
+						</isif>
+						<isif condition="#isDefined(data:RelativePriceScale_Price10)#">
+							<relative-price-entry quantity="<isprint value="#data:RelativePriceScale_Quantity10#">" <isif condition="#isDefined(data:RelativePriceScale_Unit10)#">unit="<isprint value="#data:RelativePriceScale_Unit10#">"</isif> <isif condition="#isDefined(data:PriceList_Net-Price)#">net-price="<isprint value="#data:PriceList_Net-Price#">"</isif>>
+								<value><isprint value="#data:RelativePriceScale_Price10#"></value>
+							</relative-price-entry>
+						</isif>
+					</price-scale-entries>
+				</price-scale-table>
+	  </isloop>
+			</product-price-list-entry>
+	  </product-price-list>
+	</isif>
+</enfinity>

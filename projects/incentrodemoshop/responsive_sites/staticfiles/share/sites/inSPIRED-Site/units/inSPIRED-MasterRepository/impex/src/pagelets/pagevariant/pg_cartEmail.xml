@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<enfinity xmlns:dt="http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt">
+<pagelet-page id="pg_cartEmail">
+<definition-name>app_sf_responsive_cm:pagevariant.email.pagelet2-Pagevariant</definition-name>
+<display-name xml:lang="de-DE">Warenkorb-E-Mail</display-name>
+<display-name xml:lang="en-US">Cart Email</display-name>
+<display-name xml:lang="fr-FR">E-mail de panier</display-name>
+<online>true</online>
+<author business-partner-no="admin" domain="inSPIRED"/>
+<configuration-parameters>
+<configuration-parameter name="Message1">
+<definition-name>app_sf_responsive_cm:pagevariant.email.pagelet2-Pagevariant-Message1</definition-name>
+<value name="Message1" xml:lang="de-DE">Hallo {1} {2}! &lt;br /&gt;Sie haben eine Nachricht mit Warenkorbempfehlungen bekommen.&lt;br /&gt;Bitte beachten Sie, dass {3} {4} der Urheber dieser E-Mail ist.&lt;br /&gt;&lt;br /&gt;{5}</value>
+<value name="Message1" xml:lang="en-US">Hi {1} {2}! &lt;br /&gt;You received a message with shopping cart recommendations.&lt;br /&gt;Please note that {3} {4} is the originator of this email.&lt;br /&gt;&lt;br /&gt;{5}</value>
+<value name="Message1" xml:lang="fr-FR">Bienvenue {1},&lt;br /&gt;vous avez reçu un message avec les recommandations du panier d’’achats d’’inTRONICS. Veuillez noter que {3} {4} – ne pas inTRONICS – est l’’auteur de cet e-mail. Message personnel :{5}</value>
+</configuration-parameter>
+<configuration-parameter name="Message2">
+<definition-name>app_sf_responsive_cm:pagevariant.email.pagelet2-Pagevariant-Message2</definition-name>
+<value name="Message2" xml:lang="de-DE">&lt;p&gt;Diese E-Mail zeigt alle Artikel im Warenkorb von {3} {4}, {0} an. &lt;br /&gt;Bitte beachten Sie, dass Preise und Verfügbarkeit von Produkten Veränderungen unterliegen.&lt;/p&gt;
+&lt;p&gt;Diese E-Mail stammt von einem Benachrichtigungssystem, das keine eingehenden E-Mails empfangen kann.&lt;br /&gt;Bitte antworten Sie nicht auf diese Nachricht.&lt;/p&gt;</value>
+<value name="Message2" xml:lang="en-US">&lt;p&gt;This email displays all items in the shopping cart of {3} {4} at {0}. &lt;br /&gt;Please note that prices and availability of products are subject to change.&lt;/p&gt;
+&lt;p&gt;This e-mail message was sent from a notification-only system that cannot accept incoming e-mail.&lt;br /&gt;Please do not respond to this message.&lt;/p&gt;</value>
+<value name="Message2" xml:lang="fr-FR">&lt;p&gt;Cet e-mail affiche tous les articles dans le panier de {3} {4} chez {0}. &lt;br /&gt;Veuillez noter que le prix et la disponibilité des produits sont susceptibles d&apos;être modifiés..&lt;/p&gt;</value>
+</configuration-parameter>
+<configuration-parameter name="Subject">
+<definition-name>app_sf_responsive_cm:pagevariant.email.pagelet2-Pagevariant-Subject</definition-name>
+<value name="Subject" xml:lang="de-DE">Mein Warenkorb</value>
+<value name="Subject" xml:lang="en-US">My Shopping Cart</value>
+<value name="Subject" xml:lang="fr-FR">Recommandations de panier</value>
+</configuration-parameter>
+</configuration-parameters>
+<slots>
+<slot>
+<definition-name>app_sf_responsive_cm:slot.marketing.email.pagelet2-Slot</definition-name>
+<optional>false</optional>
+<sorting>false</sorting>
+</slot>
+</slots>
+</pagelet-page>
+</enfinity>

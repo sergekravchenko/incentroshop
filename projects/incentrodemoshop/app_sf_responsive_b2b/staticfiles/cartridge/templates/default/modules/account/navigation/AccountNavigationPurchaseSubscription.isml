@@ -1,0 +1,14 @@
+<iscontent type="text/html" charset="UTF-8" compact="true">
+<isinclude template="modules/common/Modules">
+
+<!--- Get the preference for link "Subscriptions" --->
+<ISGetCurrentDomain CurrentDomain="CurrentDomain">
+<ISGetPreference preferencekey="EnableRecurringOrders" domainname="#CurrentDomain:DefaultApplication:Domain:DomainName#" type="String" return="EnableRecurringOrders">
+
+<isif condition="#isDefined(EnableRecurringOrders) AND (EnableRecurringOrders EQ "true")#">
+	<isif condition="#isDefined(UserPermissionMap:get("APP_B2B_PURCHASE"))#">
+		<li class="<isif condition="#selecteditem EQ 'SUBSCRIPTIONS'#">active</isif>">
+			<a href="#URL(Action('ViewSubscriptions-List'))#" data-testing-id="account-subscriptions-link"><istext key="account.subscriptions.link"/></a>
+		</li>
+	</isif>
+</isif>

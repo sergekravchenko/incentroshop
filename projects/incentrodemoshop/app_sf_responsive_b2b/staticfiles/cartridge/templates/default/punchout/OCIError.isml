@@ -1,0 +1,21 @@
+<!--- page for oci catalog error handling --->
+<iscontent type="text/html" charset="UTF-8" compact="true">
+<html>
+	<head>
+		<title><istext key="oci_punchout_error.title" /></title>
+	</head>
+	<body data-testing-id="page-oci-error">
+		<p><istext key="oci_punchout_error.description"/></p>
+		<ul>
+		<isif condition="#isDefined(ERROR_OCI) AND (ERROR_OCI EQ 'UnableToFindMembershipData')#">
+			<li data-testing-id="msg-UnableToFindMembershipData"><istext key="oci_punchout_error.message.UnableToFindMembershipData" /></li>
+		</isif>
+		<isif condition="#isDefined(ERROR_OCI) AND (ERROR_OCI EQ 'MissingParameterHookUrl')#">
+			<li data-testing-id="msg-MissingParameterHookUrl"><istext key="oci_punchout_error.message.MissingParameterHookUrl" /></li>
+		</isif>
+		<isif condition="#isDefined(ERROR_OCI) AND (ERROR_OCI EQ 'MissingParameterQuantity')#">
+			<li data-testing-id="msg-MissingParameterQuantity"><istext key="oci_punchout_error.message.MissingParameterQuantity" /></li>
+		</isif>
+		</ul>
+	</body>
+</html>

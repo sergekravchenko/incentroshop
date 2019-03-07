@@ -1,0 +1,171 @@
+<iscontent type="text/html" charset="UTF-8" compact="true">
+<iscache type="forbidden">
+<isinclude template="modules/captcha/Modules">
+
+<h1><istext key="helpdesk.contactus.headline" /></h1>
+
+<isif condition="#ContactUsForm:isSubmitted AND NOT(ContactUsForm:isInvalid) AND (NOT isDefined(ERROR))#">
+	<p>
+		<istext key="helpdesk.contactus.thankyou" /><br/>
+		<istext key="helpdesk.contactus.youwillreceive" />
+	</p>
+	<p>
+		<a href="#URLEX(InsecureURL,'', Action('ViewHomepage-Start'))#">
+			<istext key="helpdesk.contactus.continueshopping" />
+		</a>
+	</p>
+<iselseif condition="#isDefined(ERROR)#">
+	<div role="alert" class="alert alert-danger">
+		<p><istext key="helpdesk.mail_not_sent.message" /></p>
+		<p><istext key="helpdesk.try_again.message" /></p>
+		<p><a href="#URLEX(InsecureURL,'', Action('ViewHomepage-Start'))#"><istext key="hepldesk.continue_shopping.link" /></a></p>
+	</div>
+<iselse>
+	<isif condition="#ContactUsForm:isInvalid#">
+		<div role="alert" class="alert alert-danger">
+			<p><istext key="helpdesk.contactus_error.message" /></p>
+		</div>
+	</isif>
+	
+	<p><istext key="helpdesk.contactus.prolog" /></p>
+	
+	<div class="indicates-required"><span class="required">*</span> <istext key="helpdesk.contactus.indicates" /></div>
+	
+	<isform class="form-horizontal bv-form" 
+		method="post" 
+		action="#URLEX(SecureURL,'',Action('ViewContact-Dispatch'))#"
+		name="#ContactUsForm:ID#"
+		secure="true"
+	>
+		<input type="hidden" name="<isprint value="#ContactUsForm:PageletEntryPointID:QualifiedName#">" value="<isprint value="#PageletEntryPointID#">"/>
+		
+		<div class="form-group <isif condition="#ContactUsForm:Name:isInvalid#">server-error</isif>">
+			<label class="control-label col-sm-4" for="<isprint value="#ContactUsForm:Name:QualifiedName#">">
+				<istext key="helpdesk.contactus.name.label" /><span class="required">*</span>
+			</label>
+			<div class="col-sm-8">
+				<input type="text" class="form-control"
+					id="<isprint value="#ContactUsForm:Name:QualifiedName#">"
+					name="<isprint value="#ContactUsForm:Name:QualifiedName#">"
+					<isif condition="#ContactUsForm:isSubmitted#" >
+						value="<isprint value="#ContactUsForm:Name:FormattedValue#">"
+					</isif>
+					required
+					data-bv-notempty-message="<istext key="helpdesk.contactus.name.error"/>"
+				>
+			</div>
+			<isif condition="#ContactUsForm:Name:isInvalid#"><small class="help-block col-sm-8 col-sm-offset-4"><istext key="helpdesk.contactus.name.error" /></small></isif>
+		</div>
+		
+		<div class="form-group <isif condition="#ContactUsForm:Email:isInvalid#">server-error</isif>">
+			<label class="control-label col-sm-4" for="<isprint value="#ContactUsForm:Email:QualifiedName#">">
+				<istext key="helpdesk.contactus.email.label" /><span class="required">*</span>
+			</label>
+			<div class="col-sm-8">
+				<input type="email" class="form-control"
+					id="<isprint value="#ContactUsForm:Email:QualifiedName#">"
+					name="<isprint value="#ContactUsForm:Email:QualifiedName#">"
+					<isif condition="#ContactUsForm:isSubmitted#" > 
+						value="<isprint value="#ContactUsForm:Email:FormattedValue#">"
+					</isif>
+					required
+					data-bv-notempty-message="<istext key="helpdesk.contactus.email.error"/>"
+					data-bv-emailaddress-message="<istext key="helpdesk.contactus.email.error"/>"
+					>
+			</div>
+			<isif condition="#ContactUsForm:Email:isInvalid#"><small class="help-block col-sm-8 col-sm-offset-4"><istext key="helpdesk.contactus.email.error" /></small></isif>
+		</div>
+		
+		<div class="form-group <isif condition="#ContactUsForm:Phone:isInvalid#">server-error</isif>">
+			<label class="control-label col-sm-4" for="<isprint value="#ContactUsForm:Phone:QualifiedName#">">
+				<istext key="helpdesk.contactus.phone.label" /><span class="required">*</span>
+			</label>
+			<div class="col-sm-8">
+				<input type="text" class="form-control"
+					id="<isprint value="#ContactUsForm:Phone:QualifiedName#">"
+					name="<isprint value="#ContactUsForm:Phone:QualifiedName#">"
+					<isif condition="#ContactUsForm:isSubmitted#" > 
+						value="<isprint value="#ContactUsForm:Phone:FormattedValue#">"
+					</isif>
+					required
+					data-bv-notempty-message="<istext key="helpdesk.contactus.phone.error"/>"
+				>
+			</div>
+			<isif condition="#ContactUsForm:Phone:isInvalid#"><small class="help-block col-sm-8 col-sm-offset-4"><istext key="helpdesk.contactus.phone.error" /></small></isif>
+		</div>
+		
+		<div class="form-group">
+			<label class="control-label col-sm-4" for="<isprint value="#ContactUsForm:Order:QualifiedName#">">
+				<istext key="helpdesk.contactus.order.label" />
+			</label>
+			<div class="col-sm-8">
+				<input type="text" class="form-control"
+					id="<isprint value="#ContactUsForm:Order:QualifiedName#">"
+					name="<isprint value="#ContactUsForm:Order:QualifiedName#">"
+					<isif condition="#ContactUsForm:isSubmitted#" > 
+						value="<isprint value="#ContactUsForm:Order:FormattedValue#">"
+					</isif>
+					/>
+			</div>
+		</div>
+		
+		<div class="form-group <isif condition="#ContactUsForm:Subject:isInvalid#">server-error</isif>">
+			<label class="control-label col-sm-4" for="<isprint value="#ContactUsForm:Subject:QualifiedName#">">
+				<istext key="helpdesk.contactus.subject.label" /><span class="required">*</span>
+			</label>
+			<div class="col-sm-8">
+				<select class="form-control"
+					id="<isprint value="#ContactUsForm:Subject:QualifiedName#">"
+					name="<isprint value="#ContactUsForm:Subject:QualifiedName#">"
+					required
+					data-bv-notempty-message="<istext key="helpdesk.contactus.subject.error"/>"
+				>
+					<option value=""><istext key="helpdesk.contactus.subject.option.selectone" /></option>
+					<isif condition="#isDefined(ContactUsEnumerationKeyProvider)#">
+						<isloop iterator="ContactUsEnumerationKeyProvider:AllKeys" alias="CurrentKey">
+							<option <isif condition="#ContactUsForm:Subject:FormattedValue EQ CurrentKey#">selected="selected"</isif> value="#encodeValue(CurrentKey)#"><istext key="#'helpdesk.contactus.subject.option.'.CurrentKey#" /></option>
+						</isloop>
+					</isif>
+				</select>
+			</div>
+			<isif condition="#ContactUsForm:Subject:isInvalid#"><small class="help-block col-sm-8 col-sm-offset-4"><istext key="helpdesk.contactus.subject.error" /></small></isif>
+		</div>
+		
+		<div class="form-group <isif condition="#ContactUsForm:Comments:isInvalid#">server-error</isif>">
+			<label class="control-label col-sm-4" for="<isprint value="#ContactUsForm:Comments:QualifiedName#">">
+				<istext key="helpdesk.contactus.comments.label" /><span class="required">*</span>
+			</label>
+			<div class="col-sm-8">
+				<textarea class="form-control" maxlength="30000" cols="50" rows="10"
+					id="<isprint value="#ContactUsForm:Comments:QualifiedName#">"
+					name="<isprint value="#ContactUsForm:Comments:QualifiedName#">"
+					required
+					data-bv-notempty-message="<istext key="helpdesk.contactus.comments.error"/>"
+					data-charactercounter="cCounter<isprint value="#ContactUsForm:Comments:QualifiedName#">"
+				><isif condition="#ContactUsForm:isSubmitted#"><isprint value="#ContactUsForm:Comments:FormattedValue#"></isif></textarea>
+			</div>
+			<div class="col-sm-8 col-sm-offset-4">
+				<small class="input-help">
+					<istext key="checkout.shipping_method.instructions_max_limit.pre.text" /> <span id="cCounter<isprint value="#ContactUsForm:Comments:QualifiedName#">">30000</span> <istext key="checkout.shipping_method.instructions_max_limit.post.text" />
+				</small>
+			</div>
+			<isif condition="#ContactUsForm:Comments:isInvalid#"><small class="help-block col-sm-8 col-sm-offset-4"><istext key="helpdesk.contactus.comments.error" /></small></isif>
+		</div>
+
+		<div class="form-group<isif condition="#ContactUsForm:recaptcharesponsefield:Invalid#"> server-error</isif>">
+			<div class="col-sm-8 col-sm-offset-4">
+				<ISCaptchaFormField
+					fieldname="ContactUsForm:recaptcharesponsefield"
+					enablepreference="intershop.CaptchaPreferences.ContactUs">
+			</div>
+		</div>
+
+		<div class="form-group">
+		<div class="col-sm-8 col-sm-offset-4">
+			<button class="btn btn-primary" type="submit" value="submit" name="send"><istext key="helpdesk.contactus.submit" /></button>
+		</div>
+		</div>
+	</isform>
+	
+	<p><istext key="helpdesk.user_service.message" encoding="off" /></p>
+</isif>

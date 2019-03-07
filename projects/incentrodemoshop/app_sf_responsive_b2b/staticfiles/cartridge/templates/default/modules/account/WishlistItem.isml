@@ -1,0 +1,147 @@
+<iscontent personalized="true" type="text/html" charset="UTF-8" compact="true">
+
+<isset name="ProductBO" value="#WishlistItem:ProductBO#" scope="request"/>
+<isset name="ColorAttributeName" value="Miscellaneous / Color" scope="request"/>
+<div class="col-sm-1 list-item">
+	<isif condition="#showEditItemButtons EQ 'true'#">
+		<label class="checkbox-inline">
+			<input type="checkbox" name="SelectedItem" value="<isprint value="#WishlistItem:ID#">" class="" <isif condition="#NOT(isDefined(ProductBO:Attribute("NeedsQuotation"))) OR NOT(ProductBO:Attribute("NeedsQuotation"))#">checked="checked"<iselse>disabled="disabled"</isif> >
+		</label>
+	</isif>
+	
+	<isif condition="#showImage EQ 'true'#">
+		<a href="#URL(Action('ViewProduct-Start'),Parameter('SKU',ProductBO:SKU))#">
+			<ISProductImage ProductBO="#ProductBO#" ImageType="S" Class="img-responsive">
+		</a>
+	</isif>
+</div>
+
+<div class="col-sm-5 col-xs-3 list-item">
+	<div class="pli-description">
+		<a class="product-title" href="#URL(Action('ViewProduct-Start'),Parameter('SKU',ProductBO:SKU))#">
+			<isprint value="#ProductBO:Name#">
+		</a>
+		<p class="product-id"><istext key="account.wishlist.table.item.item"/> <isprint value="#ProductBO:SKU#"/></p>
+		
+		<!--- Product Bundle Items --->
+		<isif condition="#ProductBO:BundleInformationBO:BundledProductBOs:Size > 0#">
+			<ul>
+				<isloop iterator="ProductBO:BundleInformationBO:BundledProductBOs" alias="BundledProductBO">
+					<li><isprint value="#BundledProductBO:Name#"></li>
+				</isloop>
+			</ul>
+		</isif>
+		
+		<isif condition="#isDefined(ProductBO:String(ColorAttributeName))#">
+			<istext key="account.wishlist.table.item.color"/> <isprint value="#ProductBO:String(ColorAttributeName)#" formatter="#"/> <br/>
+		</isif>
+		
+		<isset name="VariationInfo" value="#ProductBO:ProductVariationInformationBO#" scope="request"/>
+		<isif condition="#hasElements(VariationInfo:VariationAttributes)#">
+			<dl class="dl-horizontal">
+				<isloop iterator="VariationInfo:VariationAttributes" alias="VariationAttribute">
+					<dt><isprint value="#VariationAttribute:DisplayName#"/>:</dt>
+					<dd><isprint value="#VariationInfo:SelectedVariationValue(VariationAttribute)#"/></dd>
+				</isloop>
+			</dl>
+		</isif>
+		
+		<p class="availability">
+			<isif condition="#NOT (ProductBO:Accessible)#">
+				<span class="product-out-of-stock"><istext key="account.wishlist.table.not_accessible" /></span>
+			<iselseif condition="#ProductBO:InventoryStatus:InStock#">
+				<span class="product-in-stock"><istext key="account.wishlist.table.in_stock"/></span>
+			<iselse>
+				<span class="product-out-of-stock"><istext key="account.wishlist.table.out_of_stock"/></span>
+			</isif>
+		</p>
+	</div>	
+	
+	<isif condition="#(showEditItemButtons EQ 'true')#">
+		<div class="order-template-actions">
+			<isif condition="#saveForLaterList EQ 'true'#">
+				<a 
+					class="btn-tool" 
+					data-dialog 
+					href="#URL(Action('ViewSaveForLaterList-MoveToBasket'), Parameter('WishlistID', WishlistItem:WishlistBO:ID), Parameter('WishlistItemID', WishlistItem:ID))#"
+					title="<istext key="account.order_template.list.link.add_to_cart" />"><span class="glyphicon glyphicon-shopping-cart"></span>
+				</a>
+				<a 
+					class="btn-tool" 
+					data-dialog 
+					href="#URL(Action('ViewSaveForLaterList-RemoveItem'), Parameter('WishlistID',WishlistItem:WishlistBO:ID), Parameter('WishlistItemID', WishlistItem:ID))#"title="<istext key="account.order_template.list.link.remove" />"
+					<span class="glyphicon glyphicon-trash"></span>
+				</a>
+			<iselse>
+				<a 
+					class="btn-tool" 
+					data-dialog 
+					href="#URL(Action('ViewAjax-Start'), Parameter('TargetPipeline', 'ViewWishlist-ShowMoveItemDialog'), Parameter('SourceWishlistID', WishlistItem:WishlistBO:ID), Parameter('SourceWishlistItemID', WishlistItem:ID))#"
+					title="<istext key="account.wishlist.table.options.move_to_template"/>">
+					<span class="glyphicon glyphicon-transfer"></span>
+				</a>
+				<a 
+					class="btn-tool" 
+					data-dialog 
+					href="#URL(Action('ViewOrderTemplate-RemoveItem'), Parameter('WishlistID', WishlistItem:WishlistBO:ID), Parameter('WishlistItemID', WishlistItem:ID))#"
+					title="<istext key="account.wishlist.table.options.remove"/>">
+					<span class="glyphicon glyphicon-trash"></span>
+				</a>
+			</isif>
+		</div>
+	</isif>
+	
+</div>
+
+<div class="col-sm-3 list-item">
+	<div class="form-group">
+		<div class="col-xs-4">
+			<span class="mobile-cart-label"><istext key="quote.items.table.quantity" /></span>
+		</div>
+		<div class="col-xs-6 col-md-12 col-sm-12 pull-right">
+			<isif condition="#showQuantitiesText EQ 'true'#">
+				<isif condition="#showQuantityControls EQ 'true'#">
+					<input type="number" step="1"  value="<isprint value="#WishlistItem:DesiredQuantity#" formatter="0">" name="DesiredQuantity_<isprint value = "#WishlistItem:ID#">" id="DesiredQuantity_<isprint value="#WishlistItem:ID#">"
+					class="form-control"
+					required data-bv-notempty-message="<istext key="shopping_cart.quantity.invalid.error"/>"
+					data-bv-greaterThan-message="<istext key="shopping_cart.quote.quantity.minimum.validation.message"/>"	
+				/>
+				<iselse>
+					<isprint value="#WishlistItem:DesiredQuantity#" />
+				</isif>	
+			</isif>
+		</div>
+	</div>
+</div>
+
+<div class="col-sm-1 list-item">
+	<isif condition="#showDateAdded EQ 'true'#">
+		<isprint value="#WishlistItem:CreationDate#" style="DATE_LONG">
+	</isif>
+</div>
+
+<div class="col-sm-2 text-right list-item">
+	
+	<isif condition="#showPrice EQ 'true'#">
+		<isif condition="#ProductBO:Attribute("NeedsQuotation")#">
+			<istext key="account.wishlist.table.price_upon_request_1"><br/>
+			<istext key="account.wishlist.table.price_upon_request_2"><br/>
+			<istext key="account.wishlist.table.price_upon_request_3">
+		<iselse>
+			<!-- TODO: maybe multiply by the desired quantity? -->
+			<isset name="ProductPrice" value="#ProductBO:Extension("Pricing")#" scope="request"/>
+			<isCurrentCustomerBO currentcustomerbo="CustomerBO">
+			<isCurrentUserBO currentuserbo="UserBO">
+			<isGetProductPriceContext CustomerBO="#CustomerBO#" UserBO="#UserBO#" AddressSpecificPrice="true" ProductPriceContext="ProductPriceContext">
+			<isset name="salePrice" value="#ProductPrice:Price("SalePrice", Currency, ProductPriceContext)#" scope="request"/>
+			
+			<isif condition="#salePrice:Range#">
+				<isprint value="#getValue(salePrice:Minimum:Price)#"/>
+			<iselseif condition="#salePrice:Valid#">
+				<isprint value="#getValue(salePrice:Price)#"/>
+			<iselse>
+				<isprint value="#getValue(ProductBO:Price)#"/>
+			</isif>
+		</isif>
+	</isif>
+</div>

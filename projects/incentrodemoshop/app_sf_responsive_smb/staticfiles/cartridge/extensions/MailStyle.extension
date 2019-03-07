@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<extensionpoint:ExtensionPointModel xmlns:extensionpoint="http://www.intershop.de/extensionpoint/2011" name="MailStyle">
+	<extensionBindings type="isml" extensionPoint="email/mailTemplate/MailStyle-MailStyleB2B" extension="email/mailTemplate/MailStyleB2B.isml" priority="50"/>
+</extensionpoint:ExtensionPointModel>

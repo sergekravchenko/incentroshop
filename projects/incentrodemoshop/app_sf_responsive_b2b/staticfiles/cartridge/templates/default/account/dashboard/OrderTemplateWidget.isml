@@ -1,0 +1,53 @@
+<iscontent type="text/html" charset="UTF-8" compact="true">
+
+<ispipeline pipeline="ProcessOrderTemplate-GetAll" alias="dict">
+
+<div class="section section-seperator">
+	
+	<h2><istext key="account.order_template.widget.my_order_templates.heading" /></h2>
+	
+	<isif condition="#hasLoopElements(dict:OrderTemplates)#">
+		
+		<div class="list-header">
+			<div class="col-xs-12 col-sm-6 list-header-item">
+				<istext key="account.order_template.list.table.template" />
+			</div>
+			<div class="col-xs-12 col-sm-6 list-header-item text-right">
+				<istext key="account.order_template.list.table.manage" />
+			</div>
+		</div>
+		
+		<div class="list-body">
+			<isloop iterator="dict:OrderTemplates" alias="OrderTemplate" counter="Counter">
+				<isif condition="#Counter >= 6#"><isbreak></isif>
+				
+				<div class="list-item-row">
+					
+					<div class="col-xs-12 col-sm-6 list-item">
+						<a href="#URL(Action('ViewOrderTemplate-View'), Parameter('OrderTemplateID', OrderTemplate:ID))#"><isprint value="#OrderTemplate:Name#"></a>
+					</div>
+					<div class="col-xs-12 col-sm-6 list-item text-right">
+					
+						<a href="#URL(Action('ViewOrderTemplate-AddListToBasket'), Parameter('OrderTemplateID', OrderTemplate:ID))#" 
+							title="<istext key="account.order_template.list.link.add_to_cart" />"
+							class="btn-tool<isif condition="#OrderTemplate:WishlistItemBOsCount == 0#"> invisible</isif>">
+							<span class="glyphicon glyphicon-shopping-cart"></span>
+					 	</a>
+						<a class="btn-tool" href="#URL(Action('ViewOrderTemplate-View'), Parameter('OrderTemplateID', OrderTemplate:ID))#" title="<istext key="account.order_template.widget.link.edit">">
+							<span class="glyphicon glyphicon-pencil"></span>
+						</a>
+					</div>
+					
+				</div>
+				
+			</isloop>
+		</div>
+		
+		<a href="#URL(Action('ViewOrderTemplate-ViewAll'))#"><istext key="account.order_template.widget.link.view_all" /></a>
+	<iselse>
+		
+		<p><istext key="account.order_template.widget.no_templates.text" /></p>
+		
+	</isif>
+
+</div>

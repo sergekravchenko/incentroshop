@@ -1,0 +1,14 @@
+apply plugin: 'java-component'
+apply plugin: 'static-cartridge'
+
+intershop 
+{
+	displayName = 'demo_responsive_ocst'
+    description = 'Cartridge for demo content of the OCST'
+}
+
+
+dependencies 
+{
+	compile group: 'com.intershop.platform', name: 'core'
+}

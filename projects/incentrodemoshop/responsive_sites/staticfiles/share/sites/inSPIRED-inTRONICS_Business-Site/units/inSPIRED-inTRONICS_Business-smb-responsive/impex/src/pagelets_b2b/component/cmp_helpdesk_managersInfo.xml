@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<enfinity xmlns:dt="http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt">
+<pagelet-component id="cmp_helpdesk_managersInfo">
+<definition-name>app_sf_responsive_cm:component.common.freeStyle.pagelet2-Component</definition-name>
+<display-name xml:lang="de-DE">Informationen für Manager</display-name>
+<display-name xml:lang="en-US">Information for Managers</display-name>
+<display-name xml:lang="fr-FR">Informations pour les chargés</display-name>
+<online>true</online>
+<author business-partner-no="admin" domain="inSPIRED"/>
+<configuration-parameters>
+<configuration-parameter name="HTML">
+<definition-name>app_sf_responsive_cm:component.common.freeStyle.pagelet2-Component-HTML</definition-name>
+<value name="HTML" xml:lang="de-DE">&lt;h1&gt;Informationen für Manager&lt;/h1&gt;
+&lt;p&gt;Die aktuelle Seite und ihre Unterseiten bieten nützliche Informationen über das Management der Kundenorganisation.&lt;/p&gt;
+&lt;h2&gt;Storefront Registrierung&lt;/h2&gt;
+&lt;p&gt;Eine Organisation (Firma | Abteilung) kann direkt über die Storefront registriert werden.&lt;/p&gt;
+&lt;p&gt;Einem Benutzer, der eine Organisation registriert, wird automatisch die Administratorrolle zugewiesen. Nach der Registrierung können neue Benutzer vom Administrator in der Benutzerverwaltung im Bereich &lt;em&gt;Mein Konto&lt;/em&gt; angelegt werden und spezifische Rollen zugewiesen bekommen. &lt;/p&gt; &lt;h2&gt;Rollen und Berechtigungen&lt;/h2&gt; Die B2B-Storefront unterstützt die folgenden Rollen und Berechtigungen.&lt;table style=&quot;border: 1px solid black; border-collapse: collapse;&quot;&gt;
+&lt;tbody&gt;
+&lt;tr&gt;&lt;th style=&quot;padding: 5px; border: 1px solid black; border-collapse: collapse; text-align: center;&quot;&gt;Role&lt;/th&gt;&lt;th style=&quot;padding: 5px; border: 1px solid black; border-collapse: collapse; text-align: center;&quot;&gt;Beschreibung&lt;/th&gt;&lt;th style=&quot;padding: 5px; border: 1px solid black; border-collapse: collapse; text-align: center;&quot;&gt;KAUFEN&lt;/th&gt;&lt;th style=&quot;padding: 5px; border: 1px solid black; border-collapse: collapse; text-align: center;&quot;&gt;NUTZER VERWALTEN&lt;/th&gt;&lt;th style=&quot;padding: 5px; border: 1px solid black; border-collapse: collapse; text-align: center;&quot;&gt;BESTELLGENEHMIGUNGEN&lt;/th&gt;&lt;th style=&quot;padding: 5px; border: 1px solid black; border-collapse: collapse; text-align: center;&quot;&gt;EIGENE PREISANGEBOTE VERWALTEN&lt;/th&gt;&lt;th style=&quot;padding: 5px; border: 1px solid black; border-collapse: collapse; text-align: center;&quot;&gt;KOSTENSTELLEN VERWALTEN&lt;/th&gt;&lt;th style=&quot;padding: 5px; border: 1px solid black; border-collapse: collapse; text-align: center;&quot;&gt;DESIGN VERWALTEN&lt;/th&gt;&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;padding: 5px; border: 1px solid black; border-collapse: collapse; text-align: center;&quot;&gt;Einkäufer&lt;/td&gt;
+&lt;td style=&quot;padding: 5px; border: 1px solid black; border-collapse: collapse; text-align: center;&quot;&gt;Kann Bestellungen und Preisangebote aufgeben&lt;/td&gt;
+&lt;td style=&quot;padding: 5px; border: 1px solid black; border-collapse: collapse; text-align: center;&quot;&gt;ja&lt;/td&gt;
+&lt;td style=&quot;padding: 5px; border: 1px solid black; border-collapse: collapse; text-align: center;&quot;&gt;nein&lt;/td&gt;
+&lt;td style=&quot;padding: 5px; border: 1px solid black; border-collapse: collapse; text-align: center;&quot;&gt;nein&lt;/td&gt;
+&lt;td style=&quot;padding: 5px; border: 1px solid black; border-collapse: collapse; text-align: center;&quot;&gt;ja&lt;/td&gt;
+&lt;td style=&quot;padding: 5px; border: 1px solid black; border-collapse: collapse; text-align: center;&quot;&gt;nein&lt;/td&gt;
+&lt;td style=&quot;padding: 5px; border: 1px solid black; border-collapse: collapse; text-align: center;&quot;&gt;nein&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;padding: 5px; border: 1px solid black; border-collapse: collapse; text-align: center;&quot;&gt;Genehmiger&lt;/td&gt;
+&lt;td style=&quot;padding: 5px; border: 1px solid black; border-collapse: collapse; text-align: center;&quot;&gt;Kann Bestellungen der Einkäufer genehmigen&lt;/td&gt;
+&lt;td style=&quot;padding: 5px; border: 1px solid black; border-collapse: collapse; text-align: center;&quot;&gt;ja&lt;/td&gt;
+&lt;td style=&quot;padding: 5px; border: 1px solid black; border-collapse: collapse; text-align: center;&quot;&gt;nein&lt;/td&gt;
+&lt;td style=&quot;padding: 5px; border: 1px solid black; border-collapse: collapse; text-align: center;&quot;&gt;ja&lt;/td&gt;
+&lt;td style=&quot;padding: 5px; border: 1px solid black; border-collapse: collapse; text-align: center;&quot;&gt;ja&lt;/td&gt;
+&lt;td style=&quot;padding: 5px; border: 1px solid black; border-collapse: collapse; text-align: center;&quot;&gt;nein&lt;/td&gt;
+&lt;td style=&quot;padding: 5px; border: 1px solid black; border-collapse: collapse; text-align: center;&quot;&gt;nein&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;padding: 5px; border: 1px solid black; border-collapse: collapse; text-align: center;&quot;&gt;Kostenstellenverwalter&lt;/td&gt;
+&lt;td style=&quot;padding: 5px; border: 1px solid black; border-collapse: collapse; text-align: center;&quot;&gt;Kann Kostenstellen der Kundenorganisation verwalten&lt;/td&gt;
+&lt;td style=&quot;padding: 5px; border: 1px solid black; border-collapse: collapse; text-align: center;&quot;&gt;ja&lt;/td&gt;
+&lt;td style=&quot;padding: 5px; border: 1px solid black; border-collapse: collapse; text-align: center;&quot;&gt;nein&lt;/td&gt;
+&lt;td style=&quot;padding: 5px; border: 1px solid black; border-collapse: collapse; text-align: center;&quot;&gt;nein&lt;/td&gt;
+&lt;td style=&quot;padding: 5px; border: 1px solid black; border-collapse: collapse; text-align: center;&quot;&gt;ja&lt;/td&gt;
+&lt;td style=&quot;padding: 5px; border: 1px solid black; border-collapse: collapse; text-align: center;&quot;&gt;ja&lt;/td&gt;
+&lt;td style=&quot;padding: 5px; border: 1px solid black; border-collapse: collapse; text-align: center;&quot;&gt;nein&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;padding: 5px; border: 1px solid black; border-collapse: collapse; text-align: center;&quot;&gt;Administrator&lt;/td&gt;
+&lt;td style=&quot;padding: 5px; border: 1px solid black; border-collapse: collapse; text-align: center;&quot;&gt;Kann alle Bereiche der Kundenorganisation verwalten&lt;/td&gt;
+&lt;td style=&quot;padding: 5px; border: 1px solid black; border-collapse: collapse; text-align: center;&quot;&gt;ja&lt;/td&gt;
+&lt;td style=&quot;padding: 5px; border: 1px solid black; border-collapse: collapse; text-align: center;&quot;&gt;ja&lt;/td&gt;
+&lt;td style=&quot;padding: 5px; border: 1px solid black; border-collapse: collapse; text-align: center;&quot;&gt;ja&lt;/td&gt;
+&lt;td style=&quot;padding: 5px; border: 1px solid black; border-collapse: collapse; text-align: center;&quot;&gt;ja&lt;/td&gt;
+&lt;td style=&quot;padding: 5px; border: 1px solid black; border-collapse: collapse; text-align: center;&quot;&gt;ja&lt;/td&gt;
+&lt;td style=&quot;padding: 5px; border: 1px solid black; border-collapse: collapse; text-align: center;&quot;&gt;ja&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;</value>
+<value name="HTML" xml:lang="en-US">&lt;h1&gt;Information for Managers&lt;/h1&gt;
+&lt;p&gt;The current page and its sub-pages provide useful information about customer organization managment.&lt;/p&gt;
+&lt;h2&gt;Storefront Registration&lt;/h2&gt;
+&lt;p&gt;An organization (company | department) can be registered directly in the storefront.&lt;/p&gt;
+&lt;p&gt;A user that registers an organization is automatically assigned the administrator role. After registration, new users can be created by the administrator within the user management section of the &lt;em&gt;My Account&lt;/em&gt; area and assigned specific roles.&lt;/p&gt;
+&lt;h2&gt;Roles and Permissions&lt;/h2&gt;
+The B2B storefront supports the following roles and permissions.
+&lt;table style=&quot;border: 1px solid black; border-collapse: collapse;&quot;&gt;
+&lt;tbody&gt;
+&lt;tr&gt;&lt;th style=&quot;padding: 5px; border: 1px solid black; border-collapse: collapse; text-align: center;&quot;&gt;Role&lt;/th&gt;&lt;th style=&quot;padding: 5px; border: 1px solid black; border-collapse: collapse; text-align: center;&quot;&gt;Description&lt;/th&gt;&lt;th style=&quot;padding: 5px; border: 1px solid black; border-collapse: collapse; text-align: center;&quot;&gt;PURCHASE&lt;/th&gt;&lt;th style=&quot;padding: 5px; border: 1px solid black; border-collapse: collapse; text-align: center;&quot;&gt;MANAGE USERS&lt;/th&gt;&lt;th style=&quot;padding: 5px; border: 1px solid black; border-collapse: collapse; text-align: center;&quot;&gt;ORDER APPROVAL&lt;/th&gt;&lt;th style=&quot;padding: 5px; border: 1px solid black; border-collapse: collapse; text-align: center;&quot;&gt;MANAGE OWN QUOTES&lt;/th&gt;&lt;th style=&quot;padding: 5px; border: 1px solid black; border-collapse: collapse; text-align: center;&quot;&gt;MANAGE COST CENTER&lt;/th&gt;&lt;th style=&quot;padding: 5px; border: 1px solid black; border-collapse: collapse; text-align: center;&quot;&gt;MANAGE BRANDING&lt;/th&gt;&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;padding: 5px; border: 1px solid black; border-collapse: collapse; text-align: center;&quot;&gt;Buyer&lt;/td&gt;
+&lt;td style=&quot;padding: 5px; border: 1px solid black; border-collapse: collapse; text-align: center;&quot;&gt;Can place orders and quotes&lt;/td&gt;
+&lt;td style=&quot;padding: 5px; border: 1px solid black; border-collapse: collapse; text-align: center;&quot;&gt;yes&lt;/td&gt;
+&lt;td style=&quot;padding: 5px; border: 1px solid black; border-collapse: collapse; text-align: center;&quot;&gt;no&lt;/td&gt;
+&lt;td style=&quot;padding: 5px; border: 1px solid black; border-collapse: collapse; text-align: center;&quot;&gt;no&lt;/td&gt;
+&lt;td style=&quot;padding: 5px; border: 1px solid black; border-collapse: collapse; text-align: center;&quot;&gt;yes&lt;/td&gt;
+&lt;td style=&quot;padding: 5px; border: 1px solid black; border-collapse: collapse; text-align: center;&quot;&gt;no&lt;/td&gt;
+&lt;td style=&quot;padding: 5px; border: 1px solid black; border-collapse: collapse; text-align: center;&quot;&gt;no&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;padding: 5px; border: 1px solid black; border-collapse: collapse; text-align: center;&quot;&gt;Approver&lt;/td&gt;
+&lt;td style=&quot;padding: 5px; border: 1px solid black; border-collapse: collapse; text-align: center;&quot;&gt;Can approve orders of buyers&lt;/td&gt;
+&lt;td style=&quot;padding: 5px; border: 1px solid black; border-collapse: collapse; text-align: center;&quot;&gt;yes&lt;/td&gt;
+&lt;td style=&quot;padding: 5px; border: 1px solid black; border-collapse: collapse; text-align: center;&quot;&gt;no&lt;/td&gt;
+&lt;td style=&quot;padding: 5px; border: 1px solid black; border-collapse: collapse; text-align: center;&quot;&gt;yes&lt;/td&gt;
+&lt;td style=&quot;padding: 5px; border: 1px solid black; border-collapse: collapse; text-align: center;&quot;&gt;yes&lt;/td&gt;
+&lt;td style=&quot;padding: 5px; border: 1px solid black; border-collapse: collapse; text-align: center;&quot;&gt;no&lt;/td&gt;
+&lt;td style=&quot;padding: 5px; border: 1px solid black; border-collapse: collapse; text-align: center;&quot;&gt;no&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;padding: 5px; border: 1px solid black; border-collapse: collapse; text-align: center;&quot;&gt;Cost Center Manager&lt;/td&gt;
+&lt;td style=&quot;padding: 5px; border: 1px solid black; border-collapse: collapse; text-align: center;&quot;&gt;Can manage cost centers of the customer organization&lt;/td&gt;
+&lt;td style=&quot;padding: 5px; border: 1px solid black; border-collapse: collapse; text-align: center;&quot;&gt;yes&lt;/td&gt;
+&lt;td style=&quot;padding: 5px; border: 1px solid black; border-collapse: collapse; text-align: center;&quot;&gt;no&lt;/td&gt;
+&lt;td style=&quot;padding: 5px; border: 1px solid black; border-collapse: collapse; text-align: center;&quot;&gt;no&lt;/td&gt;
+&lt;td style=&quot;padding: 5px; border: 1px solid black; border-collapse: collapse; text-align: center;&quot;&gt;yes&lt;/td&gt;
+&lt;td style=&quot;padding: 5px; border: 1px solid black; border-collapse: collapse; text-align: center;&quot;&gt;yes&lt;/td&gt;
+&lt;td style=&quot;padding: 5px; border: 1px solid black; border-collapse: collapse; text-align: center;&quot;&gt;no&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;padding: 5px; border: 1px solid black; border-collapse: collapse; text-align: center;&quot;&gt;Administrator&lt;/td&gt;
+&lt;td style=&quot;padding: 5px; border: 1px solid black; border-collapse: collapse; text-align: center;&quot;&gt;Can manage all aspects of the customer organization&lt;/td&gt;
+&lt;td style=&quot;padding: 5px; border: 1px solid black; border-collapse: collapse; text-align: center;&quot;&gt;yes&lt;/td&gt;
+&lt;td style=&quot;padding: 5px; border: 1px solid black; border-collapse: collapse; text-align: center;&quot;&gt;yes&lt;/td&gt;
+&lt;td style=&quot;padding: 5px; border: 1px solid black; border-collapse: collapse; text-align: center;&quot;&gt;yes&lt;/td&gt;
+&lt;td style=&quot;padding: 5px; border: 1px solid black; border-collapse: collapse; text-align: center;&quot;&gt;yes&lt;/td&gt;
+&lt;td style=&quot;padding: 5px; border: 1px solid black; border-collapse: collapse; text-align: center;&quot;&gt;yes&lt;/td&gt;
+&lt;td style=&quot;padding: 5px; border: 1px solid black; border-collapse: collapse; text-align: center;&quot;&gt;yes&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;</value>
+<value name="HTML" xml:lang="fr-FR">&lt;h1&gt;Informations pour les chargés&lt;/h1&gt;
+&lt;p&gt;La page actuelle et ses sous-pages donnent des informations utiles sur la gestion de l’’organisation cliente.&lt;/p&gt;
+&lt;h2&gt;Enregistrement de vitrine&lt;/h2&gt;
+&lt;p&gt;Une organisation (société | service) peut être enregistrée directement dans la vitrine.&lt;/p&gt;
+&lt;p&gt; Un utilisateur qui enregistre une organisation est automatiquement attribué le rôle d’’administrateur. Après l’’enregistrement les nouveaux utilisateurs peuvent être créés par l’’administrateur dans la section de gestion de l’’utilisateur &lt;em&gt;Mon compte&lt;/em&gt; et se voient attribuer des rôles spécifiques.&lt;/p&gt;
+&lt;h2&gt;Rôles et autorisations&lt;/h2&gt;
+La vitrine B2B prend en charge les rôles et autorisations suivants :
+&lt;table style=&quot;border: 1px solid black; border-collapse: collapse;&quot;&gt;
+&lt;tbody&gt;
+&lt;tr&gt;&lt;th style=&quot;padding: 5px; border: 1px solid black; border-collapse: collapse; text-align: center;&quot;&gt;Rôle&lt;/th&gt;&lt;th style=&quot;padding: 5px; border: 1px solid black; border-collapse: collapse; text-align: center;&quot;&gt;Description&lt;/th&gt;&lt;th style=&quot;padding: 5px; border: 1px solid black; border-collapse: collapse; text-align: center;&quot;&gt;ACHETER&lt;/th&gt;&lt;th style=&quot;padding: 5px; border: 1px solid black; border-collapse: collapse; text-align: center;&quot;&gt;GÉRER LES UTILISATEURS&lt;/th&gt;&lt;th style=&quot;padding: 5px; border: 1px solid black; border-collapse: collapse; text-align: center;&quot;&gt;APPROBATION DES COMMANDES&lt;/th&gt;&lt;th style=&quot;padding: 5px; border: 1px solid black; border-collapse: collapse; text-align: center;&quot;&gt;GÉRER MES PROPRES DEVIS&lt;/th&gt;&lt;th style=&quot;padding: 5px; border: 1px solid black; border-collapse: collapse; text-align: center;&quot;&gt;GÉRER LE CENTRE DE COÛTS&lt;/th&gt;&lt;th style=&quot;padding: 5px; border: 1px solid black; border-collapse: collapse; text-align: center;&quot;&gt;GÉRER L’’HABILLAGE&lt;/th&gt;&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;padding: 5px; border: 1px solid black; border-collapse: collapse; text-align: center;&quot;&gt;Acheteur&lt;/td&gt;
+&lt;td style=&quot;padding: 5px; border: 1px solid black; border-collapse: collapse; text-align: center;&quot;&gt;Peut passer les commandes et devis&lt;/td&gt;
+&lt;td style=&quot;padding: 5px; border: 1px solid black; border-collapse: collapse; text-align: center;&quot;&gt;oui&lt;/td&gt;
+&lt;td style=&quot;padding: 5px; border: 1px solid black; border-collapse: collapse; text-align: center;&quot;&gt;non&lt;/td&gt;
+&lt;td style=&quot;padding: 5px; border: 1px solid black; border-collapse: collapse; text-align: center;&quot;&gt;non&lt;/td&gt;
+&lt;td style=&quot;padding: 5px; border: 1px solid black; border-collapse: collapse; text-align: center;&quot;&gt;oui&lt;/td&gt;
+&lt;td style=&quot;padding: 5px; border: 1px solid black; border-collapse: collapse; text-align: center;&quot;&gt;non&lt;/td&gt;
+&lt;td style=&quot;padding: 5px; border: 1px solid black; border-collapse: collapse; text-align: center;&quot;&gt;non&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;padding: 5px; border: 1px solid black; border-collapse: collapse; text-align: center;&quot;&gt;Approbateur&lt;/td&gt;
+&lt;td style=&quot;padding: 5px; border: 1px solid black; border-collapse: collapse; text-align: center;&quot;&gt;Peut approuver les commandes des acheteurs&lt;/td&gt;
+&lt;td style=&quot;padding: 5px; border: 1px solid black; border-collapse: collapse; text-align: center;&quot;&gt;oui&lt;/td&gt;
+&lt;td style=&quot;padding: 5px; border: 1px solid black; border-collapse: collapse; text-align: center;&quot;&gt;non&lt;/td&gt;
+&lt;td style=&quot;padding: 5px; border: 1px solid black; border-collapse: collapse; text-align: center;&quot;&gt;oui&lt;/td&gt;
+&lt;td style=&quot;padding: 5px; border: 1px solid black; border-collapse: collapse; text-align: center;&quot;&gt;oui&lt;/td&gt;
+&lt;td style=&quot;padding: 5px; border: 1px solid black; border-collapse: collapse; text-align: center;&quot;&gt;non&lt;/td&gt;
+&lt;td style=&quot;padding: 5px; border: 1px solid black; border-collapse: collapse; text-align: center;&quot;&gt;non&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;padding: 5px; border: 1px solid black; border-collapse: collapse; text-align: center;&quot;&gt;Responsable du centre de coûts&lt;/td&gt;
+&lt;td style=&quot;padding: 5px; border: 1px solid black; border-collapse: collapse; text-align: center;&quot;&gt;Peut gérer les centres de côuts de l’’organisation cliente.&lt;/td&gt;
+&lt;td style=&quot;padding: 5px; border: 1px solid black; border-collapse: collapse; text-align: center;&quot;&gt;oui&lt;/td&gt;
+&lt;td style=&quot;padding: 5px; border: 1px solid black; border-collapse: collapse; text-align: center;&quot;&gt;non&lt;/td&gt;
+&lt;td style=&quot;padding: 5px; border: 1px solid black; border-collapse: collapse; text-align: center;&quot;&gt;non&lt;/td&gt;
+&lt;td style=&quot;padding: 5px; border: 1px solid black; border-collapse: collapse; text-align: center;&quot;&gt;oui&lt;/td&gt;
+&lt;td style=&quot;padding: 5px; border: 1px solid black; border-collapse: collapse; text-align: center;&quot;&gt;oui&lt;/td&gt;
+&lt;td style=&quot;padding: 5px; border: 1px solid black; border-collapse: collapse; text-align: center;&quot;&gt;non&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;padding: 5px; border: 1px solid black; border-collapse: collapse; text-align: center;&quot;&gt;Administrateur&lt;/td&gt;
+&lt;td style=&quot;padding: 5px; border: 1px solid black; border-collapse: collapse; text-align: center;&quot;&gt;Peut gérer tous les aspect de l’’organisation cliente.&lt;/td&gt;
+&lt;td style=&quot;padding: 5px; border: 1px solid black; border-collapse: collapse; text-align: center;&quot;&gt;oui&lt;/td&gt;
+&lt;td style=&quot;padding: 5px; border: 1px solid black; border-collapse: collapse; text-align: center;&quot;&gt;oui&lt;/td&gt;
+&lt;td style=&quot;padding: 5px; border: 1px solid black; border-collapse: collapse; text-align: center;&quot;&gt;oui&lt;/td&gt;
+&lt;td style=&quot;padding: 5px; border: 1px solid black; border-collapse: collapse; text-align: center;&quot;&gt;oui&lt;/td&gt;
+&lt;td style=&quot;padding: 5px; border: 1px solid black; border-collapse: collapse; text-align: center;&quot;&gt;oui&lt;/td&gt;
+&lt;td style=&quot;padding: 5px; border: 1px solid black; border-collapse: collapse; text-align: center;&quot;&gt;oui&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;</value>
+</configuration-parameter>
+</configuration-parameters>
+</pagelet-component>
+</enfinity>

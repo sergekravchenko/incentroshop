@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--@Group Punchout-->
+
+<pipeline:Pipeline xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pipeline="http://www.intershop.de/pipeline/2010"
+    name="ViewOCIConfiguration" overrideMode="Inherit" type="view">
+<!--@Location 0,0-->
+  <nodes xsi:type="pipeline:StartNode" nodeID="StartNode2" name="Dispatch">
+    <nodeSuccessors name="next" next="DispatchFormAction0"/>
+  </nodes>
+<!--@Location 0,1-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="DispatchFormAction0">
+    <configurationValues name="OutValue_0" value="ViewOCIConfiguration-Start"/>
+    <configurationValues name="OutValue_1" value="ViewOCIConfiguration-Save"/>
+    <configurationValues name="OutValue_2" value="ViewOCIConfiguration-Start"/>
+    <pipelet href="enfinity:/core/pipelets/DispatchFormAction.xml"/>
+    <nodeSuccessors name="next" next="JumpNode0"/>
+    <nodeSuccessors name="pipelet_error" next="JumpNode1"/>
+    <parameterBindings name="Key_0" objectPath="view"/>
+    <parameterBindings name="Key_1" objectPath="save"/>
+    <parameterBindings name="Key_2" objectPath="cancel"/>
+    <returnValueBindings name="SelectionKey" objectPath="JumpTarget"/>
+  </nodes>
+<!--@Location 0,2-->
+  <nodes xsi:type="pipeline:JumpNode" nodeID="JumpNode0">
+    <startNode referencedName="SecureJump-Start"/>
+  </nodes>
+<!--@Location 1,2-->
+  <nodes xsi:type="pipeline:JumpNode" nodeID="JumpNode1">
+    <startNode referencedName="ViewUserAccount-Start"/>
+  </nodes>
+<!--@Location 7,0-->
+  <nodes xsi:type="pipeline:StartNode" nodeID="StartNode1" name="Save">
+    <nodeSuccessors name="next" next="CallNode0"/>
+  </nodes>
+<!--@Location 7,1-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode0">
+    <nodeSuccessors name="next" next="CallNode4"/>
+    <parameterBindings name="AjaxRequestMarker" nullBinding="true"/>
+    <parameterBindings name="LoginToUse" constant="oci_punchout"/>
+    <parameterBindings name="Pipeline" constant="ViewOCIConfiguration-Start"/>
+    <parameterBindings name="Request" objectPath="CurrentRequest"/>
+    <parameterBindings name="Session" objectPath="CurrentSession"/>
+    <startNode referencedName="ViewUserAccount-LoginCheck"/>
+  </nodes>
+<!--@Location 7,2-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode4">
+    <nodeSuccessors name="next" next="DecisionNode1"/>
+    <parameterBindings name="UserID" objectPath="CurrentUser:ID"/>
+    <startNode referencedName="ViewUserAccount-GetCustomerBO"/>
+  </nodes>
+<!--@Location 7,3-->
+  <nodes xsi:type="pipeline:DecisionNode" nodeID="DecisionNode1" conditionKey="UserBO:Extension(&quot;UserBORoleExtension&quot;):hasPermission(&quot;APP_B2B_MANAGE_PUNCHOUT&quot;)"
+      operator="str_eq" conditionValue="true">
+    <nodeSuccessors name="decision_yes" next="CreateForm0"/>
+    <nodeSuccessors name="decision_no" next="JumpNode2"/>
+  </nodes>
+<!--@Location 7,4-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="CreateForm0">
+    <configurationValues name="FormName" value="OCIConfigurationForm"/>
+    <configurationValues name="FormResource" value="OCIConfiguration"/>
+    <pipelet href="enfinity:/core/pipelets/CreateForm.xml"/>
+    <nodeSuccessors name="next" next="ValidateForm0"/>
+    <returnValueBindings name="Form" objectPath="OCIConfigurationForm"/>
+  </nodes>
+<!--@Location 7,5-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="ValidateForm0">
+    <pipelet href="enfinity:/core/pipelets/ValidateForm.xml"/>
+    <nodeSuccessors name="next" next="SetCustomerBOPunchoutConfiguration0"/>
+<!--@BendPoints 17,11 17,17-->
+    <nodeSuccessors name="pipelet_error" next="JoinNode2"/>
+    <parameterBindings name="Form" objectPath="OCIConfigurationForm"/>
+  </nodes>
+<!--@Location 7,6-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="SetCustomerBOPunchoutConfiguration0">
+    <pipelet href="enfinity:/bc_punchout/pipelets/SetCustomerBOPunchoutConfiguration.xml"/>
+    <nodeSuccessors name="next" next="KeyMapper0"/>
+    <parameterBindings name="FormatterValue1" objectPath="OCIConfigurationForm:OCI.NEW_ITEM-MATGROUP.FORMAT:Value"/>
+    <parameterBindings name="FormatterValue10" objectPath="OCIConfigurationForm:OCI.NEW_ITEM-CUST_FIELD5.FORMAT:Value"/>
+    <parameterBindings name="FormatterValue2" objectPath="OCIConfigurationForm:OCI.NEW_ITEM-UNIT.FORMAT:Value"/>
+    <parameterBindings name="FormatterValue3" objectPath="OCIConfigurationForm:OCI.NEW_ITEM-VENDOR.FORMAT:Value"/>
+    <parameterBindings name="FormatterValue4" objectPath="OCIConfigurationForm:OCI.NEW_ITEM-CONTRACT.FORMAT:Value"/>
+    <parameterBindings name="FormatterValue5" objectPath="OCIConfigurationForm:OCI.NEW_ITEM-CONTRACT_ITEM.FORMAT:Value"/>
+    <parameterBindings name="FormatterValue6" objectPath="OCIConfigurationForm:OCI.NEW_ITEM-CUST_FIELD1.FORMAT:Value"/>
+    <parameterBindings name="FormatterValue7" objectPath="OCIConfigurationForm:OCI.NEW_ITEM-CUST_FIELD2.FORMAT:Value"/>
+    <parameterBindings name="FormatterValue8" objectPath="OCIConfigurationForm:OCI.NEW_ITEM-CUST_FIELD3.FORMAT:Value"/>
+    <parameterBindings name="FormatterValue9" objectPath="OCIConfigurationForm:OCI.NEW_ITEM-CUST_FIELD4.FORMAT:Value"/>
+    <parameterBindings name="ParameterName1" constant="NEW_ITEM-MATGROUP"/>
+    <parameterBindings name="ParameterName10" constant="NEW_ITEM-CUST_FIELD5"/>
+    <parameterBindings name="ParameterName2" constant="NEW_ITEM-UNIT"/>
+    <parameterBindings name="ParameterName3" constant="NEW_ITEM-VENDOR"/>
+    <parameterBindings name="ParameterName4" constant="NEW_ITEM-CONTRACT"/>
+    <parameterBindings name="ParameterName5" constant="NEW_ITEM-CONTRACT_ITEM"/>
+    <parameterBindings name="ParameterName6" constant="NEW_ITEM-CUST_FIELD1"/>
+    <parameterBindings name="ParameterName7" constant="NEW_ITEM-CUST_FIELD2"/>
+    <parameterBindings name="ParameterName8" constant="NEW_ITEM-CUST_FIELD3"/>
+    <parameterBindings name="ParameterName9" constant="NEW_ITEM-CUST_FIELD4"/>
+    <parameterBindings name="TransformValue1" objectPath="OCIConfigurationForm:OCI.NEW_ITEM-MATGROUP.VALUE:Value"/>
+    <parameterBindings name="TransformValue10" objectPath="OCIConfigurationForm:OCI.NEW_ITEM-CUST_FIELD5.VALUE:Value"/>
+    <parameterBindings name="TransformValue2" objectPath="OCIConfigurationForm:OCI.NEW_ITEM-UNIT.VALUE:Value"/>
+    <parameterBindings name="TransformValue3" objectPath="OCIConfigurationForm:OCI.NEW_ITEM-VENDOR.VALUE:Value"/>
+    <parameterBindings name="TransformValue4" objectPath="OCIConfigurationForm:OCI.NEW_ITEM-CONTRACT.VALUE:Value"/>
+    <parameterBindings name="TransformValue5" objectPath="OCIConfigurationForm:OCI.NEW_ITEM-CONTRACT_ITEM.VALUE:Value"/>
+    <parameterBindings name="TransformValue6" objectPath="OCIConfigurationForm:OCI.NEW_ITEM-CUST_FIELD1.VALUE:Value"/>
+    <parameterBindings name="TransformValue7" objectPath="OCIConfigurationForm:OCI.NEW_ITEM-CUST_FIELD2.VALUE:Value"/>
+    <parameterBindings name="TransformValue8" objectPath="OCIConfigurationForm:OCI.NEW_ITEM-CUST_FIELD3.VALUE:Value"/>
+    <parameterBindings name="TransformValue9" objectPath="OCIConfigurationForm:OCI.NEW_ITEM-CUST_FIELD4.VALUE:Value"/>
+  </nodes>
+<!--@Location 7,7-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="KeyMapper0">
+    <pipelet href="enfinity:/core/pipelets/KeyMapper.xml"/>
+    <nodeSuccessors name="next" next="JoinNode2"/>
+    <parameterBindings name="InValue_1" constant="true"/>
+    <returnValueBindings name="OutValue_1" objectPath="ShowSuccessMessage"/>
+  </nodes>
+<!--@Location 7,8-->
+  <nodes xsi:type="pipeline:JoinNode" nodeID="JoinNode2">
+    <nodeSuccessors name="next" next="JoinNode0"/>
+  </nodes>
+<!--@Location 5,8-->
+  <nodes xsi:type="pipeline:JoinNode" nodeID="JoinNode0">
+    <nodeSuccessors name="next" next="GetPlaceholderFormatterProvider0"/>
+  </nodes>
+<!--@Location 5,10-->
+  <nodes xsi:type="pipeline:PipeletNode" nodeID="GetPlaceholderFormatterProvider0">
+    <pipelet href="enfinity:/bc_punchout/pipelets/GetPlaceholderFormatterProvider.xml"/>
+    <nodeSuccessors name="next" next="RenderSystemPageWithTemplate1_Input"/>
+  </nodes>
+<!--@Location 5,12-->
+  <nodes xsi:type="pipeline:PipelineNodeNode" nodeID="RenderSystemPageWithTemplate1">
+    <configurationValues name="PageEntryPointDefinitionReference" value="app_sf_responsive_b2b:systempage.account.ociSettings.pagelet2-Page"/>
+    <configurationValues name="WorkingTemplate" value="punchout/PunchoutConfiguration"/>
+    <pipelet href="enfinity:/sld_ch_sf_base/pipelets/com.intershop.sellside.storefront.base.capi.pipeline.RenderSystemPageWithTemplate.pipelinenode"/>
+    <inConnectors name="Input">
+      <parameterBindings name="Dictionary" objectPath="CurrentRequest:PipelineDictionary"/>
+    </inConnectors>
+  </nodes>
+<!--@Location 5,4-->
+  <nodes xsi:type="pipeline:JumpNode" nodeID="JumpNode2">
+    <startNode referencedName="Error-NotFound"/>
+  </nodes>
+<!--@Location 3,0-->
+  <nodes xsi:type="pipeline:StartNode" nodeID="StartNode0" name="Start">
+    <nodeSuccessors name="next" next="CallNode2"/>
+  </nodes>
+<!--@Location 3,1-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode2">
+    <nodeSuccessors name="next" next="CallNode3"/>
+    <parameterBindings name="AjaxRequestMarker" nullBinding="true"/>
+    <parameterBindings name="LoginToUse" constant="oci_punchout"/>
+    <parameterBindings name="Pipeline" constant="ViewOCIConfiguration-Start"/>
+    <parameterBindings name="Request" objectPath="CurrentRequest"/>
+    <parameterBindings name="Session" objectPath="CurrentSession"/>
+    <startNode referencedName="ViewUserAccount-LoginCheck"/>
+  </nodes>
+<!--@Location 3,2-->
+  <nodes xsi:type="pipeline:CallNode" nodeID="CallNode3">
+    <nodeSuccessors name="next" next="DecisionNode0"/>
+    <parameterBindings name="UserID" objectPath="CurrentUser:ID"/>
+    <startNode referencedName="ViewUserAccount-GetCustomerBO"/>
+  </nodes>
+<!--@Location 3,3-->
+  <nodes xsi:type="pipeline:DecisionNode" nodeID="DecisionNode0" conditionKey="UserBO:Extension(&quot;UserBORoleExtension&quot;):hasPermission(&quot;APP_B2B_MANAGE_PUNCHOUT&quot;)"
+      operator="str_eq" conditionValue="true">
+<!--@BendPoints 7,11-->
+    <nodeSuccessors name="decision_yes" next="JoinNode0"/>
+    <nodeSuccessors name="decision_no" next="JumpNode2"/>
+  </nodes>
+</pipeline:Pipeline>

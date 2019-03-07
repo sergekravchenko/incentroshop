@@ -1,0 +1,30 @@
+<iscontent charset="UTF-8" compact="false" type="text/html" templatemarker="false">
+<iscache type="relative" hour="0">
+<isinclude template="modules/Modules">
+<ul class="suggest-results-list">
+	<isif condition="#hasLoopElements(ProductBOs)#">
+		<isloop iterator="ProductBOs" alias="ProductBO">
+			<li>
+				<button type="button" jsonproductid="<isprint value="#ProductBO:ID#"/>" data-search-result="<isprint value="#ProductBO:SKU#"  encoding="off"/>" min-order-qty="<isprint value ="#ProductBO:MinOrderQuantity:Value#" style="INTEGER"/>"
+						isMaster="#ProductBO:isProductMaster#" class="search-result">
+					<div class="row">
+						<div class="col-xs-3"><ISProductImage ProductBO="#ProductBO#" ImageType="S" ImageView="front" Class="product-image"></div>
+						<div class="col-xs-9"><span><isprint value="#ProductBO:SKU#" encoding="off" /></span><br /><isprint value="#ProductBO:DisplayName#"/></div>
+					 </div>
+				</button>
+			</li>
+		</isloop>
+	<iselse>
+		<isif condition="#isDefined(ProductBO)#">
+			<li>
+				<button type="button" data-search-result="<isprint value="#ProductBO:SKU#"  encoding="off"/>" min-order-qty="<isprint value ="#ProductBO:MinOrderQuantity:Value#" style="INTEGER"/>"
+						isMaster="#ProductBO:isProductMaster#" class="search-result">
+					<div class="row">
+						<div class="col-xs-3"><ISProductImage ProductBO="#ProductBO#" ImageType="S" ImageView="front" Class="product-image"></div>
+						<div class="col-xs-9"><span><isprint value="#ProductBO:SKU#" encoding="off" /></span></br><isprint value="#ProductBO:DisplayName#"/></div>
+					</div>
+				</button>
+			</li>
+		</isif>
+	</isif>
+</ul> 

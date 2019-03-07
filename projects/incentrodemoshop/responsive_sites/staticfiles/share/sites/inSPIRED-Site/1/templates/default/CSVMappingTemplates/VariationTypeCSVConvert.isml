@@ -1,0 +1,51 @@
+<iscontent type="text/xml" charset="UTF-8" compact="false" session="false" templatemarker="false">
+
+<enfinity
+	xmlns="http://www.intershop.com/xml/ns/enfinity/7.1/xcs/impex"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:dt="http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt"
+	xsi:schemaLocation="http://www.intershop.com/xml/ns/enfinity/7.1/xcs/impex catalog.xsd http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt dt.xsd"
+	major="6" minor="1" family="enfinity" branch="enterprise" build="">
+	<isif condition="#isDefined(data)#">
+		<isloop iterator="data" alias="VariationType">
+			<variation-type name="<isprint value="#VariationType:Name#">">
+				<name><isprint value="#VariationType:Name#"></name>
+				<attribute-name><isprint value="#VariationType:AttributeName#"></attribute-name>
+				<isif condition="#isDefined(VariationType:DisplayName1)#"><display-name<isif condition="#isDefined(VariationType:DisplayName1Lng)#"> xml:lang="<isprint value="#VariationType:DisplayName1Lng#">"</isif>><isprint value="#VariationType:DisplayName1#"></display-name></isif>
+				<isif condition="#isDefined(VariationType:DisplayName2)#"><display-name<isif condition="#isDefined(VariationType:DisplayName2Lng)#"> xml:lang="<isprint value="#VariationType:DisplayName2Lng#">"</isif>><isprint value="#VariationType:DisplayName2#"></display-name></isif>
+				<localizable><isif condition="#isDefined(VariationType:Localizable)#"><isprint value="#VariationType:Localizable#"><iselse>0</isif></localizable>
+				<type><isprint value="#VariationType:Type#"></type>
+				<variation-type-values>
+					<isif condition="#isDefined(VariationType:Value1Value1)#">
+					<variation-type-value><isif condition="#isDefined(VariationType:Value1Lng)#"><isset scope="request" name="Value1Lng" value="#VariationType:Value1Lng#"><iselse><isset scope="request" name="Value1Lng" value="en-US"></isif>
+						<value xml:lang="<isprint value="#Value1Lng#">"><isprint value="#VariationType:Value1Value1#"></value>
+						<isif condition="#isDefined(VariationType:Value1Value2)#"><value xml:lang="<isprint value="#VariationType:Value1Lng#">"><isprint value="#VariationType:Value1Value2#"></value></isif>
+						<isif condition="#isDefined(VariationType:Value1Value3)#"><value xml:lang="<isprint value="#VariationType:Value1Lng#">"><isprint value="#VariationType:Value1Value3#"></value></isif>
+						<isif condition="#isDefined(VariationType:Value1Value4)#"><value xml:lang="<isprint value="#VariationType:Value1Lng#">"><isprint value="#VariationType:Value1Value4#"></value></isif>
+						<isif condition="#isDefined(VariationType:Value1Value5)#"><value xml:lang="<isprint value="#VariationType:Value1Lng#">"><isprint value="#VariationType:Value1Value5#"></value></isif>
+						<isif condition="#isDefined(VariationType:Value1Value6)#"><value xml:lang="<isprint value="#VariationType:Value1Lng#">"><isprint value="#VariationType:Value1Value6#"></value></isif>
+						<isif condition="#isDefined(VariationType:Value1Value7)#"><value xml:lang="<isprint value="#VariationType:Value1Lng#">"><isprint value="#VariationType:Value1Value7#"></value></isif>
+						<isif condition="#isDefined(VariationType:Value1Value8)#"><value xml:lang="<isprint value="#VariationType:Value1Lng#">"><isprint value="#VariationType:Value1Value8#"></value></isif>
+						<isif condition="#isDefined(VariationType:Value1Value9)#"><value xml:lang="<isprint value="#VariationType:Value1Lng#">"><isprint value="#VariationType:Value1Value9#"></value></isif>
+						<isif condition="#isDefined(VariationType:Value1Value10)#"><value xml:lang="<isprint value="#VariationType:Value1Lng#">"><isprint value="#VariationType:Value1Value10#"></value></isif>
+					</variation-type-value>
+					</isif>
+					<isif condition="#isDefined(VariationType:Value2Value1)#">
+					<variation-type-value><isif condition="#isDefined(VariationType:Value2Lng)#"><isset scope="request" name="Value2Lng" value="#VariationType:Value2Lng#"><iselse><isset scope="request" name="Value2Lng" value="en-US"></isif>
+						<value xml:lang="<isprint value="#Value2Lng#">"><isprint value="#VariationType:Value2Value1#"></value>
+						<isif condition="#isDefined(VariationType:Value2Value2)#"><value xml:lang="<isprint value="#Value2Lng#">"><isprint value="#VariationType:Value2Value2#"></value></isif>
+						<isif condition="#isDefined(VariationType:Value2Value3)#"><value xml:lang="<isprint value="#Value2Lng#">"><isprint value="#VariationType:Value2Value3#"></value></isif>
+						<isif condition="#isDefined(VariationType:Value2Value4)#"><value xml:lang="<isprint value="#Value2Lng#">"><isprint value="#VariationType:Value2Value4#"></value></isif>
+						<isif condition="#isDefined(VariationType:Value2Value5)#"><value xml:lang="<isprint value="#Value2Lng#">"><isprint value="#VariationType:Value2Value5#"></value></isif>
+						<isif condition="#isDefined(VariationType:Value2Value6)#"><value xml:lang="<isprint value="#Value2Lng#">"><isprint value="#VariationType:Value2Value6#"></value></isif>
+						<isif condition="#isDefined(VariationType:Value2Value7)#"><value xml:lang="<isprint value="#Value2Lng#">"><isprint value="#VariationType:Value2Value7#"></value></isif>
+						<isif condition="#isDefined(VariationType:Value2Value8)#"><value xml:lang="<isprint value="#Value2Lng#">"><isprint value="#VariationType:Value2Value8#"></value></isif>
+						<isif condition="#isDefined(VariationType:Value2Value9)#"><value xml:lang="<isprint value="#Value2Lng#">"><isprint value="#VariationType:Value2Value9#"></value></isif>
+						<isif condition="#isDefined(VariationType:Value2Value10)#"><value xml:lang="<isprint value="#Value2Lng#">"><isprint value="#VariationType:Value2Value10#"></value></isif>
+					</variation-type-value>
+					</isif>
+				</variation-type-values>
+			</variation-type>
+		</isloop>
+	</isif>
+</enfinity>

@@ -1,0 +1,50 @@
+<iscontent type="text/html" charset="UTF-8" compact="true" templatemarker="false">
+<!DOCTYPE html>
+<isinclude template="modules/Modules">
+<html>
+<head>
+	<title></title>
+	<isfilebundle name="/bundles/css/print.css" processors="CSSCompressor,CSSURLRewriter">
+		<isrender>
+			<link type="text/css" rel="stylesheet" href="#webRoot().'/'.encodeValue(File:Name).'?lastModified='#<ISPRINT value="#File:LastModified#" formatter="0">" media="all" />
+		</isrender>
+		<isfile name="/css/theme.css"/>
+		<isfile name="/css/pdf/pdf.css"/>
+	</isfilebundle>
+</head>
+<body bottommargin="0" topmargin="0" leftmargin="0" marginwidth="0" marginheight="0" rightmargin="0" bgcolor="#'#'#FFFFFF">
+	
+	<div class="logo">
+		<ispipeline pipeline="IncludeBranding-GetBrandingInstallation" params="#ParamMap(ParamEntry('Hook_Image_Name', 'logoEmail.png'))#" alias="dict" />
+		<isif condition="#isDefined(dict:BrandingInstallation:UUID)#">
+			<img style="display:block;" src="#WebRootEx('','','','','')#/branding/<isprint value="#dict:CurrentOrganization:OrganizationDomain:DomainName#">/img/<isprint value="#dict:Hook_Image_Name#">?brandid=#dict:BrandingInstallation:UUID#" alt="Logo" border="0" alt="" />
+		<iselse>
+			<img style="display:block;" src="#WebRootEx('','','','','')#/img/<isprint value = "#dict:Hook_Image_Name#">" alt="Logo" border="0" alt="" />
+		</isif>
+	</div>
+	
+	<div>
+		<isslot slot="app_sf_responsive_cm:slot.marketing.print.pagelet2-Slot">
+	</div>
+	<h3 class="clear"><istext key="shopping_cart.heading"></h3>
+	
+	<isif condition="#(isDefined(PageletConfigurationParameters:Message1)) AND (PageletConfigurationParameters:Message1 NE '')#">
+		<div>
+			<isHtmlPrint value="#PageletConfigurationParameters:Message1#">
+		</div>
+	</isif>
+	
+	<!--- Render - Shopping Cart --->
+	<div class="print-cart">
+		<isinclude template="cart/ShoppingCart" dictionary="Dictionary">
+	</div>
+	<div class="clear">&nbsp;</div>
+	
+	<isif condition="#(isDefined(PageletConfigurationParameters:Message2)) AND (PageletConfigurationParameters:Message2 NE '')#">
+		<div>
+			<isHtmlPrint value="#PageletConfigurationParameters:Message2#">
+		</div>
+	</isif>
+	
+</body>
+</html>

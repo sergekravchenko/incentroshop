@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<enfinity xmlns:dt="http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt">
+<pagelet-component id="cmp_democontentDisclaimer">
+<definition-name>app_sf_responsive_cm:component.common.freeStyle.pagelet2-Component</definition-name>
+<display-name xml:lang="de-DE">Demo Content Disclaimer</display-name>
+<display-name xml:lang="en-US">Demo Content Disclaimer</display-name>
+<online>true</online>
+<author business-partner-no="admin" domain="inSPIRED"/>
+<configuration-parameters>
+<configuration-parameter name="HTML">
+<definition-name>app_sf_responsive_cm:component.common.freeStyle.pagelet2-Component-HTML</definition-name>
+<value name="HTML" xml:lang="de-DE">&lt;h1&gt;Disclaimer Demo-Inhalte&lt;/h1&gt;
+&lt;div class=&quot;&quot;&gt;
+&lt;/div&gt;</value>
+<value name="HTML" xml:lang="en-US">&lt;h1&gt;Demo Content Disclaimer&lt;/h1&gt;
+&lt;div class=&quot;&quot;&gt;
+&lt;/div&gt;</value>
+</configuration-parameter>
+</configuration-parameters>
+</pagelet-component>
+</enfinity>

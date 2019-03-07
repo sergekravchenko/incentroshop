@@ -1,0 +1,19 @@
+<iscontent type="text/html" charset="UTF-8" compact="true">
+<%@page import="java.text.Collator,
+                com.intershop.component.user.capi.UserBO,
+                com.intershop.beehive.core.capi.security.Permission,
+                com.intershop.component.b2b.role.capi.user.UserBORoleExtension" %>
+<%
+PipelineDictionary dictionary = getPipelineDictionary();
+UserBO user = dictionary.get("user");
+UserBORoleExtension extension = user.getExtension(UserBORoleExtension.class);
+Collection<Permission> userPermissions = extension.getUserPermissionMap().values();
+Collection<String> orderedPermissions = new TreeSet<String>(Collator.getInstance());
+
+for (Permission currentPermission : userPermissions)
+{
+	orderedPermissions.add(currentPermission.getName());
+}
+
+dictionary.put("permissions", orderedPermissions);
+%>

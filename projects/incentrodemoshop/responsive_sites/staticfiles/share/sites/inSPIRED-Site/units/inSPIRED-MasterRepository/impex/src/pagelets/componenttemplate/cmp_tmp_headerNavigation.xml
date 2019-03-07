@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<enfinity xmlns:dt="http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt">
+<component-template id="cmp_tmp_headerNavigation">
+<definition-name>app_sf_responsive_cm:component.system.mainnavigation.full.pagelet2-Component</definition-name>
+<display-name xml:lang="de-DE">Header Navigation</display-name>
+<display-name xml:lang="en-US">Header Navigation</display-name>
+<active>true</active>
+<author business-partner-no="admin" domain="inSPIRED"/>
+</component-template>
+</enfinity>

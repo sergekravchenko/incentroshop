@@ -1,0 +1,95 @@
+<iscontent type="text/html" charset="UTF-8" compact="true">
+
+<!---
+	Displays a user budget progress bar;
+	
+	Parameters:
+		- User (required)
+			Means a java UserBO ( User Business Object )
+	
+	Example:
+		<isUserMonthlyBudgetProgressBar User="#UserBO#">
+--->
+<ismodule template="modules/b2bCostCenterUtils/UserMonthlyBudgetProgressBar.isml"
+	name="UserMonthlyBudgetProgressBar"
+	strict="true"
+	attribute="User"
+>
+
+<!---
+	Displays a user budget spend by user progress bar;
+	
+	Parameters:
+		- User (required)
+			Means a java UserBO ( User Business Object )
+	
+	Example:
+		<isUserBudgetSpendProgressBar User="#UserBO#">
+--->
+<ismodule template="modules/b2bCostCenterUtils/UserBudgetSpendProgressBar.isml"
+	name="UserBudgetSpendProgressBar"
+	strict="true"
+	attribute="User"
+>
+
+<!---
+	Displays a cost center budget progress bar;
+	
+	Parameters:
+		- CostCenter (required)
+			Means a java CostCenterBO ( Cost Center Business Object )
+		- DisplayAs (optional)
+			Define how should be the progress bar is rendered.
+			Possible values: "dl-ListItem"
+		- Label (optional)
+			Define a label for the progressbar
+		
+	Example:
+		<isCostCenterBudgetProgressBar CostCenter="#CostCenterBO#">
+		<isCostCenterBudgetProgressBar CostCenter="#CostCenterBO#" DisplayAs="dl-ListItem">
+		<isCostCenterBudgetProgressBar CostCenter="#CostCenterBO#" DisplayAs="dl-ListItem" Label="">
+--->
+<ismodule template="modules/b2bCostCenterUtils/CostCenterBudgetProgressBar.isml"
+	name="CostCenterBudgetProgressBar"
+	strict="true"
+	attribute="CostCenter"
+	attribute="DisplayAs"
+	attribute="Label"
+>
+
+<!---
+	Displays the count of the exists cost center orders;
+	
+	Parameters:
+		- CostCenter (required)
+			Means a java CostCenterBO ( Cost Center Business Object )
+	Example:
+		<isCostCenterOrderCount CostCenter="#CostCenterBO#">
+--->
+<ismodule template="modules/b2bCostCenterUtils/CostCenterOrderCount.isml"
+	name="CostCenterOrderCount"
+	strict="true"
+	attribute="CostCenter"
+>
+
+
+<!--- Displays a row for the current OrderTemplateItem
+
+	OrderTemplateItem: Order Line Item to be displayed
+ --->
+<ismodule template = "modules/b2bCostCenterUtils/OrderTemplateItem.isml"
+	name="OrderTemplateItem"
+	attribute="OrderTemplateItem"
+	attribute="showImage"
+	attribute="showQuantityControls"
+	attribute="showQuantitiesText"
+	attribute="showDateAdded"
+	attribute="showPrice"
+	attribute="showEditItemButtons"
+	attribute="showCheckbox"
+	strict="true"
+>
+<!---	attribute="Pagelet"   not used in template  --->
+<!---	attribute="showAddToCartButton"   not used in template  --->
+<!---	attribute="showWishlistLink"  not used in template  --->
+

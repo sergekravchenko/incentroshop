@@ -1,0 +1,9 @@
+<iscontent type="text/html" charset="UTF-8" compact="true">
+<iscomment>TODO this check must use a permission (not a role) when ready</iscomment>
+<isif condition="#NOT CurrentUserBO:Extension("UserBORoleExtension"):hasRole("APP_B2B_OCI_USER")#">
+	<isif condition="#isDefined(UserPermissionMap:get("APP_B2B_MANAGE_USERS"))#">
+		<li class="<isif condition="#selecteditem EQ 'USERS'#">active</isif>">
+			<a href="#URL(Action('ViewUsers-Start'))#"><istext key="account.navigation.users.link"/></a>
+		</li>
+	</isif>
+</isif>

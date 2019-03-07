@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<enfinity xmlns:dt="http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt">
+<pagelet-component id="pwa_homepage_grid">
+<definition-name>app_sf_responsive_cm:component.common.container.pagelet2-Component</definition-name>
+<display-name xml:lang="en-US">PWA Homepage Grid</display-name>
+<online>true</online>
+<configuration-parameters>
+<configuration-parameter name="CSSClass">
+<definition-name>app_sf_responsive_cm:component.common.container.pagelet2-Component-CSSClass</definition-name>
+<value name="CSSClass">clearfix px-2</value>
+</configuration-parameter>
+<configuration-parameter name="Grid">
+<definition-name>app_sf_responsive_cm:component.common.container.pagelet2-Component-Grid</definition-name>
+<value name="Grid">ExtraSmall:0,Small:0,Medium:0,Large:0</value>
+</configuration-parameter>
+</configuration-parameters>
+<slots>
+<slot>
+<definition-name>app_sf_responsive_cm:slot.container.content.pagelet2-Slot</definition-name>
+<optional>false</optional>
+<sorting>false</sorting>
+</slot>
+</slots>
+</pagelet-component>
+<pagelet-slot-assignment id="RqjAqGMByM8AAAFkRXk.mP.A">
+<slot definition-name="app_sf_responsive_cm:slot.container.content.pagelet2-Slot" parent-pagelet-id="pwa_homepage_grid" domain="inSPIRED-inTRONICS-b2c-responsive"/>
+<pagelet id="pwa_homepage_grid_1" domain="inSPIRED-inTRONICS-b2c-responsive"/>
+<position>1</position>
+<online>true</online>
+</pagelet-slot-assignment>
+<pagelet-slot-assignment id="IibAqGMBppAAAAFk1dA.mP.n">
+<slot definition-name="app_sf_responsive_cm:slot.container.content.pagelet2-Slot" parent-pagelet-id="pwa_homepage_grid" domain="inSPIRED-inTRONICS-b2c-responsive"/>
+<pagelet id="pwa_homepage_grid_2" domain="inSPIRED-inTRONICS-b2c-responsive"/>
+<position>2</position>
+<online>true</online>
+</pagelet-slot-assignment>
+<pagelet-slot-assignment id=".H3AqGMBLCQAAAFkrgg.mP.p">
+<slot definition-name="app_sf_responsive_cm:slot.container.content.pagelet2-Slot" parent-pagelet-id="pwa_homepage_grid" domain="inSPIRED-inTRONICS-b2c-responsive"/>
+<pagelet id="pwa_homepage_grid_3" domain="inSPIRED-inTRONICS-b2c-responsive"/>
+<position>3</position>
+<online>true</online>
+</pagelet-slot-assignment>
+<pagelet-slot-assignment id="AajAqGMBXDEAAAFkeg8.mP.q">
+<slot definition-name="app_sf_responsive_cm:slot.container.content.pagelet2-Slot" parent-pagelet-id="pwa_homepage_grid" domain="inSPIRED-inTRONICS-b2c-responsive"/>
+<pagelet id="pwa_homepage_grid_4" domain="inSPIRED-inTRONICS-b2c-responsive"/>
+<position>4</position>
+<online>true</online>
+</pagelet-slot-assignment>
+<pagelet-slot-assignment id="fYfAqGMBTQ0AAAFkZhw.mP.r">
+<slot definition-name="app_sf_responsive_cm:slot.container.content.pagelet2-Slot" parent-pagelet-id="pwa_homepage_grid" domain="inSPIRED-inTRONICS-b2c-responsive"/>
+<pagelet id="pwa_homepage_grid_5" domain="inSPIRED-inTRONICS-b2c-responsive"/>
+<position>5</position>
+<online>true</online>
+</pagelet-slot-assignment>
+</enfinity>

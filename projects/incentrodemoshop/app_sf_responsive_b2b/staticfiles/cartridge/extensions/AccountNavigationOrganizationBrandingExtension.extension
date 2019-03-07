@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<extensionpoint:ExtensionPointModel xmlns:extensionpoint="http://www.intershop.de/extensionpoint/2011"
+    name="AccountNavigationOrganizationBrandingExtension">
+  <extensionBindings type="isml" extensionPoint="modules/account/navigation/AccountNavigationOrganizationExtension-AccountNavigationExtension"
+      extension="modules/account/navigation/AccountNavigationOrganizationBranding" priority="10"/>
+</extensionpoint:ExtensionPointModel>

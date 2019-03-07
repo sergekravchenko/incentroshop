@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<enfinity xmlns:dt="http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt">
+<pagelet-entry-point id="systempage.account.giftCertificatesBalance.pagelet2-Page">
+<definition-name>app_sf_responsive:systempage.account.giftCertificatesBalance.pagelet2-Page</definition-name>
+<page>true</page>
+<sorting>false</sorting>
+<parent id="page.account" domain="inSPIRED-MasterRepository" position="13.0" resource-set="app_sf_responsive">
+</parent>
+<display-name xml:lang="de-DE">Gift Certificates Balance</display-name>
+<display-name xml:lang="en-US">Gift Certificates Balance</display-name>
+<display-name xml:lang="fr-FR">Solde de chèque-cadeau</display-name>
+</pagelet-entry-point>
+<pagelet-pagelet-entry-point-assignment>
+<pagelet-entry-point id="systempage.account.giftCertificatesBalance.pagelet2-Page" domain="inSPIRED-MasterRepository" resource-set="app_sf_responsive"/>
+<pagelet id="pg_accountGiftCertificatesBalance" domain="inSPIRED-MasterRepository"/>
+<position>1</position>
+<online>true</online>
+</pagelet-pagelet-entry-point-assignment>
+</enfinity>

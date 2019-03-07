@@ -1,0 +1,22 @@
+<iscontent type="text/html" charset="UTF-8" compact="true">
+
+<div class="language-switch">
+	<a class="language-switch-link" href="#'#'#languageSwitch" data-toggle="collapse" aria-expanded="true">
+		<span class="glyphicon glyphicon-globe glyphicon-header-icon"></span>
+		<span class="hidden-xs"><isprint value="#CurrentSession:Locale:JavaLanguageKey#">
+		<span class="switch_arrow hidden-xs"></span></span>
+	</a>
+	<isif condition="#isDefined(PageletConfigurationParameters:Languages) AND hasElements(PageletConfigurationParameters:Languages)#">
+		<div id="languageSwitch" class="language-switch-container collapse" aria-expanded="true">
+			<div class="language-switch-menu-container">
+				<ul>
+					<isloop iterator="PageletConfigurationParameters:Languages" alias="Locale">
+						<isif condition="#Locale:LocaleID NE CurrentSession:Locale:LocaleID#">
+							<li><a href="#URL(Action('ViewHomepage-Start', '-', CurrentDomain:DomainName, Locale:LocaleID))#"><isprint value="#Locale:DisplayLanguage(CurrentRequest:Locale)#"></a></li>
+						</isif>
+					</isloop>
+				</ul>
+			</div>
+		</div>
+	</isif>
+</div>

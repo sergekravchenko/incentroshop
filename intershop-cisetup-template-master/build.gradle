@@ -125,7 +125,8 @@ IntershopCISetup {
          * ${repoBaseURL}/repositories/distributions/gradle-dist/...
          */
          //TODO: Specify the correct url.
-         //distributionURL='http://nexusdemo.incentro.com:8081/nexus/content/distributions/gradle-dist/com.incentrodemoshop/1.0.0/com.incentrodemoshop-1.0.0.zip'
+         distributionURL="${repoBaseURL}/repositories/distributions/gradle-dist/${getDistributionName()}/${distributionVersion}/${getDistributionName()}-${distributionVersion}.zip"
+	 //distributionURL='${repoBaseURL}/repositories/distributions/gradle-dist/com.incentrodemoshop/1.0.0/com.incentrodemoshop-1.0.0.zip'
     }
 
     /**

@@ -34,7 +34,7 @@ scm {
 		increment = 'MAJOR'
 		patternDigits = 1
 		disableSCM = true
-		initialVersion = '1.0.0'
+		initialVersion = '1.0.1'
 	}
 }
 

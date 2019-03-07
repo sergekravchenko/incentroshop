@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ivy-module version="2.0">
+  <info organisation="com.intershop" module="3rd_oracle" revision="12.1.0.2.0.0" status="integration" publication="20190307141414"/>
+  <configurations>
+    <conf name="default" visibility="public"/>
+    <conf name="runtime" visibility="public" extends="default"/>
+  </configurations>
+  <publications>
+    <artifact name="ojdbc7" type="jar" ext="jar"/>
+    <artifact name="ons" type="jar" ext="jar"/>
+    <artifact name="ucp" type="jar" ext="jar"/>
+  </publications>
+  <dependencies/>
+</ivy-module>

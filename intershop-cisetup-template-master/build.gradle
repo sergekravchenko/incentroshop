@@ -12,7 +12,7 @@ IntershopCISetup {
          * Base directory for all generated sources.
          **/
         //TODO: Provide an absolute path, e.g. '/home/developer/intershop-ci/source' on Linux resp.'C:/developer/intershop-ci' on Windows
-        setupDirectory = 'C:developer/intershop-ci'
+        setupDirectory = 'C:/intershopProj/eserverIncentroshop/incentroshop'
 
         /**
          *  ... contains
@@ -28,6 +28,7 @@ IntershopCISetup {
          **/
         projectsDir = "${setupDirectory}/projects"
     }
+
 
     /**
      *  Repository Settings
@@ -111,7 +112,7 @@ IntershopCISetup {
         /**
          * Initial version of the corporate distribution.
          */
-        distributionVersion = '2.0.0'
+        distributionVersion = '1.0.0'
 
         /**
          * If the distribution stored on an alternative path (separate web server)
@@ -124,7 +125,7 @@ IntershopCISetup {
          * ${repoBaseURL}/repositories/distributions/gradle-dist/...
          */
          //TODO: Specify the correct url.
-         //distributionURL=''
+         //distributionURL='http://nexusdemo.incentro.com:8081/nexus/content/distributions/gradle-dist/com.incentrodemoshop/1.0.0/com.incentrodemoshop-1.0.0.zip'
     }
 
     /**

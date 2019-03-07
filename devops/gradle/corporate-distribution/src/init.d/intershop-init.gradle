@@ -1,0 +1,36 @@
+/** 
+ * Generated 
+ * Version   : 2.2.0
+ * TimeStamp : 20170804125442
+ *
+ * Generation: 20190307095259
+ **/
+
+//See Gradle Documentation 'Initialization Scripts'
+//definition of external dependencies
+initscript {
+  repositories {
+    jcenter()
+  }
+  dependencies {
+    //Repository configuration - provided by Intershop
+    classpath 'com.intershop.gradle.repoconfig:repoconfig-gradle-plugin:3.3.0'
+  }
+}
+
+// add configuration necessary for pre-project objects (like Gradle settings or init scripts)
+apply plugin: com.intershop.gradle.repoconfig.RepoConfigPlugin
+
+repositoryConfiguration {
+
+     releaseRepo = 'http://nexusdemo.incentro.com:8081/nexus/content/groups/components'
+     snapshotRepo = 'http://nexusdemo.incentro.com:8081/nexus/content/repositories/snapshots'
+
+    // ivyReleaseRepo = 'http://nexusdemo.incentro.com:8081/nexus/content/ivy-releases'
+    // mvnReleaseRepo = 'http://nexusdemo.incentro.com:8081/nexus/content/mvn-releases'
+    // ivySnapshotRepo = 'http://nexusdemo.incentro.com:8081/nexus/content/ivy-snapshots'
+    // mvnSnapshotRepo = 'http://nexusdemo.incentro.com:8081/nexus/content/mvn-snapshots'
+
+    repoHostList = ['nexusdemo.incentro.com']
+    corporateName = 'com.incentroshop'
+}
